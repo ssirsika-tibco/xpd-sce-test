@@ -3,24 +3,15 @@
  */
 package com.tibco.xpd.script.parser.util;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Operation;
-import org.eclipse.uml2.uml.Parameter;
-import org.mozilla.javascript.IdScriptableObject;
-
-import antlr.RecognitionException;
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
-import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsExpression;
 import com.tibco.xpd.script.model.client.JsExpressionMethod;
@@ -36,17 +27,21 @@ import com.tibco.xpd.script.parser.internal.validator.ValidationUtil.JScriptExpr
 import com.tibco.xpd.script.parser.validator.ErrorMessage;
 import com.tibco.xpd.script.parser.validator.ErrorType;
 
+import antlr.RecognitionException;
+import antlr.Token;
+import antlr.collections.AST;
+
 public class ParseUtil {
-    
+
     private static final String UNEXPECTED_TOKEN = "unexpected token:";//$NON-NLS-1$
-    
-    private static final String UNEXPECTED_ENDOF_SUBTREE = "unexpected end of subtree";//$NON-NLS-1$  
-    
-    private static final String UNEXPECTED_AST_NODE = "unexpected AST node:";//$NON-NLS-1$  
-    
-    private static final String EXPECTED_SEMI = "expecting SEMI, found 'null'";//$NON-NLS-1$  
-    
-    
+
+    private static final String UNEXPECTED_ENDOF_SUBTREE =
+            "unexpected end of subtree";//$NON-NLS-1$
+
+    private static final String UNEXPECTED_AST_NODE = "unexpected AST node:";//$NON-NLS-1$
+
+    private static final String EXPECTED_SEMI = "expecting SEMI, found 'null'";//$NON-NLS-1$
+
     /**
      * This method returns a list of children ASTs which are children of the
      * first child.
@@ -95,22 +90,26 @@ public class ParseUtil {
         return toReturn;
     }
 
-    public static String[] getClassAndMethodName(AST methodCall, Map<String, IScriptRelevantData> scriptRelevantDataMap) {
+    public static String[] getClassAndMethodName(AST methodCall,
+            Map<String, IScriptRelevantData> scriptRelevantDataMap) {
         String[] toReturn = new String[2];
-        //Get the JsExpression of that AST
-        JsExpression jsExpression = ExpressionUtil.getJsExpressionFromAST(methodCall, DataTypeMapper.getSymbolTableKeyWords(), scriptRelevantDataMap);
-        
-        if(jsExpression != null){
-            if (jsExpression.getName() != null
-                    && (jsExpression.getName().equals(JsConsts.INTEGER)
-                            || jsExpression.getName().equals(JsConsts.FLOAT) || jsExpression
-                            .getName().equals(JsConsts.DOUBLE))) {
-                toReturn[0] = JsConsts.NUMBER; 
-            }else{
+        // Get the JsExpression of that AST
+        JsExpression jsExpression =
+                ExpressionUtil.getJsExpressionFromAST(methodCall,
+                        DataTypeMapper.getSymbolTableKeyWords(),
+                        scriptRelevantDataMap);
+
+        if (jsExpression != null) {
+            if (jsExpression.getName() != null && (jsExpression.getName()
+                    .equals(JsConsts.INTEGER)
+                    || jsExpression.getName().equals(JsConsts.FLOAT)
+                    || jsExpression.getName().equals(JsConsts.DOUBLE))) {
+                toReturn[0] = JsConsts.NUMBER;
+            } else {
                 toReturn[0] = jsExpression.getName();
             }
             JsExpression methodExpression = jsExpression.getNextExpression();
-            if(methodExpression instanceof JsExpressionMethod){
+            if (methodExpression instanceof JsExpressionMethod) {
                 toReturn[1] = methodExpression.getName();
             }
         }
@@ -163,20 +162,24 @@ public class ParseUtil {
         JScriptEmitter emitter = new JScriptEmitter(buffer);
         Map<String, String> defaultValueMap =
                 DataTypeMapper.getDefaultValue(varMap);
-        
+
         AST newExpressionAST = expressionAST;
         if (validator != null) {
-        	// if there is method call resolve it, else script like below will fail:
-        	// 					...
-        	// 					var now = new Date();
-        	// 					var age = now.getFullYear() - birthDate.getFullYear();
-        	// 					if (age < 0) {
-        	// 					}
-        	List<AST> methodCallList = getChildASTList(newExpressionAST, Collections.singletonList(JScriptTokenTypes.METHOD_CALL));
-        	if (methodCallList.size() > 0)
-        		newExpressionAST = validator.resolveMethodCall(expressionAST, ExpressionUtil.getSupportedClasses(), token);
+            // if there is method call resolve it, else script like below will
+            // fail:
+            // ...
+            // var now = new Date();
+            // var age = now.getFullYear() - birthDate.getFullYear();
+            // if (age < 0) {
+            // }
+            List<AST> methodCallList = getChildASTList(newExpressionAST,
+                    Collections.singletonList(JScriptTokenTypes.METHOD_CALL));
+            if (methodCallList.size() > 0)
+                newExpressionAST = validator.resolveMethodCall(expressionAST,
+                        ExpressionUtil.getSupportedClasses(),
+                        token);
         }
-        
+
         emitter.setOldNewProcessDataMap(defaultValueMap);
         String toReturn = ""; //$NON-NLS-1$
         try {
@@ -199,115 +202,145 @@ public class ParseUtil {
     public static IScriptRelevantData getDataType(Object returnValue,
             List<JsClass> supportedJsClasses) {
         IScriptRelevantData dataType;
-        if (returnValue instanceof IdScriptableObject) {
-            IdScriptableObject scriptObject = (IdScriptableObject) returnValue;
-            String className = scriptObject.getClassName();
-            dataType =
-                    JScriptUtils.resolveJavaScriptStringType(className,
-                            className, false,
-                            supportedJsClasses);
-            return dataType;
+        try {
+            Method getClassName =
+                    returnValue.getClass().getMethod("getClassName"); //$NON-NLS-1$
+            if (getClassName != null) {
+                String className = (String) getClassName.invoke(returnValue);
+                dataType = JScriptUtils.resolveJavaScriptStringType(className,
+                        className,
+                        false,
+                        supportedJsClasses);
+                return dataType;
+            }
+        } catch (NoSuchMethodException | IllegalAccessException
+                | IllegalArgumentException | InvocationTargetException e) {
+            // Ignore, try alternatives below.
         }
         if (returnValue instanceof Number) {
             if (returnValue instanceof Double || returnValue instanceof Float) {
                 dataType =
                         JScriptUtils.resolveJavaScriptStringType(JsConsts.FLOAT,
-                                JsConsts.NUMBER, false,
+                                JsConsts.NUMBER,
+                                false,
                                 supportedJsClasses);
                 return dataType;
             } else if (returnValue instanceof Integer) {
-                dataType =
-                        JScriptUtils.resolveJavaScriptStringType(JsConsts.INTEGER,
-                                JsConsts.NUMBER, false,
-                                supportedJsClasses);
+                dataType = JScriptUtils.resolveJavaScriptStringType(
+                        JsConsts.INTEGER,
+                        JsConsts.NUMBER,
+                        false,
+                        supportedJsClasses);
                 return dataType;
             } else if (returnValue instanceof Boolean) {
-                dataType =
-                        JScriptUtils.resolveJavaScriptStringType(JsConsts.BOOLEAN,
-                                JsConsts.BOOLEAN, false,
-                                supportedJsClasses);
+                dataType = JScriptUtils.resolveJavaScriptStringType(
+                        JsConsts.BOOLEAN,
+                        JsConsts.BOOLEAN,
+                        false,
+                        supportedJsClasses);
                 return dataType;
             }
         }
-        dataType =
-                JScriptUtils.resolveJavaScriptStringType(returnValue.getClass()
-                        .getSimpleName(), returnValue.getClass()
-                        .getSimpleName(), false, supportedJsClasses);
+        dataType = JScriptUtils.resolveJavaScriptStringType(
+                returnValue.getClass().getSimpleName(),
+                returnValue.getClass().getSimpleName(),
+                false,
+                supportedJsClasses);
         return dataType;
     }
 
-    public static AST transformVarDeclationToExpression(AST varDeclarationAST, JScriptParser scriptParser){
-      //Create the new expression
-        AST newExpressionAST = scriptParser.getASTFactory().create(JScriptTokenTypes.EXPR);
-        //Create the new assignment
-        AST newAssignmentAST = scriptParser.getASTFactory().create(JScriptTokenTypes.ASSIGN);
+    public static AST transformVarDeclationToExpression(AST varDeclarationAST,
+            JScriptParser scriptParser) {
+        // Create the new expression
+        AST newExpressionAST =
+                scriptParser.getASTFactory().create(JScriptTokenTypes.EXPR);
+        // Create the new assignment
+        AST newAssignmentAST =
+                scriptParser.getASTFactory().create(JScriptTokenTypes.ASSIGN);
         newExpressionAST.setFirstChild(newAssignmentAST);
-        //AST newAssignmentExpresionAST = scriptParser.getASTFactory().create(JScriptTokenTypes.IDENT);
-        AST newAssignmentIdentifierAST = scriptParser.getASTFactory().create(JScriptTokenTypes.IDENT);
-        
-        AST firstChildAST = varDeclarationAST.getFirstChild(); 
-        if(firstChildAST != null && firstChildAST.getType() == JScriptTokenTypes.TYPE){
+        // AST newAssignmentExpresionAST =
+        // scriptParser.getASTFactory().create(JScriptTokenTypes.IDENT);
+        AST newAssignmentIdentifierAST =
+                scriptParser.getASTFactory().create(JScriptTokenTypes.IDENT);
+
+        AST firstChildAST = varDeclarationAST.getFirstChild();
+        if (firstChildAST != null
+                && firstChildAST.getType() == JScriptTokenTypes.TYPE) {
             AST identifierAST = firstChildAST.getNextSibling();
-            if(identifierAST != null && identifierAST.getType() == JScriptTokenTypes.IDENT){
-                newAssignmentIdentifierAST.setText(identifierAST.getText());                
+            if (identifierAST != null
+                    && identifierAST.getType() == JScriptTokenTypes.IDENT) {
+                newAssignmentIdentifierAST.setText(identifierAST.getText());
                 AST assignmentAST = identifierAST.getNextSibling();
-                if(assignmentAST != null && assignmentAST.getType() == JScriptTokenTypes.ASSIGN){
+                if (assignmentAST != null && assignmentAST
+                        .getType() == JScriptTokenTypes.ASSIGN) {
                     AST expressionAST = assignmentAST.getFirstChild();
-                    if(expressionAST != null && expressionAST.getType() == JScriptTokenTypes.EXPR){
-                        AST assignmentContentAST = expressionAST.getFirstChild();
-                        if(assignmentContentAST != null){
-                            //newAssignmentExpresionAST = scriptParser.getASTFactory().dup(assignmentContentAST);
-                            newAssignmentAST.setFirstChild(newAssignmentIdentifierAST);
-                            newAssignmentIdentifierAST.setNextSibling(assignmentContentAST); // add expr
-                        }  
+                    if (expressionAST != null && expressionAST
+                            .getType() == JScriptTokenTypes.EXPR) {
+                        AST assignmentContentAST =
+                                expressionAST.getFirstChild();
+                        if (assignmentContentAST != null) {
+                            // newAssignmentExpresionAST =
+                            // scriptParser.getASTFactory().dup(assignmentContentAST);
+                            newAssignmentAST
+                                    .setFirstChild(newAssignmentIdentifierAST);
+                            newAssignmentIdentifierAST
+                                    .setNextSibling(assignmentContentAST); // add
+                                                                           // expr
+                        }
                     }
-                } 
-            }                
+                }
+            }
         }
-        //newAssignmentAST.addChild(newAssignmentIdentifierAST);            
-        //newAssignmentIdentifierAST.setNextSibling(newAssignmentExpresionAST);
+        // newAssignmentAST.addChild(newAssignmentIdentifierAST);
+        // newAssignmentIdentifierAST.setNextSibling(newAssignmentExpresionAST);
         return newExpressionAST;
     }
-    
-    public static String getIdentifierNameFromVarDeclaration(AST varDeclarationAST){
+
+    public static String getIdentifierNameFromVarDeclaration(
+            AST varDeclarationAST) {
         String identName = null;
-        AST firstChildAST = varDeclarationAST.getFirstChild(); 
-        if(firstChildAST != null && firstChildAST.getType() == JScriptTokenTypes.TYPE){
+        AST firstChildAST = varDeclarationAST.getFirstChild();
+        if (firstChildAST != null
+                && firstChildAST.getType() == JScriptTokenTypes.TYPE) {
             AST identifierAST = firstChildAST.getNextSibling();
-            if(identifierAST != null && identifierAST.getType() == JScriptTokenTypes.IDENT){
+            if (identifierAST != null
+                    && identifierAST.getType() == JScriptTokenTypes.IDENT) {
                 return identifierAST.getText();
             }
         }
         return identName;
     }
-    
-    public static boolean isHandCodedVarDeclaration(AST varDeclarationAST){
-        AST firstChildAST = varDeclarationAST.getFirstChild(); 
-        if(firstChildAST != null && firstChildAST.getType() == JScriptTokenTypes.TYPE){
+
+    public static boolean isHandCodedVarDeclaration(AST varDeclarationAST) {
+        AST firstChildAST = varDeclarationAST.getFirstChild();
+        if (firstChildAST != null
+                && firstChildAST.getType() == JScriptTokenTypes.TYPE) {
             AST varIdentifierAST = firstChildAST.getFirstChild();
-            if(varIdentifierAST != null && varIdentifierAST.getType() == JScriptTokenTypes.LITERAL_var){
-                 if(varIdentifierAST.getText() != null && varIdentifierAST.getText().equals(JavaScriptConsts.KEYWORD_HCVAR)){
-                     return true;
-                 }
+            if (varIdentifierAST != null && varIdentifierAST
+                    .getType() == JScriptTokenTypes.LITERAL_var) {
+                if (varIdentifierAST.getText() != null && varIdentifierAST
+                        .getText().equals(JavaScriptConsts.KEYWORD_HCVAR)) {
+                    return true;
+                }
             }
         }
         return false;
     }
-    
-    public static AST getLastExpressionFromTree(AST treeAST){
+
+    public static AST getLastExpressionFromTree(AST treeAST) {
         AST lastExpAST = null;
-        if(treeAST != null){
+        if (treeAST != null) {
             lastExpAST = treeAST.getNextSibling();
             while (lastExpAST != null && lastExpAST.getNextSibling() != null) {
                 lastExpAST = lastExpAST.getNextSibling();
             }
         }
-        if(lastExpAST==null){
+        if (lastExpAST == null) {
             lastExpAST = treeAST;
         }
         return lastExpAST;
     }
-    
+
     public static ErrorMessage getANTLRFormattedMessage(int lineNumber,
             int columnNumber, String errorMessage, ErrorType errorType) {
         String formattedMsg = null;
@@ -327,65 +360,64 @@ public class ParseUtil {
                 additionalAttributes
                         .add(getAstNodeFromErrorMessage(errorMessage));
             } else if (errorMessage.startsWith(EXPECTED_SEMI)) {
-                formattedMsg =
-                    Messages.TCNoViableAltException_ExpectedSemi;
-            } 
+                formattedMsg = Messages.TCNoViableAltException_ExpectedSemi;
+            }
         }
         if (formattedMsg == null) {
             formattedMsg = errorMessage;
         }
-        ErrorMessage returnErrorMessage =
-                new ErrorMessage(lineNumber, columnNumber, formattedMsg,
-                        errorType, additionalAttributes);
+        ErrorMessage returnErrorMessage = new ErrorMessage(lineNumber,
+                columnNumber, formattedMsg, errorType, additionalAttributes);
         return returnErrorMessage;
     }
-    
-    private static String getTokenFromErrorMessage(String message){
+
+    private static String getTokenFromErrorMessage(String message) {
         String token = null;
-        if(message != null){
+        if (message != null) {
             token = message.replace(UNEXPECTED_TOKEN, "").trim();//$NON-NLS-1$
         }
         return token;
     }
-    
-    private static String getAstNodeFromErrorMessage(String message){
+
+    private static String getAstNodeFromErrorMessage(String message) {
         String token = null;
-        if(message != null){
+        if (message != null) {
             token = message.replace(UNEXPECTED_AST_NODE, "").trim();//$NON-NLS-1$
         }
         return token;
     }
-    
-//    public static void nulifySRDReferences(
-//            Collection<IScriptRelevantData> scriptRelevantDataList) {
-//        if (scriptRelevantDataList != null && !scriptRelevantDataList.isEmpty()) {
-//            for (IScriptRelevantData iScriptRelevantData : scriptRelevantDataList) {
-//                if (JScriptUtils
-//                        .isFactoryScriptRelevantData(iScriptRelevantData)) {
-//                    IUMLScriptRelevantData iumlScriptRelevantData =
-//                            (IUMLScriptRelevantData) iScriptRelevantData;
-//                    JsClass jsClass = iumlScriptRelevantData.getJsClass();
-//                    if (jsClass != null && jsClass.getUmlClass() != null) {
-//                        Class umlClass = jsClass.getUmlClass();
-//                        if (umlClass.getOwnedOperations() != null
-//                                && !umlClass.getOwnedOperations().isEmpty()) {
-//                            for (Operation operation : umlClass
-//                                    .getOwnedOperations()) {
-//                                operation.setType(null);
-//                                for (Parameter param : operation
-//                                        .getOwnedParameters()) {
-//                                    param.eAdapters().clear();
-//                                }
-//                                operation.getOwnedParameters().clear();
-//                                operation.eAdapters().clear();
-//                            }
-//                        }
-//                        umlClass.eAdapters().clear();
-//                        umlClass = null;
-//                    }
-//                }
-//            }
-//        }
-//    }
-            
+
+    // public static void nulifySRDReferences(
+    // Collection<IScriptRelevantData> scriptRelevantDataList) {
+    // if (scriptRelevantDataList != null && !scriptRelevantDataList.isEmpty())
+    // {
+    // for (IScriptRelevantData iScriptRelevantData : scriptRelevantDataList) {
+    // if (JScriptUtils
+    // .isFactoryScriptRelevantData(iScriptRelevantData)) {
+    // IUMLScriptRelevantData iumlScriptRelevantData =
+    // (IUMLScriptRelevantData) iScriptRelevantData;
+    // JsClass jsClass = iumlScriptRelevantData.getJsClass();
+    // if (jsClass != null && jsClass.getUmlClass() != null) {
+    // Class umlClass = jsClass.getUmlClass();
+    // if (umlClass.getOwnedOperations() != null
+    // && !umlClass.getOwnedOperations().isEmpty()) {
+    // for (Operation operation : umlClass
+    // .getOwnedOperations()) {
+    // operation.setType(null);
+    // for (Parameter param : operation
+    // .getOwnedParameters()) {
+    // param.eAdapters().clear();
+    // }
+    // operation.getOwnedParameters().clear();
+    // operation.eAdapters().clear();
+    // }
+    // }
+    // umlClass.eAdapters().clear();
+    // umlClass = null;
+    // }
+    // }
+    // }
+    // }
+    // }
+
 }

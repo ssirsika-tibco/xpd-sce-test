@@ -10,13 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.mozilla.javascript.Context;
-import org.mozilla.javascript.RhinoException;
-import org.mozilla.javascript.Script;
-import org.mozilla.javascript.ScriptableObject;
-
-import antlr.Token;
-import antlr.collections.AST;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultScriptRelevantData;
@@ -36,10 +32,20 @@ import com.tibco.xpd.script.parser.validator.ISymbolTable;
 import com.tibco.xpd.script.parser.validator.IValidationStrategy;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptValidationStrategy;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 public class ValidationUtil {
 
     public static final String SUPPRESS_SCRIPT_VALIDATION_KEY =
             "suppressScriptValidation";
+
+    private static ScriptEngine engine =
+            new ScriptEngineManager().getEngineByName("nashorn"); //$NON-NLS-1$
+
+    public static ScriptEngine getScriptEngine() {
+        return engine;
+    }
 
     private static void validateExpr(AST exprAST, Token token,
             JScriptParser parser) {
@@ -118,9 +124,8 @@ public class ValidationUtil {
     public static void addLocalVariable(AST varDefAST, JScriptParser parser,
             Token token) {
         if (parser != null && !parser.getValidatorStrategyList().isEmpty()) {
-            ValidationUtil.addLocalVarToParserSymbolTable(varDefAST,
-                    parser,
-                    token);
+            ValidationUtil
+                    .addLocalVarToParserSymbolTable(varDefAST, parser, token);
         }
     }
 
@@ -176,8 +181,10 @@ public class ValidationUtil {
         }
         if (varInitialiser != null) {
             // The varInitialiser is the expression "= blahblah"
-            varType =
-                    getLocalVariableType(varInitialiser, token, parser, varType);
+            varType = getLocalVariableType(varInitialiser,
+                    token,
+                    parser,
+                    varType);
         }
         Map<String, IScriptRelevantData> localVariableMap =
                 parser.getSymbolTable().getLocalVariableMap();
@@ -235,9 +242,8 @@ public class ValidationUtil {
                     if (evaluateExpression != null
                             && evaluateExpression.getType() != null) {
                         IScriptRelevantData type = evaluateExpression.getType();
-                        if (type.getType() != null
-                                && !type.getType()
-                                        .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
+                        if (type.getType() != null && !type.getType()
+                                .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
                             resolvedVarType = type;
                             break;
                         }
@@ -249,29 +255,28 @@ public class ValidationUtil {
             // either firstChild can be expression or arrayInitializer
             if (JScriptTokenTypes.EXPR == fcAST.getType()) {
                 // Get the type for the expression
-                varType =
-                        getLocalVariableTypeForExpression(fcAST,
-                                token,
-                                parser,
-                                varType,
-                                antlType,
-                                supportedJsClasses,
-                                localVariablesMap,
-                                localMethodsMap,
-                                scriptRelevantDataMap);
+                varType = getLocalVariableTypeForExpression(fcAST,
+                        token,
+                        parser,
+                        varType,
+                        antlType,
+                        supportedJsClasses,
+                        localVariablesMap,
+                        localMethodsMap,
+                        scriptRelevantDataMap);
 
             } else if (JScriptTokenTypes.ARRAY_INIT == fcAST.getType()) {
                 // Get the type for the arrayInitializer
-                varType =
-                        getLocalVariableTypeForArrayInitializer(antlType,
-                                varType,
-                                supportedJsClasses);
+                varType = getLocalVariableTypeForArrayInitializer(antlType,
+                        varType,
+                        supportedJsClasses);
             }
             if (!(varType instanceof IUMLScriptRelevantData)) {
-                varType =
-                        JScriptUtils.resolveJavaScriptStringType(varType
-                                .getName(), varType.getType(), varType
-                                .isArray(), supportedJsClasses);
+                varType = JScriptUtils.resolveJavaScriptStringType(
+                        varType.getName(),
+                        varType.getType(),
+                        varType.isArray(),
+                        supportedJsClasses);
             }
         } else {
             varType = resolvedVarType;
@@ -286,11 +291,10 @@ public class ValidationUtil {
         antlType = JScriptTokenTypes.ARRAY_TYPE;
         String varRelevantDataType =
                 DataTypeMapper.getCorrespondingDataType(antlType);
-        varType =
-                JScriptUtils.resolveJavaScriptStringType(varType.getName(),
-                        varRelevantDataType,
-                        true,
-                        supportedJsClasses);
+        varType = JScriptUtils.resolveJavaScriptStringType(varType.getName(),
+                varRelevantDataType,
+                true,
+                supportedJsClasses);
         return varType;
     }
 
@@ -307,32 +311,30 @@ public class ValidationUtil {
             boolean isLeaf = ParseUtil.isLeaf(exprChildAST);
             if (isLeaf && isLiteral(exprChildAST)) {
                 // Literal expressions
-                varType =
-                        getLocalVariableTypeForLiteralExpression(exprChildAST,
-                                supportedJsClasses);
+                varType = getLocalVariableTypeForLiteralExpression(exprChildAST,
+                        supportedJsClasses);
             } else if (JScriptTokenTypes.IDENT == childASTType
                     || JScriptTokenTypes.METHOD_CALL == childASTType
                     || JScriptTokenTypes.DOT == childASTType
                     || childASTType == JScriptTokenTypes.INDEX_OP
                     || childASTType == JScriptTokenTypes.LITERAL_new) {
                 // Non arithmetic expressions
-                varType =
-                        getLocalVariableTypeForNonArithmeticExpression(token,
-                                parser,
-                                exprChildAST,
-                                supportedJsClasses,
-                                localVariablesMap,
-                                localMethodsMap,
-                                scriptRelevantDataMap);
+                varType = getLocalVariableTypeForNonArithmeticExpression(token,
+                        parser,
+                        exprChildAST,
+                        supportedJsClasses,
+                        localVariablesMap,
+                        localMethodsMap,
+                        scriptRelevantDataMap);
             } else {
                 // arithmetic expressions
-                varType =
-                        getLocalVariableTypeForArithmeticExpression(exprChildAST,
-                                token,
-                                parser,
-                                supportedJsClasses,
-                                localVariablesMap,
-                                scriptRelevantDataMap);
+                varType = getLocalVariableTypeForArithmeticExpression(
+                        exprChildAST,
+                        token,
+                        parser,
+                        supportedJsClasses,
+                        localVariablesMap,
+                        scriptRelevantDataMap);
             }
         }
 
@@ -367,13 +369,12 @@ public class ValidationUtil {
                             scriptRelevantDataMap);
         } else if (JScriptTokenTypes.LITERAL_new == childASTType) {
             // taking care of a new expression
-            strParameterType =
-                    getLocalVariableTypeForNewExpression(token,
-                            parser,
-                            nonAritmeticExpAST,
-                            supportedJsClasses,
-                            localVariablesMap,
-                            scriptRelevantDataMap);
+            strParameterType = getLocalVariableTypeForNewExpression(token,
+                    parser,
+                    nonAritmeticExpAST,
+                    supportedJsClasses,
+                    localVariablesMap,
+                    scriptRelevantDataMap);
         }
         return strParameterType;
     }
@@ -408,14 +409,11 @@ public class ValidationUtil {
                             varMap,
                             token,
                             validator);
-            Context context = Context.enter();
-            Script script = context.compileString(strExpression, "", 0, null); //$NON-NLS-1$
-            ScriptableObject scope = context.initStandardObjects();
-            Object returnValue = script.exec(context, scope);
+            Object returnValue = getScriptEngine().eval(strExpression);
             IScriptRelevantData dataType =
                     ParseUtil.getDataType(returnValue, supportedJsClasses);
             return dataType;
-        } catch (RhinoException e) {
+        } catch (ScriptException e) {
 
         }
         IScriptRelevantData scriptRelevantData =
@@ -444,7 +442,8 @@ public class ValidationUtil {
      * 
      * @since 3.1.0
      */
-    public static class JScriptExprValidator extends JScriptExpressionValidator {
+    public static class JScriptExprValidator
+            extends JScriptExpressionValidator {
         /** {@inheritDoc}. */
         @Override
         public AST resolveMethodCall(AST expressionAST,
@@ -460,12 +459,11 @@ public class ValidationUtil {
         int antlType = literalExpressionAST.getType();
         String varRelevantDataType =
                 DataTypeMapper.getCorrespondingDataType(antlType);
-        IScriptRelevantData varType =
-                JScriptUtils
-                        .resolveJavaScriptStringType(JsConsts.UNDEFINED_DATA_TYPE,
-                                varRelevantDataType,
-                                false,
-                                supportedJsClasses);
+        IScriptRelevantData varType = JScriptUtils.resolveJavaScriptStringType(
+                JsConsts.UNDEFINED_DATA_TYPE,
+                varRelevantDataType,
+                false,
+                supportedJsClasses);
         return varType;
     }
 
@@ -507,18 +505,15 @@ public class ValidationUtil {
                     variableType = dataType;
                 } else {
                     if (dataType != null) {
-                        variableType =
-                                JScriptUtils
-                                        .resolveJavaScriptStringType(variableType
-                                                .getName(),
-                                                dataType.getType(),
-                                                dataType.isArray(),
-                                                supportedJsClasses);
+                        variableType = JScriptUtils.resolveJavaScriptStringType(
+                                variableType.getName(),
+                                dataType.getType(),
+                                dataType.isArray(),
+                                supportedJsClasses);
                     } else {
-                        variableType =
-                                new DefaultScriptRelevantData(
-                                        variableType.getName(),
-                                        JsConsts.UNDEFINED_DATA_TYPE, false);
+                        variableType = new DefaultScriptRelevantData(
+                                variableType.getName(),
+                                JsConsts.UNDEFINED_DATA_TYPE, false);
                     }
                 }
             }
@@ -543,16 +538,13 @@ public class ValidationUtil {
                     // Check if the array is empty
                     AST arrayParam = paramListAST.getFirstChild();
                     if (arrayParam == null) {
-                        String varRelevantDataType =
-                                DataTypeMapper
-                                        .getCorrespondingDataType(JsConsts.OBJECT_AST);
-                        varType =
-                                JScriptUtils
-                                        .resolveJavaScriptStringType(varType
-                                                .getName(),
-                                                varRelevantDataType,
-                                                true,
-                                                supportedJsClasses);
+                        String varRelevantDataType = DataTypeMapper
+                                .getCorrespondingDataType(JsConsts.OBJECT_AST);
+                        varType = JScriptUtils.resolveJavaScriptStringType(
+                                varType.getName(),
+                                varRelevantDataType,
+                                true,
+                                supportedJsClasses);
                     } else {
                         IScriptRelevantData parameterDataType =
                                 getLocalVariableType(paramListAST,
@@ -564,24 +556,18 @@ public class ValidationUtil {
                                 IUMLScriptRelevantData umlScriptData =
                                         (IUMLScriptRelevantData) parameterDataType;
                                 varType =
-                                        JScriptUtils
-                                                .evaluateScriptRelevantData(varType
-                                                        .getName(),
-                                                        umlScriptData
-                                                                .getJsClass(),
-                                                        supportedJsClasses,
-                                                        parameterDataType
-                                                                .isArray());
+                                        JScriptUtils.evaluateScriptRelevantData(
+                                                varType.getName(),
+                                                umlScriptData.getJsClass(),
+                                                supportedJsClasses,
+                                                parameterDataType.isArray());
                             } else {
-                                varType =
-                                        JScriptUtils
-                                                .resolveJavaScriptStringType(varType
-                                                        .getName(),
-                                                        parameterDataType
-                                                                .getType(),
-                                                        parameterDataType
-                                                                .isArray(),
-                                                        supportedJsClasses);
+                                varType = JScriptUtils
+                                        .resolveJavaScriptStringType(
+                                                varType.getName(),
+                                                parameterDataType.getType(),
+                                                parameterDataType.isArray(),
+                                                supportedJsClasses);
                             }
                         }
                     }
@@ -591,27 +577,26 @@ public class ValidationUtil {
         } else {
             String varRelevantDataType =
                     DataTypeMapper.getCorrespondingDataType(antlType);
-            if (varRelevantDataType != null
-                    && varRelevantDataType.equals(JsConsts.UNDEFINED_DATA_TYPE)) {
+            if (varRelevantDataType != null && varRelevantDataType
+                    .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
                 varRelevantDataType = classNameAST.getText();
             }
-            varType =
-                    JScriptUtils.resolveJavaScriptStringType(varType.getName(),
-                            varRelevantDataType,
-                            false,
-                            supportedJsClasses);
+            varType = JScriptUtils.resolveJavaScriptStringType(varType
+                    .getName(), varRelevantDataType, false, supportedJsClasses);
         }
         return varType;
     }
 
-    private static List<JsClass> getAllSupportedJsClasses(JScriptParser parser) {
+    private static List<JsClass> getAllSupportedJsClasses(
+            JScriptParser parser) {
         List<JsClass> allSupportedJsClasses = new ArrayList<JsClass>();
         if (parser != null) {
             List<IValidationStrategy> validationStrategyList =
                     parser.getValidatorStrategyList();
             if (validationStrategyList != null) {
                 for (Iterator<IValidationStrategy> iterator =
-                        validationStrategyList.iterator(); iterator.hasNext();) {
+                        validationStrategyList.iterator(); iterator
+                                .hasNext();) {
                     IValidationStrategy validationStrategy = iterator.next();
                     List<JsClass> vsSupportedJsClasses =
                             validationStrategy.getSupportedJsClasses();
@@ -655,8 +640,8 @@ public class ValidationUtil {
         ValidationUtil.validateExpr(parser.getAST(), token, parser);
     }
 
-    public static void validateStatement(JScriptParser parser,
-            AST statementAST, Token token) {
+    public static void validateStatement(JScriptParser parser, AST statementAST,
+            Token token) {
         List<IValidationStrategy> validatorStrategyList =
                 getValidatorStrategyList(parser);
         if (validatorStrategyList != null) {
@@ -729,8 +714,8 @@ public class ValidationUtil {
                         nonUMLScriptRelevantData.put(entry.getKey(), type);
                     } else {
                         if (type instanceof IUMLScriptRelevantData) {
-                            if (type.getName() != null
-                                    && JsConsts.DATETIME.equals(type.getType())) {
+                            if (type.getName() != null && JsConsts.DATETIME
+                                    .equals(type.getType())) {
                                 nonUMLScriptRelevantData.put(entry.getKey(),
                                         type);
                             }

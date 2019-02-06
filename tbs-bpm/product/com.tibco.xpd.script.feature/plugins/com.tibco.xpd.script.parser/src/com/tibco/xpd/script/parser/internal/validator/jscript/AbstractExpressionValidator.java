@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.DataType;
@@ -19,16 +22,6 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
-import org.mozilla.javascript.Context;
-import org.mozilla.javascript.RhinoException;
-import org.mozilla.javascript.Script;
-import org.mozilla.javascript.ScriptableObject;
-
-import antlr.ASTFactory;
-import antlr.LLkParser;
-import antlr.RecognitionException;
-import antlr.Token;
-import antlr.collections.AST;
 
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.AbstractUMLScriptRelevantData;
@@ -78,6 +71,12 @@ import com.tibco.xpd.script.parser.internal.validator.ValidationUtil;
 import com.tibco.xpd.script.parser.util.ParseUtil;
 import com.tibco.xpd.script.parser.validator.IExpressionValidator;
 import com.tibco.xpd.script.parser.validator.ISymbolTable;
+
+import antlr.ASTFactory;
+import antlr.LLkParser;
+import antlr.RecognitionException;
+import antlr.Token;
+import antlr.collections.AST;
 
 public abstract class AbstractExpressionValidator extends AbstractValidator
         implements IExpressionValidator {
@@ -174,8 +173,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             // taking care of an identifier
             JsDataType strParameterDataType =
                     getIdentDataType(exprChildAST, token);
-            if (strParameterDataType.isTypeUndefined()
-                    && strParameterDataType.getUndefinedCause() == JsConsts.UNDEFINED_DATA_TYPE_CAUSE) {
+            if (strParameterDataType.isTypeUndefined() && strParameterDataType
+                    .getUndefinedCause() == JsConsts.UNDEFINED_DATA_TYPE_CAUSE) {
                 String message =
                         Messages.AbstractExpressionValidator_Undefined_DataType;
                 addWarningMessage(token, message);
@@ -197,9 +196,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 if (identAST != null
                         && JScriptTokenTypes.IDENT == identAST.getType()) {
                     String identName = identAST.getText();
-                    IScriptRelevantData scriptRelevantData =
-                            getSymbolTable()
-                                    .getScriptRelevantDataType(identName);
+                    IScriptRelevantData scriptRelevantData = getSymbolTable()
+                            .getScriptRelevantDataType(identName);
                     if (scriptRelevantData != null) {
                         // do not want to check for local variable as it is
                         // javascript where a variable can change its datatype
@@ -222,17 +220,15 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 }
             }
             // end of fix for MR 36870
-            strParameterType =
-                    evaluateDotAST(exprChildAST,
-                            token,
-                            supportedJsClasses,
-                            localVariablesMap,
-                            localMethodsMap);
+            strParameterType = evaluateDotAST(exprChildAST,
+                    token,
+                    supportedJsClasses,
+                    localVariablesMap,
+                    localMethodsMap);
         } else if (JScriptTokenTypes.LITERAL_new == childASTType) {
             // MyArr[0]
             strParameterType = evaluateNewExpression(exprChildAST, token);
-            if (strParameterType != null
-                    && strParameterType.getType() != null
+            if (strParameterType != null && strParameterType.getType() != null
                     && strParameterType.getType()
                             .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
                 String message =
@@ -286,10 +282,11 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader();
         JsClass jsClass = null;
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
-                if (jsClassDefinitionReader != null
-                        && jsClassDefinitionReader.getJsClass(className) != null) {
+                if (jsClassDefinitionReader != null && jsClassDefinitionReader
+                        .getJsClass(className) != null) {
                     jsClass = jsClassDefinitionReader.getJsClass(className);
                     break;
                 }
@@ -318,14 +315,13 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     jsMethod.getParameterType();
             tempErrorList = new HashMap<String, List<String>>();
             tempWarningList = new HashMap<String, List<String>>();
-            boolean paramMatch =
-                    matchParamsType(expectedParamTypeList,
-                            passedParamTypeList,
-                            token,
-                            className,
-                            methodName,
-                            tempErrorList,
-                            tempWarningList);
+            boolean paramMatch = matchParamsType(expectedParamTypeList,
+                    passedParamTypeList,
+                    token,
+                    className,
+                    methodName,
+                    tempErrorList,
+                    tempWarningList);
             if (paramMatch) {
                 matchedMethod = jsMethod;
                 break;
@@ -355,10 +351,11 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader();
         JsClass jsClass = null;
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
-                if (jsClassDefinitionReader != null
-                        && jsClassDefinitionReader.getJsClass(className) != null) {
+                if (jsClassDefinitionReader != null && jsClassDefinitionReader
+                        .getJsClass(className) != null) {
                     jsClass = jsClassDefinitionReader.getJsClass(className);
                     break;
                 }
@@ -382,10 +379,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             IScriptRelevantData strParameterType =
                     convertExprASTInString(exprAST, token);
             if (strParameterType == null) {
-                strParameterType =
-                        new DefaultScriptRelevantData(
-                                JsConsts.UNDEFINED_DATA_TYPE,
-                                JsConsts.UNDEFINED_DATA_TYPE, false);
+                strParameterType = new DefaultScriptRelevantData(
+                        JsConsts.UNDEFINED_DATA_TYPE,
+                        JsConsts.UNDEFINED_DATA_TYPE, false);
             }
             strParameterTypeList.add(strParameterType);
         }
@@ -446,11 +442,10 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         varMap.putAll(getSupportedScriptRelevantDataMap());
         varMap.putAll(getLocalVariablesMap());
         List<String> supportedClasses = getSupportedClasses();
-        String toReturn =
-                resolveExpressionString(expression,
-                        varMap,
-                        supportedClasses,
-                        token);
+        String toReturn = resolveExpressionString(expression,
+                varMap,
+                supportedClasses,
+                token);
         return toReturn;
     }
 
@@ -557,12 +552,11 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         childASTList =
                 ParseUtil.getChildASTList(dupExpresssionAST, astTypeList);
         for (AST methodCallAST : childASTList) {
-            IScriptRelevantData returnType =
-                    evaluateDotAST(methodCallAST,
-                            token,
-                            getSupportedJsClasses(),
-                            getLocalVariablesMap(),
-                            getLocalMethodsMap());
+            IScriptRelevantData returnType = evaluateDotAST(methodCallAST,
+                    token,
+                    getSupportedJsClasses(),
+                    getLocalVariablesMap(),
+                    getLocalMethodsMap());
             String methodReturnType = JsConsts.UNDEFINED_DATA_TYPE;
             if (returnType != null) {
                 if (returnType.isArray()) {
@@ -633,21 +627,20 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         IScriptRelevantData methodType =
                                 localMethodsMap.get(methodName);
                         if (methodType != null) {
-                            jsExpression.setName(JScriptUtils
-                                    .resolveJavaScriptDataType(methodType
-                                            .getType()));
+                            jsExpression.setName(
+                                    JScriptUtils.resolveJavaScriptDataType(
+                                            methodType.getType()));
                         }
                     } else {
                         String message =
                                 Messages.AbstractExpressionValidator_Undefined_DataType;
                         addWarningMessage(token, message);
                         IScriptRelevantData returnDataType =
-                                JScriptUtils
-                                        .resolveJavaScriptStringType(jsExpression
-                                                .getName(),
-                                                JsConsts.OBJECT,
-                                                false,
-                                                getSupportedJsClasses());
+                                JScriptUtils.resolveJavaScriptStringType(
+                                        jsExpression.getName(),
+                                        JsConsts.OBJECT,
+                                        false,
+                                        getSupportedJsClasses());
                         return returnDataType;
                     }
                 }
@@ -655,12 +648,11 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 evaluateMethodParamTypes(token, jsExpression);
                 // Check the data type of the expression
                 JsDataType dataType = null;
-                dataType =
-                        JScriptUtils.getScriptRelevantDataType(jsExpression,
-                                supportedJsClasses,
-                                scriptRelevantDataMap,
-                                localVariablesMap,
-                                localMethodsMap);
+                dataType = JScriptUtils.getScriptRelevantDataType(jsExpression,
+                        supportedJsClasses,
+                        scriptRelevantDataMap,
+                        localVariablesMap,
+                        localMethodsMap);
                 if (dataType == null || dataType.isTypeUndefined()) {
                     createJsParserErrorMessage(token,
                             dataType,
@@ -672,19 +664,20 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     return returnDataType;
                 }
                 // Get all the array index expressions
-                List<JsExpression> arrayIndexExpressionList =
-                        ExpressionUtil
-                                .getArrayIndexExpressionList(jsExpression);
+                List<JsExpression> arrayIndexExpressionList = ExpressionUtil
+                        .getArrayIndexExpressionList(jsExpression);
                 // Check the data type of all the arrayIndexExpressions
                 for (Iterator<JsExpression> iterator =
-                        arrayIndexExpressionList.iterator(); iterator.hasNext();) {
+                        arrayIndexExpressionList.iterator(); iterator
+                                .hasNext();) {
                     JsExpression arrayIndexExpression = iterator.next();
                     JsDataType arrayIndexExpressionType =
                             evaluateArrayIndexExpression(arrayIndexExpression,
                                     token);
-                    if (!JScriptUtils.isValidIndexType(arrayIndexExpressionType
-                            .getTypeName())) {
-                        if (arrayIndexExpressionType.getUndefinedCause() == JsConsts.UNDEFINED_DATA_TYPE_CAUSE) {
+                    if (!JScriptUtils.isValidIndexType(
+                            arrayIndexExpressionType.getTypeName())) {
+                        if (arrayIndexExpressionType
+                                .getUndefinedCause() == JsConsts.UNDEFINED_DATA_TYPE_CAUSE) {
                             String message =
                                     Messages.AbstractExpressionValidator_Undefined_DataType;
                             addWarningMessage(token, message);
@@ -693,8 +686,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                     Messages.AbstractExpressionValidator_Invalid_Index_Type;
                             List<String> additionalAttributes =
                                     new ArrayList<String>();
-                            additionalAttributes.add(arrayIndexExpression
-                                    .getName());
+                            additionalAttributes
+                                    .add(arrayIndexExpression.getName());
                             addErrorMessage(token,
                                     message,
                                     additionalAttributes);
@@ -729,22 +722,22 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         && parentExpression != null) {
                     JsExpressionMethod jsExpressionMethod =
                             (JsExpressionMethod) nextExpression;
-                    JsDataType dataType =
-                            JScriptUtils
-                                    .getScriptRelevantDataType(parentExpression,
-                                            getSupportedJsClasses(),
-                                            getSupportedScriptRelevantDataMap(),
-                                            getLocalVariablesMap(),
-                                            getLocalMethodsMap());
+                    JsDataType dataType = JScriptUtils
+                            .getScriptRelevantDataType(parentExpression,
+                                    getSupportedJsClasses(),
+                                    getSupportedScriptRelevantDataMap(),
+                                    getLocalVariablesMap(),
+                                    getLocalMethodsMap());
                     if (dataType != null && !dataType.isTypeUndefined()) {
-                        if (dataType.getType() instanceof IUMLScriptRelevantData) {
+                        if (dataType
+                                .getType() instanceof IUMLScriptRelevantData) {
                             IUMLScriptRelevantData type =
                                     (IUMLScriptRelevantData) dataType.getType();
                             JsClass jsClass = type.getJsClass();
                             if (jsClass != null) {
                                 List<JsMethod> supportedMethodList =
-                                        jsClass.getMethodList(jsExpressionMethod
-                                                .getName());
+                                        jsClass.getMethodList(
+                                                jsExpressionMethod.getName());
                                 if (supportedMethodList != null) {
                                     evaluateMethodParamTypesMatch(token,
                                             jsExpressionMethod.getName(),
@@ -769,8 +762,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         }
     }
 
-    protected void evaluateMethodParamTypesMatch(Token token,
-            String methodName, List<JsMethod> supportedMethodList,
+    protected void evaluateMethodParamTypesMatch(Token token, String methodName,
+            List<JsMethod> supportedMethodList,
             List<JsExpression> methodParameterList) {
 
     }
@@ -819,8 +812,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         message =
                                 Messages.JsValidationStrategy_MethodInvalid_For_Data_Type;
                         additionalAttributes = new ArrayList<String>();
-                        additionalAttributes.add(nextExpression.getName()
-                                + "()");//$NON-NLS-1$
+                        additionalAttributes
+                                .add(nextExpression.getName() + "()");//$NON-NLS-1$
                         additionalAttributes.add(expression);
                         addErrorMessage(token, message, additionalAttributes);
                         return;
@@ -914,13 +907,12 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                             symbolTable.getLocalVariableMap();
                     Map<String, IScriptRelevantData> localMethodsMap =
                             symbolTable.getLocalMethodMap();
-                    dataType =
-                            JScriptUtils
-                                    .getScriptRelevantDataType(arrayIndexExpression,
-                                            getSupportedJsClasses(),
-                                            scriptRelevantDataMap,
-                                            localVariablesMap,
-                                            localMethodsMap);
+                    dataType = JScriptUtils.getScriptRelevantDataType(
+                            arrayIndexExpression,
+                            getSupportedJsClasses(),
+                            scriptRelevantDataMap,
+                            localVariablesMap,
+                            localMethodsMap);
                 }
                 return dataType;
             }
@@ -1114,7 +1106,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         return false;
     }
 
-    protected boolean isSimpleNumericIndexExpression(JsExpression jsExpression) {
+    protected boolean isSimpleNumericIndexExpression(
+            JsExpression jsExpression) {
         boolean isNumeric = false;
         if (jsExpression != null
                 && !JScriptUtils.hasMoreJSChildren(jsExpression)) {
@@ -1171,11 +1164,10 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     symbolTable.getLocalVariableMap();
             Map<String, IScriptRelevantData> scriptRelevantDataMap =
                     symbolTable.getScriptRelevantDataTypeMap();
-            bool =
-                    JScriptUtils.isVariableDefined(localVariableMap,
-                            scriptRelevantDataMap,
-                            DataTypeMapper.getSymbolTableKeyWords(),
-                            varName);
+            bool = JScriptUtils.isVariableDefined(localVariableMap,
+                    scriptRelevantDataMap,
+                    DataTypeMapper.getSymbolTableKeyWords(),
+                    varName);
             // Variable is not defined
             if (!bool) {
                 /*
@@ -1183,7 +1175,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                  * unqualified name.
                  */
                 for (String string : scriptRelevantDataMap.keySet()) {
-                    if (scriptRelevantDataMap.get(string) instanceof AbstractUMLScriptRelevantData) {
+                    if (scriptRelevantDataMap.get(
+                            string) instanceof AbstractUMLScriptRelevantData) {
                         AbstractUMLScriptRelevantData data =
                                 (AbstractUMLScriptRelevantData) scriptRelevantDataMap
                                         .get(string);
@@ -1194,9 +1187,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                              * unqualified names for enumeration is not
                              * supported in ambiguous situation
                              */
-                            if (enumeration.getDataType() != null
-                                    && enumeration.getDataType().getName()
-                                            .equals(varName)) {
+                            if (enumeration.getDataType() != null && enumeration
+                                    .getDataType().getName().equals(varName)) {
                                 errorMessage =
                                         Messages.JsValidationStrategy_Ambiguity_Unqualified_Enum_NotSupported;
                                 break;
@@ -1265,18 +1257,16 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         return true;
     }
 
-    protected IScriptRelevantData evaluateArithmeticExpression(
-            AST exprChildAST, Token token) {
+    protected IScriptRelevantData evaluateArithmeticExpression(AST exprChildAST,
+            Token token) {
         try {
             String strExpression = getExpressionString(exprChildAST, token);
-            Context context = Context.enter();
-            Script script = context.compileString(strExpression, "", 0, null); //$NON-NLS-1$
-            ScriptableObject scope = context.initStandardObjects();
-            Object returnValue = script.exec(context, scope);
+            ScriptEngine engine = ValidationUtil.getScriptEngine();
+            Object returnValue = engine.eval(strExpression);
             IScriptRelevantData dataType =
                     ParseUtil.getDataType(returnValue, getSupportedJsClasses());
             return dataType;
-        } catch (RhinoException e) {
+        } catch (ScriptException e) {
 
         }
         IScriptRelevantData scriptRelevantData =
@@ -1313,9 +1303,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                             getSupportedJsClasses());
             return returnDataType;
         }
-        IScriptRelevantData returnDataType =
-                new DefaultScriptRelevantData(fcText,
-                        JsConsts.UNDEFINED_DATA_TYPE, false);
+        IScriptRelevantData returnDataType = new DefaultScriptRelevantData(
+                fcText, JsConsts.UNDEFINED_DATA_TYPE, false);
         return returnDataType;
     }
 
@@ -1424,9 +1413,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         } else {
             List<String> additionalAttributes = new ArrayList<String>();
             additionalAttributes.add(getClass().getName());
-            String text =
-                    String.format(Messages.AbstractExpressionValidator_ExpressionFactoryNotRegistered,
-                            additionalAttributes.toArray());
+            String text = String.format(
+                    Messages.AbstractExpressionValidator_ExpressionFactoryNotRegistered,
+                    additionalAttributes.toArray());
             LOG.error(text);
         }
         return null;
@@ -1440,7 +1429,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
      * 
      * @return {@link IValidateResult}
      **/
-    public IValidateResult delegateEvaluateExpression(Object expr, Object token) {
+    public IValidateResult delegateEvaluateExpression(Object expr,
+            Object token) {
         IExpr createdExpression = createExpression(expr, token);
         if (createdExpression != null) {
             if (infoObject != null
@@ -1460,17 +1450,17 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 } else {
                     List<String> additionalAttributes = new ArrayList<String>();
                     additionalAttributes.add(getClass().getName());
-                    String text =
-                            String.format(Messages.AbstractExpressionValidator_ExpressionValidatorNotFound,
-                                    additionalAttributes.toArray());
+                    String text = String.format(
+                            Messages.AbstractExpressionValidator_ExpressionValidatorNotFound,
+                            additionalAttributes.toArray());
                     LOG.warn(text);
                 }
             } else {
                 List<String> additionalAttributes = new ArrayList<String>();
                 additionalAttributes.add(getClass().getName());
-                String text =
-                        String.format(Messages.AbstractExpressionValidator_ExpressionValidatorFactoryNotRegistered,
-                                additionalAttributes.toArray());
+                String text = String.format(
+                        Messages.AbstractExpressionValidator_ExpressionValidatorFactoryNotRegistered,
+                        additionalAttributes.toArray());
                 LOG.error(text);
             }
         }
@@ -1482,9 +1472,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         if (getInfoObject() == null) {
             List<String> additionalAttributes = new ArrayList<String>();
             additionalAttributes.add(getClass().getName());
-            String text =
-                    String.format(Messages.AbstractExpressionValidator_InfoObject,
-                            additionalAttributes.toArray());
+            String text = String.format(
+                    Messages.AbstractExpressionValidator_InfoObject,
+                    additionalAttributes.toArray());
             LOG.error(text);
         }
         delegateEvaluateExpression(expression, token);
@@ -1546,7 +1536,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     protected List<JsClass> getSupportedJsClasses(IInfoObject infoObject) {
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader(infoObject);
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             List<JsClass> allSupportedClasses = new ArrayList<JsClass>();
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
                 List<JsClass> supportedClasses =
@@ -1563,7 +1554,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     protected List<String> getSupportedClassNames(IInfoObject infoObject) {
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader(infoObject);
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             List<String> allSupportedClassNames = new ArrayList<String>();
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
                 if (jsClassDefinitionReader != null) {
@@ -1602,17 +1594,18 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     protected List<JsMethod> getSupportedGlobalMethods(IInfoObject infoObject) {
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader(infoObject);
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             List<JsMethod> allSupportedGlobalMethods =
                     new ArrayList<JsMethod>();
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
                 if (jsClassDefinitionReader instanceof IGlobalDataDefinitionReader) {
                     IGlobalDataDefinitionReader globalDataDefinitionReader =
                             (IGlobalDataDefinitionReader) jsClassDefinitionReader;
-                    List<JsMethod> supportedMethods =
-                            globalDataDefinitionReader
-                                    .getSupportedGlobalMethods();
-                    if (supportedMethods != null && !supportedMethods.isEmpty()) {
+                    List<JsMethod> supportedMethods = globalDataDefinitionReader
+                            .getSupportedGlobalMethods();
+                    if (supportedMethods != null
+                            && !supportedMethods.isEmpty()) {
                         allSupportedGlobalMethods.addAll(supportedMethods);
                     }
                 }
@@ -1626,7 +1619,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             IInfoObject infoObject) {
         List<JsClassDefinitionReader> classDefinitionReaders =
                 getClassDefinitionReader(infoObject);
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             List<JsAttribute> allSupportedGlobalProperties =
                     new ArrayList<JsAttribute>();
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
@@ -1684,9 +1678,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     }
 
     protected ISymbolTable getSymbolTable(IInfoObject infoObject) {
-        if (infoObject != null
-                && infoObject.getScriptParser() != null
-                && infoObject.getScriptParser().getScriptParser() instanceof JScriptParser) {
+        if (infoObject != null && infoObject.getScriptParser() != null
+                && infoObject.getScriptParser()
+                        .getScriptParser() instanceof JScriptParser) {
             return ((JScriptParser) infoObject.getScriptParser()
                     .getScriptParser()).getSymbolTable();
         }
@@ -1701,12 +1695,11 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     }
 
     protected EObject getInput(IInfoObject infoObject) {
-        if (infoObject != null
-                && infoObject.getScriptParser() != null
-                && infoObject.getScriptParser().getScriptParser() instanceof JScriptParser) {
-            ISymbolTable symbolTable =
-                    ((JScriptParser) infoObject.getScriptParser()
-                            .getScriptParser()).getSymbolTable();
+        if (infoObject != null && infoObject.getScriptParser() != null
+                && infoObject.getScriptParser()
+                        .getScriptParser() instanceof JScriptParser) {
+            ISymbolTable symbolTable = ((JScriptParser) infoObject
+                    .getScriptParser().getScriptParser()).getSymbolTable();
             if (symbolTable != null) {
                 return symbolTable.getInput();
             }
@@ -1802,8 +1795,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     JsClass jsClass =
                             ((IUMLScriptRelevantData) context).getJsClass();
                     if (jsClass != null) {
-                        addMethodsWithName.addAll(jsClass
-                                .getMethodList(methodName));
+                        addMethodsWithName
+                                .addAll(jsClass.getMethodList(methodName));
                     }
                 }
             }
@@ -1818,12 +1811,10 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             List<JsMethod> matchingParamsMethods = new ArrayList<JsMethod>();
             for (JsMethod jsMethod : methodList) {
                 if (JScriptUtils.hasRepeatingInputParameters(jsMethod)) {
-                    int upperMaxRepeatingInputParameters =
-                            JScriptUtils
-                                    .getUpperMaxRepeatingInputParameters(jsMethod);
-                    int lowerRepeatingInputParameters =
-                            JScriptUtils
-                                    .getLowerRepeatingInputParameters(jsMethod);
+                    int upperMaxRepeatingInputParameters = JScriptUtils
+                            .getUpperMaxRepeatingInputParameters(jsMethod);
+                    int lowerRepeatingInputParameters = JScriptUtils
+                            .getLowerRepeatingInputParameters(jsMethod);
                     boolean validUpperNumber = false;
                     boolean validLowerNumber = false;
                     if (upperMaxRepeatingInputParameters == -1
@@ -1887,10 +1878,12 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         }
                     } else {
                         if (matchingParamMethod != null
-                                && matchingParamMethod.getParameterType() != null
+                                && matchingParamMethod
+                                        .getParameterType() != null
                                 && matchingParamMethod.getParameterType()
                                         .size() == parameters.size()) {
-                            if (isMatchingParamMethod(matchingParamMethod.getParameterType(),
+                            if (isMatchingParamMethod(
+                                    matchingParamMethod.getParameterType(),
                                     parameters,
                                     contextType)) {
                                 compatibleMethods.add(matchingParamMethod);
@@ -1925,9 +1918,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 
                 if (rhsDataType != null && rhsDataType.getType() != null) {
 
-                    if (rhsDataType instanceof ITypeResolution
-                            && JScriptUtils
-                                    .isGenericType(rhsDataType.getType())) {
+                    if (rhsDataType instanceof ITypeResolution && JScriptUtils
+                            .isGenericType(rhsDataType.getType())) {
 
                         IScriptRelevantData rhsContextType =
                                 ((ITypeResolution) rhsDataType)
@@ -1941,9 +1933,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     }
 
                     if (jsMethodParam != null) {
-                        String dataType =
-                                JScriptUtils
-                                        .getJsMethodParamBaseDataType(jsMethodParam);
+                        String dataType = JScriptUtils
+                                .getJsMethodParamBaseDataType(jsMethodParam);
 
                         /*
                          * this generic context must be checked for UnionSRD
@@ -1967,25 +1958,25 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                         jsMethodParam.getScriptRelevantData();
                             } else {
 
-                                lhsDataType =
-                                        createUMLScriptRelevantData(jsMethodParam
-                                                .getName(),
-                                                jsMethodParam.canRepeat(),
-                                                ((CaseJsMethodParam) jsMethodParam)
-                                                        .getUmlClass(),
-                                                genericContext,
-                                                jsMethodParam);
+                                lhsDataType = createUMLScriptRelevantData(
+                                        jsMethodParam.getName(),
+                                        jsMethodParam.canRepeat(),
+                                        ((CaseJsMethodParam) jsMethodParam)
+                                                .getUmlClass(),
+                                        genericContext,
+                                        jsMethodParam);
                             }
                         } else {
 
-                            lhsDataType =
-                                    createScriptRelevantData(jsMethodParam.getName(),
-                                            dataType,
-                                            jsMethodParam.canRepeat(),
-                                            genericContext,
-                                            jsMethodParam);
+                            lhsDataType = createScriptRelevantData(
+                                    jsMethodParam.getName(),
+                                    dataType,
+                                    jsMethodParam.canRepeat(),
+                                    genericContext,
+                                    jsMethodParam);
                         }
-                        if (JScriptUtils.isGenericType(jsMethodParam.getType())) {
+                        if (JScriptUtils
+                                .isGenericType(jsMethodParam.getType())) {
                             List<IScriptRelevantData> resolveType =
                                     resolveType(lhsDataType,
                                             false,
@@ -2025,8 +2016,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 }
 
                 if (JsConsts.UNDEFINED_DATA_TYPE.equals(lhsDataType.getType())
-                        || JsConsts.UNDEFINED_DATA_TYPE.equals(rhsDataType
-                                .getType())
+                        || JsConsts.UNDEFINED_DATA_TYPE
+                                .equals(rhsDataType.getType())
                         || isValidAssignment(lhsDataType, rhsDataType)) {
 
                     counter++;
@@ -2125,22 +2116,21 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 // Check if it is an attribute
                 if (attributeList != null) {
                     for (JsAttribute jsAttribute : attributeList) {
-                        if (jsAttribute != null
-                                && jsAttribute.getName() != null
+                        if (jsAttribute != null && jsAttribute.getName() != null
                                 && jsAttribute.getName().equals(propertyName)) {
                             extendedInfo = jsAttribute;
                             if (jsAttribute instanceof IJsElementExt) {
-                                isStaticProperty =
-                                        ((IJsElementExt) jsAttribute)
-                                                .isStatic();
-                                isReadOnly =
-                                        ((IJsElementExt) jsAttribute)
-                                                .isReadOnly();
+                                isStaticProperty = ((IJsElementExt) jsAttribute)
+                                        .isStatic();
+                                isReadOnly = ((IJsElementExt) jsAttribute)
+                                        .isReadOnly();
                             }
                             if (jsAttribute instanceof JsEnumerationLiteral) {
                                 isReadOnly = true;
                                 List<IScriptRelevantData> resolveType =
-                                        resolveType(jsAttribute, false, context);
+                                        resolveType(jsAttribute,
+                                                false,
+                                                context);
                                 if (resolveType != null
                                         && !resolveType.isEmpty()) {
                                     matchingProperty =
@@ -2148,14 +2138,16 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                 } else {
                                     JsEnumerationLiteral jsEnumerationLiteral =
                                             (JsEnumerationLiteral) jsAttribute;
-                                    if (jsEnumerationLiteral.getOwner() != null) {
+                                    if (jsEnumerationLiteral
+                                            .getOwner() != null) {
                                         JsEnumeration jsEnumeration =
                                                 new DefaultJsEnumeration(
                                                         jsEnumerationLiteral
                                                                 .getOwner());
                                         matchingProperty =
-                                                createUMLScriptRelevantData(jsEnumerationLiteral
-                                                        .getName(),
+                                                createUMLScriptRelevantData(
+                                                        jsEnumerationLiteral
+                                                                .getName(),
                                                         false,
                                                         jsEnumeration,
                                                         genericContext,
@@ -2171,7 +2163,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                  */
                                 isMultiple = jsAttribute.isMultiple();
                                 matchingProperty =
-                                        createUnionScriptRelevantData(propertyName,
+                                        createUnionScriptRelevantData(
+                                                propertyName,
                                                 propertyName,
                                                 jsAttribute.isMultiple(),
                                                 context,
@@ -2201,21 +2194,21 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                 extendedInfo = jsReference;
                                 isMultiple = jsReference.isMultiple();
                                 dataType =
-                                        JScriptUtils
-                                                .getJsReferenceBaseDataType(jsReference);
+                                        JScriptUtils.getJsReferenceBaseDataType(
+                                                jsReference);
                                 if (jsReference instanceof IJsElementExt) {
                                     isStaticProperty =
                                             ((IJsElementExt) jsReference)
                                                     .isStatic();
-                                    isReadOnly =
-                                            ((IJsElementExt) jsReference)
-                                                    .isReadOnly();
+                                    isReadOnly = ((IJsElementExt) jsReference)
+                                            .isReadOnly();
                                 }
                                 JsClass referencedJsClass =
                                         getJsClass(context, jsReference);
                                 if (referencedJsClass != null) {
                                     matchingProperty =
-                                            createUMLScriptRelevantData(propertyName,
+                                            createUMLScriptRelevantData(
+                                                    propertyName,
                                                     jsReference.isMultiple(),
                                                     referencedJsClass,
                                                     genericContext,
@@ -2232,13 +2225,12 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             return null;
         }
         if (dataType != null && matchingProperty == null) {
-            matchingProperty =
-                    createScriptRelevantData(dataType,
-                            dataType,
-                            isMultiple,
-                            genericContext,
-                            isReadOnly,
-                            extendedInfo);
+            matchingProperty = createScriptRelevantData(dataType,
+                    dataType,
+                    isMultiple,
+                    genericContext,
+                    isReadOnly,
+                    extendedInfo);
         }
         if (matchingProperty != null && matchingProperty.isArray()) {
             isReadOnly = true;
@@ -2296,9 +2288,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
 
                 if (dataType instanceof PrimitiveType) {
 
-                    String basePrimitiveDataType =
-                            JScriptUtils
-                                    .getBasePrimitiveDataType((PrimitiveType) dataType);
+                    String basePrimitiveDataType = JScriptUtils
+                            .getBasePrimitiveDataType((PrimitiveType) dataType);
                     if (null != basePrimitiveDataType) {
                         dataTypeName = basePrimitiveDataType;
                     }
@@ -2306,20 +2297,19 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         dataTypeName = dataType.getName();
                     }
 
-                    scriptRelevantData =
-                            createScriptRelevantData(dataTypeName,
-                                    dataTypeName,
-                                    false,
-                                    genericContext,
-                                    dataType);
+                    scriptRelevantData = createScriptRelevantData(dataTypeName,
+                            dataTypeName,
+                            false,
+                            genericContext,
+                            dataType);
                 } else if (dataType instanceof Enumeration) {
                     Enumeration umlEnumeration = (Enumeration) dataType;
 
                     DefaultJsEnumeration jsEnumeration =
                             new DefaultJsEnumeration(umlEnumeration);
 
-                    jsEnumeration.setContentAssistIconProvider(JScriptUtils
-                            .getJsContentAssistIconProvider());
+                    jsEnumeration.setContentAssistIconProvider(
+                            JScriptUtils.getJsContentAssistIconProvider());
 
                     scriptRelevantData =
                             createUMLScriptRelevantData(dataType.getName(),
@@ -2375,9 +2365,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         } else {
             List<String> additionalAttributes = new ArrayList<String>();
             additionalAttributes.add(getClass().getName());
-            String text =
-                    String.format(Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
-                            additionalAttributes.toArray());
+            String text = String.format(
+                    Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
+                    additionalAttributes.toArray());
             LOG.error(text);
         }
         return null;
@@ -2428,9 +2418,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 className = getClass().getName();
             }
             additionalAttributes.add(className);
-            String text =
-                    String.format(Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
-                            additionalAttributes.toArray());
+            String text = String.format(
+                    Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
+                    additionalAttributes.toArray());
             LOG.error(text);
         }
         return null;
@@ -2475,9 +2465,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 className = getClass().getName();
             }
             additionalAttributes.add(className);
-            String text =
-                    String.format(Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
-                            additionalAttributes.toArray());
+            String text = String.format(
+                    Messages.AbstractExpressionValidator_ScriptRelevantDataFactoryNotRegistered,
+                    additionalAttributes.toArray());
             LOG.error(text);
         }
         return null;
@@ -2507,8 +2497,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 genericContext);
     }
 
-    public void addResolutionTypes(IScriptRelevantData type,
-            boolean isMultiple, IScriptRelevantData genericContext) {
+    public void addResolutionTypes(IScriptRelevantData type, boolean isMultiple,
+            IScriptRelevantData genericContext) {
         if (type instanceof ITypeResolution) {
             List<IScriptRelevantData> resolveJavaScriptStringTypes =
                     resolveType(type, isMultiple, genericContext);
@@ -2520,7 +2510,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         }
     }
 
-    public String convertSpecificToGenericType(IScriptRelevantData specificType) {
+    public String convertSpecificToGenericType(
+            IScriptRelevantData specificType) {
         String genericTypeStr = null;
         String specificTypeStr = null;
 
@@ -2571,9 +2562,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 if (specificType instanceof IUMLScriptRelevantData) {
                     IUMLScriptRelevantData defaultUMLScriptRelevantData =
                             (IUMLScriptRelevantData) specificType;
-                    specificTypeStr =
-                            JScriptUtils
-                                    .getFQType(defaultUMLScriptRelevantData);
+                    specificTypeStr = JScriptUtils
+                            .getFQType(defaultUMLScriptRelevantData);
                     /*
                      * XPD-2338: to a list if a sub list is added find the
                      * specific type of the sub list. for eg.
@@ -2596,9 +2586,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                         if (defaultUMLScriptRelevantData instanceof DefaultUMLScriptRelevantData) {
                             DefaultUMLScriptRelevantData defaultUMLScriptRelevantData2 =
                                     (DefaultUMLScriptRelevantData) defaultUMLScriptRelevantData;
-                            Object extendedInfo =
-                                    defaultUMLScriptRelevantData2
-                                            .getExtendedInfo();
+                            Object extendedInfo = defaultUMLScriptRelevantData2
+                                    .getExtendedInfo();
                             if (extendedInfo instanceof DefaultJsAttribute) {
                                 DefaultJsAttribute defaultJsAttribute =
                                         (DefaultJsAttribute) extendedInfo;
@@ -2606,8 +2595,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                         defaultJsAttribute.getElement();
                                 if (element instanceof Property) {
                                     Property property = (Property) element;
-                                    if (!JsConsts.BOM_DATE
-                                            .equalsIgnoreCase(defaultUMLScriptRelevantData2
+                                    if (!JsConsts.BOM_DATE.equalsIgnoreCase(
+                                            defaultUMLScriptRelevantData2
                                                     .getName())
                                             && !defaultUMLScriptRelevantData2
                                                     .getName()
@@ -2743,8 +2732,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 compatibleAssignmentOperatorTypesMap =
                         jsDataTypeMapper.getCompatibleAssignmentTypesMap();
                 compatibleAssignmentOperatorTypesMap =
-                        jsDataTypeMapper
-                                .convertSpecificMapToGeneric(compatibleAssignmentOperatorTypesMap);
+                        jsDataTypeMapper.convertSpecificMapToGeneric(
+                                compatibleAssignmentOperatorTypesMap);
             }
             if (compatibleAssignmentOperatorTypesMap != null) {
                 Set<String> compatibleEqualityOperatorSet =
@@ -2817,10 +2806,9 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
     }
 
     protected boolean isXMLGregorianCalendarType(String type) {
-        if (type != null
-                && (type.equals(JsConsts.TIME) || type.equals(JsConsts.DATE)
-                        || type.equals(JsConsts.DATETIME) || type
-                            .equals(JsConsts.DATETIMETZ))) {
+        if (type != null && (type.equals(JsConsts.TIME)
+                || type.equals(JsConsts.DATE) || type.equals(JsConsts.DATETIME)
+                || type.equals(JsConsts.DATETIMETZ))) {
             return true;
         }
         return false;
@@ -2830,7 +2818,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             IScriptRelevantData rhsDataType) {
         if (lhsDataType != null && rhsDataType != null
                 && !JsConsts.UNDEFINED_DATA_TYPE.equals(lhsDataType.getType())
-                && !JsConsts.UNDEFINED_DATA_TYPE.equals(rhsDataType.getType())) {
+                && !JsConsts.UNDEFINED_DATA_TYPE
+                        .equals(rhsDataType.getType())) {
             if (JScriptUtils.isXsdDerivedObject(lhsDataType)
                     || JScriptUtils.isXsdDerivedObject(rhsDataType)) {
                 return true;
@@ -2949,7 +2938,8 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                                     token);
                     if (delegateEvaluateExpression != null) {
                         String parameterName = "arg" + paramCount;//$NON-NLS-1$
-                        if (parameterToProcess.getType() == JScriptTokenTypes.STRING_LITERAL) {
+                        if (parameterToProcess
+                                .getType() == JScriptTokenTypes.STRING_LITERAL) {
                             String text = parameterToProcess.getText();
                             if (text != null && text.length() > 2) {
                                 String parameterValue =
