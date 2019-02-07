@@ -28,10 +28,12 @@
       <import feature="org.eclipse.gmf" version="1.10.0" match="compatible"/>
       <import feature="org.eclipse.emf.validation" version="1.11.0" match="compatible"/>
       <import feature="com.tibco.xpd.tpcl.org.apache.derby.feature" version="10.14.2" match="compatible"/>
+      <!--
       <import feature="org.eclipse.birt" version="4.7.0" match="compatible"/>
       <import feature="org.eclipse.datatools.enablement.feature" version="1.14.0" match="compatible"/>
       <import feature="org.eclipse.xsd" version="2.13.0" match="compatible"/>
       <import feature="org.eclipse.wst.ws_core.feature" version="3.7.100" match="compatible"/>
+      -->
       <import feature="org.tigris.subversion.subclipse" version="4.2.4" match="compatible"/>
       <import feature="org.eclipse.zest" version="1.7.0" match="compatible"/>
 
@@ -39,9 +41,11 @@
       
       <!-- These feature are only required to force a specific version of wst when we are using multiple update sites. 
       	   TODO: Remove then we will be able to use only spin/eclipse-4.7 update site-->
+      <!--
       <import feature="org.eclipse.wst.common_core.feature" version="3.9.1" match="compatible"/>
       <import feature="org.eclipse.wst.common_ui.feature" version="3.9.1" match="compatible"/>
       <import feature="org.eclipse.wst.xml_ui.feature" version="3.9.1" match="compatible"/>
+      -->
    </requires>
 
    <plugin

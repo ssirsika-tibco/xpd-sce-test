@@ -4,18 +4,7 @@
 package com.tibco.xpd.ui.documentation.engine;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.logging.Level;
 
-import org.eclipse.birt.report.engine.api.EngineConfig;
-import org.eclipse.birt.report.engine.api.EngineException;
-import org.eclipse.birt.report.engine.api.HTMLRenderOption;
-import org.eclipse.birt.report.engine.api.HTMLServerImageHandler;
-import org.eclipse.birt.report.engine.api.IReportRunnable;
-import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
-import org.eclipse.birt.report.engine.api.ReportEngine;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -27,6 +16,10 @@ import org.eclipse.core.runtime.IPath;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.ui.documentation.IDocGenInfo;
 
+/*
+ * JA: The fragments of this class were commented as they were using BIRT reporting engine. 
+ * They may be replaced in the future by another implementation if docs gen is to be resurected. 
+ */
 /**
  * This class is used for the generation of BIRT specific engine documentation
  * for the passed input {@link IResource}
@@ -37,14 +30,14 @@ import com.tibco.xpd.ui.documentation.IDocGenInfo;
  */
 public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
 
-    /** The BIRT report engine. */
-    private ReportEngine engine;
-
-    /** Container for the HTML rendering options. */
-    private HTMLRenderOption htmlOption;
-
-    /** The rendering task. */
-    private IRunAndRenderTask task;
+    // /** The BIRT report engine. */
+    // private ReportEngine engine;
+    //
+    // /** Container for the HTML rendering options. */
+    // private HTMLRenderOption htmlOption;
+    //
+    // /** The rendering task. */
+    // private IRunAndRenderTask task;
 
     /** The output folder for the report. */
     private IPath outputFolder;
@@ -68,52 +61,53 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
      * @param docGenInfo
      */
     protected void startEngine(IDocGenInfo docGenInfo) {
-        if (docGenInfo != null && docGenInfo.getSource() != null) {
-            EngineConfig config = new EngineConfig();
-            IResource resource = docGenInfo.getSource();
-            engine = new ReportEngine(config);
-            engine.changeLogLevel(Level.OFF);
-
-            htmlOption = new HTMLRenderOption();
-            htmlOption.setOutputFileName(htmlOutput.toString());
-            htmlOption.setHtmlPagination(true);
-            htmlOption.setImageHandler(new HTMLServerImageHandler());
-            htmlOption.setImageDirectory(imagesOutput.toString());
-            htmlOption.setBaseImageURL("images"); //$NON-NLS-1$
-
-            InputStream reportStream = null;
-
-            if (useDefaultTemplate) {
-                reportStream = getDefaultTemplateStream(config, docGenInfo);
-            } else {
-                try {
-                    reportStream = new FileInputStream(reportFile.toFile());
-                } catch (FileNotFoundException e) {
-                    XpdResourcesUIActivator.getDefault().getLogger().error(e);
-                }
-            }
-
-            if (reportStream != null) {
-                try {
-
-                    IReportRunnable runnable =
-                            engine.openReportDesign(reportStream);
-                    task = engine.createRunAndRenderTask(runnable);
-
-                    task.setParameterValue("sourcexml", resource.getLocation() //$NON-NLS-1$
-                            .toOSString());
-                    task.setParameterValue("imageFolderPath", imagesOutput //$NON-NLS-1$
-                            .addTrailingSeparator().toOSString());
-                    task.setRenderOption(htmlOption);
-
-                } catch (EngineException e) {
-                    XpdResourcesUIActivator.getDefault().getLogger().error(e);
-                }
-            } else {
-                XpdResourcesUIActivator.getDefault().getLogger()
-                        .error("No report stream found");
-            }
-        }
+        // if (docGenInfo != null && docGenInfo.getSource() != null) {
+        // EngineConfig config = new EngineConfig();
+        // IResource resource = docGenInfo.getSource();
+        // engine = new ReportEngine(config);
+        // engine.changeLogLevel(Level.OFF);
+        //
+        // htmlOption = new HTMLRenderOption();
+        // htmlOption.setOutputFileName(htmlOutput.toString());
+        // htmlOption.setHtmlPagination(true);
+        // htmlOption.setImageHandler(new HTMLServerImageHandler());
+        // htmlOption.setImageDirectory(imagesOutput.toString());
+        // htmlOption.setBaseImageURL("images"); //$NON-NLS-1$
+        //
+        // InputStream reportStream = null;
+        //
+        // if (useDefaultTemplate) {
+        // reportStream = getDefaultTemplateStream(config, docGenInfo);
+        // } else {
+        // try {
+        // reportStream = new FileInputStream(reportFile.toFile());
+        // } catch (FileNotFoundException e) {
+        // XpdResourcesUIActivator.getDefault().getLogger().error(e);
+        // }
+        // }
+        //
+        // if (reportStream != null) {
+        // try {
+        //
+        // IReportRunnable runnable =
+        // engine.openReportDesign(reportStream);
+        // task = engine.createRunAndRenderTask(runnable);
+        //
+        // task.setParameterValue("sourcexml", resource.getLocation()
+        // //$NON-NLS-1$
+        // .toOSString());
+        // task.setParameterValue("imageFolderPath", imagesOutput //$NON-NLS-1$
+        // .addTrailingSeparator().toOSString());
+        // task.setRenderOption(htmlOption);
+        //
+        // } catch (EngineException e) {
+        // XpdResourcesUIActivator.getDefault().getLogger().error(e);
+        // }
+        // } else {
+        // XpdResourcesUIActivator.getDefault().getLogger()
+        // .error("No report stream found");
+        // }
+        // }
     }
 
     /**
@@ -121,14 +115,14 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
      */
     @Override
     protected void disposeEngine(IDocGenInfo docGenInfo) {
-        if (engine != null) {
-            engine.shutdown();
-            engine.destroy();
-        }
+        // if (engine != null) {
+        // engine.shutdown();
+        // engine.destroy();
+        // }
     }
 
     /**
-     * Sets the report file path 
+     * Sets the report file path
      * 
      * @param templatePath
      */
@@ -142,8 +136,8 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
     }
 
     /**
-     * Opportunity to generate extra resources that the document
-     * generation might need 
+     * Opportunity to generate extra resources that the document generation
+     * might need
      * 
      * @param inputFile
      * @param outputFilePath
@@ -151,10 +145,10 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
      */
     protected abstract void generateExtraResources(IFile inputFile,
             IPath outputFilePath, IDocGenInfo docGenInfo);
-    
+
     /**
-     * Opportunity to clear old resources that the document
-     * generation might have 
+     * Opportunity to clear old resources that the document generation might
+     * have
      * 
      * @param inputFile
      * @param outputFilePath
@@ -163,16 +157,16 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
     protected abstract void clearOldResources(IFile inputFile,
             IPath outputFilePath, IDocGenInfo docGenInfo);
 
-    /**
-     * Returns the default template Stream that will be used
-     * by the BIRT engine to generate the document
-     * 
-     * @param config
-     * @param docGenInfo
-     * @return
-     */
-    protected abstract InputStream getDefaultTemplateStream(
-            EngineConfig config, IDocGenInfo docGenInfo);
+    // /**
+    // * Returns the default template Stream that will be used
+    // * by the BIRT engine to generate the document
+    // *
+    // * @param config
+    // * @param docGenInfo
+    // * @return
+    // */
+    // protected abstract InputStream getDefaultTemplateStream(
+    // EngineConfig config, IDocGenInfo docGenInfo);
 
     /**
      * Runs the engine
@@ -191,29 +185,21 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
                 IFolder folder = null;
                 IPath outputReportFile = null;
                 if (generatorOutputPath.getDevice() == null) {
-                    folder =
-                            ResourcesPlugin.getWorkspace().getRoot()
-                                    .getFolder(generatorOutputPath);
+                    folder = ResourcesPlugin.getWorkspace().getRoot()
+                            .getFolder(generatorOutputPath);
                 }
-                if (folder == null
-                        || (folder != null && folder.getLocationURI() == null)) {
+                if (folder == null || (folder != null
+                        && folder.getLocationURI() == null)) {
                     outputReportFile =
-                            generatorOutputPath
-                                    .append(modelFile
-                                            .getName()
-                                            .replace("." + modelFile.getFileExtension(), //$NON-NLS-1$
-                                                    ".html")); //$NON-NLS-1$
+                            generatorOutputPath.append(modelFile.getName()
+                                    .replace("." + modelFile.getFileExtension(), //$NON-NLS-1$
+                                            ".html")); //$NON-NLS-1$
                 } else {
-                    outputReportFile =
-                            modelFile
-                                    .getWorkspace()
-                                    .getRoot()
-                                    .getLocation()
-                                    .append(generatorOutputPath)
-                                    .append(modelFile
-                                            .getName()
-                                            .replace("." + modelFile.getFileExtension(), //$NON-NLS-1$
-                                                    ".html")); //$NON-NLS-1$
+                    outputReportFile = modelFile.getWorkspace().getRoot()
+                            .getLocation().append(generatorOutputPath)
+                            .append(modelFile.getName().replace(
+                                    "." + modelFile.getFileExtension(), //$NON-NLS-1$
+                                    ".html")); //$NON-NLS-1$
                 }
                 if (docGenInfo.getGenerationStatus() != null
                         && docGenInfo.getGenerationStatus().isOK()) {
@@ -222,28 +208,31 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
                     imagesOutput = outputFolder.append("images"); //$NON-NLS-1$
 
                     setReportFilePath(null);
-                    
+
                     clearOldResources(modelFile, outputReportFile, docGenInfo);
-                    generateExtraResources(modelFile, outputReportFile, docGenInfo);
-                    
+                    generateExtraResources(modelFile,
+                            outputReportFile,
+                            docGenInfo);
+
                     startEngine(docGenInfo);
 
-                    if (task != null) {
-                        try {
-                            task.run();
-                        } catch (EngineException e) {
-                            XpdResourcesUIActivator.getDefault().getLogger().error(e);
-                        }
-                    }
+                    // if (task != null) {
+                    // try {
+                    // task.run();
+                    // } catch (EngineException e) {
+                    // XpdResourcesUIActivator.getDefault().getLogger()
+                    // .error(e);
+                    // }
+                    // }
                 }
             }
         }
     }
-    
+
     protected IPath getImagesOutput() {
         return imagesOutput;
     }
-    
+
     /**
      * Deletes images from the image folder.
      */
@@ -258,9 +247,8 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
                         file.delete();
                     }
                 }
-                IContainer folder =
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getContainerForLocation(getImagesOutput());
+                IContainer folder = ResourcesPlugin.getWorkspace().getRoot()
+                        .getContainerForLocation(getImagesOutput());
                 if (folder != null && folder.exists()) {
                     try {
                         folder.refreshLocal(IResource.DEPTH_INFINITE, null);
@@ -272,11 +260,11 @@ public abstract class AbstractBIRTDocGen extends AbstractBaseDocGen {
             }
         }
     }
-    
+
     public IPath getHtmlOutput() {
         return htmlOutput;
     }
-    
+
     public IDocGenInfo getCurrentDocGenInfo() {
         return currentDocGenInfo;
     }

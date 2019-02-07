@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.CommonPlugin;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -45,8 +44,6 @@ import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
 import org.eclipse.gmf.runtime.emf.core.util.CrossReferenceAdapter;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.wst.wsdl.util.WSDLResourceImpl;
-import org.eclipse.xsd.util.XSDResourceImpl;
 
 import com.tibco.xpd.resources.XpdConfigOption;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -177,10 +174,9 @@ public class XpdEditingDomainFactory extends DiagramEditingDomainFactory {
             Resource resource = resourceSet.getResource(uri, true);
 
             if (resource == null) {
-                XpdResourcesPlugin.getDefault().getLogger()
-                        .error(String.format(
-                                Messages.XpdEditingDomainFactory_failedToPreAddResource_message,
-                                uri));
+                XpdResourcesPlugin.getDefault().getLogger().error(String.format(
+                        Messages.XpdEditingDomainFactory_failedToPreAddResource_message,
+                        uri));
             }
         }
 
@@ -257,10 +253,9 @@ public class XpdEditingDomainFactory extends DiagramEditingDomainFactory {
     }
 
     private void reportInvalidExtensionPoint(IConfigurationElement elem) {
-        XpdResourcesPlugin.getDefault().getLogger()
-                .error(String.format(
-                        Messages.XpdEditingDomainFactory_invalidAdapterOverrideExtensionError_message,
-                        elem.getContributor().getName()));
+        XpdResourcesPlugin.getDefault().getLogger().error(String.format(
+                Messages.XpdEditingDomainFactory_invalidAdapterOverrideExtensionError_message,
+                elem.getContributor().getName()));
     }
 
     /**
@@ -271,9 +266,9 @@ public class XpdEditingDomainFactory extends DiagramEditingDomainFactory {
     protected URI[] getPreLoadResourceUris() {
         Set<URI> uris = new HashSet<URI>();
 
-        IExtensionPoint point =
-                Platform.getExtensionRegistry().getExtensionPoint(
-                        XpdResourcesPlugin.ID_PLUGIN, RESOURCE_PRELOADER_ID);
+        IExtensionPoint point = Platform.getExtensionRegistry()
+                .getExtensionPoint(XpdResourcesPlugin.ID_PLUGIN,
+                        RESOURCE_PRELOADER_ID);
 
         if (point != null) {
             IExtension[] extensions = point.getExtensions();
@@ -381,22 +376,20 @@ public class XpdEditingDomainFactory extends DiagramEditingDomainFactory {
              * resources as this causes large XSD/WSDLs to take a very long time
              * to load.
              */
-            if (resource instanceof XSDResourceImpl
-                    || resource instanceof WSDLResourceImpl) {
-                if (resource.eAdapters() != null) {
-                    CrossReferenceAdapter refAdapter = null;
-                    for (Adapter adapter : resource.eAdapters()) {
-                        if (adapter instanceof CrossReferenceAdapter) {
-                            refAdapter = (CrossReferenceAdapter) adapter;
-                            break;
-                        }
-                    }
-
-                    if (refAdapter != null) {
-                        resource.eAdapters().remove(refAdapter);
-                    }
-                }
-            }
+            /*
+             * JA: ACE-120: We should not use XSD and WSDL resources anymore.
+             * Dependency removed.
+             * 
+             * if (resource instanceof XSDResourceImpl || resource instanceof
+             * WSDLResourceImpl) { if (resource.eAdapters() != null) {
+             * CrossReferenceAdapter refAdapter = null; for (Adapter adapter :
+             * resource.eAdapters()) { if (adapter instanceof
+             * CrossReferenceAdapter) { refAdapter = (CrossReferenceAdapter)
+             * adapter; break; } }
+             * 
+             * if (refAdapter != null) {
+             * resource.eAdapters().remove(refAdapter); } } }
+             */
 
             return resource;
         }
@@ -499,7 +492,7 @@ public class XpdEditingDomainFactory extends DiagramEditingDomainFactory {
          */
         private Transaction startTransaction(
                 InternalTransactionalEditingDomain editingDomain)
-                        throws InterruptedException {
+                throws InterruptedException {
             Map<String, Object> txOptions = new HashMap<String, Object>();
             txOptions.put(Transaction.OPTION_UNPROTECTED, Boolean.TRUE);
             return editingDomain.startTransaction(false, txOptions);
