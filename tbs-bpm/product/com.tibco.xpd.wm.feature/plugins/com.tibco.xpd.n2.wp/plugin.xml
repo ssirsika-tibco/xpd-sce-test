@@ -11,65 +11,7 @@
             unsettable="true">
       </folder>
    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationType">
-       <implementationType
-             componentTypeResolver="com.tibco.xpd.n2.wp.component.WPComponentTypeResolver"
-             defaultPalette="false"
-             delegate="com.tibco.xpd.n2.wp.component.WPImplementationDelegate"
-             name="%wp"
-             typeId="com.tibco.xpd.wp">
-          <implementationTypeResolver
-                ecoreClass="WPImplementation"
-                ecoreURI="http://xsd.tns.tibco.com/n2/models/common">
-          </implementationTypeResolver>
-       </implementationType>
-       <!--implementationType
-             componentTypeResolver="com.tibco.xpd.n2.wp.component.PFEComponentTypeResolver"
-             delegate="com.tibco.xpd.n2.wp.component.PFEImplementationDelegate"
-             name="%pfe"
-             typeId="com.tibco.xpd.pfe">
-          <implementationTypeResolver
-                ecoreClass="PFEImplementation"
-                ecoreURI="http://xsd.tns.tibco.com/n2/models/common">
-          </implementationTypeResolver>
-       </implementationType-->
-    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
-       <implementation
-             class="com.tibco.xpd.n2.wp.component.WPImplementationTypeProvider"
-             implementationTypeId="com.tibco.xpd.wp">
-       </implementation>
-       <!--implementation
-             class="com.tibco.xpd.n2.wp.component.PFCImplementationTypeProvider"
-             implementationTypeId="com.tibco.xpd.pfe">
-       </implementation-->
-    </extension>
-    <extension
-          point="com.tibco.xpd.daa.compositeContributors">
-       <contributor
-             class="com.tibco.xpd.n2.wp.component.WPCompositeContributor"
-             contextId="com.tibco.xpd.amx.bpm"
-             id="com.tibco.xpd.n2.wp.contributor">
-          <dependsOn
-                contributorId="com.tibco.xpd.n2.brm.contributor">
-          </dependsOn>
-          <dependsOn
-                contributorId="com.tibco.xpd.n2.pfc.contributor">
-          </dependsOn>
-		  <dependsOn
-				contributorId="com.tibco.xpd.forms.designer.resources.contributor">
-		  </dependsOn>
-       </contributor>
-       <!--contributor
-             class="com.tibco.xpd.n2.wp.component.PFCCompositeContributor"
-             id="com.tibco.xpd.n2.pfe.contributor">
-          <dependsOn
-                contributorId="com.tibco.xpd.n2.cds.contributor">
-          </dependsOn>
-       </contributor-->
-    </extension>
+
     <extension
          point="org.eclipse.emf.validation.constraintProviders">
       <constraintProvider

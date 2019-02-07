@@ -52,85 +52,9 @@
            name="%exportToDirectoryEngine_label">
      </wizard>
   </extension>
-  <!--
-  <extension id="deNature" point="org.eclipse.core.resources.natures">
-          <builder id="com.tibco.xpd.om.transform.de.deBuilder"/>
-      <runtime>
-         <run class="com.tibco.xpd.om.transform.de.DENature"/>
-      </runtime>
-  </extension>
-  
-  <extension
-         id="deBuilder"
-         name="%deBuilder_name"
-         point="org.eclipse.core.resources.builders">
-      <builder
-            hasNature="true"
-            isConfigurable="true">
-         <run class="com.tibco.xpd.om.transform.de.builder.DEBuilder"/>
-      </builder>
-   </extension>
-      
-   <extension
-       point="com.tibco.xpd.resources.projectAsset">
-    <asset
-          configurator="com.tibco.xpd.om.transform.de.DENatureAssetConfigurator"
-          extends="com.tibco.xpd.asset.om"
-          id="com.tibco.xpd.asset.de"
-          name="%deAsset_name"
-          visible="false">
-       <description>
-          %deAsset_desc
-       </description>
-       <bindings>
-          <nature
-                id="com.tibco.xpd.om.transform.de.deNature">
-          </nature>
-          <globalDestination
-                id="com.tibco.xpd.n2.core.n2GlobalDestination">
-          </globalDestination>
-       </bindings>
-    </asset>
-   </extension>
-   
-    <extension
-         point="com.tibco.xpd.resources.specialFolders">
-      <folder
-            icon="icons/obj16/ModuleOutFolder.gif"
-            kind="deModulesOutput"
-            multiple="false"
-            name="%deModulesFolder_shortdesc"
-            unsettable="true"/>
-   </extension> -->
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationType">
-       <implementationType
-             componentTypeResolver="com.tibco.xpd.om.transform.de.component.DEComponentTypeResolver"
-             defaultPalette="false"
-             delegate="com.tibco.xpd.om.transform.de.component.DEImplementationDelegate"
-             name="%om"
-             typeId="com.tibco.xpd.om">
-          <implementationTypeResolver
-                ecoreClass="DEImplementation"
-                ecoreURI="http://xsd.tns.tibco.com/n2/models/common">
-          </implementationTypeResolver>
-       </implementationType>
-    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
-       <implementation
-             class="com.tibco.xpd.om.transform.de.component.DEImplementationTypeProvider"
-             implementationTypeId="com.tibco.xpd.om">
-       </implementation>
-    </extension>
-    <extension
-          point="com.tibco.xpd.daa.compositeContributors">
-       <contributor
-             class="com.tibco.xpd.om.transform.de.component.DECompositeContributor"
-             contextId="com.tibco.xpd.amx.bpm"
-             id="com.tibco.xpd.n2.om.contributor">
-       </contributor>
-    </extension>
+
+
+
    <extension
          point="com.tibco.xpd.om.resources.systemActions">
       <component
@@ -842,11 +766,5 @@
          </constraints>
       </constraintProvider>
    </extension>
-   <extension
-         point="com.tibco.amf.tools.packager.packagerParticipant">
-      <participant
-            class="com.tibco.xpd.om.transform.de.component.DEPackagerParticipant"
-            type="com.tibco.xpd.om">
-      </participant>
-   </extension>
+
 </plugin>

@@ -36,17 +36,13 @@ import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.osgi.framework.Version;
 
-import com.tibco.amf.sca.model.componenttype.RequiredCapability;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
-import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.brm.BRMActivator;
-import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.om.core.om.BaseOrgModel;
 import com.tibco.xpd.om.resources.OMResourcesActivator;
 import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
-import com.tibco.xpd.om.transform.de.component.DECompositeUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.indexer.IndexerItem;
@@ -480,43 +476,6 @@ public class BRMUtils {
         LinkedHashSet<Activity> formTasks = new LinkedHashSet<Activity>();
         getFormTasksFromPageFlow(pageFlow, formTasks);
         return formTasks;
-    }
-
-    public static List<RequiredCapability> getOMRequiredCapabilityList(
-            IProject project) {
-        List<RequiredCapability> requiresCapability =
-                new ArrayList<RequiredCapability>();
-        List<IResource> xpdlResources = SpecialFolderUtil
-                .getAllDeepResourcesInSpecialFolderOfKind(project,
-                        N2PENamingUtils.PROCESS_SPECIALFOLDER_KIND,
-                        N2PENamingUtils.XPDL_FILE_EXTENSION,
-                        false);
-        Set<IResource> omFiles = new HashSet<IResource>();
-        if (xpdlResources != null && !xpdlResources.isEmpty()) {
-            for (final IResource resource : xpdlResources) {
-                if (!(resource instanceof IFile)) {
-                    continue;
-                }
-                IFile xpdlFile = (IFile) resource;
-                IFile[] bpelFiles =
-                        BPELN2Utils.getBusinessProcessBpelFiles(xpdlFile);
-                if (bpelFiles.length < 1) {
-                    continue;
-                }
-                getOMDependencyList(xpdlFile, omFiles);
-            }
-        }
-        for (IResource eachOM : omFiles) {
-            IProject eachOMProject = eachOM.getProject();
-            String fileVersion = getOMFileVersion(eachOM);
-            RequiredCapability requiredCapability =
-                    DECompositeUtil.createRequiredCapability(eachOMProject,
-                            eachOM.getFullPath().lastSegment(),
-                            fileVersion);
-            requiresCapability.add(requiredCapability);
-
-        }
-        return requiresCapability;
     }
 
     private static final String WP = "wp";
