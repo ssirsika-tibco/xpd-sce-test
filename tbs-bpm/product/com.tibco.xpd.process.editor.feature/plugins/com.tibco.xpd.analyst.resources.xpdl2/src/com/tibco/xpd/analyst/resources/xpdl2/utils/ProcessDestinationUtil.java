@@ -7,13 +7,9 @@ package com.tibco.xpd.analyst.resources.xpdl2.utils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 
-import com.tibco.xpd.bom.validator.BOMValidatorActivator;
-import com.tibco.xpd.bom.validator.IBOMValidationPreferenceManager;
-import com.tibco.xpd.bom.validator.IBOMValidationPreferenceManager.ValidationDestination;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
-import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
@@ -65,9 +61,10 @@ public class ProcessDestinationUtil {
              * "Enable WSDL Export / Generation" in project or workspace
              * preferences.
              */
-            if (isWsdlGenerationPreferenceEnabled(process)) {
-                shouldGenerateWsdl = true;
-            }
+            // JA:SCE: To remove.
+            // if (isWsdlGenerationPreferenceEnabled(process)) {
+            // shouldGenerateWsdl = true;
+            // }
         }
         return shouldGenerateWsdl;
     }
@@ -85,50 +82,52 @@ public class ProcessDestinationUtil {
     public static Boolean shouldGenerateWSDLForProcessInterfaceDestinations(
             ProcessInterface processInterface) {
         boolean shouldGenerateWsdl =
-                DestinationUtil
-                        .isValidationDestinationEnabled(processInterface,
-                                XPDL2WSDL_GENERATION_VALIDATION_DESTINATION);
+                DestinationUtil.isValidationDestinationEnabled(processInterface,
+                        XPDL2WSDL_GENERATION_VALIDATION_DESTINATION);
         if (!shouldGenerateWsdl) {
             /*
              * If xpdl2wsdl not enabled by selected destinations, then check the
              * "Enable WSDL Export / Generation" in project or workspace
              * preferences.
              */
-            if (isWsdlGenerationPreferenceEnabled(processInterface)) {
-                shouldGenerateWsdl = true;
-            }
+            // JA:SCE: To remove.
+            // if (isWsdlGenerationPreferenceEnabled(processInterface)) {
+            // shouldGenerateWsdl = true;
+            // }
         }
         return shouldGenerateWsdl;
     }
 
-    /**
-     * @param process
-     * @return true if the project specific or workspace setting for
-     *         "Business Object Modeler -> WSDL & XSD Export/Generation -> Enable WSDL Generation"
-     *         setting is ON.
-     */
-    public static boolean isWsdlGenerationPreferenceEnabled(EObject eo) {
-        IProject project = WorkingCopyUtil.getProjectFor(eo);
-        if (project != null) {
-            IBOMValidationPreferenceManager preferenceManager =
-                    BOMValidatorActivator.getDefault().getPreferenceManager();
-            if (preferenceManager != null) {
-                /*
-                 * PLEASE NOTE that the use of the term "validation" in the
-                 * IBOMValidationPreferenceManager isn't really valid anymore.
-                 * It isn't really about validaiton, it is about enabling
-                 * various auto-genration / export capabilities. Validation
-                 * enablement should just only be a consequence of wanting to
-                 * generate so haveing to validate first!
-                 */
-                if (preferenceManager.isValidationEnabled(project,
-                        ValidationDestination.WSDL)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    // JA:SCE: To remove.
+    // /**
+    // * @param process
+    // * @return true if the project specific or workspace setting for
+    // * "Business Object Modeler -> WSDL & XSD Export/Generation -> Enable WSDL
+    // Generation"
+    // * setting is ON.
+    // */
+    // public static boolean isWsdlGenerationPreferenceEnabled(EObject eo) {
+    // IProject project = WorkingCopyUtil.getProjectFor(eo);
+    // if (project != null) {
+    // IBOMValidationPreferenceManager preferenceManager =
+    // BOMValidatorActivator.getDefault().getPreferenceStore();
+    // if (preferenceManager != null) {
+    // /*
+    // * PLEASE NOTE that the use of the term "validation" in the
+    // * IBOMValidationPreferenceManager isn't really valid anymore.
+    // * It isn't really about validaiton, it is about enabling
+    // * various auto-genration / export capabilities. Validation
+    // * enablement should just only be a consequence of wanting to
+    // * generate so haveing to validate first!
+    // */
+    // if (preferenceManager.isValidationEnabled(project,
+    // ValidationDestination.WSDL)) {
+    // return true;
+    // }
+    // }
+    // }
+    // return false;
+    // }
 
     /**
      * @deprecated This definition is marked as deprecated IMMEDIATELY because
@@ -202,13 +201,13 @@ public class ProcessDestinationUtil {
     public static boolean isIProcessDestinationSelected(EObject eObject) {
 
         if (eObject instanceof Package) {
-            return GlobalDestinationHelper
-                    .isGlobalDestinationEnabled((Package) eObject,
-                            IPROCESS_GLOBAL_DESTINATION);
+            return GlobalDestinationHelper.isGlobalDestinationEnabled(
+                    (Package) eObject,
+                    IPROCESS_GLOBAL_DESTINATION);
         } else if (eObject instanceof Process) {
-            return GlobalDestinationHelper
-                    .isGlobalDestinationEnabled((Process) eObject,
-                            IPROCESS_GLOBAL_DESTINATION);
+            return GlobalDestinationHelper.isGlobalDestinationEnabled(
+                    (Process) eObject,
+                    IPROCESS_GLOBAL_DESTINATION);
         }
         return false;
 
