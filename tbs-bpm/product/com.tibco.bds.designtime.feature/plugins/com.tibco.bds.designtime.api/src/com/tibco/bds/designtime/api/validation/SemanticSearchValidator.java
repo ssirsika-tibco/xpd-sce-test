@@ -34,7 +34,6 @@ import com.tibco.xpd.bom.modeler.custom.enumlitext.DomainValue;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.SingleValue;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
 
 /**
  * Performs a semantic check of search condition and sort attributes within the
@@ -137,10 +136,10 @@ public class SemanticSearchValidator {
                     matcher.group(RX_FUNCTION_CALL_FUNCTION_GROUP);
             if (!patFunctionNames.matcher(functionName).matches()) {
                 // error - no such function name
-                addError(String
-                        .format(Messages.SemanticSearchValidator_bad_function,
-                                functionName,
-                                attrPath));
+                addError(String.format(
+                        Messages.SemanticSearchValidator_bad_function,
+                        functionName,
+                        attrPath));
             }
             result = matcher.group(RX_FUNCTION_CALL_OPERAND_GROUP);
         }
@@ -153,9 +152,9 @@ public class SemanticSearchValidator {
                 && getBaseTypeName((PrimitiveType) type)
                         .equals(PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME)) {
             // Not allowed to search on a Duration
-            addError(String
-                    .format(Messages.SemanticSearchValidator_type_duration,
-                            leafName));
+            addError(String.format(
+                    Messages.SemanticSearchValidator_type_duration,
+                    leafName));
         } else {
             SearchOperatorDTO op = asc.getOperator();
             if (op == SearchOperatorDTO.SIZE_EQ
@@ -166,30 +165,28 @@ public class SemanticSearchValidator {
                     || op == SearchOperatorDTO.SIZE_LTE) {
                 if (!isMany) {
                     // error - size operators only apply to manys
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_bad_size,
-                                    leafName));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_bad_size,
+                            leafName));
                 } else if (hasSuffix) {
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_size_with_suffix,
-                                    operatorToString(op),
-                                    leafName));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_size_with_suffix,
+                            operatorToString(op),
+                            leafName));
                 }
                 //
-            } else if (op == SearchOperatorDTO.EQ
-                    || op == SearchOperatorDTO.NEQ
+            } else if (op == SearchOperatorDTO.EQ || op == SearchOperatorDTO.NEQ
                     || op == SearchOperatorDTO.IN
                     || op == SearchOperatorDTO.NOT_IN) {
-                if (!(type instanceof PrimitiveType || type instanceof Enumeration)) {
+                if (!(type instanceof PrimitiveType
+                        || type instanceof Enumeration)) {
                     // error - operator only applies to attributes
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_operator_not_for_object,
-                                    operatorToString(op)));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_operator_not_for_object,
+                            operatorToString(op)));
                 }
-            } else if (op == SearchOperatorDTO.GT
-                    || op == SearchOperatorDTO.GTE
-                    || op == SearchOperatorDTO.LT
-                    || op == SearchOperatorDTO.LTE
+            } else if (op == SearchOperatorDTO.GT || op == SearchOperatorDTO.GTE
+                    || op == SearchOperatorDTO.LT || op == SearchOperatorDTO.LTE
                     || op == SearchOperatorDTO.BETWEEN
                     || op == SearchOperatorDTO.NOT_BETWEEN) {
 
@@ -197,45 +194,46 @@ public class SemanticSearchValidator {
                     String typeName = getBaseTypeName((PrimitiveType) type);
                     if (!(typeName
                             .equals(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME)
-                            || typeName
-                                    .equals(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME)
-                            || typeName
-                                    .equals(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME)
-                            || typeName
-                                    .equals(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME)
-                            || typeName
-                                    .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME) || typeName
-                                .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME))) {
-                        addError(String
-                                .format(Messages.SemanticSearchValidator_operator_not_for_type,
-                                        operatorToString(op),
-                                        leafName,
-                                        typeName));
+                            || typeName.equals(
+                                    PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME)
+                            || typeName.equals(
+                                    PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME)
+                            || typeName.equals(
+                                    PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME)
+                            || typeName.equals(
+                                    PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME)
+                            || typeName.equals(
+                                    PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME))) {
+                        addError(String.format(
+                                Messages.SemanticSearchValidator_operator_not_for_type,
+                                operatorToString(op),
+                                leafName,
+                                typeName));
                     }
                 } else if (type instanceof Enumeration) {
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_operator_not_for_enumeration,
-                                    operatorToString(op),
-                                    leafName));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_operator_not_for_enumeration,
+                            operatorToString(op),
+                            leafName));
                 } else {
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_operator_not_for_object,
-                                    operatorToString(op)));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_operator_not_for_object,
+                            operatorToString(op)));
                 }
 
             } else if (op == SearchOperatorDTO.TYPE_OF) {
                 if (!(type instanceof Class)) {
                     // error - only applies to refs
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_typeof_only_for_object,
-                                    asc.getAttrPath()));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_typeof_only_for_object,
+                            asc.getAttrPath()));
                 }
             } else if (op == SearchOperatorDTO.NULL
                     || op == SearchOperatorDTO.NOT_NULL) {
                 if (isMany && hasSuffix) {
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_null_not_null_with_suffix,
-                                    leafName));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_null_not_null_with_suffix,
+                            leafName));
                 }
             }
         }
@@ -254,8 +252,7 @@ public class SemanticSearchValidator {
             result = Messages.SemanticSearchValidator_op_greater_than;
             break;
         case GTE:
-            result =
-                    Messages.SemanticSearchValidator_op_greater_than_or_equal_to;
+            result = Messages.SemanticSearchValidator_op_greater_than_or_equal_to;
             break;
         case LT:
             result = Messages.SemanticSearchValidator_op_less_than;
@@ -294,22 +291,19 @@ public class SemanticSearchValidator {
             result = Messages.SemanticSearchValidator_op_size_greater_than;
             break;
         case SIZE_GTE:
-            result =
-                    Messages.SemanticSearchValidator_op_size_greater_than_or_equal_to;
+            result = Messages.SemanticSearchValidator_op_size_greater_than_or_equal_to;
             break;
         case SIZE_LT:
             result = Messages.SemanticSearchValidator_op_size_less_than;
             break;
         case SIZE_LTE:
-            result =
-                    Messages.SemanticSearchValidator_op_size_less_than_or_equal_to;
+            result = Messages.SemanticSearchValidator_op_size_less_than_or_equal_to;
         }
         return result;
     }
 
     private String getBaseTypeName(PrimitiveType type) {
-        PrimitiveType baseType =
-                PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+        PrimitiveType baseType = PrimitivesUtil.getBasePrimitiveType(type);
         String typeName = baseType.getName();
         return typeName;
     }
@@ -324,35 +318,25 @@ public class SemanticSearchValidator {
     private String getEnumerationLiteralLiteral(EnumerationLiteral lit) {
         String result = null;
         List<Stereotype> stereotypes = lit.getAppliedStereotypes();
-        Stereotype st = null;
-        Iterator<Stereotype> iter = stereotypes.iterator();
-        while (st == null & iter.hasNext()) {
-            Stereotype aStereotype = iter.next();
-            if (aStereotype.getName()
-                    .equals(XsdStereotypeUtils.XSD_BASED_ENUMERATION_LITERAL)) {
-                st = aStereotype;
-            }
-        }
-        if (st != null) {
-            Object val =
-                    lit.getValue(st, XsdStereotypeUtils.XSD_PROPERTY_VALUE);
-            if (val instanceof String) {
-                result = (String) val;
-            }
+
+        /*
+         * Sid ACE-122 - there are no XSD-derived BOMs in ACE - removed handling
+         * of that here.
+         */
+
+        // Not XSD-derived
+        DomainValue domainValue = EnumLitValueUtil.getDomainValue(lit);
+        if (domainValue instanceof SingleValue) {
+            // Value is stored in EnumLitExt extension
+            // (as is the case for Enumerations that extend
+            // PrimitiveTypes)
+            result = ((SingleValue) domainValue).getValue();
         } else {
-            // Not XSD-derived
-            DomainValue domainValue = EnumLitValueUtil.getDomainValue(lit);
-            if (domainValue instanceof SingleValue) {
-                // Value is stored in EnumLitExt extension
-                // (as is the case for Enumerations that extend
-                // PrimitiveTypes)
-                result = ((SingleValue) domainValue).getValue();
-            } else {
-                // Value is implied by the name
-                result = lit.getName();
-            }
+            // Value is implied by the name
+            result = lit.getName();
         }
         return result;
+
     }
 
     protected boolean isSizeOperator(SearchOperatorDTO op) {
@@ -388,17 +372,17 @@ public class SemanticSearchValidator {
                 // is a problem unless there's a named parameter
                 if (!hasNP) {
                     // error - must have at least one
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_value_count_one_plus,
-                                    operatorToString(op)));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_value_count_one_plus,
+                            operatorToString(op)));
                     valid = false;
                 }
             }
         } else if (expectedValueCount == 0 && actualValueCount != 0) {
             // error - operator does not allow values
-            addError(String
-                    .format(Messages.SemanticSearchValidator_value_count_zero,
-                            operatorToString(op)));
+            addError(String.format(
+                    Messages.SemanticSearchValidator_value_count_zero,
+                    operatorToString(op)));
             valid = false;
         } else if (expectedValueCount != actualValueCount) {
             // A value count mismatch is a problem
@@ -406,10 +390,10 @@ public class SemanticSearchValidator {
             // and no values are specified
             if (!(actualValueCount == 0 && hasNP)) {
                 // error - requires X values
-                addError(String
-                        .format(Messages.SemanticSearchValidator_value_count_number,
-                                operatorToString(op),
-                                expectedValueCount));
+                addError(String.format(
+                        Messages.SemanticSearchValidator_value_count_number,
+                        operatorToString(op),
+                        expectedValueCount));
                 valid = false;
             }
         }
@@ -434,7 +418,7 @@ public class SemanticSearchValidator {
                         boolean found = false;
                         for (Iterator<EnumerationLiteral> iter =
                                 enu.getOwnedLiterals().iterator(); iter
-                                .hasNext() && !found;) {
+                                        .hasNext() && !found;) {
                             String lit =
                                     getEnumerationLiteralLiteral(iter.next());
                             if (lit != null && lit.equals(value)) {
@@ -443,30 +427,28 @@ public class SemanticSearchValidator {
                         }
                         if (!found) {
                             // value was not a valid member of the enumeration
-                            addError(String
-                                    .format(Messages.SemanticSearchValidator_bad_enum,
-                                            value,
-                                            enu.getName()));
+                            addError(String.format(
+                                    Messages.SemanticSearchValidator_bad_enum,
+                                    value,
+                                    enu.getName()));
                         }
                     }
                 } else if (type instanceof PrimitiveType) {
                     PrimitiveType primType = (PrimitiveType) type;
                     String typeName = getBaseTypeName(primType);
-                    if (typeName
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME)) {
+                    if (typeName.equals(
+                            PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME)) {
 
                         // Ensure the value can be used to construct either an
                         // Integer or BigInteger, as per the property sub-type.
                         boolean isBigInteger = false;
-                        Object subType =
-                                PrimitivesUtil
-                                        .getFacetPropertyValue(primType,
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                                property);
+                        Object subType = PrimitivesUtil.getFacetPropertyValue(
+                                primType,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
+                                property);
                         if ((subType != null)
                                 && (subType instanceof EnumerationLiteral)
-                                && ((EnumerationLiteral) subType)
-                                        .getName()
+                                && ((EnumerationLiteral) subType).getName()
                                         .equals(PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH)) {
                             isBigInteger = true;
                         }
@@ -484,8 +466,8 @@ public class SemanticSearchValidator {
                                 // ignore that part.
                                 String[] parts = value.split("\\.");
                                 try {
-                                    if (parts.length == 2
-                                            && Integer.parseInt(parts[1]) == 0) {
+                                    if (parts.length == 2 && Integer
+                                            .parseInt(parts[1]) == 0) {
                                         // Part after decimal point is zero
                                         // so just use the part before
                                         if (isBigInteger) {
@@ -504,23 +486,21 @@ public class SemanticSearchValidator {
                                 }
                             }
                         }
-                    } else if (typeName
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)) {
+                    } else if (typeName.equals(
+                            PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)) {
                         // Check validity of decimal-type values
                         boolean isBigDecimal = false;
-                        Object subType =
-                                PrimitivesUtil
-                                        .getFacetPropertyValue(primType,
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                                property);
+                        Object subType = PrimitivesUtil.getFacetPropertyValue(
+                                primType,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                property);
 
                         // Check the sub-type as we are interested in fixed
                         // length
                         // integers
                         if ((subType != null)
                                 && (subType instanceof EnumerationLiteral)
-                                && ((EnumerationLiteral) subType)
-                                        .getName()
+                                && ((EnumerationLiteral) subType).getName()
                                         .equals(PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT)) {
                             isBigDecimal = true;
                         }
@@ -541,40 +521,41 @@ public class SemanticSearchValidator {
                                 addFormatError(property.getName(), op, value);
                             }
                         }
-                    } else if (typeName
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME)) {
+                    } else if (typeName.equals(
+                            PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME)) {
                         for (String value : values) {
-                            if (!(value.equalsIgnoreCase(Boolean.TRUE
-                                    .toString()) || value
-                                    .equalsIgnoreCase(Boolean.FALSE.toString()))) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_value_format,
-                                                property.getName(),
-                                                operatorToString(op),
-                                                value));
+                            if (!(value
+                                    .equalsIgnoreCase(Boolean.TRUE.toString())
+                                    || value.equalsIgnoreCase(
+                                            Boolean.FALSE.toString()))) {
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_value_format,
+                                        property.getName(),
+                                        operatorToString(op),
+                                        value));
                             }
                         }
-                    } else if (typeName
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME)) {
+                    } else if (typeName.equals(
+                            PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME)) {
                         for (String value : values) {
                             try {
                                 calendarUtil.parseDateTimeValue(value, false);
                             } catch (IllegalArgumentException e) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_bad_datetime,
-                                                value));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_bad_datetime,
+                                        value));
                             }
                         }
 
-                    } else if (typeName
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME)) {
+                    } else if (typeName.equals(
+                            PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME)) {
                         for (String value : values) {
                             try {
                                 calendarUtil.parseDateTimeTZValue(value, false);
                             } catch (IllegalArgumentException e) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_bad_datetimetz,
-                                                value));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_bad_datetimetz,
+                                        value));
                             }
                         }
                     } else if (typeName
@@ -583,9 +564,9 @@ public class SemanticSearchValidator {
                             try {
                                 calendarUtil.parseDateValue(value, false);
                             } catch (IllegalArgumentException e) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_bad_date,
-                                                value));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_bad_date,
+                                        value));
                             }
                         }
                     } else if (typeName
@@ -594,9 +575,9 @@ public class SemanticSearchValidator {
                             try {
                                 calendarUtil.parseTimeValue(value, false);
                             } catch (IllegalArgumentException e) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_bad_time,
-                                                value));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_bad_time,
+                                        value));
                             }
                         }
                     }
@@ -669,20 +650,21 @@ public class SemanticSearchValidator {
             }
         }
         if (!valid) {
-            addError(String
-                    .format(Messages.SemanticSearchValidator_bad_sort_attribute,
-                            sortAttribute.getPath()));
+            addError(String.format(
+                    Messages.SemanticSearchValidator_bad_sort_attribute,
+                    sortAttribute.getPath()));
         }
     }
 
     public void validate(org.eclipse.uml2.uml.Class clazz,
-            SearchConditionDTO condition, List<SortAttributeDTO> sortAttributes) {
+            SearchConditionDTO condition,
+            List<SortAttributeDTO> sortAttributes) {
 
         // Enforce clazz is a case type
         if (!BOMGlobalDataUtils.isCaseClass(clazz)) {
-            addError(String
-                    .format(Messages.SemanticSearchValidator_not_case_class,
-                            clazz.getName()));
+            addError(String.format(
+                    Messages.SemanticSearchValidator_not_case_class,
+                    clazz.getName()));
             return;
         }
 
@@ -711,18 +693,17 @@ public class SemanticSearchValidator {
                 suffix = null;
                 String fragment = fragments[i];
                 int openPos = fragment.indexOf("["); //$NON-NLS-1$
-                String namePart =
-                        openPos == -1 ? fragment : fragment.substring(0,
-                                openPos);
+                String namePart = openPos == -1 ? fragment
+                        : fragment.substring(0, openPos);
 
                 // Attempt to find a feature with that name
                 prop = getClassifierProperty((Classifier) type, namePart);
 
                 if (prop == null) {
-                    addError(String
-                            .format(Messages.SemanticSearchValidator_bad_property,
-                                    type.getName(),
-                                    namePart));
+                    addError(String.format(
+                            Messages.SemanticSearchValidator_bad_property,
+                            type.getName(),
+                            namePart));
                     break;
                 } else {
                     type = prop.getType();
@@ -735,23 +716,23 @@ public class SemanticSearchValidator {
                             if (st == null) {
                                 // This is theoretically impossible if the DTO
                                 // was produced by the DQL parser.
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_bad_fragment_suffix,
-                                                suffix,
-                                                fragment));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_bad_fragment_suffix,
+                                        suffix,
+                                        fragment));
                                 break;
                             }
                             if (prop.getUpper() == 1) {
-                                addError(String
-                                        .format(Messages.SemanticSearchValidator_fragment_suffix_on_non_many,
-                                                fragment));
+                                addError(String.format(
+                                        Messages.SemanticSearchValidator_fragment_suffix_on_non_many,
+                                        fragment));
                                 break;
                             }
                         } else {
                             // error - no closing square bracket
-                            addError(String
-                                    .format(Messages.SemanticSearchValidator_close_square_bracket_missing,
-                                            fragment));
+                            addError(String.format(
+                                    Messages.SemanticSearchValidator_close_square_bracket_missing,
+                                    fragment));
                             break;
                         }
                     }
@@ -760,17 +741,17 @@ public class SemanticSearchValidator {
                 if (type instanceof PrimitiveType) {
                     // Ensure this is the leaf
                     if (i != fragCount - 1) {
-                        addError(String
-                                .format(Messages.SemanticSearchValidator_PT_on_non_leaf,
-                                        fragment));
+                        addError(String.format(
+                                Messages.SemanticSearchValidator_PT_on_non_leaf,
+                                fragment));
                         break;
                     }
                 } else if (type instanceof Enumeration) {
                     // Ensure this is the leaf
                     if (i != fragCount - 1) {
-                        addError(String
-                                .format(Messages.SemanticSearchValidator_enumeration_on_non_leaf,
-                                        fragment));
+                        addError(String.format(
+                                Messages.SemanticSearchValidator_enumeration_on_non_leaf,
+                                fragment));
                         break;
                     }
                 }
@@ -791,9 +772,9 @@ public class SemanticSearchValidator {
                 if (prop.getAssociation() == null) {
                     if (!BOMGlobalDataUtils.isCID(prop)
                             && !BOMGlobalDataUtils.isSearchable(prop)) {
-                        addWarning(String
-                                .format(Messages.SemanticSearchValidator_non_searchable_performance,
-                                        prop.getName()));
+                        addWarning(String.format(
+                                Messages.SemanticSearchValidator_non_searchable_performance,
+                                prop.getName()));
                     }
                 }
             }

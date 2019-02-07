@@ -544,27 +544,7 @@
             label="Make the attribute mandatory">
       </resolution>      
    </extension>
-   <extension
-         point="com.tibco.xpd.validation.provider">
-      <provider
-            id="com.tibco.xpd.n2.cds.wsdl.bom.validator"
-            markerType="com.tibco.xpd.wsdltobom.validator.wsdlValidationMarker"
-            name="WSDL"
-            scopeProvider="com.tibco.xpd.bom.validator.WSDLtoBOMScopeProvider">
-         <rule
-               class="com.tibco.bds.designtime.validator.rules.AbsoluteSchemaLocationInvalidRule">
-         </rule>
-         <rule
-               class="com.tibco.bds.designtime.validator.rules.WsdlImportAbsoluteSchemaLocationInvalidRule">
-         </rule>
-      </provider>
-      <issue
-            id="cds.wsdlbom.absolutePathInvalid"
-            message="%cds.wsdlbom.absolutePathInvalid"
-            severity="ERROR">
-      </issue>
-   </extension>
-   
+
    <extension
          point="com.tibco.xpd.destinations.globalDestinationEnvironment">      
       <globalDestinationComponentVersion

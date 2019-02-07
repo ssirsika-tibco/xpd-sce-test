@@ -13,10 +13,8 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
-import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.types.api.BOMEntityNameCleanser;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
-import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -31,19 +29,20 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class CDSEntityNameRule implements IValidationRule {
 
-    protected BOMEntityNameCleanser cleanser = BOMEntityNameCleanser
-            .getInstance();
+    protected BOMEntityNameCleanser cleanser =
+            BOMEntityNameCleanser.getInstance();
 
+    @Override
     public Class<?> getTargetClass() {
         return NamedElement.class;
     }
 
-    protected void validateClassifier(IValidationScope scope, Classifier clazz) {
+    protected void validateClassifier(IValidationScope scope,
+            Classifier clazz) {
         String name = clazz.getName();
-        String postCleanse =
-                clazz instanceof PrimitiveType ? cleanser
-                        .cleansePrimitiveTypeName(name, false) : cleanser
-                        .cleanseClassName(name, false);
+        String postCleanse = clazz instanceof PrimitiveType
+                ? cleanser.cleansePrimitiveTypeName(name, false)
+                : cleanser.cleanseClassName(name, false);
         if (!name.equals(postCleanse)) {
             scope.createIssue(CDSIssueIds.NAME_ILLEGAL_CLASS,
                     BOMValidationUtil.getLocation(clazz),
@@ -52,10 +51,9 @@ public class CDSEntityNameRule implements IValidationRule {
         } else {
             // Check for reserved words separately, in order to
             // display a specific message.
-            String rwCleansed =
-                    clazz instanceof PrimitiveType ? cleanser
-                            .cleansePrimitiveTypeName(name, true) : cleanser
-                            .cleanseClassName(name, true);
+            String rwCleansed = clazz instanceof PrimitiveType
+                    ? cleanser.cleansePrimitiveTypeName(name, true)
+                    : cleanser.cleanseClassName(name, true);
             if (!rwCleansed.equals(name)) {
                 scope.createIssue(CDSIssueIds.NAME_ILLEGAL_CLASS_RESERVED_WORD,
                         BOMValidationUtil.getLocation(clazz),
@@ -71,7 +69,8 @@ public class CDSEntityNameRule implements IValidationRule {
                         // Raise error saying that name must not match first
                         // segment of fully-qualified package name (causes
                         // uncompilable EMF Java code).
-                        scope.createIssue(CDSIssueIds.NAME_ILLEGAL_CLASS_PACKAGE,
+                        scope.createIssue(
+                                CDSIssueIds.NAME_ILLEGAL_CLASS_PACKAGE,
                                 BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Collections.singleton(name));
@@ -91,7 +90,8 @@ public class CDSEntityNameRule implements IValidationRule {
         validateClassifier(scope, pt);
     }
 
-    protected void validateEnumeration(IValidationScope scope, Enumeration enu) {
+    protected void validateEnumeration(IValidationScope scope,
+            Enumeration enu) {
         validateClassifier(scope, enu);
     }
 
@@ -99,11 +99,10 @@ public class CDSEntityNameRule implements IValidationRule {
             org.eclipse.uml2.uml.Package pkg) {
         String name = pkg.getName();
         // Note we don't allow dots in package (i.e. non-Model) names (XPD-453)
-        String postCleanse =
-                cleanser.cleansePackageName(name,
-                        false,
-                        !(pkg instanceof Model),
-                        pkg instanceof Model);
+        String postCleanse = cleanser.cleansePackageName(name,
+                false,
+                !(pkg instanceof Model),
+                pkg instanceof Model);
         if (!name.equals(postCleanse)) {
             // Use appropriate issue for Model vs. Package
             String issueId =
@@ -116,13 +115,13 @@ public class CDSEntityNameRule implements IValidationRule {
         } else {
             // Check for reserved words separately, in order to
             // display a specific message.
-            String rwCleansed =
-                    cleanser.cleansePackageName(name,
-                            true,
-                            !(pkg instanceof Model),
-                            pkg instanceof Model);
+            String rwCleansed = cleanser.cleansePackageName(name,
+                    true,
+                    !(pkg instanceof Model),
+                    pkg instanceof Model);
             if (!rwCleansed.equals(name)) {
-                scope.createIssue(CDSIssueIds.NAME_ILLEGAL_PACKAGE_RESERVED_WORDS,
+                scope.createIssue(
+                        CDSIssueIds.NAME_ILLEGAL_PACKAGE_RESERVED_WORDS,
                         BOMValidationUtil.getLocation(pkg),
                         pkg.eResource().getURIFragment(pkg),
                         Collections.singleton(name));
@@ -144,7 +143,8 @@ public class CDSEntityNameRule implements IValidationRule {
             // display a specific message.
             String rwCleansed = cleanser.cleanseAttributeName(name, true);
             if (!rwCleansed.equals(name)) {
-                scope.createIssue(CDSIssueIds.NAME_ILLEGAL_ATTRIBUTE_RESERVED_WORD,
+                scope.createIssue(
+                        CDSIssueIds.NAME_ILLEGAL_ATTRIBUTE_RESERVED_WORD,
                         BOMValidationUtil.getLocation(prop),
                         prop.eResource().getURIFragment(prop),
                         Collections.singleton(name));
@@ -165,6 +165,7 @@ public class CDSEntityNameRule implements IValidationRule {
         }
     }
 
+    @Override
     public void validate(IValidationScope scope, Object obj) {
 
         if (obj instanceof NamedElement) {
@@ -176,9 +177,11 @@ public class CDSEntityNameRule implements IValidationRule {
                 // XSD. (In that case, the names are deliberately set to match
                 // what EMF will generate and are not subsequently used during
                 // BOM to XSD export).
-                boolean isImportedFromXSD =
-                        null != BOMUtils.getProfileApplied(model,
-                                XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME);
+                boolean isImportedFromXSD = false;
+                /*
+                 * Sid ACE-122 - we don't do XSD generation anymore so removed
+                 * code related to XSD stereotype.
+                 */
                 if (!isImportedFromXSD) {
                     // If the name is empty, don't bother validating; There
                     // are generic rules to deal with that.

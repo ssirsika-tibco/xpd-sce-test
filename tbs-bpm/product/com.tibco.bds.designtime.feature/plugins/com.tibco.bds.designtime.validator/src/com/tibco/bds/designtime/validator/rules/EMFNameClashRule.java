@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -14,12 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
-import com.tibco.xpd.bom.resources.utils.NameMapper;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
-import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -36,15 +31,13 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
 
     private static final String FACTORY_INTERFACE = "%sFactory"; //$NON-NLS-1$
 
-    private static String[] utilClassNames = new String[] {
-            "%sAdaptorFactory", "%sResourceFactoryImpl", //$NON-NLS-1$ //$NON-NLS-2$
-            "%sResourceImpl", "%sSwitch", "%sValidator", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-            "%sXMLProcessor" }; //$NON-NLS-1$
+    private static String[] utilClassNames =
+            new String[] { "%sAdaptorFactory", "%sResourceFactoryImpl", //$NON-NLS-1$ //$NON-NLS-2$
+                    "%sResourceImpl", "%sSwitch", "%sValidator", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                    "%sXMLProcessor" }; //$NON-NLS-1$
 
     private enum Option {
-        Class,
-        Package,
-        Enumeration;
+        Class, Package, Enumeration;
     }
 
     private Option option;
@@ -84,7 +77,8 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
         // AND
         // all its class impls
 
-        validatePackageAndAnythingItChangingMayImpact(clazz.getPackage(), scope);
+        validatePackageAndAnythingItChangingMayImpact(clazz.getPackage(),
+                scope);
     }
 
     private void validatePackageAndAnythingItChangingMayImpact(
@@ -235,8 +229,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_CLASS,
                                 clazz.getQualifiedName(),
                                 clazz.eResource().getURIFragment(clazz),
-                                Arrays.asList(new String[] {
-                                        ifaceName,
+                                Arrays.asList(new String[] { ifaceName,
                                         impls.get(ifaceName.toLowerCase())
                                                 .getQualifiedName() }));
                     }
@@ -267,24 +260,10 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
 
         String prefix = null;
 
-        // If the package has an XsdBasedModel stereotype, pick up the namespace
-        // from that and derive the genpackage prefix from that instead of the
-        // package name.
-        Stereotype st =
-                pkg.getAppliedStereotype("XsdNotationProfile::XsdBasedModel"); //$NON-NLS-1$
-        if (st != null) {
-            if (pkg.hasValue(st, "xsdTargetNamespace")) { //$NON-NLS-1$
-                Object obj = pkg.getValue(st, "xsdTargetNamespace"); //$NON-NLS-1$
-                if (obj instanceof String) {
-                    IProject project = WorkingCopyUtil.getProjectFor(pkg, true);
-                    prefix =
-                            NameMapper
-                                    .getLastFragmentFromJavaPackageName(XSDUtil
-                                            .getJavaPackageNameFromNamespaceURI(project,
-                                                    (String) obj));
-                }
-            }
-        }
+        /*
+         * Sid ACE-122 - we don't do XSD generation anymore so removed code
+         * related to XSD stereotype.
+         */
 
         // If we didn't get a prefix from the namespace, derive it from the
         // model name instead.

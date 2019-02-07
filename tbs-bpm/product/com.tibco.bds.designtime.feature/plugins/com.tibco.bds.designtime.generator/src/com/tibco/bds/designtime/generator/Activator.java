@@ -3,8 +3,6 @@ package com.tibco.bds.designtime.generator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.tibco.bds.designtime.generator.internal.PerfMetrics;
-import com.tibco.bds.designtime.generator.internal.PerfMetricsEnabled;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.logger.LoggerFactory;
 
@@ -47,31 +45,13 @@ public class Activator extends AbstractUIPlugin {
     }
 
     /**
-     * Gets the Performance Metrics Class suitable for the enabled logging
-     * 
-     * @return PerfMetrics class
-     */
-    public PerfMetrics getPerfMetrics() {
-        if (forcePerfMetricsOn) {
-            // If forces print to system out
-            return new PerfMetricsEnabled(true);
-        }
-        if (getLogger().isDebugEnabled()) {
-            // Don't print to system out
-            return new PerfMetricsEnabled(false);
-        }
-        // Default is turned off
-        return new PerfMetrics();
-    }
-
-    /**
      * Checks if EMF Jet Templates should be copied to the project
      * 
      * @return True if copy, false otherwise
      */
     public boolean isCopyEmfJetTemplatesEnabled() {
         boolean copyEmfTemplates = false;
-        if ( getLogger().isDebugEnabled() || forceEmfJetTemplateCopy) {
+        if (getLogger().isDebugEnabled() || forceEmfJetTemplateCopy) {
             copyEmfTemplates = true;
         }
         return copyEmfTemplates;

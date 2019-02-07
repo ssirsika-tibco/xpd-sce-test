@@ -36,6 +36,7 @@ public class ModelNameEqualToProjectLifecycleIdRule implements IValidationRule {
      * 
      * @see com.tibco.xpd.validation.rules.IValidationRule#getTargetClass()
      */
+    @Override
     public Class<?> getTargetClass() {
         return Model.class;
     }
@@ -47,6 +48,7 @@ public class ModelNameEqualToProjectLifecycleIdRule implements IValidationRule {
      * com.tibco.xpd.validation.rules.IValidationRule#validate(com.tibco.xpd
      * .validation.provider.IValidationScope, java.lang.Object)
      */
+    @Override
     public void validate(IValidationScope scope, Object obj) {
         if (obj instanceof Model) {
             Model model = (Model) obj;
