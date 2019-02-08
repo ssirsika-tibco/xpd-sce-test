@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import com.tibco.xpd.script.model.JsConsts;
@@ -28,6 +26,7 @@ import com.tibco.xpd.script.parser.internal.util.ExpressionUtil;
 import com.tibco.xpd.script.parser.internal.validator.jscript.AbstractExpressionValidator;
 import com.tibco.xpd.script.parser.internal.validator.jscript.JScriptExpressionValidator;
 import com.tibco.xpd.script.parser.util.ParseUtil;
+import com.tibco.xpd.script.parser.util.ScriptEngineUtil;
 import com.tibco.xpd.script.parser.validator.ISymbolTable;
 import com.tibco.xpd.script.parser.validator.IValidationStrategy;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptValidationStrategy;
@@ -39,13 +38,6 @@ public class ValidationUtil {
 
     public static final String SUPPRESS_SCRIPT_VALIDATION_KEY =
             "suppressScriptValidation";
-
-    private static ScriptEngine engine =
-            new ScriptEngineManager().getEngineByName("nashorn"); //$NON-NLS-1$
-
-    public static ScriptEngine getScriptEngine() {
-        return engine;
-    }
 
     private static void validateExpr(AST exprAST, Token token,
             JScriptParser parser) {
@@ -409,7 +401,8 @@ public class ValidationUtil {
                             varMap,
                             token,
                             validator);
-            Object returnValue = getScriptEngine().eval(strExpression);
+            Object returnValue =
+                    ScriptEngineUtil.getScriptEngine().eval(strExpression);
             IScriptRelevantData dataType =
                     ParseUtil.getDataType(returnValue, supportedJsClasses);
             return dataType;

@@ -5,7 +5,6 @@
 package com.tibco.xpd.implementer.resources.xpdl2.properties;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,9 +17,7 @@ import org.eclipse.swt.graphics.Image;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
-import com.tibco.xpd.implementer.resources.xpdl2.errorEvents.CatchWsdlErrorEventUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.WsdlFilter.WsdlDirection;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptContentProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptLabelProvider;
@@ -30,7 +27,6 @@ import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptableLabelProvider;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DirectionType;
-import com.tibco.xpd.xpdl2.WebServiceOperation;
 
 /**
  * For Java Script mappings for a process with ActiveMatrixBPM set, the BOM
@@ -60,9 +56,8 @@ public class JavaScriptBomContentProvider implements ITreeContentProvider {
         this.direction = direction;
         this.directionToService = directionToService;
         this.wsdlDirection = wsdlDirection;
-        conceptContentProvider =
-                new ConceptContentProvider(direction,
-                        !DirectionType.IN_LITERAL.equals(directionToService));
+        conceptContentProvider = new ConceptContentProvider(direction,
+                !DirectionType.IN_LITERAL.equals(directionToService));
     }
 
     /**
@@ -76,35 +71,8 @@ public class JavaScriptBomContentProvider implements ITreeContentProvider {
         if (parentElement instanceof Activity) {
             activity = (Activity) parentElement;
 
-            /*
-             * XPD-6974: Show ERRORCODE && ERRORDETAIL, when the
-             * TimeoutException is selected
-             */
-            if (CatchWsdlErrorEventUtil.isTimeoutExceptionSelectedForSoapJMSConsumer(activity)) {
-                return getChildrenForTimeoutException();
-            }
-
             conceptContentProvider.setActivity(activity);
 
-            ActivityMessageProvider messageProvider =
-                    JavaScriptConceptUtil.INSTANCE.getMessageProvider(activity);
-            if (messageProvider != null) {
-                WebServiceOperation wso =
-                        messageProvider.getWebServiceOperation(activity);
-
-                // if the web-service operation refers to a derived WSDL and the
-                // activity is an auto-generated operation
-                Collection<ConceptPath> childList =
-                        new ArrayList<ConceptPath>();
-                if (wso != null) {
-                    childList
-                            .addAll(JavaScriptConceptUtil.INSTANCE
-                                    .getWebServiceChildren(wso,
-                                            activity,
-                                            wsdlDirection));
-                    return childList.toArray();
-                }
-            }
         } else if (parentElement instanceof ConceptPath) {
             return conceptContentProvider.getChildren(parentElement);
 
@@ -123,13 +91,11 @@ public class JavaScriptBomContentProvider implements ITreeContentProvider {
 
         List<Object> errorParams = new ArrayList<Object>();
 
-        errorParams
-                .add(ConceptUtil
-                        .getConceptPath(StandardMappingUtil.CATCH_ERRORCODE_FORMALPARAMETER));
+        errorParams.add(ConceptUtil.getConceptPath(
+                StandardMappingUtil.CATCH_ERRORCODE_FORMALPARAMETER));
 
-        errorParams
-                .add(ConceptUtil
-                        .getConceptPath(StandardMappingUtil.CATCH_ERRORDETAIL_FORMALPARAMETER));
+        errorParams.add(ConceptUtil.getConceptPath(
+                StandardMappingUtil.CATCH_ERRORDETAIL_FORMALPARAMETER));
 
         return errorParams.toArray();
     }
@@ -223,8 +189,7 @@ public class JavaScriptBomContentProvider implements ITreeContentProvider {
                     ConceptPath cp = (ConceptPath) element;
                     if (cp.getItem() == StandardMappingUtil.CATCH_ERRORCODE_FORMALPARAMETER
                             || cp.getItem() == StandardMappingUtil.CATCH_ERRORDETAIL_FORMALPARAMETER) {
-                        return Xpdl2ResourcesPlugin
-                                .getDefault()
+                        return Xpdl2ResourcesPlugin.getDefault()
                                 .getImageRegistry()
                                 .get(Xpdl2ResourcesConsts.IMG_ERROR_EVENT_ICON12);
                     }

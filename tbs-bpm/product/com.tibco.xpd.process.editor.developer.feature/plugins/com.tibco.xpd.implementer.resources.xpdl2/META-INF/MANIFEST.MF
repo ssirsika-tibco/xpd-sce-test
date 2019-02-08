@@ -18,20 +18,14 @@ Require-Bundle: com.tibco.xpd.resources.ui,
  com.tibco.xpd.implementer.script,
  org.eclipse.emf.workspace,
  com.tibco.xpd.process.js.model,
- com.tibco.xpd.process.xpath.model,
- com.tibco.xpd.process.xpath.parser,
  com.tibco.xpd.destinations.ui,
  com.tibco.xpd.process.js.parser,
  com.tibco.xpd.wsdl,
  com.tibco.xpd.registry.ui,
  org.eclipse.ui.ide;bundle-version="3.4.2",
- com.tibco.xpd.wsdlgen,
  org.eclipse.emf.transaction.ui;bundle-version="1.2.0",
- com.tibco.xpd.wsdltobom,
  com.tibco.xpd.script.ui,
  com.tibco.xpd.bom.types,
- com.tibco.xpd.bom.xsdtransform,
- com.tibco.xpd.bom.wsdltransform,
  com.tibco.xpd.destinations,
  com.tibco.xpd.bom.modeler.diagram,
  com.tibco.xpd.bom.globaldata,
@@ -41,7 +35,9 @@ Require-Bundle: com.tibco.xpd.resources.ui,
  com.tibco.xpd.rest.schema.ui,
  com.tibco.xpd.rsd.model,
  com.tibco.xpd.rest.schema,
- com.tibco.xpd.analyst.resources.xpdl2
+ com.tibco.xpd.analyst.resources.xpdl2,
+ org.eclipse.xsd,
+ org.eclipse.wst.wsdl
 Eclipse-LazyStart: true
 Export-Package: com.tibco.xpd.implementer.resources.xpdl2,
  com.tibco.xpd.implementer.resources.xpdl2.actions,
@@ -53,7 +49,6 @@ Export-Package: com.tibco.xpd.implementer.resources.xpdl2,
  com.tibco.xpd.implementer.resources.xpdl2.properties.filter,
  com.tibco.xpd.implementer.resources.xpdl2.properties.replyimmediate,
  com.tibco.xpd.implementer.resources.xpdl2.utils,
- com.tibco.xpd.implementer.resources.xpdl2.wizards.pageflowgen,
- com.tibco.xpd.implementer.resources.xpdl2.wizards.srvctask
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+ com.tibco.xpd.implementer.resources.xpdl2.wizards.pageflowgen
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

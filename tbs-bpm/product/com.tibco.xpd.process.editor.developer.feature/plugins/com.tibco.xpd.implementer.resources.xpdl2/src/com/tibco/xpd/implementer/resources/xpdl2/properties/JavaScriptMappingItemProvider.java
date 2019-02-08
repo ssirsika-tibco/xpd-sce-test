@@ -7,7 +7,6 @@ package com.tibco.xpd.implementer.resources.xpdl2.properties;
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
-import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.WsdlFilter.WsdlDirection;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositorFactory;
@@ -23,8 +22,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author rsomayaj
  * 
  */
-public class JavaScriptMappingItemProvider extends
-        BaseJavaScriptMappingItemProvider {
+public class JavaScriptMappingItemProvider
+        extends BaseJavaScriptMappingItemProvider {
 
     private final boolean wsdlInput;
 
@@ -61,10 +60,9 @@ public class JavaScriptMappingItemProvider extends
     public ConceptPath resolveParameter(Activity activity,
             MappingDirection direction, String formalName) {
         String name = formalName;
-        if (direction == MappingDirection.IN
-                && formalName
-                        .startsWith(BaseJavaScriptMappingItemProvider.PARAMETER_PREFIX
-                                + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR)) {
+        if (direction == MappingDirection.IN && formalName
+                .startsWith(BaseJavaScriptMappingItemProvider.PARAMETER_PREFIX
+                        + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR)) {
 
             /*
              * Sid: XPD-????: Only strip "parameter.", "response." or "process."
@@ -80,17 +78,15 @@ public class JavaScriptMappingItemProvider extends
             if (TaskImplementationTypeDefinitions.JAVA_SERVICE
                     .equals(TaskObjectUtil
                             .getTaskImplementationExtensionId(activity))) {
-                name =
-                        formalName
-                                .substring(BaseJavaScriptMappingItemProvider.PARAMETER_PREFIX
-                                        .length()
-                                        + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR
-                                                .length());
+                name = formalName.substring(
+                        BaseJavaScriptMappingItemProvider.PARAMETER_PREFIX
+                                .length()
+                                + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR
+                                        .length());
             }
-        } else if (direction == MappingDirection.OUT
-                && formalName
-                        .startsWith(BaseJavaScriptMappingItemProvider.RESPONSE_PREFIX
-                                + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR)) {
+        } else if (direction == MappingDirection.OUT && formalName
+                .startsWith(BaseJavaScriptMappingItemProvider.RESPONSE_PREFIX
+                        + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR)) {
             /*
              * Sid: XPD-????: Only strip "parameter.", "response." or "process."
              * off of JAVA service tasks NOT off other task types (otherwise if
@@ -105,20 +101,15 @@ public class JavaScriptMappingItemProvider extends
             if (TaskImplementationTypeDefinitions.JAVA_SERVICE
                     .equals(TaskObjectUtil
                             .getTaskImplementationExtensionId(activity))) {
-                name =
-                        formalName
-                                .substring(BaseJavaScriptMappingItemProvider.RESPONSE_PREFIX
-                                        .length()
-                                        + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR
-                                                .length());
+                name = formalName.substring(
+                        BaseJavaScriptMappingItemProvider.RESPONSE_PREFIX
+                                .length()
+                                + BaseJavaScriptMappingItemProvider.PARAMETER_SEPARATOR
+                                        .length());
             }
         }
 
-        /* Sid: XPD-3773 Code moved to JavaScripConceptUtil for re-use. */
-        return JavaScriptConceptUtil.INSTANCE
-                .resolveJavaScriptWSDLConceptPath(activity,
-                        name,
-                        wsdlInput ? WsdlDirection.IN : WsdlDirection.OUT);
+        return null;
 
     }
 
@@ -147,11 +138,10 @@ public class JavaScriptMappingItemProvider extends
         } else {
             boolean replyActivity = ReplyActivityUtil.isReplyActivity(activity);
             if (replyActivity) {
-                Activity requestActivityForReplyActivity =
-                        ReplyActivityUtil
-                                .getRequestActivityForReplyActivity(activity);
-                if (Xpdl2ModelUtil
-                        .isGeneratedRequestActivity(requestActivityForReplyActivity)) {
+                Activity requestActivityForReplyActivity = ReplyActivityUtil
+                        .getRequestActivityForReplyActivity(activity);
+                if (Xpdl2ModelUtil.isGeneratedRequestActivity(
+                        requestActivityForReplyActivity)) {
                     return false;
                 }
             } else if (ThrowErrorEventUtil

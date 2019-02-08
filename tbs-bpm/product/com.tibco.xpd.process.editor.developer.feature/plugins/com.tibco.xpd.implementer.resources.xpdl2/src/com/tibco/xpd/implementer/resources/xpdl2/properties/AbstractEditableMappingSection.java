@@ -44,10 +44,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.forms.events.ExpansionEvent;
 import org.eclipse.ui.forms.events.IExpansionListener;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
-import org.eclipse.xsd.XSDTypeDefinition;
 
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
-import com.tibco.xpd.implementer.script.IWsdlPath;
 import com.tibco.xpd.mapper.MapperActivator;
 import com.tibco.xpd.mapper.MapperUtil;
 import com.tibco.xpd.mapper.MapperViewer;
@@ -82,8 +80,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author nwilson
  * @since
  */
-public abstract class AbstractEditableMappingSection extends
-        AbstractActivityMappingProblemMarkerHandlingSection {
+public abstract class AbstractEditableMappingSection
+        extends AbstractActivityMappingProblemMarkerHandlingSection {
     /**
      * The main container that contains the mapping section and the script
      * section.
@@ -118,8 +116,8 @@ public abstract class AbstractEditableMappingSection extends
 
     private Map<String, String> grammarNameMap;
 
-    private static final Logger LOG = XpdResourcesPlugin.getDefault()
-            .getLogger();
+    private static final Logger LOG =
+            XpdResourcesPlugin.getDefault().getLogger();
 
     /**
      * the sash that will be dividing the mapping and script sections.
@@ -217,9 +215,8 @@ public abstract class AbstractEditableMappingSection extends
 
         boolean showGrammarSelectionOpton = showGrammarSelectionCombo();
 
-        Label label =
-                tk.createLabel(header,
-                        Messages.AbstractEditableMappingSection_ScriptGrammarLabel);
+        Label label = tk.createLabel(header,
+                Messages.AbstractEditableMappingSection_ScriptGrammarLabel);
         GridData data1 = new GridData(SWT.FILL, SWT.FILL, false, false);
         label.setLayoutData(data1);
         label.setVisible(showGrammarSelectionOpton);
@@ -346,12 +343,11 @@ public abstract class AbstractEditableMappingSection extends
 
         // Allow sub-class to control whether script section appears.
         if (showScriptEditor()) {
-            expandableScriptEditor =
-                    tk.createSection(scriptSectionContainer,
-                            ExpandableComposite.TWISTIE
-                                    | ExpandableComposite.TITLE_BAR);
-            expandableScriptEditor
-                    .setText(Messages.AbstractEditableMappingSection_ScriptEditorSectionLabel);
+            expandableScriptEditor = tk.createSection(scriptSectionContainer,
+                    ExpandableComposite.TWISTIE
+                            | ExpandableComposite.TITLE_BAR);
+            expandableScriptEditor.setText(
+                    Messages.AbstractEditableMappingSection_ScriptEditorSectionLabel);
             expandableScriptEditor.setLayout(new FillLayout());
 
             expandableScriptEditor
@@ -428,11 +424,9 @@ public abstract class AbstractEditableMappingSection extends
 
                 setSashPercent(newPerc);
                 mainContainer.layout();
-                PropertiesPlugin
-                        .getDefault()
-                        .getPreferenceStore()
-                        .setValue(horzSashPercentPrefId,
-                                (int) (sashPercent * 100));
+                PropertiesPlugin.getDefault().getPreferenceStore().setValue(
+                        horzSashPercentPrefId,
+                        (int) (sashPercent * 100));
             }
             return;
         }
@@ -473,15 +467,13 @@ public abstract class AbstractEditableMappingSection extends
         mainContainer.layout();
 
         if (!enable) {
-            DirectionType dir =
-                    MappingDirection.IN.equals(getDirection()) ? DirectionType.IN_LITERAL
-                            : DirectionType.OUT_LITERAL;
+            DirectionType dir = MappingDirection.IN.equals(getDirection())
+                    ? DirectionType.IN_LITERAL
+                    : DirectionType.OUT_LITERAL;
             Activity activity = (Activity) getInput();
             ScriptInformation information = null;
-            List<?> others =
-                    Xpdl2ModelUtil.getOtherElementList(activity,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_Script());
+            List<?> others = Xpdl2ModelUtil.getOtherElementList(activity,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_Script());
             for (Object other : others) {
                 if (other instanceof ScriptInformation) {
                     ScriptInformation current = (ScriptInformation) other;
@@ -497,12 +489,10 @@ public abstract class AbstractEditableMappingSection extends
                         XpdExtensionFactory.eINSTANCE.createScriptInformation();
             }
             Object[] items = new Object[] { information };
-            MapperActivator
-                    .getDefault()
-                    .fireSourceSelectionChanged(MapperUtil.getMapperId(getDirection(),
-                            getInput()),
-                            scriptSection,
-                            items);
+            MapperActivator.getDefault().fireSourceSelectionChanged(
+                    MapperUtil.getMapperId(getDirection(), getInput()),
+                    scriptSection,
+                    items);
         }
     }
 
@@ -540,10 +530,13 @@ public abstract class AbstractEditableMappingSection extends
         Activity activity = (Activity) getInput();
         if (scriptSection != null) {
             if (activity != null) {
-                /* Sid XPD-7575 - allow grammarViewer to be null if not created. */
+                /*
+                 * Sid XPD-7575 - allow grammarViewer to be null if not created.
+                 */
                 if (grammarViewer != null) {
                     Control grammarControl = grammarViewer.getControl();
-                    if (grammarControl != null && !grammarControl.isDisposed()) {
+                    if (grammarControl != null
+                            && !grammarControl.isDisposed()) {
                         grammarViewer.setInput(activity);
                     }
                 }
@@ -571,7 +564,9 @@ public abstract class AbstractEditableMappingSection extends
             }
 
             if (shouldDisableEditGrammarViewer()) {
-                /* Sid XPD-7575 - allow grammarViewer to be null if not created. */
+                /*
+                 * Sid XPD-7575 - allow grammarViewer to be null if not created.
+                 */
                 if (grammarViewer != null) {
                     if (currentGrammar != null) {
                         /*
@@ -595,9 +590,9 @@ public abstract class AbstractEditableMappingSection extends
      */
     protected String getGrammar() {
         Activity activity = (Activity) getInput();
-        DirectionType dir =
-                MappingDirection.IN.equals(getDirection()) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL;
+        DirectionType dir = MappingDirection.IN.equals(getDirection())
+                ? DirectionType.IN_LITERAL
+                : DirectionType.OUT_LITERAL;
         String grammar = ScriptGrammarFactory.getScriptGrammar(activity, dir);
         if (grammar == null) {
             grammar = ScriptGrammarFactory.getDefaultScriptGrammar(activity);
@@ -638,16 +633,17 @@ public abstract class AbstractEditableMappingSection extends
          * elements and it's generally safer
          */
         CompoundCommand cmd = new LateExecuteCompoundCommand();
-        cmd.setLabel(Messages.AbstractEditableMappingSection_SetScriptGrammarCommand);
+        cmd.setLabel(
+                Messages.AbstractEditableMappingSection_SetScriptGrammarCommand);
 
         Activity activity = (Activity) getInput();
 
         if (activity != null && grammar != null) {
             EditingDomain ed = WorkingCopyUtil.getEditingDomain(activity);
 
-            DirectionType dir =
-                    MappingDirection.IN.equals(getDirection()) ? DirectionType.IN_LITERAL
-                            : DirectionType.OUT_LITERAL;
+            DirectionType dir = MappingDirection.IN.equals(getDirection())
+                    ? DirectionType.IN_LITERAL
+                    : DirectionType.OUT_LITERAL;
 
             /*
              * Remove all existing mappings
@@ -664,17 +660,15 @@ public abstract class AbstractEditableMappingSection extends
              * user defined scripts and existing explicit-grammar-selector
              * ScriptInformation for specific direction)
              */
-            List<?> others =
-                    Xpdl2ModelUtil.getOtherElementList(activity,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_Script());
+            List<?> others = Xpdl2ModelUtil.getOtherElementList(activity,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_Script());
 
             for (Object other : others) {
                 if (other instanceof ScriptInformation) {
                     ScriptInformation information = (ScriptInformation) other;
                     if (dir.equals(information.getDirection())) {
-                        cmd.append(Xpdl2ModelUtil
-                                .getRemoveOtherElementCommand(ed,
+                        cmd.append(
+                                Xpdl2ModelUtil.getRemoveOtherElementCommand(ed,
                                         activity,
                                         XpdExtensionPackage.eINSTANCE
                                                 .getDocumentRoot_Script(),
@@ -689,9 +683,10 @@ public abstract class AbstractEditableMappingSection extends
             ScriptInformation grammarScript =
                     XpdExtensionFactory.eINSTANCE.createScriptInformation();
 
-            grammarScript.setDirection(MappingDirection.IN
-                    .equals(getDirection()) ? DirectionType.IN_LITERAL
-                    : DirectionType.OUT_LITERAL);
+            grammarScript
+                    .setDirection(MappingDirection.IN.equals(getDirection())
+                            ? DirectionType.IN_LITERAL
+                            : DirectionType.OUT_LITERAL);
             Expression expression = Xpdl2Factory.eINSTANCE.createExpression();
             expression.setScriptGrammar(grammar);
             grammarScript.setExpression(expression);
@@ -713,7 +708,8 @@ public abstract class AbstractEditableMappingSection extends
      * @param ed
      * @return A command that will remove all of the data mappings
      */
-    protected Command getRemoveAllMappingsCmdCosGrammarSwitched(EditingDomain ed) {
+    protected Command getRemoveAllMappingsCmdCosGrammarSwitched(
+            EditingDomain ed) {
         Command removeAllMappingsCmd = null;
 
         if (getMapperViewer() != null) {
@@ -774,9 +770,8 @@ public abstract class AbstractEditableMappingSection extends
                 Activity activity = (Activity) inputElement;
                 List<ScriptGrammarElement> grammars = Collections.EMPTY_LIST;
                 try {
-                    grammars =
-                            ScriptGrammarFactory.getEnabledGrammars(activity,
-                                    scriptSection.getScriptContext());
+                    grammars = ScriptGrammarFactory.getEnabledGrammars(activity,
+                            scriptSection.getScriptContext());
                 } catch (CoreException e) {
                     LOG.error(e);
                 }
@@ -800,14 +795,14 @@ public abstract class AbstractEditableMappingSection extends
                         List<ScriptGrammarElement> allGrammars =
                                 Collections.EMPTY_LIST;
                         try {
-                            allGrammars =
-                                    ScriptGrammarFactory
-                                            .getGrammars(scriptSection
-                                                    .getScriptContext());
+                            allGrammars = ScriptGrammarFactory.getGrammars(
+                                    scriptSection.getScriptContext());
                             for (Iterator<ScriptGrammarElement> iterator =
-                                    allGrammars.iterator(); iterator.hasNext();) {
+                                    allGrammars.iterator(); iterator
+                                            .hasNext();) {
                                 ScriptGrammarElement grEl = iterator.next();
-                                if (grEl.getGrammarId().equals(currentGrammar)) {
+                                if (grEl.getGrammarId()
+                                        .equals(currentGrammar)) {
                                     grammars.add(grEl);
                                 }
                             }
@@ -852,7 +847,8 @@ public abstract class AbstractEditableMappingSection extends
          *      java.lang.Object, java.lang.Object)
          */
         @Override
-        public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+        public void inputChanged(Viewer viewer, Object oldInput,
+                Object newInput) {
         }
 
     }
@@ -881,146 +877,6 @@ public abstract class AbstractEditableMappingSection extends
         return false;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.tibco.xpd.mapper.IErrorProvider#getSourceObjectTypeForRecusionComparison
-     * (java.lang.Object)
-     */
-    @Override
-    public Object getSourceObjectTypeForRecursionComparison(
-            Object sourceTreeContentObject) {
-        Object type =
-                getObjectTypeForRecursionComparison(sourceTreeContentObject);
-        if (type != null) {
-            return type;
-        }
-        return super
-                .getSourceObjectTypeForRecursionComparison(sourceTreeContentObject);
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.tibco.xpd.mapper.IErrorProvider#getTargetObjectTypeForRecusionComparison
-     * (java.lang.Object)
-     */
-    @Override
-    public Object getTargetObjectTypeForRecursionComparison(
-            Object targetTreeContentObject) {
-        Object type =
-                getObjectTypeForRecursionComparison(targetTreeContentObject);
-        if (type != null) {
-            return type;
-        }
-
-        return super
-                .getTargetObjectTypeForRecursionComparison(targetTreeContentObject);
-    }
-
-    /**
-     * @param object
-     */
-    private Object getObjectTypeForRecursionComparison(Object object) {
-        if (object instanceof IWsdlPath) {
-            IWsdlPath xsdPath = (IWsdlPath) object;
-
-            XSDTypeDefinition xsdType = xsdPath.getType();
-            if (xsdType != null) {
-                return new XsdTypeForRecursionComparison(xsdType,
-                        xsdPath.isArray());
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * For use with getObjectTypeForRecursionComparison.
-     * <p>
-     * That method has to return a type object that will be used by mapper for
-     * comparing with ancerstor items to ensure against infinite recursions.
-     * <p>
-     * Trouble is that when you have a sequence of TypeA objects in XsdPath in
-     * mapper there are automatically two members (the seuence and first child)
-     * which are the same type (i.e. the seuence header is TypeA as well as each
-     * element in sequence).
-     * <p>
-     * To resolve this issue we simply wrap the XsdType up in a class that also
-     * compares whether it is a sequence header element.
-     * 
-     * 
-     * @author aallway
-     * @since 3.3 (31 Mar 2010)
-     */
-    private static class XsdTypeForRecursionComparison {
-        Object xsdType;
-
-        boolean isSequence;
-
-        /**
-         * @param xsdType
-         * @param isSequence
-         */
-        public XsdTypeForRecursionComparison(Object xsdType, boolean isSequence) {
-            super();
-            this.xsdType = xsdType;
-            this.isSequence = isSequence;
-        }
-
-        /**
-         * we MUST override hashCode as well as equals because hashset checks
-         * hashcode before even attempting to compare with equals.
-         */
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + (isSequence ? 1231 : 1237);
-            result =
-                    prime * result
-                            + ((xsdType == null) ? 0 : xsdType.hashCode());
-            return result;
-        }
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see java.lang.Object#equals(java.lang.Object)
-         */
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            XsdTypeForRecursionComparison other =
-                    (XsdTypeForRecursionComparison) obj;
-            if (isSequence != other.isSequence)
-                return false;
-            if (xsdType == null) {
-                if (other.xsdType != null)
-                    return false;
-            } else if (!xsdType.equals(other.xsdType))
-                return false;
-            return true;
-        }
-
-        /*
-         * (non-Javadoc)
-         * 
-         * @see java.lang.Object#toString()
-         */
-        @Override
-        public String toString() {
-            return (isSequence ? "[]" : "") + xsdType.toString(); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-    }
-
     /**
      * Layout for the Sash divided section.
      * 
@@ -1043,10 +899,10 @@ public abstract class AbstractEditableMappingSection extends
 
                     int sashOffset = (int) (hHint * getSashPercent());
 
-                    mappingSectionContainer
-                            .computeSize(SWT.DEFAULT, sashOffset);
-                    scriptSectionContainer.computeSize(SWT.DEFAULT, hHint
-                            - sashOffset);
+                    mappingSectionContainer.computeSize(SWT.DEFAULT,
+                            sashOffset);
+                    scriptSectionContainer.computeSize(SWT.DEFAULT,
+                            hHint - sashOffset);
 
                 }
             }
@@ -1077,8 +933,8 @@ public abstract class AbstractEditableMappingSection extends
 
             //
             // Position the mapping (upper) section.
-            mappingSectionContainer.setBounds(0, 0, bounds.width, sashOffset
-                    - (sz.y));
+            mappingSectionContainer
+                    .setBounds(0, 0, bounds.width, sashOffset - (sz.y));
 
             //
             // Position the script (lower) section.
@@ -1124,16 +980,14 @@ public abstract class AbstractEditableMappingSection extends
                      * percent such that most of the mapping section is visible
                      * and only the script section header is visible.
                      */
-                    Point scriptSectSz =
-                            scriptSectionContainer.computeSize(SWT.DEFAULT,
-                                    SWT.DEFAULT);
+                    Point scriptSectSz = scriptSectionContainer
+                            .computeSize(SWT.DEFAULT, SWT.DEFAULT);
 
                     Point mainContainerSize = mainContainer.getSize();
 
                     if (scriptSectSz.y > 0 && mainContainerSize.y > 0) {
-                        percent =
-                                ((float) mainContainerSize.y - (float) scriptSectSz.y)
-                                        / mainContainerSize.y;
+                        percent = ((float) mainContainerSize.y
+                                - (float) scriptSectSz.y) / mainContainerSize.y;
                     }
 
                 } else if (PropertiesPlugin.getDefault().getPreferenceStore()
@@ -1143,9 +997,8 @@ public abstract class AbstractEditableMappingSection extends
                      * store has an ertry for the last set sash percent then use
                      * it.
                      */
-                    int sPercent =
-                            PropertiesPlugin.getDefault().getPreferenceStore()
-                                    .getInt(horzSashPercentPrefId);
+                    int sPercent = PropertiesPlugin.getDefault()
+                            .getPreferenceStore().getInt(horzSashPercentPrefId);
 
                     if (sPercent < 1 || sPercent > 100) {
                         sPercent = 60;

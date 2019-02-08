@@ -59,16 +59,6 @@
                   type="com.tibco.xpd.xpdl2.Activity">
             </input>
          </propertySection>
-         <propertySection
-               class="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.DatabaseTabSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.DatabaseTabSection"
-               id="DatabaseSection"
-               tab="com.tibco.xpd.nativeservices.propertyTabs.database">
-            <input
-                  type="com.tibco.xpd.xpdl2.Activity">
-            </input>
-         </propertySection>
           <propertySection
                class="com.tibco.xpd.implementer.nativeservices.globaldataservice.GlobalDataErrorMappingSection"
                enablesFor="1"
@@ -90,14 +80,6 @@
                tab="com.tibco.xpd.nativeservices.propertyTabs.email">
             <input type="com.tibco.xpd.xpdl2.Activity"/>
          </propertySection>
-         <propertySection
-               class="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.DatabaseTabSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.DatabaseTabSection"
-               id="DatabaseSection"
-               tab="com.tibco.xpd.nativeservices.propertyTabs.database">
-            <input type="com.tibco.xpd.xpdl2.Activity"/>
-         </propertySection>
       </propertySections>
    </extension>
    <extension
@@ -107,14 +89,6 @@
             id="E-Mail"
             implementationType="Other"
             name="%emailServiceName"
-            showForPageflow="true"
-            taskType="Service"/>
-      <implementation
-            class="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.DatabaseServiceSection"
-            default="false"
-            id="Database"
-            implementationType="Other"
-            name="%databaseServiceName"
             showForPageflow="true"
             taskType="Service"/>
       <implementation
@@ -155,23 +129,16 @@
       <package
             class="com.tibco.xpd.implementer.nativeservices.emailservice.email.EmailPackage"
             uri="http://www.tibco.com/XPD/email1.0.0"/>
-      <package
-            class="com.tibco.xpd.implementer.nativeservices.databaseservice.database.DatabasePackage"
-            uri="http://www.tibco.com/XPD/database1.0.0"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.extension_parser">
       <parser
             class="com.tibco.xpd.implementer.nativeservices.emailservice.email.util.EmailResourceFactoryImpl"
             type="email"/>
-      <parser
-            class="com.tibco.xpd.implementer.nativeservices.databaseservice.database.util.DatabaseResourceFactoryImpl"
-            type="database"/>
    </extension>
    <extension
          point="com.tibco.xpd.xpdl2.edit.fieldOrParamReferenceResolver">
       <FieldOrParamReferenceResolver class="com.tibco.xpd.implementer.nativeservices.emailservice.utilities.EMailDataFieldResolver"/>
-      <FieldOrParamReferenceResolver class="com.tibco.xpd.implementer.nativeservices.databaseservice.database.util.DatabaseDataFieldResolver"/>
       <FieldOrParamReferenceResolver class="com.tibco.xpd.implementer.nativeservices.script.TimerEventScriptFieldResolver"/>
       <FieldOrParamReferenceResolver class="com.tibco.xpd.implementer.nativeservices.script.RescheduleTimerEventScriptFieldResolver"/>
       <FieldOrParamReferenceResolver class="com.tibco.xpd.implementer.nativeservices.globaldataservice.utils.GlobalDataServiceTaskDataFieldResolver"/>
@@ -192,24 +159,6 @@
       </FieldOrParamReferenceResolver>
       <FieldOrParamReferenceResolver
             class="com.tibco.xpd.implementer.nativeservices.script.UserTaskSubmitScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.WebServiceTaskXPathScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.BwServiceTaskXPathScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.SendTaskXPathScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.MessageEventXPathScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.ReceiveTaskXPathScriptFieldResolver">
-      </FieldOrParamReferenceResolver>
-      <FieldOrParamReferenceResolver
-            class="com.tibco.xpd.implementer.nativeservices.script.MessageMethodXPathScriptFieldResolver">
       </FieldOrParamReferenceResolver>
       <FieldOrParamReferenceResolver
             class="com.tibco.xpd.implementer.nativeservices.script.PerfomerScriptDataResolver">
@@ -241,26 +190,6 @@
       <FieldOrParamReferenceResolver
             class="com.tibco.xpd.implementer.nativeservices.script.AdhocPreconditionScriptReferenceResolver">
       </FieldOrParamReferenceResolver>
-   </extension>
-   <extension
-         point="org.eclipse.ui.editors">
-      <editor
-            class="com.tibco.xpd.implementer.nativeservices.databaseservice.properties.EmbeddedSQLBuilderEditor"
-            default="false"
-            id="com.tibco.xpd.implementer.nativeservices.sqlbuilder"
-            name="%com.tibco.xpd.implementer.nativeservices.sqlbuilder">
-      </editor>
-   </extension>
-   <extension
-         point="com.tibco.xpd.script.ui.scriptGrammar">
-      <scriptGrammar
-            grammarId="XSLT"
-            grammarName="%XSLT">
-         <editorSection
-               editorSectionClass="com.tibco.xpd.implementer.nativeservices.script.XSLTEditorSection"
-               mappable="false">
-         </editorSection>
-      </scriptGrammar>
    </extension>
     <extension
          point="com.tibco.xpd.analyst.resources.xpdl2.bpmnCatchableErrorProviders">

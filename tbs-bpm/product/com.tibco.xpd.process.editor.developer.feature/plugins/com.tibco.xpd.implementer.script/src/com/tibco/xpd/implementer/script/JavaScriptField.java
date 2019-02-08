@@ -5,6 +5,10 @@ package com.tibco.xpd.implementer.script;
 
 import java.util.Map;
 
+import javax.script.Bindings;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
 import org.eclipse.jface.fieldassist.DecoratedField;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.TextControlCreator;
@@ -16,9 +20,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
-import org.mozilla.javascript.Context;
-import org.mozilla.javascript.Script;
-import org.mozilla.javascript.ScriptableObject;
+
+import com.tibco.xpd.script.parser.util.ScriptEngineUtil;
 
 /**
  * @author nwilson
@@ -61,8 +64,8 @@ public class JavaScriptField extends Composite implements VerifyListener {
         TextControlCreator creator = new TextControlCreator();
         df = new DecoratedField(this, style, creator);
         df.setUseMaximumDecorationWidth(false);
-        df.getLayoutControl().setLayoutData(
-                new GridData(SWT.FILL, SWT.FILL, true, true));
+        df.getLayoutControl()
+                .setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         field = (Text) df.getControl();
 
         ImageCache cache = Activator.getDefault().getImageCache();
@@ -87,12 +90,10 @@ public class JavaScriptField extends Composite implements VerifyListener {
      * @see org.eclipse.swt.events.VerifyListener#verifyText(
      *      org.eclipse.swt.events.VerifyEvent)
      */
+    @Override
     public void verifyText(VerifyEvent e) {
-        String text = field.getText(0, e.start - 1)
-                + e.text
-                + field
-                        .getText(e.end, field.getCharCount()
-                                - (e.end - e.start));
+        String text = field.getText(0, e.start - 1) + e.text + field
+                .getText(e.end, field.getCharCount() - (e.end - e.start));
         verify(text);
 
     }
@@ -102,31 +103,20 @@ public class JavaScriptField extends Composite implements VerifyListener {
      *            The text to verify.
      */
     private void verify(String text) {
-        String message;
-        ScriptErrorReporter reporter = new ScriptErrorReporter();
+        String message = null;
         try {
-            Context context = Context.enter();
-            context.setErrorReporter(reporter);
             String scriptText = prefix == null ? text : prefix + text;
-            if (preVerifyScriptTransformer != null) {
-                scriptText = preVerifyScriptTransformer.transform(scriptText);
-            }
-            System.out.println(scriptText);
-            Script script = context.compileString(scriptText, "", 0, null); //$NON-NLS-1$
-            ScriptableObject scope = context.initStandardObjects();
+            ScriptEngine engine = ScriptEngineUtil.getScriptEngine();
+            Bindings bindings = engine.createBindings();
             if (fields != null) {
                 for (String field : fields.keySet()) {
-                    scope.put(field, scope, fields.get(field));
+                    bindings.put(field, fields.get(field));
                 }
             }
-            script.exec(context, scope);
-            if (reporter.hasErrors()) {
-                message = reporter.getErrorMessage();
-            } else {
-                message = ""; //$NON-NLS-1$
-                valid = true;
-            }
-        } catch (Exception ex) {
+            engine.eval(scriptText, bindings);
+
+            valid = true;
+        } catch (ScriptException ex) {
             message = ex.getMessage();
             valid = false;
         }

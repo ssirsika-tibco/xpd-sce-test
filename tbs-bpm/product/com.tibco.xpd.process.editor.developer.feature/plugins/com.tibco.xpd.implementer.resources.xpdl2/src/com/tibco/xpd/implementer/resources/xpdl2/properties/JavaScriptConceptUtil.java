@@ -19,17 +19,11 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.wst.wsdl.Definition;
-import org.eclipse.wst.wsdl.Fault;
-import org.eclipse.wst.wsdl.Message;
 import org.eclipse.wst.wsdl.Part;
 import org.eclipse.wst.wsdl.util.WSDLConstants;
 import org.eclipse.xsd.XSDElementDeclaration;
@@ -42,26 +36,15 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.wsdltransform.api.WSDLTransformUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
-import com.tibco.xpd.implementer.resources.xpdl2.errorEvents.CatchWsdlErrorEventUtil;
-import com.tibco.xpd.implementer.resources.xpdl2.errorEvents.ThrowWsdlErrorEventUtil;
-import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.WsdlFilter.WsdlDirection;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
-import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.WsdlPartConceptPath;
-import com.tibco.xpd.processeditor.xpdl2.properties.WsdlPartConceptPath.PartMode;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
-import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
-import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.SpecialFolders;
@@ -71,11 +54,6 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeExtPointHelper;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeReference;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypesMergedInfo;
-import com.tibco.xpd.util.WsdlIndexerUtil;
-import com.tibco.xpd.wsdl.WsdlServiceKey;
-import com.tibco.xpd.wsdltobom.indexer.WsdlBomIndexerProvider;
-import com.tibco.xpd.wsdltobom.indexer.WsdlBomIndexerUtil;
-import com.tibco.xpd.xpdExtension.PortTypeOperation;
 import com.tibco.xpd.xpdExtension.XpdExtAttribute;
 import com.tibco.xpd.xpdExtension.XpdExtAttributes;
 import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
@@ -89,13 +67,11 @@ import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
 import com.tibco.xpd.xpdl2.Length;
 import com.tibco.xpd.xpdl2.ModeType;
-import com.tibco.xpd.xpdl2.OtherElementsContainer;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.Service;
 import com.tibco.xpd.xpdl2.WebServiceOperation;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
-import com.tibco.xpd.xpdl2.edit.ui.ComplexDataUIUtil;
 import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
 import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
 import com.tibco.xpd.xpdl2.util.ThrowErrorEventUtil;
@@ -129,7 +105,8 @@ public class JavaScriptConceptUtil {
      * 
      */
     private static final String UML_ECLIPSE_SCHEMA_NAMESPACE =
-            "http://www.eclipse.org/uml2/2.1.0/UML";// Searched for this //$NON-NLS-1$
+            "http://www.eclipse.org/uml2/2.1.0/UML";// Searched //$NON-NLS-1$
+                                                    // for this
 
     // namespace in the code
     // base, couldn't find an
@@ -153,57 +130,6 @@ public class JavaScriptConceptUtil {
      * Object parentElement, MappingDirection direction); AND ASSOCIATED LOCAL
      * METHODS.
      */
-
-    /**
-     * Resolve the given JavaScript grammar path that (should) reference an
-     * element in the WSDL input / output part in the operation referenced by
-     * the given activity.
-     * 
-     * @param activity
-     * @param javaScriptWSDLMappingPath
-     *            JavaScript mapping path referencing an element in WSDL
-     *            input/output part.
-     * @param wsdlDirection
-     *            {@link WsdlDirection#IN} if path references input part
-     *            {@link WsdlDirection#OUT} if path references output part.
-     * 
-     * @return The ConceptPath representing the given given part or
-     *         <code>null</code> if the path cannot be resolved into ConceptPath
-     *         for input/output part in web service referenced by activity.
-     */
-    public ConceptPath resolveJavaScriptWSDLConceptPath(Activity activity,
-            String javaScriptWSDLMappingPath, WsdlDirection wsdlDirection) {
-        ConceptPath conceptPath = null;
-
-        ActivityMessageProvider activityMessageProvider =
-                ActivityMessageProviderFactory.INSTANCE
-                        .getMessageProvider(activity, false);
-
-        if (activityMessageProvider != null) {
-            WebServiceOperation webService =
-                    activityMessageProvider.getWebServiceOperation(activity);
-
-            if (webService != null) {
-
-                Collection<ConceptPath> webServiceChildren =
-                        getWebServiceChildren(webService,
-                                activity,
-                                wsdlDirection);
-
-                if (webServiceChildren != null) {
-                    String[] paramElems =
-                            javaScriptWSDLMappingPath.split("\\."); //$NON-NLS-1$
-                    int index = 0;
-                    conceptPath =
-                            internalRecursiveResolveConceptPathFromPaths(paramElems,
-                                    index,
-                                    webServiceChildren);
-                }
-            }
-        }
-
-        return conceptPath;
-    }
 
     /**
      * This method resolves the path into a concept path.
@@ -249,10 +175,9 @@ public class JavaScriptConceptUtil {
             }
             if (path instanceof ConceptPath) {
                 ConceptPath javaScriptConceptPath = path;
-                paramPath =
-                        internalRecursiveResolveConceptPath(pathElements,
-                                pathElementIndex,
-                                javaScriptConceptPath);
+                paramPath = internalRecursiveResolveConceptPath(pathElements,
+                        pathElementIndex,
+                        javaScriptConceptPath);
                 if (paramPath != null) {
                     break;
                 }
@@ -296,10 +221,9 @@ public class JavaScriptConceptUtil {
         if (elem.equals(matchName)) {
             if (arrayItem) {
                 int index = getPosition(pathElements[pathElementIndex], true);
-                checkConceptPath =
-                        new ConceptPath(checkConceptPath,
-                                checkConceptPath.getItem(),
-                                checkConceptPath.getType(), index);
+                checkConceptPath = new ConceptPath(checkConceptPath,
+                        checkConceptPath.getItem(), checkConceptPath.getType(),
+                        index);
             }
             pathElementIndex++;
             if (pathElementIndex == pathElements.length) {
@@ -319,10 +243,10 @@ public class JavaScriptConceptUtil {
                 // children.add((ConceptPath) o);
                 // }
                 // }
-                concepPath =
-                        internalRecursiveResolveConceptPathFromPaths(pathElements,
-                                pathElementIndex,
-                                children);
+                concepPath = internalRecursiveResolveConceptPathFromPaths(
+                        pathElements,
+                        pathElementIndex,
+                        children);
             }
         }
 
@@ -341,126 +265,6 @@ public class JavaScriptConceptUtil {
             base = base.substring(0, open);
         }
         return base;
-    }
-
-    /**
-     * @param activity
-     *            The activity.
-     * @param name
-     *            The parameter name to resolve.
-     * @param directionType
-     * @return The parameter.
-     */
-    @SuppressWarnings("unchecked")
-    public Part resolvePart(Activity activity, String name,
-            WsdlDirection wsdlDirection) {
-
-        ActivityMessageProvider messageProvider = getMessageProvider(activity);
-        if (messageProvider != null) {
-            WebServiceOperation wso =
-                    messageProvider.getWebServiceOperation(activity);
-            Operation operation = getWSDLOperation(wso);
-            List parts = Collections.EMPTY_LIST;
-            Fault fault = CatchWsdlErrorEventUtil.getCaughtWsdlFault(activity);
-            if (fault != null) {
-                Message message = fault.getEMessage();
-                if (message != null) {
-                    parts = message.getEParts();
-                }
-            } else if (isThrowFaultRelatedActivity(activity)) {
-                Fault thrownFault =
-                        ThrowWsdlErrorEventUtil.getWsdlFault(activity);
-                if (thrownFault != null) {
-                    Message message = thrownFault.getEMessage();
-                    if (message != null) {
-                        parts = message.getEParts();
-                    }
-                }
-            } else if (WsdlDirection.IN.equals(wsdlDirection)) {
-                parts = getInputParts(operation);
-            } else if (WsdlDirection.OUT.equals(wsdlDirection)) {
-                parts = getOutputParts(operation);
-            }
-            Part part = findPart(parts, name);
-            return part;
-        }
-        return null;
-    }
-
-    /**
-     * Gets the {@link Operation} for a given {@link WebServiceOperation}
-     * 
-     * @param webService
-     * @return
-     */
-    public Operation getWSDLOperation(WebServiceOperation webService) {
-        if (webService != null) {
-            WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(webService);
-            if (wc != null) {
-                String operation = webService.getOperationName();
-                String portType = null;
-                String portOperation = null;
-
-                EObject parent = webService.eContainer();
-                if (parent instanceof OtherElementsContainer) {
-                    OtherElementsContainer container =
-                            (OtherElementsContainer) parent;
-                    PortTypeOperation portTypeOperation =
-                            (PortTypeOperation) Xpdl2ModelUtil
-                                    .getOtherElement(container,
-                                            XpdExtensionPackage.eINSTANCE
-                                                    .getDocumentRoot_PortTypeOperation());
-                    if (portTypeOperation != null) {
-                        portType = portTypeOperation.getPortTypeName();
-                        portOperation = portTypeOperation.getOperationName();
-                    }
-                }
-                Service svc = webService.getService();
-                if (svc != null) {
-                    String port = webService.getService().getPortName();
-                    String service = webService.getService().getServiceName();
-                    WsdlServiceKey key =
-                            new WsdlServiceKey(service, port, operation,
-                                    portType, portOperation,
-                                    Xpdl2WsdlUtil.getLocation(webService
-                                            .getService()));
-
-                    /*
-                     * XPD-7183: adding null checks.
-                     */
-                    if (key != null) {
-
-                        IResource resource = wc.getEclipseResources().get(0);
-                        if (resource != null && svc.eResource() != null
-                                && svc.eResource().getResourceSet() != null) {
-
-                            IProject project = resource.getProject();
-                            if (project != null) {
-
-                                return WsdlIndexerUtil.getOperation(project,
-                                        key,
-                                        true,
-                                        true);
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * The BOM {@link Class} for a given {@link Part}
-     * 
-     * @param part
-     * @return
-     */
-    public Class getConceptClass(Part part) {
-        IFile bomFile = getCorrespondingBOMFile(part);
-        Class cls1 = getBOMObject(part, bomFile);
-        return cls1;
     }
 
     /**
@@ -487,15 +291,6 @@ public class JavaScriptConceptUtil {
     }
 
     /**
-     * @param activity
-     * @return
-     */
-    public ActivityMessageProvider getMessageProvider(Activity activity) {
-        return ActivityMessageProviderFactory.INSTANCE
-                .getMessageProvider(activity);
-    }
-
-    /**
      * @param webService
      *            The web service to get the children for.
      * @param activity
@@ -510,22 +305,21 @@ public class JavaScriptConceptUtil {
 
         if (!isPortTypeOpOrThrowFaultGenerated
                 && ReplyActivityUtil.isReplyActivity(activity)) {
-            Activity requestActivityForReplyActivity =
-                    ReplyActivityUtil
-                            .getRequestActivityForReplyActivity(activity);
+            Activity requestActivityForReplyActivity = ReplyActivityUtil
+                    .getRequestActivityForReplyActivity(activity);
             if (requestActivityForReplyActivity != null) {
                 isPortTypeOpOrThrowFaultGenerated =
-                        Xpdl2ModelUtil
-                                .isGeneratedRequestActivity(requestActivityForReplyActivity);
+                        Xpdl2ModelUtil.isGeneratedRequestActivity(
+                                requestActivityForReplyActivity);
             }
-        } else if (ThrowErrorEventUtil.isThrowFaultMessageErrorEvent(activity)) {
+        } else if (ThrowErrorEventUtil
+                .isThrowFaultMessageErrorEvent(activity)) {
             /*
              * Take 'WSDL fault' content from the associated parameters rather
              * than the generated WSDL (which may not have been gen'd yet!)
              */
-            isPortTypeOpOrThrowFaultGenerated =
-                    ThrowErrorEventUtil
-                            .shouldGenerateMappingsForErrorEvent(activity);
+            isPortTypeOpOrThrowFaultGenerated = ThrowErrorEventUtil
+                    .shouldGenerateMappingsForErrorEvent(activity);
         }
 
         boolean isReplyImmediateStart =
@@ -545,10 +339,9 @@ public class JavaScriptConceptUtil {
             if (WsdlDirection.OUT.equals(wsdlDirection)
                     && isReplyImmediateStart) {
 
-                return Collections
-                        .singletonList(new ConceptPath(
-                                StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER,
-                                null));
+                return Collections.singletonList(new ConceptPath(
+                        StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER,
+                        null));
 
             } else {
                 /*
@@ -556,77 +349,10 @@ public class JavaScriptConceptUtil {
                  * ConceptPaths - formal param for the assoc param else return
                  * concept paths for all formal params in the process.
                  */
-                List<FormalParameter> formalParameters =
-                        ProcessInterfaceUtil
-                                .getAssociatedFormalParameters(activity);
+                List<FormalParameter> formalParameters = ProcessInterfaceUtil
+                        .getAssociatedFormalParameters(activity);
                 return getConceptPathsForFormalParams(formalParameters,
                         wsdlDirection);
-            }
-        } else {
-
-            Operation op =
-                    JavaScriptConceptUtil.INSTANCE.getWSDLOperation(webService);
-
-            if (op != null) {
-                if (isCatchFaultRelatedActivity(activity)) {
-                    Fault fault =
-                            CatchWsdlErrorEventUtil
-                                    .getCaughtWsdlFault(activity);
-                    if (fault != null) {
-                        Message message = fault.getEMessage();
-                        if (message != null) {
-                            List parts = message.getEParts();
-                            return getConceptPaths(parts);
-                        }
-                    }
-                } else if (isThrowFaultRelatedActivity(activity)) {
-                    Fault fault =
-                            ThrowWsdlErrorEventUtil.getWsdlFault(activity);
-                    if (fault != null) {
-                        Message message = fault.getEMessage();
-                        if (message != null) {
-                            List parts = message.getEParts();
-                            return getConceptPaths(parts);
-                        }
-                    }
-                }
-
-                else {
-                    Collection<?> inputParts = Collections.EMPTY_LIST;
-                    Collection<?> outputParts = Collections.EMPTY_LIST;
-                    if (op != null) {
-                        inputParts = getInputParts(op);
-                        outputParts = getOutputParts(op);
-                    }
-
-                    IFile wsdlFile = getWSDLForWebService(webService);
-                    if (!isPortTypeOpOrThrowFaultGenerated && wsdlFile != null
-                            && Xpdl2ModelUtil.isWsdlStudioGenerated(wsdlFile)) {
-                        // Covers the use case that a start event message refers
-                        // to
-                        // a
-                        // WSDL operation that is generated from a start message
-                        // of
-                        // another process
-                        // In this case, there will be no BOM file created that
-                        // corresponds to the WSDL.
-
-                        // Find the parts
-                        if (WsdlDirection.IN.equals(wsdlDirection)) {
-                            return getConceptPaths(inputParts);
-                        } else {
-                            return getConceptPaths(outputParts);
-                        }
-                    }
-
-                    if (!isPortTypeOpOrThrowFaultGenerated) {
-                        if (WsdlDirection.IN.equals(wsdlDirection)) {
-                            return getConceptPaths(inputParts);
-                        } else {
-                            return getConceptPaths(outputParts);
-                        }
-                    }
-                }
             }
         }
         return Collections.EMPTY_LIST;
@@ -703,10 +429,12 @@ public class JavaScriptConceptUtil {
                 // Setting the project name as it would become unavailable in
                 // the content provider while showing up on the content tree
                 if (addRepresentingPartAttribute) {
-                    addProjectNameXpdExtAttribtoParam(bomFile.getProject()
-                            .getName(), xpdExtAttributes);
+                    addProjectNameXpdExtAttribtoParam(
+                            bomFile.getProject().getName(),
+                            xpdExtAttributes);
                 }
-                extRef.setLocation(specialFolderRelativePath.toPortableString());
+                extRef.setLocation(
+                        specialFolderRelativePath.toPortableString());
 
             }
             if (classifierId instanceof String) {
@@ -755,8 +483,10 @@ public class JavaScriptConceptUtil {
     private XpdExtAttributes addExtendedAttributes(FormalParameter param) {
         XpdExtAttributes xpdExtAttributes =
                 XpdExtensionFactory.eINSTANCE.createXpdExtAttributes();
-        Xpdl2ModelUtil.setOtherElement(param, XpdExtensionPackage.eINSTANCE
-                .getDocumentRoot_ExtendedAttributes(), xpdExtAttributes);
+        Xpdl2ModelUtil.setOtherElement(param,
+                XpdExtensionPackage.eINSTANCE
+                        .getDocumentRoot_ExtendedAttributes(),
+                xpdExtAttributes);
         return xpdExtAttributes;
     }
 
@@ -862,7 +592,8 @@ public class JavaScriptConceptUtil {
                         XSDTypeDefinition elementTypeDefinition =
                                 elementDeclaration.getTypeDefinition();
                         if (elementTypeDefinition instanceof XSDSimpleTypeDefinition) {
-                            resolveConceptPathsForSimpleTypeDefinition(partPaths,
+                            resolveConceptPathsForSimpleTypeDefinition(
+                                    partPaths,
                                     part,
                                     elementTypeDefinition);
                         } else {
@@ -883,49 +614,6 @@ public class JavaScriptConceptUtil {
      */
     private void resolveComplexTypeDefinitions(
             Collection<ConceptPath> partPaths, Part part) {
-        IFile bomFile = getCorrespondingBOMFile(part);
-
-        Classifier cls1 = getBOMClassifier(part, bomFile);
-
-        if (bomFile != null && bomFile.exists() && cls1 != null) {
-            FormalParameter formalParam =
-                    createFormalParam(null,
-                            part.getName(),
-                            cls1,
-                            bomFile,
-                            true,
-                            null);
-            formalParam.setMode(ModeType.OUT_LITERAL);
-            WsdlPartConceptPath wsdlPartConceptPath =
-                    new WsdlPartConceptPath(part, PartMode.INPUT, formalParam,
-                            cls1);
-            partPaths.add(wsdlPartConceptPath);
-        } else {
-
-            String message =
-                    Messages.JavaScriptConceptUtil_awaitingGenerationOfBOM_error_shortdesc;
-
-            IFile wsdlFile = WorkingCopyUtil.getFile(part);
-            if (wsdlFile != null
-                    && !Xpdl2WsdlUtil
-                            .isWsdlFromWsdlToBomNatureProject(wsdlFile)) {
-                message =
-                        Messages.JavaScriptConceptUtil_UseXPathScriptGrammar_error_shortdesc;
-            }
-
-            FormalParameter formalParam =
-                    createFormalParam(INVALID_PART_PARAMETER_ID,
-                            message,
-                            null,
-                            null,
-                            true,
-                            null);
-            formalParam.setMode(ModeType.OUT_LITERAL);
-            WsdlPartConceptPath wsdlPartConceptPath =
-                    new WsdlPartConceptPath(part, PartMode.INPUT, formalParam,
-                            null);
-            partPaths.add(wsdlPartConceptPath);
-        }
     }
 
     /**
@@ -953,54 +641,6 @@ public class JavaScriptConceptUtil {
             Collection<ConceptPath> partPaths, Part part,
             XSDTypeDefinition typeDefinition) {
 
-        /*
-         * XPD-2434: get the BOM type for part type definition FIRST and only
-         * fall back on creating a equiv process simple data type if we don't
-         * find specific bom type. So in this way we are saying if formal param
-         * type is already set to a primitive type then DON'T get base primitive
-         * type for it. and if we get BOM type from part for simple type defs it
-         * does work when the part has a new type generated for it
-         */
-
-        FormalParameter param;
-        Classifier formalParamType = null;
-        IFile bomFile = getCorrespondingBOMFile(part);
-
-        if (bomFile != null && bomFile.exists()) {
-            formalParamType = getBOMClassifier(part, bomFile);
-        }
-
-        if (null != formalParamType) {
-            param =
-                    createFormalParam(null,
-                            part.getName(),
-                            formalParamType,
-                            bomFile,
-                            true,
-                            null);
-            ConceptPath path = new ConceptPath(param, formalParamType);
-            partPaths.add(path);
-
-        } else {
-
-            Object equiStandardPrimType =
-                    getEquiStandardPrimType(typeDefinition);
-            if (null != equiStandardPrimType) {
-
-                param =
-                        createFormalParam(null,
-                                part.getName(),
-                                equiStandardPrimType,
-                                bomFile,
-                                true,
-                                typeDefinition);
-                PrimitiveType standardPrimitiveTypeByName =
-                        getStandardPrimitiveType(typeDefinition);
-                ConceptPath path =
-                        new ConceptPath(param, standardPrimitiveTypeByName);
-                partPaths.add(path);
-            }
-        }
     }
 
     public FormalParameter generateFPFromPart(Part part,
@@ -1026,9 +666,8 @@ public class JavaScriptConceptUtil {
                 getStandardPrimitiveType(typeDefinition);
         BasicType basicType = null;
         if (standardPrimitiveType != null) {
-            Object baseType =
-                    BasicTypeConverterFactory.INSTANCE
-                            .getBaseType(standardPrimitiveType, true);
+            Object baseType = BasicTypeConverterFactory.INSTANCE
+                    .getBaseType(standardPrimitiveType, true);
 
             if (baseType instanceof BasicType) {
                 basicType = (BasicType) baseType;
@@ -1041,28 +680,14 @@ public class JavaScriptConceptUtil {
         // XPD-1995
         if (basicType != null) {
             formalParamType = basicType;
-        } else {
-            /*
-             * If we could not find equivalent xpdl basic type for primitive
-             * type it may be that it is an xsd anytype / anysimpletype element.
-             */
-            bomFile = getCorrespondingBOMFile(part);
-            if (bomFile != null && bomFile.exists()) {
-                Classifier cls1 = getBOMClassifier(part, bomFile);
-
-                if (cls1 != null) {
-                    formalParamType = cls1;
-                }
-            }
         }
 
-        FormalParameter param =
-                createFormalParam(null,
-                        part.getName(),
-                        formalParamType,
-                        bomFile,
-                        addRepresentingPartAttribute,
-                        typeDefinition);
+        FormalParameter param = createFormalParam(null,
+                part.getName(),
+                formalParamType,
+                bomFile,
+                addRepresentingPartAttribute,
+                typeDefinition);
         XSDMaxLengthFacet maxLengthFacet =
                 ((XSDSimpleTypeDefinition) typeDefinition).getMaxLengthFacet();
 
@@ -1093,9 +718,8 @@ public class JavaScriptConceptUtil {
                 getStandardPrimitiveType(typeDefinition);
 
         if (standardPrimitiveType != null) {
-            Object baseType =
-                    BasicTypeConverterFactory.INSTANCE
-                            .getBaseType(standardPrimitiveType, true);
+            Object baseType = BasicTypeConverterFactory.INSTANCE
+                    .getBaseType(standardPrimitiveType, true);
 
             if (baseType == null) {
                 formalParamType = standardPrimitiveType;
@@ -1129,8 +753,8 @@ public class JavaScriptConceptUtil {
          * it further to its lowest type.
          */
 
-        if (WSDLConstants.XSD_NAMESPACE_URI.equals(typeDefinition
-                .getTargetNamespace())) {
+        if (WSDLConstants.XSD_NAMESPACE_URI
+                .equals(typeDefinition.getTargetNamespace())) {
             baseTypeDefinition = (XSDSimpleTypeDefinition) typeDefinition;
         } else {
 
@@ -1150,8 +774,8 @@ public class JavaScriptConceptUtil {
                 baseTypeDefinition =
                         simpleTypeDefinition.getBaseTypeDefinition();
                 if (baseTypeDefinition != null
-                        && !WSDLConstants.XSD_NAMESPACE_URI
-                                .equals(baseTypeDefinition.getTargetNamespace())) {
+                        && !WSDLConstants.XSD_NAMESPACE_URI.equals(
+                                baseTypeDefinition.getTargetNamespace())) {
                     baseTypeDefinition =
                             baseTypeDefinition.getPrimitiveTypeDefinition();
                 }
@@ -1178,15 +802,123 @@ public class JavaScriptConceptUtil {
                 typeDefName = baseTypeDefName;
             }
 
-            String primitiveType = XSDUtil.getBOMPrimitiveType(typeDefName);
-            PrimitiveType standardPrimitiveTypeByName =
-                    PrimitivesUtil
-                            .getStandardPrimitiveTypeByName(XpdResourcesPlugin
-                                    .getDefault().getEditingDomain()
-                                    .getResourceSet(), primitiveType);
+            String primitiveType = getBOMPrimitiveType(typeDefName);
+            PrimitiveType standardPrimitiveTypeByName = PrimitivesUtil
+                    .getStandardPrimitiveTypeByName(
+                            XpdResourcesPlugin.getDefault().getEditingDomain()
+                                    .getResourceSet(),
+                            primitiveType);
             return standardPrimitiveTypeByName;
         }
         return null;
+    }
+
+    /**
+     * Gets a matching primitive type string value for an xsd type.
+     * 
+     * @param xsdType
+     * @return
+     */
+    public static String getBOMPrimitiveType(String xsdType) {
+        String searchBomElement = ""; //$NON-NLS-1$
+
+        if (xsdType != null) {
+            if (xsdType.equalsIgnoreCase("string")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("float")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME;
+            } else if (xsdType.equalsIgnoreCase("decimal")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME;
+            } else if (xsdType.equalsIgnoreCase("double")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME;
+            } else if (xsdType.equalsIgnoreCase("integer")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("int")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("boolean")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME;
+            } else if (xsdType.equalsIgnoreCase("date")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME;
+            } else if (xsdType.equalsIgnoreCase("time")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME;
+            } else if (xsdType.equalsIgnoreCase("datetime")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME;
+            } else if (xsdType.equalsIgnoreCase("id")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("anyuri")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_URI_NAME;
+            } else if (xsdType.equalsIgnoreCase("duration")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME;
+            } else if (xsdType.equalsIgnoreCase("base64binary")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("hexbinary")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("anytype")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME;
+            } else if (xsdType.equalsIgnoreCase("anysimpletype")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME;
+            } else if (xsdType.equalsIgnoreCase("byte")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("entities")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("entity")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("gday")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("gmonth")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("gmonthday")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("gyear")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("gyearmonth")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("idref")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("idrefs")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("language")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("long")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("name")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("ncname")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("negativeinteger")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("nmtoken")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("nmtokens")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("nonnegativeinteger")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("nonpositiveinteger")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("positiveinteger")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("normalizedstring")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("positiveinteger")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("qname")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("short")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("token")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME;
+            } else if (xsdType.equalsIgnoreCase("unsignedbyte")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("unsignedint")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("unsignedlong")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            } else if (xsdType.equalsIgnoreCase("unsignedshort")) { //$NON-NLS-1$
+                searchBomElement = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
+            }
+
+        }
+        return searchBomElement;
     }
 
     /**
@@ -1195,9 +927,8 @@ public class JavaScriptConceptUtil {
     public static ComplexDataTypesMergedInfo getComplexTypesInfo() {
         ComplexDataTypesMergedInfo _complexTypesInfo = null;
         if (_complexTypesInfo == null) {
-            _complexTypesInfo =
-                    ComplexDataTypeExtPointHelper
-                            .getAllComplexDataTypesMergedInfo();
+            _complexTypesInfo = ComplexDataTypeExtPointHelper
+                    .getAllComplexDataTypesMergedInfo();
         }
         return _complexTypesInfo;
     }
@@ -1208,7 +939,8 @@ public class JavaScriptConceptUtil {
      * @return
      */
     private List<ConceptPath> getConceptPathsForFormalParams(
-            List<FormalParameter> formalParameters, WsdlDirection wsdlDirection) {
+            List<FormalParameter> formalParameters,
+            WsdlDirection wsdlDirection) {
 
         List<ConceptPath> conceptPaths = new ArrayList<ConceptPath>();
         for (FormalParameter formalParameter : formalParameters) {
@@ -1224,33 +956,33 @@ public class JavaScriptConceptUtil {
                 ExternalReference externalReference =
                         (ExternalReference) copyOfFormalParam.getDataType();
                 Classifier complexDataTypeModel =
-                        ConceptUtil
-                                .getComplexDataTypeClassfier(new ComplexDataTypeReference(
+                        ConceptUtil.getComplexDataTypeClassfier(
+                                new ComplexDataTypeReference(
                                         externalReference.getLocation(),
                                         externalReference.getXref(),
                                         externalReference.getNamespace()),
-                                        WorkingCopyUtil
-                                                .getProjectFor(formalParameter));
+                                WorkingCopyUtil.getProjectFor(formalParameter));
 
                 if (complexDataTypeModel != null) {
                     IProject projectForBOMClass =
                             WorkingCopyUtil.getProjectFor(complexDataTypeModel);
-                    addProjectNameXpdExtAttribtoParam(projectForBOMClass.getName(),
+                    addProjectNameXpdExtAttribtoParam(
+                            projectForBOMClass.getName(),
                             extAttributes);
 
                 }
             }
             if (WsdlDirection.IN.equals(wsdlDirection)) {
                 if (ModeType.IN_LITERAL.equals(formalParameter.getMode())
-                        || ModeType.INOUT_LITERAL.equals(formalParameter
-                                .getMode())) {
+                        || ModeType.INOUT_LITERAL
+                                .equals(formalParameter.getMode())) {
                     conceptPaths.add(new ConceptPath(copyOfFormalParam,
                             ConceptUtil.getConceptClass(formalParameter)));
                 }
             } else {
                 if (ModeType.OUT_LITERAL.equals(formalParameter.getMode())
-                        || ModeType.INOUT_LITERAL.equals(formalParameter
-                                .getMode())) {
+                        || ModeType.INOUT_LITERAL
+                                .equals(formalParameter.getMode())) {
                     conceptPaths.add(new ConceptPath(copyOfFormalParam,
                             ConceptUtil.getConceptClass(formalParameter)));
                 }
@@ -1303,9 +1035,8 @@ public class JavaScriptConceptUtil {
             String location) {
         Set<IProject> projects = new HashSet<IProject>();
         projects.add(bpmProject);
-        projects =
-                ProjectUtil
-                        .getReferencedProjectsHierarchy(bpmProject, projects);
+        projects = ProjectUtil.getReferencedProjectsHierarchy(bpmProject,
+                projects);
         for (IProject iProject : projects) {
             ProjectConfig projectConfig =
                     XpdResourcesPlugin.getDefault().getProjectConfig(iProject);
@@ -1327,82 +1058,6 @@ public class JavaScriptConceptUtil {
                 }
             }
 
-        }
-        return null;
-    }
-
-    /**
-     * @param inputPart
-     * @return
-     */
-    public IFile getCorrespondingBOMFile(Part part) {
-
-        String typeName = getTypeName(part);
-        String targetNamespace = getTargetNamespace(part);
-
-        boolean isAutoGeneratedWSDL = isWSDLAutoGenerated(part);
-        /*
-         * If WSDL file is generated
-         */
-        IndexerItem indexedItem = null;
-        if (isAutoGeneratedWSDL) {
-            indexedItem =
-                    WsdlBomIndexerUtil
-                            .queryBOMElementForGeneratedWSDL(targetNamespace,
-                                    typeName,
-                                    WorkingCopyUtil.getFile(part));
-        } else {
-            // WSDL not generated
-
-            /*
-             * Look for the BOM class generated for the TYPE of WSDL Part (which
-             * may be in the WSDL or may be in an imported/included schema.
-             */
-            IFile fileForPartType = null;
-
-            XSDTypeDefinition partType = part.getTypeDefinition();
-            if (partType != null) {
-                fileForPartType = WorkingCopyUtil.getFile(partType);
-            }
-
-            if (fileForPartType == null) {
-                /*
-                 * if we could not locate the file for part's type, then look up
-                 * the file for part's element
-                 */
-                XSDElementDeclaration elementDeclaration =
-                        part.getElementDeclaration();
-                if (null != elementDeclaration) {
-                    fileForPartType =
-                            WorkingCopyUtil.getFile(elementDeclaration);
-                }
-                /*
-                 * Just in case we couldn't locate the file for the part's type
-                 * or part's element, look up the file for the WSDL Part itself.
-                 */
-                if (null == fileForPartType) {
-                    fileForPartType = WorkingCopyUtil.getFile(part);
-                }
-            }
-
-            indexedItem =
-                    WsdlBomIndexerUtil
-                            .queryBOMElementUserDefinedWSDLForGivenNameAndNS(targetNamespace,
-                                    typeName,
-                                    part.getElementDeclaration() != null,
-                                    fileForPartType);
-        }
-
-        if (indexedItem != null) {
-            String bomFileName =
-                    indexedItem
-                            .get(WsdlBomIndexerProvider.ATTRIBUTE_BOM_FILE_NAME);
-            if (bomFileName != null) {
-                IFile bomFile =
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getFile(new Path(bomFileName));
-                return bomFile;
-            }
         }
         return null;
     }
@@ -1463,68 +1118,6 @@ public class JavaScriptConceptUtil {
         return targetNamespace;
     }
 
-    /**
-     * @param typeName
-     * @param bomFile
-     * @param isPartReferringToElement
-     */
-    private Class getBOMObject(Part part, IFile bomFile) {
-        Classifier bomClassifier = getBOMClassifier(part, bomFile);
-        if (bomClassifier instanceof Class) {
-            return (Class) bomClassifier;
-        }
-        return null;
-    }
-
-    public Classifier getBOMClassifier(Part part, IFile bomFile) {
-        String typeName = getTypeName(part);
-
-        boolean isWSDLFileAutoGenerated = isWSDLAutoGenerated(part);
-
-        if (bomFile != null && bomFile.exists()) {
-            WorkingCopy bomWC =
-                    XpdResourcesPlugin.getDefault().getWorkingCopy(bomFile);
-            if (bomWC != null && bomWC.getRootElement() != null) {
-                IndexerItem indexerItem = null;
-                indexerItem =
-                        WsdlBomIndexerUtil
-                                .queryElementIdForGivenBOMFileAndTypeName(bomFile
-                                        .getFullPath().toPortableString(),
-                                        typeName,
-                                        isWSDLFileAutoGenerated,
-                                        part.getElementDeclaration() != null);
-                if (indexerItem != null) {
-                    String bomId =
-                            indexerItem
-                                    .get(WsdlBomIndexerProvider.ATTRIBUTE_BOM_ID);
-                    if (bomId != null) {
-                        EObject object =
-                                bomWC.getRootElement().eResource()
-                                        .getEObject(bomId);
-                        if (object instanceof Classifier) {
-                            return (Classifier) object;
-                        }
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * @param part
-     * @return
-     */
-    private boolean isWSDLAutoGenerated(Part part) {
-
-        Definition definition = part.getEnclosingDefinition();
-        if (definition != null) {
-            return WSDLTransformUtil.isGeneratedWsdl(definition);
-        }
-        return false;
-
-    }
-
     public static boolean isWsdlConceptPathContainer(ConceptPath conceptPath) {
         if (conceptPath != null) {
             ConceptPath root = conceptPath.getRoot();
@@ -1553,12 +1146,9 @@ public class JavaScriptConceptUtil {
                 List<XpdExtAttribute> attributes =
                         ((XpdExtAttributes) extendedAttribsOtherElements)
                                 .getAttributes();
-                EObject inList =
-                        EMFSearchUtil
-                                .findInList(attributes,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getXpdExtAttribute_Name(),
-                                        JavaScriptConceptUtil.PARAM_REPRESENTING_PART_EXT_ATTRIB_NAME);
+                EObject inList = EMFSearchUtil.findInList(attributes,
+                        XpdExtensionPackage.eINSTANCE.getXpdExtAttribute_Name(),
+                        JavaScriptConceptUtil.PARAM_REPRESENTING_PART_EXT_ATTRIB_NAME);
                 if (inList instanceof XpdExtAttribute) {
                     // Double check
                     if ("true".equals(((XpdExtAttribute) inList).getValue())) { //$NON-NLS-1$
@@ -1603,67 +1193,9 @@ public class JavaScriptConceptUtil {
              * Simple type definitions for parts are not picked up from the BOM
              * file. They are pseudo created for validation purposes.
              */
-            formalParameter =
-                    generateFPFromPart(part,
-                            typeDefinition,
-                            addRepresentingPartAttribute);
-
-        } else {
-            /*
-             * get the corresponding BOM file for the given part and create the
-             * parameter
-             */
-            IFile bomFile = getCorrespondingBOMFile(part);
-
-            Classifier cls1 = getBOMClassifier(part, bomFile);
-
-            if (bomFile != null && bomFile.exists() && cls1 != null) {
-                formalParameter =
-                        createFormalParam(null,
-                                part.getName(),
-                                cls1,
-                                bomFile,
-                                addRepresentingPartAttribute,
-                                null);
-            } else {
-                /*
-                 * if BOM file doesn't exist or the type couldn't be found,
-                 * create a parameter with dummy ID
-                 */
-                String message =
-                        Messages.JavaScriptConceptUtil_awaitingGenerationOfBOM_error_shortdesc;
-
-                IFile wsdlFile = WorkingCopyUtil.getFile(part);
-                if (wsdlFile != null
-                        && !Xpdl2WsdlUtil
-                                .isWsdlFromWsdlToBomNatureProject(wsdlFile)) {
-                    message =
-                            Messages.JavaScriptConceptUtil_UseXPathScriptGrammar_error_shortdesc;
-                }
-
-                formalParameter =
-                        createFormalParam(INVALID_PART_PARAMETER_ID,
-                                message,
-                                null,
-                                null,
-                                addRepresentingPartAttribute,
-                                null);
-            }
-
-            ExternalReference externalReference =
-                    (ExternalReference) formalParameter.getDataType();
-
-            ComplexDataTypeReference complexDataTypeReference =
-                    ComplexDataUIUtil.resolveSelectionToReference(cls1,
-                            WorkingCopyUtil.getProjectFor(formalParameter),
-                            getComplexTypesInfo());
-            if (complexDataTypeReference != null) {
-                externalReference.setLocation(complexDataTypeReference
-                        .getLocation());
-                externalReference.setNamespace(complexDataTypeReference
-                        .getNameSpace());
-                externalReference.setXref(complexDataTypeReference.getXRef());
-            }
+            formalParameter = generateFPFromPart(part,
+                    typeDefinition,
+                    addRepresentingPartAttribute);
 
         }
 

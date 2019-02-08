@@ -7,7 +7,6 @@ package com.tibco.xpd.implementer.resources.xpdl2.utils;
 import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -22,23 +21,14 @@ import com.tibco.xpd.analyst.resources.xpdl2.pickers.DataFilterPicker.DataPicker
 import com.tibco.xpd.analyst.resources.xpdl2.providers.DataFilterPickerProviderHelper.DataPickerItem;
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
-import com.tibco.xpd.implementer.resources.xpdl2.properties.SetBusinessProcessCommand;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
 import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
 import com.tibco.xpd.processeditor.xpdl2.actions.CloseOpenProcessEditorCommand;
-import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
-import com.tibco.xpd.processeditor.xpdl2.util.WebServiceOperationUtil;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.refactor.ResetDefaultActivityColourCommand;
 import com.tibco.xpd.processwidget.ProcessWidget.ProcessWidgetType;
 import com.tibco.xpd.processwidget.ProcessWidgetColors;
 import com.tibco.xpd.resources.WorkingCopy;
-import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
-import com.tibco.xpd.util.WsdlIndexerUtil;
-import com.tibco.xpd.wsdl.WsdlServiceKey;
 import com.tibco.xpd.wsdl.ui.WsdlUIPlugin;
-import com.tibco.xpd.xpdExtension.PortTypeOperation;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
 import com.tibco.xpd.xpdl2.Event;
@@ -74,31 +64,6 @@ public class ProcessDeveloperUtil {
     public static Command getSetBusinessProcessCommand(
             EditingDomain editingDomain, Activity activity,
             Activity requestActivity) {
-        if (requestActivity != null
-                && activity != null
-                && WebServiceOperationUtil
-                        .isInvokeBusinessProcessImplementationType(activity)) {
-
-            Process bizProcess = requestActivity.getProcess();
-
-            CompoundCommand ccmd = new CompoundCommand();
-            /*
-             * XPD-7705: Creating compound command and passing to
-             * 'generateWsdlInfo' as it does the same thing that this method did
-             * previously.
-             */
-            generateWsdlInfo(editingDomain,
-                    ccmd,
-                    bizProcess,
-                    activity,
-                    requestActivity);
-
-            if (!ccmd.isEmpty()) {
-
-                return ccmd;
-            }
-        }
-
         return UnexecutableCommand.INSTANCE;
     }
 
@@ -109,7 +74,8 @@ public class ProcessDeveloperUtil {
      */
     public static String getBusinessProcessOperationName(Process process,
             Activity requestActivity) {
-        for (Activity activity : Xpdl2ModelUtil.getAllActivitiesInProc(process)) {
+        for (Activity activity : Xpdl2ModelUtil
+                .getAllActivitiesInProc(process)) {
             if (activity == requestActivity && isRequestActivity(activity)) {
                 return activity.getName();
             }
@@ -127,8 +93,8 @@ public class ProcessDeveloperUtil {
 
         Event event = activity.getEvent();
 
-        if (event != null
-                && event.getEventTriggerTypeNode() instanceof TriggerResultMessage) {
+        if (event != null && event
+                .getEventTriggerTypeNode() instanceof TriggerResultMessage) {
             TriggerResultMessage trm =
                     (TriggerResultMessage) event.getEventTriggerTypeNode();
 
@@ -157,96 +123,14 @@ public class ProcessDeveloperUtil {
         return false;
     }
 
-    public static Activity getFirstProcessMessageStartActivity(Process process) {
+    public static Activity getFirstProcessMessageStartActivity(
+            Process process) {
         for (Activity activity : process.getActivities()) {
             if (Xpdl2ModelUtil.isMessageProcessStartActivity(activity)) {
                 return activity;
             }
         }
         return null;
-    }
-
-    /**
-     * Appends the passed compound command with the command to set the Business
-     * Process details of the send task along with the Port Type Operations and
-     * WEb Service Operations to that of the Invoked request activity.
-     * 
-     * @param ed
-     * @param command
-     * @param reqActivityParentProcess
-     *            the parent process of the invoked request activity
-     * @param sendTaskActivity
-     *            the send task whose wsdl, port type, web-service , business
-     *            process details need to be filled synced and filled in.
-     * @param requestActivity
-     *            the invoked request activity by the send task.
-     */
-    public static void generateWsdlInfo(EditingDomain ed,
-            CompoundCommand command, Process reqActivityParentProcess,
-            Activity sendTaskActivity, Activity requestActivity) {
-        String portTypeName = null;
-        String portOperationName = null;
-        String wsdlUrl = null;
-
-        /*
-         * XPD-957: if request activity is already configured with a wsdl
-         * operation then we must use them to configure send task
-         */
-        PortTypeOperation reqActivityPortTypeOp =
-                Xpdl2ModelUtil.getPortTypeOperation(requestActivity);
-
-        if (null != reqActivityPortTypeOp) {
-            portTypeName = reqActivityPortTypeOp.getPortTypeName();
-            portOperationName = reqActivityPortTypeOp.getOperationName();
-            wsdlUrl =
-                    reqActivityPortTypeOp.getExternalReference().getLocation();
-        } else {
-
-            /*
-             * XPD-7705: We should actually never reach here because by this
-             * time the Port type operation should have all the necessary
-             * details and should be enough to fetch the port type , operation
-             * name and wsdl url.
-             */
-            XpdResourcesPlugin
-                    .getDefault()
-                    .getLogger()
-                    .error(String.format("Unable to find the port type operation for the request activity '%1$s' ", requestActivity.getName())); //$NON-NLS-1$
-        }
-
-        if (null == portOperationName) {
-            portOperationName = ""; //$NON-NLS-1$
-        }
-
-        String serviceName = null;
-        String portName = null;
-        String operationName = null;
-
-        boolean isRemote = false;
-        if (portName == null || TaskObjectUtil.isRemoteURL(wsdlUrl)) {
-            isRemote = true;
-        }
-        WsdlServiceKey key =
-                new WsdlServiceKey(serviceName, portName, operationName,
-                        portTypeName, portOperationName, wsdlUrl);
-
-        IProject project =
-                WorkingCopyUtil.getProjectFor(reqActivityParentProcess);
-
-        String transportUri =
-                WsdlIndexerUtil.getTransportUri(project, key, true, true);
-        if (null == transportUri) {
-            transportUri = Xpdl2WsdlUtil.SERVICE_VIRTUALIZATION_URL;
-        }
-        key.setTransportURI(transportUri);
-
-        ActivityMessageProvider messageProvider =
-                ActivityMessageProviderFactory.INSTANCE
-                        .getMessageProvider(sendTaskActivity);
-
-        command.append(new SetBusinessProcessCommand(ed, messageProvider,
-                requestActivity, sendTaskActivity, wsdlUrl, isRemote, key));
-
     }
 
     /**
@@ -315,9 +199,8 @@ public class ProcessDeveloperUtil {
                 Performers performers =
                         rsta.createPerformers(participant.getId());
 
-                CompoundCommand cc =
-                        new CompoundCommand(
-                                Messages.RestServiceTaskSection_EndpointSetCommand);
+                CompoundCommand cc = new CompoundCommand(
+                        Messages.RestServiceTaskSection_EndpointSetCommand);
 
                 cc.append(new SetCommand(editingDomain, activity,
                         Xpdl2Package.eINSTANCE.getActivity_Performers(),
@@ -347,9 +230,8 @@ public class ProcessDeveloperUtil {
                     && workingCopy.getRootElement() instanceof Definition) {
                 Definition definition =
                         (Definition) workingCopy.getRootElement();
-                String attribute =
-                        definition.getElement()
-                                .getAttribute(WsdlUIPlugin.TIBEX_SERVICE_TASK);
+                String attribute = definition.getElement()
+                        .getAttribute(WsdlUIPlugin.TIBEX_SERVICE_TASK);
                 if (attribute != null && attribute.length() > 0) {
                     return Boolean.TRUE;
                 }
@@ -367,12 +249,10 @@ public class ProcessDeveloperUtil {
             EditingDomain ed, Process pageflowProcess) {
         CompoundCommand cmd =
                 new CloseOpenProcessEditorCommand(pageflowProcess);
-        ProcessWidgetColors businessServiceColours =
-                ProcessWidgetColors
-                        .getInstance(ProcessWidgetType.BUSINESS_SERVICE);
-        ProcessWidgetColors pageflowColours =
-                ProcessWidgetColors
-                        .getInstance(ProcessWidgetType.PAGEFLOW_PROCESS);
+        ProcessWidgetColors businessServiceColours = ProcessWidgetColors
+                .getInstance(ProcessWidgetType.BUSINESS_SERVICE);
+        ProcessWidgetColors pageflowColours = ProcessWidgetColors
+                .getInstance(ProcessWidgetType.PAGEFLOW_PROCESS);
 
         Collection<Activity> allActivitiesInProc =
                 Xpdl2ModelUtil.getAllActivitiesInProc(pageflowProcess);
@@ -392,12 +272,10 @@ public class ProcessDeveloperUtil {
             EditingDomain ed, Process pageflowProcess) {
         CompoundCommand cmd =
                 new CloseOpenProcessEditorCommand(pageflowProcess);
-        ProcessWidgetColors businessServiceColours =
-                ProcessWidgetColors
-                        .getInstance(ProcessWidgetType.BUSINESS_SERVICE);
-        ProcessWidgetColors pageflowColours =
-                ProcessWidgetColors
-                        .getInstance(ProcessWidgetType.PAGEFLOW_PROCESS);
+        ProcessWidgetColors businessServiceColours = ProcessWidgetColors
+                .getInstance(ProcessWidgetType.BUSINESS_SERVICE);
+        ProcessWidgetColors pageflowColours = ProcessWidgetColors
+                .getInstance(ProcessWidgetType.PAGEFLOW_PROCESS);
 
         Collection<Activity> allActivitiesInProc =
                 Xpdl2ModelUtil.getAllActivitiesInProc(pageflowProcess);

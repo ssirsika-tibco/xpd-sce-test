@@ -6,20 +6,15 @@ package com.tibco.xpd.implementer.resources.xpdl2.actions;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.wsdl.Operation;
-
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -28,18 +23,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.wst.wsdl.Part;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.AbstractXpdlProjectSelectPage;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
-import com.tibco.xpd.implementer.resources.xpdl2.Activator;
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
-import com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptConceptUtil;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.ElementsFactory;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -72,7 +62,6 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.PublicationStatusType;
 import com.tibco.xpd.xpdl2.RecordType;
 import com.tibco.xpd.xpdl2.RedefinableHeader;
-import com.tibco.xpd.xpdl2.WebServiceOperation;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
 import com.tibco.xpd.xpdl2.edit.util.LocaleUtils;
@@ -101,9 +90,9 @@ public final class GenerateProcessUtil {
         Xpdl2ModelUtil.setOtherAttribute(input,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
                 Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME);
-        input.setName(NameUtil
-                .getInternalName(Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME,
-                        false));
+        input.setName(NameUtil.getInternalName(
+                Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME,
+                false));
         Xpdl2ModelUtil.setOtherAttribute(input,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_XpdModelType(),
                 xpdModelType);
@@ -123,9 +112,9 @@ public final class GenerateProcessUtil {
         Xpdl2ModelUtil.setOtherAttribute(input,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
                 Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME);
-        input.setName(NameUtil
-                .getInternalName(Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME,
-                        false));
+        input.setName(NameUtil.getInternalName(
+                Xpdl2ResourcesConsts.DEFAULT_PROCESS_NAME,
+                false));
         Xpdl2ModelUtil.setOtherAttribute(input,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_XpdModelType(),
                 xpdModelType);
@@ -139,12 +128,12 @@ public final class GenerateProcessUtil {
      * @param iProject
      * @return xpdlPackage
      */
-    public static Package createPackage(String xpdlFileName, IProject iProject) {
+    public static Package createPackage(String xpdlFileName,
+            IProject iProject) {
 
         Package xpdl2Package = Xpdl2Factory.eINSTANCE.createPackage();
-        String pckgName =
-                xpdlFileName.substring(0, xpdlFileName
-                        .indexOf(Xpdl2ResourcesConsts.XPDL_EXTENSION) - 1);
+        String pckgName = xpdlFileName.substring(0,
+                xpdlFileName.indexOf(Xpdl2ResourcesConsts.XPDL_EXTENSION) - 1);
         xpdl2Package.setName(NameUtil.getInternalName(pckgName, false));
         Xpdl2ModelUtil.setOtherAttribute(xpdl2Package,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
@@ -161,9 +150,8 @@ public final class GenerateProcessUtil {
         costUnit.setValue(LocaleUtils.getCurrencyCode(Locale.getDefault()));
         packageHeader.setCostUnit(costUnit);
 
-        String tempLocaleIsaCode =
-                LocaleUtils.getLocaleISOFromDisplayName(Locale.getDefault()
-                        .getDisplayName());
+        String tempLocaleIsaCode = LocaleUtils.getLocaleISOFromDisplayName(
+                Locale.getDefault().getDisplayName());
         Xpdl2ModelUtil.setOtherAttribute(packageHeader,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_Language(),
                 tempLocaleIsaCode);
@@ -175,8 +163,8 @@ public final class GenerateProcessUtil {
         redefinableHeader.setAuthor(System
                 .getProperty(AbstractXpdlProjectSelectPage.USER_NAME_PROPERTY));
         redefinableHeader.setVersion(ProjectUtil.getProjectVersion(iProject));
-        redefinableHeader
-                .setPublicationStatus(PublicationStatusType.UNDER_REVISION_LITERAL);
+        redefinableHeader.setPublicationStatus(
+                PublicationStatusType.UNDER_REVISION_LITERAL);
         xpdl2Package.setRedefinableHeader(redefinableHeader);
 
         ExtendedAttribute attrib =
@@ -245,9 +233,9 @@ public final class GenerateProcessUtil {
                         }
 
                         if (destinationTypes.size() > 0) {
-                            DestinationUtil
-                                    .addPassedDestinationToProcess(destinationTypes,
-                                            newPageflowProcess);
+                            DestinationUtil.addPassedDestinationToProcess(
+                                    destinationTypes,
+                                    newPageflowProcess);
                         }
                     }
                 }
@@ -296,7 +284,8 @@ public final class GenerateProcessUtil {
      * @param workingCopy
      * @return {@link Command} that adds pool and lane
      */
-    public static Command createCommand(EObject input, WorkingCopy workingCopy) {
+    public static Command createCommand(EObject input,
+            WorkingCopy workingCopy) {
 
         if (workingCopy != null) {
             CompoundCommand cmd = new CompoundCommand();
@@ -305,18 +294,15 @@ public final class GenerateProcessUtil {
                     Xpdl2Package.eINSTANCE.getPackage_Processes(),
                     input));
             cmd.setLabel(Messages.NewProcessWizard_AddProcessCmd_label);
-            Pool pool =
-                    ElementsFactory
-                            .createPool(Messages.ProcessPropertySection_DefaultPool_value,
-                                    ((Process) input).getId());
+            Pool pool = ElementsFactory.createPool(
+                    Messages.ProcessPropertySection_DefaultPool_value,
+                    ((Process) input).getId());
 
             Lane lane = Xpdl2Factory.eINSTANCE.createLane();
             lane.setName(Messages.ProcessPropertySection_DefaultLane_label);
-            Xpdl2ModelUtil
-                    .setOtherAttribute(lane,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_DisplayName(),
-                            Messages.ProcessPropertySection_DefaultLane_label);
+            Xpdl2ModelUtil.setOtherAttribute(lane,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
+                    Messages.ProcessPropertySection_DefaultLane_label);
 
             NodeGraphicsInfo gNode =
                     Xpdl2ModelUtil.getOrCreateNodeGraphicsInfo(lane);
@@ -359,19 +345,18 @@ public final class GenerateProcessUtil {
             if (displayName.isEmpty()) {
                 displayName = name;
             }
-            Xpdl2ModelUtil
-                    .setOtherAttribute(pageflowDataField,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_DisplayName(),
-                            displayName);
+            Xpdl2ModelUtil.setOtherAttribute(pageflowDataField,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
+                    displayName);
         }
         /* Set Data type */
         if (processRelevantData.getDataType() instanceof BasicType) {
-            pageflowDataField
-                    .setDataType(processRelevantData.getDataType() == null ? null
-                            : (DataType) EcoreUtil.copy(processRelevantData
-                                    .getDataType()));
-        } else if (processRelevantData.getDataType() instanceof ExternalReference) {
+            pageflowDataField.setDataType(
+                    processRelevantData.getDataType() == null ? null
+                            : (DataType) EcoreUtil
+                                    .copy(processRelevantData.getDataType()));
+        } else if (processRelevantData
+                .getDataType() instanceof ExternalReference) {
             ExternalReference paramExternalRef =
                     (ExternalReference) processRelevantData.getDataType();
 
@@ -404,10 +389,9 @@ public final class GenerateProcessUtil {
         pageflowDataField.setIsArray(processRelevantData.isIsArray());
 
         /* Length */
-        pageflowDataField
-                .setLength(processRelevantData.getLength() == null ? null
-                        : (Length) EcoreUtil.copy(processRelevantData
-                                .getLength()));
+        pageflowDataField.setLength(processRelevantData.getLength() == null
+                ? null
+                : (Length) EcoreUtil.copy(processRelevantData.getLength()));
 
         /* Read only flag */
         pageflowDataField.setReadOnly(processRelevantData.isReadOnly());
@@ -441,9 +425,9 @@ public final class GenerateProcessUtil {
          * name / process package name
          */
         IProject project = WorkingCopyUtil.getProjectFor(pageflowProcess);
-        String defaultCategory =
-                Xpdl2ModelUtil.getBusinessServiceDefaultCategory(project
-                        .getName(), pageflowProcess.getPackage().getName());
+        String defaultCategory = Xpdl2ModelUtil
+                .getBusinessServiceDefaultCategory(project.getName(),
+                        pageflowProcess.getPackage().getName());
         command.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(ed,
                 pageflowProcess,
                 XpdExtensionPackage.eINSTANCE
@@ -483,78 +467,8 @@ public final class GenerateProcessUtil {
                     paramsList.add((FormalParameter) prd);
                 }
             }
-        } else {
-
-            ActivityMessageProvider messageProvider =
-                    JavaScriptConceptUtil.INSTANCE.getMessageProvider(bpMsgAct);
-            if (messageProvider != null) {
-
-                WebServiceOperation wso =
-                        messageProvider.getWebServiceOperation(bpMsgAct);
-                /*
-                 * if the web-service operation refers to a derived WSDL and the
-                 * activity is an auto-generated operation
-                 */
-                Operation op =
-                        JavaScriptConceptUtil.INSTANCE.getWSDLOperation(wso);
-                Collection<?> inputParts = Collections.EMPTY_LIST;
-                if (op != null) {
-
-                    inputParts = JavaScriptConceptUtil.getInputParts(op);
-                    /*
-                     * XPD-4989- Kapil : Check if the Javascript data mappings
-                     * are possible, if not then do not generate the Business
-                     * process.
-                     */
-                    checkJavaScriptMappings(inputParts);
-                }
-
-                /*
-                 * XPD-4187: Refactored part of this method into a new method
-                 * 'createFormalParamForPart()' to make it reusable
-                 */
-                for (Object inputPart : inputParts) {
-
-                    if (inputPart instanceof Part) {
-
-                        Part part = (Part) inputPart;
-                        FormalParameter param =
-                                JavaScriptConceptUtil.INSTANCE
-                                        .createFormalParamForPart(part,
-                                                ModeType.INOUT_LITERAL,
-                                                true);
-                        paramsList.add(param);
-                    }
-                }
-            }
         }
         return paramsList;
-    }
-
-    /**
-     * Checks if the Concept path returned by the input part have
-     * correct/complete Javascript mappings. If not then notify the user with an
-     * error Dialog box and throw CoreException to prevent the Generation of
-     * Business service.
-     * 
-     * @param inputParts
-     * @throws CoreException
-     */
-    public static void checkJavaScriptMappings(Collection<?> inputParts)
-            throws CoreException {
-
-        Collection<ConceptPath> conceptPaths =
-                JavaScriptConceptUtil.INSTANCE.getConceptPaths(inputParts);
-        for (ConceptPath conceptPath : conceptPaths) {
-
-            if (JavaScriptConceptUtil.isInvalidPartParameter(conceptPath)) {
-                throw new CoreException(
-                        new Status(
-                                IStatus.ERROR,
-                                Activator.PLUGIN_ID,
-                                Messages.JavaScriptConceptUtil_CannotGenerateBusinessServiceErrorDialog_message1));
-            }
-        }
     }
 
     /**
@@ -587,9 +501,9 @@ public final class GenerateProcessUtil {
                 if (ModeType.IN_LITERAL.equals(mode)
                         || ModeType.INOUT_LITERAL.equals(mode)) {
 
-                    DataField dataField =
-                            GenerateProcessUtil
-                                    .createDataFieldForAssociatedData(processRelevantData);
+                    DataField dataField = GenerateProcessUtil
+                            .createDataFieldForAssociatedData(
+                                    processRelevantData);
 
                     dataFieldsList.add(dataField);
                 }

@@ -21,15 +21,8 @@
             name="BPMN Task Validation Provider"
             scopeProvider="com.tibco.xpd.validation.xpdl2.provider.ActivityScopeProvider">
          
-         <rule class="com.tibco.xpd.validation.bpmn.developer.rules.JavaServiceJavaScriptInputRule"/>
-         <rule class="com.tibco.xpd.validation.bpmn.developer.rules.JavaServiceJavaScriptOutputRule"/>
-         <rule class="com.tibco.xpd.validation.bpmn.developer.rules.JavaServiceContiguousArrayRule"/>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.BWWebServiceRule">
-         </rule>
-         <rule class="com.tibco.xpd.validation.bpmn.developer.rules.JavaServiceClassRule"/>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.DatabaseStoredProcedureRule">
          </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ScriptContentsRule">
@@ -46,20 +39,11 @@
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ServiceTaskSystemParticipantRule">
          </rule>
-         <!--rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.WSDLGenDervivedWSDLRule">
-         </rule-->
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.WsdlLocationValidationRule">
-         </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ThrowErrorEventRules">
          </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.MissingImplementationTypeRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.BpmnWebServiceReferenceValidationRule">
          </rule>
           <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.AdhocActivityTaskConfigurationRule">
@@ -80,12 +64,6 @@
                class="com.tibco.xpd.validation.bpmn.developer.rules.ImplementingEventValidatePortType">
          </rule>
          <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.WebServiceGrammarSupportedRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.WSDLFaultMessagePartTypeRule">
-         </rule>
-         <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.SignalThrowCatchRule">
          </rule>
          <rule
@@ -93,9 +71,6 @@
          </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.EventHandlerCorrelationDataInitializerRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.DocLitApiActivitySingleParamRule">
          </rule>
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.GlobalDataTaskRule">
@@ -983,13 +958,6 @@
       </resolution>
      
       <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.FixWsdlEndPointLocationResolution"
-            description="%resolution.bpmn.dev.wrongWsdlLocationForActivity"
-            id="bpmn.dev.wrongWsdlLocationForActivity"
-            label="%resolution.bpmn.dev.wrongWsdlLocationForActivity">
-      </resolution>
-      <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.ConvertToPlugInProjectResolution"
             id="bpmn.dev.javaProject.notPluginProject"
             label="%convertToPluginProject_resolution_label">
@@ -1017,13 +985,6 @@
             label="%resolution.label.bpmn.dev.invalidPorttypeConfigured">
       </resolution>
       <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.SetCorrectPorttypeResolution"
-            description="%resolution.desc.bpmn.dev.invalidPorttypeConfigured"
-            id="bpmn.dev.incorrectPortTypeSet"
-            label="%resolution.label.bpmn.dev.invalidPorttypeConfigured">
-      </resolution>
-      <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.RemoveInvalidCaseIdentifierResolution"
             description="%removeInvalidCaseIdResolution_longdesc"
             id="bpmn.dev.globalDataTask.deleteByCompositeCaseIdOp.invalidId"
@@ -1032,85 +993,7 @@
       </resolution>
    </extension>
    <extension
-         point="org.eclipse.ui.ide.markerResolution">
-      <markerResolutionGenerator
-            class="com.tibco.xpd.validation.generators.GenericResolutionGenerator"
-            markerType="com.tibco.xpd.validation.bpmn.developer">
-      </markerResolutionGenerator>
-   </extension>
-    <extension
-         point="com.tibco.xpd.validation.destinations">
-      <destination
-            id="com.tibco.xpd.validation.bpmn.developer.wsdlDestination"
-            name="%destination_wsdl_label"
-            selectable="false"
-            version="1">
-         <filter
-               class="com.tibco.xpd.validation.bpmn.developer.internal.wsdl.WsdlFileFilter">
-         </filter>
-         <validationProvider
-               id="com.tibco.xpd.validation.bpmn.developer.wsdlProvider">
-         </validationProvider>
-      </destination>
-   </extension>
-   <extension
-         point="com.tibco.xpd.validation.provider">
-      <provider
-            id="com.tibco.xpd.validation.bpmn.developer.wsdlProvider"
-            name="WSDL Validation Provider"
-            scopeProvider="com.tibco.xpd.validation.bpmn.developer.internal.wsdl.WSDLScopeProvider">
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.internal.wsdl.DuplicateBoundOperationRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.wsdl.MessageValidationRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.internal.wsdl.DuplicatePortTypeRule"
-               validateOnSaveOnly="false">
-         </rule>
-      </provider>
-      <issue
-            id="com.tibco.xpd.validation.bpmn.developer.issue.duplicateWsdlBoundOperation"
-            message="%duplicate_boundOperation_message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="com.tibco.xpd.validation.bpmn.developer.issue.duplicateWsdlUnboundOperation"
-            message="%duplicate_unboundOperation_message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="binding_operation_style_attribute_match"
-            message="%binding_operation_style_attribute_match"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="bpmn.dev.multiplePortsWithSameBinding"
-            message="%bpmn.dev.multiplePortsWithSameBinding"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="message_with_same_name_tns_should_be_identical"
-            message="%message_with_same_name_tns_should_be_identical"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="duplicate_port_type_in_wsdls_in_referencing_projects"
-            message="%duplicate_port_type_in_wsdls_in_referencing_projects"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-      </issue>
-   </extension>
-   <extension
          point="com.tibco.xpd.validation.reusableResolutions">
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.ChangeWSDLOperationResolution"
-            description="%resolution.bpmn.selectWebServiceOperation"
-            id="resolution.bpmn.selectWebServiceOperation"
-            image="icons/operation_obj.gif"
-            label="%resolution.bpmn.selectWebServiceOperation">
-      </resolution>
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.CreateReplyActivityResolution"
             description="%resolution.bpmn.dev.createReplyActivity"
@@ -1166,34 +1049,10 @@
             label="%resolution.bpmn.dev.selectedDecisionFlow">
       </resolution>
       <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.ConvertBWToWebServiceResolution"
-            description="%resolution.bpmn.convertBWToWebService.description"
-            id="resolution.bpmn.convertBWToWebService"
-            label="%resolution.bpmn.convertBWToWebService">
-      </resolution>
-      <resolution
             class="com.tibco.xpd.validation.bpmn.developer.ReIndexProcessPackageResolution"
             description="%resolution.bpmn.reIndexProcessPackage"
             id="resolution.bpmn.reIndexProcessPackage"
             label="%resolution.bpmn.reIndexProcessPackage">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.DisableNamespacePrefixMappingResolution"
-            description="%resolution.bpmn.dev.disableNamespacePrefixMapping"
-            id="resolution.bpmn.dev.disableNamespacePrefixMapping"
-            label="%resolution.bpmn.dev.disableNamespacePrefixMapping">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.AddNamespacePrefixMapResolution"
-            description="%resolution.bpmn.dev.addNamespacePrefixMap"
-            id="resolution.bpmn.dev.addNamespacePrefixMap"
-            label="%resolution.bpmn.dev.addNamespacePrefixMap">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.RegenerateNamespaceMappingResolution"
-            description="%resolution.bpmn.dev.regenerateNamespaceMapping"
-            id="resolution.bpmn.dev.regenerateNamespaceMapping"
-            label="%resolution.bpmn.dev.regenerateNamespaceMapping">
       </resolution>
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.EventHandlerCorrelationDataRemoveInitialiserEntriesResolution"
@@ -1205,31 +1064,6 @@
             id="resolution.bpmn.dev.initializeEventHandlerCorrelationData"
             label="%resolution.bpmn.dev.initializeEventHandlerCorrelationData">
       </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.SetXPathGrammarResolution"
-            description="%resolution.bpmn.setXPathGrammar"
-            id="resolution.bpmn.setXPathGrammar"
-            label="%resolution.bpmn.setXPathGrammar">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.SelectSendTaskBusinessProcessRequestActivityResolution"
-            description="%resolution.bpmn.selectBpmBusinessProcessRequestActivity_desc"
-            id="bpmn.dev.noBusinessProcessRequestActivitySelected"
-            label="%resolution.bpmn.selectBpmBusinessProcessRequestActivity">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.SetToInvokeMsgStartEventResolution"
-            description="%resolution.bpmn.setBpmBusinessProcessRequestActivity_desc"
-            id="bpmn.dev.setBusinessProcessRequestActivity"
-            label="%resolution.bpmn.setBpmBusinessProcessRequestActivity">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.EnableNamespacePrefixMapping"
-            description="%resolution.bpmn.dev.enableNamespacePrefixMapping"
-            id="resolution.bpmn.dev.enableNamespacePrefixMapping"
-            label="%resolution.bpmn.dev.enableNamespacePrefixMapping">
-      </resolution>     
-
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.ChangeToRpcLitResolution"
             id="bpmn.dev.resolution.changetoRpcLit"
@@ -1282,18 +1116,6 @@
             id="bpmn.resolution.convertToRESTServiceParticipantResolution"
             label="%bpmn.resolution.convertToRESTServiceParticipantResolution">
       </resolution>
-   </extension>
-   <extension
-         point="com.tibco.xpd.validation.providerExtension">
-      <providerExtension
-            providerId="com.tibco.xpd.xpdl2wsdl.wsdl.validation.provider">
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.wsdl.BindingOperationStyleRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.wsdl.DuplicatePortBindingsRule">
-         </rule>
-      </providerExtension>
    </extension>
    <extension
          point="com.tibco.xpd.validation.preProcessor">

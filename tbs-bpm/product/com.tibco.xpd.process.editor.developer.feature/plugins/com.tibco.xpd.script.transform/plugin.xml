@@ -30,38 +30,6 @@
       </propertyTabs>
    </extension>
    <extension
-         point="org.eclipse.ui.views.properties.tabbed.propertySections">
-      <propertySections
-            contributorId="com.tibco.xpd.processeditor.xpdl2.propertyContributor">
-         <propertySection
-               class="com.tibco.xpd.script.transform.properties.ScriptMappingTransformSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.script.transform.properties.ScriptMappingTransformSection"
-               id="developer.scriptMapperTransform"
-               tab="com.tibco.xpd.implementer.propertyTabs.scriptMapperTransform">
-            <input
-                  type="com.tibco.xpd.xpdl2.Activity">
-            </input>
-         </propertySection>
-      </propertySections>
-   </extension>
-   <extension
-         point="org.eclipse.ui.views.properties.tabbed.propertySections">
-      <propertySections
-            contributorId="org.eclipse.ui.navigator.ProjectExplorer">
-         <propertySection
-               class="com.tibco.xpd.script.transform.properties.ScriptMappingTransformSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.script.transform.properties.ScriptMappingTransformSection"
-               id="developer.scriptMapperTransform"
-               tab="com.tibco.xpd.implementer.propertyTabs.scriptMapperTransform">
-            <input
-                  type="com.tibco.xpd.xpdl2.Activity">
-            </input>
-         </propertySection>
-      </propertySections>
-   </extension>
-   <extension
          point="com.tibco.xpd.processeditor.xpdl2.scriptMappingCompositor">
       <ScriptMappingCompositorFactory
             context="ScriptTask"
@@ -69,14 +37,6 @@
             factory="com.tibco.xpd.script.transform.properties.ScriptMappingTransformFactory"
             grammar="XPath">
       </ScriptMappingCompositorFactory>
-   </extension>
-   <extension
-         point="com.tibco.xpd.processeditor.xpdl2.mappingGrammarConvertor">
-      <convertor
-            class="com.tibco.xpd.script.transform.mapping.XPathToXsltTransformMappingGrammarConvertor"
-            from="XPath"
-            to="XSLT_Transform">
-      </convertor>
    </extension>
    <extension
          point="com.tibco.xpd.script.ui.scriptGrammar">

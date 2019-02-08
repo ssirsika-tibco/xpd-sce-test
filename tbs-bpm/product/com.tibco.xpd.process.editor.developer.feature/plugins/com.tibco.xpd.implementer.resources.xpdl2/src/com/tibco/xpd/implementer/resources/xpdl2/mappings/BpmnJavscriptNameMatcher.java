@@ -6,23 +6,16 @@ package com.tibco.xpd.implementer.resources.xpdl2.mappings;
 
 import java.util.StringTokenizer;
 
-import com.tibco.xpd.implementer.script.TaskSendInvokeBusinessProcessAdapter;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.extensions.AbstractTypeMatcher;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.util.MapperTreeItem;
-import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
-import com.tibco.xpd.processwidget.adapters.TaskType;
-import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
-import com.tibco.xpd.xpdl2.Task;
-import com.tibco.xpd.xpdl2.TaskSend;
-import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Javascript BPMN Destination type matcher. This class is used by the auto-map
- * functionality on the mapper screen. This type matcher applies to
- * "Input to Service" direction of the mappings.
+ * functionality on the mapper screen. This type matcher applies to "Input to
+ * Service" direction of the mappings.
  * 
  * @author rsomayaj
  * @since 3.3 (11 Jun 2010)
@@ -118,29 +111,6 @@ public class BpmnJavscriptNameMatcher extends AbstractTypeMatcher {
             return true;
         }
 
-        return false;
-    }
-
-    /**
-     * @param activity
-     * @return true if the given activity is a Send Task with its
-     *         xpdExt:ImplementationType is
-     *         <code>TaskSendInvokeBusinessProcessAdapter.XPDEXT_INVOKEBUSINESSPROCESS_LITERAL</code>
-     */
-    private boolean isInvokeBusinessProcessActivity(Activity activity) {
-        if (TaskType.SEND_LITERAL.equals(TaskObjectUtil.getTaskType(activity))) {
-            TaskSend taskSend =
-                    ((Task) activity.getImplementation()).getTaskSend();
-            Object implementationType =
-                    Xpdl2ModelUtil.getOtherAttribute(taskSend,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_ImplementationType());
-            if (TaskSendInvokeBusinessProcessAdapter.XPDEXT_INVOKEBUSINESSPROCESS_LITERAL
-                    .equals(implementationType)) {
-                return true;
-            }
-
-        }
         return false;
     }
 

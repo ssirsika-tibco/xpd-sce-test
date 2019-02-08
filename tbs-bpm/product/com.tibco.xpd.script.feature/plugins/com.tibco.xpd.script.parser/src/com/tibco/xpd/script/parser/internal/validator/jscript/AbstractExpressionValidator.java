@@ -69,6 +69,7 @@ import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 import com.tibco.xpd.script.parser.internal.validator.IVarNameResolver;
 import com.tibco.xpd.script.parser.internal.validator.ValidationUtil;
 import com.tibco.xpd.script.parser.util.ParseUtil;
+import com.tibco.xpd.script.parser.util.ScriptEngineUtil;
 import com.tibco.xpd.script.parser.validator.IExpressionValidator;
 import com.tibco.xpd.script.parser.validator.ISymbolTable;
 
@@ -1261,7 +1262,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
             Token token) {
         try {
             String strExpression = getExpressionString(exprChildAST, token);
-            ScriptEngine engine = ValidationUtil.getScriptEngine();
+            ScriptEngine engine = ScriptEngineUtil.getScriptEngine();
             Object returnValue = engine.eval(strExpression);
             IScriptRelevantData dataType =
                     ParseUtil.getDataType(returnValue, getSupportedJsClasses());

@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
 import com.tibco.xpd.implementer.script.ActivityMessageUtil;
 import com.tibco.xpd.mapper.MappingDelta;
 import com.tibco.xpd.mapper.MappingDirection;
@@ -106,9 +105,9 @@ public class ScriptMappingTransformCommandFactory extends
         Activity act = (Activity) owner;
         Command command = null;
         TaskScript taskScript = getTaskScript(act);
-        DirectionType dir =
-                createDirection.equals(MappingDirection.IN) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL;
+        DirectionType dir = createDirection.equals(MappingDirection.IN)
+                ? DirectionType.IN_LITERAL
+                : DirectionType.OUT_LITERAL;
         if (taskScript != null) {
             CompoundCommand cmd =
                     new CompoundCommand(Messages.addMappingCommand);
@@ -117,7 +116,8 @@ public class ScriptMappingTransformCommandFactory extends
             String text = ""; //$NON-NLS-1$
             boolean isScriptCopy = false;
             if (source instanceof ScriptInformation) {
-                if (((ScriptInformation) source).eContainer() instanceof DataMapping) {
+                if (((ScriptInformation) source)
+                        .eContainer() instanceof DataMapping) {
                     isScriptCopy = true;
                 }
                 if (createDirection.equals(MappingDirection.IN)) {
@@ -161,9 +161,8 @@ public class ScriptMappingTransformCommandFactory extends
                                         script = expression.getText();
                                     }
                                 } else if (parent instanceof DataMapping) {
-                                    script =
-                                            DataMappingUtil
-                                                    .getScript((DataMapping) parent);
+                                    script = DataMappingUtil
+                                            .getScript((DataMapping) parent);
                                 }
                                 scriptMapping.setScript(script);
                             } else {
@@ -175,7 +174,8 @@ public class ScriptMappingTransformCommandFactory extends
                             mapping.setDirection(dir);
                             if (createDirection.equals(MappingDirection.IN)) {
                                 mapping.setFormal(path);
-                                mapping.setActual(scriptMapping.getExpression());
+                                mapping.setActual(
+                                        scriptMapping.getExpression());
                             } else {
                                 Expression expression =
                                         Xpdl2ModelUtil.createExpression(path);
@@ -233,8 +233,8 @@ public class ScriptMappingTransformCommandFactory extends
                 EObject informationContainer = information.eContainer();
                 if (informationContainer == null) {
                     information.setActivity(null);
-                    information.setName(ScriptInformationUtil
-                            .getNextScriptName(act, dir));
+                    information.setName(
+                            ScriptInformationUtil.getNextScriptName(act, dir));
                     String grammar =
                             ScriptGrammarFactory.getScriptGrammar(act, dir);
                     if (grammar == null) {
@@ -242,11 +242,11 @@ public class ScriptMappingTransformCommandFactory extends
                     }
                     information.getExpression().setScriptGrammar(grammar);
                     if (container.eContainer() == null) {
-                        Xpdl2ModelUtil
-                                .addOtherElement((OtherElementsContainer) container,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_Script(),
-                                        information);
+                        Xpdl2ModelUtil.addOtherElement(
+                                (OtherElementsContainer) container,
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_Script(),
+                                information);
                     } else {
                         cmd.append(Xpdl2ModelUtil.getAddOtherElementCommand(ed,
                                 (OtherElementsContainer) container,
@@ -271,24 +271,22 @@ public class ScriptMappingTransformCommandFactory extends
                 } else if (informationContainer instanceof DataMapping) {
                     DataMapping mapping = (DataMapping) informationContainer;
                     int i = 1;
-                    String name =
-                            String.format(Messages.ActivityMessageMappingCommandFactory_message,
-                                    i,
-                                    information.getName());
-                    while (ScriptInformationUtil.scriptNameExists(act,
-                            dir,
-                            name)) {
+                    String name = String.format(
+                            Messages.ActivityMessageMappingCommandFactory_message,
+                            i,
+                            information.getName());
+                    while (ScriptInformationUtil
+                            .scriptNameExists(act, dir, name)) {
                         i++;
-                        name =
-                                String.format(Messages.ActivityMessageMappingCommandFactory_message,
-                                        i,
-                                        information.getName());
+                        name = String.format(
+                                Messages.ActivityMessageMappingCommandFactory_message,
+                                i,
+                                information.getName());
                     }
                     String script = DataMappingUtil.getScript(mapping);
                     String grammar = DataMappingUtil.getGrammar(mapping);
-                    information =
-                            XpdExtensionFactory.eINSTANCE
-                                    .createScriptInformation();
+                    information = XpdExtensionFactory.eINSTANCE
+                            .createScriptInformation();
                     information.setName(name);
                     information.setDirection(dir);
                     String formal;
@@ -348,10 +346,8 @@ public class ScriptMappingTransformCommandFactory extends
         DataMapping container = null;
         if (targetName != null) {
             List<DataMapping> mappings = TransformUtil.getDataMappings(act);
-            container =
-                    ActivityMessageUtil.findByTargetParameter(mappings,
-                            targetName,
-                            direction);
+            container = ActivityMessageUtil
+                    .findByTargetParameter(mappings, targetName, direction);
         }
         return container;
     }
@@ -364,12 +360,13 @@ public class ScriptMappingTransformCommandFactory extends
     private Collection<DataMapping> findContainersBySource(Activity activity,
             TaskScript taskScript, ConceptPath source) {
         Collection<DataMapping> container = new ArrayList<DataMapping>();
-        DirectionType dir =
-                createDirection.equals(MappingDirection.IN) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL;
+        DirectionType dir = createDirection.equals(MappingDirection.IN)
+                ? DirectionType.IN_LITERAL
+                : DirectionType.OUT_LITERAL;
         String name = source.getPath();
         if (name != null) {
-            for (DataMapping mapping : TransformUtil.getDataMappings(activity)) {
+            for (DataMapping mapping : TransformUtil
+                    .getDataMappings(activity)) {
                 if (dir.equals(mapping.getDirection())) {
                     if (!DataMappingUtil.isScripted(mapping)) {
                         String grammar = DataMappingUtil.getGrammar(mapping);
@@ -378,10 +375,8 @@ public class ScriptMappingTransformCommandFactory extends
                                 ScriptMappingCompositorFactory
                                         .getCompositorFactory(grammar, dir);
                         if (factory != null) {
-                            ScriptMappingCompositor compositor =
-                                    factory.getCompositor(activity,
-                                            null,
-                                            script);
+                            ScriptMappingCompositor compositor = factory
+                                    .getCompositor(activity, null, script);
                             if (compositor instanceof SingleMappingCompositor) {
                                 SingleMappingCompositor scriptMapping =
                                         (SingleMappingCompositor) compositor;
@@ -502,10 +497,8 @@ public class ScriptMappingTransformCommandFactory extends
      * @return
      */
     public static boolean isTaskReceiveGenerated(TaskReceive taskReceive) {
-        Object genAttrib =
-                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_Generated());
+        Object genAttrib = Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_Generated());
         if (Boolean.TRUE.equals(genAttrib)) {
             return true;
         }
