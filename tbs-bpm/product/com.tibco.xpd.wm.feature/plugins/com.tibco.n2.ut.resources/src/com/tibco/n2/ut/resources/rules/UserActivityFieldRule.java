@@ -20,7 +20,6 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
@@ -54,8 +53,10 @@ public class UserActivityFieldRule extends ProcessValidationRule {
 
     private static final String OBJECT_TYPE = "n2.ut.userTaskUsingObject"; //$NON-NLS-1$
 
-    private static final String MULTIPLICITY_SEQ =
-            "n2.ut.userTaskMultiplicitySequence"; //$NON-NLS-1$
+    /*
+     * Sid XPD-125 - we don't support XSD based BOMs in ACE - removed issue
+     * "n2.ut.userTaskMultiplicitySequence"
+     */
 
     private static final String CASE_REF_MODE_TYPE =
             "n2.ut.userTaskCaseClassRefModeType"; //$NON-NLS-1$
@@ -73,9 +74,8 @@ public class UserActivityFieldRule extends ProcessValidationRule {
     protected void validateFlowContainer(Process process,
             EList<Activity> activities, EList<Transition> transitions) {
 
-        ComplexDataTypesMergedInfo compMergeInfo =
-                ComplexDataTypeExtPointHelper
-                        .getAllComplexDataTypesMergedInfo();
+        ComplexDataTypesMergedInfo compMergeInfo = ComplexDataTypeExtPointHelper
+                .getAllComplexDataTypesMergedInfo();
 
         IProject project =
                 WorkspaceSynchronizer.getFile(process.eResource()).getProject();
@@ -83,11 +83,13 @@ public class UserActivityFieldRule extends ProcessValidationRule {
         // Check the list of parameters and data fields in the process
         ArrayList<String> primitiveDataTypes = new ArrayList<String>();
         ArrayList<String> containsObjectType = new ArrayList<String>();
-        ArrayList<String> containsMultiSeqType = new ArrayList<String>();
+
+        /*
+         * Sid XPD-125 - we don't support XSD based BOMs in ACE
+         */
+
         Map<String, ProcessRelevantData> allCaseReferences =
                 new HashMap<String, ProcessRelevantData>();
-
-        boolean inOnlyParamMultiProcess = true;
 
         for (Activity activity : activities) {
             // Need to get all types regardless of their location, this
@@ -101,21 +103,22 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                 if (dataType instanceof ExternalReference) {
                     // Check to see if the external reference is a BOM element
                     ComplexDataTypeReference complexDataTypeRef =
-                            xpdl2RefToComplexDataTypeRef((ExternalReference) dataType);
+                            xpdl2RefToComplexDataTypeRef(
+                                    (ExternalReference) dataType);
 
                     if (complexDataTypeRef != null) {
                         Object objectForDataType =
-                                compMergeInfo
-                                        .getComplexDataTypeFromReference(complexDataTypeRef,
-                                                project);
+                                compMergeInfo.getComplexDataTypeFromReference(
+                                        complexDataTypeRef,
+                                        project);
 
                         // Check here to collect a list of primitive and
                         // enumeration
                         // types
                         if ((objectForDataType instanceof PrimitiveType)
                                 || (objectForDataType instanceof Enumeration)) {
-                            primitiveDataTypes.add(processRelevantData
-                                    .getName());
+                            primitiveDataTypes
+                                    .add(processRelevantData.getName());
                         }
                         // Check here to collect all the object type data fields
                         if (objectForDataType instanceof Class) {
@@ -126,32 +129,20 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                             List<String> classesChecked =
                                     new ArrayList<String>();
 
-                            if (doesClassContainObject((Class) objectForDataType,
+                            if (doesClassContainObject(
+                                    (Class) objectForDataType,
                                     classesChecked) != false) {
-                                containsObjectType.add(processRelevantData
-                                        .getName());
+                                containsObjectType
+                                        .add(processRelevantData.getName());
                             }
 
                             // Clear the list ready for the next check
                             classesChecked.clear();
 
-                            // Now check for multiplicity on a sequence
-                            if (doesClassHasMultiplicityOnSequence((Class) objectForDataType,
-                                    classesChecked) != false) {
-                                containsMultiSeqType.add(processRelevantData
-                                        .getName());
-                                // Also check to see if there are only IN
-                                // parameters
-                                // in the process
-                                if (processRelevantData instanceof FormalParameter) {
-                                    if (((FormalParameter) processRelevantData)
-                                            .getMode().getValue() != ModeType.IN) {
-                                        inOnlyParamMultiProcess = false;
-                                    }
-                                } else {
-                                    inOnlyParamMultiProcess = false;
-                                }
-                            }
+                            /*
+                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * ACE
+                             */
                         }
                     }
                 } else if (dataType instanceof RecordType) {
@@ -165,21 +156,18 @@ public class UserActivityFieldRule extends ProcessValidationRule {
         // used in a user task
         for (Activity activity : activities) {
             // Check that this is a user task using the BOM Field
-            if (TaskType.USER_LITERAL.equals(TaskObjectUtil
-                    .getTaskTypeStrict(activity))) {
-                Object apsObj =
-                        Xpdl2ModelUtil
-                                .getOtherElement(activity,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_AssociatedParameters());
+            if (TaskType.USER_LITERAL
+                    .equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
+                Object apsObj = Xpdl2ModelUtil.getOtherElement(activity,
+                        XpdExtensionPackage.eINSTANCE
+                                .getDocumentRoot_AssociatedParameters());
 
                 // Find out if this is a page flow user task
                 FormImplementation userTaskForm =
                         TaskObjectUtil.getUserTaskFormImplementation(activity);
                 boolean isPageFlowForm = false;
-                if ((userTaskForm != null)
-                        && (FormImplementationType.PAGEFLOW.equals(userTaskForm
-                                .getFormType()))) {
+                if ((userTaskForm != null) && (FormImplementationType.PAGEFLOW
+                        .equals(userTaskForm.getFormType()))) {
                     isPageFlowForm = true;
                 }
 
@@ -193,57 +181,53 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                                     (AssociatedParameter) apObj;
                             // Now check to see if it is a primitive type as
                             // this is not supported for a User Activity
-                            if (primitiveDataTypes.indexOf(assocParam
-                                    .getFormalParam()) != -1) {
+                            if (primitiveDataTypes.indexOf(
+                                    assocParam.getFormalParam()) != -1) {
                                 addIssue(PRIMITIVE_TYPE, activity);
                                 break;
-                            } else if (containsObjectType.indexOf(assocParam
-                                    .getFormalParam()) != -1) {
+                            } else if (containsObjectType.indexOf(
+                                    assocParam.getFormalParam()) != -1) {
                                 // Is of type class that contains an object - we
                                 // do not allow that
                                 addIssue(OBJECT_TYPE, activity);
                                 break;
-                            } else if (containsMultiSeqType.indexOf(assocParam
-                                    .getFormalParam()) != -1) {
-                                // Is of type class that contains a multiplicity
-                                // on a sequence/choice - we do not allow that
-                                // unless it is read-only and not a page flow
-                                if (isPageFlowForm
-                                        || (assocParam.getMode().getValue() != ModeType.IN)) {
-                                    addIssue(MULTIPLICITY_SEQ, activity);
-                                    break;
-                                }
-                            } else if (allCaseReferences.containsKey(assocParam
-                                    .getFormalParam())) {
+                            }
+                            /*
+                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * ACE
+                             */
+
+                            else if (allCaseReferences
+                                    .containsKey(assocParam.getFormalParam())) {
                                 // Page flow processes do not support references
-                                if (Xpdl2ModelUtil.isPageflow(activity
-                                        .getProcess())) {
+                                if (Xpdl2ModelUtil
+                                        .isPageflow(activity.getProcess())) {
                                     addIssue(CASE_REF_PAGE_FLOW, activity);
                                     break;
                                 }
                                 // Case Class References are not allowed to be
                                 // out only for user tasks (Unless a page-flow)
-                                if (!isPageFlowForm
-                                        && (assocParam.getMode().getValue() == ModeType.OUT)) {
+                                if (!isPageFlowForm && (assocParam.getMode()
+                                        .getValue() == ModeType.OUT)) {
                                     addIssue(CASE_REF_MODE_TYPE, activity);
                                     break;
                                 }
                                 // Case References should always be added as
                                 // mandatory
                                 if (!isPageFlowForm
-                                        && (assocParam.getMode().getValue() == ModeType.INOUT)
+                                        && (assocParam.getMode()
+                                                .getValue() == ModeType.INOUT)
                                         && !assocParam.isMandatory()) {
                                     addIssue(CASE_REF_MANDATORY, activity);
                                     break;
                                 }
-                                ProcessRelevantData procData =
-                                        allCaseReferences.get(assocParam
-                                                .getFormalParam());
+                                ProcessRelevantData procData = allCaseReferences
+                                        .get(assocParam.getFormalParam());
                                 // Don't allow arrays of Case References for
                                 // user tasks that do not use a pageflow
-                                if (!isPageFlowForm
-                                        && procData.isIsArray()
-                                        && (assocParam.getMode().getValue() == ModeType.INOUT)) {
+                                if (!isPageFlowForm && procData.isIsArray()
+                                        && (assocParam.getMode()
+                                                .getValue() == ModeType.INOUT)) {
                                     addIssue(CASE_REF_ARRAY, activity);
                                     break;
                                 }
@@ -261,44 +245,39 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                         // Check all the data for this Activity
                         List<ProcessRelevantData> allActivityRelevantData =
                                 ProcessInterfaceUtil
-                                        .getAllAvailableRelevantDataForActivity(activity);
+                                        .getAllAvailableRelevantDataForActivity(
+                                                activity);
 
                         for (ProcessRelevantData relevantData : allActivityRelevantData) {
-                            if (primitiveDataTypes.indexOf(relevantData
-                                    .getName()) != -1) {
+                            if (primitiveDataTypes
+                                    .indexOf(relevantData.getName()) != -1) {
                                 // As no data is specified it immediately
                                 // includes all values and as there is a
                                 // primitive type, flag with error
                                 addIssue(PRIMITIVE_TYPE, activity);
-                            } else if (containsObjectType.indexOf(relevantData
-                                    .getName()) != -1) {
+                            } else if (containsObjectType
+                                    .indexOf(relevantData.getName()) != -1) {
                                 // As no data is specified it immediately
                                 // includes all values and as there is a class
                                 // with an object type, flag with error
                                 addIssue(OBJECT_TYPE, activity);
-                            } else if (containsMultiSeqType
-                                    .indexOf(relevantData.getName()) != -1) {
-                                // As no data is specified it immediately
-                                // includes all values and as there is a class
-                                // with a multiplicity on a sequence, flag with
-                                // error
-                                if (isPageFlowForm
-                                        || (inOnlyParamMultiProcess != true)) {
-                                    addIssue(MULTIPLICITY_SEQ, activity);
-                                }
-                            } else if (allCaseReferences
+                            }
+                            /*
+                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * ACE
+                             */
+                            else if (allCaseReferences
                                     .containsKey(relevantData.getName())) {
                                 // Page flow processes do not support references
-                                if (Xpdl2ModelUtil.isPageflow(activity
-                                        .getProcess())) {
+                                if (Xpdl2ModelUtil
+                                        .isPageflow(activity.getProcess())) {
                                     addIssue(CASE_REF_PAGE_FLOW, activity);
                                     break;
                                 }
                                 // Don't allow arrays of Case References for
                                 // user tasks that do not use a pageflow
-                                ProcessRelevantData procData =
-                                        allCaseReferences.get(relevantData
-                                                .getName());
+                                ProcessRelevantData procData = allCaseReferences
+                                        .get(relevantData.getName());
                                 if (!isPageFlowForm && procData.isIsArray()) {
                                     addIssue(CASE_REF_ARRAY, activity);
                                     break;
@@ -311,15 +290,15 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                                     // Case Class References are not allowed to
                                     // be out only for user tasks (Unless a
                                     // page-flow)
-                                    if (!isPageFlowForm
-                                            && (param.getMode().getValue() == ModeType.OUT)) {
+                                    if (!isPageFlowForm && (param.getMode()
+                                            .getValue() == ModeType.OUT)) {
                                         addIssue(CASE_REF_MODE_TYPE, activity);
                                         break;
                                     }
                                     // Case References should always be added as
                                     // mandatory
-                                    if (!isPageFlowForm
-                                            && (param.getMode().getValue() == ModeType.INOUT)
+                                    if (!isPageFlowForm && (param.getMode()
+                                            .getValue() == ModeType.INOUT)
                                             && !param.isRequired()) {
                                         addIssue(CASE_REF_MANDATORY, activity);
                                         break;
@@ -373,9 +352,8 @@ public class UserActivityFieldRule extends ProcessValidationRule {
         for (Property property : allAttributes) {
             if (property.isSetName()) {
                 Type type = property.getType();
-                if (null != type
-                        && PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME.equals(type
-                                .getName())) {
+                if (null != type && PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME
+                        .equals(type.getName())) {
                     return true;
                 } else if (type instanceof Class) {
                     // It's another BOM Class, that is referenced, check
@@ -386,7 +364,8 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                         // it again
                         classesChecked.add(type.getName());
 
-                        if (doesClassContainObject((Class) type, classesChecked) != false) {
+                        if (doesClassContainObject((Class) type,
+                                classesChecked) != false) {
                             return true;
                         }
                     }
@@ -410,52 +389,4 @@ public class UserActivityFieldRule extends ProcessValidationRule {
 
     }
 
-    /**
-     * Recursively checks to see if there is a multiplicity on a sequence or
-     * choice used in the class
-     * 
-     * @param bomClass
-     * @param classesChecked
-     * @return
-     */
-    private boolean doesClassHasMultiplicityOnSequence(Class bomClass,
-            List<String> classesChecked) {
-        // First check if the class passed in has multiplicity on a sequence
-        if (XSDUtil.isXsdSequenceMultiplicityInClass(bomClass)) {
-            return true;
-        }
-
-        EList<Property> properties = bomClass.getAllAttributes();
-        if (properties != null) {
-            // Go through each of the attributes checking if any of them
-            // contain Classes
-            for (Property property : properties) {
-                if (property.isSetName()) {
-                    Type type = property.getType();
-
-                    /*
-                     * Sid XPD-3597. Do not continue if the class is a proxy
-                     * reference to a BM that does not exist, if it is then
-                     * everything inside it will be null!
-                     */
-                    if (type instanceof Class && !(((Class) type).eIsProxy())) {
-                        // Check to see if this class has multiplicity on a
-                        // sequence if it has not already been checked
-                        if (!classesChecked.contains(type.getName())) {
-                            // First add it to the checked list so we don't do
-                            // it again
-                            classesChecked.add(type.getName());
-
-                            if (doesClassHasMultiplicityOnSequence((Class) type,
-                                    classesChecked) != false) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
 }
