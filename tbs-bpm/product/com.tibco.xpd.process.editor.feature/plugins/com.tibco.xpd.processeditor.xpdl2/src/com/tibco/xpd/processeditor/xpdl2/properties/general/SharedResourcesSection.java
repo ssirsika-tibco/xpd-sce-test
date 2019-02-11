@@ -33,9 +33,6 @@ import com.tibco.xpd.xpdExtension.EmailResource;
 import com.tibco.xpd.xpdExtension.JdbcResource;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.RestServiceResource;
-import com.tibco.xpd.xpdExtension.WsInbound;
-import com.tibco.xpd.xpdExtension.WsOutbound;
-import com.tibco.xpd.xpdExtension.WsResource;
 import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Participant;
@@ -49,26 +46,19 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * 
  * @author Jan Arciuchiewicz
  */
-public class SharedResourcesSection extends
-        AbstractFilteredTransactionalSection {
+public class SharedResourcesSection
+        extends AbstractFilteredTransactionalSection {
 
     enum ResourceType {
         EMAIL(Messages.SharedResourcesSection_EmailEnum_button,
                 XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_Email(), ""), // //$NON-NLS-1$
+                        .getParticipantSharedResource_Email(),
+                ""), // //$NON-NLS-1$
         JDBC(Messages.SharedResourcesSection_JdbcEnum_button,
                 XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_Jdbc(), ""), // //$NON-NLS-1$
-        WEB_SERVICE_CONSUMER(
-                Messages.SharedResourcesSection_WebServiceConsumerEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_WebService(),
-                Messages.WsOutboundSection_Consumer_desc), //
-        WEB_SERVICE_PROVIDER(
-                Messages.SharedResourcesSection_WebServiceProviderEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_WebService(),
-                Messages.WsInboundComposite_Provider_desc), //
+                        .getParticipantSharedResource_Jdbc(),
+                ""), // //$NON-NLS-1$
+
         REST_SERVICE(Messages.SharedResourcesSection_RestServiceEnum_button,
                 XpdExtensionPackage.eINSTANCE
                         .getParticipantSharedResource_RestService(),
@@ -125,10 +115,6 @@ public class SharedResourcesSection extends
 
     private Button wsOutboundButton;
 
-    private WsInboundComposite wsInboundPage;
-
-    private WsOutboundSection wsOutboundSection;
-
     private Text jdbcProfileNameText;
 
     private Text restInstanceNameText;
@@ -146,7 +132,8 @@ public class SharedResourcesSection extends
      * {@inheritDoc}
      */
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(3).applyTo(parent);
         Composite typesComposite = toolkit.createComposite(parent);
         GridDataFactory.swtDefaults().align(SWT.BEGINNING, SWT.BEGINNING)
@@ -155,11 +142,10 @@ public class SharedResourcesSection extends
         // Create the types radio buttons
         typeButtons = new ArrayList<Button>();
         for (ResourceType resourceType : ResourceType.values()) {
-            Button button =
-                    toolkit.createButton(typesComposite,
-                            resourceType.toString(),
-                            SWT.RADIO,
-                            ""); //$NON-NLS-1$
+            Button button = toolkit.createButton(typesComposite,
+                    resourceType.toString(),
+                    SWT.RADIO,
+                    ""); //$NON-NLS-1$
             button.setData(resourceType);
             button.setData(XpdFormToolkit.FEATURE_DATA,
                     resourceType.getFeature());
@@ -169,18 +155,11 @@ public class SharedResourcesSection extends
                 button.setToolTipText(description);
             }
 
-            if (ResourceType.WEB_SERVICE_PROVIDER.equals(resourceType)) {
-                wsInboundButton = button;
-            }
-            if (ResourceType.WEB_SERVICE_CONSUMER.equals(resourceType)) {
-                wsOutboundButton = button;
-            }
-
             manageControl(button);
             typeButtons.add(button);
         }
-        GridDataFactory.fillDefaults().applyTo(toolkit.createSeparator(parent,
-                SWT.VERTICAL));
+        GridDataFactory.fillDefaults()
+                .applyTo(toolkit.createSeparator(parent, SWT.VERTICAL));
 
         resourceTypeBook = toolkit.createPageBook(parent, SWT.NONE);
         GridDataFactory.fillDefaults().grab(true, true)
@@ -208,12 +187,6 @@ public class SharedResourcesSection extends
             case JDBC:
                 createJdbcPage(page, toolkit);
                 break;
-            case WEB_SERVICE_PROVIDER:
-                createWebServiceProviderPage(page, toolkit);
-                break;
-            case WEB_SERVICE_CONSUMER:
-                createWebServiceConsumerPage(page, toolkit);
-                break;
             case REST_SERVICE:
                 createRestServicePage(page, toolkit);
                 break;
@@ -233,21 +206,6 @@ public class SharedResourcesSection extends
         }
 
         return minSize;
-    }
-
-    /**
-     * Creates Web Service Provider page {@link WsInboundComposite}.
-     * 
-     * @param page
-     * @param toolkit
-     */
-    private void createWebServiceProviderPage(Composite page,
-            XpdFormToolkit toolkit) {
-        GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
-        wsInboundPage =
-                new WsInboundComposite(page, toolkit, getPropertySheetPage());
-        GridDataFactory.fillDefaults().grab(true, true).applyTo(wsInboundPage);
-
     }
 
     /**
@@ -282,33 +240,14 @@ public class SharedResourcesSection extends
                 .applyTo(jdbcInstanceNameText);
         manageControlUpdateOnDeactivate(jdbcInstanceNameText);
 
-        Label profileLabel =
-                toolkit.createLabel(page,
-                        Messages.SharedResourcesSection_JdbcProfileName_label);
-        profileLabel
-                .setToolTipText(Messages.SharedResourcesSection_JdbcProfileName_tooltip);
+        Label profileLabel = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_JdbcProfileName_label);
+        profileLabel.setToolTipText(
+                Messages.SharedResourcesSection_JdbcProfileName_tooltip);
         jdbcProfileNameText = toolkit.createText(page, ""); //$NON-NLS-1$
         GridDataFactory.fillDefaults().grab(true, false)
                 .applyTo(jdbcProfileNameText);
         manageControlUpdateOnDeactivate(jdbcProfileNameText);
-    }
-
-    /**
-     * Creates Web Service Consumer Page {@link WsOutboundSection}.
-     * 
-     * @param page
-     * @param toolkit
-     */
-    private void createWebServiceConsumerPage(Composite page,
-            XpdFormToolkit toolkit) {
-        GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
-
-        wsOutboundSection = new WsOutboundSection();
-        wsOutboundSection.createControls(page, getPropertySheetPage());
-
-        GridDataFactory.fillDefaults().grab(true, true)
-                .applyTo(wsOutboundSection.getControlsContainer());
-
     }
 
     /**
@@ -319,26 +258,22 @@ public class SharedResourcesSection extends
      */
     private void createRestServicePage(Composite page, XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
-        Label description =
-                toolkit.createLabel(page,
-                        Messages.SharedResourcesSection_RestResourceDesc);
+        Label description = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_RestResourceDesc);
         GridDataFactory.swtDefaults().span(2, 1).indent(5, 0)
                 .applyTo(description);
-        Label invokeLabel =
-                toolkit.createLabel(page,
-                        Messages.SharedResourcesSection_RestInvokeUsingLabel);
+        Label invokeLabel = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_RestInvokeUsingLabel);
         GridDataFactory.swtDefaults().span(2, 1).applyTo(invokeLabel);
-        Label clientLabel =
-                toolkit.createLabel(page,
-                        Messages.SharedResourcesSection_RestClientInstanceLabel);
+        Label clientLabel = toolkit.createLabel(page,
+                Messages.SharedResourcesSection_RestClientInstanceLabel);
         GridDataFactory.swtDefaults().applyTo(clientLabel);
         restInstanceNameText = toolkit.createText(page, ""); //$NON-NLS-1$
         GridDataFactory.fillDefaults().grab(true, false)
                 .applyTo(restInstanceNameText);
 
-        restPolicy =
-                new RestSecurityPolicySection(
-                        XpdExtensionPackage.eINSTANCE.getRestServiceResource());
+        restPolicy = new RestSecurityPolicySection(
+                XpdExtensionPackage.eINSTANCE.getRestServiceResource());
         restPolicy.createControls(page, toolkit);
 
         manageControlUpdateOnDeactivate(restInstanceNameText);
@@ -355,111 +290,43 @@ public class SharedResourcesSection extends
             if (button.getSelection()) { // is selected
                 final ResourceType resourceType =
                         (ResourceType) button.getData();
-                RecordingCommand cmd =
-                        new RecordingCommand(
-                                (TransactionalEditingDomain) getEditingDomain()) {
-                            @Override
-                            protected void doExecute() {
-                                ParticipantSharedResource sr =
-                                        getSetParticipantSharedResource(participant,
-                                                true);
-                                switch (resourceType) {
-                                case EMAIL:
-                                    if (sr.getEmail() == null) {
-                                        EmailResource er =
-                                                XpdExtensionFactory.eINSTANCE
-                                                        .createEmailResource();
-                                        er.setInstanceName(""); //$NON-NLS-1$
-                                        sr.setSharedResource(er);
-                                    }
-                                    break;
-                                case JDBC:
-                                    if (sr.getJdbc() == null) {
-                                        JdbcResource jr =
-                                                XpdExtensionFactory.eINSTANCE
-                                                        .createJdbcResource();
-                                        jr.setInstanceName(""); //$NON-NLS-1$
-                                        sr.setSharedResource(jr);
-                                    }
-                                    break;
-                                case WEB_SERVICE_PROVIDER:
-
-                                    sr =
-                                            getSetParticipantSharedResource(participant,
-                                                    false);
-
-                                    if (sr.getWebService() == null) {
-
-                                        WsResource wsr =
-                                                XpdExtensionFactory.eINSTANCE
-                                                        .createWsResource();
-
-                                        sr.setSharedResource(wsr);
-                                    }
-
-                                    WsResource webService = sr.getWebService();
-
-                                    if (sr != null && webService != null) {
-
-                                        if (webService.getInbound() == null) {
-
-                                            XpdExtensionFactory factory =
-                                                    XpdExtensionFactory.eINSTANCE;
-
-                                            WsInbound wsInbound =
-                                                    factory.createWsInboundDefault();
-
-                                            webService.setInbound(wsInbound);
-                                            webService.setOutbound(null);
-
-                                        }
-                                    }
-                                    break;
-                                case WEB_SERVICE_CONSUMER:
-                                    sr =
-                                            getSetParticipantSharedResource(participant,
-                                                    false);
-
-                                    if (sr.getWebService() == null) {
-
-                                        WsResource wsr =
-                                                XpdExtensionFactory.eINSTANCE
-                                                        .createWsResource();
-
-                                        sr.setSharedResource(wsr);
-                                    }
-
-                                    webService = sr.getWebService();
-
-                                    if (sr != null && webService != null) {
-
-                                        if (webService.getOutbound() == null) {
-
-                                            XpdExtensionFactory factory =
-                                                    XpdExtensionFactory.eINSTANCE;
-
-                                            WsOutbound wsOutbound =
-                                                    factory.createWsOutboundDefault();
-
-                                            webService.setInbound(null);
-                                            webService.setOutbound(wsOutbound);
-
-                                        }
-                                    }
-                                    break;
-                                case REST_SERVICE:
-                                    if (sr.getRestService() == null) {
-                                        RestServiceResource rsr =
-                                                XpdExtensionFactory.eINSTANCE
-                                                        .createRestServiceResource();
-                                        sr.setSharedResource(rsr);
-                                    }
-                                    break;
-                                default:
-                                    sr.setSharedResource(null);
-                                }
+                RecordingCommand cmd = new RecordingCommand(
+                        (TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        ParticipantSharedResource sr =
+                                getSetParticipantSharedResource(participant,
+                                        true);
+                        switch (resourceType) {
+                        case EMAIL:
+                            if (sr.getEmail() == null) {
+                                EmailResource er = XpdExtensionFactory.eINSTANCE
+                                        .createEmailResource();
+                                er.setInstanceName(""); //$NON-NLS-1$
+                                sr.setSharedResource(er);
                             }
-                        };
+                            break;
+                        case JDBC:
+                            if (sr.getJdbc() == null) {
+                                JdbcResource jr = XpdExtensionFactory.eINSTANCE
+                                        .createJdbcResource();
+                                jr.setInstanceName(""); //$NON-NLS-1$
+                                sr.setSharedResource(jr);
+                            }
+                            break;
+                        case REST_SERVICE:
+                            if (sr.getRestService() == null) {
+                                RestServiceResource rsr =
+                                        XpdExtensionFactory.eINSTANCE
+                                                .createRestServiceResource();
+                                sr.setSharedResource(rsr);
+                            }
+                            break;
+                        default:
+                            sr.setSharedResource(null);
+                        }
+                    }
+                };
                 return cmd;
             }
         }
@@ -526,15 +393,14 @@ public class SharedResourcesSection extends
                  * attrib set yet - can confuses the SharedResourceUtil check
                  * for same configs.
                  */
-                if (!nullSafe(text).equals(nullSafe(sr.getRestService()
-                        .getHttpClientInstanceName()))) {
+                if (!nullSafe(text).equals(nullSafe(
+                        sr.getRestService().getHttpClientInstanceName()))) {
                     return new RecordingCommand(
                             (TransactionalEditingDomain) getEditingDomain()) {
                         @Override
                         protected void doExecute() {
-                            sr.getRestService()
-                                    .setHttpClientInstanceName(text.length() > 0 ? text
-                                            : null);
+                            sr.getRestService().setHttpClientInstanceName(
+                                    text.length() > 0 ? text : null);
                         }
                     };
                 }
@@ -549,17 +415,15 @@ public class SharedResourcesSection extends
      */
     protected ParticipantSharedResource getSetParticipantSharedResource(
             Participant participant, boolean create) {
-        EReference sharedResFeature =
-                XpdExtensionPackage.eINSTANCE
-                        .getDocumentRoot_ParticipantSharedResource();
+        EReference sharedResFeature = XpdExtensionPackage.eINSTANCE
+                .getDocumentRoot_ParticipantSharedResource();
         Object otherElement =
                 Xpdl2ModelUtil.getOtherElement(participant, sharedResFeature);
         if (otherElement instanceof ParticipantSharedResource) {
             return (ParticipantSharedResource) otherElement;
         } else if (create) {
-            ParticipantSharedResource psr =
-                    XpdExtensionFactory.eINSTANCE
-                            .createParticipantSharedResource();
+            ParticipantSharedResource psr = XpdExtensionFactory.eINSTANCE
+                    .createParticipantSharedResource();
             Xpdl2ModelUtil.addOtherElement(participant, sharedResFeature, psr);
             return psr;
         }
@@ -575,9 +439,8 @@ public class SharedResourcesSection extends
         if (participant != null) {
             ParticipantTypeElem participantType =
                     participant.getParticipantType();
-            if (participantType != null
-                    && ParticipantType.SYSTEM_LITERAL.equals(participantType
-                            .getType())) {
+            if (participantType != null && ParticipantType.SYSTEM_LITERAL
+                    .equals(participantType.getType())) {
                 ParticipantSharedResource sharedResource =
                         (ParticipantSharedResource) Xpdl2ModelUtil
                                 .getOtherElement(participant,
@@ -593,8 +456,8 @@ public class SharedResourcesSection extends
 
                     for (Button typeButton : typeButtons) {
 
-                        typeButton.setSelection(typeButton.getData()
-                                .equals(resType));
+                        typeButton.setSelection(
+                                typeButton.getData().equals(resType));
 
                         if (typeButton.getData().equals(resType)) {
                             resourceTypeBook.showPage(typeButton.getData());
@@ -628,16 +491,6 @@ public class SharedResourcesSection extends
         if (sharedResource.getJdbc() != null) {
             return ResourceType.JDBC;
         }
-        if (sharedResource.getWebService() != null) {
-
-            if (sharedResource.getWebService().getInbound() != null) {
-                return ResourceType.WEB_SERVICE_PROVIDER;
-            }
-
-            if (sharedResource.getWebService().getOutbound() != null) {
-                return ResourceType.WEB_SERVICE_CONSUMER;
-            }
-        }
         if (sharedResource.getRestService() != null) {
             return ResourceType.REST_SERVICE;
         }
@@ -651,41 +504,17 @@ public class SharedResourcesSection extends
     private void refreshResourceTypeBookPages(
             ParticipantSharedResource sharedResource) {
         if (sharedResource.getEmail() != null) {
-            emailInstanceNameText.setText(nullSafe(sharedResource.getEmail()
-                    .getInstanceName()));
+            emailInstanceNameText.setText(
+                    nullSafe(sharedResource.getEmail().getInstanceName()));
         } else if (sharedResource.getJdbc() != null) {
-            jdbcInstanceNameText.setText(nullSafe(sharedResource.getJdbc()
-                    .getInstanceName()));
-            jdbcProfileNameText.setText(nullSafe(sharedResource.getJdbc()
-                    .getJdbcProfileName()));
-        } else if (sharedResource.getWebService() != null) {
-            if (sharedResource.getWebService().getInbound() != null) {
-                wsInboundButton.setSelection(true);
-                wsOutboundButton.setSelection(false);
-                if (!sharedResource.getWebService().getInbound()
-                        .equals(wsInboundPage.getInput())) {
-                    wsInboundPage.setInput(sharedResource.getWebService()
-                            .getInbound());
-                }
-            } else if (sharedResource.getWebService().getOutbound() != null) {
-                wsInboundButton.setSelection(false);
-                wsOutboundButton.setSelection(true);
-                if (!sharedResource.getWebService().getOutbound()
-                        .equals(wsOutboundSection.getInput())) {
-                    wsOutboundSection.setInput(Collections
-                            .singleton(sharedResource.getWebService()
-                                    .getOutbound()));
-                    wsOutboundSection.refresh();
-                }
-            } else {
-                wsInboundButton.setSelection(false);
-                wsOutboundButton.setSelection(false);
-            }
-
+            jdbcInstanceNameText.setText(
+                    nullSafe(sharedResource.getJdbc().getInstanceName()));
+            jdbcProfileNameText.setText(
+                    nullSafe(sharedResource.getJdbc().getJdbcProfileName()));
         } else if (sharedResource.getRestService() != null) {
             RestServiceResource restService = sharedResource.getRestService();
-            restInstanceNameText.setText(nullSafe(restService
-                    .getHttpClientInstanceName()));
+            restInstanceNameText
+                    .setText(nullSafe(restService.getHttpClientInstanceName()));
             restPolicy.setInput(Collections.singleton(restService));
             restPolicy.refresh();
         }
