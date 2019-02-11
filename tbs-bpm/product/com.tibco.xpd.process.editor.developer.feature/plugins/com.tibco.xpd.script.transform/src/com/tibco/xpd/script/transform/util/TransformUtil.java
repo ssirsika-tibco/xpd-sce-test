@@ -25,15 +25,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
-import com.tibco.xpd.script.transform.properties.XSLTTransformEditorSection;
-import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdExtension.TransformScript;
-import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataMapping;
-import com.tibco.xpd.xpdl2.DirectionType;
-import com.tibco.xpd.xpdl2.Expression;
 import com.tibco.xpd.xpdl2.NamedElement;
 import com.tibco.xpd.xpdl2.Task;
 import com.tibco.xpd.xpdl2.TaskScript;
@@ -134,30 +128,6 @@ public class TransformUtil {
             }
         }
         return result;
-    }
-
-    public static boolean isTransformXsltUrl(Activity activity) {
-        String activityGrammar = ScriptGrammarFactory.getScriptGrammar(activity,
-                DirectionType.IN_LITERAL);
-        if (XSLTTransformEditorSection.SCRIPT_GRAMMAR.equals(activityGrammar)) {
-            List<?> others = Xpdl2ModelUtil.getOtherElementList(activity,
-                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_Script());
-            for (Object other : others) {
-                if (other instanceof ScriptInformation) {
-                    ScriptInformation information = (ScriptInformation) other;
-                    if (DirectionType.IN_LITERAL
-                            .equals(information.getDirection())) {
-                        Expression expression = information.getExpression();
-                        if (expression != null) {
-                            if (information.isReference()) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
     }
 
     public static String getXmlNodeXPath(Node element) {

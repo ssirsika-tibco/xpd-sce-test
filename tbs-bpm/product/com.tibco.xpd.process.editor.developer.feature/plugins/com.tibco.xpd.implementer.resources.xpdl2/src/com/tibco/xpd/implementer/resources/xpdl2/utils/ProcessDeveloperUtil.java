@@ -6,7 +6,6 @@ package com.tibco.xpd.implementer.resources.xpdl2.utils;
 
 import java.util.Collection;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -14,21 +13,16 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.wst.wsdl.Definition;
 
 import com.tibco.xpd.analyst.resources.xpdl2.pickers.DataFilterPicker;
 import com.tibco.xpd.analyst.resources.xpdl2.pickers.DataFilterPicker.DataPickerType;
 import com.tibco.xpd.analyst.resources.xpdl2.providers.DataFilterPickerProviderHelper.DataPickerItem;
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
-import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
 import com.tibco.xpd.processeditor.xpdl2.actions.CloseOpenProcessEditorCommand;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.refactor.ResetDefaultActivityColourCommand;
 import com.tibco.xpd.processwidget.ProcessWidget.ProcessWidgetType;
 import com.tibco.xpd.processwidget.ProcessWidgetColors;
-import com.tibco.xpd.resources.WorkingCopy;
-import com.tibco.xpd.resources.util.WorkingCopyUtil;
-import com.tibco.xpd.wsdl.ui.WsdlUIPlugin;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
 import com.tibco.xpd.xpdl2.Event;
@@ -211,34 +205,6 @@ public class ProcessDeveloperUtil {
         }
 
         return null;
-    }
-
-    /**
-     * Utility which tells you whether the WSDL file that the activity uses is
-     * one that is generated for a non-API task.
-     * 
-     * @param activity
-     * @return true if the WSDL has value for a tibex:ServiceTask attribute in
-     *         its Definition, false otherwise.
-     */
-    public static Boolean isWebServiceOperationGenerated(Activity activity) {
-        IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
-
-        if (wsdlFile != null && wsdlFile.isAccessible()) {
-            WorkingCopy workingCopy = WorkingCopyUtil.getWorkingCopy(wsdlFile);
-            if (workingCopy != null
-                    && workingCopy.getRootElement() instanceof Definition) {
-                Definition definition =
-                        (Definition) workingCopy.getRootElement();
-                String attribute = definition.getElement()
-                        .getAttribute(WsdlUIPlugin.TIBEX_SERVICE_TASK);
-                if (attribute != null && attribute.length() > 0) {
-                    return Boolean.TRUE;
-                }
-            }
-        }
-
-        return Boolean.FALSE;
     }
 
     /**

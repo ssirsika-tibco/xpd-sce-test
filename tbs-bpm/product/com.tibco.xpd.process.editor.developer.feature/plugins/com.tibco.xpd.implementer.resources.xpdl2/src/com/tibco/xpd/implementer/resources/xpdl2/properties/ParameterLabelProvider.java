@@ -10,22 +10,12 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.wst.wsdl.Part;
-import org.eclipse.xsd.XSDAttributeUse;
-import org.eclipse.xsd.XSDCompositor;
-import org.eclipse.xsd.XSDConcreteComponent;
-import org.eclipse.xsd.XSDElementDeclaration;
-import org.eclipse.xsd.XSDModelGroup;
-import org.eclipse.xsd.XSDParticle;
-import org.eclipse.xsd.XSDWildcard;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.Activator;
 import com.tibco.xpd.implementer.resources.xpdl2.ImageConstants;
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
-import com.tibco.xpd.implementer.script.WsdlPartPath;
-import com.tibco.xpd.implementer.script.XsdPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptLabelProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -95,17 +85,16 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
                      * use the classifier name stored in ext attrs.
                      */
                     XpdExtAttributes extAttribs =
-                            (XpdExtAttributes) Xpdl2ModelUtil
-                                    .getOtherElement(param,
-                                            XpdExtensionPackage.eINSTANCE
-                                                    .getDocumentRoot_ExtendedAttributes());
+                            (XpdExtAttributes) Xpdl2ModelUtil.getOtherElement(
+                                    param,
+                                    XpdExtensionPackage.eINSTANCE
+                                            .getDocumentRoot_ExtendedAttributes());
                     if (extAttribs != null) {
-                        EObject inList =
-                                EMFSearchUtil
-                                        .findInList(extAttribs.getAttributes(),
-                                                XpdExtensionPackage.eINSTANCE
-                                                        .getXpdExtAttribute_Name(),
-                                                JavaScriptConceptUtil.ORIGINAL_TYPE_DEF_EXTRATTR_NAME);
+                        EObject inList = EMFSearchUtil.findInList(
+                                extAttribs.getAttributes(),
+                                XpdExtensionPackage.eINSTANCE
+                                        .getXpdExtAttribute_Name(),
+                                JavaScriptConceptUtil.ORIGINAL_TYPE_DEF_EXTRATTR_NAME);
 
                         if (inList instanceof XpdExtAttribute) {
                             return ((XpdExtAttribute) inList).getValue();
@@ -127,35 +116,32 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
         String typeName = null;
 
         if (classifier instanceof PrimitiveType) {
-            Classifier basePrimitiveType =
-                    PrimitivesUtil
-                            .getBasePrimitiveType((PrimitiveType) classifier);
+            Classifier basePrimitiveType = PrimitivesUtil
+                    .getBasePrimitiveType((PrimitiveType) classifier);
             if (null != basePrimitiveType) {
                 typeName = basePrimitiveType.getName();
             }
 
             if (JsConsts.INTEGER.equals(typeName)) {
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) classifier,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) classifier,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
 
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
                     intOrDeciSubType = JsConsts.BIGINTEGER;
                 } else {
                     intOrDeciSubType = JsConsts.INTEGER;
                 }
             } else if (JsConsts.DECIMAL.equals(typeName)) {
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) classifier,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) classifier,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
                     intOrDeciSubType = JsConsts.BIGDECIMAL;
                 } else {
@@ -198,48 +184,7 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
         }
 
         if (image == null) {
-            if (element instanceof WsdlPartPath) {
-                image = imageRegistry.get(ImageConstants.PART);
-            } else if (element instanceof XsdPath) {
-                XSDConcreteComponent content =
-                        ((XsdPath) element).getComponent();
-                boolean isArray = false;
-                if (content instanceof XSDParticle) {
-                    XSDParticle particle = (XSDParticle) content;
-                    int max = particle.getMaxOccurs();
-                    isArray = max > 1 || max == -1;
-                    content = particle.getContent();
-                }
-
-                /*
-                 * XPD-1491 allow for xsd:any content
-                 */
-                if (content instanceof XSDWildcard) {
-                    if (isArray) {
-                        image =
-                                imageRegistry
-                                        .get(ImageConstants.XSD_WILDCARD_ARRAY);
-                    } else {
-                        image = imageRegistry.get(ImageConstants.XSD_WILDCARD);
-                    }
-                } else if (content instanceof XSDElementDeclaration) {
-                    if (isArray) {
-                        image = imageRegistry.get(ImageConstants.ARRAY);
-                    } else {
-                        image = imageRegistry.get(ImageConstants.ELEMENT);
-                    }
-                } else if (content instanceof XSDAttributeUse) {
-                    image = imageRegistry.get(ImageConstants.ATTRIBUTE);
-                } else if (content instanceof XSDModelGroup) {
-                    XSDCompositor compositor =
-                            ((XSDModelGroup) content).getCompositor();
-                    if (XSDCompositor.CHOICE_LITERAL.equals(compositor)) {
-                        image = imageRegistry.get(ImageConstants.CHOICE);
-                    } else {
-                        image = imageRegistry.get(ImageConstants.SEQUENCE);
-                    }
-                }
-            } else if (element instanceof EObject) {
+            if (element instanceof EObject) {
                 image = WorkingCopyUtil.getImage((EObject) element);
             }
         }
@@ -276,30 +221,8 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
             text = super.getText(item);
         }
         if (text == null) {
-            if (element instanceof WsdlPartPath) {
-                Part part = ((WsdlPartPath) element).getPart();
-                if (part.getName() == null) {
-                    if (part.getElementName() != null) {
-                        text = part.getElementName().getLocalPart();
-                    }
-                } else {
-                    if (part.getElementName() == null) {
-                        if (part.getTypeDefinition() == null) {
-                            text = part.getName();
-                        } else {
-                            text = part.getName() + " : " //$NON-NLS-1$
-                                    + part.getTypeDefinition().getName();
-                        }
-                    } else {
-                        text = part.getName() + " : " //$NON-NLS-1$
-                                + part.getElementName().getLocalPart();
-                    }
-                }
-            } else if (element instanceof XsdPath) {
-                text = ((XsdPath) element).getDisplayName();
-            } else {
-                text = element.toString();
-            }
+
+            text = element.toString();
         }
         return text;
     }

@@ -5,13 +5,9 @@
 package com.tibco.xpd.implementer.resources.xpdl2.properties;
 
 import java.util.Collection;
-import java.util.List;
-
-import javax.wsdl.Definition;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -21,12 +17,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wst.wsdl.util.WSDLResourceImpl;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceParameterTable.ParamsData;
-import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
 import com.tibco.xpd.ui.properties.AbstractTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -85,8 +79,8 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
                 Process restService = RestServiceUtil.getRestService(activity);
                 if (restService != null) {
 
-                    txtRestServiceName.setText(RestServiceUtil
-                            .getRestServiceName(activity));
+                    txtRestServiceName.setText(
+                            RestServiceUtil.getRestServiceName(activity));
 
                     labelInputParams.setVisible(true);
 
@@ -119,12 +113,12 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
 
                 } else {
 
-                    txtRestServiceName
-                            .setText(Messages.RestServiceSection_RestServiceNotGenerated);
+                    txtRestServiceName.setText(
+                            Messages.RestServiceSection_RestServiceNotGenerated);
 
                 }
-                txtRestModuleName.setText(RestServiceUtil
-                        .getRestServiceModuleName(activity));
+                txtRestModuleName.setText(
+                        RestServiceUtil.getRestServiceModuleName(activity));
                 txtRestServiceName.setVisible(true);
                 txtRestModuleName.setVisible(true);
 
@@ -156,58 +150,6 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
     }
 
     /**
-     * @see com.tibco.xpd.ui.properties.AbstractTransactionalSection#shouldRefresh(java.util.List)
-     * 
-     * @param notifications
-     * @return
-     */
-    @Override
-    protected boolean shouldRefresh(List<Notification> notifications) {
-
-        /*
-         * XPD-7668: Saket: We fetch input parts from WSDL file to input them to
-         * inputParamsTable. So refresh the section when the referenced WSDL
-         * changes. Please note that we only need to explicitly refresh when the
-         * WSDL is user defined. In case of generated request activities, the
-         * input to rest service parameter table would be the process parameters
-         * themselves and hence no refresh would be needed.
-         */
-
-        if (getInput() instanceof Activity) {
-
-            Activity activity = (Activity) getInput();
-
-            if (!Xpdl2ModelUtil.isGeneratedRequestActivity(activity)) {
-
-                for (Notification eachNotification : notifications) {
-
-                    if (eachNotification != null) {
-
-                        if (eachNotification.getNotifier() instanceof WSDLResourceImpl) {
-
-                            WSDLResourceImpl wsdlResImpl =
-                                    (WSDLResourceImpl) (eachNotification
-                                            .getNotifier());
-
-                            Definition wsdlDefinition =
-                                    Xpdl2WsdlUtil.getWSDLDefinition(activity);
-
-                            if (null != wsdlDefinition
-                                    && wsdlDefinition.equals(wsdlResImpl
-                                            .getDefinition())) {
-
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return super.shouldRefresh(notifications);
-    }
-
-    /**
      * Give a chance to the sub classes to decide if REST output param table is
      * applicable and should be visibile in UI.
      * 
@@ -215,7 +157,8 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
      * @return <code>true</code> if the REST output param table should be
      *         visible in UI else return <code>false</code>
      */
-    protected abstract boolean shouldShowRestOutputParamTable(Activity activity);
+    protected abstract boolean shouldShowRestOutputParamTable(
+            Activity activity);
 
     /**
      * Get rest service parameters for the given activity.
@@ -242,7 +185,8 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
      * @return
      */
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
         Composite restComposite = toolkit.createComposite(parent, SWT.NONE);
 
         GridLayout gl1 = new GridLayout();
@@ -251,11 +195,10 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         gl1.marginWidth = 0;
         restComposite.setLayout(gl1);
 
-        publishRestButton =
-                toolkit.createButton(restComposite,
-                        Messages.Publish_as_REST_service_title,
-                        SWT.CHECK,
-                        "publishREST"); //$NON-NLS-1$
+        publishRestButton = toolkit.createButton(restComposite,
+                Messages.Publish_as_REST_service_title,
+                SWT.CHECK,
+                "publishREST"); //$NON-NLS-1$
 
         GridData gridData = new GridData();
         gridData.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
@@ -266,8 +209,8 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         Composite restControlsContainer =
                 toolkit.createComposite(restComposite);
 
-        restControlsContainer.setLayoutData(new GridData(
-                GridData.FILL_HORIZONTAL));
+        restControlsContainer
+                .setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
         GridLayout gl2 = new GridLayout(2, false);
         gl2.marginWidth = 2;
@@ -279,10 +222,9 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         GridData gridData2 = new GridData();
         gridData2.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
 
-        labelRestServiceName =
-                toolkit.createLabel(restControlsContainer,
-                        Messages.REST_service_name_label,
-                        SWT.NONE);
+        labelRestServiceName = toolkit.createLabel(restControlsContainer,
+                Messages.REST_service_name_label,
+                SWT.NONE);
         labelRestServiceName.setToolTipText(Messages.REST_service_name_tooltip);
         labelRestServiceName.setLayoutData(gridData2);
 
@@ -291,10 +233,9 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         txtRestServiceName
                 .setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        labelRestSeviceModuleName =
-                toolkit.createLabel(restControlsContainer,
-                        Messages.REST_service_module_name_label,
-                        SWT.NONE);
+        labelRestSeviceModuleName = toolkit.createLabel(restControlsContainer,
+                Messages.REST_service_module_name_label,
+                SWT.NONE);
         labelRestSeviceModuleName
                 .setToolTipText(Messages.REST_service_module_name_tooltip);
         gridData2 = new GridData();
@@ -316,10 +257,9 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         gl3.marginHeight = 2;
         paramsContainer.setLayout(gl3);
 
-        labelInputParams =
-                toolkit.createLabel(paramsContainer,
-                        Messages.REST_service_input_parameters_label,
-                        SWT.NONE);
+        labelInputParams = toolkit.createLabel(paramsContainer,
+                Messages.REST_service_input_parameters_label,
+                SWT.NONE);
         labelInputParams
                 .setToolTipText(Messages.REST_service_input_parameters_tooltip);
         labelInputParams.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -329,17 +269,15 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         gridData3.heightHint = 125;
 
         // Input parameters table
-        inputParamsTable =
-                new RestServiceParameterTable(paramsContainer, toolkit,
-                        getEditingDomain());
+        inputParamsTable = new RestServiceParameterTable(paramsContainer,
+                toolkit, getEditingDomain());
         inputParamsTable.setLayoutData(gridData3);
 
-        labelOutputParams =
-                toolkit.createLabel(paramsContainer,
-                        Messages.REST_service_output_parameters_label,
-                        SWT.NONE);
-        labelOutputParams
-                .setToolTipText(Messages.REST_service_output_parameters_tooltip);
+        labelOutputParams = toolkit.createLabel(paramsContainer,
+                Messages.REST_service_output_parameters_label,
+                SWT.NONE);
+        labelOutputParams.setToolTipText(
+                Messages.REST_service_output_parameters_tooltip);
 
         labelOutputParams.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
@@ -349,9 +287,8 @@ public abstract class RestServiceSection extends AbstractTransactionalSection {
         gridData3.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
         gridData3.heightHint = 125;
 
-        outputParamsTable =
-                new RestServiceParameterTable(paramsContainer, toolkit,
-                        getEditingDomain());
+        outputParamsTable = new RestServiceParameterTable(paramsContainer,
+                toolkit, getEditingDomain());
         outputParamsTable.setLayoutData(gridData3);
 
         return restComposite;

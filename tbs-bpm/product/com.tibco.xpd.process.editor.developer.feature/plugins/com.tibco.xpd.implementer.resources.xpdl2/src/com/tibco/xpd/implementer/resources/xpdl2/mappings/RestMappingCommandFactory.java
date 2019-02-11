@@ -17,11 +17,9 @@ import org.eclipse.uml2.uml.NamedElement;
 import com.tibco.xpd.implementer.resources.xpdl2.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptConceptUtil;
 import com.tibco.xpd.implementer.script.ActivityMessageUtil;
-import com.tibco.xpd.implementer.script.IWsdlPath;
 import com.tibco.xpd.implementer.script.RestActivityAdapterFactory;
 import com.tibco.xpd.implementer.script.RestActivityMessageProvider;
 import com.tibco.xpd.implementer.script.WsdlPartProblemPath;
-import com.tibco.xpd.implementer.script.WsdlUtil;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.AbstractDataMappingCommandFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -51,8 +49,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author jarciuch
  * @since 2 Apr 2015
  */
-public class RestMappingCommandFactory extends
-        AbstractDataMappingCommandFactory {
+public class RestMappingCommandFactory
+        extends AbstractDataMappingCommandFactory {
 
     /*
      * Contest for ScriptMappingCompositorFactory. As used in
@@ -91,9 +89,9 @@ public class RestMappingCommandFactory extends
         Activity act = (Activity) owner;
         Command command = null;
         Message message = getMessage(act);
-        DirectionType dir =
-                createDirection.equals(MappingDirection.IN) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL;
+        DirectionType dir = createDirection.equals(MappingDirection.IN)
+                ? DirectionType.IN_LITERAL
+                : DirectionType.OUT_LITERAL;
         if (message != null) {
             CompoundCommand cmd =
                     new CompoundCommand(Messages.addMappingCommand);
@@ -102,7 +100,8 @@ public class RestMappingCommandFactory extends
             String text = ""; //$NON-NLS-1$
             boolean isScriptCopy = false;
             if (source instanceof ScriptInformation) {
-                if (((ScriptInformation) source).eContainer() instanceof DataMapping) {
+                if (((ScriptInformation) source)
+                        .eContainer() instanceof DataMapping) {
                     isScriptCopy = true;
                 }
                 if (createDirection.equals(MappingDirection.IN)) {
@@ -120,15 +119,14 @@ public class RestMappingCommandFactory extends
                 if (container == null) {
                     String grammar = getScriptGrammar(act, dir);
                     if (grammar == null) {
-                        grammar =
-                                ScriptGrammarFactory
-                                        .getDefaultScriptGrammar(act);
+                        grammar = ScriptGrammarFactory
+                                .getDefaultScriptGrammar(act);
                     }
                     ScriptMappingCompositorFactory factory =
-                            ScriptMappingCompositorFactory
-                                    .getCompositorFactory(grammar,
-                                            dir,
-                                            REST_CONTEXT);
+                            ScriptMappingCompositorFactory.getCompositorFactory(
+                                    grammar,
+                                    dir,
+                                    REST_CONTEXT);
                     ScriptMappingCompositor compositor =
                             factory.getCompositor(act, targetName);
                     if (compositor instanceof SingleMappingCompositor) {
@@ -147,9 +145,8 @@ public class RestMappingCommandFactory extends
                                     script = expression.getText();
                                 }
                             } else if (parent instanceof DataMapping) {
-                                script =
-                                        DataMappingUtil
-                                                .getScript((DataMapping) parent);
+                                script = DataMappingUtil
+                                        .getScript((DataMapping) parent);
                             }
                             scriptMapping.setScript(script);
                         } else {
@@ -188,10 +185,10 @@ public class RestMappingCommandFactory extends
                     String script = DataMappingUtil.getScript(mapping);
                     String grammar = DataMappingUtil.getGrammar(mapping);
                     ScriptMappingCompositorFactory factory =
-                            ScriptMappingCompositorFactory
-                                    .getCompositorFactory(grammar,
-                                            dir,
-                                            REST_CONTEXT);
+                            ScriptMappingCompositorFactory.getCompositorFactory(
+                                    grammar,
+                                    dir,
+                                    REST_CONTEXT);
                     ScriptMappingCompositor compositor =
                             factory.getCompositor(act, targetName, script);
                     if (compositor instanceof SingleMappingCompositor) {
@@ -223,21 +220,20 @@ public class RestMappingCommandFactory extends
                 EObject informationContainer = information.eContainer();
                 if (informationContainer == null) {
                     information.setActivity(null);
-                    information.setName(ScriptInformationUtil
-                            .getNextScriptName(act, dir));
+                    information.setName(
+                            ScriptInformationUtil.getNextScriptName(act, dir));
                     String grammar = getScriptGrammar(act, dir);
                     if (grammar == null) {
-                        grammar =
-                                ScriptGrammarFactory
-                                        .getDefaultScriptGrammar(act);
+                        grammar = ScriptGrammarFactory
+                                .getDefaultScriptGrammar(act);
                     }
                     information.getExpression().setScriptGrammar(grammar);
                     if (container.eContainer() == null) {
-                        Xpdl2ModelUtil
-                                .addOtherElement((OtherElementsContainer) container,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_Script(),
-                                        information);
+                        Xpdl2ModelUtil.addOtherElement(
+                                (OtherElementsContainer) container,
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_Script(),
+                                information);
                     } else {
                         cmd.append(Xpdl2ModelUtil.getAddOtherElementCommand(ed,
                                 (OtherElementsContainer) container,
@@ -262,24 +258,22 @@ public class RestMappingCommandFactory extends
                 } else if (informationContainer instanceof DataMapping) {
                     DataMapping mapping = (DataMapping) informationContainer;
                     int i = 1;
-                    String name =
-                            String.format(Messages.ActivityMessageMappingCommandFactory_message,
-                                    i,
-                                    information.getName());
-                    while (ScriptInformationUtil.scriptNameExists(act,
-                            dir,
-                            name)) {
+                    String name = String.format(
+                            Messages.ActivityMessageMappingCommandFactory_message,
+                            i,
+                            information.getName());
+                    while (ScriptInformationUtil
+                            .scriptNameExists(act, dir, name)) {
                         i++;
-                        name =
-                                String.format(Messages.ActivityMessageMappingCommandFactory_message,
-                                        i,
-                                        information.getName());
+                        name = String.format(
+                                Messages.ActivityMessageMappingCommandFactory_message,
+                                i,
+                                information.getName());
                     }
                     String script = DataMappingUtil.getScript(mapping);
                     String grammar = DataMappingUtil.getGrammar(mapping);
-                    information =
-                            XpdExtensionFactory.eINSTANCE
-                                    .createScriptInformation();
+                    information = XpdExtensionFactory.eINSTANCE
+                            .createScriptInformation();
                     information.setName(name);
                     information.setDirection(dir);
                     String formal;
@@ -330,8 +324,9 @@ public class RestMappingCommandFactory extends
 
     public static boolean isDummyMappingSourceOrTarget(
             Object mappingSourceOrTarget) {
-        return ((mappingSourceOrTarget instanceof ConceptPath) && JavaScriptConceptUtil
-                .isInvalidPartParameter((ConceptPath) mappingSourceOrTarget))
+        return ((mappingSourceOrTarget instanceof ConceptPath)
+                && JavaScriptConceptUtil.isInvalidPartParameter(
+                        (ConceptPath) mappingSourceOrTarget))
                 || (mappingSourceOrTarget instanceof WsdlPartProblemPath);
     }
 
@@ -346,9 +341,8 @@ public class RestMappingCommandFactory extends
      */
     private Message getMessage(Activity activity) {
         Message message;
-        RestActivityMessageProvider messageAdapter =
-                RestActivityAdapterFactory.getInstance()
-                        .getMessageProvider(activity);
+        RestActivityMessageProvider messageAdapter = RestActivityAdapterFactory
+                .getInstance().getMessageProvider(activity);
         if (createDirection.equals(MappingDirection.IN)) {
             message = messageAdapter.getMessageIn(activity);
             if (message == null) {
@@ -366,10 +360,8 @@ public class RestMappingCommandFactory extends
         if (targetName != null) {
             List<DataMapping> mappings =
                     Xpdl2ModelUtil.getDataMappings(act, direction);
-            container =
-                    ActivityMessageUtil.findByTargetParameter(mappings,
-                            targetName,
-                            direction);
+            container = ActivityMessageUtil
+                    .findByTargetParameter(mappings, targetName, direction);
             // The following code is used to find target paths prior to version
             // 3.0.1
             // For nested arrays the path string may have change from 3.0.0 to
@@ -383,17 +375,19 @@ public class RestMappingCommandFactory extends
     }
 
     private DataMapping findByTargetObject(Activity act,
-            List<DataMapping> mappings, Object target, DirectionType direction) {
+            List<DataMapping> mappings, Object target,
+            DirectionType direction) {
         DataMapping container = null;
         for (DataMapping mapping : mappings) {
             String mappingTarget = DataMappingUtil.getTarget(mapping);
             if (DirectionType.IN_LITERAL.equals(direction)) {
-                IWsdlPath path =
-                        WsdlUtil.resolveParameter(act, mappingTarget, true);
-                if (path != null && path.equals(target)) {
-                    container = mapping;
-                    break;
-                }
+                // FIXME Why was REST mapping looking up an IWsdlPath?
+                // IWsdlPath path =
+                // WsdlUtil.resolveParameter(act, mappingTarget, true);
+                // if (path != null && path.equals(target)) {
+                // container = mapping;
+                // break;
+                // }
             }
         }
         return container;

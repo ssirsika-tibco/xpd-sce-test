@@ -8,8 +8,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 
-import org.eclipse.wst.wsdl.Part;
-
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.xpdl2.Activity;
@@ -160,52 +158,8 @@ public final class ActivityMessageUtil {
         }
         if (target instanceof NamedElement) {
             name = ((NamedElement) target).getName();
-        } else if (target instanceof IWsdlPath) {
-            name = getWsdlPartName((IWsdlPath) target);
         } else if (target instanceof WebServiceOperation) {
             name = ((WebServiceOperation) target).getOperationName();
-        }
-        return name;
-    }
-
-    /**
-     * @param path
-     *            Thw wsdl path.
-     * @return The name of the wsdl Part.
-     */
-    private static String getWsdlPartName(IWsdlPath path) {
-        String name = null;
-        if (path instanceof WsdlXsdRootPath) {
-            Part part = ((WsdlXsdRootPath) path).getWsdlPartPath().getPart();
-            if (part.getName() != null) {
-                name = part.getName();
-            } else if (part.getElementName() != null) {
-                String prefix = part.getElementName().getPrefix();
-                if (prefix != null && prefix.length() != 0) {
-                    String local = part.getElementName().getLocalPart();
-                    name = prefix + ":" + local; //$NON-NLS-1$
-                } else {
-                    name = part.getElementName().getLocalPart();
-                }
-            }
-        } else if (path instanceof WsdlPartPath) {
-            Part part = ((WsdlPartPath) path).getPart();
-            if (part.getName() != null) {
-                name = part.getName();
-            } else if (part.getElementName() != null) {
-                String prefix = part.getElementName().getPrefix();
-                if (prefix != null && prefix.length() != 0) {
-                    String local = part.getElementName().getLocalPart();
-                    name = prefix + ":" + local; //$NON-NLS-1$
-                } else {
-                    name = part.getElementName().getLocalPart();
-                }
-            }
-        } else {
-            Object parent = path.getParent();
-            if (parent instanceof IWsdlPath) {
-                name = getWsdlPartName((IWsdlPath) parent);
-            }
         }
         return name;
     }
