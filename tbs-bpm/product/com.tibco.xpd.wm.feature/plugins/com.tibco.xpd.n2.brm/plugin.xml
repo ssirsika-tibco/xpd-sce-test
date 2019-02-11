@@ -216,28 +216,6 @@
       </constraintProvider>
    </extension>
    <extension
-            point="com.tibco.bx.composite.core.requirementsResolver">
-         <resolver
-               class="com.tibco.xpd.n2.brm.component.PEBpelWsdlsRequirementsResolver"
-               implementationTypeId="implementation.bx">
-         </resolver>
-         <resolver
-               class="com.tibco.xpd.n2.brm.component.BusinessProcessUserTaskRequirementsResolver"
-               implementationTypeId="implementation.bx">
-         </resolver>
-         <resolver
-               class="com.tibco.xpd.n2.brm.component.BusinessProcessDocumentServiceTaskRequirementsResolver"
-               implementationTypeId="implementation.bx">
-         </resolver>
-      </extension>
-   <extension
-         point="com.tibco.amf.tools.packager.packagerParticipant">
-      <participant
-            class="com.tibco.xpd.n2.brm.component.N2PEPackagerParticipant"
-            type="implementation.bx">
-      </participant>
-   </extension>
-   <extension
          point="org.eclipse.ui.exportWizards">
       <wizard
             category="com.tibco.xpd.resources.ui.exportWizard.bpm.category"

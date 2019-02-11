@@ -39,7 +39,6 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.wizards.datatransfer.FileSystemStructureProvider;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 
-import com.tibco.amf.tools.packager.util.CmdLineUtils;
 import com.tibco.xpd.n2.ant.tasks.AntTasksActivator;
 
 /**
@@ -61,30 +60,30 @@ public class ImportProjectTask extends Task {
         TaskUtil.initTargetPlatformIfNeeded(true);
         try {
             ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
+                @Override
                 public void run(IProgressMonitor monitor) throws CoreException {
                     try {
                         doImport(monitor);
                         if (isBuildAfterImport()) {
-                            CmdLineUtils.buildAllProjects();
+                            TaskUtil.buildAllProjects();
                         }
                     } catch (InvocationTargetException e) {
                         throw new CoreException(new Status(IStatus.ERROR,
-                                AntTasksActivator.PLUGIN_ID, e.getMessage(), e));
+                                AntTasksActivator.PLUGIN_ID, e.getMessage(),
+                                e));
                     } catch (InterruptedException e) {
                         throw new CoreException(new Status(IStatus.ERROR,
-                                AntTasksActivator.PLUGIN_ID, e.getMessage(), e));
+                                AntTasksActivator.PLUGIN_ID, e.getMessage(),
+                                e));
                     }
                 }
-            },
-                    new ConsoleProgressMonitor());
+            }, new ConsoleProgressMonitor());
         } catch (Exception e) {
             throw new BuildException(e);
         }
     }
 
-
-
-    @SuppressWarnings( { "unchecked", "restriction" })
+    @SuppressWarnings({ "unchecked", "restriction" })
     private void doImport(IProgressMonitor monitor)
             throws InvocationTargetException, InterruptedException,
             CoreException {
@@ -94,7 +93,8 @@ public class ImportProjectTask extends Task {
         String allProjectsLoc = getAllProjectsLoc();
         if (allProjectsLoc != null) {
             File[] allProjectsInFolder = getAllProjectsInFolder(allProjectsLoc);
-            if (allProjectsInFolder == null || allProjectsInFolder.length == 0) {
+            if (allProjectsInFolder == null
+                    || allProjectsInFolder.length == 0) {
                 throw new BuildException(
                         "No projects found to import from location: "
                                 + allProjectsLoc);
@@ -110,13 +110,13 @@ public class ImportProjectTask extends Task {
                                 "No project is found to import from location: "
                                         + projectLoc);
                         continue;
-                    }else {
+                    } else {
                         try {
-                        IPath path = new Path(dotPrjFile.getPath());
-                        IProjectDescription description =
-                                IDEWorkbenchPlugin.getPluginWorkspace()
-                                        .loadProjectDescription(path);
-                        projectName = description.getName();
+                            IPath path = new Path(dotPrjFile.getPath());
+                            IProjectDescription description =
+                                    IDEWorkbenchPlugin.getPluginWorkspace()
+                                            .loadProjectDescription(path);
+                            projectName = description.getName();
                         } catch (CoreException e) {
                             e.printStackTrace();
                             continue;
@@ -127,7 +127,7 @@ public class ImportProjectTask extends Task {
                             "No project is found to import from location: "
                                     + projectLoc);
                     continue;
-                }                
+                }
 
                 monitor.beginTask(MessageFormat.format("Importing project ",
                         new Object[] { projectName }), 15);
@@ -135,20 +135,19 @@ public class ImportProjectTask extends Task {
                 IProject project = root.getProject(projectName);
 
                 if (isCopyFiles()) {
-                    List filesToImport =
-                            FileSystemStructureProvider.INSTANCE
-                                    .getChildren(projectLoc);
+                    List filesToImport = FileSystemStructureProvider.INSTANCE
+                            .getChildren(projectLoc);
 
                     IPath path = root.getFullPath().append(projectName);
-                    ImportOperation op =
-                            new ImportOperation(path, projectLoc,
-                                    FileSystemStructureProvider.INSTANCE,
-                                    new IOverwriteQuery() {
-                                        public String queryOverwrite(
-                                                String pathString) {
-                                            return IOverwriteQuery.NO_ALL;
-                                        }
-                                    }, filesToImport);
+                    ImportOperation op = new ImportOperation(path, projectLoc,
+                            FileSystemStructureProvider.INSTANCE,
+                            new IOverwriteQuery() {
+                                @Override
+                                public String queryOverwrite(
+                                        String pathString) {
+                                    return IOverwriteQuery.NO_ALL;
+                                }
+                            }, filesToImport);
                     op.setOverwriteResources(true);
                     op.setCreateContainerStructure(false);
                     op.run(monitor);
@@ -158,10 +157,8 @@ public class ImportProjectTask extends Task {
                     if (projectLoc.isDirectory()) {
                         File[] files = projectLoc.listFiles();
                         for (File file : files) {
-                            if (file.isFile()
-                                    && file
-                                            .getName()
-                                            .equals(IProjectDescription.DESCRIPTION_FILE_NAME)) {
+                            if (file.isFile() && file.getName().equals(
+                                    IProjectDescription.DESCRIPTION_FILE_NAME)) {
                                 dotProjectFile = file;
                                 break;
                             }
@@ -170,11 +167,10 @@ public class ImportProjectTask extends Task {
                     if (dotProjectFile != null) {
                         IProjectDescription description = null;
                         IPath path = new Path(dotProjectFile.getPath());
-                        description =
-                                ResourcesPlugin.getWorkspace()
-                                        .loadProjectDescription(path);
-                        project.create(description, new SubProgressMonitor(
-                                monitor, 5));
+                        description = ResourcesPlugin.getWorkspace()
+                                .loadProjectDescription(path);
+                        project.create(description,
+                                new SubProgressMonitor(monitor, 5));
                         project.open(new SubProgressMonitor(monitor, 5));
                         project.refreshLocal(IResource.DEPTH_INFINITE,
                                 new SubProgressMonitor(monitor, 5));
@@ -198,9 +194,8 @@ public class ImportProjectTask extends Task {
     }
 
     private File getDotProjectFile(File projectLoc) {
-        File prjFiles[] =
-                projectLoc
-                        .listFiles(createFileTypeFilter(IProjectDescription.DESCRIPTION_FILE_NAME));
+        File prjFiles[] = projectLoc.listFiles(createFileTypeFilter(
+                IProjectDescription.DESCRIPTION_FILE_NAME));
         if (prjFiles.length != 0) {
             return prjFiles[0];
         }
@@ -209,6 +204,7 @@ public class ImportProjectTask extends Task {
 
     private FilenameFilter createFileTypeFilter(final String extension) {
         FilenameFilter fileNameFilter = new FilenameFilter() {
+            @Override
             public boolean accept(File dir, String name) {
                 if (name.endsWith(extension.trim()))
                     return true;

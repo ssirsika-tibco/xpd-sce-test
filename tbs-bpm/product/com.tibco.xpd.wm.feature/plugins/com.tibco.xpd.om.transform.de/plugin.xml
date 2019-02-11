@@ -727,6 +727,14 @@
          </scriptContextGrammarBinding>
       </destination>
    </extension>
+    <!-- 
+    /*
+     * TODO Sid ACE-125 - had to comment out for now as DEImplementation cause
+     * an indirect reference to AMX features and plugins...
+     * 
+     * The type com.tibco.amf.sca.model.extensionpoints.Implementation cannot be
+     * resolved. It is indirectly referenced from required .class files
+     */
    <extension
          point="org.eclipse.emf.validation.constraintProviders">
       <constraintProvider
@@ -766,5 +774,5 @@
          </constraints>
       </constraintProvider>
    </extension>
-
+  -->
 </plugin>
