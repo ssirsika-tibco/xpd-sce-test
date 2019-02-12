@@ -31,8 +31,6 @@ import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
 import com.tibco.xpd.xpdExtension.ErrorMethod;
 import com.tibco.xpd.xpdExtension.InterfaceMethod;
 import com.tibco.xpd.xpdExtension.IntermediateMethod;
@@ -87,27 +85,32 @@ public class ConvertThrow {
 		org.eclipse.bpel.model.Activity bpelActivity;
         org.eclipse.bpel.model.Activity theMappingActivity = null;
         
-		com.tibco.xpd.xpdl2.Message faultMessage = XPDLUtils.getFaultMessage(resultError);
-		if (faultMessage != null) {
-			//the fault has been defined in the WSDL
-			String faultName = faultMessage.getFaultName();
-			WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo(context, xpdlActivity, resultError);
-			
-            /*
-             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
-             * kind of activity that does the mapping, which can differ
-             * depending on the grammar. 
-             */
-            ConvertFaultDataMapping mappingConverter =
-                    new ConvertFaultDataMapping(context, xpdlActivity, wsoInfo,
-                            faultName);
-            theMappingActivity =
-                    mappingConverter.convertDataMappingsToAssign(faultMessage);
-
- 			bpelActivity = ConvertWebService.convertWebServiceOperationToBPELReplyWithFault(
-					context, wsoInfo, xpdlActivity, faultMessage);
-			
-    	} else {
+        /*
+         * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
+         */
+//
+//		com.tibco.xpd.xpdl2.Message faultMessage = XPDLUtils.getFaultMessage(resultError);
+//		if (faultMessage != null) {
+//			//the fault has been defined in the WSDL
+//			String faultName = faultMessage.getFaultName();
+//			WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo(context, xpdlActivity, resultError);
+//			
+//            /*
+//             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
+//             * kind of activity that does the mapping, which can differ
+//             * depending on the grammar. 
+//             */
+//            ConvertFaultDataMapping mappingConverter =
+//                    new ConvertFaultDataMapping(context, xpdlActivity, wsoInfo,
+//                            faultName);
+//            theMappingActivity =
+//                    mappingConverter.convertDataMappingsToAssign(faultMessage);
+//
+// 			bpelActivity = ConvertWebService.convertWebServiceOperationToBPELReplyWithFault(
+//					context, wsoInfo, xpdlActivity, faultMessage);
+//			
+//    	} else
+    	{
     	    
     		Set<String> optionalParameters = XPDLUtils.findOptionalVariables(xpdlActivity);
     		Fault fault = getFault(context, xpdlActivity, resultError);
@@ -154,35 +157,38 @@ public class ConvertThrow {
         return scope;
 	}
 
-    private static WebServiceOperationInfo getWebServiceOperationInfo(
-    		ConverterContext context, Activity xpdlActivity, ResultError resultError) throws ConversionException {
-		String requestActivityId = XPDLUtils.getRequestActivityId(resultError);
-
-        if (requestActivityId != null) {
-        	com.tibco.xpd.xpdl2.Activity targetActivity = xpdlActivity.getProcess().getActivity(requestActivityId);
-			if (targetActivity == null) {
-    			throw new ConversionException("request activity cannot be found: " + requestActivityId);
-			}
-			ActivityMessageProvider messageAdapter = ActivityMessageProviderFactory.INSTANCE
-					.getMessageProvider(targetActivity);
-			if (messageAdapter != null) {
-				WebServiceOperation wso = messageAdapter.getWebServiceOperation(targetActivity);
-				if (wso != null) {
-					try {
-						return context.getWebServiceOperationInfo(wso);
-					} catch (ConversionException e) {
-						context.logError(
-								"Cannot retrieve web service operation from <"
-										+ targetActivity.getName() + ">: "
-										+ e.getMessage(), e);
-						throw e;
-					}
-				}
-			}
-        }
-
-        return null;
-    }
+	/*
+	 * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
+	 */
+//    private static WebServiceOperationInfo getWebServiceOperationInfo(
+//    		ConverterContext context, Activity xpdlActivity, ResultError resultError) throws ConversionException {
+//		String requestActivityId = XPDLUtils.getRequestActivityId(resultError);
+//
+//        if (requestActivityId != null) {
+//        	com.tibco.xpd.xpdl2.Activity targetActivity = xpdlActivity.getProcess().getActivity(requestActivityId);
+//			if (targetActivity == null) {
+//    			throw new ConversionException("request activity cannot be found: " + requestActivityId);
+//			}
+//			ActivityMessageProvider messageAdapter = ActivityMessageProviderFactory.INSTANCE
+//					.getMessageProvider(targetActivity);
+//			if (messageAdapter != null) {
+//				WebServiceOperation wso = messageAdapter.getWebServiceOperation(targetActivity);
+//				if (wso != null) {
+//					try {
+//						return context.getWebServiceOperationInfo(wso);
+//					} catch (ConversionException e) {
+//						context.logError(
+//								"Cannot retrieve web service operation from <"
+//										+ targetActivity.getName() + ">: "
+//										+ e.getMessage(), e);
+//						throw e;
+//					}
+//				}
+//			}
+//        }
+//
+//        return null;
+//    }
 
 	private static Assign createFaultAssign(Fault fault, String faultVariableName, String errorCode, Set<String> optionalParameters) {
 		Assign assignAct = BPELFactory.eINSTANCE.createAssign();

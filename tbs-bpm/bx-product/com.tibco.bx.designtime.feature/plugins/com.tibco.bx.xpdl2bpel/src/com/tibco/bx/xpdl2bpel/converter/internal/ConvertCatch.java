@@ -39,9 +39,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.errorEvents.BpmnCatchableErrorUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.errorEvents.BpmnCatchableErrorUtil.ErrorCatchType;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
-import com.tibco.xpd.implementer.resources.xpdl2.errorEvents.CatchWsdlErrorEventUtil;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
+
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.event.error.CatchBpmnErrorMapperSection;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
@@ -95,62 +93,68 @@ public class ConvertCatch {
         
        org.eclipse.bpel.model.Activity theMappingActivity = null;
 
-		WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo();
-		if (wsoInfo != null) {
-			//this is a web service fault
-			javax.wsdl.Fault fault = errorCode != null ? wsoInfo.getFault(errorCode) : null;
-			if (fault != null) {
-				//error code is a declared fault
-				isDeclaredFault = true;
-		 				
-				/*
-	             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
-	             * kind of activity that does the mapping, which can differ
-	             * depending on the grammar. So now we get the acutal assign
-	             * afterwards (for adding the fanVariable copy statement to later.
-	             */
-                ConvertFaultDataMapping mappingConverter =
-                        new ConvertFaultDataMapping(context, eventAct, wsoInfo,
-                                errorCode);
-
-                theMappingActivity =
-                        mappingConverter
-                                .convertDataMappingsToAssign(catchErrorMappings
-                                        .getMessage());
-                
-                if (theMappingActivity != null) {
-                    Assign errDataAssign =
-                            mappingConverter.getMappingAssignActivity();
-
-                    if (errDataAssign != null) {
-                        faultVariable = null;
-                        EList<Copy> copies = errDataAssign.getCopy();
-                        for (Copy copy : copies) {
-                            From from = copy.getFrom();
-                            if (from.getVariable() != null) {
-                                faultVariable =
-                                        wsoInfo.createFaultVariable(from
-                                                .getVariable().getName());
-                                break;
-                            }
-                        }
-                        if (faultVariable == null) {
-                            faultVariable =
-                                    wsoInfo.createFaultVariable(errorCode);
-                        }
-
-                        /*
-                         * Sid XPD-8010 - Add fanVariable copies to mapping assign instead of visa versa.
-                         * (as the mapping one might be part of a scope/sequence that forms theMappingActivity)
-                         */
-                        errDataAssign.getCopy().addAll(fanOutAssign.getCopy());
-                    }
-                }
-			} else {
-				//this mapping is for an undeclared error (e.g. timeout exception)
-				
-			}
-		} 
+       
+       /*
+        * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
+        */
+       WebServiceOperationInfo wsoInfo = null; // Preserve to fail some of the conditions below.
+//
+//		WebServiceOperationInfo wsoInfo = getWebServiceOperationInfo();
+//		if (wsoInfo != null) {
+//			//this is a web service fault
+//			javax.wsdl.Fault fault = errorCode != null ? wsoInfo.getFault(errorCode) : null;
+//			if (fault != null) {
+//				//error code is a declared fault
+//				isDeclaredFault = true;
+//		 				
+//				/*
+//	             * Sid XPD-8010. ConvertFaultDataMapping now only returns 'some'
+//	             * kind of activity that does the mapping, which can differ
+//	             * depending on the grammar. So now we get the acutal assign
+//	             * afterwards (for adding the fanVariable copy statement to later.
+//	             */
+//                ConvertFaultDataMapping mappingConverter =
+//                        new ConvertFaultDataMapping(context, eventAct, wsoInfo,
+//                                errorCode);
+//
+//                theMappingActivity =
+//                        mappingConverter
+//                                .convertDataMappingsToAssign(catchErrorMappings
+//                                        .getMessage());
+//                
+//                if (theMappingActivity != null) {
+//                    Assign errDataAssign =
+//                            mappingConverter.getMappingAssignActivity();
+//
+//                    if (errDataAssign != null) {
+//                        faultVariable = null;
+//                        EList<Copy> copies = errDataAssign.getCopy();
+//                        for (Copy copy : copies) {
+//                            From from = copy.getFrom();
+//                            if (from.getVariable() != null) {
+//                                faultVariable =
+//                                        wsoInfo.createFaultVariable(from
+//                                                .getVariable().getName());
+//                                break;
+//                            }
+//                        }
+//                        if (faultVariable == null) {
+//                            faultVariable =
+//                                    wsoInfo.createFaultVariable(errorCode);
+//                        }
+//
+//                        /*
+//                         * Sid XPD-8010 - Add fanVariable copies to mapping assign instead of visa versa.
+//                         * (as the mapping one might be part of a scope/sequence that forms theMappingActivity)
+//                         */
+//                        errDataAssign.getCopy().addAll(fanOutAssign.getCopy());
+//                    }
+//                }
+//			} else {
+//				//this mapping is for an undeclared error (e.g. timeout exception)
+//				
+//			}
+//		} 
 		
 		if (!isDeclaredFault && catchErrorMappings != null && catchErrorMappings.getMessage() != null) {
 
@@ -193,8 +197,12 @@ public class ConvertCatch {
 		            /*
 		             * XPD-8174: Saket: Catch SOAP over JMS Service TimeOutException should also be modelled like CatchAll.
 		             */
-		            if (errorCode == null || errorCode.length() == 0 || isAttachedToGlobalData || CatchWsdlErrorEventUtil
-		                    .isTimeoutExceptionSelectedForSoapJMSConsumer(eventAct)) {
+		            /*
+		             * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
+		             */
+
+		            if (errorCode == null || errorCode.length() == 0 || isAttachedToGlobalData /* || CatchWsdlErrorEventUtil
+		                    .isTimeoutExceptionSelectedForSoapJMSConsumer(eventAct) */) {
 		                
 		                /*
 		                 * Catch-All.
@@ -620,29 +628,33 @@ public class ConvertCatch {
        return script;
    }
 
-    private WebServiceOperationInfo getWebServiceOperationInfo() throws ConversionException {
-        Object errorThrower = BpmnCatchableErrorUtil.getErrorThrower(eventAct);
-		if (!(errorThrower instanceof Activity)) {
-    		return null;
-		}
-    	com.tibco.xpd.xpdl2.Activity targetActivity = (Activity) errorThrower;
-		ActivityMessageProvider messageAdapter = ActivityMessageProviderFactory.INSTANCE.getMessageProvider(targetActivity);
-		if (messageAdapter != null) {
-			WebServiceOperation wso = messageAdapter.getWebServiceOperation(targetActivity);
-			if (wso != null) {
-				try {
-					return context.getWebServiceOperationInfo(wso);
-				} catch (ConversionException e) {
-					context.logError(
-							"Cannot retrieve web service operation from <" //$NON-NLS-1$
-									+ targetActivity.getName() + ">: " //$NON-NLS-1$
-									+ e.getMessage(), e);
-					throw e;
-				}
-			}
-		}
-		
-		return null;
-    }
+   /*
+    * Sid ACE-194: We don't do web-service any more in ACE - removed/commented WS related code
+    */
+//
+//    private WebServiceOperationInfo getWebServiceOperationInfo() throws ConversionException {
+//        Object errorThrower = BpmnCatchableErrorUtil.getErrorThrower(eventAct);
+//		if (!(errorThrower instanceof Activity)) {
+//    		return null;
+//		}
+//    	com.tibco.xpd.xpdl2.Activity targetActivity = (Activity) errorThrower;
+//		ActivityMessageProvider messageAdapter = ActivityMessageProviderFactory.INSTANCE.getMessageProvider(targetActivity);
+//		if (messageAdapter != null) {
+//			WebServiceOperation wso = messageAdapter.getWebServiceOperation(targetActivity);
+//			if (wso != null) {
+//				try {
+//					return context.getWebServiceOperationInfo(wso);
+//				} catch (ConversionException e) {
+//					context.logError(
+//							"Cannot retrieve web service operation from <" //$NON-NLS-1$
+//									+ targetActivity.getName() + ">: " //$NON-NLS-1$
+//									+ e.getMessage(), e);
+//					throw e;
+//				}
+//			}
+//		}
+//		
+//		return null;
+//    }
 
 }

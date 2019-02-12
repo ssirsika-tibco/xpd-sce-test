@@ -14,18 +14,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.osgi.framework.Bundle;
 
 import com.tibco.xpd.core.test.util.TestUtil;
-import com.tibco.xpd.implementer.resources.xpdl2.properties.ActivityMessageMappingCommandFactory;
-import com.tibco.xpd.implementer.script.ActivityMessageProvider;
-import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
-import com.tibco.xpd.implementer.script.WsdlPathFactory;
-import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.logger.Logger;
@@ -35,14 +26,13 @@ import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.WebServiceOperation;
 import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
 import com.tibco.xpd.xpdl2.resources.XpdlMigrate;
 import com.tibco.xpd.xpdl2.util.XpdlSearchUtil;
 
 public class AnalystTestUtil {
-    private static final Logger LOG = XpdResourcesPlugin.getDefault()
-            .getLogger();
+    private static final Logger LOG =
+            XpdResourcesPlugin.getDefault().getLogger();
 
     /**
      * Create a IFile by copying the content of an existing file under current
@@ -133,7 +123,7 @@ public class AnalystTestUtil {
             if (process.getName().equals(procName)) {
                 return process;
             }
-        }// end while
+        } // end while
         return process;
     }
 
@@ -147,7 +137,8 @@ public class AnalystTestUtil {
      * @return A FormalParameter with given name
      */
     @SuppressWarnings("unchecked")
-    public static FormalParameter getParameter(Process process, String paramName) {
+    public static FormalParameter getParameter(Process process,
+            String paramName) {
         FormalParameter param = null;
         Iterator<FormalParameter> localParams =
                 process.getLocalFormalParameters().iterator();
@@ -156,7 +147,7 @@ public class AnalystTestUtil {
             if (param.getName().equals(paramName)) {
                 return param;
             }
-        }// end while
+        } // end while
         return param;
     }
 
@@ -178,7 +169,7 @@ public class AnalystTestUtil {
             if (field.getName().equals(fieldName)) {
                 return field;
             }
-        }// end while
+        } // end while
         return field;
     }
 
@@ -200,7 +191,7 @@ public class AnalystTestUtil {
             if (activity.getName().equals(name)) {
                 return activity;
             }
-        }// end while
+        } // end while
         return activity;
     }
 
@@ -214,10 +205,8 @@ public class AnalystTestUtil {
     public static List<IMarker> getErrorMarkers(IResource resource) {
         List<IMarker> markerList = new ArrayList<IMarker>();
         try {
-            IMarker[] findMarkers =
-                    resource.findMarkers(IMarker.PROBLEM,
-                            true,
-                            IResource.DEPTH_ZERO);
+            IMarker[] findMarkers = resource
+                    .findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
             // Enumerate the markers and find the markers that indicate Error
             for (IMarker marker : findMarkers) {
                 Object severity = marker.getAttribute(IMarker.SEVERITY);
@@ -227,75 +216,11 @@ public class AnalystTestUtil {
                         markerList.add(marker);
                     }
                 }
-            }// end for
+            } // end for
         } catch (CoreException e) {
             e.printStackTrace();
         }
         return markerList;
-    }
-
-    /**
-     * Add a simple object mapping from a process to WebService parameters or
-     * vice-versa. The direction indicates if the mapping is input or output.
-     * 
-     * @param wc
-     *            A working copy of the XPDL model
-     * @param act
-     *            The Activity (e.d. ServiceTask) where the mapping is being
-     *            added
-     * @param source
-     *            The source element (can be a DataField/Parameter or WSLD path)
-     * @param target
-     *            The target element (can be a DataField/Parameter or WSLD path)
-     * @param direction
-     *            The direction of the mapping with respect to the process
-     * @return True if mapping was added successfully; false otherwise
-     */
-    public static boolean addSimpleMapping(WorkingCopy wc, Activity act,
-            String source, String target, MappingDirection direction) {
-
-        ActivityMessageProvider messageAdapter =
-                ActivityMessageProviderFactory.INSTANCE.getMessageProvider(act);
-        if (messageAdapter == null) {
-            System.out.println("ActivityMessage adapter not found"); //$NON-NLS-1$
-            return false;
-        }
-        WebServiceOperation wso = messageAdapter.getWebServiceOperation(act);
-        if (wso == null) {
-            System.out.println("WebServiceOperation not found"); //$NON-NLS-1$
-            return false;
-        }
-        // Both source and target objects can be ConceptPath or IWsdlPath
-        Object srcElement;
-        Object targetElement;
-        if (direction == MappingDirection.IN) {
-            // Get the ConceptPath of source element
-            srcElement = ConceptUtil.resolveConceptPath(act, source);
-            // The IWsdlPath of the target element
-            targetElement = WsdlPathFactory.createWsdlPath(wso, target, true);
-        } else {
-            // The IWsdlPath of the source element
-            srcElement = WsdlPathFactory.createWsdlPath(wso, source, false);
-            // Get the ConceptPath of target element
-            targetElement = ConceptUtil.resolveConceptPath(act, target);
-        }
-        // Execute command to add DataMapping
-        EditingDomain editDomain = wc.getEditingDomain();
-        ActivityMessageMappingCommandFactory factory =
-                new ActivityMessageMappingCommandFactory(direction);
-        Command cmd =
-                factory.getAddMappingCommand(editDomain,
-                        act,
-                        srcElement,
-                        targetElement);
-        CommandStack stack = editDomain.getCommandStack();
-        if (cmd.canExecute()) {
-            stack.execute(cmd);
-        } else {
-            System.out.println("Unable to execute invalid Add Mapping command"); //$NON-NLS-1$
-            return false;
-        }
-        return true;
     }
 
     public static void migratePackage(WorkingCopy wc) {
@@ -316,9 +241,8 @@ public class AnalystTestUtil {
         } else {
             // format version of XPDL file might not be correct, so
             // trying to migrate it
-            String current =
-                    XpdlSearchUtil.findExtendedAttributeValue(model,
-                            XpdlMigrate.FORMAT_VERSION_ATT_NAME);
+            String current = XpdlSearchUtil.findExtendedAttributeValue(model,
+                    XpdlMigrate.FORMAT_VERSION_ATT_NAME);
             if (!XpdlMigrate.FORMAT_VERSION_ATT_VALUE.equals(current)) {
                 if (wc instanceof Xpdl2WorkingCopyImpl) {
                     try {

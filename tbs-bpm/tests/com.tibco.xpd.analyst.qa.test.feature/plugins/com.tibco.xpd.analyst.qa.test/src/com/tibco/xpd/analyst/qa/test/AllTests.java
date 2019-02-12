@@ -17,7 +17,6 @@ public class AllTests {
         suite.addTestSuite(ProcessStartInvalidRuleTest.class);
         suite.addTestSuite(ValidateJavaScriptTest.class);
         suite.addTestSuite(TestConceptPathConvert.class);
-        suite.addTestSuite(WebServiceMappingTest.class);
         suite.addTestSuite(ReadonlyParamsWarningTest.class);
         suite.addTestSuite(ErrorEventsSyncTest.class);
         suite.addTestSuite(RenameParameterTest.class);
