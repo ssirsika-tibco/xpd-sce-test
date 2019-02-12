@@ -190,6 +190,18 @@
       <FieldOrParamReferenceResolver
             class="com.tibco.xpd.implementer.nativeservices.script.AdhocPreconditionScriptReferenceResolver">
       </FieldOrParamReferenceResolver>
+      
+      <FieldOrParamReferenceResolver
+           class="com.tibco.xpd.implementer.nativeservices.script.SubProcessTaskJavaScriptFieldResolver">
+      </FieldOrParamReferenceResolver>
+      <FieldOrParamReferenceResolver
+           class="com.tibco.xpd.implementer.nativeservices.script.CatchSignalMappingScriptFieldResolver">
+      </FieldOrParamReferenceResolver>
+      <FieldOrParamReferenceResolver
+           class="com.tibco.xpd.implementer.nativeservices.script.BpmnCatchErrorEventMappingFieldResolver">
+      </FieldOrParamReferenceResolver>
+ 
+      
    </extension>
     <extension
          point="com.tibco.xpd.analyst.resources.xpdl2.bpmnCatchableErrorProviders">

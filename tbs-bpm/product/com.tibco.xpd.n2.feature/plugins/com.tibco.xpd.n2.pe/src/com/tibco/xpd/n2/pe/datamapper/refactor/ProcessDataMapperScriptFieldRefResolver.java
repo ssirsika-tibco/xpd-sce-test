@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
-import com.tibco.xpd.implementer.nativeservices.java.javaservice.utils.AbstractMappingJavaScriptProcessFieldResolver;
+import com.tibco.xpd.implementer.nativeservices.script.AbstractMappingJavaScriptProcessFieldResolver;
 import com.tibco.xpd.n2.pe.internal.Messages;
 import com.tibco.xpd.process.datamapper.refactor.ProcessDataMapperDataReferenceUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
@@ -32,8 +32,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author aallway
  * @since 15 Jun 2015
  */
-public class ProcessDataMapperScriptFieldRefResolver extends
-        AbstractMappingJavaScriptProcessFieldResolver {
+public class ProcessDataMapperScriptFieldRefResolver
+        extends AbstractMappingJavaScriptProcessFieldResolver {
 
     /**
      * @see com.tibco.xpd.implementer.nativeservices.script.AbstractMappingScriptProcessFieldResolver#getMappingInReferenceContextLabel(com.tibco.xpd.xpdl2.Activity)
@@ -103,10 +103,10 @@ public class ProcessDataMapperScriptFieldRefResolver extends
 
                 /* Add script info if there is one. */
                 ScriptInformation scriptInfo =
-                        (ScriptInformation) Xpdl2ModelUtil
-                                .getOtherElement(dataMapping,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_Script());
+                        (ScriptInformation) Xpdl2ModelUtil.getOtherElement(
+                                dataMapping,
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_Script());
 
                 if (scriptInfo != null) {
                     scriptInfoElements.add(scriptInfo);
@@ -146,9 +146,8 @@ public class ProcessDataMapperScriptFieldRefResolver extends
          * so we use that to get the correct context.
          */
 
-        ScriptDataMapper scriptDataMapper =
-                (ScriptDataMapper) Xpdl2ModelUtil
-                        .getAncestor(scriptInformation, ScriptDataMapper.class);
+        ScriptDataMapper scriptDataMapper = (ScriptDataMapper) Xpdl2ModelUtil
+                .getAncestor(scriptInformation, ScriptDataMapper.class);
         if (scriptDataMapper != null) {
             DataReferenceContext dataReferenceContext =
                     ProcessDataMapperDataReferenceUtil
@@ -158,8 +157,7 @@ public class ProcessDataMapperScriptFieldRefResolver extends
                 DataReferenceContext mapScriptContext =
                         new DataReferenceContext(
                                 dataReferenceContext.getContextId(),
-                                dataReferenceContext.getLabel()
-                                        + " (" //$NON-NLS-1$
+                                dataReferenceContext.getLabel() + " (" //$NON-NLS-1$
                                         + Messages.ProcessDataMapperScriptFieldRefResolver_MappingScriptLabel
                                         + ")", //$NON-NLS-1$
                                 dataReferenceContext.getSortingKey());
@@ -237,7 +235,8 @@ public class ProcessDataMapperScriptFieldRefResolver extends
                  */
                 DataReferenceContext dataReferenceContext =
                         ProcessDataMapperDataReferenceUtil
-                                .getDataReferenceContext(scriptDataMapper, true);
+                                .getDataReferenceContext(scriptDataMapper,
+                                        true);
 
                 if (dataReferenceContext != null) {
                     sdms.add(scriptDataMapper);

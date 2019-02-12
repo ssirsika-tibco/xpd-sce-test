@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
-import com.tibco.xpd.implementer.nativeservices.java.javaservice.utils.AbstractMappingJavaScriptProcessFieldResolver;
+import com.tibco.xpd.implementer.nativeservices.script.AbstractMappingJavaScriptProcessFieldResolver;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
@@ -22,8 +22,8 @@ import com.tibco.xpd.xpdl2.Activity;
  * @author kthombar
  * @since Feb 17, 2015
  */
-public class CatchGlobalSignalMappingScriptFieldResolver extends
-        AbstractMappingJavaScriptProcessFieldResolver {
+public class CatchGlobalSignalMappingScriptFieldResolver
+        extends AbstractMappingJavaScriptProcessFieldResolver {
 
     /**
      * @see com.tibco.xpd.implementer.nativeservices.script.AbstractMappingScriptProcessFieldResolver#getMappingInReferenceContextLabel(com.tibco.xpd.xpdl2.Activity)

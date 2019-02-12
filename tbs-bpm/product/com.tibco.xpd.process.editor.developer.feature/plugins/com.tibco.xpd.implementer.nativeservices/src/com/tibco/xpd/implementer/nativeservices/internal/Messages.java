@@ -474,6 +474,16 @@ public class Messages extends NLS {
 
     public static String LinkSystemDocumentOperationPage_SsetDocIdCmdLabel;
 
+    public static String AbstractMappingJavaScriptProcessFieldResolver_RefactorMappingScript_menu;
+
+    public static String BpmnCatchErrorEventMappingFieldResolver_MapFromError_label;
+
+    public static String CatchSignalMappingScriptFieldResolver_MapFromSignal_label;
+
+    public static String SubProcessTaskJavaScriptFieldResolver_InputToSubProcess_label;
+
+    public static String SubProcessTaskJavaScriptFieldResolver_OutputFromSubProcess_label;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

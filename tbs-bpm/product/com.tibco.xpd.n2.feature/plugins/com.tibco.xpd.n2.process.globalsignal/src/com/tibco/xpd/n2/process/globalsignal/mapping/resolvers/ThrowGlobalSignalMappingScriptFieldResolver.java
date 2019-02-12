@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
-import com.tibco.xpd.implementer.nativeservices.java.javaservice.utils.AbstractMappingJavaScriptProcessFieldResolver;
+import com.tibco.xpd.implementer.nativeservices.script.AbstractMappingJavaScriptProcessFieldResolver;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
@@ -26,8 +26,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author kthombar
  * @since Feb 17, 2015
  */
-public class ThrowGlobalSignalMappingScriptFieldResolver extends
-        AbstractMappingJavaScriptProcessFieldResolver {
+public class ThrowGlobalSignalMappingScriptFieldResolver
+        extends AbstractMappingJavaScriptProcessFieldResolver {
 
     /**
      * @see com.tibco.xpd.implementer.nativeservices.script.AbstractMappingScriptProcessFieldResolver#getMappingInReferenceContextLabel(com.tibco.xpd.xpdl2.Activity)
@@ -89,9 +89,8 @@ public class ThrowGlobalSignalMappingScriptFieldResolver extends
                         getGrammarType(),
                         DirectionType.IN_LITERAL.getLiteral()));
 
-        List<DataMapping> dataMappings =
-                Xpdl2ModelUtil.getDataMappings(activity,
-                        DirectionType.IN_LITERAL);
+        List<DataMapping> dataMappings = Xpdl2ModelUtil
+                .getDataMappings(activity, DirectionType.IN_LITERAL);
 
         for (DataMapping dataMapping : dataMappings) {
 
