@@ -338,12 +338,21 @@
              class="com.tibco.xpd.n2.resources.ui.migrationAnnotation.MigrationPointHighlighterContribution">
        </StaticHighlighterProvider>
     </extension>
+ 
+ <!--   
+ /*
+ * Sid ACE-194:  Currently we do not support 'Publish as REST service' for individual activities.
+ * Something rather than deleting as we may want to introduce something similar later.
+ */
+    
     <extension
           point="com.tibco.xpd.analyst.resources.xpdl2.processPreCommitCommandContributor">
        <ProcessPreCommitCommandContributor
              class="com.tibco.xpd.n2.resources.precommit.RESTServicePreCommitListener">
        </ProcessPreCommitCommandContributor>
     </extension>
+-->
+    
     <extension
           point="com.tibco.xpd.xpdl2.edit.fieldOrParamReferenceResolver">
        <FieldOrParamReferenceResolver

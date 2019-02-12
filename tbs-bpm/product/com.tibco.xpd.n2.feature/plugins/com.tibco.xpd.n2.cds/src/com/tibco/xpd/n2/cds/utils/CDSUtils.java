@@ -53,7 +53,6 @@ import com.tibco.xpd.bom.gen.biz.GenerationException;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.n2.cds.CDSActivator;
 import com.tibco.xpd.n2.cds.CdsConsts;
 import com.tibco.xpd.n2.cds.script.CdsContentAssistIconProvider;
@@ -1102,17 +1101,6 @@ public class CDSUtils {
         return false;
     }
 
-    public static boolean isUnion(IScriptRelevantData type) {
-        org.eclipse.uml2.uml.DataType sourceDataType =
-                JScriptUtils.getDataType(type);
-        if (null != sourceDataType) {
-            boolean isSourceUnion = XSDUtil.isUnion(sourceDataType);
-            if (isSourceUnion) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     // XPD-3129 Global Data - moved from
     // CdsfactoriesJavaScriptRelevantDataProvider
