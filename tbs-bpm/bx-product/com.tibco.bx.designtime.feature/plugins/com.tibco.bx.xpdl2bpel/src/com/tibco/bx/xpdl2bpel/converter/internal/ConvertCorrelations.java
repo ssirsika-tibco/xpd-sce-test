@@ -29,8 +29,7 @@ import com.tibco.bx.xpdl2bpel.Messages;
 import com.tibco.bx.xpdl2bpel.converter.ConversionException;
 import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
-import com.tibco.xpd.implementer.resources.xpdl2.utils.JavaScriptWsdlPathToXPathConverter;
-import com.tibco.xpd.implementer.script.WsdlUtil;
+
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositor;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositorFactory;
@@ -52,21 +51,33 @@ public class ConvertCorrelations {
 	public static void convert(ConverterContext context, com.tibco.xpd.xpdl2.Activity xpdlActivity, 
 			PartnerActivity activity, WebServiceOperationInfo wsoInfo, com.tibco.xpd.xpdl2.Message message) {
 		if (activity instanceof Receive || activity instanceof Reply) {	// only Receive and Reply activities are supported
-			Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
-            ((PartnerActivity)activity).setCorrelations(correlations);
+	        /*
+	         * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+	         */
+	        throw new RuntimeException("Unexpected inclusion of incoming message correlation activity in source process.");
+//			Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
+//            ((PartnerActivity)activity).setCorrelations(correlations);
 		}
 	}
 	
 	public static void convert(ConverterContext context, com.tibco.xpd.xpdl2.Activity xpdlActivity, 
 			OnEvent onEvent, WebServiceOperationInfo wsoInfo, com.tibco.xpd.xpdl2.Message message) {
-		Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, true);
-		onEvent.setCorrelations(correlations);
+        /*
+         * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+         */
+        throw new RuntimeException("Unexpected inclusion of incoming message correlation activity in source process.");
+//		Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, true);
+//		onEvent.setCorrelations(correlations);
 	}
 	
 	public static void convert(ConverterContext context, com.tibco.xpd.xpdl2.Activity xpdlActivity, 
 			OnMessage onMessage, WebServiceOperationInfo wsoInfo, com.tibco.xpd.xpdl2.Message message) {
-		Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
-		onMessage.setCorrelations(correlations);
+	    /*
+	     * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+	     */
+	    throw new RuntimeException("Unexpected inclusion of incoming message correlation activity in source process.");
+//		Correlations correlations = convertCorrelationMappings(context, xpdlActivity, message, wsoInfo, false);
+//		onMessage.setCorrelations(correlations);
 	}
 	
 	public static boolean addPropertiesToWSDL(ConverterContext context, URI wsdlLocation) throws ConversionException {		
@@ -126,140 +137,149 @@ public class ConvertCorrelations {
 		return correlationSets;
 	}
 	
-	private static Correlations convertCorrelationMappings(
-	        ConverterContext context, Activity xpdlActivity, Message message,
-	        WebServiceOperationInfo wsoInfo, boolean onEvent) {
-	    List<DataMapping> dataMappings = new ArrayList<DataMapping>();
-	    Map<String, CorrelationMode> correlationDataFields =
-	            XPDLUtils.getCorrelationDataFields(xpdlActivity);
-	    // XPD-8014 : Added bellow if part to handle Correlations in case of DataMapper grammar type
-	    if (isDataMapperGrammarSetForOutDirection(xpdlActivity)) {
-	        ScriptDataMapper scriptDataMapper =
-	                XPDLUtils.getScriptDataMapper(message);
-	        if (scriptDataMapper == null) {
-	            return null;
-	        } else {
-	            for (DataMapping mappings : scriptDataMapper.getDataMappings()) {
-	                if (WebServiceDataMapperUtil
-	                        .isMappedToCorrelationData(mappings)) {
-	                    dataMappings.add(mappings);
-	                }
-	            }
-	        }
-	    } else {
-	        CorrelationDataMappings correlationDataMappings =
-	                XPDLUtils.getCorrelationDataMappings(message);
-	        if (correlationDataMappings == null) {
-	            return null;
-	        } else {
-	            dataMappings.addAll(correlationDataMappings.getDataMappings());
-	        }
-	    }
-	    Correlations correlations = BPELFactory.eINSTANCE.createCorrelations();
-	    for (DataMapping dataMapping : dataMappings) {
-	        {
-	            convertCorrelationMapping(context,
-	                    xpdlActivity,
-	                    dataMapping,
-	                    wsoInfo,
-	                    correlations,
-	                    correlationDataFields,
-	                    onEvent);
-	        }
-	    }
-	    return correlations;
-	}
+    /*
+     * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+     */
 
-	private static void convertCorrelationMapping(ConverterContext context, Activity xpdlActivity, DataMapping dataMapping
-			, WebServiceOperationInfo wsoInfo, Correlations correlations, Map<String, CorrelationMode> correlationDataFields, boolean onEvent) {
-		String target = DataMappingUtil.getTarget(dataMapping);
-    	String script = DataMappingUtil.getScript(dataMapping);
-        String grammar = DataMappingUtil.getGrammar(dataMapping);
-    	
-        ScriptMappingCompositorFactory factory = ScriptMappingCompositorFactory.getCompositorFactory(grammar, dataMapping.getDirection());
-        if (factory == null) {
-        	return;
-        }
-        String initiate = null;
-        ScriptMappingCompositor compositor = factory.getCompositor(xpdlActivity, target, script);
-        if (compositor instanceof SingleMappingCompositor) {        
-            SingleMappingCompositor single = (SingleMappingCompositor) compositor;
-            String expression = single.getScript();
-            if (expression != null) {                	
-            	org.eclipse.bpel.model.messageproperties.Query query = org.eclipse.bpel.model.messageproperties.MessagepropertiesFactory.eINSTANCE.createQuery();
-            	String queryStr = null;
-            	String partName = null;
+//	private static Correlations convertCorrelationMappings(
+//	        ConverterContext context, Activity xpdlActivity, Message message,
+//	        WebServiceOperationInfo wsoInfo, boolean onEvent) {
+//	    List<DataMapping> dataMappings = new ArrayList<DataMapping>();
+//	    Map<String, CorrelationMode> correlationDataFields =
+//	            XPDLUtils.getCorrelationDataFields(xpdlActivity);
+//	    // XPD-8014 : Added bellow if part to handle Correlations in case of DataMapper grammar type
+//	    if (isDataMapperGrammarSetForOutDirection(xpdlActivity)) {
+//	        ScriptDataMapper scriptDataMapper =
+//	                XPDLUtils.getScriptDataMapper(message);
+//	        if (scriptDataMapper == null) {
+//	            return null;
+//	        } else {
+//	            for (DataMapping mappings : scriptDataMapper.getDataMappings()) {
+//	                if (WebServiceDataMapperUtil
+//	                        .isMappedToCorrelationData(mappings)) {
+//	                    dataMappings.add(mappings);
+//	                }
+//	            }
+//	        }
+//	    } else {
+//	        CorrelationDataMappings correlationDataMappings =
+//	                XPDLUtils.getCorrelationDataMappings(message);
+//	        if (correlationDataMappings == null) {
+//	            return null;
+//	        } else {
+//	            dataMappings.addAll(correlationDataMappings.getDataMappings());
+//	        }
+//	    }
+//	    Correlations correlations = BPELFactory.eINSTANCE.createCorrelations();
+//	    for (DataMapping dataMapping : dataMappings) {
+//	        {
+//	            convertCorrelationMapping(context,
+//	                    xpdlActivity,
+//	                    dataMapping,
+//	                    wsoInfo,
+//	                    correlations,
+//	                    correlationDataFields,
+//	                    onEvent);
+//	        }
+//	    }
+//	    return correlations;
+//	}
 
-            	boolean isXPath = ScriptGrammarFactory.XPATH.equals(grammar);
-        		if (isXPath) {
-        			expression = WsdlUtil.wsdlPathToXPath(expression);
-        		}
-            	int pos = expression.indexOf(isXPath ? "/" : "."); //$NON-NLS-1$  //$NON-NLS-2$
-            	if (pos > 0) {
-            		queryStr = expression.substring(pos+1);
-                	partName = expression.substring(0, pos);
-                	if (!isXPath) {
-                		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
-                		Map<String, String> namespaces = wsoInfo.getWsdlDefinition().getNamespaces();
-                		for (String prefix : namespaces.keySet()) {
-                			namespaceToPrefixMap.put(namespaces.get(prefix), prefix);
-						}
-						queryStr = JavaScriptWsdlPathToXPathConverter.javaScriptWsdlPathToXPath(xpdlActivity, expression, true, namespaceToPrefixMap);
-                	}
-            	} else {
-					queryStr = "."; 	// take current path
-            		partName = expression;
-            	}
-
-            	query.setValue(queryStr);
-
-            	// NOTE: setPropertyName() expects property and not the name of the property
-            	Property property = null;
-            	Map<String, Property> properties = context.getProperties(xpdlActivity.getProcess());
-            	if (properties != null) {
-            		property = properties.get(target);
-            	}
-            	if (property == null) {
-            		String msg = String.format(Messages.getString("ConvertCorrelations.noPropertyFound"), new Object[]{target});
-                    context.logError(msg, null);
-                    return;         		
-            	}
-            	
-            	CorrelationSet correlationSet = context.getCorrelationSet(target);
-            	
-            	org.eclipse.wst.wsdl.Message msg = (org.eclipse.wst.wsdl.Message)wsoInfo.getInput().getMessage();            	
-                String key = msg.getQName().toString() + "/" + target;
-                if (properties.get(key) == null) {  
-                	// only add one property for a given message type to a correlation set
-                	Property clonedProperty = context.addProperty(wsoInfo.getWSDLLocation(), property);
-                	// create property alias
-                	org.eclipse.bpel.model.messageproperties.PropertyAlias propertyAlias = org.eclipse.bpel.model.messageproperties.MessagepropertiesFactory.eINSTANCE.createPropertyAlias();
-                	propertyAlias.setPropertyName(clonedProperty);
-                	propertyAlias.setQuery(query);
-                	// Always do messageType/part for property alias
-                	propertyAlias.setPart(partName);
-                	propertyAlias.setMessageType(msg);
-                	context.addPropertyAlias(wsoInfo.getWSDLLocation(), propertyAlias);
-                	//CorrelationSet correlationSet = BPELFactory.eINSTANCE.createCorrelationSet();
-                    //correlationSet.setName(target);	// need to be unique within the correlationSets
-                    
-                	correlationSet.getProperties().add(clonedProperty);
-                	properties.put(key, clonedProperty);
-                }
-                                
-            	
-            	Correlation correlation = BPELFactory.eINSTANCE.createCorrelation();
-            	initiate = getInitiate(xpdlActivity.getEvent(), correlationDataFields, target, onEvent);
-            	correlation.setInitiate(initiate);
-            	correlation.setSet(correlationSet);
-            	//Correlations correlations = BPELFactory.eINSTANCE.createCorrelations();            		
-            	correlations.getChildren().add(correlation);
-            	                	
-	            //((PartnerActivity)activity).setCorrelations(correlations);
-	                             	
-            }
-        }        
-	}
+    /*
+     * Sid ACE-194 - we don't support Correlation of web service incoming in ACE
+     */
+//
+//	private static void convertCorrelationMapping(ConverterContext context, Activity xpdlActivity, DataMapping dataMapping
+//			, WebServiceOperationInfo wsoInfo, Correlations correlations, Map<String, CorrelationMode> correlationDataFields, boolean onEvent) {
+//		String target = DataMappingUtil.getTarget(dataMapping);
+//    	String script = DataMappingUtil.getScript(dataMapping);
+//        String grammar = DataMappingUtil.getGrammar(dataMapping);
+//    	
+//        ScriptMappingCompositorFactory factory = ScriptMappingCompositorFactory.getCompositorFactory(grammar, dataMapping.getDirection());
+//        if (factory == null) {
+//        	return;
+//        }
+//        String initiate = null;
+//        ScriptMappingCompositor compositor = factory.getCompositor(xpdlActivity, target, script);
+//        if (compositor instanceof SingleMappingCompositor) {        
+//            SingleMappingCompositor single = (SingleMappingCompositor) compositor;
+//            String expression = single.getScript();
+//            if (expression != null) {                	
+//            	org.eclipse.bpel.model.messageproperties.Query query = org.eclipse.bpel.model.messageproperties.MessagepropertiesFactory.eINSTANCE.createQuery();
+//            	String queryStr = null;
+//            	String partName = null;
+//
+//
+//            	boolean isXPath = ScriptGrammarFactory.XPATH.equals(grammar);
+//        		if (isXPath) {
+//        			expression = WsdlUtil.wsdlPathToXPath(expression);
+//        		}
+//            	int pos = expression.indexOf(isXPath ? "/" : "."); //$NON-NLS-1$  //$NON-NLS-2$
+//            	if (pos > 0) {
+//            		queryStr = expression.substring(pos+1);
+//                	partName = expression.substring(0, pos);
+//                	if (!isXPath) {
+//                		Map<String, String> namespaceToPrefixMap = new HashMap<String, String>();
+//                		Map<String, String> namespaces = wsoInfo.getWsdlDefinition().getNamespaces();
+//                		for (String prefix : namespaces.keySet()) {
+//                			namespaceToPrefixMap.put(namespaces.get(prefix), prefix);
+//						}
+//						queryStr = JavaScriptWsdlPathToXPathConverter.javaScriptWsdlPathToXPath(xpdlActivity, expression, true, namespaceToPrefixMap);
+//                	}
+//            	} else {
+//					queryStr = "."; 	// take current path
+//            		partName = expression;
+//            	}
+//
+//            	query.setValue(queryStr);
+//
+//            	// NOTE: setPropertyName() expects property and not the name of the property
+//            	Property property = null;
+//            	Map<String, Property> properties = context.getProperties(xpdlActivity.getProcess());
+//            	if (properties != null) {
+//            		property = properties.get(target);
+//            	}
+//            	if (property == null) {
+//            		String msg = String.format(Messages.getString("ConvertCorrelations.noPropertyFound"), new Object[]{target});
+//                    context.logError(msg, null);
+//                    return;         		
+//            	}
+//            	
+//            	CorrelationSet correlationSet = context.getCorrelationSet(target);
+//            	
+//            	org.eclipse.wst.wsdl.Message msg = (org.eclipse.wst.wsdl.Message)wsoInfo.getInput().getMessage();            	
+//                String key = msg.getQName().toString() + "/" + target;
+//                if (properties.get(key) == null) {  
+//                	// only add one property for a given message type to a correlation set
+//                	Property clonedProperty = context.addProperty(wsoInfo.getWSDLLocation(), property);
+//                	// create property alias
+//                	org.eclipse.bpel.model.messageproperties.PropertyAlias propertyAlias = org.eclipse.bpel.model.messageproperties.MessagepropertiesFactory.eINSTANCE.createPropertyAlias();
+//                	propertyAlias.setPropertyName(clonedProperty);
+//                	propertyAlias.setQuery(query);
+//                	// Always do messageType/part for property alias
+//                	propertyAlias.setPart(partName);
+//                	propertyAlias.setMessageType(msg);
+//                	context.addPropertyAlias(wsoInfo.getWSDLLocation(), propertyAlias);
+//                	//CorrelationSet correlationSet = BPELFactory.eINSTANCE.createCorrelationSet();
+//                    //correlationSet.setName(target);	// need to be unique within the correlationSets
+//                    
+//                	correlationSet.getProperties().add(clonedProperty);
+//                	properties.put(key, clonedProperty);
+//                }
+//                                
+//            	
+//            	Correlation correlation = BPELFactory.eINSTANCE.createCorrelation();
+//            	initiate = getInitiate(xpdlActivity.getEvent(), correlationDataFields, target, onEvent);
+//            	correlation.setInitiate(initiate);
+//            	correlation.setSet(correlationSet);
+//            	//Correlations correlations = BPELFactory.eINSTANCE.createCorrelations();            		
+//            	correlations.getChildren().add(correlation);
+//            	                	
+//	            //((PartnerActivity)activity).setCorrelations(correlations);
+//	                             	
+//            }
+//        }        
+//	}
 
 	private static String getInitiate(Event event, Map<String, CorrelationMode> correlationDataFields, String name, boolean onEvent) {
 		String initiate = null;

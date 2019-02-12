@@ -27,8 +27,7 @@ import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.CDSUtils;
 import com.tibco.bx.xpdl2bpel.util.WSDLUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
-import com.tibco.xpd.implementer.script.WsdlUtil;
+
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositor;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositorFactory;
@@ -484,7 +483,6 @@ public class ConvertFaultDataMapping {
 	private org.eclipse.bpel.model.To createToExpressionWithCDS(String expression, boolean mappingInbound) throws ConversionException {
 		String enumTypeName = null; 
 		boolean isArray = false;
-		boolean isSingleInstOverridingMultiInstProperty = false;
 
 		StringBuffer script = new StringBuffer();
     	
@@ -498,9 +496,11 @@ public class ConvertFaultDataMapping {
 	    		enumTypeName = enumTypeName.replace(".", "_").replace("::", "_");
 	    	}
 	    	isArray = property != null && (property.getUpper() > 1 || property.getUpper() == -1);
-	    	isSingleInstOverridingMultiInstProperty = property != null 
-	    		&& XSDUtil.isMultiInstancePropertyBasedOnXSDRestriction(property) 
-	    		&& XSDUtil.isClassXsdComplexTypeRestriction(property.getClass_());
+
+	        /*
+	         * Sid ACE-194 - we don't support XSD based BOMs in ACE
+	         */
+
 
 	    	if (mappingInbound) {
         		String createStmts = CDSUtils.getCDSClassCreateStatementsForExpression(xpdlActivity, expression);
@@ -528,9 +528,6 @@ public class ConvertFaultDataMapping {
     	if (isArray) {
         	script.append(expression).append(".clear();\n"); //$NON-NLS-1$
     		script.append(expression).append(".addAll(fromReturn);"); //$NON-NLS-1$
-    	} else if (isSingleInstOverridingMultiInstProperty) {
-        	script.append(expression).append(".clear();\n"); //$NON-NLS-1$
-    		script.append(expression).append(".add(fromReturn);"); //$NON-NLS-1$
     	} else if (enumTypeName != null) {
     		/*
     		script.append("if (fromReturn != null && ").append(enumTypeName).append(".get(fromReturn) == null) {\n");
@@ -556,9 +553,14 @@ public class ConvertFaultDataMapping {
 		String partName = null;
 		String query = null;
 		String expression = script;
-		boolean isXPath = ScriptGrammarFactory.XPATH.equals(grammar);
+		
+        /*
+         * Sid ACE-194 - we don't support Xpath in ACE
+         */
+
+		boolean isXPath = false; // ScriptGrammarFactory.XPATH.equals(grammar);
 		if (isXPath) {
-			expression = WsdlUtil.wsdlPathToXPath(script);
+			// expression = WsdlUtil.wsdlPathToXPath(script);
 		}
     	int pos = expression.indexOf(isXPath ? "/" : "."); //$NON-NLS-1$  //$NON-NLS-2$
     	if (pos > 0) {
@@ -594,9 +596,13 @@ public class ConvertFaultDataMapping {
 		String query = null;
 		String expression = script;
 
-		boolean isXPath = ScriptGrammarFactory.XPATH.equals(grammar);
+        /*
+         * Sid ACE-194 - we don't support Xpath in ACE
+         */
+
+		boolean isXPath = false; // ScriptGrammarFactory.XPATH.equals(grammar);
 		if (isXPath) {
-			expression = WsdlUtil.wsdlPathToXPath(script);
+//			expression = WsdlUtil.wsdlPathToXPath(script);
 		}
     	int pos = expression.indexOf(isXPath ? "/" : "."); //$NON-NLS-1$  //$NON-NLS-2$
     	if (pos > 0) {

@@ -240,69 +240,80 @@ public class ConvertPick {
 
     private static void makeOnMessage(ConverterContext context, AnalyzerTask task, Pick pick, 
     		Message message, WebServiceOperation webServiceOperation, String type, boolean isReplyImmediately) throws ConversionException {
-    	WebServiceOperationInfo wsoInfo = null;
-    	try {
-    		wsoInfo = context.getWebServiceOperationInfo(webServiceOperation);
-    	} catch (ConversionException e) {
-    		context.logError(Messages.getString("ConvertActivity.cannotConvertTaskReceive") + e.getMessage(), e); //$NON-NLS-1$
-    		return;
-    	}
-        OnMessage onMessage = BPELFactory.eINSTANCE.createOnMessage();
-        PartnerLink partnerLink = wsoInfo.createPartnerLinkForWebService();
-        onMessage.setPartnerLink(partnerLink);
-        context.addPartnerLink(partnerLink);
-        onMessage.setPortType(wsoInfo.createPortType());
-        onMessage.setOperation(wsoInfo.createOperation());
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+         throw new RuntimeException("Unexpected unsupported message activity in source process.");
+
         
-       	Long seconds = XPDLUtils.getMessageTimeout(task.getXpdlActivity());
-        if (seconds>0) {
-            BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", seconds.toString());
-        }
-        
-        // Correlate immediate
-        boolean correlateImmediate;
-        if (task.getXpdlActivity().getEvent()==null) {
-        	//receive task
-            correlateImmediate = XPDLUtils.getCorrelateImmediately(((Task) task.getXpdlActivity().getImplementation()).getTaskReceive());
-        } else {
-        	//receive event
-        	correlateImmediate = XPDLUtils.getCorrelateImmediately((TriggerResultMessage)task.getXpdlActivity().getEvent().getEventTriggerTypeNode());
-        }
-        if(correlateImmediate) {
-        	BPELUtils.addExtensionAttribute(onMessage, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
-        }
-        
-    	ConvertCorrelations.convert(context, task.getXpdlActivity(), onMessage, wsoInfo, message);
-
-    	//ensure that the var name is unique (the onMessage events for the pick may use the same WSDL message)
-        org.eclipse.bpel.model.Variable inputVar = wsoInfo.createInputVariable();
-    	String uniqueName = context.makeUniqueVariableName(inputVar.getName());
-		inputVar.setName(uniqueName);
-
-    	context.addVariable(inputVar);
-        onMessage.setVariable(inputVar);
-
-        /** XPD-8010: ConvertDataMapping - activity for mapping assignments is no longer always an <assign> */
-        org.eclipse.bpel.model.Activity theMappingActivity = new ConvertDataMapping(
-        		context, task.getXpdlActivity(), wsoInfo).convertDataMappingsToActivity(message, true, inputVar.getName());
-        org.eclipse.bpel.model.Activity messageActivity = theMappingActivity;
-        if (messageActivity == null) {
-        	messageActivity = BPELFactory.eINSTANCE.createEmpty();
-        	messageActivity.setName(task.getXpdlActivity().getName());
-        }
-
-        if (isReplyImmediately) {
-        	ReplyImmediate replyImmediate = ConvertEvent.createReplyImmediate(context, message, wsoInfo);
-        	onMessage.addExtensibilityElement(replyImmediate);
-        }
-
-        context.syncXpdlId(messageActivity, task.getXpdlActivity());
-        BPELUtils.setType(messageActivity, type);	
-        BPELUtils.setLabel(messageActivity, task.getXpdlActivity());
-        ConvertProcess.convertTaskScripts(context, messageActivity, task.getXpdlActivity(), 2);
-        onMessage.setActivity(messageActivity);
-        task.setBpelReference(messageActivity);
-        pick.getMessages().add(onMessage);
+//        WebServiceOperationInfo wsoInfo = null;
+//    	try {
+//    		wsoInfo = context.getWebServiceOperationInfo(webServiceOperation);
+//    	} catch (ConversionException e) {
+//    		context.logError(Messages.getString("ConvertActivity.cannotConvertTaskReceive") + e.getMessage(), e); //$NON-NLS-1$
+//    		return;
+//    	}
+//        OnMessage onMessage = BPELFactory.eINSTANCE.createOnMessage();
+//        PartnerLink partnerLink = wsoInfo.createPartnerLinkForWebService();
+//        onMessage.setPartnerLink(partnerLink);
+//        context.addPartnerLink(partnerLink);
+//        onMessage.setPortType(wsoInfo.createPortType());
+//        onMessage.setOperation(wsoInfo.createOperation());
+//        
+//       	Long seconds = XPDLUtils.getMessageTimeout(task.getXpdlActivity());
+//        if (seconds>0) {
+//            BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", seconds.toString());
+//        }
+//        
+//        // Correlate immediate
+//        boolean correlateImmediate;
+//        if (task.getXpdlActivity().getEvent()==null) {
+//        	//receive task
+//            correlateImmediate = XPDLUtils.getCorrelateImmediately(((Task) task.getXpdlActivity().getImplementation()).getTaskReceive());
+//        } else {
+//        	//receive event
+//        	correlateImmediate = XPDLUtils.getCorrelateImmediately((TriggerResultMessage)task.getXpdlActivity().getEvent().getEventTriggerTypeNode());
+//        }
+//        if(correlateImmediate) {
+//        	BPELUtils.addExtensionAttribute(onMessage, N2PEConstants.CORRELATE_IMMEDIATE, "yes");
+//        }
+//        
+//    	ConvertCorrelations.convert(context, task.getXpdlActivity(), onMessage, wsoInfo, message);
+//
+//    	//ensure that the var name is unique (the onMessage events for the pick may use the same WSDL message)
+//        org.eclipse.bpel.model.Variable inputVar = wsoInfo.createInputVariable();
+//    	String uniqueName = context.makeUniqueVariableName(inputVar.getName());
+//		inputVar.setName(uniqueName);
+//
+//    	context.addVariable(inputVar);
+//        onMessage.setVariable(inputVar);
+//
+//        /** XPD-8010: ConvertDataMapping - activity for mapping assignments is no longer always an <assign> */
+//        org.eclipse.bpel.model.Activity theMappingActivity = new ConvertDataMapping(
+//        		context, task.getXpdlActivity(), wsoInfo).convertDataMappingsToActivity(message, true, inputVar.getName());
+//        org.eclipse.bpel.model.Activity messageActivity = theMappingActivity;
+//        if (messageActivity == null) {
+//        	messageActivity = BPELFactory.eINSTANCE.createEmpty();
+//        	messageActivity.setName(task.getXpdlActivity().getName());
+//        }
+//
+//        /*
+//         * Sid ACE-194 - we don't support XSD based BOMs in ACE
+//         */
+//
+//        if (isReplyImmediately) {
+//
+//        	ReplyImmediate replyImmediate = ConvertEvent.createReplyImmediate(context, message, wsoInfo);
+//        	onMessage.addExtensibilityElement(replyImmediate);
+//        }
+//
+//        context.syncXpdlId(messageActivity, task.getXpdlActivity());
+//        BPELUtils.setType(messageActivity, type);	
+//        BPELUtils.setLabel(messageActivity, task.getXpdlActivity());
+//        ConvertProcess.convertTaskScripts(context, messageActivity, task.getXpdlActivity(), 2);
+//        onMessage.setActivity(messageActivity);
+//        task.setBpelReference(messageActivity);
+//        pick.getMessages().add(onMessage);
     }
 
     private static void makeOnSignal(ConverterContext context, AnalyzerTask task, Pick pick, TriggerResultSignal signalTrigger, String type) {

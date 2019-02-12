@@ -54,7 +54,7 @@ public class UserActivityFieldRule extends ProcessValidationRule {
     private static final String OBJECT_TYPE = "n2.ut.userTaskUsingObject"; //$NON-NLS-1$
 
     /*
-     * Sid XPD-125 - we don't support XSD based BOMs in ACE - removed issue
+     * Sid ACE-194 - we don't support XSD based BOMs in ACE - removed issue
      * "n2.ut.userTaskMultiplicitySequence"
      */
 
@@ -85,7 +85,7 @@ public class UserActivityFieldRule extends ProcessValidationRule {
         ArrayList<String> containsObjectType = new ArrayList<String>();
 
         /*
-         * Sid XPD-125 - we don't support XSD based BOMs in ACE
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE
          */
 
         Map<String, ProcessRelevantData> allCaseReferences =
@@ -140,7 +140,7 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                             classesChecked.clear();
 
                             /*
-                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * Sid ACE-194 - we don't support XSD based BOMs in
                              * ACE
                              */
                         }
@@ -193,7 +193,7 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                                 break;
                             }
                             /*
-                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * Sid ACE-194 - we don't support XSD based BOMs in
                              * ACE
                              */
 
@@ -263,7 +263,7 @@ public class UserActivityFieldRule extends ProcessValidationRule {
                                 addIssue(OBJECT_TYPE, activity);
                             }
                             /*
-                             * Sid XPD-125 - we don't support XSD based BOMs in
+                             * Sid ACE-194 - we don't support XSD based BOMs in
                              * ACE
                              */
                             else if (allCaseReferences

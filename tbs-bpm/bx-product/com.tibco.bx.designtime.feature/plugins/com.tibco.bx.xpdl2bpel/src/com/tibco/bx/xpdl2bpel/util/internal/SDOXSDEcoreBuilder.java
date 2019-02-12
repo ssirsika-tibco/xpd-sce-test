@@ -38,7 +38,6 @@ import org.eclipse.xsd.XSDTypeDefinition;
 import org.eclipse.xsd.ecore.XSDEcoreBuilder;
 import org.w3c.dom.Element;
 
-import com.tibco.xpd.bom.xsdtransform.utils.NamespaceURIToJavaPackageMapper;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
 /**
@@ -219,15 +218,21 @@ public class SDOXSDEcoreBuilder extends XSDEcoreBuilder {
             XSDSchema xsdSchema = (XSDSchema) xsdConcreteComponent;
             IProject project = WorkingCopyUtil.getProjectFor(xsdSchema, true);
             String nsURI = xsdSchema.getTargetNamespace();
-            value =
-                    NamespaceURIToJavaPackageMapper
-                            .getJavaPackageNameFromNamespaceURI(project, nsURI);
-            if (value != null) {
-                // XPD-5145 The original method "getDefaultPackageName" in this
-                // class converted the package name to lower case with a comment
-                // that this was required in order to work with Axis.
-                value = value.toLowerCase();
-            }
+            
+            /*
+             * Sid ACE-194 - we don't support message events / WSDL's in ACE
+             */
+             throw new RuntimeException("Unexpected unsupported message activity in source process.");
+//
+//            value = null;
+//                    NamespaceURIToJavaPackageMapper
+//                            .getJavaPackageNameFromNamespaceURI(project, nsURI);
+//            if (value != null) {
+//                // XPD-5145 The original method "getDefaultPackageName" in this
+//                // class converted the package name to lower case with a comment
+//                // that this was required in order to work with Axis.
+//                value = value.toLowerCase();
+//            }
         }
         return value;
     }

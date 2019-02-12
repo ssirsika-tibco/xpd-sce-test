@@ -33,7 +33,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.types.api.BomTypesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptConceptUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -379,29 +378,35 @@ public class CDSUtils {
     }
 
 	public static URI getBOMClassURI(ConverterContext context, javax.wsdl.Message wsdlMessage, String expression) {
-        String[] segments = expression.split("\\."); //$NON-NLS-1$
-        if (segments == null || segments.length == 0) {
-        	//invalid segments
-        	return null;
-        }
-        
-		String partName = segments[0];
+	    /*
+	     * Sid ACE-194 - we don't support message events in ACE
+	     */
+	     throw new RuntimeException("Unexpected unsupported message activity in source process.");
 
-		Definition sourceWsdl = context.getSourceWsdl(wsdlMessage.getQName().getNamespaceURI());
-		Part part = (Part) sourceWsdl.getMessage(wsdlMessage.getQName()).getPart(partName);
-		if (part == null) {
-        	return null;
-		}
-
-		Class conceptClass = JavaScriptConceptUtil.INSTANCE.getConceptClass(part);
-        if (conceptClass == null) {
-        	return null;
-        }
-
-        Resource resource = conceptClass.eResource();
-        URI classURI = resource.getURI().appendFragment(resource.getURIFragment(conceptClass));
-
-        return getClassUriForSubSegments(classURI, segments);
+//	    
+//        String[] segments = expression.split("\\."); //$NON-NLS-1$
+//        if (segments == null || segments.length == 0) {
+//        	//invalid segments
+//        	return null;
+//        }
+//        
+//		String partName = segments[0];
+//
+//		Definition sourceWsdl = context.getSourceWsdl(wsdlMessage.getQName().getNamespaceURI());
+//		Part part = (Part) sourceWsdl.getMessage(wsdlMessage.getQName()).getPart(partName);
+//		if (part == null) {
+//        	return null;
+//		}
+//
+//		Class conceptClass = JavaScriptConceptUtil.INSTANCE.getConceptClass(part);
+//        if (conceptClass == null) {
+//        	return null;
+//        }
+//
+//        Resource resource = conceptClass.eResource();
+//        URI classURI = resource.getURI().appendFragment(resource.getURIFragment(conceptClass));
+//
+//        return getClassUriForSubSegments(classURI, segments);
     }
 	
     /**
@@ -592,7 +597,6 @@ public class CDSUtils {
          */
         String enumTypeName = null;
         boolean isArray = false;
-        boolean isSingleInstOverridingMultiInstProperty = false;
 
         StringBuffer script = new StringBuffer();
 
@@ -611,13 +615,10 @@ public class CDSUtils {
             isArray =
                     property != null
                             && (property.getUpper() > 1 || property.getUpper() == -1);
-            isSingleInstOverridingMultiInstProperty =
-                    property != null
-                            && XSDUtil
-                                    .isMultiInstancePropertyBasedOnXSDRestriction(property)
-                            && XSDUtil
-                                    .isClassXsdComplexTypeRestriction(property
-                                            .getClass_());
+            
+            /*
+             * Sid XPD-194 - we don't support XSD based BOMs in ACE
+             */
 
             String createStmts =
                     CDSUtils.getCDSClassCreateStatementsForExpression(xpdlActivity,
@@ -638,10 +639,7 @@ public class CDSUtils {
                         .append(".add(").append(enumTypeName).append(".get(val));\n"); //$NON-NLS-1$ //$NON-NLS-2$
                 script.append("}\n"); //$NON-NLS-1$
             }
-        } else if (isSingleInstOverridingMultiInstProperty) {
-            script.append(expression).append(".clear();\n"); //$NON-NLS-1$
-            script.append(expression).append(".add(fromReturn);"); //$NON-NLS-1$
-        } else if (enumTypeName != null) {
+        }  else if (enumTypeName != null) {
             /*
              * script.append("if (fromReturn != null && ").append(enumTypeName).
              * append(".get(fromReturn) == null) {\n"); script.append(
@@ -686,9 +684,10 @@ public class CDSUtils {
     	} else {
     		Property property = getProperty(xpdlActivity, expression);
     		boolean isArray = property != null && (property.getUpper() > 1 || property.getUpper() == -1);
-	    	boolean isSingleInstOverridingMultiInstProperty = property != null 
-    			&& XSDUtil.isMultiInstancePropertyBasedOnXSDRestriction(property) 
-    			&& XSDUtil.isClassXsdComplexTypeRestriction(property.getClass_());
+            /*
+             * Sid ACE-194 - we don't support XSD based BOMs in ACE
+             */
+
     		boolean mapToEnumField = property != null && property.getType() instanceof Enumeration; 
     		String enumTypeName = mapToEnumField ? property.getType().getName() : null; 
     		if (isArray) {
@@ -701,14 +700,7 @@ public class CDSUtils {
             		script.append(expression).append(".add(").append(enumTypeName).append(".get(val));\n"); //$NON-NLS-1$
             		script.append("}\n"); //$NON-NLS-1$
             	}
-    		} else if (isSingleInstOverridingMultiInstProperty) {
-    			script.append(expression).append(".clear();\n"); //$NON-NLS-1$
-	        	if (enumTypeName != null) {
-		    		script.append(expression).append(".add(").append(enumTypeName).append(".get(fromReturn));"); //$NON-NLS-1$ //$NON-NLS-2$
-	        	} else {
-		    		script.append(expression).append(".add(fromReturn);"); //$NON-NLS-1$
-	        	}
-	    	} else {
+    		} else {
 	        	if (enumTypeName != null) {
 	        		script.append(expression).append(" = ").append(enumTypeName).append(".get(fromReturn);"); //$NON-NLS-1$ //$NON-NLS-2$
 	        	} else {

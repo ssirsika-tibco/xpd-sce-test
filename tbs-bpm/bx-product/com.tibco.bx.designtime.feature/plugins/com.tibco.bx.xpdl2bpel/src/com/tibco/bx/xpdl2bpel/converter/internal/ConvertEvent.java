@@ -44,7 +44,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
-import com.tibco.xpd.implementer.script.WsdlUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
@@ -345,100 +344,111 @@ public class ConvertEvent {
 
     private static org.eclipse.bpel.model.Activity convertToBPELReceive(
     		ConverterContext context, final Activity xpdlActivity, TriggerResultMessage triggerResultMessage, boolean instantiate) {
-		if (triggerResultMessage != null) {
-			Message message = triggerResultMessage.getMessage();
-			WebServiceOperation webServiceOperation = triggerResultMessage.getWebServiceOperation();
-			if (message != null && webServiceOperation != null) {
-				try {
-		            WebServiceOperationInfo wsoInfo = context.getWebServiceOperationInfo(webServiceOperation);
-
-		            org.eclipse.bpel.model.Scope scope = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createScope();
-		            org.eclipse.bpel.model.Sequence sequence = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createSequence();
-		            sequence.setName(context.genUniqueActivityName("sequence")); //$NON-NLS-1$
-		            
-		            // Correlate immediate
-		            boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(triggerResultMessage);
-	                
-	                org.eclipse.bpel.model.Activity activity = 
-		            		ConvertWebService.convertWebServiceOperationToBPELReceive(context, wsoInfo, instantiate, correlateImmediate , xpdlActivity, message);
-					sequence.getActivities().add(activity);
-					
-					ConvertDataMapping convertDataMapping=new ConvertDataMapping(
-                            context, xpdlActivity, wsoInfo);
-					
-					/* XPD-8010: DataMapper - mapping activity is not necessarily an assign anymore, maybe a sequence for Datamapper. */
-					org.eclipse.bpel.model.Activity theMappingActivity =
-                            convertDataMapping.convertDataMappingsToActivity(message, true);
-					
-		            if (theMappingActivity != null) {
-		            	sequence.getActivities().add(theMappingActivity);
-		            }
-		            
-		            if (XPDLUtils.isReplyImmediately(triggerResultMessage)) {
-		            	ReplyImmediate replyImmediate = createReplyImmediate(context, message, wsoInfo);
-	            		activity.addExtensibilityElement(replyImmediate);
-		            }
-
-					org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
-					scope.setVariables(variables);
-					scope.setActivity(sequence);
-		            return scope;
-				} catch (ConversionException e) {
-					context.logError(Messages.getString("ConvertEvent.cannotConvertStartEvent") + e.getMessage(), e); //$NON-NLS-1$
-					return null;
-				}
-			}
-		}
-
-		return null;
+        
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+        throw new RuntimeException("Unexpected unsupported message activity in source process.");
+        
+//        
+//		if (triggerResultMessage != null) {
+//			Message message = triggerResultMessage.getMessage();
+//			WebServiceOperation webServiceOperation = triggerResultMessage.getWebServiceOperation();
+//			if (message != null && webServiceOperation != null) {
+//				try {
+//		            WebServiceOperationInfo wsoInfo = context.getWebServiceOperationInfo(webServiceOperation);
+//
+//		            org.eclipse.bpel.model.Scope scope = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createScope();
+//		            org.eclipse.bpel.model.Sequence sequence = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createSequence();
+//		            sequence.setName(context.genUniqueActivityName("sequence")); //$NON-NLS-1$
+//		            
+//		            // Correlate immediate
+//		            boolean correlateImmediate = XPDLUtils.getCorrelateImmediately(triggerResultMessage);
+//	                
+//	                org.eclipse.bpel.model.Activity activity = 
+//		            		ConvertWebService.convertWebServiceOperationToBPELReceive(context, wsoInfo, instantiate, correlateImmediate , xpdlActivity, message);
+//					sequence.getActivities().add(activity);
+//					
+//					ConvertDataMapping convertDataMapping=new ConvertDataMapping(
+//                            context, xpdlActivity, wsoInfo);
+//					
+//					/* XPD-8010: DataMapper - mapping activity is not necessarily an assign anymore, maybe a sequence for Datamapper. */
+//					org.eclipse.bpel.model.Activity theMappingActivity =
+//                            convertDataMapping.convertDataMappingsToActivity(message, true);
+//					
+//		            if (theMappingActivity != null) {
+//		            	sequence.getActivities().add(theMappingActivity);
+//		            }
+//		            
+//		            if (XPDLUtils.isReplyImmediately(triggerResultMessage)) {
+//		            	ReplyImmediate replyImmediate = createReplyImmediate(context, message, wsoInfo);
+//	            		activity.addExtensibilityElement(replyImmediate);
+//		            }
+//
+//					org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
+//					scope.setVariables(variables);
+//					scope.setActivity(sequence);
+//		            return scope;
+//				} catch (ConversionException e) {
+//					context.logError(Messages.getString("ConvertEvent.cannotConvertStartEvent") + e.getMessage(), e); //$NON-NLS-1$
+//					return null;
+//				}
+//			}
+//		}
+//
+//		return null;
     }
 
-	static ReplyImmediate createReplyImmediate(ConverterContext context, Message message, WebServiceOperationInfo wsoInfo) throws ConversionException {
-		ReplyImmediate replyImmediate = ExtensionsFactory.eINSTANCE.createReplyImmediate(); 
-		org.eclipse.bpel.model.Variable outputVar = wsoInfo.createOutputVariable();
-		context.addVariable(outputVar);
-		replyImmediate.setVariable(EcoreUtil.copy(outputVar));
+/*
+ * Sid ACE-194 - we don't support message events in ACE
+ */
 
-		ReplyImmediateDataMappings replyImmediateDataMappings = XPDLUtils.getReplyImmediateDataMappings(message);
-		EList<DataMapping> dataMappings = replyImmediateDataMappings.getDataMappings();
-		PartMappings toPartMappings = new PartMappings();
-		
-		for (DataMapping dataMapping : dataMappings) {
-			org.eclipse.bpel.model.From from = BPELUtils.createFromVariable(StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER.getName());
-			String xPath = WsdlUtil.wsdlPathToXPath(DataMappingUtil.getTarget(dataMapping));
-			int pos = xPath.indexOf("/"); //$NON-NLS-1$
-			String partName = pos < 0 ? xPath : xPath.substring(0, pos);
-			String query = pos < 0 ? null : xPath.substring(pos+1);
-			if (query != null) {
-				javax.wsdl.Part part = wsoInfo.getInput().getMessage().getPart(partName);
-				query = BPELUtils.searchAndReplacePrefixes(context, wsoInfo.getWsdlDefinition(), part, query);
-				toPartMappings.addMapping(partName, query);
-			}
-			org.eclipse.bpel.model.To to = BPELUtils.createToVariableWithPart(outputVar.getName(), partName, query);
-
-			org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
-			copy.setTo(to);
-			copy.setFrom(from);
-			replyImmediate.getCopy().add(copy);
-		}
-		
-		if (!toPartMappings.isEmpty()) {
-			Map<String, javax.wsdl.Part> parts = wsoInfo.getOutput().getMessage().getParts();
-			for (javax.wsdl.Part part : parts.values()) {
-				if (part.getElementName() == null && part.getTypeName() == null) {
-					continue;
-				}
-				List<String> paths = toPartMappings.getPaths(part.getName());
-				if (paths != null) {
-					String partLiteral = wsoInfo.createDummyPartLiteral((org.eclipse.wst.wsdl.Part)part, paths.toArray(new String[0]), true);
-					org.eclipse.bpel.model.Copy copy = ConvertDataMapping.createXmlLiteralToToPartMapping(outputVar.getName(), part.getName(), partLiteral);			        				
-					replyImmediate.getCopy().add(0, copy);
-				}
-			}
-		}
-		
-		return replyImmediate;
-	}
+//	static ReplyImmediate createReplyImmediate(ConverterContext context, Message message, WebServiceOperationInfo wsoInfo) throws ConversionException {
+//		ReplyImmediate replyImmediate = ExtensionsFactory.eINSTANCE.createReplyImmediate(); 
+//		org.eclipse.bpel.model.Variable outputVar = wsoInfo.createOutputVariable();
+//		context.addVariable(outputVar);
+//		replyImmediate.setVariable(EcoreUtil.copy(outputVar));
+//
+//		ReplyImmediateDataMappings replyImmediateDataMappings = XPDLUtils.getReplyImmediateDataMappings(message);
+//		EList<DataMapping> dataMappings = replyImmediateDataMappings.getDataMappings();
+//		PartMappings toPartMappings = new PartMappings();
+//		
+//		for (DataMapping dataMapping : dataMappings) {
+//			org.eclipse.bpel.model.From from = BPELUtils.createFromVariable(StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER.getName());
+//			String xPath = WsdlUtil.wsdlPathToXPath(DataMappingUtil.getTarget(dataMapping));
+//			int pos = xPath.indexOf("/"); //$NON-NLS-1$
+//			String partName = pos < 0 ? xPath : xPath.substring(0, pos);
+//			String query = pos < 0 ? null : xPath.substring(pos+1);
+//			if (query != null) {
+//				javax.wsdl.Part part = wsoInfo.getInput().getMessage().getPart(partName);
+//				query = BPELUtils.searchAndReplacePrefixes(context, wsoInfo.getWsdlDefinition(), part, query);
+//				toPartMappings.addMapping(partName, query);
+//			}
+//			org.eclipse.bpel.model.To to = BPELUtils.createToVariableWithPart(outputVar.getName(), partName, query);
+//
+//			org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
+//			copy.setTo(to);
+//			copy.setFrom(from);
+//			replyImmediate.getCopy().add(copy);
+//		}
+//		
+//		if (!toPartMappings.isEmpty()) {
+//			Map<String, javax.wsdl.Part> parts = wsoInfo.getOutput().getMessage().getParts();
+//			for (javax.wsdl.Part part : parts.values()) {
+//				if (part.getElementName() == null && part.getTypeName() == null) {
+//					continue;
+//				}
+//				List<String> paths = toPartMappings.getPaths(part.getName());
+//				if (paths != null) {
+//					String partLiteral = wsoInfo.createDummyPartLiteral((org.eclipse.wst.wsdl.Part)part, paths.toArray(new String[0]), true);
+//					org.eclipse.bpel.model.Copy copy = ConvertDataMapping.createXmlLiteralToToPartMapping(outputVar.getName(), part.getName(), partLiteral);			        				
+//					replyImmediate.getCopy().add(0, copy);
+//				}
+//			}
+//		}
+//		
+//		return replyImmediate;
+//	}
 
 	//throw
     private static org.eclipse.bpel.model.Activity convertSignalEvent(TriggerResultSignal signalTrigger, Activity xpdlActivity) throws ConversionException {

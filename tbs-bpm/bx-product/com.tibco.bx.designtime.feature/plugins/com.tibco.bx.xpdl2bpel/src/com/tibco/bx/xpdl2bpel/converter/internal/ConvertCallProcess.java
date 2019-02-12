@@ -31,7 +31,6 @@ import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
@@ -753,15 +752,14 @@ public class ConvertCallProcess {
 			boolean isFromArray = isMainArray(mainExpr, mainPrd);
 			boolean mappingFromArrayToSingle = isFromArray && !subPrd.isIsArray();
     		Property property = CDSUtils.getProperty(xpdlActivity, mainExpr);
-	    	boolean isSingleInstOverridingMultiInstProperty = property != null 
-    			&& XSDUtil.isMultiInstancePropertyBasedOnXSDRestriction(property) 
-    			&& XSDUtil.isClassXsdComplexTypeRestriction(property.getClass_());
+    		
+            /*
+             * Sid ACE-194 - we don't support XSD based BOMs in ACE
+             */
 
 			String expression;
 			if (mappingFromArrayToSingle) {
 				expression = mainExpr + ".get(Process.getActivityLoopIndex());"; //$NON-NLS-1$ 
-			} else if (isSingleInstOverridingMultiInstProperty) {
-				expression = mainExpr + ".get(0);"; //$NON-NLS-1$ 
 			} else {
 				expression = mainExpr;
 			}
