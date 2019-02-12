@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   <extension
-         point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
-      <destination
-            destinationId="xPath1.x">
-         <scriptContribution
-               scriptContext="WebServiceTask">
-            <validationStrategy
-                  class="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  grammarId="XPath"
-                  id="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  name="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"></validationStrategy>
-         </scriptContribution>
-         <scriptContribution
-               scriptContext="BWServiceTask">
-            <validationStrategy
-                  class="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  grammarId="XPath"
-                  id="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  name="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy">
-            </validationStrategy>
-         </scriptContribution>
-      </destination>
-   </extension>
 </plugin>

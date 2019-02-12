@@ -18,12 +18,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import com.tibco.bx.validation.rules.process.WSParticRefComparator.ComparatorIssueInfo;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.n2.resources.util.N2Utils;
-import com.tibco.xpd.processeditor.xpdl2.properties.general.ExtendedAttributeManager;
-import com.tibco.xpd.processeditor.xpdl2.util.PolicySetReference;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
@@ -32,9 +29,6 @@ import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
 import com.tibco.xpd.xpdExtension.EmailResource;
 import com.tibco.xpd.xpdExtension.JdbcResource;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
-import com.tibco.xpd.xpdExtension.RestServiceResource;
-import com.tibco.xpd.xpdExtension.RestServiceResourceSecurity;
-import com.tibco.xpd.xpdExtension.SecurityPolicy;
 import com.tibco.xpd.xpdExtension.WsInbound;
 import com.tibco.xpd.xpdExtension.WsOutbound;
 import com.tibco.xpd.xpdExtension.WsResource;
@@ -49,7 +43,6 @@ import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
 import com.tibco.xpd.xpdl2.ParticipantType;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.util.RestServiceUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
@@ -62,12 +55,16 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class SystemParticipantSharedResourceRule extends PackageValidationRule {
 
     /**
-     * "Participants with different shared resource configuration cannot have same name ('%1$s' vs. '%2$s')."
+     * "Participants with different shared resource configuration cannot have
+     * same name ('%1$s' vs. '%2$s')."
      */
     private static final String ISSUE_DIFFCONFIG_SAMENAME =
             "bx.systemParticWithDiffConfigMustBeDiffName"; //$NON-NLS-1$
 
-    /** "Participants used for process as service must specify unique shared resource URI" */
+    /**
+     * "Participants used for process as service must specify unique shared
+     * resource URI"
+     */
     private static final String ISSUE_SAME_SHARED_RESOURCE_URI =
             "bx.issueSameSharedResourceUri"; //$NON-NLS-1$
 
@@ -75,7 +72,9 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
             "bx.issueSameSharedResourceforDiffrentParticipants"; //$NON-NLS-1$
 
     /**
-     * "Web service participants with SAML / X509 / UsernameToken security policy type must specify a shared resource instance and issuer name for the policy."
+     * "Web service participants with SAML / X509 / UsernameToken security
+     * policy type must specify a shared resource instance and issuer name for
+     * the policy."
      */
     private static final String ISSUE_WS_PARTIC_MISSING_POLICY_INFO =
             "bx.wsParticMissingPolicyInfo"; //$NON-NLS-1$
@@ -103,7 +102,7 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
     /**
      * System participant shared resource endpoint uri does not start with the
      * same prefix as configured in the preference page
-     * */
+     */
     private static final String SHAREDRES_URI_PREFIX_NOT_FROM_PREFSTORE =
             "bx.sharedResURIPrefixNotFromPrefStore"; //$NON-NLS-1$
 
@@ -158,8 +157,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
     private void checkParticipants(Package pckg, Participant participant,
             List<IndexerItem> sortedProjectPartics, IProject targetProject) {
 
-        if (ParticipantType.SYSTEM_LITERAL.equals(N2Utils
-                .getParticipantType(participant))) {
+        if (ParticipantType.SYSTEM_LITERAL
+                .equals(N2Utils.getParticipantType(participant))) {
             String particName = participant.getName();
             if (particName != null) {
                 /*
@@ -176,9 +175,11 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                         if (o instanceof Participant) {
                             Participant otherPartic = (Participant) o;
 
-                            /* don't care if other partic is not a system one. */
-                            if (ParticipantType.SYSTEM_LITERAL.equals(N2Utils
-                                    .getParticipantType(otherPartic))) {
+                            /*
+                             * don't care if other partic is not a system one.
+                             */
+                            if (ParticipantType.SYSTEM_LITERAL.equals(
+                                    N2Utils.getParticipantType(otherPartic))) {
                                 /*
                                  * Don't care if it's exactly the same
                                  * participant.
@@ -191,7 +192,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                                          * same name as this one have the same
                                          * configuration.
                                          */
-                                        compareSystemParticipantsWithSameName(participant,
+                                        compareSystemParticipantsWithSameName(
+                                                participant,
                                                 otherPartic);
                                     }
 
@@ -215,13 +217,6 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                     }
                 }
 
-                /*
-                 * Check that all uses of this participant (or any other with
-                 * the same name) are only used for a single port type and
-                 * transport type.
-                 */
-                compareParticipantWebServiceReferences(participant,
-                        targetProject);
             }
         }
         return;
@@ -264,11 +259,10 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                 && ProcessUIUtil.isProcessApiParticipant(project,
                         otherPartic.getId())) {
 
-            boolean samePortTypes =
-                    new WSParticRefComparator()
-                            .areSamePortTypeAndNameSpace(project,
-                                    participant,
-                                    otherPartic);
+            boolean samePortTypes = new WSParticRefComparator()
+                    .areSamePortTypeAndNameSpace(project,
+                            participant,
+                            otherPartic);
 
             if (!samePortTypes) {
 
@@ -315,183 +309,6 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
         return;
     }
 
-    /*
-     * Check that all uses of this participant (or any other with the same name)
-     * are only used for a single port type and transport type.
-     */
-    private void compareParticipantWebServiceReferences(
-            Participant participant, IProject targetProject) {
-
-        ComparatorIssueInfo issueInfo =
-                new WSParticRefComparator()
-                        .compareParticipantWebServiceReferences(participant,
-                                targetProject);
-
-        if (null != issueInfo) {
-            if (null != issueInfo.getActivityUri1()
-                    && null != issueInfo.getActivityUri2()) {
-                addIssue(issueInfo.getIssueId(),
-                        participant,
-                        getActivityPaths(WorkingCopyUtil.getFile(participant),
-                                issueInfo.getActivityUri1(),
-                                issueInfo.getActivityUri2()));
-            } else if (null != issueInfo.getIssueId()) {
-                addIssue(issueInfo.getIssueId(), participant);
-            }
-        }
-
-        /*
-         * SID XPD-855: Additional check for security policy info and outbound
-         * soap jms binding issues.
-         */
-        ParticipantSharedResource particSharedResource =
-                (ParticipantSharedResource) Xpdl2ModelUtil
-                        .getOtherElement(participant,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_ParticipantSharedResource());
-        if (null != particSharedResource) {
-
-            if (null != particSharedResource.getWebService()) {
-                WsOutbound wsOutbound =
-                        particSharedResource.getWebService().getOutbound();
-                WsSoapSecurity outboundSecurity = null;
-
-                if (null != wsOutbound) {
-                    if (null != wsOutbound.getSoapHttpBinding()) {
-                        WsSoapHttpOutboundBinding soapHttpBinding =
-                                wsOutbound.getSoapHttpBinding();
-                        outboundSecurity =
-                                soapHttpBinding.getOutboundSecurity();
-
-                    } else if (null != wsOutbound.getSoapJmsBinding()) {
-                        WsSoapJmsOutboundBinding soapJmsBinding =
-                                wsOutbound.getSoapJmsBinding();
-                        outboundSecurity = soapJmsBinding.getOutboundSecurity();
-                    }
-                }
-
-                if (null != outboundSecurity
-                        && null != outboundSecurity.getSecurityPolicy()) {
-                    EList<WsSecurityPolicy> securityPolicy =
-                            outboundSecurity.getSecurityPolicy();
-                    for (WsSecurityPolicy wsSecurityPolicy : securityPolicy) {
-                        SecurityPolicy type = wsSecurityPolicy.getType();
-                        if (Arrays.asList(SecurityPolicy.USERNAME_TOKEN,
-                                SecurityPolicy.X509_TOKEN,
-                                SecurityPolicy.SAML_TOKEN).contains(type)) {
-                            String applicationName =
-                                    wsSecurityPolicy
-                                            .getGovernanceApplicationName();
-                            if (null == applicationName
-                                    || applicationName.trim().length() == 0) {
-                                addIssue(ISSUE_WS_PARTIC_MISSING_POLICY_INFO,
-                                        participant);
-                            }
-                        }
-                        if (Arrays.asList(SecurityPolicy.CUSTOM).contains(type)) {
-                            PolicySetReference ref =
-                                    PolicySetReference
-                                            .getPolicySetReference(wsSecurityPolicy);
-
-                            if (null == ref.getName()
-                                    || (null != ref.getName() && ref.getName()
-                                            .isEmpty())) {
-
-                                addIssue(ISSUE_WS_OR_REST_CUSTOM_POLICY_NOT_SET,
-                                        participant);
-
-                            } else if (!ref.policySetExists()) {
-
-                                List<String> msgs = new ArrayList<String>();
-
-                                msgs.add(ref.getName());
-
-                                addIssue(ISSUE_WS_OR_REST_CUSTOM_POLICY_INVALID_REF,
-                                        participant,
-                                        msgs);
-                            }
-                        }
-                    }
-                }
-
-            } else if (null != particSharedResource.getRestService()) {
-
-                /*
-                 * XPD-7684: Saket: Need to consider REST service system
-                 * participants as well.
-                 */
-
-                RestServiceResource restSvcRes =
-                        particSharedResource.getRestService();
-
-                RestServiceResourceSecurity security = null;
-
-                EList<RestServiceResourceSecurity> policies =
-                        restSvcRes.getSecurityPolicy();
-
-                if (!policies.isEmpty()) {
-
-                    security = policies.get(0);
-                }
-
-                if (security != null) {
-
-                    PolicySetReference policySetRef =
-                            PolicySetReference.getPolicySetReference(security);
-
-                    if (policySetRef != null) {
-
-                        SecurityPolicy type = security.getPolicyType();
-
-                        if (Arrays.asList(SecurityPolicy.BASIC).contains(type)) {
-
-                            final ExtendedAttributeManager eam =
-                                    new ExtendedAttributeManager();
-
-                            String idProvider =
-                                    eam.getAttribute(security,
-                                            RestServiceUtil.IDENTITY_PROVIDER_ATTRIBUTE);
-
-                            if (null == idProvider
-                                    || idProvider.trim().length() == 0) {
-
-                                addIssue(ISSUE_REST_PARTIC_MISSING_POLICY_INFO,
-                                        participant);
-                            }
-                        }
-
-                        if (Arrays.asList(SecurityPolicy.CUSTOM).contains(type)) {
-
-                            PolicySetReference ref =
-                                    PolicySetReference
-                                            .getPolicySetReference(security);
-
-                            if (null == ref.getName()
-                                    || (null != ref.getName() && ref.getName()
-                                            .isEmpty())) {
-
-                                addIssue(ISSUE_WS_OR_REST_CUSTOM_POLICY_NOT_SET,
-                                        participant);
-
-                            } else if (!ref.policySetExists()) {
-
-                                List<String> msgs = new ArrayList<String>();
-
-                                msgs.add(ref.getName());
-
-                                addIssue(ISSUE_WS_OR_REST_CUSTOM_POLICY_INVALID_REF,
-                                        participant,
-                                        msgs);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return;
-    }
-
     /**
      * Gets 2 strings to be used as parameters for problem text. The strings are
      * the 'paths' to the given activities in the form...
@@ -529,7 +346,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
      * @param activityUri
      * @return activity path for given activity
      */
-    private String getActivityPath(IResource localResource, String activityUri) {
+    private String getActivityPath(IResource localResource,
+            String activityUri) {
         String path;
         String actName = null;
         String procName = null;
@@ -539,19 +357,15 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
 
             URI uri = URI.createURI(activityUri);
             if (uri != null) {
-                ResourceSet resourceSet =
-                        XpdResourcesPlugin.getDefault().getEditingDomain()
-                                .getResourceSet();
+                ResourceSet resourceSet = XpdResourcesPlugin.getDefault()
+                        .getEditingDomain().getResourceSet();
 
                 EObject activity = resourceSet.getEObject(uri, true);
                 if (activity instanceof Activity) {
-                    actName =
-                            Xpdl2ModelUtil
-                                    .getDisplayNameOrName((Activity) activity);
-                    procName =
-                            Xpdl2ModelUtil
-                                    .getDisplayNameOrName(((Activity) activity)
-                                            .getProcess());
+                    actName = Xpdl2ModelUtil
+                            .getDisplayNameOrName((Activity) activity);
+                    procName = Xpdl2ModelUtil.getDisplayNameOrName(
+                            ((Activity) activity).getProcess());
 
                     otherResName = null;
                     if (localResource != null) {
@@ -577,7 +391,7 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
         if (otherResName != null && otherResName.length() > 0) {
             path = otherResName + "/" + procName + "/" + actName; //$NON-NLS-1$ //$NON-NLS-2$
         } else {
-            path = procName + "/" + actName; //$NON-NLS-1$ 
+            path = procName + "/" + actName; //$NON-NLS-1$
         }
         return path;
     }
@@ -595,24 +409,23 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
 
         if (!participant.equals(otherPartic)) {
             ParticipantSharedResource particSharedResource =
-                    (ParticipantSharedResource) Xpdl2ModelUtil
-                            .getOtherElement(participant,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_ParticipantSharedResource());
+                    (ParticipantSharedResource) Xpdl2ModelUtil.getOtherElement(
+                            participant,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getDocumentRoot_ParticipantSharedResource());
 
             ParticipantSharedResource otherParticSharedResource =
-                    (ParticipantSharedResource) Xpdl2ModelUtil
-                            .getOtherElement(otherPartic,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_ParticipantSharedResource());
+                    (ParticipantSharedResource) Xpdl2ModelUtil.getOtherElement(
+                            otherPartic,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getDocumentRoot_ParticipantSharedResource());
 
             /* one is web service type and other is not */
             if (null != particSharedResource
                     && null != otherParticSharedResource) {
 
-                boolean sameType =
-                        checkSharedResType(particSharedResource,
-                                otherParticSharedResource);
+                boolean sameType = checkSharedResType(particSharedResource,
+                        otherParticSharedResource);
 
                 if (sameType) {
                     /*
@@ -675,17 +488,16 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                      * as a linked resource so that files are temporarily
                      * dependent for validations
                      */
-                    String resURI =
-                            URI.createPlatformResourceURI(otherFile
-                                    .getFullPath().toPortableString(),
-                                    true).toString();
+                    String resURI = URI.createPlatformResourceURI(
+                            otherFile.getFullPath().toPortableString(),
+                            true).toString();
 
                     addIssue(ISSUE_DIFFCONFIG_SAMENAME,
                             participant,
                             msgParams,
-                            Collections
-                                    .singletonMap(ValidationActivator.LINKED_RESOURCE,
-                                            resURI));
+                            Collections.singletonMap(
+                                    ValidationActivator.LINKED_RESOURCE,
+                                    resURI));
 
                 } else {
                     /*
@@ -806,9 +618,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
 
         if (null != wsResource.getInbound()
                 && null != otherWsResource.getInbound()) {
-            sameNameDiffConfig =
-                    inboundWebServiceDiff(wsResource.getInbound(),
-                            otherWsResource.getInbound());
+            sameNameDiffConfig = inboundWebServiceDiff(wsResource.getInbound(),
+                    otherWsResource.getInbound());
         }
         /* check for outbound differences */
         if (!sameNameDiffConfig) {
@@ -877,7 +688,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                 WsSecurityPolicy otherWsSecurityPolicy =
                         otherSecurityPolicy.get(j);
                 if (wsSecurityPolicy != null && otherWsSecurityPolicy != null) {
-                    if (isDiffNullSafe(wsSecurityPolicy.getGovernanceApplicationName(),
+                    if (isDiffNullSafe(
+                            wsSecurityPolicy.getGovernanceApplicationName(),
                             otherWsSecurityPolicy
                                     .getGovernanceApplicationName())) {
                         return true;
@@ -1053,7 +865,8 @@ public class SystemParticipantSharedResourceRule extends PackageValidationRule {
                                 securityPolicy.get(j);
                         WsSecurityPolicy otherWsSecurityPolicy =
                                 otherSecurityPolicy.get(j);
-                        if (isDiffNullSafe(wsSecurityPolicy.getGovernanceApplicationName(),
+                        if (isDiffNullSafe(
+                                wsSecurityPolicy.getGovernanceApplicationName(),
                                 otherWsSecurityPolicy
                                         .getGovernanceApplicationName())) {
                             return true;
