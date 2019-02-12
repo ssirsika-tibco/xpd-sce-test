@@ -388,16 +388,6 @@
             severity="WARNING">
       </issue>
       <issue
-            id="bx.xpath.validateScript"
-            message="%bx.xpath.validateScript"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.xpath.warning.validateScript"
-            message="%bx.xpath.warning.validateScript"
-            severity="WARNING">
-      </issue>
-      <issue
             id="bx.unmappedUDSNotSupported"
             message="%bx.unmappedUDSNotSupported"
             severity="ERROR">
@@ -698,9 +688,6 @@
 		        class="com.tibco.bx.validation.rules.activity.ReplyImmediateStartMessageEventRule">
 		  </rule>
          <rule
-               class="com.tibco.bx.validation.rules.process.AnonymousTypeUsageRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.activity.EmptyNameValidationRule">
          </rule>
          <rule
@@ -744,21 +731,6 @@
           </rule>
           <rule
                 class="com.tibco.bx.validation.rules.mapping.JsWebServiceUnmappedScriptsRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.scripts.BxXPathWebServiceMappedScriptOutputRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.scripts.BxXPathWebServiceUnmappedScriptInputRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.scripts.BxXPathWebServiceUnmappedScriptOutputRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.scripts.BxXPathWebServiceMappedScriptInputRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.scripts.BxJsScriptPerformerRule">
           </rule>
           <rule
                 class="com.tibco.bx.validation.rules.process.CaseRefTypesInPaaSRule">
@@ -2461,11 +2433,6 @@
              severity="ERROR">
        </issue>
        <issue
-             id="bx.anonymousTypeCannotBeUsedForDatafieldOrParam"
-             message="%bx.anonymousTypeCannotBeUsedForDatafieldOrParam"
-             severity="ERROR">
-       </issue>
-       <issue
              id="bx.replyImmediateMissingProcessIdMapping"
              message="%bx.replyImmediateMissingProcessIdMapping"
              severity="ERROR">
@@ -4058,18 +4025,6 @@
             label="%resolution.bx.flowAnalyzerEnablePkg">
       </resolution>
       <resolution
-            class="com.tibco.bx.validation.resolutions.SetSvnDeferFileDeleteOnGenBOMResolution"
-            description="%bx.resolution.setSvnDeferFileDeleteOnBomGenFolder.desc"
-            id="bx.resolution.setSvnDeferFileDeleteOnBomGenFolder"
-            label="%bx.resolution.setSvnDeferFileDeleteOnBomGenFolder">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.SetSvnDeferFileDeleteOnAllGenBOMInWSResolution"
-            description="%bx.resolution.setSvnDeferFileDeleteOnBomGenFolder.desc"
-            id="bx.resolution.setSvnDeferFileDeleteOnAllGenBomFolder"
-            label="%bx.resolution.setSvnDeferFileDeleteOnAllGenBomFolder">
-      </resolution>
-      <resolution
             class="com.tibco.bx.validation.resolutions.LaunchFlowAnalyzerPreferencePageResolution"
             description="%resolution.bx.launchFlowAnalyzerPrefsPage"
             id="resolution.bx.launchFlowAnalyzerPrefsPage"
@@ -4221,11 +4176,6 @@
                id="com.tibco.bx.validation.identicalFolderNamesInPresentationResourcesSpecialFolderRule"
                validateType="PROJECT">
          </validator>
-         <validator
-               class="com.tibco.bx.validation.rules.SvnDeferFileDeleteOnBomGenFolderRule"
-               id="com.tibco.bx.validation.svnDeferFileDeleteOnBomGenFolder"
-               validateType="FOLDER">
-         </validator>
       </provider>
       <issues>
          <issue
@@ -4303,21 +4253,6 @@
                id="bx.invalidFolderNameInPresentationResources"
                message="%bx.invalidFolderNameInPresentationResources"
                severity="ERROR">
-         </issue>
-         <issue
-               id="bx.svnDeferFileDeleteOnBomGenFolder"
-               message="%bx.svnDeferFileDeleteOnBomGenFolder"
-               preferenceDescription="%bx.svnDeferFileDeleteOnBomGenFolder.prefDesc"
-               preferenceGroupId="com.tibco.bx.validation.processManagerProblems"
-               severity="ERROR">
-            <resolution
-                  canApplyToMultiple="false"
-                  id="bx.resolution.setSvnDeferFileDeleteOnBomGenFolder">
-            </resolution>
-            <resolution
-                  canApplyToMultiple="true"
-                  id="bx.resolution.setSvnDeferFileDeleteOnAllGenBomFolder">
-            </resolution>
          </issue>
       </issues>
    </extension>

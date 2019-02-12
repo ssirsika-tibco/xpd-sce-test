@@ -7,25 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
-import com.tibco.xpd.n2.cds.script.DefaultJsFactoryClass;
-import com.tibco.xpd.n2.cds.script.DefaultJsFactoryMethodParam;
 import com.tibco.xpd.n2.cds.script.IRestScriptRelevantData;
 import com.tibco.xpd.n2.cds.script.RestJsClass;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
@@ -48,10 +40,8 @@ import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefMultiV
 import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaMethod;
 import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaStringMethod;
 import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaWithPageSizeMethod;
-import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.internal.client.IUMLElement;
-import com.tibco.xpd.script.model.internal.jscript.IJScriptDataTypeMapper;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptDotExpressionValidator;
 import com.tibco.xpd.xpdl2.Activity;
@@ -506,20 +496,12 @@ public class N2JScriptDotExpressionValidator
                         return true;
                     }
                 }
+
                 /*
-                 * XPD-1738: Factory classes do not represent any uml class but
-                 * they are for a bom package (hence factory classes are not
-                 * dynamic complex types). Validate the creation of abstract
-                 * classes from factory here
+                 * Sid ACE-194 - we don't have XSD derived BOMs any more -
+                 * removed XSD base rules
                  */
-                if (isFactoryMethodForAbstractType(type,
-                        methodName,
-                        supportedJsClasses)) {
-                    String message =
-                            Messages.N2JScriptDotExpressionValidator_InstantiatingAbstractTypesNotAllowed;
-                    addErrorMessage(token, message);
-                    return true;
-                }
+
                 String genericType = convertSpecificToGenericType(type);
                 if (genericType != null) {
                     if (genericType
@@ -835,42 +817,12 @@ public class N2JScriptDotExpressionValidator
     protected boolean isExplicitAssignmentAllowance(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
 
-        if (JScriptUtils.isXsdAny(lhsDataType)) {
+        /*
+         * Sid ACE-194 - we don't have XSD derived BOMs any more - removed XSD
+         * base rules
+         */
 
-            if (CDSUtils.canBeAssignedToXsdAny(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnyType(lhsDataType)) {
-
-            if (CDSUtils.canBeAssignedToXsdAnyType(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnySimpleType(lhsDataType)) {
-
-            if (CDSUtils.canBeAssignedToXsdAnySimpleType(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnyAttribute(lhsDataType)) {
-
-            if (CDSUtils.canBeAssignedToXsdAnyAttribute(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (CDSUtils.isUnion(lhsDataType)) {
-
-            if (canBeAssignedToUnion(lhsDataType, rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (isDQLQueryMethodParam(lhsDataType)
+        if (isDQLQueryMethodParam(lhsDataType)
                 && isValidToAssignToDQLParam(rhsDataType)) {
             /*
              * XPD-5493. Have to allow String->DQLString for _method parameters_
@@ -1087,27 +1039,10 @@ public class N2JScriptDotExpressionValidator
     @Override
     protected boolean isExplicitAssignmentRestriction(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
-        if (JScriptUtils.isXsdAny(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAny(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnyType(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnyType(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnySimpleType(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnySimpleType(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnyAttribute(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnyAttribute(rhsDataType)) {
-                return true;
-            }
-        } else if (CDSUtils.isUnion(lhsDataType)) {
-            if (!canBeAssignedToUnion(lhsDataType, rhsDataType)) {
-                return true;
-            }
-        }
+        /*
+         * Sid ACE-194 - we don't have XSD derived BOMs any more - removed XSD
+         * base rules
+         */
 
         /*
          * XPD-5705: ONLY check when both are Global data CaseRef types, Do not
@@ -1136,78 +1071,6 @@ public class N2JScriptDotExpressionValidator
             return true;
         }
         return super.isExplicitAssignmentRestriction(lhsDataType, rhsDataType);
-    }
-
-    @SuppressWarnings("restriction")
-    private boolean canBeAssignedToUnion(IScriptRelevantData lhsDataType,
-            IScriptRelevantData rhsDataType) {
-
-        DataType sourceDataType = JScriptUtils.getDataType(lhsDataType);
-
-        if (XSDUtil.isUnion(sourceDataType)) {
-            String lhsTypeStr = convertSpecificToGenericType(lhsDataType);
-            String rhsTypeStr = convertSpecificToGenericType(rhsDataType);
-
-            if (lhsTypeStr != null && rhsTypeStr != null
-                    && lhsTypeStr.equals(rhsTypeStr)) {
-                return true;
-            }
-
-            List<DataType> unionMemberTypes =
-                    XSDUtil.getUnionMemberTypes(sourceDataType);
-
-            for (DataType memberDataType : unionMemberTypes) {
-                if (memberDataType instanceof PrimitiveType) {
-
-                    PrimitiveType primitiveType =
-                            (PrimitiveType) memberDataType;
-                    PrimitiveType basePrimitiveType =
-                            JScriptUtils.getBasePrimitiveType(primitiveType);
-
-                    Map<String, Set<String>> compatibleAssignmentOperatorTypesMap =
-                            null;
-
-                    IDataTypeMapper dataTypeMapper =
-                            getDataTypeMapper(getInfoObject());
-
-                    if (dataTypeMapper instanceof IJScriptDataTypeMapper) {
-                        IJScriptDataTypeMapper jsDataTypeMapper =
-                                (IJScriptDataTypeMapper) dataTypeMapper;
-                        compatibleAssignmentOperatorTypesMap = jsDataTypeMapper
-                                .getCompatibleAssignmentTypesMap();
-                        compatibleAssignmentOperatorTypesMap =
-                                jsDataTypeMapper.convertSpecificMapToGeneric(
-                                        compatibleAssignmentOperatorTypesMap);
-                    }
-                    if (compatibleAssignmentOperatorTypesMap != null) {
-                        Set<String> compatibleEqualityOperatorSet =
-                                compatibleAssignmentOperatorTypesMap
-                                        .get(rhsTypeStr);
-                        if (compatibleEqualityOperatorSet != null
-                                && compatibleEqualityOperatorSet
-                                        .contains(JScriptUtils.getFQType(
-                                                basePrimitiveType))) {
-                            return true;
-                        }
-                    }
-
-                } else if (memberDataType instanceof Enumeration) {
-
-                    if (!JsConsts.UNDEFINED_DATA_TYPE
-                            .equals(rhsDataType.getType())) {
-
-                        String memberDataTypeStr =
-                                JScriptUtils.getFQType(memberDataType);
-                        if (memberDataTypeStr != null && rhsTypeStr != null
-                                && memberDataTypeStr.equals(rhsTypeStr)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -1314,60 +1177,6 @@ public class N2JScriptDotExpressionValidator
 
                 }
 
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Checks for the given method to be a factory method of an Abstract type.
-     * 
-     * @param type
-     * @param methodName
-     * @param supportedJsClasses
-     * @return true, only if given method is a factory create method for an
-     *         abstract type.
-     */
-    private boolean isFactoryMethodForAbstractType(IScriptRelevantData type,
-            String methodName, List<JsClass> supportedJsClasses) {
-
-        if (type instanceof IUMLScriptRelevantData) {
-
-            JsClass jsClass = ((IUMLScriptRelevantData) type).getJsClass();
-            // For FactoryClass
-            if (jsClass != null && jsClass instanceof DefaultJsFactoryClass) {
-
-                List<JsMethod> methodList = jsClass.getMethodList(methodName);
-                for (JsMethod jsFactoryMethod : methodList) {
-
-                    // get return Type for this create method
-                    DefaultJsFactoryMethodParam returnType =
-                            (DefaultJsFactoryMethodParam) jsFactoryMethod
-                                    .getReturnType();
-                    // Type
-                    Element element = returnType.getElement();
-
-                    if (element instanceof Class) {
-
-                        Class bomClass = (Class) element;
-
-                        Stereotype abstractStereotype =
-                                bomClass.getAppliedStereotype(
-                                        XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME
-                                                + "::" //$NON-NLS-1$
-                                                + XsdStereotypeUtils.XSD_BASED_CLASS);
-                        if (abstractStereotype != null) {
-
-                            Boolean stereoTypeVal =
-                                    Boolean.valueOf((String) (bomClass.getValue(
-                                            abstractStereotype,
-                                            XsdStereotypeUtils.XSD_PROPERTY_ABSTRACT)));
-
-                            return stereoTypeVal;
-                        }
-                    }
-                }
             }
         }
 

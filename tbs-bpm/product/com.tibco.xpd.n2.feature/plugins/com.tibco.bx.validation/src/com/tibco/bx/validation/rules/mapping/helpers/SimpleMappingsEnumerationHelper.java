@@ -11,7 +11,6 @@ import org.eclipse.uml2.uml.PrimitiveType;
 
 import com.tibco.bx.validation.rules.mapping.WebServiceJavaScriptMappingIssue;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.xpdl2.Activity;
@@ -65,21 +64,24 @@ public class SimpleMappingsEnumerationHelper {
         } else if (targetType instanceof PrimitiveType) {
             org.eclipse.uml2.uml.DataType targetDataType =
                     (org.eclipse.uml2.uml.DataType) targetType;
-            boolean isTargetUnion = XSDUtil.isUnion(targetDataType);
-            if (!isTargetUnion) {
 
-                /* source enum and target text is allowed */
+            /*
+             * Sid ACE-194 - we don't have XSD derived BOMs any more - removed
+             * XSD base rules
+             */
 
-                if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
-                        .equalsIgnoreCase(targetTypeName)) {
-                    return null;
-                }
+            /* source enum and target text is allowed */
 
-                if (!sourceType.equals(targetType)) {
-                    return BaseMappingsIssuesHelper
-                            .arr(WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
-                }
+            if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
+                    .equalsIgnoreCase(targetTypeName)) {
+                return null;
             }
+
+            if (!sourceType.equals(targetType)) {
+                return BaseMappingsIssuesHelper
+                        .arr(WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
+            }
+
         } else if (!PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
                 .equals(targetTypeName)) {
             return BaseMappingsIssuesHelper
@@ -120,8 +122,8 @@ public class SimpleMappingsEnumerationHelper {
                 boolean isRHSSubType =
                         JScriptUtils.isSubType(targetClass, sourceClass);
                 if (isRHSSubType) {
-                    return BaseMappingsIssuesHelper
-                            .arr(WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
+                    return BaseMappingsIssuesHelper.arr(
+                            WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
                 }
             }
         }

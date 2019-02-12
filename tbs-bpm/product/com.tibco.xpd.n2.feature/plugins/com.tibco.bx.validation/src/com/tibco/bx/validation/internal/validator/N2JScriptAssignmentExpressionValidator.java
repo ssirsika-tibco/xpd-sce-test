@@ -3,7 +3,6 @@ package com.tibco.bx.validation.internal.validator;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,19 +10,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Enumeration;
-import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
 import com.tibco.xpd.script.model.JsConsts;
@@ -33,10 +25,8 @@ import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.globaldata.CaseRefJsClass;
 import com.tibco.xpd.script.model.client.globaldata.CaseRefPaginatedListJsClass;
 import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
-import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.internal.client.IUMLElement;
-import com.tibco.xpd.script.model.internal.jscript.IJScriptDataTypeMapper;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
@@ -49,11 +39,14 @@ import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
-public class N2JScriptAssignmentExpressionValidator extends
-        JScriptAssignmentExpressionValidator {
+import antlr.Token;
+import antlr.collections.AST;
 
-    private final static String[] priorityValidValues = new String[] {
-            "100", "200", "300", "400" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$//$NON-NLS-4$
+public class N2JScriptAssignmentExpressionValidator
+        extends JScriptAssignmentExpressionValidator {
+
+    private final static String[] priorityValidValues =
+            new String[] { "100", "200", "300", "400" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$//$NON-NLS-4$
 
     @SuppressWarnings("restriction")
     @Override
@@ -103,9 +96,8 @@ public class N2JScriptAssignmentExpressionValidator extends
             if (null != lhsValidateResult.getType()
                     && null != rhsValidateResult.getType()) {
                 if (JScriptUtils.isXsdAnyType(lhsValidateResult.getType())
-                        && JScriptUtils
-                                .isAnonymousComplexType(rhsValidateResult
-                                        .getType())) {
+                        && JScriptUtils.isAnonymousComplexType(
+                                rhsValidateResult.getType())) {
                     addErrorMessage(token,
                             Messages.N2JScriptAssignmentExpressionValidator_AnonComplexToAnyTypeAssignment);
                 }
@@ -131,7 +123,8 @@ public class N2JScriptAssignmentExpressionValidator extends
                         firstChild = astExp.getNextSibling();
                     }
                     if (null != firstChild && null != firstChild.getText()
-                            && JScriptTokenTypes.IDENT == firstChild.getType()) {
+                            && JScriptTokenTypes.IDENT == firstChild
+                                    .getType()) {
                         if (!firstChild.getText().equals("ScriptUtil")) { //$NON-NLS-1$
                             addWarningMessage(token,
                                     Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
@@ -142,7 +135,9 @@ public class N2JScriptAssignmentExpressionValidator extends
                                     && null != firstChild2.getText()
                                     && JScriptTokenTypes.IDENT == firstChild2
                                             .getType()) {
-                                if (!(firstChild2.getText().equals("copy") || firstChild2.getText().equals("copyAll"))) { //$NON-NLS-1$//$NON-NLS-2$
+                                if (!(firstChild2.getText().equals("copy") //$NON-NLS-1$
+                                        || firstChild2.getText()
+                                                .equals("copyAll"))) { //$NON-NLS-1$
                                     addWarningMessage(token,
                                             Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
                                 }
@@ -166,13 +161,12 @@ public class N2JScriptAssignmentExpressionValidator extends
             if (null != lhsValidateResult.getType()
                     && null != rhsValidateResult.getType()) {
                 if (JScriptUtils.isXsdAnyType(lhsValidateResult.getType())) {
-                    if (CDSUtils.canBeAssignedToXsdAnyType(rhsValidateResult
-                            .getType())) {
-                        if (JScriptUtils.isXsdAnyType(rhsValidateResult
-                                .getType())
-                                || JScriptUtils
-                                        .isDynamicComplexType(rhsValidateResult
-                                                .getType())) {
+                    if (CDSUtils.canBeAssignedToXsdAnyType(
+                            rhsValidateResult.getType())) {
+                        if (JScriptUtils
+                                .isXsdAnyType(rhsValidateResult.getType())
+                                || JScriptUtils.isDynamicComplexType(
+                                        rhsValidateResult.getType())) {
                             return true;
                         }
                     }
@@ -249,8 +243,10 @@ public class N2JScriptAssignmentExpressionValidator extends
                                                 Messages.N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2);
                                     }
                                 }
-                            } else if (rhsAstExp.getType() == JScriptTokenTypes.IDENT
-                                    || rhsAstExp.getType() == JScriptTokenTypes.DOT) {
+                            } else if (rhsAstExp
+                                    .getType() == JScriptTokenTypes.IDENT
+                                    || rhsAstExp
+                                            .getType() == JScriptTokenTypes.DOT) {
                                 /*
                                  * XPD-5469. All Process.priority to be set from
                                  * variable data now.
@@ -305,24 +301,29 @@ public class N2JScriptAssignmentExpressionValidator extends
                                 // Check if the rhs is a literal
                                 AST astRhsExpr = getASTExpr(rhsValidateResult);
                                 if (astRhsExpr != null) {
-                                    if (astRhsExpr.getType() == JScriptTokenTypes.STRING_LITERAL
-                                            && astRhsExpr.getFirstChild() == null) {
+                                    if (astRhsExpr
+                                            .getType() == JScriptTokenTypes.STRING_LITERAL
+                                            && astRhsExpr
+                                                    .getFirstChild() == null) {
                                         String literalRHS =
                                                 astRhsExpr.getText();
                                         if (literalRHS != null) {
                                             // Strip the quotes from the
                                             // literals
-                                            if (literalRHS.startsWith("\"") && literalRHS.endsWith("\"") && literalRHS.length() > 1) {//$NON-NLS-1$//$NON-NLS-2$
+                                            if (literalRHS.startsWith("\"") //$NON-NLS-1$
+                                                    && literalRHS.endsWith("\"") //$NON-NLS-1$
+                                                    && literalRHS
+                                                            .length() > 1) {
                                                 literalRHS =
-                                                        literalRHS
-                                                                .substring(1,
-                                                                        literalRHS
-                                                                                .length() - 1);
+                                                        literalRHS.substring(1,
+                                                                literalRHS
+                                                                        .length()
+                                                                        - 1);
                                             }
                                             for (String allowedValue : paramAllowedValues) {
                                                 if (allowedValue != null
-                                                        && allowedValue
-                                                                .equals(literalRHS)) {
+                                                        && allowedValue.equals(
+                                                                literalRHS)) {
                                                     return;
                                                 }
                                             }
@@ -369,10 +370,8 @@ public class N2JScriptAssignmentExpressionValidator extends
 
     public List<String> getParamAllowedValues(FormalParameter formalParameter) {
         List<String> allowed = new ArrayList<String>();
-        Object other =
-                Xpdl2ModelUtil.getOtherElement(formalParameter,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_InitialValues());
+        Object other = Xpdl2ModelUtil.getOtherElement(formalParameter,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_InitialValues());
         if (other instanceof InitialValues) {
             InitialValues values = (InitialValues) other;
             List<?> tokens = values.getValue();
@@ -409,8 +408,8 @@ public class N2JScriptAssignmentExpressionValidator extends
                     IValidateResult evaluateParent =
                             delegateEvaluateExpression(parentAstExpr, token);
                     parentAstExpr.setNextSibling(lastSibling);
-                    if (evaluateParent != null
-                            && evaluateParent.getType() instanceof IUMLScriptRelevantData) {
+                    if (evaluateParent != null && evaluateParent
+                            .getType() instanceof IUMLScriptRelevantData) {
                         IUMLScriptRelevantData type =
                                 (IUMLScriptRelevantData) rhsValidateResult
                                         .getType();
@@ -430,7 +429,8 @@ public class N2JScriptAssignmentExpressionValidator extends
                              * composition attributes should be valid and no
                              * warning message required
                              */
-                            if (!(jsClass instanceof CaseRefJsClass && parentJsClass instanceof CaseRefJsClass)) {
+                            if (!(jsClass instanceof CaseRefJsClass
+                                    && parentJsClass instanceof CaseRefJsClass)) {
 
                                 Class umlClass = jsClass.getUmlClass();
                                 Class parentUmlClass =
@@ -440,7 +440,8 @@ public class N2JScriptAssignmentExpressionValidator extends
                                 if (isOwnedAttribute(parentUmlClass,
                                         umlClass,
                                         alreadyVisitedClasses)
-                                        || isCompositeRelationship(parentUmlClass,
+                                        || isCompositeRelationship(
+                                                parentUmlClass,
                                                 umlClass)) {
                                     addWarningMessage(token,
                                             Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
@@ -508,7 +509,8 @@ public class N2JScriptAssignmentExpressionValidator extends
         return false;
     }
 
-    private boolean isCompositeRelationship(Class parentUmlClass, Class umlClass) {
+    private boolean isCompositeRelationship(Class parentUmlClass,
+            Class umlClass) {
         EList<Association> associations = parentUmlClass.getAssociations();
         if (associations != null && !associations.isEmpty()) {
             for (Association association : associations) {
@@ -534,37 +536,7 @@ public class N2JScriptAssignmentExpressionValidator extends
     @Override
     protected boolean isExplicitAssignmentAllowance(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
-        if (JScriptUtils.isXsdAny(lhsDataType)) {
-            if (CDSUtils.canBeAssignedToXsdAny(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnyType(lhsDataType)) {
-            if (CDSUtils.canBeAssignedToXsdAnyType(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnySimpleType(lhsDataType)) {
-            if (CDSUtils.canBeAssignedToXsdAnySimpleType(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (JScriptUtils.isXsdAnyAttribute(lhsDataType)) {
-            if (CDSUtils.canBeAssignedToXsdAnyAttribute(rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (CDSUtils.isUnion(lhsDataType)) {
-            if (canBeAssignedToUnion(lhsDataType, rhsDataType)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        /* Sid ACE-194 - we don't have XSD derived BOMs any more. */
         if (lhsDataType instanceof CaseUMLScriptRelevantData) {
 
             if (isPaginated(lhsDataType) && !isPaginated(rhsDataType)) {
@@ -611,108 +583,13 @@ public class N2JScriptAssignmentExpressionValidator extends
         return false;
     }
 
-    @SuppressWarnings("restriction")
-    private boolean canBeAssignedToUnion(IScriptRelevantData lhsDataType,
-            IScriptRelevantData rhsDataType) {
-
-        DataType sourceDataType = JScriptUtils.getDataType(lhsDataType);
-
-        if (!JsConsts.UNDEFINED_DATA_TYPE.equals(lhsDataType.getType())
-                && !JsConsts.UNDEFINED_DATA_TYPE.equals(rhsDataType.getType())) {
-
-            if (XSDUtil.isUnion(sourceDataType)) {
-                String lhsTypeStr = convertSpecificToGenericType(lhsDataType);
-                String rhsTypeStr = convertSpecificToGenericType(rhsDataType);
-
-                if (lhsTypeStr != null && rhsTypeStr != null
-                        && lhsTypeStr.equals(rhsTypeStr)) {
-                    return true;
-                }
-
-                List<DataType> unionMemberTypes =
-                        XSDUtil.getUnionMemberTypes(sourceDataType);
-
-                for (DataType memberDataType : unionMemberTypes) {
-                    if (memberDataType instanceof PrimitiveType) {
-
-                        PrimitiveType primitiveType =
-                                (PrimitiveType) memberDataType;
-                        PrimitiveType basePrimitiveType =
-                                JScriptUtils
-                                        .getBasePrimitiveType(primitiveType);
-
-                        Map<String, Set<String>> compatibleAssignmentOperatorTypesMap =
-                                null;
-
-                        IDataTypeMapper dataTypeMapper =
-                                getDataTypeMapper(getInfoObject());
-
-                        if (dataTypeMapper instanceof IJScriptDataTypeMapper) {
-                            IJScriptDataTypeMapper jsDataTypeMapper =
-                                    (IJScriptDataTypeMapper) dataTypeMapper;
-                            compatibleAssignmentOperatorTypesMap =
-                                    jsDataTypeMapper
-                                            .getCompatibleAssignmentTypesMap();
-                            compatibleAssignmentOperatorTypesMap =
-                                    jsDataTypeMapper
-                                            .convertSpecificMapToGeneric(compatibleAssignmentOperatorTypesMap);
-                        }
-                        if (compatibleAssignmentOperatorTypesMap != null) {
-                            Set<String> compatibleEqualityOperatorSet =
-                                    compatibleAssignmentOperatorTypesMap
-                                            .get(rhsTypeStr);
-                            if (compatibleEqualityOperatorSet != null
-                                    && compatibleEqualityOperatorSet
-                                            .contains(JScriptUtils
-                                                    .getFQType(basePrimitiveType))) {
-                                return true;
-                            }
-                        }
-
-                    } else if (memberDataType instanceof Enumeration) {
-
-                        if (!JsConsts.UNDEFINED_DATA_TYPE.equals(rhsDataType
-                                .getType())) {
-
-                            String memberDataTypeStr =
-                                    JScriptUtils.getFQType(memberDataType);
-                            if (memberDataTypeStr != null && rhsTypeStr != null
-                                    && memberDataTypeStr.equals(rhsTypeStr)) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
+    /* Sid ACE-194 - we don't have XSD derived BOMs any more. */
 
     @SuppressWarnings("restriction")
     @Override
     protected boolean isExplicitAssignmentRestriction(
             IScriptRelevantData lhsDataType, IScriptRelevantData rhsDataType) {
-        if (JScriptUtils.isXsdAny(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAny(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnyType(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnyType(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnySimpleType(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnySimpleType(rhsDataType)) {
-                return true;
-            }
-        } else if (JScriptUtils.isXsdAnyAttribute(lhsDataType)) {
-            if (!CDSUtils.canBeAssignedToXsdAnyAttribute(rhsDataType)) {
-                return true;
-            }
-        } else if (CDSUtils.isUnion(lhsDataType)) {
-            if (!canBeAssignedToUnion(lhsDataType, rhsDataType)) {
-                return true;
-            }
-        }
+        /* Sid ACE-194 - we don't have XSD derived BOMs any more. */
         return super.isExplicitAssignmentRestriction(lhsDataType, rhsDataType);
     }
 
@@ -725,8 +602,8 @@ public class N2JScriptAssignmentExpressionValidator extends
      * @param token
      * @return
      */
-    private boolean isValidGlobalDataAssignment(
-            IScriptRelevantData lhsDataType, Token token) {
+    private boolean isValidGlobalDataAssignment(IScriptRelevantData lhsDataType,
+            Token token) {
         // ONLY interested in LHS to flag not-allowed assignments
         if (lhsDataType != null && lhsDataType.getType() != null) {
             Object extendedInfo =
@@ -775,8 +652,9 @@ public class N2JScriptAssignmentExpressionValidator extends
 
         if (collectionType != null) {
 
-            return String
-                    .format("%1s<%2s>", collectionType, scriptRelevantData.getType()); //$NON-NLS-1$
+            return String.format("%1s<%2s>", //$NON-NLS-1$
+                    collectionType,
+                    scriptRelevantData.getType());
         }
         return super.parseTypeMessage(scriptRelevantData);
     }
@@ -812,10 +690,10 @@ public class N2JScriptAssignmentExpressionValidator extends
             if (isLhsCaseType && isRhsCaseType) {
 
                 List<String> additionalAttributes = new ArrayList<String>();
-                additionalAttributes.add(parseTypeMessage(rhsValidateResult
-                        .getType()));
-                additionalAttributes.add(parseTypeMessage(lhsValidateResult
-                        .getType()));
+                additionalAttributes
+                        .add(parseTypeMessage(rhsValidateResult.getType()));
+                additionalAttributes
+                        .add(parseTypeMessage(lhsValidateResult.getType()));
                 String errorMessage =
                         Messages.N2JScriptAssignmentExpressionValidator_AssignmentOfSuperclassToSubClass;
                 addErrorMessage(token, errorMessage, additionalAttributes);
