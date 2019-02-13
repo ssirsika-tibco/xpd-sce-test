@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature id="com.tibco.bx.extension.designtime.feature" label="%featureName" provider-name="%providerName" version="11.0.0.qualifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.bx.extension.designtime.feature"
+      label="%featureName"
+      version="11.0.0.qualifier"
+      provider-name="%providerName">
 
    <description>
       %description
@@ -17,12 +21,29 @@
       <import feature="org.eclipse.emf" version="2.13.0" match="compatible"/>
       <import feature="com.tibco.bx.extension.model.feature.eclipse" version="1.13.100" match="compatible"/>
       <import feature="com.tibco.bx.designtime.feature" version="11.0.0" match="compatible"/>
-      <import feature="com.tibco.bx.amx.designtime.feature" version="11.0.0" match="compatible"/>
       <import feature="com.tibco.xpd.wm.feature" version="11.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.editor.feature" version="11.0.0"/>
    </requires>
 
-   <plugin download-size="0" id="com.tibco.bx.extension.email.converter" install-size="0" unpack="false" version="11.0.0.qualifier"/>
-   <plugin download-size="0" id="com.tibco.bx.extension.database.converter" install-size="0" unpack="false" version="11.0.0.qualifier"/>
-   <plugin download-size="0" id="com.tibco.bx.extension.java.converter" install-size="0" unpack="false" version="11.0.0.qualifier"/>
+   <plugin
+         id="com.tibco.bx.extension.email.converter"
+         download-size="0"
+         install-size="0"
+         version="11.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.bx.extension.database.converter"
+         download-size="0"
+         install-size="0"
+         version="11.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.bx.extension.java.converter"
+         download-size="0"
+         install-size="0"
+         version="11.0.0.qualifier"
+         unpack="false"/>
 
 </feature>

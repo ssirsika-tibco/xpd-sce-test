@@ -12,14 +12,12 @@ Require-Bundle: org.eclipse.ui,
  com.tibco.xpd.xpdl2.edit,
  com.tibco.amf.sca.model.eclipse;bundle-version="1.5.0",
  com.tibco.amf.tools.composite.resources;bundle-version="3.6.0",
- com.tibco.bx.composite.xpdl.core,
- com.tibco.bx.composite.core,
  com.tibco.bx.extensions.email.model.eclipse,
  com.tibco.bx.amx.model.service.eclipse,
  com.tibco.bx.core.model.eclipse,
  com.tibco.bx.model.service.eclipse,
- com.tibco.xpd.analyst.resources.xpdl2
-Export-Package: com.tibco.bx.extension.email.composite;version="11.0.0",
- com.tibco.bx.extension.email.converter;version="11.0.0"
+ com.tibco.xpd.analyst.resources.xpdl2,
+ com.tibco.bx.xpdl2bpel
+Export-Package: com.tibco.bx.extension.email.converter;version="11.0.0"
 Bundle-Activator: com.tibco.bx.extension.email.converter.EmailConverterActivator
 Bundle-ActivationPolicy: lazy

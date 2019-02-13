@@ -10,58 +10,6 @@
             targetModel="com.tibco.xpd.implementer.nativeservices.emailservice.email.EmailType"/>
    </extension>
    
-
-   <extension
-         point="com.tibco.bx.composite.xpdl.core.extensionDependencies">
-      <extensionDependencies
-            id="com.tibco.bx.extension.email.converter.dependencies"
-            implementationTypeId="implementation.bx"
-            objectClass="com.tibco.xpd.implementer.nativeservices.emailservice.email.EmailType">
-         <importPackage
-               name="com.tibco.amf.sca.model.implementationtype.java"
-               maximum="2.0.0"
-               minimum="1.0.0"/>
-         <importPackage
-               name="com.tibco.bx.bpelExtension.extensionActivity"
-               maximum="2.0.0"
-               minimum="1.0.0"/>
-         <importPackage
-               name="com.tibco.bx.extensions.email.emailExtensionsModel"
-               maximum="2.0.0"
-               minimum="1.0.0"/>
-         <importPackage
-               name="com.tibco.bx.extension.email.core"
-               maximum="2.0.0"
-               minimum="1.0.0"/>
-         <importPackage
-               name="com.sun.mail.handlers"
-               maximum="2.0.0"
-               minimum="1.4.0"/>
-         <importPackage
-               name="javax.activation"
-               maximum="2.0.0"
-               minimum="1.1.0"/>
-         <importPackage
-               name="javax.mail"
-               maximum="2.0.0"
-               minimum="1.4.0"/>
-         <importPackage
-               name="javax.mail.internet"
-               maximum="2.0.0"
-               minimum="1.4.0"/>
-         <importPackage
-               name="javax.mail.util"
-               maximum="2.0.0"
-               minimum="1.4.0"/>
-      </extensionDependencies>
-   </extension>
-   <extension
-         point="com.tibco.bx.composite.core.componentTypeContributor">
-      <contributor
-            class="com.tibco.bx.extension.email.composite.EmailTaskComponentTypeContributor"
-            implementationTypeId="implementation.bx">
-      </contributor>
-   </extension>
    <extension
          point="com.tibco.xpd.analyst.resources.xpdl2.bpmnCatchableErrorProviders">
       <ErrorBrowser
