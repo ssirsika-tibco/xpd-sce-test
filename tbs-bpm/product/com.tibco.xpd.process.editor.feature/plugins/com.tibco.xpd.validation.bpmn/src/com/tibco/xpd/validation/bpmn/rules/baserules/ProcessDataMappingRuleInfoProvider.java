@@ -8,7 +8,6 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
-import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.CorrelationDataFolder;
@@ -155,9 +154,9 @@ public class ProcessDataMappingRuleInfoProvider extends
                      * XPD-4019: If object in tree is instance of Property then
                      * check if it has "xsdFixed" value set.
                      */
-                    if (isPropertyXsdFixed(originalTargetItem)) {
-                        return true;
-                    }
+                    /*
+                     * Sid ACE-194 - we don't support XSD based BOMs in ACE
+                     */
                     return ((Property) originalTargetItem).isReadOnly();
                 }
 
@@ -200,25 +199,7 @@ public class ProcessDataMappingRuleInfoProvider extends
                 || isInputParameterTargetInSubProcess(data);
     }
 
-    /**
-     * Check if the target has "xsdFixed" value set, if yes then return true.
-     * 
-     * @param target
-     * @return true if "xsdFixed" value is set.
-     */
-    private boolean isPropertyXsdFixed(Object target) {
-        Property property = (Property) target;
-        Object valueForStereotype =
-                XsdStereotypeUtils.getValueForStereotype(property,
-                        XsdStereotypeUtils.XSD_BASED_PROPERTY,
-                        XsdStereotypeUtils.XSD_PROPERTY_FIXED);
 
-        if (valueForStereotype != null
-                && ((String) valueForStereotype).trim().length() > 0) {
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Check whether the data is correlation data field AND whether the current
@@ -357,9 +338,10 @@ public class ProcessDataMappingRuleInfoProvider extends
                      * not be mapped as it is not mandatory and hence return
                      * minimum instances as 0.
                      */
-                    if (isPropertyXsdFixed(item)) {
-                        return 0;
-                    }
+                    /*
+                     * Sid ACE-194 - we don't support XSD based BOMs in ACE
+                     */
+
                     return property.getLower();
 
                 }

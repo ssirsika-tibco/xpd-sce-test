@@ -25,7 +25,6 @@ import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
-import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
 import com.tibco.xpd.n2.bpel.Messages;
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.resources.util.N2Utils;
@@ -500,11 +499,15 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
              */
             for (Activity activity : Xpdl2ModelUtil
                     .getAllActivitiesInProc(process)) {
-                IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
-                if (wsdlFile != null) {
-                    IFile targetWsdl = destFolder.getFile(wsdlFile.getName());
-                    this.addTargetResource(targetWsdl);
-                }
+
+                /*
+                 * Sid ACE-194 - we don't support WSDL message activities in ACE
+                 */
+                // IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
+                // if (wsdlFile != null) {
+                // IFile targetWsdl = destFolder.getFile(wsdlFile.getName());
+                // this.addTargetResource(targetWsdl);
+                // }
 
                 /*
                  * Sid XPD-7526: For REST Service invokes, add the

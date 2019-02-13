@@ -24,7 +24,6 @@ import org.eclipse.ltk.core.refactoring.participants.MoveParticipant;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
-import com.tibco.xpd.bom.wsdltransform.builder.WsdlToBomBuilder;
 import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.XpdlReferenceRefactorHelper.RefactorType;
@@ -241,31 +240,10 @@ public class XpdlReferenceMoveParticipant extends MoveParticipant implements
          */
         allAffectedXpdls.addAll(helper.getAffectedXpdls(currentFile));
 
-        try {
-            if (RefactorType.WSDL.equals(type)) {
-                /*
-                 * if the file being moved is a wsdl file then get all the
-                 * generated boms by the wsdl.
-                 */
-                Set<IFile> bomsGeneratedFromWsdl =
-                        WsdlToBomBuilder.getBomsGeneratedFromWsdl(currentFile);
+        /*
+         * Sid ACE-194 - we don't support WSDL in ACE
+         */
 
-                if (bomsGeneratedFromWsdl != null) {
-
-                    for (IFile eachGeneratedBom : bomsGeneratedFromWsdl) {
-                        /*
-                         * add all the xpdls that depend on the bom that is
-                         * generated from the wsdl.
-                         */
-                        allAffectedXpdls.addAll(helper
-                                .getAffectedXpdls(eachGeneratedBom));
-
-                    }
-                }
-            }
-        } catch (CoreException e) {
-            throw new RuntimeException(e);
-        }
         return allAffectedXpdls;
     }
 

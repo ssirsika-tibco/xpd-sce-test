@@ -10,11 +10,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
 import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.script.model.JsConsts;
@@ -421,21 +419,10 @@ abstract public class AbstractActivityMappingJavaScriptRule extends
             return false;
         }
 
-        Stereotype abstractStereotype =
-                bomClass.getAppliedStereotype(XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME
-                        + "::" //$NON-NLS-1$
-                        + XsdStereotypeUtils.XSD_BASED_CLASS);
-
-        // return the Abstract Stereotype value if applied
-        if (abstractStereotype != null) {
-
-            Boolean stereoTypeVal =
-                    Boolean.valueOf((String) (bomClass
-                            .getValue(abstractStereotype,
-                                    XsdStereotypeUtils.XSD_PROPERTY_ABSTRACT)));
-
-            return stereoTypeVal;
-        }
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE
+         */
         return false;
+
     }
 }

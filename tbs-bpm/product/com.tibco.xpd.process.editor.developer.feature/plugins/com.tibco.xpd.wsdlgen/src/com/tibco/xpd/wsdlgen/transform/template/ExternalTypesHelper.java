@@ -46,7 +46,6 @@ import org.w3c.dom.Node;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.DependencyAnalyzer;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
-import com.tibco.xpd.bom.xsdtransform.xsdindexing.XsdUIUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.indexer.IndexerItem;
