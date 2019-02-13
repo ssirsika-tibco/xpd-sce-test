@@ -20,8 +20,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
-import com.tibco.xpd.util.WsdlIndexerUtil;
-import com.tibco.xpd.wsdl.WsdlServiceKey;
+
 import com.tibco.xpd.xpdExtension.ImplementedInterface;
 import com.tibco.xpd.xpdExtension.PortTypeOperation;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
@@ -412,9 +411,13 @@ public class BxProcessModelHandler implements IProcessModelHandler{
 	}
 	
 	public static Operation getOperationFromWorkSpace(Activity startActivity){
- 	   WsdlServiceKey serviceKey = ProcessUIUtil.getSpecificWsdlServiceKey(startActivity);
- 	   IProject project = WorkingCopyUtil.getProjectFor(startActivity);
- 	   return (Operation) WsdlIndexerUtil.getOperation(project, serviceKey, true, true);
+	   /*
+	    * Sid ACE-180: We should never be asked for WebServices any more in ACE
+	    */
+// 	   WsdlServiceKey serviceKey = ProcessUIUtil.getSpecificWsdlServiceKey(startActivity);
+// 	   IProject project = WorkingCopyUtil.getProjectFor(startActivity);
+// 	   return (Operation) WsdlIndexerUtil.getOperation(project, serviceKey, true, true);
+	    return null;
     }
 
 	@Override

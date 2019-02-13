@@ -12,20 +12,23 @@ import org.eclipse.wst.wsdl.Operation;
 
 import com.tibco.bx.debug.core.ws.finder.IWSOperationFinder;
 import com.tibco.bx.debug.core.ws.finder.WSProperties;
-import com.tibco.xpd.util.WsdlIndexerUtil;
-import com.tibco.xpd.wsdl.WsdlServiceKey;
+
 
 public class WSOperationWorkSpaceFinder implements IWSOperationFinder {
 
 	@Override
 	public Operation findWSDLOperation(EObject startActivity , WSProperties properties,
 									   Map<?,?> parameters) {
-		WsdlServiceKey wsKey = new WsdlServiceKey(properties.getServiceName(),
-				properties.getPortTypeName(),
-				properties.getOperationName());
-		URI processUri = startActivity.eResource().getURI();
-		IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(processUri.toPlatformString(true));
-		return (Operation) WsdlIndexerUtil.getOperation(resource.getProject(),wsKey,true,true);
+	      /*
+	        * Sid ACE-180: We should never be asked for WebServices any more in ACE
+	        */
+	    return null;
+//		WsdlServiceKey wsKey = new WsdlServiceKey(properties.getServiceName(),
+//				properties.getPortTypeName(),
+//				properties.getOperationName());
+//		URI processUri = startActivity.eResource().getURI();
+//		IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(processUri.toPlatformString(true));
+//		return (Operation) WsdlIndexerUtil.getOperation(resource.getProject(),wsKey,true,true);
 		
 	}
 
