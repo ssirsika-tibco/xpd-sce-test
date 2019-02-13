@@ -74,7 +74,6 @@ import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.n2.brm.internal.Messages;
 import com.tibco.xpd.n2.brm.utils.BRMUtils;
-import com.tibco.xpd.n2.daa.utils.N2PECompositeUtil;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.om.core.om.Capability;
 import com.tibco.xpd.om.core.om.Group;
@@ -1193,10 +1192,22 @@ public class BRMGenerator {
         if (parent instanceof OrgModel) {
             OrgModel orgModel = (OrgModel) parent;
             String version = orgModel.getVersion();
-            return N2PECompositeUtil.getMajorVersionComponent(version,
+            return getMajorVersionComponent(version,
                     OM_ENTITY_DEFAULT_VERSION);
         }
         return OM_ENTITY_DEFAULT_VERSION;
+    }
+
+    public static int getMajorVersionComponent(String version,
+            int defaultVersion) {
+        if (version != null) {
+            try {
+                return (new Version(version)).getMajor();
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+        return defaultVersion;
     }
 
     /**

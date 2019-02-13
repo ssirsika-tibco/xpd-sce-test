@@ -36,13 +36,14 @@ import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
-import com.tibco.xpd.wsdlgen.WsdlGenBuilderTransformer;
 import com.tibco.xpd.xpdExtension.RESTServices;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.ExtendedAttribute;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
+import com.tibco.xpd.xpdl2.util.XpdlSearchUtil;
 
 /**
  * @author kupadhya
@@ -395,11 +396,38 @@ public class BPELN2Utils {
 
         if (process != null) {
 
-            return WsdlGenBuilderTransformer
-                    .doesContainRequiredExtendedAttribute(process);
+            return doesContainRequiredExtendedAttribute(process);
         }
         return false;
     }
+
+    /**
+     * Returns true, if the process contains an extended attribute called
+     * "InternalJmxDebug" with value "true"(Case ignored on the value).
+     * 
+     * @param process
+     *            the process in consideration
+     * 
+     */
+    public static boolean doesContainRequiredExtendedAttribute(
+            Process process) {
+        ExtendedAttribute internalJmxDebugExtAttr =
+                XpdlSearchUtil.findExtendedAttribute(process,
+                        "InternalJmxDebug");
+        if (internalJmxDebugExtAttr != null
+                && internalJmxDebugExtAttr.getValue() != null
+                && internalJmxDebugExtAttr.getValue()
+                        .equalsIgnoreCase("true")) { //$NON-NLS-1$
+            return true;
+        }
+        return false;
+
+        // XPD-288 & XPD-72 - discussions going on, not supported currently
+        // we want to always generate wsdl for start event type none; even if
+        // the InternalJmxDebug extended attribute is set to true or not
+        // return true;
+    }
+
 
     /**
      * 
