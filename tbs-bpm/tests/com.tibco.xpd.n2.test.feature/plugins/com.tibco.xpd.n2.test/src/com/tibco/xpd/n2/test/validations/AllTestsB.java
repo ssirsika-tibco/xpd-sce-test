@@ -13,7 +13,6 @@ public class AllTestsB {
                 new TestSuite("Test for com.tibco.xpd.n2.test.validations"); //$NON-NLS-1$
         // $JUnit-BEGIN$
         suite.addTestSuite(N2_13_DBSharedResNameRequiredTest.class);
-        suite.addTestSuite(N2_15_ParallelInvocationInDeterminateRuleTest.class);
         suite.addTestSuite(N2_16_XPD1675BizSvcCantInvokeReqRespBizProcessTest.class);
         suite.addTestSuite(N2_17_BindingOperationStyleValidationTest.class);
         suite.addTestSuite(N2_18_APIActDocLitSingleParamRuleTest.class);

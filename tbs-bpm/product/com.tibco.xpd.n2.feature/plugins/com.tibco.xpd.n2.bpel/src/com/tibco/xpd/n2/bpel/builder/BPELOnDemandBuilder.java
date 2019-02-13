@@ -39,7 +39,6 @@ import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.rsd.ui.RsdUIPlugin;
 import com.tibco.xpd.validation.utils.ValidationProblemUtil;
-import com.tibco.xpd.wsdl.Activator;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
@@ -345,9 +344,12 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                 if (dependency instanceof IFile) {
                     String fileExtension = dependency.getFileExtension();
 
-                    if (Activator.WSDL_FILE_EXTENSION
-                            .equalsIgnoreCase(fileExtension)
-                            || BOMResourcesPlugin.BOM_FILE_EXTENSION
+                    /*
+                     * Sid ACE-180: We should never be asked for WebServices any
+                     * more in ACE
+                     */
+
+                    if (BOMResourcesPlugin.BOM_FILE_EXTENSION
                                     .equalsIgnoreCase(fileExtension)
                             || OMResourcesActivator.OM_FILE_EXTENSION
                                     .equalsIgnoreCase(fileExtension)

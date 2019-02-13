@@ -43,37 +43,11 @@
             visible="false">
       </globalDestinationComponent>
       <defaultGlobalDestinationComponent
-            globalDestinationComponentId="com.tibco.xpd.xpdl2wsdl.globalDestinationComponent"
-            name="%n2GlobalDestination_label_notrans"
-            validationDestinationId="com.tibco.xpd.xpdl2wsdl.validation.destination">
-      </defaultGlobalDestinationComponent>
-      <defaultGlobalDestinationComponent
-            globalDestinationComponentId="com.tibco.xpd.bom.xsd.globalDestinationComponent"
-            name="%n2GlobalDestination_label_notrans"
-            validationDestinationId="bom.xsd.destination">
-      </defaultGlobalDestinationComponent>
-      <defaultGlobalDestinationComponent
-            globalDestinationComponentId="com.tibco.xpd.bom.wsdl.globalDestinationComponent"
-            name="%n2GlobalDestination_label_notrans"
-            validationDestinationId="bom.wsdl.destination">
-      </defaultGlobalDestinationComponent>
-      <defaultGlobalDestinationComponent
             globalDestinationComponentId="com.tibco.xpd.bom.cds.globalDestinationComponent"
             name="%n2GlobalDestination_label_notrans"
             validationDestinationId="bom.cds.destination">
       </defaultGlobalDestinationComponent>
-      <globalDestinationComponent
-            globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
-            id="com.tibco.xpd.wsdltobom.globalDestinationComponent"
-            name="%com.tibco.xpd.wsdltobom.globalDestinationComponent"
-            visible="false">
-      </globalDestinationComponent>
-      <defaultGlobalDestinationComponent
-            globalDestinationComponentId="com.tibco.xpd.wsdltobom.globalDestinationComponent"
-            name="%n2GlobalDestination_label_notrans"
-            validationDestinationId="wsdltobom.destination">
-      </defaultGlobalDestinationComponent>
-      <defaultGlobalDestinationComponent
+       <defaultGlobalDestinationComponent
             globalDestinationComponentId="com.tibco.xpd.process.cds.globalDestinationComponent"
             name="%n2GlobalDestination_label_notrans"
             validationDestinationId="cds.process.destination">
@@ -101,54 +75,8 @@
             name="%n2.wm.model.category">
       </category>
    </extension>
-  <extension
-         point="org.eclipse.emf.validation.constraintBindings">
-      <clientContext
-            id="n2.sca.models.context">
-         <selector
-               class="com.tibco.xpd.n2.resources.validation.ValidationPrivateRSClientSelector">
-         </selector>
-      </clientContext>
-      <binding
-            context="n2.sca.models.context">
-         <category
-               ref="sca.validation/n2.models">
-         </category>
-      </binding>
-      <binding
-            context="com.tibco.amf.sca.model.validation.daa">
-         <category
-               ref="sca.validation/n2">
-         </category>
-      </binding>
-   </extension>
-    <extension
-         point="org.eclipse.emf.validation.constraintProviders">
-      <constraintProvider
-            cache="true">
-         <package
-               namespaceUri="http://www.osoa.org/xmlns/sca/1.0">
-         </package>
-         <constraints
-               categories="sca.validation/n2">
-            <constraint
-                  class="com.tibco.xpd.n2.resources.validation.CompositeNotEmptyConstraint"
-                  id="com.tibco.xpd.n2.resources.validation.CompositeNotEmptyConstraint"
-                  lang="Java"
-                  mode="Batch"
-                  name="%compositeNotEmpty_name"
-                  severity="ERROR"
-                  statusCode="compositeNotEmptyConstraint">
-               <message>
-                  %compositeNotEmpty_message
-               </message>
-               <target
-                     class="Composite">
-               </target>
-            </constraint>
-         </constraints>
-      </constraintProvider>
-   </extension>
+
+
     <extension
           point="org.eclipse.ltk.core.refactoring.renameParticipants">
        <renameParticipant

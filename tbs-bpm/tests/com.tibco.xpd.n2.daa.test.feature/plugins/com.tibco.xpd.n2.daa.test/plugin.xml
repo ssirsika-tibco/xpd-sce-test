@@ -106,21 +106,7 @@
          </fileInformation>
       </fileComparator>
    </extension>
-   <extension
-              point="com.tibco.amf.tools.componenttype.propertyType">
-           <propertyTypeToITBinding
-                 implementationTypeID="implementation.bx"
-                 supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/httpclient}HttpClientConfiguration">
-           </propertyTypeToITBinding>
-           <propertyTypeToITBinding
-                 implementationTypeID="implementation.bx"
-                 supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource">
-           </propertyTypeToITBinding>
-           <propertyTypeToITBinding
-                 implementationTypeID="implementation.bx"
-                 supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/smtp}SmtpConfiguration">
-           </propertyTypeToITBinding>
-        </extension>
+
    <extension
          point="com.tibco.xpd.core.testutil.fileComparator">
       <fileComparator

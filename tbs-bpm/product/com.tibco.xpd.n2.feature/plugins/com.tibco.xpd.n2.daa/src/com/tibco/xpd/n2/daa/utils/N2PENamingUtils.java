@@ -12,9 +12,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
-import com.tibco.amf.dependency.osgi.OsgiFactory;
-import com.tibco.amf.dependency.osgi.RequiredFeature;
-import com.tibco.amf.dependency.osgi.VersionRange;
 import com.tibco.xpd.n2.daa.Activator;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.resources.logger.Logger;
@@ -196,16 +193,6 @@ public final class N2PENamingUtils {
         }
     }
 
-    public static RequiredFeature getBPMITModelPF() {
-        RequiredFeature pfd = OsgiFactory.eINSTANCE.createRequiredFeature();
-        pfd.setName(AMX_BPM_IT_MODEL_PRODUCT_FEATURE);
-        VersionRange versionRange = OsgiFactory.eINSTANCE.createVersionRange();
-        versionRange.setLower(LOWER_RANGE);
-        versionRange.setLowerIncluded(true);
-        versionRange.setUpper(UPPER_RANGE);
-        versionRange.setUpperIncluded(false);
-        pfd.setRange(versionRange);
-        return pfd;
-    }
+
 
 }

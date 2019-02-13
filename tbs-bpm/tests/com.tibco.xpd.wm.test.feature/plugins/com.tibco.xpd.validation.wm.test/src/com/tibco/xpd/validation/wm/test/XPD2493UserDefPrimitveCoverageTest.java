@@ -4,11 +4,9 @@
 package com.tibco.xpd.validation.wm.test;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
-import com.tibco.xpd.resources.util.ProjectUtil;
 
 /**
  * XPD2493UserDefPrimitveCoverageTest
@@ -50,18 +48,7 @@ public class XPD2493UserDefPrimitveCoverageTest extends
     @Override
     protected void configureProject(IProject project) {
         super.configureProject(project);
-        try {
-            ProjectUtil.addNature(project,
-                    "com.tibco.xpd.bom.xsdtransform.xsdNature"); //$NON-NLS-1$
 
-            ProjectUtil.addNature(project,
-                    "com.tibco.xpd.wsdlgen.wsdlGenNature"); //$NON-NLS-1$
-
-            ProjectUtil.addNature(project,
-                    "com.tibco.xpd.wsdltobom.wsdlBomNature"); //$NON-NLS-1$
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

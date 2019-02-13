@@ -13,22 +13,17 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -45,11 +40,9 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
 
-import com.tibco.amf.model.productfeature.IncludedPlugin;
 import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
-import com.tibco.xpd.bom.gen.biz.GenerationException;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -57,7 +50,6 @@ import com.tibco.xpd.n2.cds.CDSActivator;
 import com.tibco.xpd.n2.cds.CdsConsts;
 import com.tibco.xpd.n2.cds.script.CdsContentAssistIconProvider;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
-import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
@@ -112,59 +104,6 @@ public class CDSUtils {
      * 
      */
 
-    private static final class EMFProjectGenerationRunnable
-            implements IWorkspaceRunnable {
-        private final List<IncludedPlugin> generatedPlugins;
-
-        private final LinkedHashMap<IResource, List<IProject>> bomsToBuildMap;
-
-        private EMFProjectGenerationRunnable(
-                List<IncludedPlugin> generatedPlugins,
-                LinkedHashMap<IResource, List<IProject>> bomsToBuildMap) {
-            this.generatedPlugins = generatedPlugins;
-            this.bomsToBuildMap = bomsToBuildMap;
-        }
-
-        public void run(IProgressMonitor monitor) throws CoreException {
-            Set<Entry<IResource, List<IProject>>> entrySet =
-                    bomsToBuildMap.entrySet();
-            // for (Entry<IResource, List<IProject>> entry : entrySet) {
-            // IResource bomResource = entry.getKey();
-            // List<IProject> dependencyProjects = entry.getValue();
-            // String generatedPluginVersion =
-            // BOMGenerator.resolveGeneratedPluginVersion(bomResource);
-            // String generatedPluginId =
-            // BOMGenerator.resolveGeneratedPluginId(bomResource);
-            // try {
-            // IProject generatedProject =
-            // BOMGenerator.generateRuntimeModel(bomResource,
-            // generatedPluginVersion,
-            // generatedPluginId,
-            // dependencyProjects,
-            // true);
-            // if (generatedProject == null || !generatedProject.isOpen()) {
-            // return;
-            // }
-            // CDSUtils.storeBOMPersistentProperty(generatedProject,
-            // bomResource);
-            // if (generatedProject != null) {
-            // IncludedPlugin rb =
-            // ProductFeatureFactory.eINSTANCE
-            // .createIncludedPlugin();
-            // rb.setId(generatedPluginId);
-            // rb.setVersion(generatedPluginVersion);
-            // generatedPlugins.add(rb);
-            // }
-            // } catch (GenerationException e) {
-            // e.printStackTrace();
-            // } catch (BOMIllegalStateException e) {
-            // // fail silently as BOM seems to be empty
-            // }
-            //
-            // }
-        }
-    }
-
     private static final String BOM_SOURCE_PERSISTENT_PROPERTY =
             "BOM_RESOURCE_NAME"; //$NON-NLS-1$
 
@@ -205,25 +144,6 @@ public class CDSUtils {
         return null;
     }
 
-    /**
-     * returns a list of all BOM resources in the given Project
-     * 
-     * @param project
-     * @return
-     */
-    public static List<IResource> getBomResources(IProject project) {
-        if (project != null && project.isAccessible()) {
-            List<IResource> bomResources = SpecialFolderUtil
-                    .getAllDeepResourcesInSpecialFolderOfKind(project,
-                            BOM_SPECIAL_FOLDER,
-                            BOM_SPECIAL_FOLDER,
-                            false);
-            if (bomResources != null && !bomResources.isEmpty()) {
-                return bomResources;
-            }
-        }
-        return Collections.emptyList();
-    }
 
     public static Set<Package> getReferencedBomPackages(Process process) {
         if (process != null) {
@@ -502,69 +422,6 @@ public class CDSUtils {
         return toReturn;
     }
 
-    /**
-     * Generate EMF Project for changed BOM
-     * 
-     * @param bomResource
-     * @return
-     * @throws CoreException
-     */
-    public static List<IncludedPlugin> generateEMFProject(IResource bomResource)
-            throws CoreException {
-        List<IncludedPlugin> generatedPlugins = new ArrayList<IncludedPlugin>();
-        generateDependentEMFProjects(bomResource, generatedPlugins);
-        return generatedPlugins;
-    }
-
-    /**
-     * Generate EMF Projects for all changed BOM & all dependent BOMs (direct or
-     * indirect)
-     * 
-     * @param bomResource
-     * @param generatedPlugins
-     * @throws CoreException
-     */
-    private static void generateDependentEMFProjects(IResource bomResource,
-            final List<IncludedPlugin> generatedPlugins) throws CoreException {
-        TokenTreeMap<IResource> tTreeMap = new TokenTreeMap<IResource>();
-        String resourceName = getResourceName(bomResource);
-        tTreeMap.put(resourceName, bomResource);
-        boolean includeIndirectDependency = true;
-        // workOutBOMExternalReference(bomResource,
-        // tTreeMap,
-        // resourceName,
-        // includeIndirectDependency);
-        List<IResource> list = tTreeMap.get(resourceName + ".**"); //$NON-NLS-1$
-        LinkedHashMap<IResource, List<IProject>> bomsToBuildMap =
-                new LinkedHashMap<IResource, List<IProject>>();
-        for (int index = list.size() - 1; index > -1; index--) {
-            // final IResource eachBomResource = list.get(index);
-            // String emfProjectName =
-            // BOMGenerator
-            // .getOutputProjectNameForBOMResource(eachBomResource);
-            // IProject project = CDSUtils.getProjectWithName(emfProjectName);
-            // boolean generateEMFProject = false;
-            // if (project != null && project.isAccessible()) {
-            // long emfProjectCreationTimeStamp = project.getLocalTimeStamp();
-            // long eachBOMResTimeStamp = eachBomResource.getLocalTimeStamp();
-            // if (eachBOMResTimeStamp > emfProjectCreationTimeStamp) {
-            // generateEMFProject = true;
-            // }
-            // } else {
-            // // emf project does not exist
-            // generateEMFProject = true;
-            // }
-            // if (generateEMFProject) {
-            // final List<IProject> dependencyProjectList =
-            // getEMFProjectDependencyList(list, index);
-            // bomsToBuildMap.put(eachBomResource, dependencyProjectList);
-            // }
-        }
-        if (!bomsToBuildMap.isEmpty()) {
-            generateEMFProject(generatedPlugins, bomsToBuildMap);
-        }
-
-    }
 
     /**
      * return file name without extension
@@ -581,145 +438,9 @@ public class CDSUtils {
         return name;
     }
 
-    /**
-     * Work out the dependency tree
-     * 
-     * @param bomResource
-     * @param dependencyBOMList
-     * @param path
-     * @param includeIndirectDependency
-     */
-    private static void workOutBOMExternalReference(IResource bomResource,
-            TokenTreeMap<IResource> dependencyBOMList, String path,
-            boolean includeIndirectDependency) {
-        WorkingCopy workingCopy = WorkingCopyUtil.getWorkingCopy(bomResource);
-        if (workingCopy instanceof BOMWorkingCopy) {
-            BOMWorkingCopy bomWC = (BOMWorkingCopy) workingCopy;
-            List<IResource> dependencyList = bomWC.getDependency();
-            if (dependencyList != null) {
-                for (IResource dependencyRes : dependencyList) {
-                    String resPath = path + CDSUtils.TOKEN_PATH_SEPARATOR
-                            + getResourceName(dependencyRes);
-                    dependencyBOMList.put(resPath, dependencyRes);
-                    if (includeIndirectDependency) {
-                        workOutBOMExternalReference(dependencyRes,
-                                dependencyBOMList,
-                                resPath,
-                                includeIndirectDependency);
-                    }
 
-                }
-            }
-        }
-    }
 
-    /**
-     * For EMF project to be generated, we need to pass the dependency Projects
-     * 
-     * @param list
-     * @param index
-     * @return
-     */
-    private static List<IProject> getEMFProjectDependencyList(
-            List<IResource> list, int index) {
-        List<IProject> toReturn = new ArrayList<IProject>();
-        for (int i = index + 1; i < list.size(); i++) {
-            // IResource resource = list.get(i);
-            // String outputProjectNameForBOMResource =
-            // BOMGenerator.getOutputProjectNameForBOMResource(resource);
-            // IProject project2 =
-            // ResourcesPlugin.getWorkspace().getRoot()
-            // .getProject(outputProjectNameForBOMResource);
-            // toReturn.add(project2);
 
-        }
-        return toReturn;
-    }
-
-    /**
-     * generate EMF Project for the passed BOM
-     * 
-     * @param bomResource
-     * @param generatedPlugins
-     * @param dependencyProjects
-     * @throws CoreException
-     * @throws GenerationException
-     */
-    private static void generateEMFProject(
-            final List<IncludedPlugin> generatedPlugins,
-            final LinkedHashMap<IResource, List<IProject>> bomsToBuildMap)
-            throws CoreException {
-        ResourcesPlugin.getWorkspace().run(new EMFProjectGenerationRunnable(
-                generatedPlugins, bomsToBuildMap), new NullProgressMonitor());
-
-    }
-
-    public static Image getCDSJavaScriptFactoryIcon() {
-        return CDSActivator.getDefault().getImageRegistry()
-                .get(CdsConsts.CDS_FACTORY);
-    }
-
-    private static Set<IProject> getExternalBOMProjectReferences(IFile file) {
-        String fileExtension = file.getFileExtension();
-        List<IResource> dependencyList = null;
-        if (N2PENamingUtils.XPDL_FILE_EXTENSION.equals(fileExtension)) {
-            dependencyList = getBOMDependencyForXpdlFile(file);
-        } else if (N2PENamingUtils.BOM_SPECIALFOLDER_KIND
-                .equals(fileExtension)) {
-            dependencyList = getExternalBOMDependencyForBOMFile(file);
-        } else {
-            throw new IllegalArgumentException("File Extension not supported"); //$NON-NLS-1$
-        }
-        Set<IProject> projectSet = new HashSet<IProject>();
-        IProject xpdlFileProject = file.getProject();
-        for (IResource resource : dependencyList) {
-            IProject project = resource.getProject();
-            if (!xpdlFileProject.getName().equals(project.getName())) {
-                projectSet.add(project);
-            }
-
-        }
-        return projectSet;
-
-    }
-
-    private static List<IResource> getBOMDependencyForXpdlFile(IFile xpdlFile) {
-        List<IResource> bomResourcesList = new ArrayList<IResource>();
-        if (!N2Utils.hasN2ProcessesOrInterfaces(xpdlFile)) {
-            return bomResourcesList;
-        }
-
-        WorkingCopy xpdlWC = WorkingCopyUtil.getWorkingCopy(xpdlFile);
-        List<IResource> dependencyList = xpdlWC.getDependency();
-        if (dependencyList != null) {
-            for (IResource eachResource : dependencyList) {
-                WorkingCopy eachResWC =
-                        WorkingCopyUtil.getWorkingCopy(eachResource);
-                if (eachResWC instanceof BOMWorkingCopy) {
-                    bomResourcesList.add(eachResource);
-                }
-            }
-        }
-
-        return bomResourcesList;
-    }
-
-    private static List<IResource> getExternalBOMDependencyForBOMFile(
-            IFile bomFile) {
-        List<IResource> bomResourcesList = new ArrayList<IResource>();
-        WorkingCopy xpdlWC = WorkingCopyUtil.getWorkingCopy(bomFile);
-        List<IResource> dependencyList = xpdlWC.getDependency();
-        if (dependencyList != null) {
-            for (IResource eachResource : dependencyList) {
-                WorkingCopy eachResWC =
-                        WorkingCopyUtil.getWorkingCopy(eachResource);
-                if (eachResWC instanceof BOMWorkingCopy) {
-                    bomResourcesList.add(eachResource);
-                }
-            }
-        }
-        return bomResourcesList;
-    }
 
     public static CdsContentAssistIconProvider getCdsContentAssistIconProvider() {
         if (cdsContentAssistIconProvider == null) {

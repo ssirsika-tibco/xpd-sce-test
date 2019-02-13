@@ -526,9 +526,6 @@
                class="com.tibco.bx.validation.rules.activity.EmbeddedSubProcessRule">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.activity.CorrelationDataMITaskRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.activity.ThrowErrorEventRule">
          </rule>         
           <rule
@@ -590,9 +587,6 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.UnSupportedActivitiesRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.activity.SupportedWsSoapRule">
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.TimerEventRule">
@@ -1363,20 +1357,10 @@
                id="resolution.bpmn.removeTaskParticipants">
          </resolution>
       </issue>
-      <issue
-            id="bx.recvtaskmultiinstanceparallel.disallowed"
-            message="%bx.recvtaskmultiinstanceparallel.disallowed"
-            severity="ERROR">
-      </issue>
-      <issue
+       <issue
             id="bx.complexTypeCannotBeAssociatedWithErrorCodeThrowErrorEvents"
             message="%bx.complexTypeCannotBeAssociatedWithErrorCodeThrowErrorEvents"
             severity="ERROR">
-      </issue>
-      <issue
-            id="bx.rcvtaskeventscorrelation.behaviourindeterminate"
-            message="%bx.rcvtaskeventscorrelation.behaviourindeterminate"
-            severity="WARNING">
       </issue>
       <issue
             id="bx.startEventTimerNotSupported"
@@ -1964,11 +1948,6 @@
       <issue
             id="bx.reusableSubProcTransactionNotSupported"
             message="%bx.reusableSubProcTransactionNotSupported2"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.soapOperationAndBindingStyleDontMatch"
-            message="%bx.soapOperationAndBindingStyleDontMatch"
             severity="ERROR">
       </issue>
       <issue
@@ -4106,13 +4085,7 @@ s         <scriptContribution
                id="com.tibco.bx.validation.noXPDLPackageInSubFolderRule"
                validateType="FILE">
          </validator>
-         <validator
-               class="com.tibco.bx.validation.rules.UserGeneratedWsdlXsdReferencingRestrictionRule"
-               filter="[^\\.]+[\\.](xsd|wsdl)"
-               id="com.tibco.bx.validation.userGeneratedWsdlXsdReferencingRestriction"
-               validateType="FILE">
-         </validator>
-         <validator
+          <validator
                class="com.tibco.bx.validation.rules.XpdlFileNameRestrictionRule"
                filter=".*[\\.]xpdl"
                id="com.tibco.bx.validation.xpdlFileNameRestrictionRule"
@@ -4171,11 +4144,6 @@ s         <scriptContribution
                   canApplyToMultiple="false"
                   id="resolution.bx.createPageFlowInstance">
             </resolution>
-         </issue>
-         <issue
-               id="bx.userGeneratedXpdWsdlIllegalResourceReference"
-               message="%bx.userGeneratedXpdWsdlIllegalResourceReference"
-               severity="ERROR">
          </issue>
          <issue
                id="bx.xpdlFileNameRestrictions"
