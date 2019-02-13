@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
-import com.tibco.xpd.process.xpath.parser.antlr.XPathParser;
-import com.tibco.xpd.process.xpath.parser.util.XPathScriptParserUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.DecisionTaskObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
@@ -170,21 +168,10 @@ public class ScriptContentsRule extends ActivityValidationRule {
         Map validationErrorMap = Collections.EMPTY_MAP;
         Map validationWarningMap = Collections.EMPTY_MAP;
         if (grammar != null && script != null) {
-            if (grammar.equals(XPathScriptParserUtil.XPATH_GRAMMAR)) {
-                XPathParser parser =
-                        XPathScriptParserUtil.validateXPathScript(script,
-                                destinationList,
-                                symbolTable,
-                                validationStrategyList,
-                                validationErrorMap,
-                                validationWarningMap,
-                                null,
-                                false,
-                                null);
-                if (parser != null) {
-                    hasScript = true;
-                }
-            } else if (grammar.equals(JAVASCRIPT_GRAMMAR)) {
+            /*
+             * Sid ACE-194 - Xpath grammar no longer supported.
+             */
+            if (grammar.equals(JAVASCRIPT_GRAMMAR)) {
                 hasScript = !ScriptParserUtil.isEmptyScript(script, grammar);
             } else {
                 /*

@@ -3201,29 +3201,11 @@
             destinationId="n2pe1.x">
          <scriptContribution
                scriptContext="WebServiceTask">
-            <scriptRelevantDataContributor
-                  class="com.tibco.xpd.process.xpath.parser.script.WebServiceXpathRelevantDataProvider"
-                  grammarId="XPath"
-                  id="com.tibco.xpd.process.xpath.parser.script.WebServiceXpathRelevantDataProvider"
-                  name="com.tibco.xpd.process.xpath.parser.script.WebServiceXpathRelevantDataProvider">
-            </scriptRelevantDataContributor>
-            <classContributor
-                  class="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
-                  grammarId="XPath"
-                  id="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
-                  name="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader">
-            </classContributor>
             <validationStrategy
                   class="com.tibco.bx.validation.validator.N2JScriptValidationStrategy"
                   grammarId="JavaScript"
                   id="com.tibco.bx.validation.validator.N2JScriptValidationStrategy"
                   name="com.tibco.bx.validation.validator.N2JScriptValidationStrategy">
-            </validationStrategy>
-            <validationStrategy
-                  class="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  grammarId="XPath"
-                  id="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy"
-                  name="com.tibco.xpd.process.xpath.parser.validator.xpath.XPathValidationStrategy">
             </validationStrategy>
             <classContributor
                   class="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader"
