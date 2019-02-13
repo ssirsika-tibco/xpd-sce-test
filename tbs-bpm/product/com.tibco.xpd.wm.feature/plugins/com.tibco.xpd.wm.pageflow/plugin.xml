@@ -357,33 +357,7 @@
       
      <!-- ABPM-897: Deprecating InvokeBusinessProcess capability of Send Task.-->
 
-    <extension
-         point="org.eclipse.emf.validation.constraintProviders">
-      <constraintProvider
-            cache="true">
-         <package
-               namespaceUri="http://xsd.tns.tibco.com/n2/models/pfe/1.0">
-         </package>
-         <constraints
-               categories="sca.validation/n2">
-            <constraint
-                  class="com.tibco.xpd.wm.pageflow.validation.PageflowRequiresWPConstraint"
-                  id="com.tibco.xpd.wm.pageflow.PageflowRequiresWPConstraint"
-                  lang="Java"
-                  mode="Batch"
-                  name="%pfRequresWPConstraint_name"
-                  severity="ERROR"
-                  statusCode="PFERequireWPConstraint">
-               <message>
-                  %pfRequresWPConstraint_message
-               </message>
-               <target
-                     class="PFESpecification">
-                  </target>
-            </constraint>
-         </constraints>
-      </constraintProvider>
-   </extension>
+
     <extension
           point="com.tibco.xpd.analyst.resources.xpdl2.processPreCommitCommandContributor">
        <ProcessPreCommitCommandContributor
