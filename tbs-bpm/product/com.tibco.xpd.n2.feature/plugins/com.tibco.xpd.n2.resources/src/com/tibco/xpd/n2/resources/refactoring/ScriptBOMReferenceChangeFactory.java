@@ -14,7 +14,6 @@ import com.tibco.xpd.js.validation.tools.PackageScopeEnumCache;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessScriptUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.JsConsts;
-import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Transition;
 
@@ -102,35 +101,43 @@ public class ScriptBOMReferenceChangeFactory {
                             editingDomain, packageScopeEnumCache));
                 }
 
-                if (ProcessScriptUtil.isServiceTaskWithScriptType(activity,
-                        scriptGrammar)
-                        || ProcessScriptUtil
-                                .isBwServiceTaskWithScriptType(activity,
-                                        scriptGrammar)
-                        || ProcessScriptUtil
-                                .isJavaServiceTaskWithScriptType(activity,
-                                        scriptGrammar)
-                        || ProcessScriptUtil.isSendTaskWithScriptType(activity,
-                                scriptGrammar)
-                        || ProcessScriptUtil
-                                .isReceiveTaskWithScriptType(activity,
-                                        scriptGrammar)) {
-                    List<ScriptInformation> allServiceScriptInformations =
-                            ProcessScriptUtil
-                                    .getAllServiceScriptInformations(activity,
-                                            scriptGrammar);
-                    if (allServiceScriptInformations != null) {
-                        for (ScriptInformation scriptInformation : allServiceScriptInformations) {
-                            String scriptTaskScript =
-                                    ProcessScriptUtil
-                                            .getTaskScript(scriptInformation);
-                            changes.add(new ServiceTaskScriptBOMReferenceChange(
-                                    scriptTaskScript, args, element, activity,
-                                    scriptInformation, editingDomain,
-                                    packageScopeEnumCache));
-                        }
-                    }
-                }
+                /*
+                 * Sid ACE-194 - we don't support message activities in ACE
+                 * (removed refactor commands for BW Service, JavaService,
+                 * SendTask, ReceiveTask.
+                 */
+                //
+                // if (ProcessScriptUtil.isServiceTaskWithScriptType(activity,
+                // scriptGrammar)
+                // || ProcessScriptUtil
+                // .isBwServiceTaskWithScriptType(activity,
+                // scriptGrammar)
+                // || ProcessScriptUtil
+                // .isJavaServiceTaskWithScriptType(activity,
+                // scriptGrammar)
+                // || ProcessScriptUtil.isSendTaskWithScriptType(activity,
+                // scriptGrammar)
+                // || ProcessScriptUtil
+                // .isReceiveTaskWithScriptType(activity,
+                // scriptGrammar)) {
+                // List<ScriptInformation> allServiceScriptInformations =
+                // ProcessScriptUtil
+                // .getAllServiceScriptInformations(activity,
+                // scriptGrammar);
+                // if (allServiceScriptInformations != null) {
+                // for (ScriptInformation scriptInformation :
+                // allServiceScriptInformations) {
+                // String scriptTaskScript =
+                // ProcessScriptUtil
+                // .getTaskScript(scriptInformation);
+                // changes.add(new ServiceTaskScriptBOMReferenceChange(
+                // scriptTaskScript, args, element, activity,
+                // scriptInformation, editingDomain,
+                // packageScopeEnumCache));
+                // }
+                // }
+                // }
+
                 if (ProcessScriptUtil.isUserTaskWithOpenScriptType(activity,
                         scriptGrammar)) {
                     String scriptTaskScript =

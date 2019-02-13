@@ -30,7 +30,6 @@ import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.PrimitiveType;
@@ -41,7 +40,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.fields.DataFieldContributor;
@@ -791,12 +789,18 @@ public class ConceptUtil {
             if (type instanceof PrimitiveType) {
                 org.eclipse.uml2.uml.DataType dt =
                         (org.eclipse.uml2.uml.DataType) type;
-                boolean isUnion = XSDUtil.isUnion(dt);
-                if (isUnion) {
-                    List<org.eclipse.uml2.uml.DataType> unionMemberTypes =
-                            XSDUtil.getUnionMemberTypes(dt);
-                    allUnionMemberTypes.addAll(unionMemberTypes);
-                }
+
+                /*
+                 * Sid ACE-194 - we don't support XSD based BOMs in ACE
+                 */
+
+                boolean isUnion = false;
+                // XSDUtil.isUnion(dt);
+                // if (isUnion) {
+                // List<org.eclipse.uml2.uml.DataType> unionMemberTypes =
+                // XSDUtil.getUnionMemberTypes(dt);
+                // allUnionMemberTypes.addAll(unionMemberTypes);
+                // }
             }
 
             // Multiplicity not considered for choices.
@@ -883,26 +887,32 @@ public class ConceptUtil {
 
                             if (shouldIncludeAttribute(clss, conceptPath)) {
 
-                                boolean isXsdChoice =
-                                        XSDUtil.isPropertyXsdChoice(property);
-
-                                if (isXsdChoice) {
-                                    /**
-                                     * If the property is equivalent to an
-                                     * xsd:choice - it is better to wrap this up
-                                     * in the <code>ChoiceConceptPath</code> and
-                                     * let it deal with it.
-                                     */
-                                    ChoiceConceptPath choiceConceptPath =
-                                            new ChoiceConceptPath(conceptPath,
-                                                    property);
-                                    choiceConceptPath
-                                            .setIncludeChi1ldrenOfArrays(showChildAttribtuesForArrayTypes);
-
-                                    if (!attributes.contains(choiceConceptPath)) {
-                                        attributes.add(choiceConceptPath);
-                                    }
-                                } else {
+                                /*
+                                 * Sid ACE-194 - we don't support XSD based BOMs
+                                 * in ACE
+                                 */
+                                // boolean isXsdChoice = false;
+                                // XSDUtil.isPropertyXsdChoice(property);
+                                //
+                                // if (isXsdChoice) {
+                                // /**
+                                // * If the property is equivalent to an
+                                // * xsd:choice - it is better to wrap this up
+                                // * in the <code>ChoiceConceptPath</code> and
+                                // * let it deal with it.
+                                // */
+                                // ChoiceConceptPath choiceConceptPath =
+                                // new ChoiceConceptPath(conceptPath,
+                                // property);
+                                // choiceConceptPath
+                                // .setIncludeChi1ldrenOfArrays(showChildAttribtuesForArrayTypes);
+                                //
+                                // if (!attributes.contains(choiceConceptPath))
+                                // {
+                                // attributes.add(choiceConceptPath);
+                                // }
+                                // } else
+                                {
                                     /*
                                      * XPD-2128: add if the property is not a
                                      * union member type
@@ -1012,28 +1022,33 @@ public class ConceptUtil {
 
             if (processingComplexTypeRestriction) {
                 /*
-                 * For complextype that is a restricted subtype of a basetype
-                 * then only include attributes (elements have to be explicitly
-                 * declared in top level subtype).
+                 * Sid ACE-194 - we don't support XSD based BOMs in ACE
                  */
-                if (XSDUtil.isPropertyXsdAttribute(ownedProperty)) {
-                    /*
-                     * Only include if not already included (explcitly defined
-                     * and changed in subtype above this supertype.
-                     */
-                    boolean isDefinedAlready = false;
-                    for (Property existingProperty : allAttributes) {
-                        if (existingProperty.getName()
-                                .equals(ownedProperty.getName())) {
-                            isDefinedAlready = true;
-                            break;
-                        }
-                    }
-
-                    if (!isDefinedAlready) {
-                        allAttributes.add(ownedProperty);
-                    }
-                }
+                //
+                // /*
+                // * For complextype that is a restricted subtype of a basetype
+                // * then only include attributes (elements have to be
+                // explicitly
+                // * declared in top level subtype).
+                // */
+                // if (XSDUtil.isPropertyXsdAttribute(ownedProperty)) {
+                // /*
+                // * Only include if not already included (explcitly defined
+                // * and changed in subtype above this supertype.
+                // */
+                // boolean isDefinedAlready = false;
+                // for (Property existingProperty : allAttributes) {
+                // if (existingProperty.getName()
+                // .equals(ownedProperty.getName())) {
+                // isDefinedAlready = true;
+                // break;
+                // }
+                // }
+                //
+                // if (!isDefinedAlready) {
+                // allAttributes.add(ownedProperty);
+                // }
+                // }
 
             } else {
                 /*
@@ -1050,10 +1065,14 @@ public class ConceptUtil {
          * how any super-super types are configured (as extension or
          * restriction).
          */
-        if (!processingComplexTypeRestriction) {
-            processingComplexTypeRestriction =
-                    XSDUtil.isClassXsdComplexTypeRestriction(cl);
-        }
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE
+         */
+        //
+        // if (!processingComplexTypeRestriction) {
+        // processingComplexTypeRestriction =
+        // XSDUtil.isClassXsdComplexTypeRestriction(cl);
+        // }
 
         // Collect attributes and recurse if necessary
         EList<Classifier> generals = cl.getGenerals();
@@ -1073,66 +1092,73 @@ public class ConceptUtil {
      */
     public static List<ConceptPath> getConceptPathChildren(
             ChoiceConceptPath choiceConceptPath) {
-
-        String choiceGroup = choiceConceptPath.getChoiceGroup();
-        Classifier type = choiceConceptPath.getParent().getType();
-
-        List<ConceptPath> attributes = new ArrayList<ConceptPath>();
-        List<Property> allAttributes = new ArrayList<Property>();
-
         /*
-         * XPD-3647: if a complex type restriction has a group/choice mappings
-         * section must handle it correctly
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE - nothing should
+         * ever attempt to construct this.
          */
-        if (type instanceof Class) {
-            Class cl = (Class) type;
-            /*
-             * The representation of XSD constructs by BOM classes means that
-             * there are now some specific conditions as to what attributes
-             * should be collected from super classes.
-             */
-            /* XPD-8147: Additional param for collectAllClassAttribtues() */
-            collectAllClassAttributes(cl, allAttributes, false);
+        throw new RuntimeException(
+                "Unexpected construction of ChoiceConceptPath as no support for WSDL.");
 
-        } else {
-            allAttributes.addAll(type.getAllAttributes());
-        }
-
-        if (allAttributes != null) {
-            for (Object next : allAttributes) {
-                if (next instanceof Property) {
-                    Property property = (Property) next;
-                    Type propertyType = property.getType();
-                    Classifier clss = null;
-                    if (propertyType instanceof Class) {
-                        clss = (Class) propertyType;
-                    } else if (propertyType instanceof PrimitiveType) {
-                        clss = (PrimitiveType) propertyType;
-                    } else if (propertyType instanceof Enumeration) {
-                        clss = (Enumeration) propertyType;
-                    }
-                    /*
-                     * Sid XPD-3597. Do not continue if the class is a proxy
-                     * reference to a BM that does not exist, if it is then
-                     * everything inside it will be null!
-                     */
-                    if (clss != null && !clss.eIsProxy()) {
-                        if (shouldIncludeAttribute(clss, choiceConceptPath)) {
-                            String xsdExplictGroupHierarchy =
-                                    getRootOfExplicitChoiceHierarchy(XSDUtil
-                                            .getXsdExplictGroupHierarchy(property));
-                            if (choiceGroup.equals(xsdExplictGroupHierarchy)) {
-                                attributes.add(new ConceptPath(
-                                        choiceConceptPath, property, clss));
-                            }
-                        }
-                    }
-                }
-            }
-            // attributes = filterAttributes(attributes);
-        }
-        Collections.sort(attributes, conceptPathComparator);
-        return attributes;
+        //
+        // String choiceGroup = choiceConceptPath.getChoiceGroup();
+        // Classifier type = choiceConceptPath.getParent().getType();
+        //
+        // List<ConceptPath> attributes = new ArrayList<ConceptPath>();
+        // List<Property> allAttributes = new ArrayList<Property>();
+        //
+        // /*
+        // * XPD-3647: if a complex type restriction has a group/choice mappings
+        // * section must handle it correctly
+        // */
+        // if (type instanceof Class) {
+        // Class cl = (Class) type;
+        // /*
+        // * The representation of XSD constructs by BOM classes means that
+        // * there are now some specific conditions as to what attributes
+        // * should be collected from super classes.
+        // */
+        // /* XPD-8147: Additional param for collectAllClassAttribtues() */
+        // collectAllClassAttributes(cl, allAttributes, false);
+        //
+        // } else {
+        // allAttributes.addAll(type.getAllAttributes());
+        // }
+        //
+        // if (allAttributes != null) {
+        // for (Object next : allAttributes) {
+        // if (next instanceof Property) {
+        // Property property = (Property) next;
+        // Type propertyType = property.getType();
+        // Classifier clss = null;
+        // if (propertyType instanceof Class) {
+        // clss = (Class) propertyType;
+        // } else if (propertyType instanceof PrimitiveType) {
+        // clss = (PrimitiveType) propertyType;
+        // } else if (propertyType instanceof Enumeration) {
+        // clss = (Enumeration) propertyType;
+        // }
+        // /*
+        // * Sid XPD-3597. Do not continue if the class is a proxy
+        // * reference to a BM that does not exist, if it is then
+        // * everything inside it will be null!
+        // */
+        // if (clss != null && !clss.eIsProxy()) {
+        // if (shouldIncludeAttribute(clss, choiceConceptPath)) {
+        // String xsdExplictGroupHierarchy =
+        // getRootOfExplicitChoiceHierarchy(XSDUtil
+        // .getXsdExplictGroupHierarchy(property));
+        // if (choiceGroup.equals(xsdExplictGroupHierarchy)) {
+        // attributes.add(new ConceptPath(
+        // choiceConceptPath, property, clss));
+        // }
+        // }
+        // }
+        // }
+        // }
+        // // attributes = filterAttributes(attributes);
+        // }
+        // Collections.sort(attributes, conceptPathComparator);
+        // return attributes;
 
     }
 
@@ -1485,25 +1511,30 @@ public class ConceptUtil {
      * @return
      */
     public static String getUnionLabel(Classifier classifier) {
-        if (classifier instanceof PrimitiveType) {
-            org.eclipse.uml2.uml.DataType dt =
-                    (org.eclipse.uml2.uml.DataType) classifier;
-            boolean isUnion = XSDUtil.isUnion(dt);
-            if (isUnion) {
-                String text = classifier.getName();
-                List<DataType> unionMemberTypes =
-                        XSDUtil.getUnionMemberTypes(dt);
-                if (unionMemberTypes.size() > 0) {
-                    text += " (Union: "; //$NON-NLS-1$
-                    for (DataType dataType : unionMemberTypes) {
-                        text += dataType.getName() + ", "; //$NON-NLS-1$;
-                    }
-                    text = text.substring(0, text.length() - 2);
-                    text += ")"; //$NON-NLS-1$
-                }
-                return text;
-            }
-        }
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE - nothing should
+         * ever attempt to construct this.
+         */
+
+        // if (classifier instanceof PrimitiveType) {
+        // org.eclipse.uml2.uml.DataType dt =
+        // (org.eclipse.uml2.uml.DataType) classifier;
+        // boolean isUnion = XSDUtil.isUnion(dt);
+        // if (isUnion) {
+        // String text = classifier.getName();
+        // List<DataType> unionMemberTypes =
+        // XSDUtil.getUnionMemberTypes(dt);
+        // if (unionMemberTypes.size() > 0) {
+        // text += " (Union: "; //$NON-NLS-1$
+        // for (DataType dataType : unionMemberTypes) {
+        // text += dataType.getName() + ", "; //$NON-NLS-1$;
+        // }
+        // text = text.substring(0, text.length() - 2);
+        // text += ")"; //$NON-NLS-1$
+        // }
+        // return text;
+        // }
+        // }
         return null;
     }
 

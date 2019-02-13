@@ -4,12 +4,11 @@
 
 package com.tibco.xpd.processeditor.xpdl2.properties;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.uml2.uml.Property;
 
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
+
 
 /**
  * Concept path to represent equivalent constructs to xsd:choice
@@ -35,6 +34,7 @@ public class ChoiceConceptPath extends ConceptPath {
     private static class ChoiceItemClass {
     }
 
+
     /**
      * @param parent
      * @param firstChildElement
@@ -42,16 +42,24 @@ public class ChoiceConceptPath extends ConceptPath {
      */
     public ChoiceConceptPath(ConceptPath parent, Property firstChildElement) {
         super(parent, new ChoiceItemClass(), null);
-        String xsdExplicitGroupHierarchy =
-                XSDUtil.getXsdExplictGroupHierarchy(firstChildElement);
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE - nothing should
+         * ever attempt to construct this.
+         */
+        throw new RuntimeException(
+                "Unexpected construction of ChoiceConceptPath as no support for WSDL.");
 
-        choiceGroup =
-                ConceptUtil
-                        .getRootOfExplicitChoiceHierarchy(xsdExplicitGroupHierarchy);
-
-        // Need to dissect choice group so that inner choices are
-
-        choiceId = parent.getPath() + "::" + choiceGroup; //$NON-NLS-1$
+        //
+        // String xsdExplicitGroupHierarchy =
+        // XSDUtil.getXsdExplictGroupHierarchy(firstChildElement);
+        //
+        // choiceGroup =
+        // ConceptUtil
+        // .getRootOfExplicitChoiceHierarchy(xsdExplicitGroupHierarchy);
+        //
+        // // Need to dissect choice group so that inner choices are
+        //
+        // choiceId = parent.getPath() + "::" + choiceGroup; //$NON-NLS-1$
 
     }
 
@@ -77,27 +85,34 @@ public class ChoiceConceptPath extends ConceptPath {
      */
     @Override
     public List<ConceptPath> getChildren() {
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE - nothing should
+         * ever attempt to construct this.
+         */
+        throw new RuntimeException(
+                "Unexpected construction of ChoiceConceptPath as no support for WSDL.");
 
-        List<ConceptPath> parentConceptPathChildren =
-                ConceptUtil.getConceptPathChildren(this);
-        List<ConceptPath> childrenConceptPaths = new ArrayList<ConceptPath>();
-        for (ConceptPath conceptPath : parentConceptPathChildren) {
-            if (conceptPath.getItem() instanceof Property) {
-                // Just re-assuring
-                String xsdExplictGroupHierarchy =
-                        ConceptUtil
-                                .getRootOfExplicitChoiceHierarchy(XSDUtil
-                                        .getXsdExplictGroupHierarchy((Property) conceptPath
-                                                .getItem()));
-                if (choiceGroup.equals(xsdExplictGroupHierarchy)) {
-                    childrenConceptPaths.add(new ConceptPath(this, conceptPath
-                            .getItem(), conceptPath.getType()));
-                }
-
-            }
-        }
-
-        return childrenConceptPaths;
+        // List<ConceptPath> parentConceptPathChildren =
+        // ConceptUtil.getConceptPathChildren(this);
+        // List<ConceptPath> childrenConceptPaths = new
+        // ArrayList<ConceptPath>();
+        // for (ConceptPath conceptPath : parentConceptPathChildren) {
+        // if (conceptPath.getItem() instanceof Property) {
+        // // Just re-assuring
+        // String xsdExplictGroupHierarchy =
+        // ConceptUtil
+        // .getRootOfExplicitChoiceHierarchy(XSDUtil
+        // .getXsdExplictGroupHierarchy((Property) conceptPath
+        // .getItem()));
+        // if (choiceGroup.equals(xsdExplictGroupHierarchy)) {
+        // childrenConceptPaths.add(new ConceptPath(this, conceptPath
+        // .getItem(), conceptPath.getType()));
+        // }
+        //
+        // }
+        // }
+        //
+        // return childrenConceptPaths;
 
     }
 

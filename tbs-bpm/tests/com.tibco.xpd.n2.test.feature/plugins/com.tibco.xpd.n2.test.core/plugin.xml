@@ -51,34 +51,7 @@
          </action>
          <enablement></enablement>
       </objectContribution>
-      <objectContribution
-            adaptable="false"
-            id="com.tibco.xpd.core.createtestwizards.createBaseTestWizard"
-            nameFilter="*.wsdl"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               class="com.tibco.xpd.n2.test.core.wsdlconversion.CreateN2WsdlConversionTestAction"
-               enablesFor="1"
-               icon="icons/wsdl_file_obj.gif"
-               id="com.tibco.xpd.core.createtestwizards.n2wsdlconversiontestwizard.newAction"
-               label="Create N2 WSDL Conversion Test"
-               menubarPath="com.tibco.xpd.core.createtestwizards.testCreationWizardsMenu/group1">
-         </action>
-      </objectContribution>
-      <objectContribution
-            adaptable="false"
-            id="com.tibco.xpd.core.createtestwizards.createBaseTestWizard"
-            nameFilter="*.xsd"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               class="com.tibco.xpd.n2.test.core.wsdlconversion.CreateN2WsdlConversionTestAction"
-               enablesFor="1"
-               icon="icons/wsdl_file_obj.gif"
-               id="com.tibco.xpd.core.createtestwizards.n2wsdlconversiontestwizard.newAction"
-               label="Create N2 XSD Conversion Test"
-               menubarPath="com.tibco.xpd.core.createtestwizards.testCreationWizardsMenu/group1">
-         </action>
-      </objectContribution>
+
    </extension>
 
 </plugin>

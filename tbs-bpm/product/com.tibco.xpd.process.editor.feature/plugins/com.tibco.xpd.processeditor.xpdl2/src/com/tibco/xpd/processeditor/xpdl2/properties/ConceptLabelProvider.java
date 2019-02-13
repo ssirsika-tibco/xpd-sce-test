@@ -3,8 +3,6 @@
  */
 package com.tibco.xpd.processeditor.xpdl2.properties;
 
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -12,7 +10,6 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
@@ -21,7 +18,6 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
-import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
 import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.fields.DataFieldImageProvider;
@@ -185,21 +181,25 @@ public class ConceptLabelProvider implements ILabelProvider {
              * jeans_size (Union: sizebyno, sizebystring)
              */
             if (type instanceof PrimitiveType) {
-                boolean isUnion = XSDUtil.isUnion((DataType) type);
-                if (isUnion) {
-                    List<DataType> unionMemberTypes =
-                            XSDUtil.getUnionMemberTypes((DataType) type);
-                    if (unionMemberTypes.size() > 0) {
-                        text += " (Union: "; //$NON-NLS-1$
-                        for (DataType dataType : unionMemberTypes) {
-                            text +=
-                                    PrimitivesUtil.getDisplayLabel(dataType,
-                                            true) + ", "; //$NON-NLS-1$;
-                        }
-                        text = text.substring(0, text.length() - 2);
-                        text += ")"; //$NON-NLS-1$
-                    }
-                }
+                /*
+                 * Sid ACE-194 - we don't support XSD based BOMs in ACE
+                 */
+
+                // boolean isUnion = XSDUtil.isUnion((DataType) type);
+                // if (isUnion) {
+                // List<DataType> unionMemberTypes =
+                // XSDUtil.getUnionMemberTypes((DataType) type);
+                // if (unionMemberTypes.size() > 0) {
+                // text += " (Union: "; //$NON-NLS-1$
+                // for (DataType dataType : unionMemberTypes) {
+                // text +=
+                // PrimitivesUtil.getDisplayLabel(dataType,
+                // true) + ", "; //$NON-NLS-1$;
+                // }
+                // text = text.substring(0, text.length() - 2);
+                // text += ")"; //$NON-NLS-1$
+                // }
+                // }
             }
         } else if (element instanceof EObject) {
             if (StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER

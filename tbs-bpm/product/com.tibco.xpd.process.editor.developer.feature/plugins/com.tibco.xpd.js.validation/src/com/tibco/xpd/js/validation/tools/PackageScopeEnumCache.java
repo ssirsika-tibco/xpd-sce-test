@@ -17,7 +17,6 @@ import org.eclipse.uml2.uml.PackageableElement;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
-import com.tibco.xpd.bom.wsdltransform.builder.WsdlToBomBuilder;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.provider.IPreProcessor;
@@ -185,18 +184,24 @@ public class PackageScopeEnumCache implements IPreProcessor {
                 ProcessUIUtil.queryReferencingBomResources(processIResource
                         .getProject(), processIResource.getFullPath()
                         .toPortableString(), false);
-        /*
-         * this block fetches GENERATED boms referenced by wsdl.
-         */
-        for (IResource wsdlResource : ProcessUIUtil
-                .queryReferencedWSDLResources(processIResource, false)) {
-            Set<IFile> bomFiles =
-                    WsdlToBomBuilder.getBOMFiles((IFile) wsdlResource,
-                            false,
-                            true);
-            dependencies.addAll(bomFiles);
 
-        }
+        /*
+         * Sid ACE-194 - we don't support XSD based BOMs in ACE
+         */
+
+        // /*
+        // * this block fetches GENERATED boms referenced by wsdl.
+        // */
+        // for (IResource wsdlResource : ProcessUIUtil
+        // .queryReferencedWSDLResources(processIResource, false)) {
+        // Set<IFile> bomFiles =
+        // WsdlToBomBuilder.getBOMFiles((IFile) wsdlResource,
+        // false,
+        // true);
+        // dependencies.addAll(bomFiles);
+        //
+        // }
+
         // scan all BOM resources for enumerations.
         for (IResource iResource : dependencies) {
             // method to get enum types

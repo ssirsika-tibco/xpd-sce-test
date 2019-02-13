@@ -4,14 +4,8 @@
 package com.tibco.xpd.js.validation.tools;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.tibco.xpd.implementer.nativeservices.java.javaservice.utils.JavaModelUtil;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
-import com.tibco.xpd.process.js.model.script.ResolverUMLScriptRelevantData;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessScriptUtil;
-import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Process;
