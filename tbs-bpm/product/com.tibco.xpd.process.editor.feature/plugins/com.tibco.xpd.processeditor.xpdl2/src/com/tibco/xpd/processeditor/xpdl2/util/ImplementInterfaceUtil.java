@@ -22,7 +22,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.preCommit.AddPortTypeCommand;
 import com.tibco.xpd.processeditor.xpdl2.preCommit.UpdateMappingsCommandFactory;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.ElementsFactory;
 import com.tibco.xpd.processwidget.ProcessWidgetColors;
@@ -51,11 +50,8 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
 import com.tibco.xpd.xpdl2.EndEvent;
-import com.tibco.xpd.xpdl2.EndPoint;
-import com.tibco.xpd.xpdl2.EndPointTypeType;
 import com.tibco.xpd.xpdl2.Event;
 import com.tibco.xpd.xpdl2.ExtendedAttribute;
-import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.ImplementationType;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
@@ -65,12 +61,10 @@ import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Pool;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ResultError;
-import com.tibco.xpd.xpdl2.Service;
 import com.tibco.xpd.xpdl2.StartEvent;
 import com.tibco.xpd.xpdl2.Transition;
 import com.tibco.xpd.xpdl2.TriggerResultMessage;
 import com.tibco.xpd.xpdl2.TriggerType;
-import com.tibco.xpd.xpdl2.WebServiceOperation;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
 import com.tibco.xpd.xpdl2.commands.AbstractLateExecuteCommand;
@@ -154,7 +148,10 @@ public class ImplementInterfaceUtil {
         // Copy the associatedParameters from the startMethod
         copyAssociatedParameters(startEventAct, startMethod);
 
-        prepareWebServiceOperation(startEventAct);
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+
         cmd.append(AddCommand.create(editingDomain,
                 process,
                 Xpdl2Package.eINSTANCE.getFlowContainer_Activities(),
@@ -508,85 +505,6 @@ public class ImplementInterfaceUtil {
     }
 
     /**
-     * Private method which prepares the Web Service Operation in for an API
-     * implemented activity.
-     * 
-     * @param activity
-     */
-    private static void prepareWebServiceOperation(Activity activity) {
-        TriggerResultMessage triggerResultMessage =
-                EventObjectUtil.getTriggerResultMessage(activity);
-        if (triggerResultMessage != null) {
-            WebServiceOperation webServiceOperation =
-                    triggerResultMessage.getWebServiceOperation();
-            if (webServiceOperation == null) {
-                webServiceOperation =
-                        ElementsFactory.createWebServiceOperation();
-                triggerResultMessage
-                        .setWebServiceOperation(webServiceOperation);
-            }
-            if (webServiceOperation != null) {
-                Xpdl2ModelUtil.setOtherAttribute(webServiceOperation,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_SecurityProfile(),
-                        EMPTY_STRING);
-                /*
-                 * XPD-3669: While fixing XPD-3547 it has been decided that
-                 * transport type for generated services (and abstract
-                 * operations from user defined wsdls) must be service
-                 * virtualisation.
-                 */
-                Xpdl2ModelUtil.setOtherAttribute(webServiceOperation,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_Transport(),
-                        AddPortTypeCommand.SERVICE_VIRTUALIZATION_URL);
-
-                Xpdl2ModelUtil.setOtherAttribute(webServiceOperation,
-                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_Alias(),
-                        EMPTY_STRING);
-
-                Service service = webServiceOperation.getService();
-
-                ExternalReference externalReference = null;
-
-                PortTypeOperation pTO =
-                        getPortTypeOperation(triggerResultMessage);
-                if (pTO != null) {
-                    externalReference = pTO.getExternalReference();
-                    if (externalReference != null) {
-                        EObject copiedExternalReference =
-                                EcoreUtil.copy(externalReference);
-                        EndPoint endPoint = service.getEndPoint();
-                        if (endPoint == null) {
-                            endPoint = Xpdl2Factory.eINSTANCE.createEndPoint();
-                            endPoint.setExternalReference((ExternalReference) copiedExternalReference);
-                        }
-                    }
-                }
-
-                if (service != null) {
-                    if (service.getEndPoint() != null) {
-                        EndPoint endPoint = service.getEndPoint();
-                        endPoint.setEndPointType(EndPointTypeType.WSDL_LITERAL);
-
-                        if (externalReference != null) {
-                            endPoint.setExternalReference(EcoreUtil
-                                    .copy(externalReference));
-                        }
-                    }
-
-                    Xpdl2ModelUtil.setOtherAttribute(service,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_IsRemote(),
-                            true);
-                }
-            }
-        }
-
-        return;
-    }
-
-    /**
      * 
      * This method returns a command that creates only the Response message
      * event to an API implemented request activity.
@@ -649,7 +567,10 @@ public class ImplementInterfaceUtil {
         Xpdl2ModelUtil.setOtherAttribute(endEventActivity,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_Visibility(),
                 Visibility.PUBLIC);
-        prepareWebServiceOperation(endEventActivity);
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+
         cmd.append(AddCommand.create(editingDomain,
                 process,
                 Xpdl2Package.eINSTANCE.getFlowContainer_Activities(),
@@ -743,7 +664,10 @@ public class ImplementInterfaceUtil {
         // Copy the associatedParameters from the startMethod
         copyAssociatedParameters(startEvent, startMethod);
 
-        prepareWebServiceOperation(startEvent);
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+
         cmd.append(AddCommand.create(editingDomain,
                 process,
                 Xpdl2Package.eINSTANCE.getFlowContainer_Activities(),
@@ -812,7 +736,10 @@ public class ImplementInterfaceUtil {
         // Copy the associatedParameters from the startMethod
         copyAssociatedParameters(intermediateEvent, intermediateMethod);
 
-        prepareWebServiceOperation(intermediateEvent);
+        /*
+         * Sid ACE-194 - we don't support message events in ACE
+         */
+
         cmd.append(AddCommand.create(editingDomain,
                 process,
                 Xpdl2Package.eINSTANCE.getFlowContainer_Activities(),
@@ -897,7 +824,9 @@ public class ImplementInterfaceUtil {
             // Copy the associatedParameters from the startMethod
             copyAssociatedParameters(intermediateEventAct, intermediateMethod);
 
-            prepareWebServiceOperation(intermediateEventAct);
+            /*
+             * Sid ACE-194 - we don't support message events in ACE
+             */
 
             cmd.append(AddCommand.create(editingDomain,
                     process,

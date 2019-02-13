@@ -14,8 +14,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.tibco.xpd.processeditor.xpdl2.preCommit.AddPortTypeCommand;
 import com.tibco.xpd.processeditor.xpdl2.util.ImplementInterfaceUtil;
+import com.tibco.xpd.processeditor.xpdl2.util.ParticipantUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.WebServiceOperationUtil;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.Xpdl2ProcessDiagramUtils;
 import com.tibco.xpd.processwidget.adapters.CopyPasteScope;
@@ -515,7 +515,7 @@ public class AddExtrasToNewProcessCommand extends LateExecuteCompoundCommand {
 
             if (apiParticipant != null && process.getPackage() != null) {
                 String particLabel =
-                        AddPortTypeCommand
+                        ParticipantUtil
                                 .getDefaultParticipantLabelForProcessApi(Xpdl2ModelUtil
                                         .getDisplayNameOrName(process),
                                         Xpdl2ModelUtil
@@ -523,7 +523,7 @@ public class AddExtrasToNewProcessCommand extends LateExecuteCompoundCommand {
                                                         .getPackage()));
 
                 String particName =
-                        AddPortTypeCommand
+                        ParticipantUtil
                                 .getDefaultParticipantNameForProcessApi(process
                                         .getName());
 
@@ -561,7 +561,7 @@ public class AddExtrasToNewProcessCommand extends LateExecuteCompoundCommand {
                                     inbound.getSoapHttpBinding().get(0);
 
                             String endpointURI =
-                                    AddPortTypeCommand
+                                    ParticipantUtil
                                             .getDefaultSharedResourceURIForProcessApi(process,
                                                     process.getName(),
                                                     process.getPackage()

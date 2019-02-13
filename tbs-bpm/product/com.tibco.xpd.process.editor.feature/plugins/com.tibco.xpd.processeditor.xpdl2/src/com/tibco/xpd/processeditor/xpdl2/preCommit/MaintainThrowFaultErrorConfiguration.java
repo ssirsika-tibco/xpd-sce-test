@@ -35,15 +35,12 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * End Events configured to throw fault for a selected request activity.
  * Currently this means...
  * 
- * <li>Reference to request activity is removed if request activity is removed.</li>
+ * <li>Reference to request activity is removed if request activity is
+ * removed.</li>
  * <li>Reference to request activity is removed if request activity becomes a
  * non-request activity.</li>
  * </p>
  * 
- * <p>
- * Note that data mappings for fault-message auto-generating Throw error end
- * events are handled by {@link PortTypeGenerationCmdContributor}
- * </p>
  * 
  * @author aallway
  * @since 3.3 (2 Dec 2009)
@@ -95,6 +92,7 @@ public class MaintainThrowFaultErrorConfiguration extends
      * (org.eclipse.emf.transaction.ResourceSetChangeEvent,
      * java.util.Collection)
      */
+    @Override
     public Command contributeCommand(ResourceSetChangeEvent event,
             Collection<ENotificationImpl> notifications)
             throws RollbackException {

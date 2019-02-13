@@ -1965,9 +1965,6 @@
              <initializer
                    class="com.tibco.xpd.processeditor.xpdl2.preferences.ProcessEditorPreferenceInitializer">
              </initializer>
-             <initializer
-                   class="com.tibco.xpd.processeditor.xpdl2.preferences.BpmBindingPreferenceUtil">
-             </initializer>
           </extension>
           <extension
                 point="com.tibco.xpd.resources.ui.quickSearchContribution">
@@ -2004,9 +2001,6 @@
              </ProcessPreCommitCommandContributor>
              <ProcessPreCommitCommandContributor
                    class="com.tibco.xpd.processeditor.xpdl2.preCommit.EventHandlerPreCommitListener">
-             </ProcessPreCommitCommandContributor>
-             <ProcessPreCommitCommandContributor
-                   class="com.tibco.xpd.processeditor.xpdl2.preCommit.PortTypeGenerationCmdContributor">
              </ProcessPreCommitCommandContributor>
              <ProcessPreCommitCommandContributor
                    class="com.tibco.xpd.processeditor.xpdl2.preCommit.FlowChangePreCommitListener">

@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
-import com.tibco.xpd.processeditor.xpdl2.preCommit.AddPortTypeCommand;
+import com.tibco.xpd.processeditor.xpdl2.util.ParticipantUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.WebServiceOperationUtil;
 import com.tibco.xpd.xpdExtension.FormImplementation;
@@ -293,14 +293,14 @@ public class PackageTemplate implements IAdaptable {
                 Xpdl2ModelUtil.getProcessApiActivityParticipant(process);
         if (apiParticipant != null && process.getPackage() != null) {
             String particLabel =
-                    AddPortTypeCommand
+                    ParticipantUtil
                             .getDefaultParticipantLabelForProcessApi(Xpdl2ModelUtil
                                     .getDisplayNameOrName(process),
                                     Xpdl2ModelUtil.getDisplayNameOrName(process
                                             .getPackage()));
 
             String particName =
-                    AddPortTypeCommand
+                    ParticipantUtil
                             .getDefaultParticipantNameForProcessApi(process
                                     .getName());
 

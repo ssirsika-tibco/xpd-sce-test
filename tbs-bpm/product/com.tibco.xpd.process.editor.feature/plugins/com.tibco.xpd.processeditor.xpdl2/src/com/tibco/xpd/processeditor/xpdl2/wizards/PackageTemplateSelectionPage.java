@@ -63,8 +63,8 @@ import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.pkgtemplates.PackageTemplate;
 import com.tibco.xpd.processeditor.xpdl2.pkgtemplates.PackageTemplateChildElement;
-import com.tibco.xpd.processeditor.xpdl2.preCommit.AddPortTypeCommand;
 import com.tibco.xpd.processeditor.xpdl2.util.ImplementInterfaceUtil;
+import com.tibco.xpd.processeditor.xpdl2.util.ParticipantUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.WebServiceOperationUtil;
 import com.tibco.xpd.processeditor.xpdl2.widgetimpl.adapters.ElementsFactory;
@@ -777,14 +777,14 @@ public class PackageTemplateSelectionPage extends WizardPage implements
                 Xpdl2ModelUtil.getProcessApiActivityParticipant(process);
         if (apiParticipant != null && process.getPackage() != null) {
             String particLabel =
-                    AddPortTypeCommand
+                    ParticipantUtil
                             .getDefaultParticipantLabelForProcessApi(Xpdl2ModelUtil
                                     .getDisplayNameOrName(process),
                                     Xpdl2ModelUtil.getDisplayNameOrName(process
                                             .getPackage()));
 
             String particName =
-                    AddPortTypeCommand
+                    ParticipantUtil
                             .getDefaultParticipantNameForProcessApi(process
                                     .getName());
 
