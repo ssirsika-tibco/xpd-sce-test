@@ -35,7 +35,6 @@ import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingComposit
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptMappingCompositorFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.SingleMappingCompositor;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
-import com.tibco.xpd.webservice.datamapper.WebServiceDataMapperUtil;
 import com.tibco.xpd.xpdExtension.CorrelationDataMappings;
 import com.tibco.xpd.xpdExtension.CorrelationMode;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
