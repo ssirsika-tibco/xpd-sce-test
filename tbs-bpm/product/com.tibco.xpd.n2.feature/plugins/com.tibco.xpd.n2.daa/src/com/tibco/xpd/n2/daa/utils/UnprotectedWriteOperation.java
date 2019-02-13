@@ -24,7 +24,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.InternalTransaction;
 import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 
-import com.tibco.amf.sca.componenttype.ComponentTypeActivator;
+import com.tibco.xpd.n2.daa.Activator;
+
 
 /**
  * An abstact base class for performing model changes on a
@@ -74,17 +75,17 @@ public abstract class UnprotectedWriteOperation {
             }
             return doExecute();
         } catch (InterruptedException e) {
-            ComponentTypeActivator.getDefault().getLog().log(new Status(
-                    IStatus.ERROR, ComponentTypeActivator.PLUGIN_ID, e
+            Activator.getDefault().getLog()
+                    .log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e
                             .getMessage(), e));
         } finally {
             if (writeTransaction != null) {
                 try {
                     writeTransaction.commit();
                 } catch (RollbackException e) {
-                    ComponentTypeActivator.getDefault().getLog()
+                    Activator.getDefault().getLog()
                             .log(new Status(IStatus.ERROR,
-                                    ComponentTypeActivator.PLUGIN_ID, e
+                                    Activator.PLUGIN_ID, e
                                             .getMessage(), e));
                 }
             }
