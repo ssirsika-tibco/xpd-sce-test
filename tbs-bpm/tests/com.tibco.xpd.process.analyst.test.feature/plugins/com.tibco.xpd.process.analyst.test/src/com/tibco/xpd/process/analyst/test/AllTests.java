@@ -6,9 +6,6 @@ package com.tibco.xpd.process.analyst.test;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-import com.tibco.xpd.process.analyst.test.transform.XPDLToMultiXPDLTransformationTest;
-import com.tibco.xpd.process.analyst.test.transform.XPDLToOMTransformationTest;
-
 /**
  * 
  * @author sajain
@@ -21,8 +18,7 @@ public class AllTests {
         TestSuite suite =
                 new TestSuite("Test for com.tibco.xpd.process.analyst.test"); //$NON-NLS-1$
         // $JUnit-BEGIN$
-        suite.addTestSuite(XPDLToMultiXPDLTransformationTest.class);
-        suite.addTestSuite(XPDLToOMTransformationTest.class);
+
         // $JUnit-END$
         return suite;
     }

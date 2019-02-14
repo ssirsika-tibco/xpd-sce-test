@@ -44,6 +44,11 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author rsomayaj
  * 
  */
+
+/*
+ * Sid ACE-131 - we're going to hide Fragments importer for now as it uses OAW
+ * and we want to drop that.
+ */
 public class ProcessFragmentsImporter extends FragmentsImporter {
 
 	private static final String CUST_FRG_TRUE_VAL = "true"; //$NON-NLS-1$
@@ -193,7 +198,7 @@ public class ProcessFragmentsImporter extends FragmentsImporter {
 						if (XPDL_FILE_EXTN.equals(memResource.getFileExtension())) {
 							final Package memPackage = getTransformedPacakge(memResource);
 							if (!(memPackage.getProcesses().isEmpty())) {
-								final com.tibco.xpd.xpdl2.Process fragProc = (com.tibco.xpd.xpdl2.Process) memPackage
+								final com.tibco.xpd.xpdl2.Process fragProc = memPackage
 										.getProcesses().get(0);
 								String resourceString = Xpdl2ProcessorUtil
 										.getResourceString(memPackage);

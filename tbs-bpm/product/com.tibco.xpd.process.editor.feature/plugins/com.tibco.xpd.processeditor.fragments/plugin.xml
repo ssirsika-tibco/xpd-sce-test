@@ -102,6 +102,12 @@
                filter="com.tibco.xpd.processeditor.fragments.ServiceProcessFilter"></filter>
       </binding>
    </extension>
+  
+  <!-- 
+   /*
+ * Sid ACE-131 - we're going to hide Fragments importer for now as it uses OAW
+ * and we want to drop that.
+ */
    <extension
          point="com.tibco.xpd.fragments.fragmentsImport">
       <importer
@@ -110,4 +116,6 @@
             projects=".bsDiagramFragments">
       </importer>
    </extension>
+   
+   -->
 </plugin>
