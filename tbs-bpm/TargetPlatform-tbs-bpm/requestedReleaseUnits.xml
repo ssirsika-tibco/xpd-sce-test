@@ -16,32 +16,12 @@
 		<!--Oxygen dependencies. -->
 		<import feature="com.tibco.xpd.tpcl.oxygen.dependencies.feature" version="1.0.1.001" match="compatible" />
 		
-		<!-- AMX platform features. -->
-<!-- SCE TODO remove all of these once dependencies have been removed
-		<import feature="com.tibco.amf.design.core.feature" version="3.6.0.009" match="perfect" />
-		<import feature="com.tibco.amf.design.sca.ui.feature" version="3.6.0.020" match="perfect" />
-		<import feature="com.tibco.amf.implementationtype.webapp.model.feature.eclipse" version="1.7.100.004" match="perfect" />
-		<import feature="com.tibco.amf.implementationtype.webapp.design.feature" version="1.6.0.019" match="perfect" />
-		<import feature="com.tibco.amf.sca.binding.design.soap.feature" version="1.6.0.013" match="perfect" />
-		<import feature="com.tibco.amf.sca.binding.design.soap.jms.feature" version="1.4.0.004" match="perfect" />
-		<import feature="com.tibco.amf.sca.binding.model.soap.feature.eclipse" version="1.6.0.003" match="perfect" />
-		<import feature="com.tibco.neo.model.core.feature.eclipse" version="1.2.0.004" match="perfect" />
--->
-		<!-- RestBt binding features. -->
-<!-- SCE TODO remove all of these once dependencies have been removed
-        <import feature="com.tibco.amf.bindingtype.rest.design.feature" version="3.4.0.004" match="perfect" />
-        <import feature="com.tibco.amf.bindingtype.rest.model.feature.eclipse" version="3.4.0.003" match="perfect" />
-        <import feature="com.tibco.amf.bindingtype.rest.common.feature.eclipse" version="3.4.0.013" match="perfect" />
-        <import feature="com.tibco.rsbt.cheatsheet.feature" version="1.0.0" match="compatible" />
--->
 		<!-- PE Design time features Features (aka BX wned by us and stored in the Studio  REPO) -->
 		<import feature="com.tibco.bx.design.model.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.bx.designtime.feature" version="11.0.0" match="compatible" />
-
-<!-- SCE TODO Re-introduce these features once converted to SCE
 		<import feature="com.tibco.bx.extension.designtime.feature" version="11.0.0" match="compatible" />
--->
 		<import feature="com.tibco.bx.designtime.debug.feature" version="11.0.0" match="compatible" />
+
 		<!--PE dependencies (adopted from reldist) -->
 		<import feature="com.tibco.bx.common.model.feature.eclipse" version="1.15.1" match="compatible" />
 		<import feature="com.tibco.bx.amx.model.feature.eclipse" version="1.13.101" match="compatible" />
@@ -59,8 +39,6 @@
 		<import feature="com.tibco.xpd.forms.designer.feature" version="3.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.gwt.feature" version="3.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.forms.process.feature" version="3.0.0" match="compatible" />
-		
-		
 		<import feature="com.tibco.xpd.forms.n2.feature" version="3.0.0" match="compatible" />
 -->
 
@@ -113,11 +91,9 @@
 		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
 
 		<!-- BPM N2 Features -->
-<!-- SID TODO Re-introduce these features once converted to SCE		
 		<import feature="com.tibco.bds.designtime.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.n2.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.wm.feature" version="11.0.0" match="compatible" /> 
--->
 	
 		<!-- BPM Runtime Features -->
 		<import feature="com.tibco.n2.common.model.feature.eclipse" version="2.10.0" match="compatible" />
