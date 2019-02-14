@@ -109,9 +109,6 @@
                class="com.tibco.xpd.validation.bpmn.rules.TaskAssociationRule">
          </rule>
          <rule
-               class="com.tibco.xpd.validation.bpmn.rules.AssociatedParameterModeRule">
-         </rule>
-         <rule
                class="com.tibco.xpd.validation.bpmn.rules.UserManualTaskAssociationRule">
          </rule>
          <rule
@@ -879,11 +876,6 @@
             severity="ERROR">
       </issue>
       <issue
-            id="bpmn.invalidAssociatedParameterMode"
-            message="%bpmn.invalidAssociatedParameterMode"
-            severity="ERROR">
-      </issue>
-      <issue
             id="bpmn.userTaskReadonlyAssociation_1"
             message="%bpmn.userTaskReadonlyAssociation_1"
             severity="ERROR">
@@ -916,11 +908,7 @@
             preferenceGroupId="com.tibco.xpd.validation.bpmn.process"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.mandatoryFieldNeededSet"
-            message="%bpmn.mandatoryFieldNeededSet"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bpmn.nonBasicCorrelationData"
             message="%bpmn.nonBasicCorrelationData"
@@ -1029,11 +1017,7 @@
             message="%bpmn.catchErrorEventThrowerNotReachable"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.throwErrorEventOutParamOnly"
-            message="%bpmn.throwErrorEventOutParamOnly"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bpmn.compensatedTaskDoesNotHaveEventAttached"
             message="%bpmn.compensatedTaskDoesNotHaveEventAttached"
@@ -1530,27 +1514,6 @@
                id="resolution.bpmn.setUserTaskFormToNoForm">
          </resolution>
       </issue>     
-      <issue
-            id="bpmn.cantAssociateDataFieldWithApiActivity"
-            message="%bpmn.cantAssociateDataFieldWithApiActivity"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.convertDataFieldToParam">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.convertAllAssocaitedDataFieldsToParams">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.disAssociateActivityInterfaceData">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.disAssociateActivityInterfaceSingleDataField">
-         </resolution>
-      </issue>
       <issue
             id="bpmn.orGatewayWarning"
             message="%bpmn.orGatewayWarning"

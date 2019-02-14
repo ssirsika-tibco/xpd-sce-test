@@ -40,7 +40,6 @@ import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.util.NameUtil;
-import com.tibco.xpd.wsdl.ui.WsdlUIPlugin;
 import com.tibco.xpd.xpdExtension.ErrorMethod;
 import com.tibco.xpd.xpdExtension.FormImplementation;
 import com.tibco.xpd.xpdExtension.FormImplementationType;
@@ -666,17 +665,7 @@ public class ActionUtil {
                         addFormProjectReferences(activity,
                                 referencedProjects,
                                 sourceProject);
-                    } else // Check for Service defined in another Project
-                    if (Xpdl2ModelUtil.getWebServiceOperation(activity) != null) {
-                        WebServiceOperation webOperation =
-                                Xpdl2ModelUtil.getWebServiceOperation(activity);
-                        extRef =
-                                webOperation.getService().getEndPoint()
-                                        .getExternalReference();
-                        specialFolderType =
-                                WsdlUIPlugin.WSDL_SPECIALFOLDER_KIND;
                     }
-
                 }
                 if (extRef != null && specialFolderType != null) {
                     addProjectForExternalReference(sourceProject,

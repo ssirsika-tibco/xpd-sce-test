@@ -11,10 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.wsdl.Input;
-import javax.wsdl.Operation;
-import javax.wsdl.Output;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -499,34 +495,6 @@ public class JavaScriptConceptUtil {
         xpdExtAttribute.setName(PARAM_REPRESENTING_PART_EXT_ATTRIB_NAME);
         xpdExtAttribute.setValue(Boolean.TRUE.toString());
         xpdExtAttributes.getAttributes().add(xpdExtAttribute);
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List getInputParts(Operation op) {
-        if (op != null) {
-            Input input = op.getInput();
-            if (input != null) {
-                javax.wsdl.Message message = input.getMessage();
-                if (message != null) {
-                    return message.getOrderedParts(null);
-                }
-            }
-        }
-        return Collections.EMPTY_LIST;
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List getOutputParts(Operation op) {
-        if (op != null) {
-            Output output = op.getOutput();
-            if (output != null) {
-                javax.wsdl.Message message = output.getMessage();
-                if (message != null) {
-                    return message.getOrderedParts(null);
-                }
-            }
-        }
-        return Collections.EMPTY_LIST;
     }
 
     /**

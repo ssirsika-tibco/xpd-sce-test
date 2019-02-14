@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 
 import com.tibco.bx.xpdl2bpel.converter.XPDL2BPEL;
-import com.tibco.bx.xpdl2bpel.converter.XPDL2WSDL;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.n2.bpel.BpelBuilderActivator;
@@ -265,17 +264,11 @@ public class BPELN2Utils {
             createFolder(businessProcessDestFolder, new SubProgressMonitor(
                     monitor, 1));
         }
-        if (shouldCopyGeneratedWsdl) {
 
-            String operationName = getStartEventName(process);
-            if (operationName != null) {
+        /*
+         * Sid ACE-131 Don't support generated WSDLs
+         */
 
-                XPDL2WSDL.generateWSDL(businessProcessDestFolder,
-                        process,
-                        operationName,
-                        new SubProgressMonitor(monitor, 1));
-            }
-        }
         IStatus status =
                 converter.convertProcessToBPEL(process,
                         businessProcessDestFolder.getFullPath().toOSString(),
