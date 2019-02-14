@@ -498,9 +498,7 @@
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.WebServiceReferenceValidationRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.process.SystemParticipantSharedResourceRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.activity.InitialPriorityValueRule">
          </rule>
@@ -512,9 +510,6 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.ActivityImplementationTypeSetRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.activity.ParticipantForSamePortTypeRule">
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.process.ProcessDataValidationRules">
@@ -640,9 +635,6 @@
                class="com.tibco.bx.validation.rules.activity.SubProcessTaskPriorityRule">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.process.WsdlNameRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.process.EmbeddedSubProcHasNoStartRule">
          </rule>
 		<rule
@@ -696,9 +688,6 @@
          <rule
                class="com.tibco.bx.validation.rules.process.ActivityNameRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.process.DuplicateStartOperationRule">
-         </rule>
           <rule
                class="com.tibco.bx.validation.rules.process.PrimitiveTypeUsageValidation">
          </rule>         
@@ -708,12 +697,6 @@
           <rule
                class="com.tibco.bx.validation.rules.process.ProcessIfcArrayParamsNotSupportedRule">
          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.process.WSParticEndpointRule">
-          </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.process.CorrelateImmediatelyConfigurationRule">
-          </rule>
           <rule
                 class="com.tibco.bx.validation.rules.mapping.JsEmptyMappingScriptsRule">
           </rule>
@@ -954,15 +937,7 @@
                id="resolution.bpmn.convertBWToWebService">
          </resolution>
       </issue>
-      <issue
-            id="bx.apiRequestParticHttpMustHaveSharedResUri"
-            message="%bx.apiRequestParticHttpMustHaveSharedResUri"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.setSharedResourceUri">
-         </resolution>
-      </issue>
+
       <issue
             id="bx.apiRequestParticHttpMustNotHaveSharedResJms"
             message="%bx.apiRequestParticHttpMustNotHaveSharedResJms"
@@ -986,15 +961,7 @@
                id="resolution.bx.removeSharedResUri">
          </resolution>
       </issue>      
-      <issue
-            id="bx.apiRequestParticSharedResUriInvalidFormat"
-            message="%bx.apiRequestParticSharedResUriInvalidFormat"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.setSharedResourceUri">
-         </resolution>
-      </issue>                  
+
       <issue
             id="bx.apiRequestParticSharedResNameIgnored"
             message="%bx.apiRequestParticSharedResNameIgnored"
@@ -1004,33 +971,8 @@
                id="resolution.bx.removeSharedResourceName">
          </resolution>
       </issue>
-      <issue
-            id="bx.webActParticSharedResMustBeWebService"
-            message="%bx.webActParticSharedResMustBeWebService"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.setSharedResourceTypeWebService">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.serviceInvokeParticSharedResMustHaveName"
-            message="%bx.serviceInvokeParticSharedResMustHaveName"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.setSharedResourceName">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.serviceInvokeParticSharedResUriIgnored"
-            message="%bx.serviceInvokeParticSharedResUriIgnored"
-            severity="WARNING">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.removeSharedResUriAndJms">
-         </resolution>
-      </issue>
+
+
       <issue
             id="bx.invalidMappingParamType"
             message="%bx.invalidMappingParamType"
@@ -1221,19 +1163,7 @@
             message="%bx.initialPriorityNotInRangeMAX2"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.systemParticWithDiffConfigMustBeDiffName"
-            message="%bx.systemParticWithDiffConfigMustBeDiffName"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.renameParticipantPreserveLabel">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.renameParticipant">
-         </resolution>
-      </issue>
+
       <issue
             id="bx.dbTaskParticipantMustBeSystem"
             message="%bx.dbTaskParticipantMustBeSystem"
@@ -1328,16 +1258,7 @@
                id="bx.SetImplementationTypeRestService.resolution">
          </resolution>         
       </issue>
-      <issue
-            id="bx.sameApiPortTypeRefMustHaveSameParticName"
-            message="%bx.sameApiPortTypeRefMustHaveSameParticName"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.sameInvokePortTypeRefMustHaveSameParticName"
-            message="%bx.sameInvokePortTypeRefMustHaveSameParticName"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.specificNumberFormatNotEnforced"
             message="%bx.specificNumberFormatNotEnforced"
@@ -1440,34 +1361,6 @@
                id="resolution.bpmn.renameParticipantPreserveLabel">
          </resolution>
       </issue>      
-      <issue
-            id="bx.sameNameParticDiffPortType"
-            message="%bx.sameNameParticDiffPortType"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.renameParticipantPreserveLabel">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.sameNameParticDiffTransportType"
-            message="%bx.sameNameParticDiffTransportType"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.renameParticipantPreserveLabel">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.sameParticDiffTransportType"
-            message="%bx.sameParticDiffTransportType"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.sameParticDiffPortType"
-            message="%bx.sameParticDiffPortType"
-            severity="ERROR">
-      </issue>
       <issue
             id="bx.MILoopExpressionIsRequired"
             message="%bx.MILoopExpressionIsRequired"
@@ -1661,26 +1554,7 @@
             message="%bx.EmailInvalidComplexTypeVarRef"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.wsParticMissingPolicyInfo"
-            message="%bx.wsParticMissingPolicyInfo"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.restParticMissingPolicyInfo"
-            message="%bx.restParticMissingPolicyInfo"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.wsOrRestCustomPolicyInvalidRef"
-            message="%bx.wsOrRestCustomPolicyInvalidRef"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.wsOrRestCustomPolicyNotSet"
-            message="%bx.wsOrRestCustomPolicyNotSet"
-            severity="ERROR">
-      </issue>
+
       <!--<issue
             id="bx.pageTasksParallelFlowUnsupported"
             message="%bx.pageTasksParallelFlowUnsupported"
@@ -1696,20 +1570,7 @@
             message="%bx.complexTypeMustBeArray"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.issueSameSharedResourceUri"
-            message="%bx.issueSameSharedResourceUri"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.setSharedResourceUri">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.issueSameSharedResourceforDiffrentParticipants"
-            message="%bx.issueSameSharedResourceforDiffrentParticipants"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.emptyJavaScript"
             message="%bx.emptyJavaScript"
@@ -1771,11 +1632,7 @@
                id="resolution.bpmn.renameActivityPreserveLabel">
          </resolution>
       </issue>
-      <issue
-            id="bx.sharedResURIPrefixNotFromPrefStore"
-            message="%bx.sharedResURIPrefixNotFromPrefStore"
-            severity="WARNING">
-      </issue>
+
       <issue
             id="bx.processInitialPriorityNotInRange"
             message="%bx.processInitialPriorityNotInRange2"
@@ -1989,21 +1846,7 @@
                id="resolution.bpmn.activityWithNoAssociatedCorrelationData">
          </resolution>
       </issue>
-      <issue
-            id="bx.sendTaskParticSharedResMustBeConsumerVirtual"
-            message="%bx.sendTaskParticSharedResMustBeConsumerVirtual"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.sysParticSharedResMustBeConsumer"
-            message="%bx.sysParticSharedResMustBeConsumer"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.sysParticSharedResMustBeProvider"
-            message="%bx.sysParticSharedResMustBeProvider"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.dbActParticSharedResMustHaveJdbcProfName"
             message="%bx.dbActParticSharedResMustHaveJdbcProfName"
@@ -2032,11 +1875,7 @@
             message="%bx.runtimeIdentifierForALoopIssue"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.sameXpdlSamePortDiffPartic"
-            message="%bx.sameXpdlSamePortDiffPartic"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.integerCrossMaxLength"
             message="%bx.integerCrossMaxLength.1"
@@ -2125,16 +1964,7 @@
             message="%bx.mappingPropertyInXSDMultiSequence.warning"
             severity="WARNING">
       </issue>
-      <issue
-            id="bx.wsParticMissingJmsOutboundConnFactory"
-            message="%bx.wsParticMissingJmsOutboundConnFactory"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.wsParticMissingJmsOutboundDestination"
-            message="%bx.wsParticMissingJmsOutboundDestination"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.subProcesstaskPriorityNotDefined"
             message="%bx.subProcesstaskPriorityNotDefined2"
@@ -2164,11 +1994,6 @@
                canApplyToMultiple="true"
                id="bx.resolution.setTaskPriorityInherit">
          </resolution>
-      </issue>
-      <issue
-            id="bx.wsdlNamesConflictCaseInsensitively"
-            message="%bx.wsdlNamesConflictCaseInsensitively"
-            severity="ERROR">
       </issue>
       <issue
             id="bx.invokingOutputOnlyServiceIsNotSupported"
@@ -2344,12 +2169,7 @@
             message="%bx.dateTimeDateTimeZoneMapping.Warning"
             severity="WARNING">
       </issue>
-      <issue
-            id="bx.providerSysParticSharedResBindingTypeMismatchWithTransportType"
-            message="%bx.providerSysParticSharedResBindingTypeMismatchWithTransportType"
-            severity="WARNING">
-      </issue>
-      
+
       <issue
             id="n2pe.processFormalParametersCannotBeDeclaredTypes"
             message="%n2pe.processFormalParametersCannotBeDeclaredTypes"
@@ -2497,38 +2317,7 @@
                 id="resolution.bpmn.removeDataMapping">
           </resolution>
        </issue>
-       <issue
-             id="bx.uniqueCorrelationConfigForActivityWithSameOperation.error"
-             message="%bx.uniqueCorrelationConfigForActivityWithSameOperation.error1"
-             severity="ERROR">
-          <resolution
-                canApplyToMultiple="false"
-                id="bx.resolution.set.activities.to.correlate.immediately">
-          </resolution>
-          <resolution
-                canApplyToMultiple="false"
-                id="bx.resolution.set.activities.to.not.correlate.immediately">
-          </resolution>
-       </issue>
-       <issue
-             id="bx.correlationTimeoutUsedInConjunctionWithCorrelateImmediately.error"
-             message="%bx.correlationTimeoutUsedInConjunctionWithCorrelateImmediately.error"
-             severity="ERROR">
-          <resolution
-                canApplyToMultiple="true"
-                id="bx.resolution.remove.correlation.timeout.config">
-          </resolution>        
-       </issue>
-       <issue
-             id="bx.sameSharedResEndpointUri.error"
-             message="%bx.sameSharedResEndpointUri.error"
-             severity="ERROR">
-       </issue>
-       <issue
-             id="bx.sameSharedResEndpointUri.warning"
-             message="%bx.sameSharedResEndpointUri.warning"
-             severity="WARNING">
-       </issue>
+
        <issue
              id="bx.eventHandlerTypeNotSupportedInEmbeddedSubProc"
              message="%bx.eventHandlerTypeNotSupportedInEmbeddedSubProc"
@@ -3920,24 +3709,7 @@ s         <scriptContribution
             id="bx.resolution.removeAdHocConfig"
             label="%bx.resolution.removeAdHocConfig">
       </resolution>
-       <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractSetUnsetCorrelateImmediatelyConfigResolution$SetCorrelateImmediatelyConfigResolution"
-            description="%bx.resolution.set.activities.to.correlate.immediately"
-            id="bx.resolution.set.activities.to.correlate.immediately"
-            label="%bx.resolution.set.activities.to.correlate.immediately">
-      </resolution>
-       <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractSetUnsetCorrelateImmediatelyConfigResolution$UnsetCorrelateImmediatelyConfigResolution"
-            description="%bx.resolution.set.activities.to.not.correlate.immediately"
-            id="bx.resolution.set.activities.to.not.correlate.immediately"
-            label="%bx.resolution.set.activities.to.not.correlate.immediately">
-      </resolution>
-       <resolution
-            class="com.tibco.bx.validation.resolutions.RemoveCorrelationTimeoutConfigResolution"
-            description="%bx.resolution.remove.correlation.timeout.config"
-            id="bx.resolution.remove.correlation.timeout.config"
-            label="%bx.resolution.remove.correlation.timeout.config">
-      </resolution>
+
        <resolution
              class="com.tibco.bx.validation.resolutions.SetServiceProcessConfigurationResolution$SetDeployToProcessRuntimeResolution"
              id="bx.resolution.setProcessRuntimeDeploymentTarget"
