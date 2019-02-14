@@ -41,7 +41,6 @@ import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
-import com.tibco.xpd.processeditor.xpdl2.properties.WsdlPartConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -1116,19 +1115,6 @@ public class JavaScriptConceptUtil {
             }
         }
         return targetNamespace;
-    }
-
-    public static boolean isWsdlConceptPathContainer(ConceptPath conceptPath) {
-        if (conceptPath != null) {
-            ConceptPath root = conceptPath.getRoot();
-            if (root instanceof WsdlPartConceptPath) {
-                return true;
-            } else if (root.getItem() != null) {
-                Object item = root.getItem();
-                return JavaScriptConceptUtil.isParameterRepresentingPart(item);
-            }
-        }
-        return false;
     }
 
     /**

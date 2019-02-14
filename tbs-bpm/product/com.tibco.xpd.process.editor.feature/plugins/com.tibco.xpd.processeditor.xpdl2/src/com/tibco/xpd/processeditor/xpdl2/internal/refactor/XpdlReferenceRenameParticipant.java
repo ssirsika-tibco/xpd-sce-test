@@ -31,7 +31,6 @@ import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.IRefactorRefer
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateBOMReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateOMReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateReferenceChange;
-import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateWsdlReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateXpdlReferenceChange;
 import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
 
@@ -227,9 +226,7 @@ public class XpdlReferenceRenameParticipant extends RenameParticipant implements
         case OM:
             change = new UpdateOMReferenceChange();
             break;
-        case WSDL:
-            change = new UpdateWsdlReferenceChange();
-            break;
+
         case XPDL:
             change = new UpdateXpdlReferenceChange();
             break;

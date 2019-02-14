@@ -32,7 +32,6 @@ import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.IRefactorRefer
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateBOMReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateOMReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateReferenceChange;
-import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateWsdlReferenceChange;
 import com.tibco.xpd.processeditor.xpdl2.internal.refactor.change.UpdateXpdlReferenceChange;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.util.CyclicDependencyException;
@@ -446,9 +445,7 @@ public class XpdlReferenceMoveParticipant extends MoveParticipant implements
         case OM:
             change = new UpdateOMReferenceChange();
             break;
-        case WSDL:
-            change = new UpdateWsdlReferenceChange();
-            break;
+
         case XPDL:
             change = new UpdateXpdlReferenceChange();
             break;
