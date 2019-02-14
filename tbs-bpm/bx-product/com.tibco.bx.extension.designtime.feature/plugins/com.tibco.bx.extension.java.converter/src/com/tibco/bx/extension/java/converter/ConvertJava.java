@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.xsd.XSDSimpleTypeDefinition;
 
 import com.tibco.bx.extensions.java.JavaExtensionModel.FactoryClassType;
 import com.tibco.bx.extensions.java.JavaExtensionModel.JavaClassType;

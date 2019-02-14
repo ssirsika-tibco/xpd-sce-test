@@ -19,7 +19,6 @@ import com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptConceptUti
 import com.tibco.xpd.implementer.script.ActivityMessageUtil;
 import com.tibco.xpd.implementer.script.RestActivityAdapterFactory;
 import com.tibco.xpd.implementer.script.RestActivityMessageProvider;
-import com.tibco.xpd.implementer.script.WsdlPartProblemPath;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.AbstractDataMappingCommandFactory;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -326,8 +325,7 @@ public class RestMappingCommandFactory
             Object mappingSourceOrTarget) {
         return ((mappingSourceOrTarget instanceof ConceptPath)
                 && JavaScriptConceptUtil.isInvalidPartParameter(
-                        (ConceptPath) mappingSourceOrTarget))
-                || (mappingSourceOrTarget instanceof WsdlPartProblemPath);
+                        (ConceptPath) mappingSourceOrTarget));
     }
 
     protected String getScriptGrammar(Activity act, DirectionType dir) {

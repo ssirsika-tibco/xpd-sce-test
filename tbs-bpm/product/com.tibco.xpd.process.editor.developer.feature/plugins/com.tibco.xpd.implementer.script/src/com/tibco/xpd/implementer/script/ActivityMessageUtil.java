@@ -136,8 +136,6 @@ public final class ActivityMessageUtil {
         String name = null;
         if (object instanceof NamedElement) {
             name = ((NamedElement) object).getName();
-        } else if (object instanceof IWsdlPath) {
-            name = ((IWsdlPath) object).getPath();
         } else if (object instanceof WebServiceOperation) {
             name = ((WebServiceOperation) object).getOperationName();
         } else if (object instanceof ConceptPath) {

@@ -12,7 +12,6 @@ import com.tibco.xpd.implementer.resources.xpdl2.Activator;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.EventType;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.EventViewerFilter;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.filter.ViewerFilterBuilder;
-import com.tibco.xpd.implementer.script.IWsdlPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DirectionType;
@@ -51,7 +50,7 @@ public class MappingEndMessageFilter implements IFilter, IPluginContribution {
                     eo = (EObject) toTest;
                 } else if (toTest instanceof IAdaptable) {
                     eo =
-                            (EObject) ((IAdaptable) toTest)
+                            ((IAdaptable) toTest)
                                     .getAdapter(EObject.class);
                 }
 
@@ -61,9 +60,6 @@ public class MappingEndMessageFilter implements IFilter, IPluginContribution {
                             ReplyActivityUtil.isReplyActivity(a)
                                     && !ProcessInterfaceUtil
                                             .isEventImplemented(a);
-                } else if (toTest instanceof IWsdlPath) {
-                    IWsdlPath wp = (IWsdlPath) toTest;
-                    result = (wp.isOutput() && wp.isInput());
                 }
                 return result;
             }

@@ -15,7 +15,6 @@ import org.eclipse.ui.activities.WorkbenchActivityHelper;
 
 import com.tibco.xpd.implementer.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.AbstractEditableMappingSection;
-import com.tibco.xpd.implementer.script.IWsdlPath;
 import com.tibco.xpd.mapper.IMappingTransferValidator;
 import com.tibco.xpd.mapper.MapperLabelProvider;
 import com.tibco.xpd.mapper.MapperViewer;
@@ -168,8 +167,6 @@ public class CatchBpmnErrorMapperSection extends AbstractEditableMappingSection 
         String path = null;
         if (source instanceof ConceptPath) {
             path = ((ConceptPath) source).getPath();
-        } else if (source instanceof IWsdlPath) {
-            path = ((IWsdlPath) source).getPath();
         } else {
             /*
              * Saket XPD-4087: If we don't recognise source object type, the
@@ -224,7 +221,7 @@ public class CatchBpmnErrorMapperSection extends AbstractEditableMappingSection 
             if (toTest instanceof EObject) {
                 eo = (EObject) toTest;
             } else if (toTest instanceof IAdaptable) {
-                eo = (EObject) ((IAdaptable) toTest).getAdapter(EObject.class);
+                eo = ((IAdaptable) toTest).getAdapter(EObject.class);
             }
 
             // Check it's a catch Error intermediate event.
