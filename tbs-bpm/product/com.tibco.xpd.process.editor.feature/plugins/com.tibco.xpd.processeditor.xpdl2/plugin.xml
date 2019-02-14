@@ -2520,33 +2520,6 @@
          </enablement>
       </renameParticipant>
       <renameParticipant
-            class="com.tibco.xpd.processeditor.xpdl2.internal.refactor.XpdlReferenceRenameParticipant: wsdl"
-            id="com.tibco.xpd.processeditor.xpdl2.wsdlRenameParticipant"
-            name="WSDL File Rename">
-         <enablement>
-            <and>
-               <or>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFile">
-                     </instanceof>
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="wsdl">
-                     </test>
-                  </and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IFolder">
-                  </instanceof>
-               </or>
-               <test
-                     property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                     value="wsdl">
-               </test>
-            </and>
-         </enablement>
-      </renameParticipant>
-      <renameParticipant
             class="com.tibco.xpd.processeditor.xpdl2.internal.refactor.XpdlReferenceRenameParticipant: xpdl"
             id="com.tibco.xpd.processeditor.xpdl2.xpdlRenameParticipant"
             name="XPDL File Rename">
@@ -2652,32 +2625,6 @@
                <test
                      property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
                      value="om">
-               </test>
-            </and></enablement>
-      </moveParticipant>
-      <moveParticipant
-            class="com.tibco.xpd.processeditor.xpdl2.internal.refactor.XpdlReferenceMoveParticipant: wsdl"
-            id="com.tibco.xpd.processeditor.xpdl2.wsdlMoveParticipant"
-            name="WSDL Move">
-         <enablement>
-            <and>
-               <or>
-                  <and>
-                     <instanceof
-                           value="org.eclipse.core.resources.IFile">
-                     </instanceof>
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="wsdl">
-                     </test>
-                  </and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IFolder">
-                  </instanceof>
-               </or>
-               <test
-                     property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
-                     value="wsdl">
                </test>
             </and></enablement>
       </moveParticipant>

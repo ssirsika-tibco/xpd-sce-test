@@ -167,12 +167,6 @@ public enum MappingIssue {
      * &lt;mapping_type&gt;: a maximum of &lt;n&gt; elements have already been
      * mapped for &lt;data_path&gt;.
      */
-    WSDLPART_AND_PROCESSDATA_NAME_COLLISISON(
-            "abstractMappingRule.wsdlPartAndProcessDataNameCollision"), //$NON-NLS-1$
-    /**
-     * &lt;mapping_type&gt;: a maximum of &lt;n&gt; elements have already been
-     * mapped for &lt;data_path&gt;.
-     */
     ABSTRACT_TYPE_USED_IN_MAPPING("abstractMappingRule.abstractTypeSource"), //$NON-NLS-1$
 
     UNABLE_TO_CHECK_MAPPING_TYPES("bpmn.mappingTypesCouldNotBeChecked.warning"), //$NON-NLS-1$

@@ -16,7 +16,6 @@ import java.util.Set;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -51,7 +50,6 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdEcoreUtil;
 import com.tibco.xpd.ui.util.CapabilityUtil;
 import com.tibco.xpd.ui.util.NameUtil;
-import com.tibco.xpd.wsdl.ui.WsdlWorkingCopy;
 import com.tibco.xpd.xpdExtension.AssociatedCorrelationField;
 import com.tibco.xpd.xpdExtension.AssociatedCorrelationFields;
 import com.tibco.xpd.xpdExtension.BindingType;
@@ -5862,81 +5860,8 @@ public class Xpdl2ModelUtil {
         return false;
     }
 
-    /**
-     * Utility to verify whether the Wsdl for the Xpdl created is marked as
-     * derived.
-     * 
-     * NOTE: This will only return if the WSDL is derived from that XPDL and not
-     * if the activity refers to a WSDL operation in a derived WSDL
-     * 
-     * @param eObject
-     * @return
-     * @deprecated This method has never returned a sensible result and will be
-     *             removed after v3.7 Studio
-     * @see Xpdl2ModelUtil#isWsdlStudioGenerated(EObject)
-     */
-    @Deprecated
-    public static boolean isWsdlDerived(EObject obj) {
-        Package pkg = getPackage(obj);
-        if (pkg != null) {
-            IFile xpdlFile = WorkingCopyUtil.getFile(pkg);
-            if (xpdlFile != null) {
-                String wsdlFileName = getWsdlFileName(xpdlFile);
-                IProject project = xpdlFile.getProject();
-                IFolder folder = project.getFolder(GENERATED_SERVICES);
-                if (folder.exists()) {
-                    IFile file = folder.getFile(wsdlFileName);
-                    if (file.exists() && !(file.isDerived())) {
-                        return false;
-                    }
-                }
 
-            }
-        }
 
-        return true;
-    }
-
-    /**
-     * This method returns whether the WSDL that is generated for the XPDL
-     * process is a Studio generated one or not.
-     * 
-     * Earlier, the check was to see if the Studio is derived, but this approach
-     * was detestable because the derived flag is a workspace related one and
-     * shouldn't be used for functional purposes.
-     * 
-     * The tibex attribute that goes on the definition element and is persisted
-     * unlike the derived flag.
-     * 
-     * @param obj
-     * @return
-     * @deprecated This method has never returned a sensible result and will be
-     *             removed after v3.7 Studio. SId has removed all references to
-     *             this method becasue it virtually always returned true (it's
-     *             default is true and only returns false if theres a WSDL in
-     *             generated services folder with same name as XPDL that does
-     *             not have the tibex extension attribute in it.
-     */
-    @Deprecated
-    public static Boolean isWsdlStudioGenerated(EObject obj) {
-
-        Package pkg = getPackage(obj);
-        if (pkg != null) {
-            IFile xpdlFile = WorkingCopyUtil.getFile(pkg);
-            if (xpdlFile != null) {
-                String wsdlFileName = getWsdlFileName(xpdlFile);
-                IProject project = xpdlFile.getProject();
-                IFolder folder = project.getFolder(GENERATED_SERVICES);
-                if (folder.exists()) {
-                    IFile file = folder.getFile(wsdlFileName);
-                    if (file.exists()) {
-                        return isWsdlStudioGenerated(file);
-                    }
-                }
-            }
-        }
-        return Boolean.TRUE;
-    }
 
     /**
      * This method checks whether the WSDL has been generated for the given
@@ -5960,30 +5885,6 @@ public class Xpdl2ModelUtil {
                     }
                 }
             }
-        }
-        return Boolean.FALSE;
-    }
-
-    /**
-     * This method returns whether the WSDL that is generated for the XPDL
-     * process is a Studio generated one or not.
-     * 
-     * Earlier, the check was to see if the Studio is derived, but this approach
-     * was detestable because the derived flag is a workspace related one and
-     * shouldn't be used for functional purposes.
-     * 
-     * The tibex attribute that goes on the definition element and is persisted
-     * unlike the derived flag.
-     * 
-     * @param obj
-     * @return
-     */
-    public static Boolean isWsdlStudioGenerated(IResource res) {
-
-        WorkingCopy workingCopy = WorkingCopyUtil.getWorkingCopy(res);
-        if (workingCopy instanceof WsdlWorkingCopy) {
-            return Boolean.valueOf(
-                    ((WsdlWorkingCopy) workingCopy).isWsdlStudioGenerated());
         }
         return Boolean.FALSE;
     }
