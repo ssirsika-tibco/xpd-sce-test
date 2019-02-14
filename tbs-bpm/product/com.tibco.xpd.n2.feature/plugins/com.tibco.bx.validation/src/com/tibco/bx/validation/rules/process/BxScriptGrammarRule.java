@@ -4,16 +4,12 @@
 
 package com.tibco.bx.validation.rules.process;
 
-import java.util.Iterator;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessScriptUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
-import com.tibco.xpd.studioiprocess.scriptconverter.AbstractIProcessToJavaScriptConverter;
 import com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule;
 import com.tibco.xpd.xpdExtension.AdHocTaskConfigurationType;
 import com.tibco.xpd.xpdExtension.Audit;
@@ -74,12 +70,9 @@ public class BxScriptGrammarRule extends ProcessValidationRule {
      * @param transition
      */
     private void validate(Transition transition) {
-        if (hasIProcessScripts(transition)) {
-            addIssue(ScriptGrammarErrors.IPROCESS_SCRIPT_GRAMMAR_FLOW.getValue(),
-                    transition);
-            /* Don't bother with other kinds of error until this is sorted out. */
-            return;
-        }
+        /*
+         * Sid ACE-128 we don't do iprocess conversion / validation to ACE.
+         */
 
         Condition condition = transition.getCondition();
         if (condition != null) {
@@ -117,12 +110,9 @@ public class BxScriptGrammarRule extends ProcessValidationRule {
     }
 
     public void validate(Activity activity) {
-        if (hasIProcessScripts(activity)) {
-            addIssue(ScriptGrammarErrors.IPROCESS_SCRIPT_GRAMMAR_ACTIVITY.getValue(),
-                    activity);
-            /* Don't bother with other kinds of error until this is sorted out. */
-            return;
-        }
+        /*
+         * Sid ACE-128 we don't do iprocess conversion / validation to ACE.
+         */
 
         // validate audit scripts
         Audit audit =
@@ -634,30 +624,9 @@ public class BxScriptGrammarRule extends ProcessValidationRule {
         }
     }
 
-    /**
-     * 
-     * @param actOrTrans
-     * @return <code>true</code> if the given object has any xpdl2 expression
-     *         scripts with iProcessScript grammar.
+
+    /*
+     * Sid ACE-128 we don't do iprocess conversion / validation to ACE.
      */
-    private boolean hasIProcessScripts(EObject eObject) {
-        /*
-         * Iterate thru entire content of object looking for Expression objects
-         * with iProcessScript grammar.
-         */
-        for (Iterator iterator = eObject.eAllContents(); iterator.hasNext();) {
-            EObject eo = (EObject) iterator.next();
-
-            if (eo instanceof Expression) {
-                Expression expression = (Expression) eo;
-
-                if (AbstractIProcessToJavaScriptConverter.IPROCESSSCRIPT_GRAMMAR
-                        .equals(expression.getScriptGrammar())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
 }

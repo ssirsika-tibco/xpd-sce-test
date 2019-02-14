@@ -90,11 +90,7 @@ public enum ScriptGrammarErrors {
 
     LOOP_ADDITIONAL_JAVA_SCRIPT_EMPTY("bx.loopAdditionalJavaScriptEmpty"), //$NON-NLS-1$
 
-    CONDITIONAL_FLOW_ISSUE_ID("bx.conditionalScriptExprRequired"), //$NON-NLS-1$
-
-    IPROCESS_SCRIPT_GRAMMAR_ACTIVITY("bx.iProcessScriptGrammarUsedInActivity"), //$NON-NLS-1$
-
-    IPROCESS_SCRIPT_GRAMMAR_FLOW("bx.iProcessScriptGrammarUsedInFlow"); //$NON-NLS-1$
+    CONDITIONAL_FLOW_ISSUE_ID("bx.conditionalScriptExprRequired"); //$NON-NLS-1$
 
     private final String error;
 

@@ -40,14 +40,6 @@ public class Messages extends NLS {
 
     public static String CompletedScriptDataMapperMappingRule_ScriptDescription;
 
-    public static String ConvertIProcessScriptToBPMJavaScriptResolution_ConvertFlowIProcessScripts_menu;
-
-    public static String ConvertIProcessScriptToBPMJavaScriptResolution_ConvertIProcessScriptInPackage_menu;
-
-    public static String ConvertIProcessScriptToBPMJavaScriptResolution_ConvertIProcessScriptInProcess_menu;
-
-    public static String ConvertIProcessScriptToBPMJavaScriptResolution_ConvertTaskIProcessScripts_menu;
-
     public static String DeadlineExpiredScriptDataMapperMappingRule_ScriptDescription;
 
     public static String DecisionServiceJSInputMappingRule_DecisionServiceMapping_label;

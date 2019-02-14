@@ -137,16 +137,7 @@
           </enablement>
        </changePreviewViewer>
     </extension>
-    <extension
-          point="com.tibco.xpd.processeditor.xpdl2.scriptGrammarConverter">
-       <scriptGrammarConverter
-             class="com.tibco.xpd.n2.resources.script.IProcessScriptToBPMJavaScriptContribution"
-             priority="100"
-             sourceGrammar="iProcessScript"
-             targetGrammar="JavaScript">
-       </scriptGrammarConverter>
-    </extension>    
-    
+
     <extension
           name="Contributions of BPM advanced properties for Task Retry"
           point="com.tibco.xpd.processeditor.xpdl2.advancedProperties">

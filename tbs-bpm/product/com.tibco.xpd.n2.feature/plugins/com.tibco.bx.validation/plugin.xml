@@ -2079,40 +2079,9 @@
             message="%bx.implementedInterfaceCausedXpdlRefCycle"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.iProcessScriptGrammarUsedInActivity"
-            message="%bx.iProcessScriptGrammarUsedInActivity"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="bx.convertActivityIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bx.convertProcessIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bx.convertPackageIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.iProcessScriptGrammarUsedInFlow"
-            message="%bx.iProcessScriptGrammarUsedInFlow"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="bx.convertFlowIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bx.convertProcessIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bx.convertPackageIProcessScriptToBPMJavaScriptResolution">
-         </resolution>
-      </issue>
+      
+     
+      
       <issue
             id="bx.superTypeToSubType.warning"
             message="%bx.superTypeToSubType.warning"
@@ -3827,34 +3796,6 @@ s         <scriptContribution
             class="com.tibco.bx.validation.resolutions.SetPackageVersionToProjectVersionResolution"
             id="resolution.bx.packageVersionSameAsProjectVersion"
             label="%resolution.bx.packageVersionSameAsProjectVersion">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractIProcessToBPMJavaScriptResolution$ActivityIProcessToBPMJavaScriptResolution"
-            description="%bx.converActivityIProcessScriptToBPMJavaScriptResolution"
-            id="bx.convertActivityIProcessScriptToBPMJavaScriptResolution"
-            image="icons/ConvertScript.gif"
-            label="%bx.convertActivityIProcessScriptToBPMJavaScriptResolution">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractIProcessToBPMJavaScriptResolution$ConditionalFlowIProcessToBPMJavaScriptResolution"
-            description="%bx.convertFlowIProcessScriptToBPMJavaScriptResolution"
-            id="bx.convertFlowIProcessScriptToBPMJavaScriptResolution"
-            image="icons/ConvertScript.gif"
-            label="%bx.convertFlowIProcessScriptToBPMJavaScriptResolution">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractIProcessToBPMJavaScriptResolution$ProcessIProcessToBPMJavaScriptResolution"
-            description="%bx.convertProcessIProcessScriptToBPMJavaScriptResolution"
-            id="bx.convertProcessIProcessScriptToBPMJavaScriptResolution"
-            image="icons/ConvertProcessScripts.png"
-            label="%bx.convertProcessIProcessScriptToBPMJavaScriptResolution">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.AbstractIProcessToBPMJavaScriptResolution$PackageIProcessToBPMJavaScriptResolution"
-            description="%bx.convertPackageIProcessScriptToBPMJavaScriptResolution"
-            id="bx.convertPackageIProcessScriptToBPMJavaScriptResolution"
-            image="icons/ConvertPackageScripts.gif"
-            label="%bx.convertPackageIProcessScriptToBPMJavaScriptResolution">
       </resolution>
       <resolution
             class="com.tibco.bx.validation.resolutions.AbstractSetTaskPriorityResolution$SetTaskPriority300Resolution"

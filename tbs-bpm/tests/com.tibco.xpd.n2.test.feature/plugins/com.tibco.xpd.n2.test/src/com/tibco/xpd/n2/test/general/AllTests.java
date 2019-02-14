@@ -13,7 +13,6 @@ public class AllTests {
                 new TestSuite("Test for com.tibco.xpd.n2.test.general"); //$NON-NLS-1$
         // $JUnit-BEGIN$
         suite.addTestSuite(N2_01_JavaScriptStringCompleteTest.class);
-        suite.addTestSuite(N2_02_IProcess2BPMJavaScriptConverterTest.class);
         suite.addTestSuite(N2_03_RESTServiceTest.class);
         suite.addTestSuite(N2_05_DynamicOrgMappingsGenerationTest.class);
         suite.addTestSuite(N2_06_AdhocPreconditionScriptContextualDataReferenceApiTest.class);
