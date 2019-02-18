@@ -1,12 +1,17 @@
 package com.tibco.bds.designtime.generator.common;
 
-import com.tibco.bds.shared.Constants;
-
 /**
  * BDS Specific constants
  * 
  */
-public class BDSConstants extends Constants {
+public class BDSConstants {
+
+    // Field descriptor #6 I
+    public static final int CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH = 400;
+
+    // Field descriptor #6 I
+    public static final int CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION =
+            31;
 
     // Internal database Table Name constants, these map directly to the
     // attribute name, so can not be used as attribute names
