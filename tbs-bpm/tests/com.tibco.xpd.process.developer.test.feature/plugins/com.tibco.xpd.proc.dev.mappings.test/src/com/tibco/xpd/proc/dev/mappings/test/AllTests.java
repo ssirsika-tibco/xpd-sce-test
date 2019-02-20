@@ -12,10 +12,9 @@ public class AllTests {
         TestSuite suite =
                 new TestSuite("Test for com.tibco.xpd.proc.dev.mappings.test"); //$NON-NLS-1$
         // $JUnit-BEGIN$
-        suite.addTestSuite(XPathMaxMappedTest.class);
-        suite.addTestSuite(XPathInvalidModeMappedTest.class);
+
         suite.addTestSuite(DataFieldAllowedForSendOneWayTest.class);
-        suite.addTestSuite(XPathSimpleContentNegValidationTest.class);
+
         // XPath Max Mapped test is not required as the marker could not be
         // reproduced. However, keeping this in place, in case detected later
         // on.

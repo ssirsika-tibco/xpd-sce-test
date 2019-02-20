@@ -138,18 +138,6 @@
                class="com.tibco.bx.validation.rules.scripts.BxMIAdditionalInstancesExprRule">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJavaServiceMappedScriptInputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJavaServiceMappedScriptOutputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJavaServiceUnmappedScriptInputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJavaServiceUnmappedScriptOutputRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.scripts.BxSubProcessMappedScriptInputRule">
          </rule>
          <rule
@@ -505,24 +493,8 @@
          <rule
                class="com.tibco.bx.validation.rules.process.NoneStartEventRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.JavaServiceInputMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.JavaServiceOutputMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.ProcessDataToWebSvcJavaScriptRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.ProcessDataToWebSvcXPathRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.WebSvcJavaScriptToProcessDataRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.WebSvcXPathToProcessDataRule">
-         </rule>
+
+
          <rule
                class="com.tibco.bx.validation.rules.process.BxScriptGrammarRule">
          </rule>
@@ -589,16 +561,11 @@
          <rule
                class="com.tibco.bx.validation.rules.process.CyclicReusableSubProcessValidationRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.process.BWServiceActivityRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.activity.SubProcessWithMessageStartRule">
          </rule>
 
-         <rule
-               class="com.tibco.bx.validation.rules.activity.MissingDatabaseParameterRule">
-         </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.SubProcessTaskPriorityRule">
          </rule>
@@ -641,12 +608,8 @@
          <rule
                class="com.tibco.bx.validation.rules.activity.EmptyPkgNameValidationRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.MissingReplyImmediateProcessIdMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.mapping.ConsistentCorrelationUseForMsgPartRule">
-         </rule>
+
+
          <rule
                class="com.tibco.bx.validation.rules.activity.RESTserviceNameRule">
          </rule>
@@ -3904,9 +3867,7 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.rules.activity.TransactionValidationRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.activity.DatabaseExtensionValidationRule">
-         </rule>
+
       </provider>
       <issue
             id="n2pe.manualTaskNotSupported"

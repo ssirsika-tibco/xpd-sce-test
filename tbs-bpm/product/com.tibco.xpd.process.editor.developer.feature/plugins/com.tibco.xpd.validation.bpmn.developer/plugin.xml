@@ -30,15 +30,11 @@
             markerType="com.tibco.xpd.validation.bpmnValidationMarker"
             name="BPMN Validation Xpdl2 Provider"
             scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.RequestResponseHasReply">
-         </rule>
+
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ServiceTaskSystemParticipantRule">
          </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.ThrowErrorEventRules">
-         </rule>
+
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.MissingImplementationTypeRule">
          </rule>
@@ -145,20 +141,8 @@
             message="%bpmn.dev.unmappedCorrelationDataImplicit"
             severity="ERROR">
       </issue>
+
       <issue
-            id="bpmn.dev.requestResponseNeedsDownstreamReply"
-            message="%bpmn.dev.requestResponseNeedsDownstreamReply"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.createReplyActivityResolution">
-         </resolution>
-         <resolution
-         		canApplyToMultiple="false"
-         		id="bpmn.dev.setAllEndAsReply">
- 		 </resolution>
-      </issue>
-            <issue
             id="bpmn.dev.adhocInitializerActivityNotAvailable"
             message="%bpmn.dev.adhocInitializerActivityNotAvailable"
             severity="ERROR">
