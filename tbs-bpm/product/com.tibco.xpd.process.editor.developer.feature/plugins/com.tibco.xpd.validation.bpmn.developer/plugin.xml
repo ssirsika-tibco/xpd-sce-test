@@ -22,9 +22,6 @@
             scopeProvider="com.tibco.xpd.validation.xpdl2.provider.ActivityScopeProvider">
          
          <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.BWWebServiceRule">
-         </rule>
-         <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.ScriptContentsRule">
          </rule>
       </provider>
@@ -60,9 +57,7 @@
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.MessageEventParametersRule">
          </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.ImplementingEventValidatePortType">
-         </rule>
+
          <rule
                class="com.tibco.xpd.validation.bpmn.developer.rules.SignalThrowCatchRule">
          </rule>
@@ -93,11 +88,7 @@
             message="%bpmn.dev.cannotCheckTypes"
             severity="WARNING">
       </issue>
-      <issue
-            id="bpmn.dev.bwServiceOnNonBwTask"
-            message="%bpmn.dev.bwServiceOnNonBwTask"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bpmn.dev.mappingArrayNotContiguous"
             message="%bpmn.dev.mappingArrayNotContiguous"
@@ -119,15 +110,7 @@
             id="bpmn.dev.methodNotFound"
             message="%bpmn.dev.methodNotFound"
             severity="ERROR"/>
-      <issue
-            id="bpmn.dev.nonBwServiceOnBwTask"
-            message="%bpmn.dev.nonBwServiceOnBwTask"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.bwNoEndpointProvided"
-            message="%bpmn.dev.bwNoEndpointProvided"
-            severity="ERROR"/>
+
       <issue
             id="bpmn.dev.dbNoSQLProvided"
             message="%bpmn.dev.dbNoSQLProvided"
@@ -204,63 +187,14 @@
             message="%bpmn.dev.moreThanOneParticipantForSendTask"
             severity="ERROR">
       </issue>
-
-      <issue
-            id="bpmn.dev.wrongWsdlLocationForActivity"
-            message="%bpmn.dev.wrongWsdlLocationForActivity"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.throwErrorNoFaultSelected"
-            message="%bpmn.dev.throwErrorNoFaultSelected"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.throwErrorBadFaultSelected"
-            message="%bpmn.dev.throwErrorBadFaultSelected"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.javaProject.notPluginProject"
-            message="%notPluginProject_issue_message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.javaProject.notReferenced"
-            message="%notReferencedProject_issue_message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.setAsReferencedProject">
-         </resolution>
-      </issue>            
+           
       <issue
             id="bpmn.dev.missingXpdExtImplementationType"
             message="%bpmn.dev.missingXpdExtImplementationType"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.dev.webServiceNotSet"
-            message="%bpmn.dev.webServiceNotSet"
-            severity="ERROR">
 
-      </issue>
-      <issue
-            id="bpmn.dev.webServiceReferenceNotIndexed"
-            message="%bpmn.dev.webServiceReferenceNotIndexed"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.reIndexProcessPackage">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.cantAccessWebService"
-            message="%bpmn.dev.cantAccessWebService"
-            severity="ERROR">
-
-      </issue>
-      <issue
+       <issue
             id="bpmn.emptyName"
             message="%bpmn.emptyName"
             severity="ERROR">
@@ -285,80 +219,14 @@
             message="%bpmn.dev.activityGrammarMappingGrammarMismatch"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.dev.noBusinessProcessRequestActivitySelected"
-            message="%bpmn.dev.noBusinessProcessRequestActivitySelected"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.noBusinessProcessRequestActivitySelected">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.referencedBusinessProcessRequestActivityDoesNotExist"
-            message="%bpmn.dev.referencedBusinessProcessRequestActivityDoesNotExist"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.noBusinessProcessRequestActivitySelected">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.referencedBusinessProcessRequestActivityNotSet"
-            message="%bpmn.dev.referencedBusinessProcessRequestActivityNotSet"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="bpmn.dev.setBusinessProcessRequestActivity">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.invalidPorttypeConfigured"
-            message="%bpmn.dev.invalidPorttypeConfigured"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.generatedRequestWithOutParamsNeedsReply"
-            message="%bpmn.dev.generatedRequestWithOutParamsNeedsReply"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.changeParamsToInModeResolution">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.setAllEndAsReply">
-         </resolution>
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.createReplyActivityResolution">
-         </resolution>
-      </issue>
+
+
       <issue
             id="bpmn.javaScriptGrammarNotAllowed"
             message="%bpmn.javaScriptGrammarNotAllowed"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.bomFileForJavascriptWebServiceDoesntExist"
-            message="%bpmn.bomFileForJavascriptWebServiceDoesntExist"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.bomFileForJSNotUpToDate"
-            message="%bpmn.bomFileForJSNotUpToDate"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.businessProcessWsdlConfigProblem"
-            message="%bpmn.dev.businessProcessWsdlConfigProblem"
-            severity="ERROR">
 
-         <resolution
-               canApplyToMultiple="false"
-               id="bpmn.dev.noBusinessProcessRequestActivitySelected">
-         </resolution>
-      </issue>
       <issue
             id="bpmn.EMailInvalidVariableReference"
             message="%bpmn.EMailInvalidVariableReference"
@@ -384,16 +252,8 @@
             message="%bpmn.dev.selectedBusinessProcessActivityMustBeRequestOnly"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.dev.boundaryErrorEventRefWsdlFaultWithMessageType"
-            message="%wsdlFaultMustBeTopLevelElement_error_message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.errorEventThrowingWSDLFaultCannotBeRPC"
-            message="%errorEndEventWsdlFault_error_message"
-            severity="ERROR">
-      </issue>
+
+
       <issue
             id="bpmn.dev.errorNoThrowSignalForGivenCatchSignal"
             message="%noThrowEventWithSignalName_issue_message"
@@ -814,13 +674,7 @@
             image="icons/delete.gif"
             label="%resolution.bpmn.dev.activityGrammarMappingGrammarMismatch">
       </resolution>
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.RepairInvalidPorttypeResolution"
-            description="%resolution.desc.bpmn.dev.invalidPorttypeConfigured"
-            id="bpmn.dev.invalidPorttypeConfigured"
-            label="%resolution.label.bpmn.dev.invalidPorttypeConfigured">
-      </resolution>
+
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.RemoveInvalidCaseIdentifierResolution"
             description="%removeInvalidCaseIdResolution_longdesc"
@@ -831,12 +685,7 @@
    </extension>
    <extension
          point="com.tibco.xpd.validation.reusableResolutions">
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.CreateReplyActivityResolution"
-            description="%resolution.bpmn.dev.createReplyActivity"
-            id="bpmn.dev.createReplyActivityResolution"
-            label="%resolution.bpmn.dev.createReplyActivity">
-      </resolution>
+
        <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.DeleteInvalidInitializerActivities"
             description="%resolution.bpmn.dev.deleteInvalidInitializerActivities"
@@ -850,30 +699,6 @@
             label="%resolution.bpmn.dev.changeAssocParamsToInput">
       </resolution>
 
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.AbstractSetWebServiceTransportResolution$SetWebServiceTransportSoapHttpResolution"
-            description="%resolution.bpmn.setWebServiceSoapHttpTransport"
-            id="resolution.bpmn.setWebServiceSoapHttpTransport"
-            label="%resolution.bpmn.setWebServiceSoapHttpTransport">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.AbstractSetWebServiceTransportResolution$SetWebServiceTransportSoapJmsResolution"
-            description="%resolution.bpmn.setWebServiceSoapJmsTransport"
-            id="resolution.bpmn.setWebServiceSoapJmsTransport"
-            label="%resolution.bpmn.setWebServiceSoapJmsTransport">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.AbstractSetWebServiceTransportResolution$SetWebServiceTransportVirutalisationResolution"
-            description="%resolution.bpmn.setWebServiceVirtualisationTransport"
-            id="resolution.bpmn.setWebServiceVirtualisationTransport"
-            label="%resolution.bpmn.setWebServiceVirtualisationTransport">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.SetAllEndEventsAsReplyResolution"
-            description="%resolution.bpmn.dev.setAllEndAsReply"
-            id="bpmn.dev.setAllEndAsReply"
-            label="%resolution.bpmn.dev.setAllEndAsReply">
-      </resolution>
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.SelectDecisionFlowResolution"
             description="%resolution.bpmn.dev.selectedDecisionFlow"

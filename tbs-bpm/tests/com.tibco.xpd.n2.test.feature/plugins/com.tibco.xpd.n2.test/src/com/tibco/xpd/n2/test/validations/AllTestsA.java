@@ -21,7 +21,6 @@ public class AllTestsA {
         suite.addTestSuite(N2_07_XPD2337SubProcWithMsgStartMustHaveNoneStartTest.class);
         suite.addTestSuite(N2_08_XPD2337CheckValidSubProcWithMsgStartMustHaveNoneStartTest.class);
         suite.addTestSuite(N2_09_XPD1675BizSvcMustCallReqProcessOkTest.class);
-        suite.addTestSuite(N2_10_BizServiceValidationTest.class);
         suite.addTestSuite(N2_11_RESTServiceValidationTest.class);
         suite.addTestSuite(N2_12_MustHaveSameParticNameForSamePortTypeTest.class);
        

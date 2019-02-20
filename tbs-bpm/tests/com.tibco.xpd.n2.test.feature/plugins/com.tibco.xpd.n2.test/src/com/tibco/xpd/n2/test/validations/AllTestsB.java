@@ -18,8 +18,7 @@ public class AllTestsB {
         suite.addTestSuite(N2_19_SystemParticipantSharedResourceTest.class);
         suite.addTestSuite(N2_20_XPD1939ThreeWayCycleViaSpTaskAndImplInterfaceTest.class);
         suite.addTestSuite(N2_21_XPD2064UsingQualifiedNameForEnumAmbiguityTest.class);
-        suite.addTestSuite(N2_22_XPD1023WsdlInvalidMarkerTest.class);
-        suite.addTestSuite(N2_23_XPD4019XsdFixedTypeAttributeTest.class);
+
         suite.addTestSuite(N2_24_XPD5345PerformerArrayRqlScriptTest.class);
         suite.addTestSuite(N2_25_ExpressionValidationProblemsExistTest.class);
         suite.addTestSuite(N2_26_NonExpressionValidationProblemsExistTest.class);

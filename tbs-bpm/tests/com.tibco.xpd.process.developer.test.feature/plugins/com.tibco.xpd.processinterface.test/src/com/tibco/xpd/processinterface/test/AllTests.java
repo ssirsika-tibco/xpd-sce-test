@@ -13,7 +13,6 @@ public class AllTests {
                 new TestSuite("Test for com.tibco.xpd.processinterface.test"); //$NON-NLS-1$
         // $JUnit-BEGIN$
         suite.addTestSuite(ProcIfcAddOutParamTest.class);
-        suite.addTestSuite(InvalidPorttypeImplementingEventTest.class);
         suite.addTestSuite(ProcIfcNoDestTest.class);
         // $JUnit-END$
         return suite;
