@@ -117,4 +117,19 @@
          </run>
       </builder>
    </extension>
+   
+   <!-- Sid ACE-118: moved from removed xsdTransform plugin as we still need to be able to do 'is generated BOM' etc -->
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://XSD_NOTATION_TYPES/"
+            target="platform:/plugin/com.tibco.xpd.bom.resources/model/">
+      </mapping>
+   </extension>
+   <extension
+         point="com.tibco.xpd.resources.resourcePreLoader">
+      <preload
+            uri="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml"></preload>
+   </extension>
+   
 </plugin>
