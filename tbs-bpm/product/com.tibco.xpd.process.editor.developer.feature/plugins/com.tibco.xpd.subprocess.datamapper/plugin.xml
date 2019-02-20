@@ -33,6 +33,13 @@
                id="com.tibco.xpd.catcherror.datamapper.catchall"
                tab="com.tibco.xpd.processeditor.propertyTabs.CatchErrorEventMapperOut">
          </propertySection>
+         <propertySection
+               class="com.tibco.xpd.globaldataservice.datamapper.GlobalDataErrorDataMapperMapFromErrorSection"
+               enablesFor="1"
+               filter="com.tibco.xpd.globaldataservice.datamapper.GlobalDataErrorDataMapperMapFromErrorSectionFilter"
+               id="com.tibco.xpd.globaldataservice.CatchErrorDataMapperOut"
+               tab="com.tibco.xpd.processeditor.propertyTabs.CatchErrorEventMapperOut">
+         </propertySection>           
       </propertySections>
    </extension>
    <extension
@@ -99,6 +106,12 @@
             mapperContribution="com.tibco.xpd.subprocess.datamapper.catcherror.CatchCSPErrorSubProcParamDataMapperContentContributor"
             priority="3">
       </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GDFaultCatch"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.globaldataservice.datamapper.GlobalDataCatchFaultDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>      
    </extension>
    <extension
          point="com.tibco.xpd.datamapper.DataMapperContentContribution">

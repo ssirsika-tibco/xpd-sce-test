@@ -18,7 +18,7 @@ public class AllTestsB {
         suite.addTestSuite(N2_17_ChildAttribMappingNotRequiredTest.class);
         suite.addTestSuite(N2_19_JSRequiredAttributeTest.class);
         suite.addTestSuite(N2_20_DateTimeIncorrectValidationMarkerTest.class);
-        suite.addTestSuite(N2_21_ParticipantRequiredTest.class);
+
         suite.addTestSuite(N2_24_ConcatenationMappingUnsupportedTest.class);
         suite.addTestSuite(N2_26_PageflowProcessCorrelationDataUnsupportedTest.class);
         suite.addTestSuite(N2_27_ReqdParamNotMappedTest.class);

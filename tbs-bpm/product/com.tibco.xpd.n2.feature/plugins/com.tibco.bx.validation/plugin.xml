@@ -173,18 +173,7 @@
          <rule
                class="com.tibco.bx.validation.rules.scripts.BxCancelledScriptTaskRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsWebServiceMappedScriptInputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsWebServiceMappedScriptOutputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsWebServiceUnmappedScriptInputRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsWebServiceUnmappedScriptOutputRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.scripts.BxJsRestServiceMappedScriptInputRule">
          </rule>
@@ -210,20 +199,6 @@
                class="com.tibco.bx.validation.rules.scripts.BxCatchSubProcOrAllErrorMappedScriptRule">
          </rule>
          
-         <!-- The individual message event, receive task and send task rules now handled in by 
-         	BxJsWebServiceMappedScriptInputRule and BxJsWebServiceUnappedScriptInputRule
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxWebServiceJsEventMapperScriptRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsSendTaskMapperScriptRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.scripts.BxJsReceiveTaskMapperScriptRule">
-         </rule>
-         The individual message event, receive task and send task rules now handled in by 
-         	BxJsWebServiceMappedScriptInputRule and BxJsWebServiceUnappedScriptInputRule
-         -->
          <rule
                class="com.tibco.bx.validation.rules.scripts.BxJsCatchSignalMappingScriptRule">
          </rule>
@@ -465,9 +440,7 @@
             markerType="com.tibco.bx.validation.validationMarker"
             name="Bx General Process Rules"
             scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
-         <rule
-               class="com.tibco.bx.validation.rules.process.WebServiceActivityConfigRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.process.TaskLibraryRefRule">
          </rule>
@@ -494,9 +467,6 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.ActivityScriptSupportRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.developer.rules.WebServiceReferenceValidationRule">
          </rule>
 
          <rule
@@ -625,9 +595,7 @@
          <rule
                class="com.tibco.bx.validation.rules.activity.SubProcessWithMessageStartRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.process.CheckSoapHeadersInReferencedWSDLRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.activity.MissingDatabaseParameterRule">
          </rule>
@@ -700,19 +668,14 @@
           <rule
                 class="com.tibco.bx.validation.rules.mapping.JsEmptyMappingScriptsRule">
           </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.mapping.JsWebServiceUnmappedScriptsRule">
-          </rule>
+
           <rule
                 class="com.tibco.bx.validation.rules.process.CaseRefTypesInPaaSRule">
           </rule>
           <rule
                 class="com.tibco.bx.validation.rules.mapping.GlobalDataCatchErrorJSOutputMappingRule">
           </rule>
-          <rule
-                class="com.tibco.bx.validation.rules.activity.ProcessRelatedWsdlsRule"
-                validateOnSaveOnly="true">
-          </rule>
+
           <rule
                 class="com.tibco.bx.validation.rules.process.ThreadingPolicyInvocationTimeoutRule"
                 validateOnSaveOnly="false">
@@ -793,22 +756,8 @@
          <rule
                class="com.tibco.bx.validation.rules.datamapper.SubmitUserTaskDataMapperMappingRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.datamapper.WebServiceInputToServiceDataMapperMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.datamapper.WebServiceOutputFromServiceDataMapperMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.datamapper.WebServiceInputToProcessDataMapperMappingRule">
-         </rule>
-		 <rule
-               class="com.tibco.bx.validation.rules.datamapper.WebServiceOutputFromProcessDataMapperMappingRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.datamapper.WebServiceOutputFaultFromProcessDataMapperMappingRule">
-         </rule>
-         
+
+
          <rule
                class="com.tibco.bx.validation.rules.TypeNoneIntermediateEventInProcessInterfaceRule">
          </rule>
@@ -818,9 +767,7 @@
          <rule
                class="com.tibco.bx.validation.rules.datamapper.SubProcessCatchErrorEventMapFromErrorDataMapperMappingRule">
          </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.datamapper.CatchWebServiceErrorEventMapFromErrorDataMapperMappingRule">
-         </rule>
+
          <rule
                class="com.tibco.bx.validation.rules.datamapper.CatchGlobalDataEventMapFromErrorDataMapperMappingRule">
          </rule>
@@ -892,25 +839,7 @@
             message="%bx.invalidThrow.ReplyImmediateStartMesaage"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.useLocalNotSupported"
-            message="%bx.useLocalNotSupported"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.useRemoteMustHaveEndPoint"
-            message="%bx.useRemoteMustHaveEndPoint"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bx.generateSystemTypeParticipant">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.endpointParticipantMustBeSystem"
-            message="%bx.endpointParticipantMustBeSystem"
-            severity="ERROR">
-      </issue>      
+  
        <issue
             id="bx.performerWithArrayAndRqlScript"
             message="%bx.performerWithArrayAndRqlScript"
@@ -1231,19 +1160,13 @@
             id="bx.noServiceTypeSelected"
             message="%bx.noServiceTypeSelected"
             severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.setActivityImplementationTypeWebService">
-         </resolution>
+
       </issue>
       <issue
             id="bx.noServiceTypeSelected1"
             message="%bx.noServiceTypeSelected"
             severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.setActivityImplementationTypeWebService">
-         </resolution>
+
          <resolution
                canApplyToMultiple="false"
                id="bx.SetImplementationTypeRestService.resolution">
@@ -1582,11 +1505,7 @@
             message="%bx.adhocPreconditionFreeTextUnsupported"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.rpcEncodedWsdlStyleNotSupported"
-            message="%bx.rpcEncodedWsdlStyleNotSupported"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.activityNameBlank"
             message="%bx.activityNameBlank"
@@ -2353,11 +2272,7 @@
              message="%bx.cantTriggerEventHandlersFromEventSubProc"
              severity="ERROR">
        </issue>
-       <issue
-             id="bx.activityInvokesWsdlWithUnsupportedSchemaRef"
-             message="%bx.activityInvokesWsdlWithUnsupportedSchemaRef"
-             severity="ERROR">
-       </issue>
+
        <issue
              id="bx.invocationTimeoutRequired"
              message="%bx.invocationTimeoutRequiredMsg"
@@ -2798,29 +2713,7 @@
    </extension>
    <extension
          point="com.tibco.xpd.validation.resolution">
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.bx.validation.resolutions.SetWebServiceToUseRemoteResolution"
-            description="%resolution.bx.setUseRemote.description"
-            id="bx.useLocalNotSupported"
-            label="%resolution.bx.setUseRemote">
-      </resolution>
-      <resolution
-            canApplyToMultiple="false"
-            class="com.tibco.bx.validation.resolutions.SelectEndpointParticipantResolution"
-            description="%resolution.bx.selectEndpointParticipant.description"
-            id="bx.useRemoteMustHaveEndPoint"
-            image="icons/Participant.gif"
-            label="%resolution.bx.selectEndpointParticipant">
-      </resolution>
-      <resolution
-            canApplyToMultiple="false"
-            class="com.tibco.bx.validation.resolutions.SelectEndpointParticipantResolution"
-            description="%resolution.bx.selectEndpointParticipant.description"
-            id="bx.endpointParticipantMustBeSystem"
-            image="icons/Participant.gif"
-            label="%resolution.bx.selectEndpointParticipant">
-      </resolution>
+
       <resolution
             class="com.tibco.bx.validation.resolutions.AbstractSetScriptToUnspecifiedResolution$SetCancelScriptResolution"
             description="%resolution.bx.setScriptGrammar"
@@ -3585,11 +3478,7 @@ s         <scriptContribution
             id="bx.resolution.SetEmailSenderCustom"
             label="%bx.resolution.SetEmailSenderCustom">
       </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.GenerateWebServiceParticipantResolution"
-            id="resolution.bx.generateSystemTypeParticipant"
-            label="%resolution.bx.generateSystemTypeParticipant">
-      </resolution>
+
       <resolution
             class="com.tibco.bx.validation.resolutions.RemoveCatchSignalMappingsResolution"
             description="%resolution.bx.removeCatchSignalMappings"
@@ -4139,11 +4028,7 @@ s         <scriptContribution
                   resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
                   scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider">
             </defaultGrammar>
-            <grammar
-                  id="XPath"
-                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.xpath.model.script.XPathResourceMarkerAnnotationModelProvider"
-                  scriptInfoProvider="com.tibco.xpd.implementer.resources.xpdl2.properties.WebServiceScriptProvider">
-            </grammar>
+
          </scriptContextGrammarBinding>
          <scriptContextGrammarBinding
                scriptContextReference="WebServiceTask">
