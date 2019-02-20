@@ -12,7 +12,7 @@ public class AllTestsA {
         TestSuite suite =
                 new TestSuite("Test for com.tibco.xpd.n2.test.validations"); //$NON-NLS-1$
         // $JUnit-BEGIN$
-        suite.addTestSuite(N2_01_DocLitParamWarningTest.class);
+
         suite.addTestSuite(N2_02_XPD1939TwoTightCyclesInSubProcessInvokeTest.class);
         suite.addTestSuite(N2_03_XPD1924PageflowEventHandlersRulesTest.class);
         suite.addTestSuite(N2_04_XPD1930MissingRulesTest.class);

@@ -15,7 +15,6 @@ public class AllTestsB {
         suite.addTestSuite(N2_13_DBSharedResNameRequiredTest.class);
         suite.addTestSuite(N2_16_XPD1675BizSvcCantInvokeReqRespBizProcessTest.class);
         suite.addTestSuite(N2_17_BindingOperationStyleValidationTest.class);
-        suite.addTestSuite(N2_18_APIActDocLitSingleParamRuleTest.class);
         suite.addTestSuite(N2_19_SystemParticipantSharedResourceTest.class);
         suite.addTestSuite(N2_20_XPD1939ThreeWayCycleViaSpTaskAndImplInterfaceTest.class);
         suite.addTestSuite(N2_21_XPD2064UsingQualifiedNameForEnumAmbiguityTest.class);

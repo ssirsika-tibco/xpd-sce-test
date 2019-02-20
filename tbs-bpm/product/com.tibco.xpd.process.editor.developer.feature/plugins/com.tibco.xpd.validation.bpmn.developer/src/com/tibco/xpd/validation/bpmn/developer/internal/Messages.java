@@ -50,8 +50,6 @@ public class Messages extends NLS {
 
     public static String ReconfigureBusinessProcessResolution_ReconfigBizProc_menu;
 
-    public static String RegenerateNamespaceMappingResolution_Resynch_menu;
-
     public static String SetCorrelationNotRequired_CommandLabel;
 
     public static String SetReferencedProjectResolution_errorInReadingProjectDesc_error_message;

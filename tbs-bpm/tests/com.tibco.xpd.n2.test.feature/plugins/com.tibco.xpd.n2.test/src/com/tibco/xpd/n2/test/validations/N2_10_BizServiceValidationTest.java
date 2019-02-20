@@ -63,12 +63,7 @@ public class N2_10_BizServiceValidationTest extends AbstractN2BaseValidationTest
                                 "BPMN : The referenced business process request activity does not exist. (BizServiceValidationTestProcess2:SendTask)", //$NON-NLS-1$ 
                                 ""), //$NON-NLS-1$ 
 
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BizServiceValidationTest/Process Packages/BizServiceValidationTest.xpdl", //$NON-NLS-1$ 
-                                "bpmn.dev.inconsistentSendTaskWebServiceOperation", //$NON-NLS-1$ 
-                                "_ti8uSnTuEeK6E-koRZGcFg", //$NON-NLS-1$ 
-                                "BPMN : The send task 'Invoke Catch Message Event1' is out of sync with the invoke business process request activity. (BizServiceValidationTestProcessCatchMessageEvent1:InvokeCatchMessageEvent1)", //$NON-NLS-1$ 
-                                ""), //$NON-NLS-1$ 
+
 
                 };
         return markerInfos;

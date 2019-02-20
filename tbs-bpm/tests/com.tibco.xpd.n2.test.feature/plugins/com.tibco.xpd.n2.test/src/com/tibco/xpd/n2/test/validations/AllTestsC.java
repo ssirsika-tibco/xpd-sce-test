@@ -37,11 +37,8 @@ public class AllTestsC {
         suite.addTestSuite(N2_51_RestRefClearedProblemsTest.class);
         suite.addTestSuite(N2_52_ThrowErrorEventsComplexAssociatedParamsTest.class);
         suite.addTestSuite(N2_53_CSPUserDefinedScriptValidationsTest.class);
-        suite.addTestSuite(N2_54_WSUserDefinedScriptMappingsTest.class);
-        suite.addTestSuite(N2_55_WSDMCorrelationValidationsTest.class);
         suite.addTestSuite(N2_56_DataMapperMappingsValidationsTest.class);
-        suite.addTestSuite(N2_57_WSDataMapperCorrelationMappings01Test.class);
-        suite.addTestSuite(N2_58_WSDataMapperSchemaNamespaceValidationTest.class);
+
         suite.addTestSuite(N2_59_CatchErrorDMAndJSMappingValidationsTest.class);
         // $JUnit-END$
         return suite;

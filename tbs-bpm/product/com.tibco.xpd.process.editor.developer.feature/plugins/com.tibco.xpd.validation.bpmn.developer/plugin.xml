@@ -204,13 +204,7 @@
             message="%bpmn.dev.moreThanOneParticipantForSendTask"
             severity="ERROR">
       </issue>
-      <issue
-            id="bpmn.dev.wsdlGenNotDerived"
-            message="%bpmn.dev.wsdlGenNotDerived"
-            preferenceDescription="%prefs_desc.bpmn.dev.wsdlGenNotDerived"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.process"
-            severity="WARNING">
-      </issue>
+
       <issue
             id="bpmn.dev.wrongWsdlLocationForActivity"
             message="%bpmn.dev.wrongWsdlLocationForActivity"
@@ -249,10 +243,7 @@
             id="bpmn.dev.webServiceNotSet"
             message="%bpmn.dev.webServiceNotSet"
             severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.selectWebServiceOperation">
-         </resolution>
+
       </issue>
       <issue
             id="bpmn.dev.webServiceReferenceNotIndexed"
@@ -267,10 +258,7 @@
             id="bpmn.dev.cantAccessWebService"
             message="%bpmn.dev.cantAccessWebService"
             severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.selectWebServiceOperation">
-         </resolution>
+
       </issue>
       <issue
             id="bpmn.emptyName"
@@ -365,10 +353,7 @@
             id="bpmn.dev.businessProcessWsdlConfigProblem"
             message="%bpmn.dev.businessProcessWsdlConfigProblem"
             severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.reconfigureBusinessProcessInvoke">
-         </resolution>
+
          <resolution
                canApplyToMultiple="false"
                id="bpmn.dev.noBusinessProcessRequestActivitySelected">
@@ -419,15 +404,7 @@
             message="%noThrowSignalForCatchAll_issue_label"
             severity="WARNING">
       </issue>
-      <issue
-            id="bx.webServiceNotGenerated"
-            message="%bx.webServiceNotGenerated"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.buildProject">
-         </resolution>
-      </issue>
+
       <issue
             id="bpmn.dev.referencedDecisionServiceDoesNotExist"
             message="%bpmn.dev.referencedDecisionServiceDoesNotExist"
@@ -451,62 +428,8 @@
             message="%bpmn.dev.javaProject.noArgsStaticMethodMissingInFactory"
             severity="WARNING">
       </issue>
-      <issue
-            id="bpmn.dev.incorrectPortTypeSet"
-            message="%bpmn.dev.incorrectPortTypeSet"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.selectWebServiceOperation">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlFromNonBPMProject"
-            message="%bpmn.dev.wsdlFromNonBPMProject"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.setXPathGrammar">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMismatch"
-            message="%bpmn.dev.wsdlToXPathNamespaceMismatch"
-            preferenceDescription="%bpmn.dev.wsdlToXPathNamespaceMismatchPreferenceDescription"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.activity_seq"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.dev.regenerateNamespaceMapping">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMapDifferentNsPrefixes"
-            message="%bpmn.dev.wsdlToXPathNamespaceMapDifferentNsPrefixes"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.dev.disableNamespacePrefixMapping">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMapDifferentNsForPrefix"
-            message="%bpmn.dev.wsdlToXPathNamespaceMapDifferentNsForPrefix"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.dev.disableNamespacePrefixMapping">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMapNotExisting"
-            message="%bpmn.dev.wsdlToXPathNamespaceMapNotExisting"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.dev.addNamespacePrefixMap">
-         </resolution>
-      </issue>
+
+
       <issue
             id="bpmn.dev.eventHandlerCorrelationDataInitialization"
             message="%bpmn.dev.eventHandlerCorrelationDataInitialization"
@@ -534,94 +457,8 @@
                id="resolution.bpmn.dev.removeEventHandlerCorrelationInitializerEntries">
          </resolution>
       </issue>
-      <issue
-            id="bpmn.dev.inconsistentSendTaskWebServiceOperation"
-            message="%bpmn.dev.inconsistentSendTaskWebServiceOperation"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.reconfigureBusinessProcessInvoke">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMapNsPrefixRequired"
-            message="%bpmn.dev.wsdlToXPathNamespaceMapNsPrefixRequired"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="resolution.bpmn.dev.enableNamespacePrefixMapping">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.wsdlToXPathNamespaceMapRequireAdditionalXsdNsPrefixes"
-            message="%bpmn.dev.wsdlToXPathNamespaceMapRequireAdditionalXsdNsPrefixes"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bpmn.dev.disableNamespacePrefixMapping">
-         </resolution>
-      </issue>
-      
-      <issue
-            id="bpmn.dev.apiActWsdlBindingRpcLitMustHaveTypes"
-            message="%bpmn.dev.apiActWsdlBindingRpcLitMustHaveTypes2"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="bpmn.dev.apiActWsdlBindingDocLitMustHaveElement"
-            message="%bpmn.dev.apiActWsdlBindingDocLitMustHaveElement2"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="bpmn.dev.genWsdlSoapDocLitMultiInputParts"
-            message="%bpmn.dev.genWsdlSoapDocLitMultiInputParts"
-            preferenceDescription="%bpmn.dev.genWsdlSoapDocLitMultiInputParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="bpmn.dev.resolution.changetoRpcLit">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.genWsdlSoapDocLitMultiOutputParts"
-            message="%bpmn.dev.genWsdlSoapDocLitMultiOutputParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="bpmn.dev.resolution.changetoRpcLit">
-         </resolution>
-      </issue>
-      <issue
-            id="bpmn.dev.genWsdlSoapDocLitMultiFaultParts"
-            message="%bpmn.dev.genWsdlSoapDocLitMultiFaultParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.userWsdlSoapDocLitMultiInputParts"
-            message="%bpmn.dev.userWsdlSoapDocLitMultiInputParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.userWsdlSoapDocLitMultiOutputParts"
-            message="%bpmn.dev.userWsdlSoapDocLitMultiOutputParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.dev.userWsdlSoapDocLitMultiFaultParts"
-            message="%bpmn.dev.userWsdlSoapDocLitMultiFaultParts"
-            preferenceGroupId="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            severity="ERROR">
-      </issue>
-      <preferenceGroup
-            id="com.tibco.xpd.validation.bpmn.webSvcPrefGroup"
-            name="%bpmn.dev.webServicePreferenceGroup"
-            preferenceId="bpmn1">
-      </preferenceGroup>
+
+
       <issue
             id="bpmn.dev.globalDataTask.mustHaveOperationSelected"
             message="%bpmn.dev.globalDataTask.mustHaveOperationSelected"
@@ -1012,12 +849,7 @@
             id="bpmn.dev.changeParamsToInModeResolution"
             label="%resolution.bpmn.dev.changeAssocParamsToInput">
       </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.ReconfigureBusinessProcessResolution"
-            description="%resolution.bpmn.reconfigureBusinessProcessInvoke"
-            id="resolution.bpmn.reconfigureBusinessProcessInvoke"
-            label="%resolution.bpmn.reconfigureBusinessProcessInvoke">
-      </resolution>
+
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.AbstractSetWebServiceTransportResolution$SetWebServiceTransportSoapHttpResolution"
             description="%resolution.bpmn.setWebServiceSoapHttpTransport"
@@ -1064,16 +896,7 @@
             id="resolution.bpmn.dev.initializeEventHandlerCorrelationData"
             label="%resolution.bpmn.dev.initializeEventHandlerCorrelationData">
       </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.ChangeToRpcLitResolution"
-            id="bpmn.dev.resolution.changetoRpcLit"
-            label="%bpmn.dev.resolution.changetoRpcLit">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.validation.bpmn.developer.resolution.ChangeToDocumentLitResolution"
-            id="bpmn.dev.resolution.changetoDocLit"
-            label="%bpmn.dev.resolution.changetoDocLit">
-      </resolution>
+
       <resolution
             class="com.tibco.xpd.validation.bpmn.developer.resolution.RemoveFirstExpLogicalGroupingResolution"
             description="%resolution.bpmn.dev.removeLogicalJoinForFirstExpresion.desc"
