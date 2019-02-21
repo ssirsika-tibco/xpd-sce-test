@@ -12,25 +12,7 @@ public class Messages extends NLS {
 
     public static String TransformScriptEditorSection_SetScriptTaskGrammar;
 
-    public static String XPathToXsltTransformMappingGrammarConvertor_ConvertToXsltWarningMessage;
-
-    public static String XPathToXsltTransformMappingGrammarConvertor_ConvertToXsltWarningMessageTitle;
-
-    public static String XSLTTransformEditorSection_Edit_xslt;
-
-    public static String XSLTTransformEditorSection_EditScript;
-
-    public static String XSLTTransformEditorSection_Import_XsltFromURL;
-
-    public static String XSLTTransformEditorSection_InputDom;
-
-    public static String XSLTTransformEditorSection_OutputDom;
-
-    public static String XSLTTransformEditorSection_SetXsltEdit;
-
-    public static String XSLTTransformEditorSection_SetXsltImport;
-
-    public static String XSLTTransformEditorSection_GoToTransformMappings;
+    public static String TransformEditorSection_GoToTransformMappings;
     
     static {
         // initialize resource bundle

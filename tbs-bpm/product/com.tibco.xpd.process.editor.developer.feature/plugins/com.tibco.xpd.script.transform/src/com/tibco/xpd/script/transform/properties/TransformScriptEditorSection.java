@@ -66,11 +66,12 @@ public class TransformScriptEditorSection extends AbstractScriptEditorSection {
         Hyperlink linkToTransformTab =
                 toolkit
                         .createHyperlink(scriptComposite,
-                                Messages.XSLTTransformEditorSection_GoToTransformMappings,
+                                Messages.TransformEditorSection_GoToTransformMappings,
                                 SWT.NONE,
                                 "linkToTransformInstrumentationName");//$NON-NLS-1$
         linkToTransformTab.addHyperlinkListener(new IHyperlinkListener() {
 
+            @Override
             public void linkActivated(HyperlinkEvent e) {
                 Bundle b = Activator.getDefault().getBundle();
                 String tabName =
@@ -80,10 +81,12 @@ public class TransformScriptEditorSection extends AbstractScriptEditorSection {
 
             }
 
+            @Override
             public void linkEntered(HyperlinkEvent e) {
                 // Do nothing
             }
 
+            @Override
             public void linkExited(HyperlinkEvent e) {
                 // Do nothing
             }
@@ -97,6 +100,7 @@ public class TransformScriptEditorSection extends AbstractScriptEditorSection {
         // Do nothing
     }
 
+    @Override
     protected String getScriptGrammar() {
         return TransformUtil.TRANSFORM_SCRIPTGRAMMAR;
     }
