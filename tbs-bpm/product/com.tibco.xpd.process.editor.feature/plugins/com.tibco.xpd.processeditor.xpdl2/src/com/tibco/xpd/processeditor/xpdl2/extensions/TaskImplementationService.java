@@ -29,7 +29,6 @@ import com.tibco.xpd.script.ui.internal.extension.CertifiedTaskImpl;
  * the deprecated processwidget extension point so must handle both.
  * 
  * @author aallway
- * 
  */
 public class TaskImplementationService {
 
