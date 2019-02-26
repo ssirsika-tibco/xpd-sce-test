@@ -56,21 +56,10 @@
    <extension
          point="com.tibco.xpd.processwidget.taskBinding">
       <destination destinationId="n2pe1.x">
-         <taskImplementation taskImplementationId="WebService">
-            <taskTypeContext type="Service"/>
-            <taskTypeContext type="Send"/>
-            <taskTypeContext type="Receive"/>
-         </taskImplementation>
          <taskImplementation taskImplementationId="E-Mail">
             <taskTypeContext type="Service"/>
          </taskImplementation>
-         <taskImplementation taskImplementationId="Database">
-            <taskTypeContext type="Service"/>
-         </taskImplementation>
          <taskImplementation taskImplementationId="GlobalData">
-            <taskTypeContext type="Service"/>
-         </taskImplementation>
-         <taskImplementation taskImplementationId="Java">
             <taskTypeContext type="Service"/>
          </taskImplementation>
           <taskImplementation taskImplementationId="DocumentOperations">

@@ -137,20 +137,26 @@ public class TasksBindingService {
             IConfigurationElement[] taskTypes =
                     taskImplElement.getChildren(ELEMENT_RESTRICT_TO_TYPE);
             addTasks(taskId, taskTypes, destination, tasks);
-            // This little workaround here
-            // because in old days we had inconsistent
-            // task identifiers for web service implementation.
-            // Correct is: WebService
-            // Incorrect is: Web Service
-            // We have to deal with that for backward compatibility
-            if (taskId.equals("WebService")) { //$NON-NLS-1$
-                // addTasks("Web Service",taskTypes,destination,tasks);
-                // //$NON-NLS-1$
-                Set<TaskType> types = getTypes(taskId, taskTypes);
-                validate(destination, taskId, types);
-                TaskReference t = new TaskReferenceImpl("Web Service", types); //$NON-NLS-1$
-                tasks.add(t);
-            }
+
+            /*
+             * Sid ACE-118 - shouldn't bneed any WebService bindings any more).
+             */
+
+            // // This little workaround here
+            // // because in old days we had inconsistent
+            // // task identifiers for web service implementation.
+            // // Correct is: WebService
+            // // Incorrect is: Web Service
+            // // We have to deal with that for backward compatibility
+            // if (taskId.equals("WebService")) { //$NON-NLS-1$
+            // // addTasks("Web Service",taskTypes,destination,tasks);
+            // // //$NON-NLS-1$
+            // Set<TaskType> types = getTypes(taskId, taskTypes);
+            // validate(destination, taskId, types);
+            // TaskReference t = new TaskReferenceImpl("Web Service", types);
+            // //$NON-NLS-1$
+            // tasks.add(t);
+            // }
         }
         ;
 

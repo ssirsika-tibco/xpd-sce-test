@@ -365,27 +365,7 @@
              </action>
           </objectContribution>
        </extension>
-   <extension
-         point="com.tibco.xpd.processeditor.xpdl2.scriptMappingCompositor">
-      <ScriptMappingCompositorFactory
-            context="_default"
-            direction="IN"
-            factory="com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptProcessToWsdlMappingFactory"
-            grammar="JavaScript">
-      </ScriptMappingCompositorFactory>
-      <ScriptMappingCompositorFactory
-            context="_default"
-            direction="OUT"
-            factory="com.tibco.xpd.implementer.resources.xpdl2.properties.JavaScriptWsdlToProcessMappingFactory"
-            grammar="JavaScript">
-      </ScriptMappingCompositorFactory>
-      <ScriptMappingCompositorFactory
-            context="_default"
-            direction="OUT"
-            factory="com.tibco.xpd.implementer.resources.xpdl2.properties.XPathWsdlToProcessMappingFactory"
-            grammar="XPath">
-      </ScriptMappingCompositorFactory>
-   </extension>
+
    <extension
          point="com.tibco.xpd.processeditor.xpdl2.scriptMappingCompositor">
       <ScriptMappingCompositorFactory
