@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 
+import com.tibco.xpd.sce.rasc.ui.Messages;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
 
 /**
@@ -21,7 +22,10 @@ public class RascExportProjectSelectionPage
         extends AbstractInputOutputSelectionWizardPage {
 
     /**
+     * Constructor.
+     * 
      * @param selection
+     *            The initial project selection.
      */
     public RascExportProjectSelectionPage(IStructuredSelection selection) {
         super(selection);
@@ -29,22 +33,27 @@ public class RascExportProjectSelectionPage
 
     /**
      * @see com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage#validatePageCompletion()
-     *
      */
     @Override
     protected void validatePageCompletion() {
         List<Object> selected = getSelectedObjects();
-        setPageComplete(selected != null && !selected.isEmpty());
+        if (selected != null && !selected.isEmpty()) {
+            setPageComplete(true);
+            setMessage(null);
+        } else {
+            setPageComplete(false);
+            setMessage(
+                    Messages.RascExportProjectSelectionPage_NoProjectSelectedError,
+                    ERROR);
+        }
     }
 
     /**
      * @see com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage#getWorkspaceExportFolder()
-     *
-     * @return
      */
     @Override
     protected String getWorkspaceExportFolder() {
-        return "Export";
+        return "Export"; //$NON-NLS-1$
     }
 
 }

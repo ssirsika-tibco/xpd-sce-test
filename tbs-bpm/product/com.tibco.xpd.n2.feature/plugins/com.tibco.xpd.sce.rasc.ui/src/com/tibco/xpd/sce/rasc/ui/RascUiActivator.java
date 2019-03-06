@@ -1,5 +1,6 @@
 package com.tibco.xpd.sce.rasc.ui;
 
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -11,6 +12,12 @@ public class RascUiActivator extends AbstractUIPlugin {
     // The plug-in ID
     public static final String PLUGIN_ID = "com.tibco.xpd.sce.rasc.ui"; //$NON-NLS-1$
 
+    /**
+     * Main image for the export wizard.
+     */
+    public static final String RASC_EXPORT_WIZARD_IMAGE =
+            "RASC_EXPORT_WIZARD_IMAGE"; //$NON-NLS-1$
+
     // The shared instance
     private static RascUiActivator plugin;
 
@@ -21,6 +28,18 @@ public class RascUiActivator extends AbstractUIPlugin {
     public void start(BundleContext context) throws Exception {
         super.start(context);
         plugin = this;
+    }
+
+    /**
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#initializeImageRegistry(org.eclipse.jface.resource.ImageRegistry)
+     *
+     * @param reg
+     */
+    @Override
+    protected void initializeImageRegistry(ImageRegistry reg) {
+        reg.put(RASC_EXPORT_WIZARD_IMAGE,
+                imageDescriptorFromPlugin(PLUGIN_ID,
+                        "icons/wizban/rasc_wiz.png")); //$NON-NLS-1$
     }
 
     /**
