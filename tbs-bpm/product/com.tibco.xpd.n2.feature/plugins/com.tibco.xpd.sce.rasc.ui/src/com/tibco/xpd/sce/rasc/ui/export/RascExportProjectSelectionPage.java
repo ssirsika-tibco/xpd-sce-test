@@ -4,8 +4,10 @@
 
 package com.tibco.xpd.sce.rasc.ui.export;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 import com.tibco.xpd.sce.rasc.ui.Messages;
@@ -54,6 +56,19 @@ public class RascExportProjectSelectionPage
     @Override
     protected String getWorkspaceExportFolder() {
         return "Export"; //$NON-NLS-1$
+    }
+
+    /**
+     * @return The list of selected projects.
+     */
+    public List<IProject> getSelectedProjects() {
+        List<IProject> projects = new ArrayList<>();
+        for (Object item : getSelectedObjects().toArray()) {
+            if (item instanceof IProject) {
+                projects.add((IProject) item);
+            }
+        }
+        return projects;
     }
 
 }

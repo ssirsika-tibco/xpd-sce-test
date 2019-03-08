@@ -1,9 +1,14 @@
 package com.tibco.xpd.sce.rasc.ui.export;
 
+import java.util.List;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.sce.rasc.ui.Messages;
 import com.tibco.xpd.sce.rasc.ui.RascUiActivator;
@@ -61,7 +66,14 @@ public class RascExportWizard extends Wizard implements IExportWizard {
      */
     @Override
     public boolean performFinish() {
-        return false;
+        List<IProject> projects = exportPage.getSelectedProjects();
+        ExportProgressMonitorDialog progress =
+                new ExportProgressMonitorDialog(PlatformUI.getWorkbench()
+                        .getActiveWorkbenchWindow().getShell());
+        progress.open();
+        IRunnableWithProgress op = new RascExportOperation(progress, projects);
+        progress.run(op);
+        return true;
     }
 
 }
