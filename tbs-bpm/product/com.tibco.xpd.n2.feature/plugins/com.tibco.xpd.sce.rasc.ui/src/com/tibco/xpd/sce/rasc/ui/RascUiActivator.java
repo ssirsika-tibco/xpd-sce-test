@@ -4,6 +4,9 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.tibco.xpd.resources.logger.Logger;
+import com.tibco.xpd.resources.logger.LoggerFactory;
+
 /**
  * The activator class controls the plug-in life cycle
  */
@@ -20,6 +23,9 @@ public class RascUiActivator extends AbstractUIPlugin {
 
     // The shared instance
     private static RascUiActivator plugin;
+
+    private Logger logger =
+            LoggerFactory.createLogger(RascUiActivator.PLUGIN_ID);
 
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
@@ -58,6 +64,13 @@ public class RascUiActivator extends AbstractUIPlugin {
      */
     public static RascUiActivator getDefault() {
         return plugin;
+    }
+
+    /**
+     * @return The logger instance.
+     */
+    public static Logger getLogger() {
+        return getDefault().logger;
     }
 
 }

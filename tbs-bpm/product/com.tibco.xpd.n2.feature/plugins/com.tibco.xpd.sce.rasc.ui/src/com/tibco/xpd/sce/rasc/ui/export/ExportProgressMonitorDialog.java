@@ -31,8 +31,11 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
 
+import com.tibco.xpd.sce.rasc.ui.Messages;
+import com.tibco.xpd.sce.rasc.ui.RascUiActivator;
+
 /**
- *
+ * Progress dialog to monitor RASC export project status.
  *
  * @author nwilson
  * @since 7 Mar 2019
@@ -43,7 +46,7 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
     private Composite statusArea;
 
-    private ProgressBar progress;
+    private Label errorMessage;
 
     private Button ok;
 
@@ -54,7 +57,10 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
     private IProgressMonitor monitor;
 
     /**
+     * Constructor.
+     * 
      * @param parent
+     *            The parent shell.
      */
     public ExportProgressMonitorDialog(Shell parent) {
         super(parent);
@@ -62,6 +68,9 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
         status = new HashMap<>();
     }
 
+    /**
+     * @see org.eclipse.jface.dialogs.IconAndMessageDialog#getImage()
+     */
     @Override
     protected Image getImage() {
         return getInfoImage();
@@ -69,31 +78,31 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
     /**
      * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
-     *
-     * @param newShell
      */
     @Override
     protected void configureShell(Shell shell) {
         super.configureShell(shell);
-        shell.setText("RASC Export Progress");
+        shell.setText(Messages.ExportProgressMonitorDialog_Title);
     }
 
     /**
      * @see org.eclipse.jface.dialogs.ProgressMonitorDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
-     *
-     * @param parent
-     * @return
      */
     @Override
     protected Control createDialogArea(Composite parent) {
 
-        progress = new ProgressBar(parent, SWT.HORIZONTAL);
+        ProgressBar progress = new ProgressBar(parent, SWT.HORIZONTAL);
         progress.setLayoutData(
                 new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 
         monitor = new ProgressBarMonitor(progress);
 
         Composite area = (Composite) super.createDialogArea(parent);
+
+        errorMessage = new Label(area, SWT.NONE);
+        errorMessage.setLayoutData(
+                new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+
         statusArea = new Composite(area, SWT.FILL);
         statusArea.setLayout(new GridLayout(2, false));
         GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
@@ -102,14 +111,13 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
         Label name = new Label(statusArea, SWT.FILL);
         GridData nameGD = new GridData(SWT.FILL, SWT.FILL, false, false);
-        // nameGD.minimumWidth = 100;
         nameGD.widthHint = 100;
         name.setLayoutData(nameGD);
-        name.setText("Project");
+        name.setText(Messages.ExportProgressMonitorDialog_ProjectColumn);
         Label value = new Label(statusArea, SWT.FILL);
         GridData valueGD = new GridData(SWT.FILL, SWT.FILL, true, false);
         value.setLayoutData(valueGD);
-        value.setText("Status");
+        value.setText(Messages.ExportProgressMonitorDialog_StatusColumn);
 
         Label separator = new Label(statusArea, SWT.HORIZONTAL | SWT.SEPARATOR);
         separator.setLayoutData(
@@ -119,6 +127,8 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
     }
 
     /**
+     * Sets the status for the given project.
+     * 
      * @param project
      *            The project to update the status for.
      * @param message
@@ -148,12 +158,13 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
     /**
      * @see org.eclipse.jface.dialogs.ProgressMonitorDialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
-     *
-     * @param parent
      */
     @Override
     protected void createButtonsForButtonBar(Composite parent) {
-        ok = createButton(parent, OK, "OK", false);
+        ok = createButton(parent,
+                OK,
+                Messages.ExportProgressMonitorDialog_OKButton,
+                false);
         ok.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -161,12 +172,21 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
             }
         });
         ok.setEnabled(false);
-        launch = createButton(parent, 100, "Launch Admin", false);
+        launch = createButton(parent,
+                100,
+                Messages.ExportProgressMonitorDialog_LaunchAdminButton,
+                false);
         launch.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
-                launch();
-                close();
+            public void widgetSelected(SelectionEvent event) {
+                try {
+                    launch();
+                    close();
+                } catch (PartInitException | MalformedURLException e) {
+                    setErrorMessage(
+                            Messages.ExportProgressMonitorDialog_LaunchError);
+                    launch.setEnabled(false);
+                }
             }
         });
         launch.setEnabled(false);
@@ -182,12 +202,30 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
         });
     }
 
+    /**
+     * Sets an error message in the dialog.
+     * 
+     * @param message
+     *            The message to display.
+     */
+    protected void setErrorMessage(String message) {
+        errorMessage.setText(message);
+    }
+
+    /**
+     * Runs the given Runnable and monitors it's progress.
+     * 
+     * @param runnable
+     *            The job to run.
+     */
     public void run(IRunnableWithProgress runnable) {
-        Job job = Job.createSystem((jobMonitor) -> {
+        Job job = Job.createSystem(jobMonitor -> {
             try {
                 runnable.run(monitor);
             } catch (InvocationTargetException e) {
-                e.printStackTrace();
+                RascUiActivator.getLogger().error(e);
+                setErrorMessage(
+                        Messages.ExportProgressMonitorDialog_ExportError);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             } finally {
@@ -195,8 +233,6 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
             }
         });
         job.schedule();
-        // ModalContext.run(runnable, true, monitor,
-        // getShell().getDisplay());
     }
 
     /**
@@ -210,17 +246,18 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
         });
     }
 
-    private void launch() {
-        try {
-            IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport()
-                    .createBrowser("admin-ui");
-            URL url = new URL("http://localhost");
-            browser.openURL(url);
-
-        } catch (PartInitException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    /**
+     * Launch the admin UI in a new browser window.
+     * 
+     * @throws PartInitException
+     *             If the browser could not be opened.
+     * @throws MalformedURLException
+     *             If the URL is invalid (should never happen)
+     */
+    private void launch() throws PartInitException, MalformedURLException {
+        IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport()
+                .createBrowser("admin-ui"); //$NON-NLS-1$
+        URL url = new URL("http://localhost"); //$NON-NLS-1$
+        browser.openURL(url);
     }
 }

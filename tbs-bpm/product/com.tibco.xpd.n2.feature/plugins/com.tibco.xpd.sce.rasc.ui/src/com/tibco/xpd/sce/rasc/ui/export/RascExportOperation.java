@@ -11,6 +11,8 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
+import com.tibco.xpd.sce.rasc.ui.Messages;
+
 /**
  * Operation to export projects.
  *
@@ -45,21 +47,21 @@ public class RascExportOperation implements IRunnableWithProgress {
     @Override
     public void run(IProgressMonitor monitor)
             throws InvocationTargetException, InterruptedException {
-        monitor.beginTask("Export RASC", projects.size() * 2);
+        monitor.beginTask(Messages.RascExportOperation_ProgressTitle, projects.size() * 2);
         for (IProject project : projects) {
-            dialog.setStatus(project, "");
+            dialog.setStatus(project, ""); //$NON-NLS-1$
         }
         for (IProject project : projects) {
-            dialog.setStatus(project, "Validating");
+            dialog.setStatus(project, Messages.RascExportOperation_ValidatingStatus);
             Thread.sleep(2000);
-            dialog.setStatus(project, "Valid");
+            dialog.setStatus(project, Messages.RascExportOperation_ValidStatus);
             monitor.worked(1);
         }
         Thread.sleep(2000);
         for (IProject project : projects) {
-            dialog.setStatus(project, "Exporting");
+            dialog.setStatus(project, Messages.RascExportOperation_ExportingStatus);
             Thread.sleep(2000);
-            dialog.setStatus(project, "Complete");
+            dialog.setStatus(project, Messages.RascExportOperation_CompleteStatus);
             monitor.worked(1);
         }
         monitor.done();
