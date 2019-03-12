@@ -12,6 +12,7 @@ import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.sce.rasc.ui.Messages;
 import com.tibco.xpd.sce.rasc.ui.RascUiActivator;
+import com.tibco.xpd.ui.importexport.exportwizard.pages.DestinationLocationType;
 
 /**
  * Wizard for exporting projects as RASC files.
@@ -71,7 +72,10 @@ public class RascExportWizard extends Wizard implements IExportWizard {
                 new ExportProgressMonitorDialog(PlatformUI.getWorkbench()
                         .getActiveWorkbenchWindow().getShell());
         progress.open();
-        IRunnableWithProgress op = new RascExportOperation(progress, projects);
+        boolean isProjectRelative = DestinationLocationType.PROJECT
+                .equals(exportPage.getLocationType());
+        IRunnableWithProgress op = new RascExportOperation(progress, projects,
+                exportPage.getLocationPath(), isProjectRelative);
         progress.run(op);
         return true;
     }

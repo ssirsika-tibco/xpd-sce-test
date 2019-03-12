@@ -32,6 +32,8 @@ public class Messages extends NLS {
 
     public static String RascExportOperation_CompleteStatus;
 
+    public static String RascExportOperation_ErrorStatus;
+
     public static String RascExportOperation_ExportingStatus;
 
     public static String RascExportOperation_ProgressTitle;
