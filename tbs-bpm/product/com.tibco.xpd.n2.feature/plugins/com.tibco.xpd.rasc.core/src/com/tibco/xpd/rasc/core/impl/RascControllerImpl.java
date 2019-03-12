@@ -5,6 +5,7 @@
 package com.tibco.xpd.rasc.core.impl;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -91,6 +92,35 @@ public class RascControllerImpl implements RascController {
     @Override
     public void generateRasc(IProject aProject, IFile aFile,
             IProgressMonitor aProgressMonitor) throws RascGenerationException {
+        File rasc = generate(aProject, aProgressMonitor);
+        if (rasc != null) {
+            try {
+                copy(rasc, aFile, aProgressMonitor);
+            } catch (IOException e) {
+                throw new RascInternalException(e.getMessage(), e);
+            }
+        }
+    }
+
+    /**
+     * @see com.tibco.xpd.rasc.core.RascController#generateRasc(org.eclipse.core.resources.IProject,
+     *      java.io.File, org.eclipse.core.runtime.IProgressMonitor)
+     */
+    @Override
+    public void generateRasc(IProject aProject, File aFile,
+            IProgressMonitor aProgressMonitor) throws RascGenerationException {
+        File rasc = generate(aProject, aProgressMonitor);
+        if (rasc != null) {
+            try {
+                copy(rasc, aFile, aProgressMonitor);
+            } catch (IOException e) {
+                throw new RascInternalException(e.getMessage(), e);
+            }
+        }
+    }
+
+    private File generate(IProject aProject,
+            IProgressMonitor aProgressMonitor) throws RascGenerationException {
         try {
             List<RascContributor> contributors =
                     contributorlocator.getContributors();
@@ -102,14 +132,14 @@ public class RascControllerImpl implements RascController {
             try {
                 // has the job been cancelled by the user
                 if (monitor.isCanceled()) {
-                    return;
+                    return null;
                 }
 
                 Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
                 logger.info(RascControllerImpl.LOG_GENERATION_STARTED);
 
-                File tempFile = File.createTempFile("sce", "rasc"); //$NON-NLS-1$ //$NON-NLS-2$
-                OutputStream output = new FileOutputStream(tempFile);
+                File result = File.createTempFile("sce", "rasc"); //$NON-NLS-1$ //$NON-NLS-2$
+                OutputStream output = new FileOutputStream(result);
                 try {
                     // create a new deployment
                     final DeploymentWriter deployment = deploymentFactory
@@ -121,7 +151,7 @@ public class RascControllerImpl implements RascController {
 
                     // has the job been cancelled by the user
                     if (monitor.isCanceled()) {
-                        return;
+                        return null;
                     }
 
                     // call each contributor in the given order
@@ -138,7 +168,7 @@ public class RascControllerImpl implements RascController {
                             monitor.setWorkRemaining(--workSize);
                         } catch (OperationCanceledException e) {
                             // job has been cancelled by the user
-                            return;
+                            return null;
                         } catch (Exception e) {
                             throw new RascContributionException(contributor, e);
                         }
@@ -155,7 +185,7 @@ public class RascControllerImpl implements RascController {
                     output.close();
                 }
 
-                copy(tempFile, aFile, monitor);
+                return result;
             } finally {
                 monitor.done();
             }
@@ -223,6 +253,40 @@ public class RascControllerImpl implements RascController {
             aDest.setContents(input, true, false, aProgressMonitor);
         } catch (CoreException e) {
             throw new IOException(e);
+        } finally {
+            input.close();
+        }
+    }
+
+    /**
+     * Copies the given source File to the given destination File.
+     * 
+     * @param aSource
+     *            the source file to be copied.
+     * @param aDest
+     *            the destination to which the source is to be copied.
+     * @param aProgressMonitor
+     *            a progress monitor, or null if progress reporting is not
+     *            desired.
+     * @throws IOException
+     *             if an error occurs during the copy.
+     */
+    private void copy(File aSource, File aDest,
+            IProgressMonitor aProgressMonitor) throws IOException {
+        InputStream input =
+                new BufferedInputStream(new FileInputStream(aSource));
+        try {
+            OutputStream output =
+                    new BufferedOutputStream(new FileOutputStream(aDest));
+            try {
+                byte[] buffer = new byte[8192];
+                int len;
+                while ((len = input.read(buffer, 0, buffer.length)) != -1) {
+                    output.write(buffer, 0, len);
+                }
+            } finally {
+                output.close();
+            }
         } finally {
             input.close();
         }
