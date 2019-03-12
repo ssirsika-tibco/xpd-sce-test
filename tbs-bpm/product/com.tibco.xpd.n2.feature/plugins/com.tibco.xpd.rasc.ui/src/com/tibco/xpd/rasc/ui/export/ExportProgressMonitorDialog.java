@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.sce.rasc.ui.export;
+package com.tibco.xpd.rasc.ui.export;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
@@ -31,8 +31,8 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
 
-import com.tibco.xpd.sce.rasc.ui.Messages;
-import com.tibco.xpd.sce.rasc.ui.RascUiActivator;
+import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 
 /**
  * Progress dialog to monitor RASC export project status.

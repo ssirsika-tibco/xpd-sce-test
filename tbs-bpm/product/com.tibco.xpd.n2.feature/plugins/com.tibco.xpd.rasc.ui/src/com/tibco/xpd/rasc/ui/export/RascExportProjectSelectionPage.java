@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.sce.rasc.ui.export;
+package com.tibco.xpd.rasc.ui.export;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
-import com.tibco.xpd.sce.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
 
 /**

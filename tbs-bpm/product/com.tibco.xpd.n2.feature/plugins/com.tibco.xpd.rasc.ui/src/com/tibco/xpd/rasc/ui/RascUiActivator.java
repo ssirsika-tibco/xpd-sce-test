@@ -1,4 +1,4 @@
-package com.tibco.xpd.sce.rasc.ui;
+package com.tibco.xpd.rasc.ui;
 
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -13,7 +13,7 @@ import com.tibco.xpd.resources.logger.LoggerFactory;
 public class RascUiActivator extends AbstractUIPlugin {
 
     // The plug-in ID
-    public static final String PLUGIN_ID = "com.tibco.xpd.sce.rasc.ui"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "com.tibco.xpd.rasc.ui"; //$NON-NLS-1$
 
     /**
      * Main image for the export wizard.
