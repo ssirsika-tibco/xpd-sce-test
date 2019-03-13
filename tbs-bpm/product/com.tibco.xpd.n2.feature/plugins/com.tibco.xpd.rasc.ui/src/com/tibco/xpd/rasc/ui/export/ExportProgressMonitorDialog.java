@@ -27,6 +27,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
@@ -42,7 +43,7 @@ import com.tibco.xpd.rasc.ui.RascUiActivator;
  */
 public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
-    private HashMap<IProject, Label> status;
+    private HashMap<IProject, LabelPair> status;
 
     private Composite statusArea;
 
@@ -137,21 +138,45 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
     public void setStatus(IProject project, String message) {
         getShell().getDisplay().asyncExec(() -> {
             if (status.containsKey(project)) {
-                Label label = status.get(project);
-                label.setText(message);
+                LabelPair pair = status.get(project);
+                pair.getLabel1()
+                        .setImage(PlatformUI.getWorkbench().getSharedImages()
+                                .getImage(ISharedImages.IMG_ELCL_STOP));
+                pair.getLabel2().setText(message);
             } else {
                 Label name = new Label(statusArea, SWT.FILL);
                 GridData nameGD =
                         new GridData(SWT.FILL, SWT.FILL, false, false);
                 name.setLayoutData(nameGD);
                 name.setText(project.getName());
-                Label value = new Label(statusArea, SWT.FILL);
-                GridData valueGD =
+
+                Composite labelComposite = new Composite(statusArea, SWT.NONE);
+                GridData labelCompositeGD =
                         new GridData(SWT.FILL, SWT.FILL, true, false);
-                value.setLayoutData(valueGD);
-                value.setText(message);
+                labelComposite.setLayoutData(labelCompositeGD);
+                GridLayout labelCompositeLayout = new GridLayout(2, false);
+                labelCompositeLayout.marginHeight = 0;
+                labelCompositeLayout.marginWidth = 0;
+                labelComposite.setLayout(labelCompositeLayout);
+
+                Label value1 = new Label(labelComposite, SWT.NONE);
+                GridData value1GD =
+                        new GridData(SWT.FILL, SWT.FILL, false, false);
+                value1.setLayoutData(value1GD);
+                value1.setImage(PlatformUI.getWorkbench().getSharedImages()
+                        .getImage(ISharedImages.IMG_ELCL_SYNCED));
+
+                Label value2 = new Label(labelComposite, SWT.FILL);
+                GridData value2GD =
+                        new GridData(SWT.FILL, SWT.FILL, true, false);
+                value2.setLayoutData(value2GD);
+                value2.setText(message);
+
                 statusArea.layout();
-                status.put(project, value);
+
+                LabelPair pair = new LabelPair(value1, value2);
+
+                status.put(project, pair);
             }
         });
     }
@@ -259,5 +284,42 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
                 .createBrowser("admin-ui"); //$NON-NLS-1$
         URL url = new URL("http://localhost"); //$NON-NLS-1$
         browser.openURL(url);
+    }
+
+    /**
+     * Pair of Labels for use as a hashmap value.
+     *
+     * @author nwilson
+     * @since 13 Mar 2019
+     */
+    class LabelPair {
+        private Label label1;
+
+        private Label label2;
+
+        /**
+         * @param label1
+         * @param label2
+         */
+        public LabelPair(Label label1, Label label2) {
+            super();
+            this.label1 = label1;
+            this.label2 = label2;
+        }
+
+        /**
+         * @return the label1
+         */
+        public Label getLabel1() {
+            return label1;
+        }
+
+        /**
+         * @return the label2
+         */
+        public Label getLabel2() {
+            return label2;
+        }
+
     }
 }
