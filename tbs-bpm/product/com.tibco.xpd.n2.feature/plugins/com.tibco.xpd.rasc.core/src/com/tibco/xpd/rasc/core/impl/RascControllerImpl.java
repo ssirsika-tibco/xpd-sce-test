@@ -119,8 +119,8 @@ public class RascControllerImpl implements RascController {
         }
     }
 
-    private File generate(IProject aProject,
-            IProgressMonitor aProgressMonitor) throws RascGenerationException {
+    private File generate(IProject aProject, IProgressMonitor aProgressMonitor)
+            throws RascGenerationException {
         try {
             List<RascContributor> contributors =
                     contributorlocator.getContributors();
@@ -221,8 +221,8 @@ public class RascControllerImpl implements RascController {
                 VersionRange range = (version == null)
                         ? RascControllerImpl.NULL_RANGE
                         : new VersionRange(Endpoint.INCLUSIVE, version,
-                            new Version(version.getMajor() + 1, 0, 0, null),
-                            Endpoint.EXCLUSIVE);
+                                new Version(version.getMajor() + 1, 0, 0, null),
+                                Endpoint.EXCLUSIVE);
 
                 aManifest.addDependency(summary.getInternalName(), range);
             }
@@ -245,12 +245,15 @@ public class RascControllerImpl implements RascController {
      *             if an error occurs during the copy.
      */
     private void copy(File aSource, IFile aDest,
-            IProgressMonitor aProgressMonitor)
-            throws IOException {
+            IProgressMonitor aProgressMonitor) throws IOException {
         InputStream input =
                 new BufferedInputStream(new FileInputStream(aSource));
         try {
-            aDest.setContents(input, true, false, aProgressMonitor);
+            if (!aDest.exists()) {
+                aDest.create(input, true, aProgressMonitor);
+            } else {
+                aDest.setContents(input, true, false, aProgressMonitor);
+            }
         } catch (CoreException e) {
             throw new IOException(e);
         } finally {
@@ -298,6 +301,7 @@ public class RascControllerImpl implements RascController {
      */
     private static class AppSummary {
         private IProject project;
+
         private ProjectDetails details;
 
         public AppSummary(IProject aProject) {
