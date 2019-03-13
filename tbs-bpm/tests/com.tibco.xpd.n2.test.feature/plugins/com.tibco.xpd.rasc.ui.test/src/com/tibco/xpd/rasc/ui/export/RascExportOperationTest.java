@@ -68,7 +68,7 @@ public class RascExportOperationTest {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
         RascExportOperation operation = new RascExportOperation(controller,
-                dialog, projects, "Exports/RASC", true);
+                dialog, projects, "Export/RASC", true);
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),
@@ -84,7 +84,7 @@ public class RascExportOperationTest {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
         RascExportOperation operation = new RascExportOperation(controller,
-                dialog, projects, "Exports/RASC", false);
+                dialog, projects, "/tmp/Export/RASC", false);
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),
