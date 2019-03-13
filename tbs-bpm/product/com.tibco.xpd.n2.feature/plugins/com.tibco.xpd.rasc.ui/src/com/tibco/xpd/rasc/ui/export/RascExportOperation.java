@@ -4,18 +4,23 @@
 
 package com.tibco.xpd.rasc.ui.export;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
-import com.tibco.xpd.rasc.core.RascActivator;
 import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 
 /**
  * Operation to export projects.
@@ -24,6 +29,11 @@ import com.tibco.xpd.rasc.ui.Messages;
  * @since 6 Mar 2019
  */
 public class RascExportOperation implements IRunnableWithProgress {
+
+    /**
+     * The RASC controller.
+     */
+    private RascController controller;
 
     /**
      * The dialog showing the progress status.
@@ -50,8 +60,10 @@ public class RascExportOperation implements IRunnableWithProgress {
      * @param projects
      *            The projects to export.
      */
-    public RascExportOperation(ExportProgressMonitorDialog dialog,
-            List<IProject> projects, String path, boolean isProjectRelative) {
+    public RascExportOperation(RascController controller,
+            ExportProgressMonitorDialog dialog, List<IProject> projects,
+            String path, boolean isProjectRelative) {
+        this.controller = controller;
         this.dialog = dialog;
         this.projects = projects;
         this.path = path;
@@ -64,8 +76,6 @@ public class RascExportOperation implements IRunnableWithProgress {
     @Override
     public void run(IProgressMonitor monitor)
             throws InvocationTargetException, InterruptedException {
-        RascController controller =
-                RascActivator.getDefault().getRascController();
         monitor.beginTask(Messages.RascExportOperation_ProgressTitle,
                 projects.size() * 2);
         for (IProject project : projects) {
@@ -83,11 +93,25 @@ public class RascExportOperation implements IRunnableWithProgress {
             dialog.setStatus(project,
                     Messages.RascExportOperation_ExportingStatus);
             try {
-                controller.generateRasc(project, getPath(project), null);
+                if (isProjectRelative) {
+                    controller.generateRasc(project,
+                            getWorkspacePath(project),
+                            null);
+                } else {
+                    controller.generateRasc(project,
+                            getSystemPath(project),
+                            null);
+                }
                 dialog.setStatus(project,
                         Messages.RascExportOperation_CompleteStatus);
             } catch (RascGenerationException e) {
-                dialog.setStatus(project, Messages.RascExportOperation_ErrorStatus);
+                dialog.setStatus(project,
+                        Messages.RascExportOperation_ErrorStatus);
+                RascUiActivator.getLogger().error(e);
+            } catch (CoreException e) {
+                dialog.setStatus(project,
+                        Messages.RascExportOperation_FolderErrorStatus);
+                RascUiActivator.getLogger().error(e);
             }
             monitor.worked(1);
         }
@@ -95,18 +119,43 @@ public class RascExportOperation implements IRunnableWithProgress {
     }
 
     /**
+     * Gets the workspace relative RASC target IFile.
+     * 
      * @param project
-     * @return
+     *            The project.
+     * @return The target RASC IFile.
+     * @throws CoreException
      */
-    private IFile getPath(IProject project) {
-        IFile target = null;
-        if (isProjectRelative) {
-            target = project.getFolder(path)
-                    .getFile(project.getName() + ".rasc"); //$NON-NLS-1$
-        } else {
+    private IFile getWorkspacePath(IProject project) throws CoreException {
+        IFolder workspacePath = project.getFolder(path);
+        mkdirs(workspacePath);
+        return workspacePath.getFile(project.getName() + ".rasc"); //$NON-NLS-1$
+    }
 
+    public void mkdirs(IFolder folder) throws CoreException {
+        if (!folder.exists()) {
+            IContainer parent = folder.getParent();
+            if (parent instanceof IFolder) {
+                mkdirs((IFolder) parent);
+            }
+            folder.create(true, true, null);
         }
-        return target;
+    }
+
+    /**
+     * Gets the system RASC target File.
+     * 
+     * @param project
+     *            The project.
+     * @return The target RASC File.
+     * @throws CoreException
+     */
+    private File getSystemPath(IProject project) throws CoreException {
+        File parent = new File(path);
+        if (!parent.mkdirs()) {
+            throw new CoreException(Status.CANCEL_STATUS);
+        }
+        return new File(parent, project.getName() + ".rasc"); //$NON-NLS-1$
     }
 
 }

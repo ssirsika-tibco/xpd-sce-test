@@ -10,6 +10,8 @@ import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 
+import com.tibco.xpd.rasc.core.RascActivator;
+import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.DestinationLocationType;
@@ -74,8 +76,10 @@ public class RascExportWizard extends Wizard implements IExportWizard {
         progress.open();
         boolean isProjectRelative = DestinationLocationType.PROJECT
                 .equals(exportPage.getLocationType());
-        IRunnableWithProgress op = new RascExportOperation(progress, projects,
-                exportPage.getLocationPath(), isProjectRelative);
+        RascController controller =
+                RascActivator.getDefault().getRascController();
+        IRunnableWithProgress op = new RascExportOperation(controller, progress,
+                projects, exportPage.getLocationPath(), isProjectRelative);
         progress.run(op);
         return true;
     }
