@@ -20,6 +20,12 @@ import org.eclipse.core.runtime.IProgressMonitor;
  * @since 26 Feb 2019
  */
 public interface RascContributor {
+    /**
+     * A unique identifier of this RASC contributor. Used to identify
+     * contributor dependencies.
+     * 
+     * @return the unique identifier for this contributor implementation.
+     */
     public String getId();
 
     /**
