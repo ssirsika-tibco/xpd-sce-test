@@ -39,7 +39,8 @@ public class OrgModelRascContributor implements RascContributor {
     /**
      * The unique identifier for this RascContribution implementation.
      */
-    private static final String ID = "com.tibco.xpd.om.contributor"; //$NON-NLS-1$
+    private static final String ID =
+            "com.tibco.xpd.om.transform.de.contributor"; //$NON-NLS-1$
 
     private static final String PROGRESS_TASK = "Org-Model Export"; //$NON-NLS-1$
 
