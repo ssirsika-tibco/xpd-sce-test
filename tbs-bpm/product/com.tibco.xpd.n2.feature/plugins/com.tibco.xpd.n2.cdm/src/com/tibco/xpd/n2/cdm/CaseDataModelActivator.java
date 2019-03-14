@@ -1,9 +1,9 @@
-package com.tibco.xpd.n2.cdm.test;
+package com.tibco.xpd.n2.cdm;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-public class Activator implements BundleActivator {
+public class CaseDataModelActivator implements BundleActivator {
 
 	private static BundleContext context;
 
@@ -12,11 +12,11 @@ public class Activator implements BundleActivator {
 	}
 
 	public void start(BundleContext bundleContext) throws Exception {
-		Activator.context = bundleContext;
+		CaseDataModelActivator.context = bundleContext;
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
-		Activator.context = null;
+		CaseDataModelActivator.context = null;
 	}
 
 }
