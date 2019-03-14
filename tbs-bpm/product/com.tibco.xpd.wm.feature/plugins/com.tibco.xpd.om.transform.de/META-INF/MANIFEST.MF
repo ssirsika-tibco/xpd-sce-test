@@ -28,7 +28,8 @@ Require-Bundle: com.tibco.xpd.om.core,
  com.tibco.xpd.process.js.model,
  com.tibco.xpd.script.ui,
  com.tibco.xpd.destinations,
- com.tibco.xpd.n2.resources
+ com.tibco.xpd.n2.resources,
+ com.tibco.xpd.rasc.core;bundle-version="11.0.0"
 Export-Package: com.tibco.n2.directory.model.de,
  com.tibco.n2.directory.model.de.impl,
  com.tibco.n2.directory.model.de.util,
@@ -41,3 +42,4 @@ Export-Package: com.tibco.n2.directory.model.de,
 Eclipse-LazyStart: true
 Bundle-Activator: com.tibco.xpd.om.transform.de.TransformDEActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: com.tibco.xpd.rasc.core

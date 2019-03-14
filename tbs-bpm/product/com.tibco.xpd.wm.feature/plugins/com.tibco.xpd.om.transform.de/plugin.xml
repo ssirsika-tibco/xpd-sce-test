@@ -10,6 +10,7 @@
 
 <plugin>
 
+
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://tibco.com/bpm/directory-model/2.0" 
@@ -22,7 +23,6 @@
        type="de" 
        class="com.tibco.n2.directory.model.de.util.DeResourceFactoryImpl" />
   </extension>
-
 
   <extension
         point="org.eclipse.ui.navigator.navigatorContent">
@@ -42,6 +42,7 @@
           </enablement>
      </commonWizard>
   </extension>
+
   <extension
         point="org.eclipse.ui.exportWizards">
      <wizard
@@ -52,8 +53,6 @@
            name="%exportToDirectoryEngine_label">
      </wizard>
   </extension>
-
-
 
    <extension
          point="com.tibco.xpd.om.resources.systemActions">
@@ -726,6 +725,13 @@
             </defaultGrammar>
          </scriptContextGrammarBinding>
       </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.xpd.om.transform.de.OrgModelRascContributor"
+            id="com.tibco.xpd.om.transform.de.contributor">
+      </contributor>
    </extension>
     <!-- 
     /*

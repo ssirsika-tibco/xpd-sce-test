@@ -4,6 +4,7 @@
 package com.tibco.xpd.om.transform.de;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -74,6 +75,53 @@ public class XMLModelWriter {
         final URI fileURI = URI.createFileURI(file.getLocation().toOSString());
         write(fileURI, model);
         file.refreshLocal(IResource.DEPTH_ZERO, null);
+    }
+
+    /**
+     * Outputs the given Collection of model elements to the given stream. The
+     * Collection is assumed to contain only one element.
+     * 
+     * @param aStream
+     *            the OutputStream to which the collection is to be written.
+     * @param model
+     *            the collection of model elements to be written to the given
+     *            stream.
+     * @throws IOException
+     *             if an error occurs whilst writing to the stream.
+     */
+    public void write(OutputStream aStream, Collection<EObject> model)
+            throws IOException {
+        // temporarily replace the XML resource factory with a DE resource
+        // factory, so that Resource knows how to stream it
+        Map<String, Object> extensionToFactoryMap =
+                Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
+        Object previousXMLFactory =
+                extensionToFactoryMap.put(XML, new DeResourceFactoryImpl());
+        try {
+            // create a Resource to which we can stream the model content
+            // the URI is meaningless as it will be ignored when we write
+            // directly to the stream
+            ResourceSetImpl rsImpl = new ResourceSetImpl();
+            Resource r = rsImpl.createResource(URI.createURI("org-model.xml")); //$NON-NLS-1$
+
+            // enclose the model element in a document root
+            DocumentRoot documentRoot =
+                    DeFactory.eINSTANCE.createDocumentRoot();
+            documentRoot.setModel((ModelType) model.iterator().next());
+
+            // add the document to the resource content
+            r.getContents().addAll(Arrays.asList(documentRoot));
+
+            // stream the resource content to the given OutputStream
+            r.save(aStream, getSaveOptions());
+        } finally {
+            // replace the original XML resource factory
+            if (previousXMLFactory == null) {
+                extensionToFactoryMap.remove(XML);
+            } else {
+                extensionToFactoryMap.put(XML, previousXMLFactory);
+            }
+        }
     }
 
     private static Map<Object, Object> getSaveOptions() {
