@@ -7,8 +7,6 @@ package com.tibco.xpd.core.test.util;
 import java.util.HashSet;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRunnable;
@@ -19,6 +17,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.PlatformUI;
+
+import junit.framework.TestCase;
 
 /**
  * A base junit test that, via simple abstract methods, can create a studio test
@@ -39,8 +39,20 @@ public abstract class AbstractBaseResourceTest extends TestCase {
 
     protected abstract String getTestName();
 
+    /**
+     * Used to specify the resources that will be imported to test project(s)
+     * during setup.
+     * 
+     * @return
+     */
     protected abstract TestResourceInfo[] getTestResources();
 
+    /**
+     * Used to identify test plug-in that contains resources to be imported to
+     * the project(s) in the test workspace.
+     * 
+     * @return test bundle id.
+     */
     protected abstract String getTestPlugInId();
 
     protected boolean cleanProjectAtEnd = true;
