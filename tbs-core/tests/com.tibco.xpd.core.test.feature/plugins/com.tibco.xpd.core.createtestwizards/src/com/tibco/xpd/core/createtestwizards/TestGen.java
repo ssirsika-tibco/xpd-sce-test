@@ -2,9 +2,10 @@
  * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
  */
 
-package com.tibco.xpd.core.createtestwizards.generators;
+package com.tibco.xpd.core.createtestwizards;
 
 import com.tibco.xpd.core.createtestwizards.generatordata.ApiClassTestJavaClassGeneratorData;
+import com.tibco.xpd.core.createtestwizards.generators.ApiClassTestJavaClassGenerator;
 
 /**
  * TestGen
