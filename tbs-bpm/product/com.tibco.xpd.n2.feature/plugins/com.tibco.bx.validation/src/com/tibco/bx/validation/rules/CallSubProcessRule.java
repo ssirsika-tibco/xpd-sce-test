@@ -53,6 +53,9 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * 11. Asynchronous-detached sub-process calls can not suspend/resume with
  * parent process.
  * <p>
+ * 12. A process should not invoke itself as a sub-process (can cause infinite
+ * loop).
+ * <p>
  * 
  * @author sajain
  * @since Jan 1, 2015
@@ -145,6 +148,13 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
             "bx.serviceProcessCannotInvokePageflow"; //$NON-NLS-1$
 
     /**
+     * A process should not invoke itself as a sub-process (can cause infinite
+     * loop).
+     */
+    private static final String ISSUE_PROCESS_DIRECT_RECURSIVE_SUBPROCESS =
+            "bx.directRecursiveSubprocess"; //$NON-NLS-1$
+
+    /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule#validate(com.tibco.xpd.xpdl2.Activity)
      * 
      * @param activity
@@ -160,6 +170,22 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
              * Get sub-flow.
              */
             SubFlow subFlow = (SubFlow) activity.getImplementation();
+
+            /*
+             * Get sub-process being referenced.
+             */
+            EObject subProcOrIntfcObject =
+                    TaskObjectUtil.getSubProcessOrInterface(activity);
+
+            /*
+             * Sid XPD-8457. Validate against direct recursion process calling
+             * itself.
+             */
+            if (activity.getProcess() != null
+                    && activity.getProcess().equals(subProcOrIntfcObject)) {
+                addIssue(ISSUE_PROCESS_DIRECT_RECURSIVE_SUBPROCESS, activity);
+            }
+
             /*
              * Get start strategy object.
              */
@@ -175,6 +201,7 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
 
                 startStrategyObject = SubProcessStartStrategy.START_IMMEDIATELY;
             }
+
             if (startStrategyObject instanceof SubProcessStartStrategy) {
 
                 SubProcessStartStrategy startStrategy =
@@ -190,11 +217,6 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
                  * Get process activity is contained in.
                  */
                 Process parentProcess = activity.getProcess();
-                /*
-                 * Get sub-process being referenced.
-                 */
-                EObject subProcOrIntfcObject =
-                        TaskObjectUtil.getSubProcessOrInterface(activity);
 
                 if (null != subProcOrIntfcObject) {
 
@@ -259,14 +281,17 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
      * @param subProcOrIntfcObject
      */
     private void validateSubProcOrIntfInBusinessProcess(Activity activity,
-            SubProcessStartStrategy startStrategy, EObject subProcOrIntfcObject) {
+            SubProcessStartStrategy startStrategy,
+            EObject subProcOrIntfcObject) {
 
         if (Xpdl2ModelUtil
                 .isServiceProcessOrProcessInterface(subProcOrIntfcObject)
                 && !ProcessInterfaceUtil
-                        .isProcessEngineServiceProcOrServiceProcIntfc(subProcOrIntfcObject)) {
+                        .isProcessEngineServiceProcOrServiceProcIntfc(
+                                subProcOrIntfcObject)) {
 
-            addIssue(ISSUE_BP_CANNOT_CALL_SP_WITHOUT_PE_DEPLOY_TARGET, activity);
+            addIssue(ISSUE_BP_CANNOT_CALL_SP_WITHOUT_PE_DEPLOY_TARGET,
+                    activity);
             /*
              * no point in validating other stuff on a service process if the
              * required deploy target is not available
@@ -274,8 +299,8 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
             return;
         }
 
-        if (ProcessInterfaceUtil
-                .isProcessEngineServiceProcOrServiceProcIntfc(subProcOrIntfcObject)) {
+        if (ProcessInterfaceUtil.isProcessEngineServiceProcOrServiceProcIntfc(
+                subProcOrIntfcObject)) {
             /*
              * All Business Process to Service Process invocations must be
              * configured as Scheduled Start.
@@ -286,9 +311,8 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
 
             }
         }
-        if (subProcOrIntfcObject instanceof Process
-                && Xpdl2ModelUtil
-                        .isPageflowOrSubType((Process) subProcOrIntfcObject)) {
+        if (subProcOrIntfcObject instanceof Process && Xpdl2ModelUtil
+                .isPageflowOrSubType((Process) subProcOrIntfcObject)) {
 
             /* A business process cannot invoke a pageflow process */
             addIssue(ISSUE_BUSINESS_PROCESS_CANNOT_INVOKE_PAGEFLOW_PROCESS,
@@ -353,8 +377,8 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
              * All Synchronous Pageflow Process to Service Process invocations
              * must be configured to Start Immediately.
              */
-            if (!SubProcessStartStrategy.START_IMMEDIATELY
-                    .equals(startStrategy) && execModeObject == null) {
+            if (!SubProcessStartStrategy.START_IMMEDIATELY.equals(startStrategy)
+                    && execModeObject == null) {
 
                 addIssue(ISSUE_SYNC_PF_TO_SP_MUST_BE_START_IMMEIDATE, activity);
             }
@@ -400,7 +424,8 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
          * SubProc object is a Process.
          */
 
-        if (Xpdl2ModelUtil.isBusinessProcessOrProcessInterface(subProcOrIfcObj)) {
+        if (Xpdl2ModelUtil
+                .isBusinessProcessOrProcessInterface(subProcOrIfcObj)) {
 
             /*
              * 2.1. Service Process to Business Process/Process Interface...
@@ -427,11 +452,13 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
 
                 /* A pageflow process cannot invoke a service process */
 
-                addIssue(ISSUE_SERVICE_PROCESS_CANNOT_INVOKE_PAGEFLOW, activity);
+                addIssue(ISSUE_SERVICE_PROCESS_CANNOT_INVOKE_PAGEFLOW,
+                        activity);
             }
         }
 
-        if (Xpdl2ModelUtil.isServiceProcessOrProcessInterface(subProcOrIfcObj)) {
+        if (Xpdl2ModelUtil
+                .isServiceProcessOrProcessInterface(subProcOrIfcObj)) {
 
             /*
              * Service Process to Service Process/Ifc...
@@ -441,8 +468,8 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
              * All Synchronous Service Process to Service Process invocations
              * must be configured to Start Immediately.
              */
-            if (!SubProcessStartStrategy.START_IMMEDIATELY
-                    .equals(startStrategy) && execModeObject == null) {
+            if (!SubProcessStartStrategy.START_IMMEDIATELY.equals(startStrategy)
+                    && execModeObject == null) {
 
                 addIssue(ISSUE_SYNC_SP_TO_SP_MUST_BE_STARTIMMEDIATE, activity);
             }
@@ -469,12 +496,14 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
                  * target selected.
                  */
                 if (AsyncExecutionMode.DETACHED.equals(execMode)
-                        && Xpdl2ModelUtil
-                                .isServiceProcessOrProcessInterface(subProcOrIfcObj)
+                        && Xpdl2ModelUtil.isServiceProcessOrProcessInterface(
+                                subProcOrIfcObj)
                         && !ProcessInterfaceUtil
-                                .isProcessEngineServiceProcOrServiceProcIntfc(subProcOrIfcObj)) {
+                                .isProcessEngineServiceProcOrServiceProcIntfc(
+                                        subProcOrIfcObj)) {
 
-                    addIssue(ISSUE_ASYNC_DETACHED_SP_CAN_CALL_SP_WITH_PE_DEPLOY_TAREGT,
+                    addIssue(
+                            ISSUE_ASYNC_DETACHED_SP_CAN_CALL_SP_WITH_PE_DEPLOY_TAREGT,
                             activity);
                 }
 
@@ -516,14 +545,16 @@ public class CallSubProcessRule extends ProcessActivitiesValidationRule {
          */
         if (ProcessInterfaceUtil.isProcessEngineServiceProcess(parentProc)) {
             if (!ProcessInterfaceUtil
-                    .isProcessEngineServiceProcOrServiceProcIntfc(subProcOrIfcObj)) {
+                    .isProcessEngineServiceProcOrServiceProcIntfc(
+                            subProcOrIfcObj)) {
                 return false;
             }
         }
 
         if (ProcessInterfaceUtil.isPageflowEngineServiceProcess(parentProc)) {
             if (!ProcessInterfaceUtil
-                    .isPageflowEngineServiceProcOrServiceProcIntfc(subProcOrIfcObj)) {
+                    .isPageflowEngineServiceProcOrServiceProcIntfc(
+                            subProcOrIfcObj)) {
                 return false;
             }
         }

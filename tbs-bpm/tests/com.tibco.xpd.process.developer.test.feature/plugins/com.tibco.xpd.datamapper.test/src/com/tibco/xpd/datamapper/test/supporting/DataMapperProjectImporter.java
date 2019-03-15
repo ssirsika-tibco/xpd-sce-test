@@ -54,14 +54,13 @@ public class DataMapperProjectImporter {
         IWorkspaceRoot root = workspace.getRoot();
         IProject project = root.getProject(name);
         try {
+
             ZipFile zipFile =
                     new ZipFile(FileLocator.toFileURL(zipLocation).getFile());
             ZipFileStructureProvider structureProvider =
                     new ZipFileStructureProvider(zipFile);
-            ImportOperation op =
-                    new ImportOperation(project.getFullPath(),
-                            structureProvider.getRoot(), structureProvider,
-                            null);
+            ImportOperation op = new ImportOperation(project.getFullPath(),
+                    structureProvider.getRoot(), structureProvider, null);
             op.run(null);
             project.open(null);
         } catch (InvocationTargetException | InterruptedException
@@ -80,10 +79,9 @@ public class DataMapperProjectImporter {
      * @return The EMF resource for the file.
      */
     public Package getPackage(IProject project, String path) {
-        IFile file =
-                SpecialFolderUtil.resolveSpecialFolderRelativePath(project,
-                        Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND,
-                        path);
+        IFile file = SpecialFolderUtil.resolveSpecialFolderRelativePath(project,
+                Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND,
+                path);
         WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(file);
         return (Package) wc.getRootElement();
     }

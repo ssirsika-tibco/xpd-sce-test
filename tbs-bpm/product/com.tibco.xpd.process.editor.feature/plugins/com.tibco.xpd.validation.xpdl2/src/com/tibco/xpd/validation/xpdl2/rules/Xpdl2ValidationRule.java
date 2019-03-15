@@ -23,7 +23,6 @@ import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 import com.tibco.xpd.validation.xpdl2.Messages;
 import com.tibco.xpd.validation.xpdl2.tools.IActivityContainer;
-import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.ActivitySet;
 import com.tibco.xpd.xpdl2.DataMapping;
@@ -208,13 +207,25 @@ public abstract class Xpdl2ValidationRule implements IValidationRule {
             } else if (o instanceof DataMapping) {
                 String name = DataMappingUtil.getTarget((DataMapping) o);
                 location += name == null ? DEFAULT_NAME : name;
-            } else if (o instanceof ScriptDataMapper) {
-                Activity parentActivity = Xpdl2ModelUtil.getParentActivity(o);
-
-                String name = parentActivity != null ? parentActivity.getName()
-                        : null;
-                location += name == null ? DEFAULT_NAME : name;
             }
+            /*
+             * Sid XPD-8467. This was added for XPD-8270 unnecessarily and
+             * caused duplicate acitivty name in issue location string until the
+             * change in getLocationPath() for scirptDataMapper handling was
+             * added. Unfortunately THAT change cause the activity name to
+             * disappear from the location. Given the fact that the change HERE
+             * isn't actually needed because the location string builder would
+             * look at the container of scriptdatamapper until it foound
+             * activity and used tha anyway, we should be able to safely remove
+             * the code here and in getLocationPath()
+             */
+            // } else if (o instanceof ScriptDataMapper) {
+            // Activity parentActivity = Xpdl2ModelUtil.getParentActivity(o);
+            //
+            // String name = parentActivity != null ? parentActivity.getName()
+            // : null;
+            // location += name == null ? DEFAULT_NAME : name;
+            // }
         }
         return location;
     }
@@ -299,9 +310,29 @@ public abstract class Xpdl2ValidationRule implements IValidationRule {
      * @return The colon seperated path string.
      */
     protected String getLocationPath(String path, EObject o) {
-        if (o instanceof ScriptDataMapper) {
-            o = Xpdl2ModelUtil.getParentActivity(o);
-        }
+        /*
+         * Sid XPD-8467. This was added for XPD-8270 because a change in
+         * getLocation() for ScriptDataMapper element problem markers
+         * unnecessarily added activity to the location and that ccaused
+         * activity name to be duplicated in the location. This change was meant
+         * to suppress that duplication but caused activity name not to be
+         * output in location for other data mapping problem markers.
+         * 
+         * Location text appears to be fine for both scenarios if we remove the
+         * special scriptDataMapepr handling code here and in getLocation() for
+         * scriptdataMapper - so removing from both places. and caused duplicate
+         * activity name in issue location string until the change in
+         * getLocationPath() for scirptDataMapper handling was added.
+         * Unfortunately THAT change cause the activity name to disappear from
+         * the location. Given the fact that the change HERE isn't actually
+         * needed because the location string builder would look at the
+         * container of scriptdatamapper until it foound activity and used tha
+         * anyway, we should be able to safely remove the code here and in
+         * getLocationPath()
+         */
+        // if (o instanceof ScriptDataMapper) {
+        // o = Xpdl2ModelUtil.getParentActivity(o);
+        // }
 
         EObject container = o.eContainer();
         if (!(o instanceof Package)) {

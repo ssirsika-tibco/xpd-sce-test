@@ -22,7 +22,9 @@ public class N2_32_CaseRefToFromNonCaseRefMappingTest extends
         AbstractBaseValidationTest {
 
     public N2_32_CaseRefToFromNonCaseRefMappingTest() {
+
         super(true);
+        cleanProjectAtEnd = false;
     }
 
     /**
