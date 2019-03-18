@@ -144,6 +144,9 @@ public class OrgModelRascContributor implements RascContributor {
         List<SpecialFolder> sFolders =
                 SpecialFolderUtil.getAllSpecialFoldersOfKind(aProject,
                         OMUtil.OM_SPECIAL_FOLDER_KIND);
+        if (sFolders == null) {
+            return null;
+        }
 
         for (SpecialFolder sFolder : sFolders) {
             if (sFolder.getFolder() != null && sFolder.getFolder().exists()) {
