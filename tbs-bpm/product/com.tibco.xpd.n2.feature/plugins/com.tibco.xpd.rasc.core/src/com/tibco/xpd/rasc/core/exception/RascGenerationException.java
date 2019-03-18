@@ -10,7 +10,7 @@ package com.tibco.xpd.rasc.core.exception;
  * @author pwatson
  * @since 1 Mar 2019
  */
-public abstract class RascGenerationException extends RuntimeException {
+public abstract class RascGenerationException extends Exception {
     private static final long serialVersionUID = -6967249254612236378L;
 
     /**
