@@ -29,6 +29,7 @@ import com.tibco.bpm.dt.rasc.VersionRange.Endpoint;
 import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 import com.tibco.bpm.dt.rasc.impl.DeploymentFactoryImpl;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
+import com.tibco.xpd.rasc.core.Messages;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascContributorLocator;
 import com.tibco.xpd.rasc.core.RascController;
@@ -49,7 +50,7 @@ import com.tibco.xpd.resources.projectconfig.ProjectDetails;
  * @since 1 Mar 2019
  */
 public class RascControllerImpl implements RascController {
-    private static final String PROGRESS_TASK = "RASC Generation"; //$NON-NLS-1$
+    private static final String PROGRESS_TASK = Messages.RascControllerImpl_ProgressTask;
 
     private static final String LOG_GENERATION_STARTED =
             "Generating RASC started."; //$NON-NLS-1$
