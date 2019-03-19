@@ -11,7 +11,9 @@ import java.util.List;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
@@ -79,41 +81,67 @@ public class RascExportOperation implements IRunnableWithProgress {
         monitor.beginTask(Messages.RascExportOperation_ProgressTitle,
                 projects.size() * 2);
         for (IProject project : projects) {
-            dialog.setStatus(project, ""); //$NON-NLS-1$
+            dialog.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
         }
+        boolean valid = true;
         for (IProject project : projects) {
             dialog.setStatus(project,
+                    ExportStatus.RUNNING,
                     Messages.RascExportOperation_ValidatingStatus);
-            Thread.sleep(2000);
-            dialog.setStatus(project, Messages.RascExportOperation_ValidStatus);
-            monitor.worked(1);
-        }
-        Thread.sleep(2000);
-        for (IProject project : projects) {
-            dialog.setStatus(project,
-                    Messages.RascExportOperation_ExportingStatus);
             try {
-                if (isProjectRelative) {
-                    controller.generateRasc(project,
-                            getWorkspacePath(project),
-                            null);
+                int severity = project.findMaxProblemSeverity(null,
+                        true,
+                        IResource.DEPTH_INFINITE);
+                if (severity == IMarker.SEVERITY_ERROR) {
+                    dialog.setStatus(project,
+                            ExportStatus.FAILED,
+                            Messages.RascExportOperation_ErrorStatus);
+                    valid = false;
                 } else {
-                    controller.generateRasc(project,
-                            getSystemPath(project),
-                            null);
+                    dialog.setStatus(project,
+                            ExportStatus.RUNNING,
+                            Messages.RascExportOperation_ValidStatus);
+
                 }
-                dialog.setStatus(project,
-                        Messages.RascExportOperation_CompleteStatus);
-            } catch (RascGenerationException e) {
-                dialog.setStatus(project,
-                        Messages.RascExportOperation_ErrorStatus);
-                RascUiActivator.getLogger().error(e);
             } catch (CoreException e) {
                 dialog.setStatus(project,
-                        Messages.RascExportOperation_FolderErrorStatus);
-                RascUiActivator.getLogger().error(e);
+                        ExportStatus.FAILED,
+                        Messages.RascExportOperation_ErrorStatus);
+                valid = false;
             }
             monitor.worked(1);
+        }
+        if (valid) {
+            for (IProject project : projects) {
+                dialog.setStatus(project,
+                        ExportStatus.RUNNING,
+                        Messages.RascExportOperation_ExportingStatus);
+                try {
+                    if (isProjectRelative) {
+                        controller.generateRasc(project,
+                                getWorkspacePath(project),
+                                null);
+                    } else {
+                        controller.generateRasc(project,
+                                getSystemPath(project),
+                                null);
+                    }
+                    dialog.setStatus(project,
+                            ExportStatus.COMPLETE,
+                            Messages.RascExportOperation_CompleteStatus);
+                } catch (RascGenerationException e) {
+                    dialog.setStatus(project,
+                            ExportStatus.FAILED,
+                            Messages.RascExportOperation_ErrorStatus);
+                    RascUiActivator.getLogger().error(e);
+                } catch (CoreException e) {
+                    dialog.setStatus(project,
+                            ExportStatus.FAILED,
+                            Messages.RascExportOperation_FolderErrorStatus);
+                    RascUiActivator.getLogger().error(e);
+                }
+                monitor.worked(1);
+            }
         }
         monitor.done();
     }
@@ -132,6 +160,14 @@ public class RascExportOperation implements IRunnableWithProgress {
         return workspacePath.getFile(project.getName() + ".rasc"); //$NON-NLS-1$
     }
 
+    /**
+     * Creating any missing folders.
+     * 
+     * @param folder
+     *            The final folder in the path.
+     * @throws CoreException
+     *             If there was a problem creating folders.
+     */
     public void mkdirs(IFolder folder) throws CoreException {
         if (!folder.exists()) {
             IContainer parent = folder.getParent();

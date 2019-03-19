@@ -16,6 +16,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IconAndMessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
@@ -27,7 +28,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
@@ -44,6 +44,8 @@ import com.tibco.xpd.rasc.ui.RascUiActivator;
 public class ExportProgressMonitorDialog extends IconAndMessageDialog {
 
     private HashMap<IProject, LabelPair> status;
+
+    private ScrolledComposite sc;
 
     private Composite statusArea;
 
@@ -104,12 +106,14 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
         errorMessage.setLayoutData(
                 new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
-        statusArea = new Composite(area, SWT.FILL);
-        statusArea.setLayout(new GridLayout(2, false));
+        sc = new ScrolledComposite(area, SWT.V_SCROLL);
         GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
         gd.minimumHeight = 200;
-        statusArea.setLayoutData(gd);
+        sc.setLayoutData(gd);
+        sc.setExpandHorizontal(true);
 
+        statusArea = new Composite(sc, SWT.NONE);
+        statusArea.setLayout(new GridLayout(2, false));
         Label name = new Label(statusArea, SWT.FILL);
         GridData nameGD = new GridData(SWT.FILL, SWT.FILL, false, false);
         nameGD.widthHint = 100;
@@ -124,6 +128,8 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
         separator.setLayoutData(
                 new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
+        sc.setContent(statusArea);
+
         return area;
     }
 
@@ -135,18 +141,20 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
      * @param message
      *            The status message.
      */
-    public void setStatus(IProject project, String message) {
+    public void setStatus(IProject project, ExportStatus exportStatus,
+            String message) {
         getShell().getDisplay().asyncExec(() -> {
             if (status.containsKey(project)) {
                 LabelPair pair = status.get(project);
                 pair.getLabel1()
                         .setImage(PlatformUI.getWorkbench().getSharedImages()
-                                .getImage(ISharedImages.IMG_ELCL_STOP));
+                                .getImage(exportStatus.getIconName()));
                 pair.getLabel2().setText(message);
             } else {
                 Label name = new Label(statusArea, SWT.FILL);
                 GridData nameGD =
                         new GridData(SWT.FILL, SWT.FILL, false, false);
+                nameGD.minimumHeight = 16;
                 name.setLayoutData(nameGD);
                 name.setText(project.getName());
 
@@ -164,7 +172,7 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
                         new GridData(SWT.FILL, SWT.FILL, false, false);
                 value1.setLayoutData(value1GD);
                 value1.setImage(PlatformUI.getWorkbench().getSharedImages()
-                        .getImage(ISharedImages.IMG_ELCL_SYNCED));
+                        .getImage(exportStatus.getIconName()));
 
                 Label value2 = new Label(labelComposite, SWT.FILL);
                 GridData value2GD =
@@ -172,6 +180,8 @@ public class ExportProgressMonitorDialog extends IconAndMessageDialog {
                 value2.setLayoutData(value2GD);
                 value2.setText(message);
 
+                statusArea.setSize(statusArea
+                        .computeSize(statusArea.getSize().x, SWT.DEFAULT));
                 statusArea.layout();
 
                 LabelPair pair = new LabelPair(value1, value2);

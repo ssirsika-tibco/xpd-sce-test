@@ -30,7 +30,7 @@ public class RascExportProjectSelectionPage
      *            The initial project selection.
      */
     public RascExportProjectSelectionPage(IStructuredSelection selection) {
-        super(selection);
+        super(selection, true);
     }
 
     /**
@@ -63,7 +63,7 @@ public class RascExportProjectSelectionPage
      */
     public List<IProject> getSelectedProjects() {
         List<IProject> projects = new ArrayList<>();
-        for (Object item : getSelectedObjects().toArray()) {
+        for (Object item : getSelectedObjects()) {
             if (item instanceof IProject) {
                 projects.add((IProject) item);
             }
