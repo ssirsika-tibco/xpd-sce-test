@@ -21,6 +21,18 @@ import com.tibco.xpd.rasc.core.exception.RascGenerationException;
  */
 public interface RascController {
     /**
+     * Used to determine if there are any contributors with any contributions to
+     * include in the RASC for the given IProject.
+     * 
+     * @param aProject
+     *            the project from which the RASC content is to be generated.
+     * @return <code>true</code> if any contributor would generate any
+     *         contributions for the given project should its process() method
+     *         be called.
+     */
+    public boolean hasContributionsFor(IProject aProject);
+
+    /**
      * Generates a deployment RASC for the given project and outputs it to the
      * given File.
      * 

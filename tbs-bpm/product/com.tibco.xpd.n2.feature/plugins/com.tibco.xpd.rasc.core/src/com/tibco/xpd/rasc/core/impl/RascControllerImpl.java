@@ -86,6 +86,23 @@ public class RascControllerImpl implements RascController {
     }
 
     /**
+     * @see com.tibco.xpd.rasc.core.RascController#hasContributionsFor(org.eclipse.core.resources.IProject)
+     */
+    @Override
+    public boolean hasContributionsFor(IProject aProject) {
+        List<RascContributor> contributors =
+                contributorlocator.getContributors();
+        if (contributors != null) {
+            for (RascContributor contributor : contributors) {
+                if (contributor.hasContributionsFor(aProject)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * @see com.tibco.xpd.rasc.core.RascController#generateRasc(org.eclipse.core.resources.IProject,
      *      org.eclipse.core.resources.IFile,
      *      org.eclipse.core.runtime.IProgressMonitor)
