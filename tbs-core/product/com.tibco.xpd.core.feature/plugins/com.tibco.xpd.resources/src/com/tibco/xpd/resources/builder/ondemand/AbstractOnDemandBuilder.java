@@ -20,7 +20,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.internal.Messages;
@@ -102,7 +102,7 @@ public abstract class AbstractOnDemandBuilder {
      * The source set should contain all resources that the target of the build
      * depends upon. This is used to ascertain whether any target is out-of-date
      * with every source so that
-     * {@link #buildSourceSet(BuildSourceSet, BuildTargetSet, SubProgressMonitor)}
+     * {@link #buildSourceSet(BuildSourceSet, BuildTargetSet, IProgressMonitor)}
      * will only be called if necessary.
      * 
      * @param project
@@ -201,7 +201,7 @@ public abstract class AbstractOnDemandBuilder {
             /* Get source sets. */
             Collection<BuildSourceSet> sourceSets = getBuildSourceSets(project);
 
-            monitor.beginTask(getMainMonitorLabel(project), 2);
+            monitor = SubMonitor.convert(monitor, getMainMonitorLabel(project), 2);
 
             /* Buuild target sets for current soruce sets */
             Map<BuildSourceSet, BuildTargetSet> targetSets =
@@ -522,7 +522,7 @@ public abstract class AbstractOnDemandBuilder {
                                         resource.getFullPath().toString()));
 
                         resource.delete(true,
-                                new SubProgressMonitor(monitor, 1));
+                                SubMonitor.convert(monitor, "", 1)); //$NON-NLS-1$
 
                         monitor.worked(1);
                         checkCancel(monitor);
