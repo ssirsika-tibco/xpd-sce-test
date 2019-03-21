@@ -26,7 +26,7 @@ import com.tibco.xpd.rasc.core.RascWriter;
 
 /**
  * Test Org-Model RASC Contribution.
- * 
+ *
  * @author pwatson
  * @since 20 Mar 2019
  */
@@ -62,7 +62,7 @@ public class OrgModelRascContributorTest
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.sce.rasc.test";
+        return "com.tibco.xpd.sce.test";
     }
 
     public void testHasContributionsFor() throws Exception {
@@ -164,7 +164,7 @@ public class OrgModelRascContributorTest
         /**
          * Allows the test to retrieve the captured artifacts, in the order they
          * were captured.
-         * 
+         *
          * @return the ordered collection of captured artifacts.
          */
         public List<WriterContent> getArtifacts() {
