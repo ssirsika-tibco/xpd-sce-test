@@ -58,7 +58,7 @@ public class BPELN2Utils {
     /**
      * 
      */
-    private static final String BPEL_FILE_EXTENSION = "bpel";
+    public static final String BPEL_FILE_EXTENSION = "bpel";
 
     public static final String BPEL_NATURE_ID = BPELNature.NATURE_ID;
 

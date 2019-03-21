@@ -31,7 +31,8 @@ Require-Bundle: org.eclipse.core.runtime,
  com.tibco.xpd.subprocess.datamapper,
  com.tibco.xpd.validation.bpmn.developer,
  com.tibco.bds.designtime.generator,
- com.tibco.xpd.implementer.nativeservices
+ com.tibco.xpd.implementer.nativeservices,
+ com.tibco.xpd.rasc.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
@@ -40,6 +41,7 @@ Export-Package:
  com.tibco.xpd.n2.pe.internal.provider;x-internal:=true,
  com.tibco.xpd.n2.pe.internal.reader;x-internal:=true,
  com.tibco.xpd.n2.pe.rest.datamapper,
+ com.tibco.xpd.n2.pe.transform,
  com.tibco.xpd.n2.pe.util,
  com.tibco.xpd.n2.pe.webservice.datamapper
 Import-Package: com.tibco.xpd.implementer.resources.xpdl2.properties

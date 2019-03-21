@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2014. All rights reserved.
  */
 
-package com.tibco.xpd.om.transform.de;
+package com.tibco.xpd.n2.pe.transform.test;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -10,7 +10,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -18,22 +20,24 @@ import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
-import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
+import com.tibco.xpd.n2.pe.transform.PERascContributor;
+import com.tibco.xpd.n2.test.core.AbstractN2BaseResourceTest;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascWriter;
 
 /**
- * Test Org-Model RASC Contribution.
+ * Test Process Engine and Page-Flow RASC Contribution.
  * 
  * @author pwatson
  * @since 20 Mar 2019
  */
-public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTest {
+@SuppressWarnings("nls")
+public class PERascContributorTest extends AbstractN2BaseResourceTest {
 
-    private TestResourceInfo orgmodelResourceInfo =
-            new TestResourceInfo("resources/OrgModelRascTest", //$NON-NLS-1$
-                    "RASC/Organization{om}/OrganizationModel.om") { //$NON-NLS-1$
+    private TestResourceInfo processResourceInfo =
+            new TestResourceInfo("resources/BpelRascTest",
+                    "RASC/Process Packages{processes}/TestContributor.xpdl") {
             };
 
     /**
@@ -41,7 +45,7 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
      */
     @Override
     protected String getTestName() {
-        return "OrgModel RASC Transform Test"; //$NON-NLS-1$
+        return "BPEL RASC Transform Test";
     }
 
     /**
@@ -50,7 +54,7 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
     @Override
     protected TestResourceInfo[] getTestResources() {
         TestResourceInfo[] testResources =
-                new TestResourceInfo[] { orgmodelResourceInfo };
+                new TestResourceInfo[] { processResourceInfo };
         return testResources;
     }
 
@@ -59,19 +63,19 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.om.transform.de.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.n2.pe.test";
     }
 
     public void testHasContributionsFor() throws Exception {
-        RascContributor fixture = new OrgModelRascContributor();
+        RascContributor fixture = new PERascContributor();
         checkTestFilesCreated();
-        IFile testFile = getTestFile("OrganizationModel.om"); //$NON-NLS-1$
+        IFile testFile = getTestFile("TestContributor.xpdl");
         if (testFile == null) {
-            throw new NullPointerException("Unable to find test file"); //$NON-NLS-1$
+            throw new NullPointerException("Unable to find test file");
         }
-        
-        IProject project = ResourcesPlugin.getWorkspace().getRoot()
-                .getProject("RASC"); //$NON-NLS-1$
+
+        IProject project =
+                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
         assertTrue(fixture.hasContributionsFor(project));
     }
@@ -79,8 +83,8 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
     public void testProcess() throws Exception {
         // ensure the test data is present
         checkTestFilesCreated();
-        if (getTestFile("OrganizationModel.om") == null) {
-            throw new NullPointerException("Unable to find test file"); //$NON-NLS-1$
+        if (getTestFile("TestContributor.xpdl") == null) {
+            throw new NullPointerException("Unable to find test file");
         }
 
         // create a mock writer to capture contributor's output
@@ -88,24 +92,39 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
 
         // find the project in which the test data resides
         IProject project =
-                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC"); //$NON-NLS-1$
+                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
         // call the contributor's process() method
-        RascContributor fixture = new OrgModelRascContributor();
+        RascContributor fixture = new PERascContributor();
         fixture.process(project, null, writer);
-        
-        // only one artifact should have been added to the writer
-        assertEquals(1, writer.getArtifacts().size());
 
-        // that artifact should be named after the test data file
-        // and be targetted to the DE micro-service
-        WriterContent artifact = writer.getArtifacts().get(0);
-        assertEquals("OrganizationModel.de", artifact.getName());
-        assertArrayEquals(new MicroService[] { MicroService.DE },
-                artifact.getServices());
+        // these are the expected artefacts and their destinations
+        Map<String, MicroService[]> expected = new HashMap<>();
+        expected.put("TestPageFowProcess.bpel",
+                new MicroService[] { MicroService.WR });
+        expected.put("TestServiceProcess.bpel",
+                new MicroService[] { MicroService.WR });
+        expected.put("TestBusinessProcess.bpel",
+                new MicroService[] { MicroService.BP });
 
-        // some data was written to the artifact
-        assertTrue(artifact.getContent().size() > 0);
+        // artifacts should have been added to the writer
+        assertEquals(expected.size(), writer.getArtifacts().size());
+
+        for (WriterContent artifact : writer.getArtifacts()) {
+            boolean found = false;
+            for (Map.Entry<String, MicroService[]> entry : expected
+                    .entrySet()) {
+                if (entry.getKey().equals(artifact.getName())) {
+                    assertArrayEquals(entry.getValue(), artifact.getServices());
+
+                    // some data was written to the artifact
+                    assertTrue(artifact.getContent().size() > 0);
+                    found = true;
+                    break;
+                }
+            }
+            assertTrue("Unexpected artifact: " + artifact.getName(), found);
+        }
     }
 
     /**
