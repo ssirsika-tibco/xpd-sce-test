@@ -30,11 +30,13 @@ import com.tibco.xpd.rasc.core.RascWriter;
  * @author pwatson
  * @since 20 Mar 2019
  */
-public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTest {
+@SuppressWarnings("nls")
+public class OrgModelRascContributorTest
+        extends AbstractBuildingBaseResourceTest {
 
     private TestResourceInfo orgmodelResourceInfo =
-            new TestResourceInfo("resources/OrgModelRascTest", //$NON-NLS-1$
-                    "RASC/Organization{om}/OrganizationModel.om") { //$NON-NLS-1$
+            new TestResourceInfo("resources/OrgModelRascTest",
+                    "RASC/Organization{om}/OrganizationModel.om") {
             };
 
     /**
@@ -42,7 +44,7 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
      */
     @Override
     protected String getTestName() {
-        return "OrgModel RASC Transform Test"; //$NON-NLS-1$
+        return "OrgModel RASC Transform Test";
     }
 
     /**
@@ -60,19 +62,19 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.om.transform.de.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.om.transform.de.test";
     }
 
     public void testHasContributionsFor() throws Exception {
         RascContributor fixture = new OrgModelRascContributor();
         checkTestFilesCreated();
-        IFile testFile = getTestFile("OrganizationModel.om"); //$NON-NLS-1$
+        IFile testFile = getTestFile("OrganizationModel.om");
         if (testFile == null) {
-            throw new NullPointerException("Unable to find test file"); //$NON-NLS-1$
+            throw new NullPointerException("Unable to find test file");
         }
-        
-        IProject project = ResourcesPlugin.getWorkspace().getRoot()
-                .getProject("RASC"); //$NON-NLS-1$
+
+        IProject project =
+                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
         assertTrue(fixture.hasContributionsFor(project));
     }
@@ -81,7 +83,7 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
         // ensure the test data is present
         checkTestFilesCreated();
         if (getTestFile("OrganizationModel.om") == null) {
-            throw new NullPointerException("Unable to find test file"); //$NON-NLS-1$
+            throw new NullPointerException("Unable to find test file");
         }
 
         // create a mock writer to capture contributor's output
@@ -89,12 +91,12 @@ public class OrgModelRascContributorTest extends AbstractBuildingBaseResourceTes
 
         // find the project in which the test data resides
         IProject project =
-                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC"); //$NON-NLS-1$
+                ResourcesPlugin.getWorkspace().getRoot().getProject("RASC");
 
         // call the contributor's process() method
         RascContributor fixture = new OrgModelRascContributor();
         fixture.process(project, null, writer);
-        
+
         // only one artifact should have been added to the writer
         assertEquals(1, writer.getArtifacts().size());
 
