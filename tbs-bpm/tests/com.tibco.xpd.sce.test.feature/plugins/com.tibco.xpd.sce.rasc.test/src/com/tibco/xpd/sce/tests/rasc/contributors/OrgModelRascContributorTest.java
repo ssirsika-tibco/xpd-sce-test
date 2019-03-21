@@ -62,7 +62,7 @@ public class OrgModelRascContributorTest
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.om.transform.de.test";
+        return "com.tibco.xpd.sce.rasc.test";
     }
 
     public void testHasContributionsFor() throws Exception {

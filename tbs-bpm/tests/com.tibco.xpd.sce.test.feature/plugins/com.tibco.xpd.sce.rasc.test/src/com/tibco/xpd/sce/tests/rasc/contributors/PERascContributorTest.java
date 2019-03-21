@@ -63,7 +63,7 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.n2.pe.test";
+        return "com.tibco.xpd.sce.rasc.test";
     }
 
     public void testHasContributionsFor() throws Exception {
