@@ -273,7 +273,7 @@ customerRef.unlinkOrders(orderRefList);&#xD;
 // get reference to Customer with id equal to &quot;CUST:1000001&quot;&#xD;
 customerReference = cac_com_example_ordermodel_Customer.findById(&quot;CUST:1000001&quot;);&#xD;
 &#xD;
-// Having got a reference, we can dereference or read the object it references…&#xD;
+// Having got a reference, we can dereference or read the object it referencesâ€¦&#xD;
 customer = customerReference.readCustomer();&#xD;
 &#xD;
 // get reference to Order with orderId equal to &quot;ORD:1008192&quot;&#xD;
@@ -297,7 +297,7 @@ for (var ix = 0; ix &lt; customerList.size(); ix++)&#xD;
 {&#xD;
 	var customer1 = customerList.get(ix);&#xD;
 &#xD;
-	// process customer objects…&#xD;
+	// process customer objectsâ€¦&#xD;
 &#xD;
 }&#xD;
 //var customer = com_example_ordermodel_Factory.createCustomer();&#xD;
@@ -315,7 +315,7 @@ for (var ix = 0; ix &lt; customerList.size(); ix++)&#xD;
 {&#xD;
 	var customer1 = customerList.get(ix);&#xD;
 &#xD;
-	// process customer objects…&#xD;
+	// process customer objectsâ€¦&#xD;
 	&#xD;
 }&#xD;
 &#xD;
@@ -345,14 +345,14 @@ while (true) {&#xD;
 // Find customers with no orders (return references to first 100 results)&#xD;
 var custRefs = cac_com_example_ordermodel_Customer.findByCriteria(&quot;size(orders) = 0&quot;, 0, 100);&#xD;
 &#xD;
-// Find orders from customers whose name begins with “TIBCO” (return refs to first 20)&#xD;
+// Find orders from customers whose name begins with â€œTIBCOâ€� (return refs to first 20)&#xD;
 var ordRefs = cac_com_example_ordermodel_Order.findByCriteria(&quot;customer.name='TIBCO*'&quot;,0,20);&#xD;
 &#xD;
 // Find customers who have orders that include Part Number PN:10001 &#xD;
 // ordering the results by customer name (returning upto 100 customer refs)&#xD;
 var custRefs = cac_com_example_ordermodel_Customer.findByCriteria(&#xD;
 				&quot;orders.orderLines.orderItem.partNum = 'PN:10001' order by name&quot;, 0, 100);&#xD;
-// Create new Criteria Object – setting the query that we want to run&#xD;
+// Create new Criteria Object â€“ setting the query that we want to run&#xD;
 	var criteria = cac_com_example_ordermodel_Customer.createCriteria(&#xD;
 					&quot;orderTakers.name = :orderClerk ORDER BY    orderTaker.name ASC&quot;, 0, 10);&#xD;
 // set the initial value of the parameter&#xD;
@@ -373,7 +373,7 @@ var orderList2 = cac_com_example_ordermodel_Order.findByCriteria(criteria);&#xD;
 var ref2  = orderList2.get(0);&#xD;
 var order2= ref2.readOrder();&#xD;
 &#xD;
-// Create new Criteria Object – setting the query that we want to run – return 100 items max&#xD;
+// Create new Criteria Object â€“ setting the query that we want to run â€“ return 100 items max&#xD;
 var criteria = cac_com_example_ordermodel_Customer.createCriteria(&quot;name IN (:userList)&quot;, 0, 100);&#xD;
 &#xD;
 // Execute the query&#xD;
@@ -446,7 +446,7 @@ for (var ix = 0; ix &lt; personRefList.size(); ix++)&#xD;
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_E4e44ErYEeO7YIsBngrd3w" xpdExt:DisplayName="ProcessWithCACMethods_LocalVars" Name="ProcessWithCACMethods_LocalVars">
@@ -588,7 +588,7 @@ vCustRefList = cac_com_example_ordermodel_Customer.update(vCustRefList,vCustList
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_GKbB4ErYEeO7YIsBngrd3w" xpdExt:DisplayName="ProcessCaseRefMethods_DataFields" Name="ProcessCaseRefMethods_DataFields">
@@ -714,7 +714,7 @@ ScriptUtil.toXML(custRef,custRef.simpleClassName);</xpdl2:Script>
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_KQEpwEu2EeO7YIsBngrd3w" xpdExt:DisplayName="ProcessCACMethods_DataFields" Name="ProcessCACMethods_DataFields">
@@ -903,7 +903,7 @@ custRefList = cac_com_example_ordermodel_Customer.update(custRefList,custBomType
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_Xo6oQEu4EeO7YIsBngrd3w" xpdExt:DisplayName="ProcessCaseRefMethods_LocalVars" Name="ProcessCaseRefMethods_LocalVars">
@@ -1030,7 +1030,7 @@ ScriptUtil.toXML(vCustRef,vCustRef.className);</xpdl2:Script>
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
   </xpdl2:WorkflowProcesses>

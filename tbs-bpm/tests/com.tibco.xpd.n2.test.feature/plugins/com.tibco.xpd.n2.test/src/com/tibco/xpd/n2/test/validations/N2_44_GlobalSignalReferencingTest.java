@@ -56,7 +56,7 @@ public class N2_44_GlobalSignalReferencingTest extends
              * project Id.
              */
             TestUtil.addGlobalDestinationToProject("com.example.globalsignalproject", //$NON-NLS-1$
-                    "BPM", //$NON-NLS-1$
+                    "CE", //$NON-NLS-1$
                     testProject);
         }
     }

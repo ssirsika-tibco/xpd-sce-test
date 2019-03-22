@@ -5,8 +5,6 @@ package com.tibco.xpd.bom.test.cds.rules;
 
 import java.io.InputStream;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
@@ -30,6 +28,8 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+
+import junit.framework.TestCase;
 
 /**
  * Its a very base transformation test it only test for now if transformation
@@ -108,7 +108,7 @@ public class InvalidKeywordsRuleTest extends TestCase {
             projDetails.setGlobalDestinations(createDestinations);
             Destination destination =
                     ProjectConfigFactory.eINSTANCE.createDestination();
-            destination.setType("BPM"); //$NON-NLS-1$
+            destination.setType("CE"); //$NON-NLS-1$
             createDestinations.getDestination().add(destination);
         }
 

@@ -7,8 +7,6 @@ package com.tibco.xpd.n2.test.generate;
 import java.util.HashSet;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -32,6 +30,8 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+
+import junit.framework.TestCase;
 
 /**
  * 
@@ -187,7 +187,7 @@ public class AbstractGenTest extends TestCase {
             projDetails.setId(project.getName());
             Destination destination =
                     ProjectConfigFactory.eINSTANCE.createDestination();
-            destination.setType("BPM"); //$NON-NLS-1$
+            destination.setType("CE"); //$NON-NLS-1$
             createDestinations.getDestination().add(destination);
         }
 

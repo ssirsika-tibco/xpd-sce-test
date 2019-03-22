@@ -13,8 +13,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
@@ -71,6 +69,8 @@ import com.tibco.xpd.validation.provider.IIssue;
 //import com.tibco.xpd.xpdl2.resources.Xpdl2WorkingCopyImpl;
 //import com.tibco.xpd.xpdl2.resources.XpdlMigrate;
 //import com.tibco.xpd.xpdl2.util.XpdlSearchUtil;
+
+import junit.framework.TestCase;
 
 /**
  * Common utility methods for test cases.
@@ -879,7 +879,7 @@ public class TestUtil {
             projDetails.setGlobalDestinations(createDestinations);
             Destination destination =
                     ProjectConfigFactory.eINSTANCE.createDestination();
-            destination.setType("BPM"); //$NON-NLS-1$
+            destination.setType("CE"); //$NON-NLS-1$
             createDestinations.getDestination().add(destination);
         }
 

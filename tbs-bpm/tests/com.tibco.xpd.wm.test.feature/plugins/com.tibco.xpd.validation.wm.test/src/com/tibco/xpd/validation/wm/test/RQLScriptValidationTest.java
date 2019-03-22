@@ -718,7 +718,8 @@ public class RQLScriptValidationTest extends AbstractRQLScriptValidatorTest {
     @Override
     protected void configureProject(IProject project) {
         TestUtil.addGlobalDestinationToProject(getTestPlugInId(),
-                "BPM", project);//$NON-NLS-1$
+                "CE", //$NON-NLS-1$
+                project);
     }
 
     private TestResourceInfo xpdl_testResourceInfo =

@@ -41,14 +41,16 @@ public abstract class AbstractRQLScriptValidatorTest extends
     @Override
     protected void configureProject(IProject project) {
         TestUtil.addGlobalDestinationToProject(getTestPlugInId(),
-                "BPM", project);//$NON-NLS-1$
+                "CE", //$NON-NLS-1$
+                project);
     }
 
+    @Override
     protected Set<String> getAffectedIds(IResource resource) {
         if (resource != null) {
             WorkingCopy wc =
-                    (WorkingCopy) XpdResourcesPlugin.getDefault()
-                            .getWorkingCopy(resource);
+                    XpdResourcesPlugin.getDefault()
+                    .getWorkingCopy(resource);
             if (wc.getRootElement() instanceof Package) {
                 Package model = (Package) wc.getRootElement();
                 assertNotNull("Root element of the model is null even after migration", //$NON-NLS-1$

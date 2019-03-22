@@ -19,7 +19,7 @@ public class N2TestCreationUtil {
     /**
      * 
      */
-    private static final String BPM_PROJECT_DESTINATION = "BPM"; //$NON-NLS-1$
+    private static final String BPM_PROJECT_DESTINATION = "CE"; //$NON-NLS-1$
 
     /**
      * @param testProject
