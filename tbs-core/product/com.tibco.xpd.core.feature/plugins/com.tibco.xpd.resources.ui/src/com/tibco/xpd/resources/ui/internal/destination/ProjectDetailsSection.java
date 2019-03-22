@@ -114,6 +114,9 @@ public class ProjectDetailsSection extends DialogPage {
      */
     private boolean showDestinationEnv = true;
 
+    /* Sid ACE-441 Allow hide of just the version part of lifecycle. */
+    private boolean showProjectVersion = true;
+
     /**
      * Project version details section.
      */
@@ -137,6 +140,16 @@ public class ProjectDetailsSection extends DialogPage {
      */
     public void setShowDestinationEnvironment(boolean show) {
         this.showDestinationEnv = show;
+    }
+
+    /**
+     * Set whether the destination environment selection should be displayed on
+     * this page.
+     * 
+     * @param show
+     */
+    public void setShowProjectVersion(boolean show) {
+        this.showProjectVersion = show;
     }
 
     /**
@@ -406,15 +419,19 @@ public class ProjectDetailsSection extends DialogPage {
             idTxt.setLayoutData(data);
         }
 
-        createLabel(root, Messages.ProjectDetailsSection_version_label);
-        versionTxt = createText(root, version);
-        versionTxt.addModifyListener(new ModifyListener() {
-            @Override
-            public void modifyText(ModifyEvent e) {
-                version = versionTxt.getText();
-                fireModifyEvent(versionTxt);
-            }
-        });
+        /* Sid ACE-441 Only show project version if required. */
+        if (this.showProjectVersion) {
+            createLabel(root, Messages.ProjectDetailsSection_version_label);
+            versionTxt = createText(root, version);
+            versionTxt.addModifyListener(new ModifyListener() {
+                @Override
+                public void modifyText(ModifyEvent e) {
+                    version = versionTxt.getText();
+                    fireModifyEvent(versionTxt);
+                }
+            });
+        }
+
         createLabel(root, Messages.ProjectDetailsSection_status_label);
         statusViewer = new ComboViewer(root);
         statusViewer.setContentProvider(new ArrayContentProvider());

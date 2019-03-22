@@ -47,9 +47,13 @@ import com.tibco.xpd.resources.ui.internal.Messages;
  * wizard should not be shown (section to set id, version, status and
  * destination environment). (If this parameter is set then
  * <code>hideDestinationEnv</code> will be ignored if set.</li>
+ * <li><b>hideProjectVersion</b> - hide just the version part of project
+ * lifecycle</li>
  * <li><b>defaultProjectVersion</b> - the default version of the project. This
  * parameter will set the initial version of the new project. If not provided
  * then it will default to "1.0.0.qualifier".</li>
+ * <li><b>setDestinationEnv</b> - The destination name of the dfault destination
+ * to set. Forces hide on destination selection controls.</li>
  * </ul>
  * <p>
  * <b>*NOTE: This method of binding the asset types to a new project wizard has
@@ -62,7 +66,8 @@ import com.tibco.xpd.resources.ui.internal.Messages;
  * <ul>
  * 1. By specifying adapter data as part of the implementation class attribute
  * value. The Java class name (this class) has to be followed by a ":"
- * separator, followed by the adapter data in string form. Example shown below:<br/>
+ * separator, followed by the adapter data in string form. Example shown
+ * below:<br/>
  * <br/>
  * <code>
  * &lt;extension point="org.eclipse.ui.newWizards"&gt;<br/> &lt;wizard<br/>
@@ -139,6 +144,19 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
         public static final String PARAM_DEFAULT_PROJECT_VERSION =
                 "defaultProjectVersion"; //$NON-NLS-1$
 
+        /*
+         * Sid ACE-441 - new param to force setting of a specific destination
+         * env.
+         */
+        public static final String PARAM_PRESET_DESTINATION_ENV =
+                "presetDestinationEnv"; //$NON-NLS-1$
+
+        /*
+         * Sid ACE-441 - new param to hide project version
+         */
+        public static final String PARAM_HIDE_PROJECT_VERSION =
+                "hideProjectVersion"; //$NON-NLS-1$
+
         public String title;
 
         public String[] assets;
@@ -152,6 +170,10 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
         public boolean hideProjectLifecycle;
 
         public String defaultProjectVersion;
+
+        public String presetDestinationEnv;
+
+        public boolean hideProjectVersion;
     }
 
     private ConfigurationData configData;
@@ -191,6 +213,14 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
 
             if (configData.defaultProjectVersion != null) {
                 wizard.setDefaultProjectVersion(configData.defaultProjectVersion);
+            }
+
+            if (configData.presetDestinationEnv != null) {
+                wizard.setDestinationEnv(configData.presetDestinationEnv);
+            }
+
+            if (configData.hideProjectVersion) {
+                wizard.hideProjectVersion();
             }
 
         } else {
@@ -301,6 +331,18 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
                     configMap
                             .containsKey(ConfigurationData.PARAM_PROJECTLIFECYCLE);
 
+            // Set whether the just the version number in project lifecycle
+            // section should be hidden
+            configData.hideProjectVersion = configMap
+                    .containsKey(ConfigurationData.PARAM_HIDE_PROJECT_VERSION);
+
+            // Record the default destination to set.
+            value = configMap.get(ConfigurationData.PARAM_PRESET_DESTINATION_ENV);
+            if (value != null) {
+                configData.presetDestinationEnv = value;
+                configData.hideDestinationEnv = true;
+            }
+
             if (configMap.containsKey(ConfigurationData.PARAM_SORTER)) {
                 value = configMap.get(ConfigurationData.PARAM_SORTER);
                 if (value != null && value.length() > 0) {
@@ -386,7 +428,9 @@ public class XpdProjectWizardFactory implements IExecutableExtensionFactory,
                 || param.equals(ConfigurationData.PARAM_HIDEDESTINATIONENV)
                 || param.equals(ConfigurationData.PARAM_PROJECTLIFECYCLE)
                 || param.equals(ConfigurationData.PARAM_SORTER)
-                || param.equals(ConfigurationData.PARAM_TITLE)) {
+                || param.equals(ConfigurationData.PARAM_TITLE)
+                || param.equals(ConfigurationData.PARAM_PRESET_DESTINATION_ENV)
+                || param.equals(ConfigurationData.PARAM_HIDE_PROJECT_VERSION)) {
             return true;
         }
         return false;

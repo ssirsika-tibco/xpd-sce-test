@@ -75,6 +75,10 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
     private Collection<PropertyChangeListener> propertyChangeListeners =
             new HashSet<PropertyChangeListener>();
 
+    /* Sid ACE-441 Allow forced set of a specific destination environment */
+    private String presetDestinationEnv = null;
+
+
     /**
      * Constructor.
      * 
@@ -214,8 +218,16 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
      */
     private EList<Destination> updateDestinations(
             EList<Destination> currentList, List<String> destinationIds) {
+        /* Sid ACE-441 Allow forced set of a specific destination environment */
+        if (presetDestinationEnv != null && !presetDestinationEnv.isEmpty()) {
+            currentList.clear();
 
-        if (currentList != null) {
+            Destination destination =
+                    ProjectConfigFactory.eINSTANCE.createDestination();
+            destination.setType(presetDestinationEnv);
+            currentList.add(destination);
+
+        } else if (currentList != null) {
             EList<Destination> currListCopy =
                     new BasicEList<Destination>(currentList);
             currentList.clear();
@@ -525,4 +537,21 @@ public class ProjectSelectionPage extends WizardNewProjectCreationPage {
                     oldName, newName));
         }
     }
+
+    /**
+     * @param presetDestinationEnv
+     *            the destination to preset (as opposed to allowing the user to
+     *            choose)
+     */
+    public void setPresetDestinationEnv(String presetDestinationEnv) {
+        this.presetDestinationEnv = presetDestinationEnv;
+    }
+
+    /**
+     * Hide the project version controls from the wizard.
+     */
+    public void hideProjectVersion() {
+        detailsSection.setShowProjectVersion(false);
+    }
+
 }

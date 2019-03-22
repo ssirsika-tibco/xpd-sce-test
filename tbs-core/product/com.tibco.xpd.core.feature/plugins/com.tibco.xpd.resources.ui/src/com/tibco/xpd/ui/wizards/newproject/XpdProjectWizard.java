@@ -192,6 +192,10 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
 
     private String defaultProjectVersion;
 
+    private boolean hideProjectVersion;
+
+    private String presetDestinationEnv;
+
     /**
      * Constructor.
      * 
@@ -355,8 +359,18 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
 
         if (hideProjectLifecycle) {
             newProjectCreationPage.hideProjectLifecycle();
-        } else if (hideDestinationEnv) {
-            newProjectCreationPage.hideDestinationEnvironment();
+        } else {
+            if (hideDestinationEnv) {
+                newProjectCreationPage.hideDestinationEnvironment();
+            }
+
+            if (hideProjectVersion) {
+                newProjectCreationPage.hideProjectVersion();
+            }
+        }
+
+        if (presetDestinationEnv != null) {
+            newProjectCreationPage.setPresetDestinationEnv(presetDestinationEnv);
         }
 
         newProjectCreationPage
@@ -540,5 +554,22 @@ public class XpdProjectWizard extends BasicNewXpdResourceWizard {
      */
     public void setDefaultProjectVersion(String defaultProjectVersion) {
         this.defaultProjectVersion = defaultProjectVersion;
+    }
+
+    /**
+     * Sid ACE-441: new function to force setting of a specific destination env.
+     * 
+     * @param setDestinationEnv
+     */
+    public void setDestinationEnv(String setDestinationEnv) {
+        this.presetDestinationEnv = setDestinationEnv;
+    }
+
+    /**
+     * Sid ACE-441 - new function to hide project version
+     * 
+     */
+    public void hideProjectVersion() {
+        this.hideProjectVersion = true;
     }
 }
