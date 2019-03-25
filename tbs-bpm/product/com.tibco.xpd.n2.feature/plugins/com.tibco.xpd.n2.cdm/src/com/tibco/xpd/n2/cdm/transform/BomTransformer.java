@@ -77,7 +77,7 @@ public class BomTransformer {
      *            the Case Data Model.
      * @return StructuredType representing transformed BOM class.
      */
-    /* package */ StructuredType transformClass(Class bomClass,
+    private StructuredType transformClass(Class bomClass,
             DataModel cdmModel) {
         StructuredType cdmType = cdmModel.newStructuredType();
         cdmType.setName(bomClass.getName());
