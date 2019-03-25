@@ -39,5 +39,13 @@
          </enablement>
       </commonWizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.tibco.xpd.rasc.ui.AdminUrlPreferencePage"
+            id="com.tibco.xpd.rasc.ui.adminUrlPage"
+            name="Admin UI">
+      </page>
+   </extension>
 
 </plugin>

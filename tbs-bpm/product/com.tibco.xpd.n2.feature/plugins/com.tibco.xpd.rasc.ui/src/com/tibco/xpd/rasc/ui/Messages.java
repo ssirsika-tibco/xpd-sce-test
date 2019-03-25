@@ -15,19 +15,19 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
     private static final String BUNDLE_NAME = "com.tibco.xpd.rasc.ui.messages"; //$NON-NLS-1$
 
-    public static String ExportProgressMonitorDialog_ExportError;
+    public static String AdminUrlPropertyDialog_Message;
 
-    public static String ExportProgressMonitorDialog_LaunchAdminButton;
+    public static String AdminUrlPropertyDialog_Title;
 
-    public static String ExportProgressMonitorDialog_LaunchError;
+    public static String AdminUrlPropertyPanel_BaseUrlLabel;
 
-    public static String ExportProgressMonitorDialog_OKButton;
+    public static String RascExportStatusPage_ExportError;
 
-    public static String ExportProgressMonitorDialog_ProjectColumn;
+    public static String RascExportStatusPage_ProjectColumn;
 
-    public static String ExportProgressMonitorDialog_StatusColumn;
+    public static String RascExportStatusPage_RascExportError;
 
-    public static String ExportProgressMonitorDialog_Title;
+    public static String RascExportStatusPage_StatusColumn;
 
     public static String RascExportOperation_CompleteStatus;
 
@@ -43,9 +43,21 @@ public class Messages extends NLS {
 
     public static String RascExportOperation_ValidStatus;
 
+    public static String RascExportProjectSelectionPage_CyclicError;
+
     public static String RascExportProjectSelectionPage_NoProjectSelectedError;
 
+    public static String RascExportProjectSelectionPage_SelectRequired;
+
+    public static String RascExportWizard_AdminPageError;
+
+    public static String RascExportWizard_CloseButton;
+
     public static String RascExportWizard_Description;
+
+    public static String RascExportWizard_ExportButton;
+
+    public static String RascExportWizard_LaunchButton;
 
     public static String RascExportWizard_Title;
     static {

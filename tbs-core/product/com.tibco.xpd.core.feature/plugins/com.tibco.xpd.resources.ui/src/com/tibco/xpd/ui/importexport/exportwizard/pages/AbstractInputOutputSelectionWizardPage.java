@@ -5,6 +5,7 @@ package com.tibco.xpd.ui.importexport.exportwizard.pages;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
@@ -59,13 +60,13 @@ import com.tibco.xpd.ui.projectexplorer.viewerfilters.XpdNatureProjectsOnly;
  * @author Jan Arciuchiewicz
  * 
  */
-public abstract class AbstractInputOutputSelectionWizardPage extends
-        AbstractXpdWizardPage implements SelectionListener {
+public abstract class AbstractInputOutputSelectionWizardPage
+        extends AbstractXpdWizardPage implements SelectionListener {
 
     private static final String PREVIOUS_SELECTED_PATH = "PreviousSelectedPath"; //$NON-NLS-1$
 
-    public static final Logger LOG = XpdResourcesUIActivator.getDefault()
-            .getLogger();
+    public static final Logger LOG =
+            XpdResourcesUIActivator.getDefault().getLogger();
 
     // Tree view control
     protected ExplorerTreeViewer resourceViewer;
@@ -139,7 +140,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
      * @param selection
      *            The initial selection to be made in the tree viewer.
      */
-    public AbstractInputOutputSelectionWizardPage(IStructuredSelection selection) {
+    public AbstractInputOutputSelectionWizardPage(
+            IStructuredSelection selection) {
         this(selection, false);
     }
 
@@ -203,9 +205,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
-     * .Composite)
+     * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.
+     * widgets .Composite)
      */
     @Override
     public void createControl(Composite parent) {
@@ -239,17 +240,21 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         setPageComplete(true);
         validatePageCompletion();
 
-        exportDestination =
-                btnProject != null && btnProject.getSelection() ? ExportDestination.PROJECT
-                        : ExportDestination.PATH;
+        exportDestination = btnProject != null && btnProject.getSelection()
+                ? ExportDestination.PROJECT
+                : ExportDestination.PATH;
 
         if (getWizard() != null && getWizard().getClass() != null) {
             if (exportDestination == ExportDestination.PATH) {
-                setPreference(getWizard().getClass().getName()
-                        + EXPORT_DESTINATION_PREFERENCE_CONSTANT, true);
+                setPreference(
+                        getWizard().getClass().getName()
+                                + EXPORT_DESTINATION_PREFERENCE_CONSTANT,
+                        true);
             } else if (exportDestination == ExportDestination.PROJECT) {
-                setPreference(getWizard().getClass().getName()
-                        + EXPORT_DESTINATION_PREFERENCE_CONSTANT, false);
+                setPreference(
+                        getWizard().getClass().getName()
+                                + EXPORT_DESTINATION_PREFERENCE_CONSTANT,
+                        false);
             }
         }
 
@@ -259,8 +264,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
             if (locationPath.trim().length() == 0) {
                 // Empty path
                 if (initialized) {
-                    setErrorMessage(String
-                            .format(Messages.InputOutputSelectionWizardPage_DestPathEmptyError_message));
+                    setErrorMessage(String.format(
+                            Messages.InputOutputSelectionWizardPage_DestPathEmptyError_message));
                 }
                 txtPath.setFocus();
                 setPageComplete(false);
@@ -278,8 +283,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
             if (externalFolderShouldExist
                     && (!dest.exists() || !dest.isDirectory())) {
                 if (initialized) {
-                    setErrorMessage(String
-                            .format(Messages.InputOutputSelectionWizardPage_InvalidPathError_message));
+                    setErrorMessage(String.format(
+                            Messages.InputOutputSelectionWizardPage_InvalidPathError_message));
                 }
                 txtPath.setFocus();
                 setPageComplete(false);
@@ -292,6 +297,22 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
     public List<Object> getSelectedObjects() {
         Object[] checkedItems = resourceViewer.getCheckedElements();
         return Arrays.asList(checkedItems);
+    }
+
+    /**
+     * Update the check state of a given list of items. Items not in the list
+     * are unaffected.
+     * 
+     * @param items
+     *            The list of items to update.
+     * @param checked
+     *            true to set as checked, false to set as unchecked.
+     */
+    protected void updateSelectedObjects(Collection<? extends Object> items,
+            boolean checked) {
+        for (Object item : items) {
+            resourceViewer.setChecked(item, checked);
+        }
     }
 
     /**
@@ -325,11 +346,11 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         tBar.setLayoutData(gridData);
 
         final ToolItem tExpandAll = new ToolItem(tBar, SWT.PUSH);
-        tExpandAll.setImage(XpdResourcesUIActivator.getDefault()
-                .getImageRegistry()
-                .get(XpdResourcesUIConstants.EXPORT_EXPAND_ALL));
-        tExpandAll
-                .setToolTipText(Messages.InputOutputSelectionWizardPage_ExpandAll_tooltip);
+        tExpandAll.setImage(
+                XpdResourcesUIActivator.getDefault().getImageRegistry()
+                        .get(XpdResourcesUIConstants.EXPORT_EXPAND_ALL));
+        tExpandAll.setToolTipText(
+                Messages.InputOutputSelectionWizardPage_ExpandAll_tooltip);
         tExpandAll.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -338,11 +359,11 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         });
 
         final ToolItem tCollapseAll = new ToolItem(tBar, SWT.PUSH);
-        tCollapseAll.setImage(XpdResourcesUIActivator.getDefault()
-                .getImageRegistry()
-                .get(XpdResourcesUIConstants.EXPORT_COLLAPSE_ALL));
-        tCollapseAll
-                .setToolTipText(Messages.InputOutputSelectionWizardPage_CollapseAll_tooltip);
+        tCollapseAll.setImage(
+                XpdResourcesUIActivator.getDefault().getImageRegistry()
+                        .get(XpdResourcesUIConstants.EXPORT_COLLAPSE_ALL));
+        tCollapseAll.setToolTipText(
+                Messages.InputOutputSelectionWizardPage_CollapseAll_tooltip);
         tCollapseAll.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -355,9 +376,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         ViewerFilter[] viewerFilters = createViewerFilters();
 
         // Package tree viewer
-        resourceViewer =
-                new ExplorerTreeViewer(container, input, viewerSorter,
-                        viewerFilters);
+        resourceViewer = new ExplorerTreeViewer(container, input, viewerSorter,
+                viewerFilters);
         gridData = new GridData(GridData.FILL_BOTH);
         gridData.horizontalSpan = 2;
         gridData.widthHint = 100;
@@ -365,8 +385,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         resourceViewer.getControl().setLayoutData(gridData);
 
         resourceViewer.setInitialSelection(selection);
-        resourceViewer
-                .addPostSelectionChangedListener(new ISelectionChangedListener() {
+        resourceViewer.addPostSelectionChangedListener(
+                new ISelectionChangedListener() {
                     @Override
                     public void selectionChanged(SelectionChangedEvent event) {
                         // Update page completion
@@ -403,8 +423,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
 
         // Select All button
         final Button btnSelectAll = new Button(cmpTreeSelect, SWT.PUSH);
-        btnSelectAll
-                .setText(Messages.InputOutputSelectionWizardPage_SelectAll_button);
+        btnSelectAll.setText(
+                Messages.InputOutputSelectionWizardPage_SelectAll_button);
         btnSelectAll.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -415,8 +435,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
 
         // Deselect All button
         final Button btnUnselectAll = new Button(cmpTreeSelect, SWT.PUSH);
-        btnUnselectAll
-                .setText(Messages.InputOutputSelectionWizardPage_DeselectAll_button);
+        btnUnselectAll.setText(
+                Messages.InputOutputSelectionWizardPage_DeselectAll_button);
         btnUnselectAll.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -424,6 +444,18 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
                 updatePageCompletion();
             }
         });
+
+        createExtraTreeControlButtons(cmpTreeSelect);
+    }
+
+    /**
+     * Override to add your own buttons to the button row.
+     * 
+     * @param cmpTreeSelect
+     *            The composite to add tree buttons to.
+     */
+    protected void createExtraTreeControlButtons(Composite cmpTreeSelect) {
+        // Do nothing by default
     }
 
     protected ViewerFilter[] createViewerFilters() {
@@ -458,9 +490,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
          */
         boolean preferenceValue = false;
         if (getWizard() != null && getWizard().getClass() != null) {
-            preferenceValue =
-                    getPreference(getWizard().getClass().getName()
-                            + EXPORT_DESTINATION_PREFERENCE_CONSTANT);
+            preferenceValue = getPreference(getWizard().getClass().getName()
+                    + EXPORT_DESTINATION_PREFERENCE_CONSTANT);
         }
         GridData gridData;
         // Get the project export folder path
@@ -482,8 +513,8 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
 
         // Destination group
         final Group grpDestination = new Group(container, SWT.NULL);
-        grpDestination
-                .setText(Messages.InputOutputSelectionWizardPage_DestinationGroup_label);
+        grpDestination.setText(
+                Messages.InputOutputSelectionWizardPage_DestinationGroup_label);
         gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 3;
         grpDestination.setLayoutData(gridData);
@@ -505,10 +536,9 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
         }
         btnProject.addSelectionListener(this);
         lblLocation = new Label(grpDestination, SWT.NULL);
-        lblLocation
-                .setText(String
-                        .format(Messages.InputOutputSelectionWizardPage_Location_lablel,
-                                projectDestFolder));
+        lblLocation.setText(String.format(
+                Messages.InputOutputSelectionWizardPage_Location_lablel,
+                projectDestFolder));
         gridData = new GridData();
         gridData.horizontalSpan = 2;
         lblLocation.setLayoutData(gridData);
@@ -686,8 +716,10 @@ public abstract class AbstractInputOutputSelectionWizardPage extends
                         // Show Directory Dialog
                         DirectoryDialog dDialog =
                                 new DirectoryDialog(getShell());
-                        dDialog.setText(Messages.InputOutputSelectionWizardPage_SelectFolderDialog_message);
-                        dDialog.setMessage(Messages.InputOutputSelectionWizardPage_SelectFolderDialog_longdesc);
+                        dDialog.setText(
+                                Messages.InputOutputSelectionWizardPage_SelectFolderDialog_message);
+                        dDialog.setMessage(
+                                Messages.InputOutputSelectionWizardPage_SelectFolderDialog_longdesc);
 
                         // If we have path already selected then set the dialog
                         // filter

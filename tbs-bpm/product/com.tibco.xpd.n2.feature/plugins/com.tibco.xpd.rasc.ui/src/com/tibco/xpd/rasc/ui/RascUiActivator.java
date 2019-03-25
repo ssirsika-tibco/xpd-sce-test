@@ -21,6 +21,8 @@ public class RascUiActivator extends AbstractUIPlugin {
     public static final String RASC_EXPORT_WIZARD_IMAGE =
             "RASC_EXPORT_WIZARD_IMAGE"; //$NON-NLS-1$
 
+    public static final String ADMIN_BASE_URL = "adminBaseUrl"; //$NON-NLS-1$
+
     // The shared instance
     private static RascUiActivator plugin;
 
@@ -73,4 +75,20 @@ public class RascUiActivator extends AbstractUIPlugin {
         return getDefault().logger;
     }
 
+    /**
+     * @return The admin base URL or an empty string if it hasn't been set.
+     */
+    public String getAdminBaseUrl() {
+        return getPreferenceStore().getString(ADMIN_BASE_URL);
+    }
+
+    /**
+     * Sets the admin base URL.
+     * 
+     * @param url
+     *            The admin base URL.
+     */
+    public void setAdminBaseUrl(String url) {
+        getPreferenceStore().setValue(ADMIN_BASE_URL, url);
+    }
 }

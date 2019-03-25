@@ -40,7 +40,7 @@ public class RascExportOperation implements IRunnableWithProgress {
     /**
      * The dialog showing the progress status.
      */
-    private ExportProgressMonitorDialog dialog;
+    private ExportStatusListener listener;
 
     /**
      * The projects to export.
@@ -63,10 +63,10 @@ public class RascExportOperation implements IRunnableWithProgress {
      *            The projects to export.
      */
     public RascExportOperation(RascController controller,
-            ExportProgressMonitorDialog dialog, List<IProject> projects,
-            String path, boolean isProjectRelative) {
+            ExportStatusListener listener, List<IProject> projects, String path,
+            boolean isProjectRelative) {
         this.controller = controller;
-        this.dialog = dialog;
+        this.listener = listener;
         this.projects = projects;
         this.path = path;
         this.isProjectRelative = isProjectRelative;
@@ -81,11 +81,11 @@ public class RascExportOperation implements IRunnableWithProgress {
         monitor.beginTask(Messages.RascExportOperation_ProgressTitle,
                 projects.size() * 2);
         for (IProject project : projects) {
-            dialog.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
+            listener.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
         }
         boolean valid = true;
         for (IProject project : projects) {
-            dialog.setStatus(project,
+            listener.setStatus(project,
                     ExportStatus.RUNNING,
                     Messages.RascExportOperation_ValidatingStatus);
             try {
@@ -93,18 +93,18 @@ public class RascExportOperation implements IRunnableWithProgress {
                         true,
                         IResource.DEPTH_INFINITE);
                 if (severity == IMarker.SEVERITY_ERROR) {
-                    dialog.setStatus(project,
+                    listener.setStatus(project,
                             ExportStatus.FAILED,
                             Messages.RascExportOperation_ErrorStatus);
                     valid = false;
                 } else {
-                    dialog.setStatus(project,
+                    listener.setStatus(project,
                             ExportStatus.RUNNING,
                             Messages.RascExportOperation_ValidStatus);
 
                 }
             } catch (CoreException e) {
-                dialog.setStatus(project,
+                listener.setStatus(project,
                         ExportStatus.FAILED,
                         Messages.RascExportOperation_ErrorStatus);
                 valid = false;
@@ -113,7 +113,7 @@ public class RascExportOperation implements IRunnableWithProgress {
         }
         if (valid) {
             for (IProject project : projects) {
-                dialog.setStatus(project,
+                listener.setStatus(project,
                         ExportStatus.RUNNING,
                         Messages.RascExportOperation_ExportingStatus);
                 try {
@@ -126,16 +126,16 @@ public class RascExportOperation implements IRunnableWithProgress {
                                 getSystemPath(project),
                                 null);
                     }
-                    dialog.setStatus(project,
+                    listener.setStatus(project,
                             ExportStatus.COMPLETE,
                             Messages.RascExportOperation_CompleteStatus);
                 } catch (RascGenerationException e) {
-                    dialog.setStatus(project,
+                    listener.setStatus(project,
                             ExportStatus.FAILED,
                             Messages.RascExportOperation_ErrorStatus);
                     RascUiActivator.getLogger().error(e);
                 } catch (CoreException e) {
-                    dialog.setStatus(project,
+                    listener.setStatus(project,
                             ExportStatus.FAILED,
                             Messages.RascExportOperation_FolderErrorStatus);
                     RascUiActivator.getLogger().error(e);

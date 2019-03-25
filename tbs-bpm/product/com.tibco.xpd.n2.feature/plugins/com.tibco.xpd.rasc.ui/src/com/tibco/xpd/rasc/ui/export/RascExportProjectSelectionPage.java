@@ -5,12 +5,21 @@
 package com.tibco.xpd.rasc.ui.export;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 
 import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.resources.util.CyclicDependencyException;
+import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
 
 /**
@@ -31,6 +40,33 @@ public class RascExportProjectSelectionPage
      */
     public RascExportProjectSelectionPage(IStructuredSelection selection) {
         super(selection, true);
+    }
+
+    /**
+     * @see com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage#createExtraTreeControlButtons(org.eclipse.swt.widgets.Composite)
+     *
+     * @param cmpTreeSelect
+     */
+    @Override
+    protected void createExtraTreeControlButtons(Composite cmpTreeSelect) {
+        final Button selectRequired = new Button(cmpTreeSelect, SWT.PUSH);
+        selectRequired.setText(Messages.RascExportProjectSelectionPage_SelectRequired);
+        selectRequired.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                Set<IProject> selected = new HashSet<>(getSelectedProjects());
+                try {
+                    Set<IProject> toCheck = ProjectUtil2
+                            .getReferencedProjectsHierarchies(selected, true);
+                    updateSelectedObjects(toCheck, true);
+                } catch (CyclicDependencyException e1) {
+                    setPageComplete(false);
+                    setMessage(
+                            Messages.RascExportProjectSelectionPage_CyclicError,
+                            ERROR);
+                }
+            }
+        });
     }
 
     /**

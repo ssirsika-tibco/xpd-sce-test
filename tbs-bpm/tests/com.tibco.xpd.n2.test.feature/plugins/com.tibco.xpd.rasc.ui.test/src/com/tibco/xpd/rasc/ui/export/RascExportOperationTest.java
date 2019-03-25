@@ -41,7 +41,7 @@ public class RascExportOperationTest {
     private RascController controller;
 
     @Mock
-    private ExportProgressMonitorDialog dialog;
+    private ExportStatusListener listener;
 
     @Mock
     private IProject project;
@@ -68,7 +68,7 @@ public class RascExportOperationTest {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
         RascExportOperation operation = new RascExportOperation(controller,
-                dialog, projects, "Export/RASC", true);
+                listener, projects, "Export/RASC", true);
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),
@@ -84,7 +84,7 @@ public class RascExportOperationTest {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
         RascExportOperation operation = new RascExportOperation(controller,
-                dialog, projects, "/tmp/Export/RASC", false);
+                listener, projects, "/tmp/Export/RASC", false);
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),
