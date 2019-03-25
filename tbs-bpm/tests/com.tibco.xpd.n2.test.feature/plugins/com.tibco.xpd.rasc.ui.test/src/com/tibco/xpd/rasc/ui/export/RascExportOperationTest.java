@@ -25,6 +25,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.tibco.xpd.rasc.core.RascController;
+import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 
 /**
  * RascExportOperation test.
@@ -74,7 +75,8 @@ public class RascExportOperationTest {
             verify(controller).generateRasc(Matchers.eq(project),
                     Matchers.eq(rascProjectFile),
                     Matchers.any());
-        } catch (InvocationTargetException | InterruptedException e) {
+        } catch (InvocationTargetException | InterruptedException
+                | RascGenerationException e) {
             fail(e.getMessage());
         }
     }
@@ -90,7 +92,8 @@ public class RascExportOperationTest {
             verify(controller).generateRasc(Matchers.eq(project),
                     Matchers.any(File.class),
                     Matchers.any());
-        } catch (InvocationTargetException | InterruptedException e) {
+        } catch (InvocationTargetException | InterruptedException
+                | RascGenerationException e) {
             fail(e.getMessage());
         }
     }
