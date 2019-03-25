@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 
 import junit.framework.TestCase;
@@ -123,7 +124,11 @@ public class NewCeProjectsTest extends TestCase {
                 enabledGlobalDestinations.size() == 1
                         && enabledGlobalDestinations.contains("CE")); //$NON-NLS-1$
 
-        /* Ensure that the correct asset is added. */
+        /*
+         * Ensure that the correct asset is added (Can't test UI is hidden
+         * dierct but we can check that hiding it didn't mess up the default
+         * asset being created).
+         */
         ArrayList<IResource> assets =
                 SpecialFolderUtil.getResourcesInSpecialFolderOfKind(project,
                         assetSpecialFolderKind,
@@ -131,6 +136,20 @@ public class NewCeProjectsTest extends TestCase {
 
         assertTrue(assetFileExtension + " asset not created", //$NON-NLS-1$
                 assets.size() == 1);
+
+        /*
+         * Ensure that the default version is set even though the UI was hidden
+         * 
+         * PLEASE NOTE: When the version is left as 1.0.0.qualifier **this does
+         * NOT actually get written to the .config file** this is consistent
+         * with the existing LifeCycle propeties behaviour in AMX BPM (may be
+         * inherent in Eclipse)
+         */
+        String projectVersion = ProjectUtil.getProjectVersion(project);
+
+        assertTrue(
+                assetFileExtension + " version not preset to 1.0.0.qualifier", //$NON-NLS-1$
+                "1.0.0.qualifier".equals(projectVersion)); //$NON-NLS-1$
 
         try {
             project.delete(true, true, new NullProgressMonitor());
