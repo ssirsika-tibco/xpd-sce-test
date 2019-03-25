@@ -18,11 +18,14 @@ public class TempConfigurationElement implements IConfigurationElement {
 
     private String wizardId;
 
+    private IContributor contributor = new TempContributor();
+
     /**
      * Default constructor sets the wizard ID to the BPM Developer Project.
      */
     public TempConfigurationElement() {
         this("com.tibco.xpd.newProject.BPMSOADeveloper"); //$NON-NLS-1$
+
     }
 
     /**
@@ -128,8 +131,7 @@ public class TempConfigurationElement implements IConfigurationElement {
      */
     @Override
     public IContributor getContributor() throws InvalidRegistryObjectException {
-        // TODO Auto-generated method stub
-        return null;
+        return contributor;
     }
 
     /**
@@ -260,6 +262,27 @@ public class TempConfigurationElement implements IConfigurationElement {
     public String getValue(String locale) throws InvalidRegistryObjectException {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    /**
+     * Dummy Contributor class
+     *
+     *
+     * @author aallway
+     * @since 22 Mar 2019
+     */
+    class TempContributor implements IContributor {
+
+        /**
+         * @see org.eclipse.core.runtime.IContributor#getName()
+         *
+         * @return
+         */
+        @Override
+        public String getName() {
+            return "xpd.test.util";
+        }
+
     }
 
 }

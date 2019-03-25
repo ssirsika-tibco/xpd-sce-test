@@ -6,7 +6,9 @@ package com.tibco.xpd.core.test.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.transform.Source;
 import javax.xml.validation.Schema;
@@ -62,6 +64,7 @@ import com.tibco.xpd.resources.wc.AbstractWorkingCopy;
 import com.tibco.xpd.ui.wizards.newproject.ProjectSelectionPage;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard;
 import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizard.CreateXpdProjectOperation;
+import com.tibco.xpd.ui.wizards.newproject.XpdProjectWizardFactory;
 import com.tibco.xpd.validation.ValidationActivator;
 import com.tibco.xpd.validation.ValidationActivator.ValidatorStatus;
 import com.tibco.xpd.validation.provider.IIssue;
@@ -918,59 +921,127 @@ public class TestUtil {
      */
     public static IProject createProjectFromWizard(String projectName,
             String wizardId) {
-        IPreferenceStore store =
-                IDEWorkbenchPlugin.getDefault().getPreferenceStore();
+        Map<String, String> parameters = new HashMap<String, String>();
 
-        store.setValue(IDEInternalPreferences.PROJECT_SWITCH_PERSP_MODE,
-                IDEInternalPreferences.PSPM_ALWAYS);
+        return createProjectFromWizard(projectName, wizardId, parameters);
+    }
 
-        XpdProjectWizard projWizard =
-                new XpdProjectWizard(
-                        wizardId != null ? new TempConfigurationElement(
-                                wizardId) : new TempConfigurationElement());
+    /**
+     * Creates a new project using the XpdProjectWizard for a specific XPD
+     * wizard type. The wizard ID must match the value in the wizard extension
+     * point, or can be null to default to a standard BPM Developer Project.
+     * 
+     * @param projectName
+     *            The name of the project to create.
+     * @param wizardId
+     *            The ID of the XPD wizard to use - or null to create BPM
+     *            developer project with BOM and WSDL assets also added (for
+     *            backwards compatibility for existing test cases)
+     * @param parameters
+     *            As per {@link XpdProjectWizardFactory} parameter definitions
+     *            (such as "hideDestinationEnv", "defaultProjectVersion" etc)
+     * 
+     * @return The created project.
+     */
+    public static IProject createProjectFromWizard(String projectName,
+            String wizardId, Map<String, String> parameters) {
 
-        /*
-         * SCF-411: Kapil- Now the Project creation wizard by default does not
-         * include the BOM and Service Descriptior(Wsdl) assets, as most of the
-         * tests as based on these assets we explicitly add them to the test
-         * framework.
-         */
-        if (wizardId == null) {
-            String[] assetIdsToEnable =
-                    new String[] { BOM_ASSET_ID, WSDL_ASSET_ID };
+        try {
+            IPreferenceStore store =
+                    IDEWorkbenchPlugin.getDefault().getPreferenceStore();
 
-            /* Add the BOM and Wsdl assets to the project. */
-            projWizard.setAssetIdsToEnable(assetIdsToEnable);
-        }
+            store.setValue(IDEInternalPreferences.PROJECT_SWITCH_PERSP_MODE,
+                    IDEInternalPreferences.PSPM_ALWAYS);
 
-        projWizard.init(PlatformUI.getWorkbench(), null);
-        WizardDialog dialog =
-                new WizardDialog(PlatformUI.getWorkbench()
-                        .getActiveWorkbenchWindow().getShell(), projWizard);
+            /*
+             * Sid ACE-411 - use the factory to create the wizard AS that takes
+             * into account the wizard parameters.
+             */
+            XpdProjectWizardFactory factory = new XpdProjectWizardFactory();
 
-        dialog.create();
-        IWizardPage page = dialog.getCurrentPage();
-        if (page instanceof ProjectSelectionPage) {
-            Control control = page.getControl();
-            if (control instanceof Composite) {
-                Composite composite = (Composite) control;
-                Text findText = findText(composite);
-                if (findText != null) {
-                    findText.setText(projectName);
+            TempConfigurationElement config =
+                    new TempConfigurationElement(wizardId);
+
+            factory.setInitializationData(config, "class", parameters);
+
+            XpdProjectWizard projWizard = (XpdProjectWizard) factory.create();
+
+            /*
+             * SCF-411: Kapil- Now the Project creation wizard by default does
+             * not include the BOM and Service Descriptior(Wsdl) assets, as most
+             * of the tests as based on these assets we explicitly add them to
+             * the test framework.
+             */
+            if (wizardId == null) {
+                String[] assetIdsToEnable =
+                        new String[] { BOM_ASSET_ID, WSDL_ASSET_ID };
+
+                /* Add the BOM and Wsdl assets to the project. */
+                projWizard.setAssetIdsToEnable(assetIdsToEnable);
+            }
+
+            projWizard.init(PlatformUI.getWorkbench(), null);
+            WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench()
+                    .getActiveWorkbenchWindow().getShell(), projWizard);
+
+            dialog.create();
+            IWizardPage page = dialog.getCurrentPage();
+            if (page instanceof ProjectSelectionPage) {
+                Control control = page.getControl();
+                if (control instanceof Composite) {
+                    Composite composite = (Composite) control;
+                    Text findText = findText(composite);
+                    if (findText != null) {
+                        findText.setText(projectName);
+                    }
                 }
             }
+
+            projWizard.performFinish();
+            TestUtil.waitForJobs(1000);
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                    .getProject(projectName);
+            if (project.exists()) {
+                return project;
+            }
+
+        } catch (CoreException e) {
+            e.printStackTrace();
         }
 
-        projWizard.performFinish();
-        TestUtil.waitForJobs(1000);
-
-        IProject project =
-                ResourcesPlugin.getWorkspace().getRoot()
-                        .getProject(projectName);
-        if (project.exists()) {
-            return project;
-        }
         return null;
+    }
+
+    /**
+     * Create a project in as near as it can be to that created via the XPD
+     * wizard extension point contributions.
+     * 
+     * @param wizardId
+     * @param parameters
+     *            As per {@link XpdProjectWizardFactory} parameter definitions
+     *            (such as "hideDestinationEnv", "defaultProjectVersion" etc)
+     * @return The project
+     */
+    public IProject createProjectFromWizardFactory(String wizardId,
+            Map<String, String> parameters) {
+        IProject project = null;
+
+        try {
+            XpdProjectWizardFactory factory = new XpdProjectWizardFactory();
+
+            TempConfigurationElement config =
+                    new TempConfigurationElement(wizardId);
+
+            factory.setInitializationData(config, "class", parameters);
+
+            XpdProjectWizard wizard = (XpdProjectWizard) factory.create();
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
+
+        return project;
     }
 
     private static Text findText(Composite composite) {

@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
 
@@ -23,7 +24,7 @@ public class AllUnitTests {
 
         suite.addTestSuite(OrgModelRascContributorTest.class);
         suite.addTestSuite(PERascContributorTest.class);
-
+        suite.addTestSuite(NewCeProjectsTest.class);
         return suite;
     }
 }
