@@ -14,7 +14,13 @@ import com.tibco.xpd.destinations.DestinationsActivator;
 /**
  * @author nwilson
  * 
+ * @deprecated Sid ACE-446 The Global destination configuration page is no
+ *             longer required as SCE is for use only for the latest and
+ *             greatest ACE runtime - so CE destination is always selected and
+ *             never needs to be configured. The contribution has been disabled
+ *             in plugin.xml
  */
+@Deprecated
 public class GlobalDestinationPreferencePage extends FieldEditorPreferencePage
         implements IWorkbenchPreferencePage {
 
@@ -47,6 +53,8 @@ public class GlobalDestinationPreferencePage extends FieldEditorPreferencePage
         addField(new DestinationsEditor(getFieldEditorParent()));
     }
 
+    @Override
     public void init(IWorkbench workbench) {
     }
+
 }

@@ -2,6 +2,13 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension-point id="globalDestinationEnvironment" name="Global Destination Environment" schema="schema/globalDestinationEnvironment.exsd"/>
+   
+   <!--
+   		Sid ACE-446 The Global destination configuration page is no
+               longer required as SCE is for use only for the latest and
+               greatest ACE runtime - so CE destination is always selected and
+               never needs to be configured. The contribution has been disabled
+               in plugin.xml
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
@@ -38,6 +45,8 @@
          </description>
       </settingsTransfer>
    </extension>
+-->
+
    <extension
          point="com.tibco.xpd.validation.destinations">
       <destination
