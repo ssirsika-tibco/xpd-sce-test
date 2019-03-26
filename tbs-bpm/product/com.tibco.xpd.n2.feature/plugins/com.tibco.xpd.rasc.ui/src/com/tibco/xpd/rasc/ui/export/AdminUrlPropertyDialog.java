@@ -77,15 +77,14 @@ public class AdminUrlPropertyDialog extends IconAndMessageDialog {
         infoArea.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
         Label infoIcon = new Label(infoArea, SWT.NONE);
         infoIcon.setImage(PlatformUI.getWorkbench().getSharedImages()
-                .getImage("IMG_OBJS_INFO_TSK"));
+                .getImage("IMG_OBJS_INFO_TSK")); //$NON-NLS-1$
         infoIcon.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
         Label infoText = new Label(infoArea, SWT.NONE);
-        infoText.setText(
-                "The Admin URL can be changed at any time in the Preference Page.");
+        infoText.setText(Messages.AdminUrlPropertyDialog_InfoMessage);
         infoText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
         hideCheckbox = toolkit.createCheckbox(infoArea,
                 false,
-                "Don't show this dialog again",
+                Messages.AdminUrlPropertyDialog_HideDialogCheckbox,
                 RascUiActivator.HIDE_ADMIN_BASE_URL);
         hideCheckbox.setLayoutData(
                 new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));

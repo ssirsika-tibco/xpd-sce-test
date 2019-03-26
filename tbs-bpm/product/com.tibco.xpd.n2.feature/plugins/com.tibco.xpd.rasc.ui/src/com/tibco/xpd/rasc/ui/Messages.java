@@ -15,6 +15,10 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
     private static final String BUNDLE_NAME = "com.tibco.xpd.rasc.ui.messages"; //$NON-NLS-1$
 
+    public static String AdminUrlPropertyDialog_HideDialogCheckbox;
+
+    public static String AdminUrlPropertyDialog_InfoMessage;
+
     public static String AdminUrlPropertyDialog_Message;
 
     public static String AdminUrlPropertyDialog_Title;
