@@ -212,6 +212,7 @@ public class ProjectVersionPage extends PropertyPage implements
         ProjectDetails details =
                 ProjectConfigFactory.eINSTANCE.createProjectDetails();
         details.setId(ProjectDetailsSection.getDefaultId(project.getName()));
+
         return details;
     }
 
@@ -288,6 +289,13 @@ public class ProjectVersionPage extends PropertyPage implements
         public DetailsPage(boolean canSetDetails) {
             this.canSetDetails = canSetDetails;
             detailsSection = new ProjectDetailsSection();
+
+            /*
+             * Sid ACE-445 - hide the destinations UI from the project lifecycle
+             * properties page.
+             */
+            detailsSection.setShowDestinationEnvironment(false);
+
             // Create default details
             details = ProjectConfigFactory.eINSTANCE.createProjectDetails();
         }

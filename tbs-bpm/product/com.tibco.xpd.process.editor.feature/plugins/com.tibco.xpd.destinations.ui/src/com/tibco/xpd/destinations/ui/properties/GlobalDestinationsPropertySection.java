@@ -376,6 +376,17 @@ public class GlobalDestinationsPropertySection extends
     @Override
     public boolean select(Object toTest) {
 
+        /*
+         * Sid ACE-445 - SCE is only for ACE so no need to show the destinations
+         * selection.
+         * 
+         * NOTE: not removing for now in case we need to re-introduce this into
+         * ACE for some other reason. So just disabling it using the filter.
+         */
+        if (true) {
+            return false;
+        }
+
         // Do not show this section in the RCP application
         if (XpdResourcesPlugin.isRCP()) {
             return false;
@@ -389,7 +400,7 @@ public class GlobalDestinationsPropertySection extends
         if (toTest instanceof EObject) {
             eo = (EObject) toTest;
         } else if (toTest instanceof IAdaptable) {
-            eo = (EObject) ((IAdaptable) toTest).getAdapter(EObject.class);
+            eo = ((IAdaptable) toTest).getAdapter(EObject.class);
         }
         if (eo != null && eClass != null) {
             if (XpdExtensionPackage.eINSTANCE.getProcessInterface()
