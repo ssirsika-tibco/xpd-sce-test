@@ -16,7 +16,7 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
 
-import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
+import com.tibco.xpd.rasc.core.RascActivator;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascContributorLocator;
 import com.tibco.xpd.resources.logger.Logger;
@@ -30,7 +30,7 @@ import com.tibco.xpd.resources.util.DependencySorter;
  * @since 26 Feb 2019
  */
 final class RascContributorPluginsLocator implements RascContributorLocator {
-    private static final String EXT_POINT_ID = "bpmnRascContributors"; //$NON-NLS-1$
+    private static final String EXT_POINT_ID = "rascContributors"; //$NON-NLS-1$
 
     private static final String CONTRIBUTOR_ELEMENT = "contributor"; //$NON-NLS-1$
 
@@ -86,10 +86,10 @@ final class RascContributorPluginsLocator implements RascContributorLocator {
      * @return the instances of RascContributor.
      */
     private List<RascContributor> loadContributions() {
-        Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
+        Logger logger = RascActivator.getDefault().getLogger();
 
         IExtensionPoint point = Platform.getExtensionRegistry()
-                .getExtensionPoint(Xpdl2ResourcesPlugin.PLUGIN_ID,
+                .getExtensionPoint(RascActivator.PLUGIN_ID,
                         RascContributorPluginsLocator.EXT_POINT_ID);
         if (point == null) {
             logger.info(RascContributorPluginsLocator.LOG_NO_EXTPOINT);
@@ -153,7 +153,7 @@ final class RascContributorPluginsLocator implements RascContributorLocator {
      */
     private List<RascContributor> orderContributors(
             Map<String, Contribution> contributions) {
-        Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
+        Logger logger = RascActivator.getDefault().getLogger();
 
         List<DependencySorter.Arc<RascContributor>> arcs = new ArrayList<>();
         List<RascContributor> nodes = new ArrayList<>();

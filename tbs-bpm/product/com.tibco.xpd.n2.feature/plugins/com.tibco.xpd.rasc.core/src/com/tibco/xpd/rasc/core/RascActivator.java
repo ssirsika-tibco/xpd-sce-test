@@ -4,6 +4,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 import com.tibco.xpd.rasc.core.impl.RascControllerImpl;
+import com.tibco.xpd.resources.logger.Logger;
+import com.tibco.xpd.resources.logger.LoggerFactory;
 
 public class RascActivator implements BundleActivator {
 
@@ -11,9 +13,20 @@ public class RascActivator implements BundleActivator {
 
     private static RascActivator instance;
 
-	static BundleContext getContext() {
+    public static final String PLUGIN_ID = "com.tibco.xpd.rasc.core"; //$NON-NLS-1$
+
+    private Logger logger;
+
+    static BundleContext getContext() {
 		return context;
 	}
+
+    public synchronized Logger getLogger() {
+        if (logger == null) {
+            logger = LoggerFactory.createLogger(PLUGIN_ID);
+        }
+        return logger;
+    }
 
 	/*
 	 * (non-Javadoc)

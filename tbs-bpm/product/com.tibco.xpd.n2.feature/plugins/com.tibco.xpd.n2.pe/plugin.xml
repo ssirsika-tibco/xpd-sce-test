@@ -241,4 +241,11 @@
               contributorID="RestServiceToProcess.DataMapperContent">
         </scriptGeneratorInfoProviderContributor>
      </extension>
+   <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.xpd.n2.pe.transform.PERascContributor"
+            id="com.tibco.xpd.n2.pe.transform.pe.contributor">
+      </contributor>
+   </extension>
 </plugin>

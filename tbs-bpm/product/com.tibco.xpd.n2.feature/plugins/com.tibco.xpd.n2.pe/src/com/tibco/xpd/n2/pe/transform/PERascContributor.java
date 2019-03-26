@@ -16,6 +16,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -160,9 +161,13 @@ public class PERascContributor implements RascContributor {
                     InputStream input =
                             new BufferedInputStream(uri.toURL().openStream());
                     try {
+                        IPath relativePath = resource.getProjectRelativePath();
+                        System.out.println(relativePath);
+
                         // create a RASC artifact with the BPEL file name
                         OutputStream output = writer
-                                .addContent(resource.getName(), destinations);
+                                .addContent(relativePath.toString(),
+                                        destinations);
                         try {
                             int len;
                             byte[] buffer = new byte[1024];
