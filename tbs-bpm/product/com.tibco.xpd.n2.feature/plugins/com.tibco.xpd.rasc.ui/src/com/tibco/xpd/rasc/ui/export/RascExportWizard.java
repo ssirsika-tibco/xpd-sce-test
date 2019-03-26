@@ -181,7 +181,8 @@ public class RascExportWizard extends Wizard implements IExportWizard {
                 launch();
             } catch (PartInitException | MalformedURLException e) {
                 RascUiActivator.getLogger().error(e);
-                statusPage.setErrorMessage(Messages.RascExportWizard_AdminPageError);
+                statusPage.setErrorMessage(
+                        Messages.RascExportWizard_AdminPageError);
                 statusPage.setPageComplete(false);
             }
             return true;
@@ -212,9 +213,10 @@ public class RascExportWizard extends Wizard implements IExportWizard {
      *             If the URL is invalid (should never happen)
      */
     private void launch() throws PartInitException, MalformedURLException {
+        boolean hide = RascUiActivator.getDefault().getHideAdminUrlDialog();
         AdminLauncher launcher = new AdminLauncher();
         String url = RascUiActivator.getDefault().getAdminBaseUrl();
-        if (url == null || url.length() == 0) {
+        if (!hide || url == null || url.length() == 0) {
             int result = new AdminUrlPropertyDialog(getShell()).open();
             if (result == Dialog.OK) {
                 launcher.launch();

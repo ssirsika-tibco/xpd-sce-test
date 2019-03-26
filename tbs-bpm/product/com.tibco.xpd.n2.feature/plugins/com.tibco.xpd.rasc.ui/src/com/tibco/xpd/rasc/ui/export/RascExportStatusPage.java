@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.ui.PlatformUI;
 
+import com.tibco.xpd.deploy.ui.util.DeployUtil;
 import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.ui.dialogs.AbstractXpdWizardPage;
@@ -44,6 +45,8 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
 
     private IProgressMonitor monitor;
 
+    private boolean hasErrors;
+
     /**
      * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
      *
@@ -52,6 +55,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
     @Override
     public void createControl(Composite parent) {
         status = new HashMap<>();
+        hasErrors = false;
 
         Composite area = new Composite(parent, SWT.NONE);
         area.setLayout(new GridLayout(2, false));
@@ -108,6 +112,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
             if (exportStatus == ExportStatus.FAILED) {
                 setErrorMessage(Messages.RascExportStatusPage_RascExportError);
                 setPageComplete(false);
+                hasErrors = true;
             }
             if (status.containsKey(project)) {
                 LabelPair pair = status.get(project);
@@ -163,6 +168,12 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
      *            The job to run.
      */
     public void run(IRunnableWithProgress runnable) {
+        getShell().getDisplay().syncExec(() -> {
+            if (!DeployUtil.saveAllDirtyResourcesInWS(monitor)) {
+
+            }
+        });
+
         Job job = Job.createSystem(jobMonitor -> {
             try {
                 runnable.run(monitor);
@@ -182,10 +193,12 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
      * Override so we don't close until the user has acknowledged the result.
      */
     protected void finishedRun() {
-        getShell().getDisplay().asyncExec(() -> {
-            // Enable launch button
-            setPageComplete(true);
-        });
+        // Enable launch button
+        if (!hasErrors) {
+            getShell().getDisplay().asyncExec(() -> {
+                setPageComplete(true);
+            });
+        }
     }
 
     /**

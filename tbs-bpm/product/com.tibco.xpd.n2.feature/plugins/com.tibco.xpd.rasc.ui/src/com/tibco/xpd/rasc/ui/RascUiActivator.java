@@ -21,7 +21,16 @@ public class RascUiActivator extends AbstractUIPlugin {
     public static final String RASC_EXPORT_WIZARD_IMAGE =
             "RASC_EXPORT_WIZARD_IMAGE"; //$NON-NLS-1$
 
+    /**
+     * Preference Store key for the admin base URL.
+     */
     public static final String ADMIN_BASE_URL = "adminBaseUrl"; //$NON-NLS-1$
+
+    /**
+     * Preference Store key for boolean flag indicating whether to hide the
+     * admin URL dialog on launch.
+     */
+    public static final String HIDE_ADMIN_BASE_URL = "hideAdminBaseUrl"; //$NON-NLS-1$
 
     // The shared instance
     private static RascUiActivator plugin;
@@ -90,5 +99,20 @@ public class RascUiActivator extends AbstractUIPlugin {
      */
     public void setAdminBaseUrl(String url) {
         getPreferenceStore().setValue(ADMIN_BASE_URL, url);
+    }
+
+    /**
+     * @return true if the admin URL dialog should be hidden.
+     */
+    public boolean getHideAdminUrlDialog() {
+        return getPreferenceStore().getBoolean(HIDE_ADMIN_BASE_URL);
+    }
+
+    /**
+     * @param hide
+     *            true if the admin URL dialog should be hidden.
+     */
+    public void setHideAdminUrlDialog(boolean hide) {
+        getPreferenceStore().setValue(HIDE_ADMIN_BASE_URL, hide);
     }
 }

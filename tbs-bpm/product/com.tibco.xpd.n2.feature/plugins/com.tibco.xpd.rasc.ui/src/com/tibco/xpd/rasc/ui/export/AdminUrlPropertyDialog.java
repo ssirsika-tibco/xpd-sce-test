@@ -9,9 +9,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
@@ -28,6 +31,8 @@ import com.tibco.xpd.ui.properties.XpdWizardToolkit;
 public class AdminUrlPropertyDialog extends IconAndMessageDialog {
 
     private AdminUrlPropertyPanel panel;
+
+    private Button hideCheckbox;
 
     /**
      * @param parentShell
@@ -66,6 +71,25 @@ public class AdminUrlPropertyDialog extends IconAndMessageDialog {
         BaseXpdToolkit toolkit = new XpdWizardToolkit(area);
         panel = new AdminUrlPropertyPanel(toolkit, area, SWT.NONE);
         panel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
+        Composite infoArea = new Composite(area, SWT.NONE);
+        infoArea.setLayout(new GridLayout(2, false));
+        infoArea.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+        Label infoIcon = new Label(infoArea, SWT.NONE);
+        infoIcon.setImage(PlatformUI.getWorkbench().getSharedImages()
+                .getImage("IMG_OBJS_INFO_TSK"));
+        infoIcon.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
+        Label infoText = new Label(infoArea, SWT.NONE);
+        infoText.setText(
+                "The Admin URL can be changed at any time in the Preference Page.");
+        infoText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+        hideCheckbox = toolkit.createCheckbox(infoArea,
+                false,
+                "Don't show this dialog again",
+                RascUiActivator.HIDE_ADMIN_BASE_URL);
+        hideCheckbox.setLayoutData(
+                new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
+
         return area;
     }
 
@@ -75,6 +99,8 @@ public class AdminUrlPropertyDialog extends IconAndMessageDialog {
      */
     @Override
     protected void okPressed() {
+        RascUiActivator.getDefault()
+                .setHideAdminUrlDialog(hideCheckbox.getSelection());
         RascUiActivator.getDefault().setAdminBaseUrl(panel.getAdminBaseUrl());
         super.okPressed();
     }

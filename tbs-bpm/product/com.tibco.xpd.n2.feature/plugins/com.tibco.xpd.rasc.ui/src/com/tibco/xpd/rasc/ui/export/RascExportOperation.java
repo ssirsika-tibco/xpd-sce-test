@@ -23,6 +23,7 @@ import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
+import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 
 /**
  * Operation to export projects.
@@ -84,6 +85,9 @@ public class RascExportOperation implements IRunnableWithProgress {
             listener.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
         }
         boolean valid = true;
+
+        BuildSynchronizerUtil.waitForBuildsToFinish(monitor);
+
         for (IProject project : projects) {
             listener.setStatus(project,
                     ExportStatus.RUNNING,
