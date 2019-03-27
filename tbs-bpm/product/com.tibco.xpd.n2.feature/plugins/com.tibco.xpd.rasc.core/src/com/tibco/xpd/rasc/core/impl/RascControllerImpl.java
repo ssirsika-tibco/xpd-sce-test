@@ -28,8 +28,8 @@ import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.bpm.dt.rasc.VersionRange.Endpoint;
 import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 import com.tibco.bpm.dt.rasc.impl.DeploymentFactoryImpl;
-import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.rasc.core.Messages;
+import com.tibco.xpd.rasc.core.RascActivator;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascContributorLocator;
 import com.tibco.xpd.rasc.core.RascController;
@@ -153,7 +153,7 @@ public class RascControllerImpl implements RascController {
                     return null;
                 }
 
-                Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
+                Logger logger = RascActivator.getDefault().getLogger();
                 logger.info(RascControllerImpl.LOG_GENERATION_STARTED);
 
                 File result = File.createTempFile("sce", "rasc"); //$NON-NLS-1$ //$NON-NLS-2$
