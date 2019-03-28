@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.n2.cdm.test.transform;
+package com.tibco.xpd.sce.tests.cdm.transform;
 
 import java.util.List;
 import java.util.function.Function;
@@ -118,7 +118,7 @@ public abstract class AbstractCdmTransformTest
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.n2.cdm.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class AbstractCdmTransformTest
         long start = System.currentTimeMillis();
         DataModel cdmModel = new BomTransformer().transformBomModel(bomModel);
         long elapsed = System.currentTimeMillis() - start;
-        System.out.printf("BOM->CDM transf. time [%s]: %d ms./n", //$NON-NLS-1$
+        System.out.printf("BOM->CDM transf. time [%s]: %d ms.\n", //$NON-NLS-1$
                 bomFileName,
                 elapsed);
         Assert.assertNotNull(cdmModel);

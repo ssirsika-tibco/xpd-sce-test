@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.n2.cdm.test.transform;
+package com.tibco.xpd.sce.tests.cdm.transform;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +20,9 @@ import com.tibco.bpm.da.dm.api.DataModel;
 public abstract class AbstractSingleBomCdmTransformTest
         extends AbstractCdmTransformTest {
 
-    // Override for the test you would like to see output model.
+    /**
+     * @return <code>true</<code> if you would like to see output model.
+     */
     protected boolean printCdmModel() {
         return false;
     }
@@ -50,7 +52,7 @@ public abstract class AbstractSingleBomCdmTransformTest
             Model bomModel);
 
     /**
-     * @see com.tibco.xpd.n2.cdm.test.transform.AbstractCdmTransformTest#getBomFileName()
+     * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractCdmTransformTest#getBomFileName()
      */
     @Override
     protected List<String> getBomFileNames() {
@@ -69,10 +71,10 @@ public abstract class AbstractSingleBomCdmTransformTest
                 getBomCdmTransformation(getBomFolderPath(), getBomFileName());
         DataModel cdmModel = transform.getCdmModel();
         if (printCdmModel()) {
-            System.out.printf("========== CDM model for %s =============/n", //$NON-NLS-1$
+            System.out.printf("========== CDM model for %s =============\n", //$NON-NLS-1$
                     getBomFileName());
             System.out.println(cdmModel.serialize());
-            System.out.printf("---------- END model for %s -------------/n", //$NON-NLS-1$
+            System.out.printf("---------- END model for %s -------------\n", //$NON-NLS-1$
                     getBomFileName());
         }
         assertBomCdmTransformation(transform.getCdmModel(),

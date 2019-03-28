@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.n2.cdm.test.transform;
+package com.tibco.xpd.sce.tests.cdm.transform;
 
 import java.util.function.Function;
 
@@ -33,7 +33,7 @@ import com.tibco.bpm.da.dm.api.StructuredType;
 public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
 
     /**
-     * @see com.tibco.xpd.n2.cdm.test.transform.AbstractSingleBomCdmTransformTest#getBomFileName()
+     * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#getBomFileName()
      */
     @Override
     protected String getBomFileName() {
@@ -41,7 +41,15 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
     }
 
     /**
-     * @see com.tibco.xpd.n2.cdm.test.transform.AbstractSingleBomCdmTransformTest#assertBomCdmTransformation(com.tibco.bpm.da.dm.api.DataModel,
+     * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#printCdmModel()
+     */
+    @Override
+    protected boolean printCdmModel() {
+        return false;
+    }
+
+    /**
+     * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#assertBomCdmTransformation(com.tibco.bpm.da.dm.api.DataModel,
      *      org.eclipse.uml2.uml.Model)
      */
     @Override

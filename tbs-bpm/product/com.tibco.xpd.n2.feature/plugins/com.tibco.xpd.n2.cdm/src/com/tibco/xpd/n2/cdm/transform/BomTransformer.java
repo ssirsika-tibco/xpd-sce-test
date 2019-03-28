@@ -54,7 +54,6 @@ public class BomTransformer {
      * @return the Case Data Model.
      */
     public DataModel transformBomModel(Model bomModel) {
-
         DataModel cdmModel = DataModel.newDataModel();
         cdmModel.setNamespace(bomModel.getName());
         for (PackageableElement packageableElement : bomModel
@@ -110,12 +109,13 @@ public class BomTransformer {
         int upper = bomAttribute.getUpper();
         int lower = bomAttribute.getLower();
         cdmAttribute.setIsMandatory(lower != 0);
+        // -1 means +infinity (unbounded).
         cdmAttribute.setIsArray(upper == -1 || upper > 1);
         return cdmAttribute;
     }
 
     /**
-     * Transforms BOM type to CMD string type representation.
+     * Transforms BOM type to CDM string type representation.
      * 
      * @param bomType
      *            the BOM type.
