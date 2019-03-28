@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 
@@ -24,8 +25,10 @@ import junit.framework.TestCase;
 
 /**
  * Test for DDP 1.a
- * (http://confluence.tibco.com/pages/viewpage.action?pageId=171031408) All BPM
- * projects must have CE destination set by default.
+ * (http://confluence.tibco.com/pages/viewpage.action?pageId=171031408) All new
+ * BPM projects must have CE destination set by default and must have the
+ * default asset and version number even though they are hidden in Creation
+ * dialog.
  *
  * @author aallway
  * @since 22 Mar 2019
@@ -110,7 +113,8 @@ public class NewCeProjectsTest extends TestCase {
          */
         Map<String, String> parameters = new HashMap<>();
         parameters.put("title", wizTitle); //$NON-NLS-1$
-        parameters.put("presetDestinationEnv", "CE"); //$NON-NLS-1$ //$NON-NLS-2$
+        parameters.put("presetDestinationEnv", //$NON-NLS-1$
+                XpdResourcesPlugin.ACE_DESTINATION_NAME); //$NON-NLS-2$
 
         IProject project = TestUtil.createProjectFromWizard(projectName, // $NON-NLS-1$
                 wizId, // $NON-NLS-1$
@@ -122,7 +126,8 @@ public class NewCeProjectsTest extends TestCase {
         /* Ensure destination is auto set. */
         assertTrue("CE destination not set", //$NON-NLS-1$
                 enabledGlobalDestinations.size() == 1
-                        && enabledGlobalDestinations.contains("CE")); //$NON-NLS-1$
+                        && enabledGlobalDestinations.contains(
+                                XpdResourcesPlugin.ACE_DESTINATION_NAME)); // $NON-NLS-1$
 
         /*
          * Ensure that the correct asset is added (Can't test UI is hidden
