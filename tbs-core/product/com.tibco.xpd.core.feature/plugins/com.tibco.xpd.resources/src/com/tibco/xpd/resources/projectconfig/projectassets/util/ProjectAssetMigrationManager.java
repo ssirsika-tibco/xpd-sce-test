@@ -19,6 +19,7 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
@@ -28,10 +29,13 @@ import com.tibco.xpd.resources.internal.Messages;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigPackage;
+import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetMigration;
 import com.tibco.xpd.resources.util.DependencySorter;
 import com.tibco.xpd.resources.util.DependencySorter.Arc;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.resources.util.XpdConsts;
 
 /**
  * Provides the project asset migration functionality.
@@ -92,31 +96,88 @@ public final class ProjectAssetMigrationManager {
                 ProjectCompatibilityWithCode.COMPATIBLE;
 
         if (project != null && project.isAccessible()) {
+
             ProjectConfig config =
                     XpdResourcesPlugin.getDefault().getProjectConfig(project);
 
             if (config != null) {
-                for (AssetType type : config.getAssetTypes()) {
-                    ProjectCompatibilityWithCode assetCompat =
-                            getProjectAssetCompatibilityWithCode(type, project);
 
-                    if (ProjectCompatibilityWithCode.OLDER.equals(assetCompat)) {
-                        /*
-                         * OLDER - needs migrating - takes precedence because
-                         * older assets can be migrated.
-                         */
-                        projectCompatibilityWithCode = assetCompat;
-                        break;
+                /**
+                 * Sid ACE-444 This class now ensures that any project in the
+                 * workspace that has BPM related assets BUT NOT the CE
+                 * destination is not allowed and this has to be fixed before
+                 * any other validation marker is shown.
+                 * <p>
+                 * This is how we enforce that AMX BPM projects have been
+                 * correctly imported via the proper 'Import Studio projects'
+                 * which will perform the ecessary migration changes to convert
+                 * them into SCE projects.
+                 * <p>
+                 * Only projects so imported OR new projects created in SCE will
+                 * hve the 'CE' destination. Therefore any project with BPM
+                 * related assets but not CE destination haven't been created or
+                 * imported correctly.
+                 * 
+                 * Ideally this would be up in the N2 feature, but this is the
+                 * only place where we can add this sort of validation rule that
+                 * prevents other issues being shown at the moment. If necessary
+                 * in the future we can add a new ext' point to allow this to be
+                 * contributed but as SCE is only for ACE it shouldn't be a
+                 * problem for now.
+                 */
 
-                    } else if (ProjectCompatibilityWithCode.NEWER
-                            .equals(assetCompat)) {
-                        projectCompatibilityWithCode = assetCompat;
+                if (ProjectUtil.isStudioProject(project)
+                        && !isCeDestinationSet(config)) {
+                    projectCompatibilityWithCode =
+                            ProjectCompatibilityWithCode.NOT_SCE;
+
+                } else {
+                    /* Check for older / newer projects */
+                    for (AssetType type : config.getAssetTypes()) {
+                        ProjectCompatibilityWithCode assetCompat =
+                                getProjectAssetCompatibilityWithCode(type,
+                                        project);
+
+                        if (ProjectCompatibilityWithCode.OLDER
+                                .equals(assetCompat)) {
+                            /*
+                             * OLDER - needs migrating - takes precedence
+                             * because older assets can be migrated.
+                             */
+                            projectCompatibilityWithCode = assetCompat;
+                            break;
+
+                        } else if (ProjectCompatibilityWithCode.NEWER
+                                .equals(assetCompat)) {
+                            projectCompatibilityWithCode = assetCompat;
+                        }
                     }
                 }
             }
         }
 
         return projectCompatibilityWithCode;
+    }
+
+    /**
+     * @param config
+     * @return <code>true</code> if the project has the ACE destination env'
+     *         set.
+     */
+    private boolean isCeDestinationSet(ProjectConfig config) {
+        ProjectDetails details = config.getProjectDetails();
+
+        if (details != null) {
+            EList<String> enabledGlobalDestinationIds =
+                    details.getEnabledGlobalDestinationIds();
+
+            if (enabledGlobalDestinationIds != null
+                    && enabledGlobalDestinationIds.contains(
+                            XpdConsts.ACE_DESTINATION_NAME)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -525,6 +586,13 @@ public final class ProjectAssetMigrationManager {
          * The project has asset(s) that were created by a newer version on the
          * corresponding asset code.
          */
-        NEWER
+        NEWER,
+
+        /**
+         * Sid ACE-444 : The project has XPD nature but has not got the "CE"
+         * destination. That means it wasn't created in SCE and was not imported
+         * via the Studio project importer and hence not migrate too SCE.
+         */
+        NOT_SCE
     }
 }

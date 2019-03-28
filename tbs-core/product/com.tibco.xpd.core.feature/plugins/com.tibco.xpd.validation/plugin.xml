@@ -126,6 +126,11 @@
             </resolution>
          </issue>
          <issue
+               id="notAceDestinationProject.issue"
+               message="%notAceDestinationProject_issue_label"
+               severity="ERROR">
+         </issue>
+         <issue
                id="projectFromNewerVersion.issue"
                message="%projectFromNewerVersion_issue_label"
                severity="ERROR">
@@ -234,6 +239,17 @@
    <extension
          id="projectFromNewerStudioMarker"
          name="%projectFromNewerStudio_problemMarker_label"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <super
+            type="com.tibco.xpd.validation.ValidationMarker">
+      </super>
+   </extension>
+   <extension
+         id="notAceDestinationProjectMarker"
+         name="%projectMigration_problemMarker_label"
          point="org.eclipse.core.resources.markers">
       <persistent
             value="true">

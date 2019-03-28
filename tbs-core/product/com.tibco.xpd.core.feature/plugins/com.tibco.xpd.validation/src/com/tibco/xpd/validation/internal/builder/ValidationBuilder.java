@@ -125,11 +125,30 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
                         .getProjectCompatibilityWithCode(getProject());
 
         /*
+         * Sid ACE-444 If this is a Studio project without the SCE destination
+         * then it hasn't been created / imported correctly.
+         */
+        if (ProjectCompatibilityWithCode.NOT_SCE
+                .equals(projectCompatibilityWithCode)) {
+            /*
+             * Remove all problem markers and then add single migration marker
+             */
+            getProject().deleteMarkers(
+                    "org.eclipse.core.resources.problemmarker", //$NON-NLS-1$
+                    true,
+                    IResource.DEPTH_INFINITE);
+
+            clearProjectFromNewerStudioMarker(getProject());
+            clearMigrationMarker(getProject());
+
+            createNotCeDestinationMarker(getProject());
+        }
+        /*
          * Only offer migration problem marker with migration quick fix if
          * project has assets of an older version compared with the installed
          * code that handles that asset (not if ti's the other way around)
          */
-        if (ProjectCompatibilityWithCode.OLDER
+        else if (ProjectCompatibilityWithCode.OLDER
                 .equals(projectCompatibilityWithCode)) {
             /*
              * Remove all problem markers and then add single migration marker
@@ -140,6 +159,7 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
                             IResource.DEPTH_INFINITE);
 
             clearProjectFromNewerStudioMarker(getProject());
+            clearNotCeDestinationMarker(getProject());
 
             createMigrationMarker(getProject());
 
@@ -154,6 +174,7 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
                             IResource.DEPTH_INFINITE);
 
             clearMigrationMarker(getProject());
+            clearNotCeDestinationMarker(getProject());
 
             /*
              * Otherwise if the project has assets that are a newer version than
@@ -285,6 +306,52 @@ public class ValidationBuilder extends IncrementalProjectBuilder {
                     project.createMarker(XpdConsts.PROJECT_FROM_NEWER_STUDIO_MARKER_TYPE);
             marker.setAttribute(IMarker.LOCATION, project.getFullPath()
                     .toString());
+            marker.setAttribute(IMarker.SEVERITY, info.getSeverity());
+            marker.setAttribute(IMarker.MESSAGE,
+                    String.format(info.getMessage(), project.getName()));
+            marker.setAttribute(IMarker.PRIORITY, IMarker.PRIORITY_HIGH);
+            marker.setAttribute(IIssue.ID, info.getId());
+        }
+    }
+
+    /**
+     * Clear the Not ACE destination marker from the project.
+     * 
+     * @param project
+     * @throws CoreException
+     * @since 3.5
+     */
+    private void clearNotCeDestinationMarker(IProject project)
+            throws CoreException {
+        project.deleteMarkers(XpdConsts.PROJECT_NOT_ACE_DESTINATION_MARKER_TYPE,
+                false,
+                IResource.DEPTH_ZERO);
+    }
+
+    /**
+     * Create the migration marker on the given project.
+     * 
+     * @param project
+     * @throws CoreException
+     * @since 3.5
+     */
+    private void createNotCeDestinationMarker(IProject project)
+            throws CoreException {
+        IMarker[] markers =
+                project.findMarkers(
+                        XpdConsts.PROJECT_NOT_ACE_DESTINATION_MARKER_TYPE,
+                        false,
+                        IResource.DEPTH_ZERO);
+
+        if (markers.length == 0) {
+            IssueInfo info = ValidationManager.getInstance()
+                    .getValidationEngine()
+                    .getIssueInfo("notAceDestinationProject.issue"); //$NON-NLS-1$
+            IMarker marker = project
+                    .createMarker(
+                            XpdConsts.PROJECT_NOT_ACE_DESTINATION_MARKER_TYPE);
+            marker.setAttribute(IMarker.LOCATION,
+                    project.getFullPath().toString());
             marker.setAttribute(IMarker.SEVERITY, info.getSeverity());
             marker.setAttribute(IMarker.MESSAGE,
                     String.format(info.getMessage(), project.getName()));

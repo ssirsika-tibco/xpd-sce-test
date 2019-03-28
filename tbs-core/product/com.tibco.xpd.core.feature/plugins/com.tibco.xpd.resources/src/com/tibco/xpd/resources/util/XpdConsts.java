@@ -8,6 +8,9 @@ package com.tibco.xpd.resources.util;
  */
 public class XpdConsts {
 
+    /* Sid ACE-444 The Global Destination name for the ACE runtime. */
+    public static final String ACE_DESTINATION_NAME = "CE"; //$NON-NLS-1$
+
     /** TODO: move to analyst?. */
     public static final String ANALYST_CAPABILITY = //
             "com.tibco.xpd.analyst.resources.xpdl2.activity.process.analyst"; //$NON-NLS-1$
@@ -41,6 +44,15 @@ public class XpdConsts {
      */
     public static final String PROJECT_FROM_NEWER_STUDIO_MARKER_TYPE =
             "com.tibco.xpd.validation.projectFromNewerStudioMarker"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-444 - Validation marker type indicating project migration issue.
+     */
+    public static final String PROJECT_NOT_ACE_DESTINATION_MARKER_TYPE =
+            "com.tibco.xpd.validation.notAceDestinationProjectMarker"; //$NON-NLS-1$
+
+    public static final String PROJECT_NOT_ACE_DESTINATION_ISSUE_ID =
+            "notAceDestinationProject.issue"; //$NON-NLS-1$
 
     /** additional Attribute on the validation Marker */
     public static final String VALIDATION_MARKER_ADDITIONAL_INFO =

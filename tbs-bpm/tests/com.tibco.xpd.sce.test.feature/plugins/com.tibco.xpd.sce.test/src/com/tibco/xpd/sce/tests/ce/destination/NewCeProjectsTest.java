@@ -17,9 +17,9 @@ import org.junit.Test;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
-import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
+import com.tibco.xpd.resources.util.XpdConsts;
 
 import junit.framework.TestCase;
 
@@ -114,7 +114,7 @@ public class NewCeProjectsTest extends TestCase {
         Map<String, String> parameters = new HashMap<>();
         parameters.put("title", wizTitle); //$NON-NLS-1$
         parameters.put("presetDestinationEnv", //$NON-NLS-1$
-                XpdResourcesPlugin.ACE_DESTINATION_NAME); //$NON-NLS-2$
+                XpdConsts.ACE_DESTINATION_NAME); // $NON-NLS-2$
 
         IProject project = TestUtil.createProjectFromWizard(projectName, // $NON-NLS-1$
                 wizId, // $NON-NLS-1$
@@ -127,7 +127,7 @@ public class NewCeProjectsTest extends TestCase {
         assertTrue("CE destination not set", //$NON-NLS-1$
                 enabledGlobalDestinations.size() == 1
                         && enabledGlobalDestinations.contains(
-                                XpdResourcesPlugin.ACE_DESTINATION_NAME)); // $NON-NLS-1$
+                                XpdConsts.ACE_DESTINATION_NAME)); // $NON-NLS-1$
 
         /*
          * Ensure that the correct asset is added (Can't test UI is hidden
