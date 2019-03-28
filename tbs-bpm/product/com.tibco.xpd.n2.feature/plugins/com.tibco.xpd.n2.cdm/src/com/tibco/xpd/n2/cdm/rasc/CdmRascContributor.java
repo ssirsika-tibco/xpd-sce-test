@@ -216,7 +216,7 @@ public class CdmRascContributor implements RascContributor {
      */
     public String getRascPath(Model bomModel) {
         if (bomModel != null) {
-            return bomModel.getName() + ".dm"; //$NON-NLS-1$
+            return "cm/" + bomModel.getName() + ".dm"; //$NON-NLS-1$ //$NON-NLS-2$
         }
         return null;
     }

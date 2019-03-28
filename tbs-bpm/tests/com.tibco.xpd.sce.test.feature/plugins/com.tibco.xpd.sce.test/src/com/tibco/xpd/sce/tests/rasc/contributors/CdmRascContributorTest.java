@@ -99,7 +99,7 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
         // that artifact should be named after the test data file
         // and be targetted to the DE micro-service
         Optional<WriterContent> artifactOpt = writer.getArtifacts().stream()
-                .filter(a -> a.name.equals("com.example.simple.dm"))
+                .filter(a -> a.name.equals("cm/com.example.simple.dm"))
                 .findFirst();
         assertTrue(artifactOpt.isPresent());
         WriterContent artifact = artifactOpt.get();
