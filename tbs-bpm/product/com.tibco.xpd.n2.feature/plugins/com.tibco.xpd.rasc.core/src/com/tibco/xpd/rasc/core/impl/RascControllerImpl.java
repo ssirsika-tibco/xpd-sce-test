@@ -155,7 +155,7 @@ public class RascControllerImpl implements RascController {
                 }
 
                 Logger logger = RascActivator.getDefault().getLogger();
-                logger.info(RascControllerImpl.LOG_GENERATION_STARTED);
+                logger.debug(RascControllerImpl.LOG_GENERATION_STARTED);
 
                 File result = File.createTempFile("sce", "rasc"); //$NON-NLS-1$ //$NON-NLS-2$
                 OutputStream output = new FileOutputStream(result);
@@ -176,7 +176,7 @@ public class RascControllerImpl implements RascController {
                     // call each contributor in the given order
                     for (RascContributor contributor : contributors) {
                         try {
-                            logger.info(String.format(
+                            logger.debug(String.format(
                                     RascControllerImpl.LOG_CALLING_CONTRIBUTOR,
                                     contributor.getClass().getName()));
 
@@ -197,7 +197,7 @@ public class RascControllerImpl implements RascController {
                     setManifest(deployment, aProject);
                     deployment.close();
 
-                    logger.info(RascControllerImpl.LOG_GENERATION_COMPLETE);
+                    logger.debug(RascControllerImpl.LOG_GENERATION_COMPLETE);
                 } catch (RuntimeApplicationException e) {
                     throw new RascInternalException(e.getMessage(), e);
                 } finally {

@@ -92,7 +92,7 @@ public class PERascContributor implements RascContributor {
         IStatus status = bpelBuilder.buildProject(aProgressMonitor);
         if (!status.isOK()) {
             Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
-            logger.info(PERascContributor.LOG_BUILD_FAILED);
+            logger.debug(PERascContributor.LOG_BUILD_FAILED);
             logger.log(status);
             return;
         }
