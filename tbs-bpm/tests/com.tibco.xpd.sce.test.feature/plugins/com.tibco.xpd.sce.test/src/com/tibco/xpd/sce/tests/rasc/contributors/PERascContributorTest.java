@@ -101,13 +101,13 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
         // these are the expected artefacts and their destinations
         Map<String, MicroService[]> expected = new HashMap<>();
         expected.put(
-                ".processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
+                "processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
                 new MicroService[] { MicroService.UP });
         expected.put(
-                ".processOut/pageflow/TestContributor.xpdl/TestServiceProcess.bpel",
+                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess.bpel",
                 new MicroService[] { MicroService.UP });
         expected.put(
-                ".processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
+                "processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
                 new MicroService[] { MicroService.BP });
 
         // artifacts should have been added to the writer
