@@ -92,14 +92,27 @@ public class RascExportWizard extends Wizard implements IExportWizard {
         addPage(exportPage);
         addPage(statusPage);
 
-        getWizardDialog().addPageChangedListener(new IPageChangedListener() {
+    }
 
-            @Override
-            public void pageChanged(PageChangedEvent event) {
-                Object page = event.getSelectedPage();
-                updateWizardDialog(page);
-            }
-        });
+    /**
+     * @see org.eclipse.jface.wizard.Wizard#setContainer(org.eclipse.jface.wizard.IWizardContainer)
+     *
+     * @param wizardContainer
+     */
+    @Override
+    public void setContainer(IWizardContainer wizardContainer) {
+        super.setContainer(wizardContainer);
+        WizardDialog wizardDialog = getWizardDialog();
+        if (wizardDialog != null) {
+            wizardDialog.addPageChangedListener(new IPageChangedListener() {
+
+                @Override
+                public void pageChanged(PageChangedEvent event) {
+                    Object page = event.getSelectedPage();
+                    updateWizardDialog(page);
+                }
+            });
+        }
     }
 
     private void updateWizardDialog(Object page) {

@@ -50,7 +50,8 @@ public class RascExportProjectSelectionPage
     @Override
     protected void createExtraTreeControlButtons(Composite cmpTreeSelect) {
         final Button selectRequired = new Button(cmpTreeSelect, SWT.PUSH);
-        selectRequired.setText(Messages.RascExportProjectSelectionPage_SelectRequired);
+        selectRequired.setText(
+                Messages.RascExportProjectSelectionPage_SelectRequired);
         selectRequired.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -91,7 +92,7 @@ public class RascExportProjectSelectionPage
      */
     @Override
     protected String getWorkspaceExportFolder() {
-        return "Export"; //$NON-NLS-1$
+        return "Exports"; //$NON-NLS-1$
     }
 
     /**
