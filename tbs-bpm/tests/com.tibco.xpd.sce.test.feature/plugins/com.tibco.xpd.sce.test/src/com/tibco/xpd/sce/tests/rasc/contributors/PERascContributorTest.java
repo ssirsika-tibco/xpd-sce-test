@@ -102,10 +102,10 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
         Map<String, MicroService[]> expected = new HashMap<>();
         expected.put(
                 ".processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
-                new MicroService[] { MicroService.WR });
+                new MicroService[] { MicroService.UP });
         expected.put(
                 ".processOut/pageflow/TestContributor.xpdl/TestServiceProcess.bpel",
-                new MicroService[] { MicroService.WR });
+                new MicroService[] { MicroService.UP });
         expected.put(
                 ".processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
                 new MicroService[] { MicroService.BP });

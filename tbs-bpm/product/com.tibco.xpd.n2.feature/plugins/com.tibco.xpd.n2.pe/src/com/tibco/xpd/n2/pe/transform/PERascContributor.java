@@ -60,7 +60,7 @@ public class PERascContributor implements RascContributor {
      * contributor will be delivered.
      */
     public static final MicroService[] PF_DESTINATION_SERVICES =
-            { MicroService.WR };
+            { MicroService.UP };
 
     /**
      * @see com.tibco.xpd.rasc.core.RascContributor#getId()
