@@ -192,7 +192,7 @@ public class RascExportOperation implements IRunnableWithProgress {
      */
     private File getSystemPath(IProject project) throws CoreException {
         File parent = new File(path);
-        if (!parent.mkdirs()) {
+        if (!parent.exists() && !parent.mkdirs()) {
             throw new CoreException(Status.CANCEL_STATUS);
         }
         return new File(parent, project.getName() + ".rasc"); //$NON-NLS-1$
