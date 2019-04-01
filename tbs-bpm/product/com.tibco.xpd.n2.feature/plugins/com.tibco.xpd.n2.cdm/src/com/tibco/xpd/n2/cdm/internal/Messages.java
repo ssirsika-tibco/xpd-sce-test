@@ -16,6 +16,8 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.n2.cdm.internal.messages"; //$NON-NLS-1$
 
+    public static String BomTransformer_cantResolveType;
+
     public static String CdmRascContributor_cantLoad_message;
 
     public static String CdmRascContributor_progress_message;

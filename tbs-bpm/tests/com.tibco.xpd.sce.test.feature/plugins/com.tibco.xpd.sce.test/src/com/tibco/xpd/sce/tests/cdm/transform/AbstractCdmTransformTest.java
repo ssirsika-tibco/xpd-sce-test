@@ -15,7 +15,7 @@ import org.junit.Assert;
 
 import com.tibco.bpm.da.dm.api.DataModel;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
-import com.tibco.xpd.core.test.util.AbstractBaseResourceTest;
+import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.n2.cdm.transform.BomTransformer;
 import com.tibco.xpd.resources.WorkingCopy;
@@ -28,7 +28,7 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  * @since 4 Mar 2019
  */
 public abstract class AbstractCdmTransformTest
-        extends AbstractBaseResourceTest {
+        extends AbstractBuildingBaseResourceTest {
 
     /**
      * BOM -> CDM model transformation result.
