@@ -33,7 +33,8 @@ import com.tibco.bpm.da.dm.api.StructuredType;
  * @since 7 Mar 2019
  */
 @SuppressWarnings("nls")
-public class StructuredTypesCdmTransformTest extends AbstractSingleBomCdmTransformTest {
+public class StructuredTypesCdmTransformTest
+        extends AbstractSingleBomCdmTransformTest {
 
     /**
      * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#getBomFileName()
@@ -81,22 +82,25 @@ public class StructuredTypesCdmTransformTest extends AbstractSingleBomCdmTransfo
 
         // Class with primitive types attributes.
         StructuredType classA = cdmModel.getStructuredTypeByName("ClassA");
+        StructuredType classB = cdmModel.getStructuredTypeByName("ClassB");
         Assert.assertNotNull(classA);
 
-        // textAttribute is mandatory
-        Attribute textAttr =
-                assertAttribute(classA,
-                        "a",
-                        "base:Text",
-                        !mandatory,
-                        !array);
-        // TODO
-        // Check label and description are correctly set.
-        // Assert.assertEquals("text Attr", textAttr.getLabel());
-        // Assert.assertEquals("testAttr desc", textAttr.getDescription());
-
         // Assert Types
-        
+        assertAttribute(classA, "a", "base:Text", !mandatory, !array);
+        assertAttribute(classA, "classB", "ClassB", mandatory, !array);
+        assertAttribute(classA, "classD", "ClassD", mandatory, array);
+        assertAttribute(classA,
+                "extRef",
+                "com.example.simple.SimpleClass",
+                !mandatory,
+                !array);
+        assertAttribute(classA,
+                "extRefArray",
+                "com.example.simple.SimpleClass",
+                !mandatory,
+                array);
+
+        assertAttribute(classB, "classC", "ClassC", !mandatory, array);
     }
 
     /**
@@ -120,10 +124,8 @@ public class StructuredTypesCdmTransformTest extends AbstractSingleBomCdmTransfo
                         facet);
 
         Attribute attr = type.getAttributeByName(name);
-        Assert.assertNotNull(
-                String.format("Type %s is missing attr '%s'",
-                        type.getName(),
-                        name),
+        Assert.assertNotNull(String
+                .format("Type %s is missing attr '%s'", type.getName(), name),
                 attr);
         Assert.assertEquals(m.apply("name"), name, attr.getName());
         Assert.assertEquals(m.apply("type"), expectedType, attr.getType());
