@@ -4,16 +4,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.tibco.xpd.destinations.GlobalDestinationUtil;
+import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.ImplementInterfaceUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.ParticipantUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.WebServiceOperationUtil;
@@ -35,6 +40,7 @@ import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.EndPoint;
+import com.tibco.xpd.xpdl2.ExtendedAttribute;
 import com.tibco.xpd.xpdl2.ExternalPackage;
 import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.GraphicalNode;
@@ -108,25 +114,52 @@ public class AddExtrasToNewProcessCommand extends LateExecuteCompoundCommand {
                 this.appendAndExecute(cmd);
             }
 
-            /**
-             * XPD-5834: all wizards which use this command, are removing the
-             * fragment template data from wc in their respective wizard life
-             * cycle, except NewProcessWizard.
-             * 
-             * so changed NewProcessWizard.performFinish() to remove this
-             * template data in its wizard life cycle.
-             * 
-             * this will help in avoid getting empty process creation problems
-             * when multiple case classes are selected for generating business
-             * service (the problem in case of multi case class selection was -
-             * only one business service was having the activities and
-             * transitions and rest all were getting generated with no
-             * activities/transitions because they were being removed from the
-             * wc here!)
-             */
-            // workingCopy.getAttributes().remove(TEMPLATEDATA);
+            /* Sid ACE-717 add the project destinations. */
+            cmd = addProjectDestinationsToProcess(editingDomain, newProcess);
+            if (cmd != null) {
+                this.appendAndExecute(cmd);
+            }
+
         }
 
+    }
+
+    /**
+     * Sid ACE-717 - get command for duplicating the Project destinations in the
+     * given process
+     * 
+     * @param editingDomain
+     * @param process
+     * @return the command for duplicating the Project destinations in the given
+     *         process/process Interface
+     */
+    private Command addProjectDestinationsToProcess(EditingDomain editingDomain,
+            Process process) {
+        EList<ExtendedAttribute> extendedAttributes = null;
+
+        CompoundCommand cCmd = new CompoundCommand();
+        IProject project = WorkingCopyUtil.getProjectFor(process);
+
+        extendedAttributes = process.getExtendedAttributes();
+
+        // before adding check if no destinations from project
+        // have been added yet to the new process / process
+        // interface
+        if (project != null && null != extendedAttributes
+                && extendedAttributes.size() == 0) {
+            Set<String> enabledGlobalDestinations = GlobalDestinationUtil
+                    .getEnabledGlobalDestinations(project, true);
+
+            for (String destName : enabledGlobalDestinations) {
+                cCmd.append(DestinationUtil.getSetDestinationEnabledCommand(
+                        editingDomain,
+                        process,
+                        destName,
+                        true));
+            }
+
+        }
+        return cCmd;
     }
 
     /**

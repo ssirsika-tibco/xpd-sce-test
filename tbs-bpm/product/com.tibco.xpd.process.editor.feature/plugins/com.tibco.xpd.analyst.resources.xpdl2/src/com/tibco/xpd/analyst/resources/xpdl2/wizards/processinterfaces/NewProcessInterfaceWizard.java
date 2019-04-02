@@ -3,12 +3,16 @@
  */
 package com.tibco.xpd.analyst.resources.xpdl2.wizards.processinterfaces;
 
+import java.util.Set;
+
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -28,6 +32,8 @@ import org.eclipse.ui.PlatformUI;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.PackageSelectionPage;
+import com.tibco.xpd.destinations.GlobalDestinationUtil;
+import com.tibco.xpd.destinations.ui.DestinationUtil;
 import com.tibco.xpd.navigator.packageexplorer.editors.EditorInputFactory;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
@@ -42,7 +48,9 @@ import com.tibco.xpd.xpdExtension.Visibility;
 import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdExtension.XpdInterfaceType;
+import com.tibco.xpd.xpdl2.ExtendedAttribute;
 import com.tibco.xpd.xpdl2.Package;
+import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
@@ -219,6 +227,10 @@ public class NewProcessInterfaceWizard extends CreationWizard implements
                             obj));
                 }
 
+                addProjectDestinationsToInterface(
+                        WorkingCopyUtil.getProjectFor(container),
+                        (ProcessInterface) input);
+                
                 cmd.append(AddCommand.create(workingCopy.getEditingDomain(),
                         obj,
                         XpdExtensionPackage.eINSTANCE
@@ -243,17 +255,47 @@ public class NewProcessInterfaceWizard extends CreationWizard implements
     public EObject createTemplate() {
         ProcessInterface processInterface =
                 XpdExtensionFactory.eINSTANCE.createProcessInterface();
-        processInterface
-                .setName(NameUtil
-                        .getInternalName(Messages.NewProcessInterfaceWizard_DefaultName_value,
-                                false));
+        processInterface.setName(NameUtil.getInternalName(
+                Messages.NewProcessInterfaceWizard_DefaultName_value,
+                false));
         Xpdl2ModelUtil.setOtherAttribute(processInterface,
                 XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName(),
                 Messages.NewProcessInterfaceWizard_DefaultName_value);
         /* Set the interface type to ProcessInterface enum type */
         processInterface
                 .setXpdInterfaceType(XpdInterfaceType.PROCESS_INTERFACE);
+
         return processInterface;
+    }
+
+    /**
+     * Sid ACE-717 - duplicate the Project destinations in the given process
+     * Interface
+     * 
+     * @param project
+     * @param processInterface
+     */
+    private void addProjectDestinationsToInterface(IProject project,
+            ProcessInterface processInterface) {
+        if (project != null) {
+            EList<ExtendedAttribute> extendedAttributes =
+                    processInterface.getExtendedAttributes();
+
+            // before adding check if no destinations from project
+            // have been added yet to the new process / process
+            // interface
+            Set<String> enabledGlobalDestinations = GlobalDestinationUtil
+                    .getEnabledGlobalDestinations(project, true);
+
+            for (String destName : enabledGlobalDestinations) {
+                ExtendedAttribute ea =
+                        Xpdl2Factory.eINSTANCE.createExtendedAttribute();
+
+                ea.setName(DestinationUtil.DESTINATION_ATTRIBUTE);
+                ea.setValue(destName);
+                extendedAttributes.add(ea);
+            }
+        }
     }
 
     /*
