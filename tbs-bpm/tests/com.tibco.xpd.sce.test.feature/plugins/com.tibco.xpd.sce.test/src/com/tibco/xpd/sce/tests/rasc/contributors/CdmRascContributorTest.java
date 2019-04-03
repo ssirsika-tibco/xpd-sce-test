@@ -99,12 +99,16 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
         // that artifact should be named after the test data file
         // and be targetted to the DE micro-service
         Optional<WriterContent> artifactOpt = writer.getArtifacts().stream()
-                .filter(a -> a.name.equals("cm/com.example.simple.dm"))
+                .filter(a -> a.getFullPath()
+                        .equals("cm/com.example.simple.dm"))
                 .findFirst();
         assertTrue(artifactOpt.isPresent());
         WriterContent artifact = artifactOpt.get();
         assertArrayEquals(new MicroService[] { MicroService.CM },
                 artifact.getServices());
+
+        assertEquals(artifact.getArtifactName(), "My Test BOM");
+        assertEquals(artifact.getInternalName(), "com.example.simple");
 
         // some data was written to the artifact
         assertTrue(artifact.getContent().size() > 0);
@@ -115,20 +119,35 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
      * MockRascWriter.
      */
     private static class WriterContent {
-        private String name;
+        private String resourcePath;
 
         private MicroService[] services;
 
         private ByteArrayOutputStream content;
 
-        public WriterContent(String aName, MicroService[] aServices) {
-            name = aName;
+        private String internalName;
+
+        private String artifactName;
+
+        public WriterContent(String aResourcePath, String aArtifactName,
+                String aInternalName, MicroService[] aServices) {
+            resourcePath = aResourcePath;
+            artifactName = aArtifactName;
+            internalName = aInternalName;
             services = aServices;
             content = new ByteArrayOutputStream();
         }
 
-        public String getName() {
-            return name;
+        public String getArtifactName() {
+            return artifactName;
+        }
+
+        public String getInternalName() {
+            return internalName;
+        }
+
+        public String getFullPath() {
+            return resourcePath;
         }
 
         public MicroService[] getServices() {
@@ -152,10 +171,11 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
          *      com.tibco.bpm.dt.rasc.MicroService[])
          */
         @Override
-        public OutputStream addContent(String aName,
-                MicroService[] aMicroServices)
+        public OutputStream addContent(String aName, String aArtifactName,
+                String aInternalName, MicroService[] aMicroServices)
                 throws RuntimeApplicationException, IOException {
-            WriterContent result = new WriterContent(aName, aMicroServices);
+            WriterContent result = new WriterContent(aName, aArtifactName,
+                    aInternalName, aMicroServices);
             artifacts.add(result);
             return result.getContent();
         }

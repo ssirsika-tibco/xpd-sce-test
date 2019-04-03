@@ -165,8 +165,12 @@ public class RascControllerImpl implements RascController {
                             .forDeployment(NullIdGenerator.INSTANCE, output);
 
                     // create a facade over the DeploymentWriter
-                    RascWriter writer = (aName, aMicroServices) -> deployment
-                            .addContent(aName, aMicroServices);
+                    RascWriter writer = (aName, aInternalName, aLabelName,
+                            aMicroServices) -> deployment.addContent(aName,
+                                    null,
+                                    aInternalName,
+                                    aLabelName,
+                                    aMicroServices);
 
                     // has the job been cancelled by the user
                     if (monitor.isCanceled()) {

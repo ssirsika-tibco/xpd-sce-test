@@ -5,6 +5,7 @@
 package com.tibco.xpd.resources.builder.ondemand;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -67,6 +68,8 @@ public abstract class AbstractOnDemandBuilder {
     private IProject project;
 
     private EventProcessor traceEventProcessor;
+
+    private Collection<BuildTargetSet> builtTargets = Collections.emptySet();
 
     /**
      * @param project
@@ -201,6 +204,9 @@ public abstract class AbstractOnDemandBuilder {
             /* Get source sets. */
             Collection<BuildSourceSet> sourceSets = getBuildSourceSets(project);
 
+            /* Track the build target sets for the build of this project. */
+            builtTargets = Collections.emptySet();
+
             monitor = SubMonitor.convert(monitor, getMainMonitorLabel(project), 2);
 
             /* Buuild target sets for current soruce sets */
@@ -213,6 +219,9 @@ public abstract class AbstractOnDemandBuilder {
             removeOldUnusedTargets(targetSets,
                     SubProgressMonitorEx.createSubTaskProgressMonitor(monitor,
                             1));
+
+            /* Track the build target sets for the build of this project. */
+            builtTargets = targetSets.values();
 
             return createStatus(IStatus.OK,
                     Messages.AbstractOnDemandBuilder_BuiltOk_message);
@@ -232,6 +241,19 @@ public abstract class AbstractOnDemandBuilder {
             monitor.done();
         }
 
+    }
+
+    /**
+     * Returns the list of built targets (after a call to
+     * {@link #buildProject(IProgressMonitor)} which will initialise this list).
+     * The target set can then be used to carry useful information about a built
+     * target.
+     * 
+     * @return The target sets built by the previous call to
+     *         {@link #buildProject(IProgressMonitor)}
+     */
+    public Collection<BuildTargetSet> getBuiltTargets() {
+        return builtTargets;
     }
 
     /**

@@ -8,13 +8,13 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -28,8 +28,11 @@ import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascWriter;
+import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
+import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * An implementation of RascContributor to add Process Engine and Page Flow BPEL
@@ -89,6 +92,7 @@ public class PERascContributor implements RascContributor {
             final RascWriter aWriter) throws Exception {
         // refresh the generated BPEL files for the given project
         BPELOnDemandBuilder bpelBuilder = new BPELOnDemandBuilder(aProject);
+
         IStatus status = bpelBuilder.buildProject(aProgressMonitor);
         if (!status.isOK()) {
             Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
@@ -97,120 +101,152 @@ public class PERascContributor implements RascContributor {
             return;
         }
 
+        /* Get the target derived file info - we will then output content to the RASC according to these  */
+        Collection<BuildTargetSet> builtTargets = bpelBuilder.getBuiltTargets();
+        
+        int numTargets = countTargets(builtTargets);
+        
         SubMonitor monitor = SubMonitor
                 .convert(aProgressMonitor,
                         Messages.PERascContributor_AddingRuntimeProcesses,
-                        1);
+                        numTargets);
+        
         try {
-            IFolder rootFolder =
-                    aProject.getFolder(BPELN2Utils.BPEL_ROOT_OUTPUTFOLDER_NAME);
-            if (!rootFolder.exists()) {
-                return;
+            /*
+             * Iterate the build targets. Output the BPEL files to the
+             * appropriate micro-services
+             */
+            for (BuildTargetSet buildTargetSet : builtTargets) {
+                for (Entry<IResource, Object> targetAndSource : buildTargetSet
+                        .getTargetToSourceObjectMap().entrySet()) {
+
+                    IResource targetResource = targetAndSource.getKey();
+                    Object sourceObject = targetAndSource.getValue();
+
+                    if (sourceObject instanceof Process
+                            && BPELN2Utils.BPEL_FILE_EXTENSION.equals(
+                                    targetResource.getFileExtension())) {
+
+                        Process sourceProcess = (Process) sourceObject;
+
+                        // determine its recipient MicroServices
+                        MicroService[] destinations =
+                                getDestinations(targetResource);
+
+                        if (destinations != null) {
+                            addRascResource(aWriter,
+                                    targetResource,
+                                    sourceProcess,
+                                    destinations);
+                        }
+                    }
+
+                    monitor.worked(1);
+                }
             }
 
-            // recurse over the BPEL files and add them to the RascWriter
-            rootFolder.accept(new BpelCopier(aWriter));
         } finally {
             monitor.done();
         }
     }
 
     /**
-     * An implementation of IResourceVisitor to recurse over the content of a
-     * visited IFolder looking for BPEL files. For each BPEL file encountered it
-     * will copy it to the given RascWriter with the destination MicroServices
-     * determined by the location of the BPEL file.
+     * Add the given target BPL resource to the RASC.
+     * 
+     * @param aWriter
+     *            The RASC writer
+     * @param resource
+     *            The BPEL resource
+     * @param sourceProcess
+     *            The process that BPEL was derived from.
+     * @param destinations
+     *            The destination micro-service
+     * @throws CoreException
      */
-    private static class BpelCopier implements IResourceVisitor {
-        private RascWriter writer;
+    private void addRascResource(RascWriter aWriter, IResource resource,
+            Process sourceProcess,
+            MicroService[] destinations) throws CoreException {
 
-        public BpelCopier(RascWriter aWriter) {
-            writer = aWriter;
+        // find the real location of the BPEL file
+        URI uri = resource.getLocationURI();
+        if (uri == null) {
+            return; // ignore this file
         }
 
-        /**
-         * Visits each node in a resource tree, looking for BPEL files and
-         * copying them to the RascWriter.
-         * 
-         * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources.IResource)
-         */
-        public boolean visit(IResource resource) throws CoreException {
-            // if this is a folder - recurse into it
-            if (resource instanceof IFolder) {
-                return true; // step into the folder
-            }
+        try {
+            // copy the BPEL file to the RASC
+            InputStream input =
+                    new BufferedInputStream(uri.toURL().openStream());
+            try {
+                String relativePath =
+                        resource.getProjectRelativePath().toString();
 
-            // if this looks like a BPEL file
-            if (BPELN2Utils.BPEL_FILE_EXTENSION
-                    .equals(resource.getFileExtension())) {
-                // determine its recipient MicroServices
-                MicroService[] destinations = getDestinations(resource);
-                if (destinations == null) {
-                    return false; // ignore this file
+                /*
+                 * The temp build folder is Project/.processOut; in the RASC we
+                 * just want "processOut"
+                 */
+                if (relativePath.charAt(0) == '.') {
+                    relativePath = relativePath.substring(1);
                 }
 
-                // find the real location of the BPEL file
-                URI uri = resource.getLocationURI();
-                if (uri == null) {
-                    return false; // ignore this file
-                }
-
+                // create a RASC artifact with the BPEL file name
+                OutputStream output =
+                        aWriter.addContent(relativePath,
+                                Xpdl2ModelUtil.getDisplayName(sourceProcess),
+                                sourceProcess.getName(),
+                                destinations);
                 try {
-                    // copy the BPEL file to the RASC
-                    InputStream input =
-                            new BufferedInputStream(uri.toURL().openStream());
-                    try {
-                        String relativePath =
-                                resource.getProjectRelativePath().toString();
-                        if (relativePath.charAt(0) == '.') {
-                            relativePath = relativePath.substring(1);
-                        }
-
-                        // create a RASC artifact with the BPEL file name
-                        OutputStream output = writer
-                                .addContent(relativePath, destinations);
-                        try {
-                            int len;
-                            byte[] buffer = new byte[1024];
-                            while ((len = input.read(buffer)) > 0) {
-                                output.write(buffer, 0, len);
-                            }
-                        } finally {
-                            output.close();
-                        }
-                    } finally {
-                        input.close();
+                    int len;
+                    byte[] buffer = new byte[1024];
+                    while ((len = input.read(buffer)) > 0) {
+                        output.write(buffer, 0, len);
                     }
-                } catch (Exception e) {
-                    IStatus status = new Status(Status.ERROR,
-                            "PE RASC Contributor Plug-in", //$NON-NLS-1$
-                            e.getMessage(), e);
-                    throw new CoreException(status);
+                } finally {
+                    output.close();
                 }
-            }
 
-            return false; // don't recurse into this resource
-        }
-
-        /**
-         * Determines the MicroServices to which the given resource is to be
-         * delivered. If the response is <code>null</code>, the resource will
-         * not be included in the RASC artifacts.
-         * 
-         * @param aResource
-         *            the resource that is to be delivered to the MicroServices.
-         * @return the list of MicroService destinations. May be
-         *         <code>null</code>.
-         */
-        private MicroService[] getDestinations(IResource aResource) {
-            if (BPELN2Utils.BP_OUTPUTFOLDER_NAME.equals(aResource.getName())) {
-                return PERascContributor.BP_DESTINATION_SERVICES;
+            } finally {
+                input.close();
             }
-            if (BPELN2Utils.PF_OUTPUTFOLDER_NAME.equals(aResource.getName())) {
-                return PERascContributor.PF_DESTINATION_SERVICES;
-            }
-            IContainer parent = aResource.getParent();
-            return (parent == null) ? null : getDestinations(parent);
+        } catch (Exception e) {
+            IStatus status =
+                    new Status(Status.ERROR, "PE RASC Contributor Plug-in", //$NON-NLS-1$
+                            e.getMessage(), e);
+            throw new CoreException(status);
         }
     }
+
+    /**
+     * Determines the MicroServices to which the given resource is to be
+     * delivered. If the response is <code>null</code>, the resource will not be
+     * included in the RASC artifacts.
+     * 
+     * @param aResource
+     *            the resource that is to be delivered to the MicroServices.
+     * @return the list of MicroService destinations. May be <code>null</code>.
+     */
+    private MicroService[] getDestinations(IResource aResource) {
+        if (BPELN2Utils.BP_OUTPUTFOLDER_NAME.equals(aResource.getName())) {
+            return PERascContributor.BP_DESTINATION_SERVICES;
+        }
+        if (BPELN2Utils.PF_OUTPUTFOLDER_NAME.equals(aResource.getName())) {
+            return PERascContributor.PF_DESTINATION_SERVICES;
+        }
+        IContainer parent = aResource.getParent();
+        return (parent == null) ? null : getDestinations(parent);
+    }
+
+    /**
+     * @param builtTargets
+     * @return The total number of target resources built for the project.
+     */
+    private int countTargets(Collection<BuildTargetSet> builtTargets) {
+        int count = 0;
+
+        for (BuildTargetSet buildTargetSet : builtTargets) {
+            count += buildTargetSet.getTargetResources().size();
+        }
+        return count;
+    }
+
 }

@@ -24,6 +24,7 @@ import com.tibco.bpm.da.dm.api.DataModel;
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cdm.internal.Messages;
 import com.tibco.xpd.n2.cdm.transform.BomTransformer;
 import com.tibco.xpd.rasc.core.RascContributor;
@@ -115,6 +116,8 @@ public class CdmRascContributor implements RascContributor {
                     // micro-services
                     try (OutputStream output =
                             aWriter.addContent(getRascPath(bomModel),
+                                    PrimitivesUtil.getDisplayLabel(bomModel),
+                                    bomModel.getName(),
                                     DESTINATION_SERVICES)) {
                         String cdmModelString = cdmModel.serialize();
                         // output the CDM to the RASC artifact
@@ -214,10 +217,11 @@ public class CdmRascContributor implements RascContributor {
      * 
      * @return the entry name in the RASC for the BOM.
      */
-    public String getRascPath(Model bomModel) {
+    private String getRascPath(Model bomModel) {
         if (bomModel != null) {
             return "cm/" + bomModel.getName() + ".dm"; //$NON-NLS-1$ //$NON-NLS-2$
         }
         return null;
     }
+    
 }

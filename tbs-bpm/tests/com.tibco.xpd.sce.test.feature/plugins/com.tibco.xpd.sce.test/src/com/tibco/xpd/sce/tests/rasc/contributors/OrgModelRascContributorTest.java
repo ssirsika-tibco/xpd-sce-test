@@ -103,9 +103,12 @@ public class OrgModelRascContributorTest
         // that artifact should be named after the test data file
         // and be targetted to the DE micro-service
         WriterContent artifact = writer.getArtifacts().get(0);
-        assertEquals("OrganizationModel.de", artifact.getName());
+        assertEquals("OrganizationModel.de", artifact.getFullPath());
         assertArrayEquals(new MicroService[] { MicroService.DE },
                 artifact.getServices());
+
+        assertEquals(artifact.getArtifactName(), "Organization Model Label");
+        assertEquals(artifact.getInternalName(), "OrganizationModelName");
 
         // some data was written to the artifact
         assertTrue(artifact.getContent().size() > 0);
@@ -116,20 +119,35 @@ public class OrgModelRascContributorTest
      * MockRascWriter.
      */
     private static class WriterContent {
-        private String name;
+        private String resourcePath;
 
         private MicroService[] services;
 
         private ByteArrayOutputStream content;
 
-        public WriterContent(String aName, MicroService[] aServices) {
-            name = aName;
+        private String internalName;
+
+        private String artifactName;
+
+        public WriterContent(String aResourcePath, String aArtifactName,
+                String aInternalName, MicroService[] aServices) {
+            resourcePath = aResourcePath;
+            artifactName = aArtifactName;
+            internalName = aInternalName;
             services = aServices;
             content = new ByteArrayOutputStream();
         }
 
-        public String getName() {
-            return name;
+        public String getArtifactName() {
+            return artifactName;
+        }
+
+        public String getInternalName() {
+            return internalName;
+        }
+
+        public String getFullPath() {
+            return resourcePath;
         }
 
         public MicroService[] getServices() {
@@ -153,10 +171,11 @@ public class OrgModelRascContributorTest
          *      com.tibco.bpm.dt.rasc.MicroService[])
          */
         @Override
-        public OutputStream addContent(String aName,
-                MicroService[] aMicroServices)
+        public OutputStream addContent(String aName, String aArtifactName,
+                String aInternalName, MicroService[] aMicroServices)
                 throws RuntimeApplicationException, IOException {
-            WriterContent result = new WriterContent(aName, aMicroServices);
+            WriterContent result = new WriterContent(aName, aArtifactName,
+                    aInternalName, aMicroServices);
             artifacts.add(result);
             return result.getContent();
         }

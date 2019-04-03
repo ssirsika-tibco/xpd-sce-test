@@ -35,10 +35,11 @@ import com.tibco.xpd.rasc.core.RascWriter;
 @SuppressWarnings("nls")
 public class PERascContributorTest extends AbstractN2BaseResourceTest {
 
-    private TestResourceInfo processResourceInfo =
+    private TestResourceInfo[] processResourceInfo = new TestResourceInfo[] {
             new TestResourceInfo("resources/BpelRascTest",
-                    "RASC/Process Packages{processes}/TestContributor.xpdl") {
-            };
+                    "RASC/Process Packages{processes}/TestContributor.xpdl"),
+            new TestResourceInfo("resources/BpelRascTest",
+                    "RASC/Process Packages{processes}/TestContributor2.xpdl") };
 
     /**
      * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#getTestName()
@@ -53,9 +54,7 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
      */
     @Override
     protected TestResourceInfo[] getTestResources() {
-        TestResourceInfo[] testResources =
-                new TestResourceInfo[] { processResourceInfo };
-        return testResources;
+        return processResourceInfo;
     }
 
     /**
@@ -99,34 +98,79 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
         fixture.process(project, null, writer);
 
         // these are the expected artefacts and their destinations
-        Map<String, MicroService[]> expected = new HashMap<>();
+        Map<String, TestArtifactData> expected = new HashMap<>();
         expected.put(
                 "processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
-                new MicroService[] { MicroService.UP });
-        expected.put(
-                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess.bpel",
-                new MicroService[] { MicroService.UP });
+                new TestArtifactData("Test PageFow Process",
+                        "TestPageFowProcess",
+                        new MicroService[] { MicroService.UP }));
         expected.put(
                 "processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
-                new MicroService[] { MicroService.BP });
+                new TestArtifactData("Test Business Process",
+                        "TestBusinessProcess",
+                        new MicroService[] { MicroService.BP }));
+        expected.put(
+                "processOut/process/TestContributor.xpdl/DuplicatenamedBusinessProcess.bpel",
+                new TestArtifactData("Duplicate named Business Process",
+                        "DuplicatenamedBusinessProcess",
+                        new MicroService[] { MicroService.BP }));
+        expected.put(
+                "processOut/process/TestContributor2.xpdl/DuplicatenamedBusinessProcess.bpel",
+                new TestArtifactData("Duplicate named Business Process",
+                        "DuplicatenamedBusinessProcess",
+                        new MicroService[] { MicroService.BP }));
+        expected.put(
+                "processOut/pageflow/TestContributor2.xpdl/TestBusinessService.bpel",
+                new TestArtifactData("Test Business Service",
+                        "TestBusinessService",
+                        new MicroService[] { MicroService.UP }));
+
+        // All the different combo's of service process.
+        expected.put(
+                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
+                new TestArtifactData("Test Service Process 4 BP and PF",
+                        "TestServiceProcess4BPandPF",
+                        new MicroService[] { MicroService.UP }));
+        expected.put(
+                "processOut/process/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
+                new TestArtifactData("Test Service Process 4 BP and PF",
+                        "TestServiceProcess4BPandPF",
+                        new MicroService[] { MicroService.BP }));
+        expected.put(
+                "processOut/process/TestContributor.xpdl/TestServiceProcess4BP.bpel",
+                new TestArtifactData("Test Service Process 4 BP",
+                        "TestServiceProcess4BP",
+                        new MicroService[] { MicroService.BP }));
+        expected.put(
+                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess4PF.bpel",
+                new TestArtifactData("Test Service Process 4 PF",
+                        "TestServiceProcess4PF",
+                        new MicroService[] { MicroService.UP }));
 
         // artifacts should have been added to the writer
         assertEquals(expected.size(), writer.getArtifacts().size());
 
         for (WriterContent artifact : writer.getArtifacts()) {
             boolean found = false;
-            for (Map.Entry<String, MicroService[]> entry : expected
+            for (Map.Entry<String, TestArtifactData> entry : expected
                     .entrySet()) {
-                if (entry.getKey().equals(artifact.getName())) {
-                    assertArrayEquals(entry.getValue(), artifact.getServices());
+                if (entry.getKey().equals(artifact.getFullPath())) {
+                    assertArrayEquals(entry.getValue().services,
+                            artifact.getServices());
 
                     // some data was written to the artifact
                     assertTrue(artifact.getContent().size() > 0);
+
+                    assertEquals(artifact.getArtifactName(),
+                            entry.getValue().artifactName);
+                    assertEquals(artifact.getInternalName(),
+                            entry.getValue().internalName);
                     found = true;
                     break;
                 }
             }
-            assertTrue("Unexpected artifact: " + artifact.getName(), found);
+            assertTrue("Unexpected artifact: " + artifact.getFullPath(),
+                    found);
         }
     }
 
@@ -135,20 +179,35 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
      * MockRascWriter.
      */
     private static class WriterContent {
-        private String name;
+        private String resourcePath;
 
         private MicroService[] services;
 
         private ByteArrayOutputStream content;
 
-        public WriterContent(String aName, MicroService[] aServices) {
-            name = aName;
+        private String internalName;
+
+        private String artifactName;
+
+        public WriterContent(String aResourcePath, String aArtifactName,
+                String aInternalName, MicroService[] aServices) {
+            resourcePath = aResourcePath;
+            artifactName = aArtifactName;
+            internalName = aInternalName;
             services = aServices;
             content = new ByteArrayOutputStream();
         }
 
-        public String getName() {
-            return name;
+        public String getArtifactName() {
+            return artifactName;
+        }
+
+        public String getInternalName() {
+            return internalName;
+        }
+
+        public String getFullPath() {
+            return resourcePath;
         }
 
         public MicroService[] getServices() {
@@ -172,10 +231,11 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
          *      com.tibco.bpm.dt.rasc.MicroService[])
          */
         @Override
-        public OutputStream addContent(String aName,
-                MicroService[] aMicroServices)
+        public OutputStream addContent(String aName, String aArtifactName,
+                String aInternalName, MicroService[] aMicroServices)
                 throws RuntimeApplicationException, IOException {
-            WriterContent result = new WriterContent(aName, aMicroServices);
+            WriterContent result = new WriterContent(aName, aArtifactName,
+                    aInternalName, aMicroServices);
             artifacts.add(result);
             return result.getContent();
         }
@@ -189,5 +249,34 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
         public List<WriterContent> getArtifacts() {
             return artifacts;
         }
+    }
+
+    /**
+     * Little class for storing expected test results.
+     *
+     *
+     * @author aallway
+     * @since 2 Apr 2019
+     */
+    private static class TestArtifactData {
+        String artifactName;
+
+        String internalName;
+
+        MicroService[] services;
+
+        /**
+         * @param artifactName
+         * @param internalName
+         * @param services
+         */
+        public TestArtifactData(String artifactName, String internalName,
+                MicroService[] services) {
+            super();
+            this.artifactName = artifactName;
+            this.internalName = internalName;
+            this.services = services;
+        }
+
     }
 }

@@ -93,7 +93,11 @@ public class OrgModelRascContributor implements RascContributor {
             RascWriter aWriter) throws Exception {
 
         // if the project contains an org-model
-        OrgModel orgModel = findOrgModel(aProject);
+        IResource orgFile = findOrgModel(aProject);
+        if (orgFile == null || !orgFile.isAccessible()) {
+            return;
+        }
+        OrgModel orgModel = read(orgFile);
         if (orgModel == null) {
             return;
         }
@@ -116,7 +120,9 @@ public class OrgModelRascContributor implements RascContributor {
         {
             // create a named artifact in the RASC - targetted as micro-services
             OutputStream output =
-                    aWriter.addContent(orgModel.getName() + ".de", //$NON-NLS-1$
+                    aWriter.addContent(getRascArtifactName(orgFile),
+                            orgModel.getDisplayName(),
+                            orgModel.getName(),
                             OrgModelRascContributor.DESTINATION_SERVICES);
             
             // output the rasc org-model to the rasc artifact
@@ -127,15 +133,35 @@ public class OrgModelRascContributor implements RascContributor {
     }
 
     /**
+     * @param bomFile
+     * @return The RASC artifact (label) name for the ORG file. In this case the
+     *         ORG file name without the org extension.
+     */
+    private String getRascArtifactName(IResource orgFile) {
+        String name = orgFile.getName();
+
+        int i = name.lastIndexOf('.');
+
+        if (i > 0) {
+            name = name.substring(0, i);
+        }
+
+        name += ".de";
+
+        return name;
+    }
+
+    /**
      * Searches the given project for an org-model. If no org-model can be found
      * the result will be <code>null</code>.
      * 
      * @param aProject
      *            the project to be searched.
-     * @return the org-model instance from the given project.
+     * @return the 1st org-model file in the project (project validation ensures
+     *         only one)
      * @throws CoreException
      */
-    private OrgModel findOrgModel(IProject aProject) throws CoreException {
+    private IResource findOrgModel(IProject aProject) throws CoreException {
         if (aProject == null) {
             return null;
         }
@@ -156,11 +182,7 @@ public class OrgModelRascContributor implements RascContributor {
                     // if it's a file with the org-model extension
                     if (resource instanceof IFile && OMUtil.OM_FILE_EXTENSION
                             .equals(resource.getFileExtension())) {
-                        // try reading it's content
-                        OrgModel result = read(resource);
-                        if (result != null) {
-                            return result;
-                        }
+                        return resource;
                     }
                 }
             }

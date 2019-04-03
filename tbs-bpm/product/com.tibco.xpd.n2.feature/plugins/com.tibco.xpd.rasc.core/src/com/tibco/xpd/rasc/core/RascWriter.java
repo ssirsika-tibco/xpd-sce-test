@@ -37,9 +37,14 @@ public interface RascWriter {
      * @param aName
      *            the full path name to which the artifact content is to be
      *            written within the RASC.
+     * @param aArtifactName
+     *            The human readable name for the artifact
+     * @param aInternalName
+     *            The internal name for the artifact
      * @param aMicroServices
      *            the collection of micro-services to which the content is
      *            destined.
+     * 
      * @return the output stream to which the content can be written.
      * @throws RuntimeApplicationException
      *             if no name or MicroServices are provided, or an artifact of
@@ -47,6 +52,8 @@ public interface RascWriter {
      * @throws IOException
      *             if an IO error occurs whilst generating the OutputStream.
      */
-    public OutputStream addContent(String aName, MicroService[] aMicroServices)
+    public OutputStream addContent(String aName, String aArtifactName,
+            String aInternalName, MicroService[] aMicroServices)
             throws RuntimeApplicationException, IOException;
+
 }

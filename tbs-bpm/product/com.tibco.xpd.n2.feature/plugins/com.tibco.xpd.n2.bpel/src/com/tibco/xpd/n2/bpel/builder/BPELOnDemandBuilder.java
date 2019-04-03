@@ -29,7 +29,6 @@ import com.tibco.xpd.n2.bpel.Messages;
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.om.resources.OMResourcesActivator;
-import com.tibco.xpd.processeditor.xpdl2.util.RestServiceTaskUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.ondemand.AbstractOnDemandBuilder;
@@ -39,7 +38,6 @@ import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.rsd.ui.RsdUIPlugin;
 import com.tibco.xpd.validation.utils.ValidationProblemUtil;
-import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.util.RestServiceUtil;
@@ -493,35 +491,41 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                     destFolder.getFile(process.getName()
                             + N2PEConstants.BPEL_EXTENSION);
 
-            this.addTargetResource(bpelFile);
+            this.addTargetResource(bpelFile, process);
 
             /*
-             * Add the WSDL's referenced from this process - these are copied
-             * into the target folder.
+             * Sid ACE-714 (should have been ACE-194 - we don't do WSDL for
+             * process as service or REST service invoke is not done via pass
+             * thru WSDL any more.
              */
-            for (Activity activity : Xpdl2ModelUtil
-                    .getAllActivitiesInProc(process)) {
-
-                /*
-                 * Sid ACE-194 - we don't support WSDL message activities in ACE
-                 */
-                // IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
-                // if (wsdlFile != null) {
-                // IFile targetWsdl = destFolder.getFile(wsdlFile.getName());
-                // this.addTargetResource(targetWsdl);
-                // }
-
-                /*
-                 * Sid XPD-7526: For REST Service invokes, add the
-                 * "TIBCO-REST-PassThrough.wsdl" (REST BT pass thru WSDL spec)
-                 * that is required for this
-                 */
-                if (RestServiceTaskUtil.isRESTServiceActivity(activity)) {
-                    IFile restPassThruWsdl =
-                            destFolder.getFile("TIBCO-REST-PassThrough.wsdl"); //$NON-NLS-1$
-                    this.addTargetResource(restPassThruWsdl);
-                }
-            }
+            // /*
+            // * Add the WSDL's referenced from this process - these are copied
+            // * into the target folder.
+            // */
+            // for (Activity activity : Xpdl2ModelUtil
+            // .getAllActivitiesInProc(process)) {
+            //
+            // /*
+            // * Sid ACE-194 - we don't support WSDL message activities in ACE
+            // */
+            // IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
+            // if (wsdlFile != null) {
+            // IFile targetWsdl = destFolder.getFile(wsdlFile.getName());
+            // this.addTargetResource(targetWsdl);
+            // }
+            //
+            // /*
+            // * Sid XPD-7526: For REST Service invokes, add the
+            // * "TIBCO-REST-PassThrough.wsdl" (REST BT pass thru WSDL spec)
+            // * that is required for this
+            // */
+            // if (RestServiceTaskUtil.isRESTServiceActivity(activity)) {
+            // IFile restPassThruWsdl =
+            // destFolder.getFile("TIBCO-REST-PassThrough.wsdl");
+            // // $NON-NLS-1$
+            // this.addTargetResource(restPassThruWsdl);
+            // }
+            // }
         }
 
         /**
