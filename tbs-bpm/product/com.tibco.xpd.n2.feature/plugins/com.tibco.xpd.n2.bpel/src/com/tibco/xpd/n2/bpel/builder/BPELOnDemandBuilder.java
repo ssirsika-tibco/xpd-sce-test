@@ -427,8 +427,7 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
 
             if (!restServices.isEmpty()) {
                 /*
-                 * Add the bpel files for the REST services and any referenced
-                 * WSDLs
+                 * Add the bpel files for the REST services
                  */
                 for (Process restService : restServices) {
                     addTargetResourcesForProcess(pageflowDestFolder,
@@ -496,36 +495,9 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
             /*
              * Sid ACE-714 (should have been ACE-194 - we don't do WSDL for
              * process as service or REST service invoke is not done via pass
-             * thru WSDL any more.
+             * thru WSDL any more. So removed all WSDL handling.
              */
-            // /*
-            // * Add the WSDL's referenced from this process - these are copied
-            // * into the target folder.
-            // */
-            // for (Activity activity : Xpdl2ModelUtil
-            // .getAllActivitiesInProc(process)) {
-            //
-            // /*
-            // * Sid ACE-194 - we don't support WSDL message activities in ACE
-            // */
-            // IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
-            // if (wsdlFile != null) {
-            // IFile targetWsdl = destFolder.getFile(wsdlFile.getName());
-            // this.addTargetResource(targetWsdl);
-            // }
-            //
-            // /*
-            // * Sid XPD-7526: For REST Service invokes, add the
-            // * "TIBCO-REST-PassThrough.wsdl" (REST BT pass thru WSDL spec)
-            // * that is required for this
-            // */
-            // if (RestServiceTaskUtil.isRESTServiceActivity(activity)) {
-            // IFile restPassThruWsdl =
-            // destFolder.getFile("TIBCO-REST-PassThrough.wsdl");
-            // // $NON-NLS-1$
-            // this.addTargetResource(restPassThruWsdl);
-            // }
-            // }
+
         }
 
         /**
@@ -541,9 +513,9 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
 
                 if (XPDLUtils.hasN2Destination(process)) {
 
-                    if (Xpdl2ModelUtil.isPageflow(process)) {
-
+                    if (Xpdl2ModelUtil.isPageflowOrSubType(process)) {
                         pageflowsAndBizServices.add(process);
+
                     } else if (Xpdl2ModelUtil.isServiceProcess(process)) {
                         /*
                          * Add Service Processes - if the target destination is
@@ -553,18 +525,17 @@ public class BPELOnDemandBuilder extends AbstractOnDemandBuilder {
                          */
                         if (ProcessInterfaceUtil
                                 .isPageflowEngineServiceProcess(process)) {
-
                             pageflowsAndBizServices.add(process);
                         }
+
                         if (ProcessInterfaceUtil
                                 .isProcessEngineServiceProcess(process)) {
-
                             bizProcesses.add(process);
                         }
                     } else {
-
                         bizProcesses.add(process);
                     }
+
                     restServices.addAll(RestServiceUtil
                             .getRestServices(process));
                 }
