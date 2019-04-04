@@ -59,6 +59,8 @@ public class RascExportWizard extends Wizard
      */
     private Map<Integer, Button> buttonMap;
 
+    private boolean exportRunning = false;
+
     /**
      * Constructor.
      */
@@ -132,6 +134,7 @@ public class RascExportWizard extends Wizard
             if (page == exportPage) {
                 finish.setText(Messages.RascExportWizard_ExportButton);
             } else if (page == statusPage) {
+                exportRunning = true;
                 statusPage.setPageComplete(false);
                 finish.setText(Messages.RascExportWizard_LaunchButton);
                 cancel.setText(Messages.RascExportWizard_CloseButton);
@@ -249,11 +252,23 @@ public class RascExportWizard extends Wizard
      */
     @Override
     public void exportComplete() {
+        exportRunning = false;
         Button cancel = buttonMap.get(IDialogConstants.CANCEL_ID);
         Display display = cancel.getDisplay();
         if (display != null && !display.isDisposed()) {
             display.asyncExec(() -> cancel.setEnabled(true));
         }
+    }
+
+    /**
+     * @see org.eclipse.jface.wizard.Wizard#performCancel()
+     */
+    @Override
+    public boolean performCancel() {
+        if (exportRunning) {
+            return false;
+        }
+        return super.performCancel();
     }
 
 }
