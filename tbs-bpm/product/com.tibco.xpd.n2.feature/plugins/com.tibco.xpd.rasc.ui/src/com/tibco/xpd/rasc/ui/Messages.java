@@ -27,6 +27,8 @@ public class Messages extends NLS {
 
     public static String RascExportStatusPage_ExportError;
 
+    public static String RascExportStatusPage_ExportingArtifacts_status;
+
     public static String RascExportStatusPage_ProjectColumn;
 
     public static String RascExportStatusPage_RascExportError;

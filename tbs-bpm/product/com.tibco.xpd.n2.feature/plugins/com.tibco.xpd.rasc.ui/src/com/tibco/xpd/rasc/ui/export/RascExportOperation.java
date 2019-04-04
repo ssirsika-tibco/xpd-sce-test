@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
 import com.tibco.xpd.rasc.core.RascController;
@@ -77,10 +78,18 @@ public class RascExportOperation implements IRunnableWithProgress {
      * @see org.eclipse.jface.operation.IRunnableWithProgress#run(org.eclipse.core.runtime.IProgressMonitor)
      */
     @Override
-    public void run(IProgressMonitor monitor)
+    public void run(IProgressMonitor aProgressMonitor)
             throws InvocationTargetException, InterruptedException {
-        monitor.beginTask(Messages.RascExportOperation_ProgressTitle,
-                projects.size() * 2);
+
+        /*
+         * Checking for problem marker is going to be very small compared with
+         * actual generation, so we'll say the job is 10 long and make
+         * check-validation just one tick and the generate will be 10 ticks.
+         */
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
+                Messages.RascExportOperation_ProgressTitle,
+                projects.size() * 10);
+
         for (IProject project : projects) {
             listener.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
         }
@@ -115,6 +124,7 @@ public class RascExportOperation implements IRunnableWithProgress {
             }
             monitor.worked(1);
         }
+
         if (valid) {
             for (IProject project : projects) {
                 listener.setStatus(project,
@@ -124,7 +134,8 @@ public class RascExportOperation implements IRunnableWithProgress {
                     if (isProjectRelative) {
                         controller.generateRasc(project,
                                 getWorkspacePath(project),
-                                null);
+                                monitor.split(9));
+
                     } else {
                         controller.generateRasc(project,
                                 getSystemPath(project),
@@ -144,7 +155,7 @@ public class RascExportOperation implements IRunnableWithProgress {
                             Messages.RascExportOperation_FolderErrorStatus);
                     RascUiActivator.getLogger().error(e);
                 }
-                monitor.worked(1);
+
             }
         }
         monitor.done();

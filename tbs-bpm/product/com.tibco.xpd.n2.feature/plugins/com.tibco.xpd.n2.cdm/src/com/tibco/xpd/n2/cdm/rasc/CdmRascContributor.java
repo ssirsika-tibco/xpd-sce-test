@@ -87,6 +87,9 @@ public class CdmRascContributor implements RascContributor {
         List<IFile> bomFiles =
                 getBomRascDescriptors(aProject);
         if (bomFiles.isEmpty()) {
+            if (aProgressMonitor != null) {
+                aProgressMonitor.done();
+            }
             return;
         }
 
@@ -135,6 +138,8 @@ public class CdmRascContributor implements RascContributor {
                         bomFile.getFullPath()));
             }
         }
+
+        monitor.done();
 
     }
 

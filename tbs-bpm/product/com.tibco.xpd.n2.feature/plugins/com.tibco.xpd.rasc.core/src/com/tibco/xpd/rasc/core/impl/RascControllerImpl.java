@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -141,10 +142,22 @@ public class RascControllerImpl implements RascController {
     private File generate(IProject aProject, IProgressMonitor aProgressMonitor)
             throws RascGenerationException {
         try {
-            List<RascContributor> contributors =
+            /*
+             * Only interested in contributors that have something to do for
+             * this project.
+             */
+            List<RascContributor> allContributors =
                     contributorlocator.getContributors();
-
+            List<RascContributor> contributors = new ArrayList<>();
+            
+            for (RascContributor contributor : allContributors) {
+                if (contributor.hasContributionsFor(aProject)) {
+                    contributors.add(contributor);
+                }
+            }
+            
             int workSize = contributors.size();
+            
             SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                     RascControllerImpl.PROGRESS_TASK,
                     workSize);
@@ -188,7 +201,6 @@ public class RascControllerImpl implements RascController {
                                     monitor.split(1),
                                     writer);
 
-                            monitor.setWorkRemaining(--workSize);
                         } catch (OperationCanceledException e) {
                             // job has been cancelled by the user
                             return null;

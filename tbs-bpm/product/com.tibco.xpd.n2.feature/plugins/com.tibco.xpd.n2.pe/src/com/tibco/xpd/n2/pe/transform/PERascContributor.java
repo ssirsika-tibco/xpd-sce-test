@@ -26,6 +26,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.n2.bpel.builder.BPELOnDemandBuilder;
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
+import com.tibco.xpd.n2.pe.internal.Messages;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
@@ -90,21 +91,43 @@ public class PERascContributor implements RascContributor {
      */
     public void process(IProject aProject, IProgressMonitor aProgressMonitor,
             final RascWriter aWriter) throws Exception {
+
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
+                Messages.PERascContributor_BuildingProcesses_status,
+                2);
+
         // refresh the generated BPEL files for the given project
         BPELOnDemandBuilder bpelBuilder = new BPELOnDemandBuilder(aProject);
 
-        IStatus status = bpelBuilder.buildProject(aProgressMonitor);
+        IStatus status = bpelBuilder.buildProject(monitor.split(1));
         if (!status.isOK()) {
             Logger logger = Xpdl2ResourcesPlugin.getDefault().getLogger();
             logger.debug(PERascContributor.LOG_BUILD_FAILED);
             logger.log(status);
+            monitor.done();
             return;
         }
 
+        addBpelToRasc(monitor.split(1), aWriter, bpelBuilder);
+
+        monitor.done();
+    }
+
+    /**
+     * Add the BPEL files to the RASC
+     * 
+     * @param aProgressMonitor
+     * @param aWriter
+     * @param bpelBuilder
+     * @throws CoreException
+     */
+    private void addBpelToRasc(IProgressMonitor aProgressMonitor,
+            final RascWriter aWriter, BPELOnDemandBuilder bpelBuilder)
+            throws CoreException {
         /* Get the target derived file info - we will then output content to the RASC according to these  */
         Collection<BuildTargetSet> builtTargets = bpelBuilder.getBuiltTargets();
         
-        int numTargets = countTargets(builtTargets);
+        int numTargets = countBpelResources(builtTargets);
         
         SubMonitor monitor = SubMonitor
                 .convert(aProgressMonitor,
@@ -240,7 +263,7 @@ public class PERascContributor implements RascContributor {
      * @param builtTargets
      * @return The total number of target resources built for the project.
      */
-    private int countTargets(Collection<BuildTargetSet> builtTargets) {
+    private int countBpelResources(Collection<BuildTargetSet> builtTargets) {
         int count = 0;
 
         for (BuildTargetSet buildTargetSet : builtTargets) {

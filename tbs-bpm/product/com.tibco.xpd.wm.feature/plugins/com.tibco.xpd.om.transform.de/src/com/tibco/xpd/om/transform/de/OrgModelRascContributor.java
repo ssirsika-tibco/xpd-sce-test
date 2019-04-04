@@ -95,10 +95,16 @@ public class OrgModelRascContributor implements RascContributor {
         // if the project contains an org-model
         IResource orgFile = findOrgModel(aProject);
         if (orgFile == null || !orgFile.isAccessible()) {
+            if (aProgressMonitor != null) {
+                aProgressMonitor.done();
+            }
             return;
         }
         OrgModel orgModel = read(orgFile);
         if (orgModel == null) {
+            if (aProgressMonitor != null) {
+                aProgressMonitor.done();
+            }
             return;
         }
 
@@ -130,6 +136,7 @@ public class OrgModelRascContributor implements RascContributor {
                     Arrays.asList(transformOrgModel));
         }
         monitor.worked(1);
+        monitor.done();
     }
 
     /**

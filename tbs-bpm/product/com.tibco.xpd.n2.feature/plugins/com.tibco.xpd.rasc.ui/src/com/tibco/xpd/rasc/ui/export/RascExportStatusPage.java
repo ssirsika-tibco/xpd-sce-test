@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
@@ -18,7 +19,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.deploy.ui.util.DeployUtil;
@@ -169,15 +169,20 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
      *            The job to run.
      */
     public void run(IRunnableWithProgress runnable) {
+        SubMonitor subMonitor = SubMonitor
+                .convert(monitor,
+                        Messages.RascExportStatusPage_ExportingArtifacts_status,
+                        10);
+
         getShell().getDisplay().syncExec(() -> {
-            if (!DeployUtil.saveAllDirtyResourcesInWS(monitor)) {
+            if (!DeployUtil.saveAllDirtyResourcesInWS(subMonitor.split(1))) {
 
             }
         });
 
         Job job = Job.createSystem(jobMonitor -> {
             try {
-                runnable.run(monitor);
+                runnable.run(subMonitor.split(9));
             } catch (InvocationTargetException e) {
                 RascUiActivator.getLogger().error(e);
                 setErrorMessage(Messages.RascExportStatusPage_ExportError);
@@ -196,12 +201,9 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
     protected void finishedRun() {
         // Enable launch button
         if (!hasErrors) {
-            Shell shell = getShell();
-            if (shell != null && !shell.isDisposed()) {
-                shell.getDisplay().asyncExec(() -> {
-                    setPageComplete(true);
-                });
-            }
+            getShell().getDisplay().asyncExec(() -> {
+                setPageComplete(true);
+            });
         }
     }
 
