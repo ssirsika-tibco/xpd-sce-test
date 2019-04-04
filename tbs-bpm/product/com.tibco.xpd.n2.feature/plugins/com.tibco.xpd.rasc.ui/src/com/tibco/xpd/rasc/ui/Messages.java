@@ -25,6 +25,8 @@ public class Messages extends NLS {
 
     public static String AdminUrlPropertyPanel_BaseUrlLabel;
 
+    public static String ProgressBarMonitor_ExportComplete0;
+
     public static String RascExportStatusPage_ExportError;
 
     public static String RascExportStatusPage_ExportingArtifacts_status;

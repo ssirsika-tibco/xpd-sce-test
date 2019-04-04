@@ -19,6 +19,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
@@ -249,7 +250,10 @@ public class RascExportWizard extends Wizard
     @Override
     public void exportComplete() {
         Button cancel = buttonMap.get(IDialogConstants.CANCEL_ID);
-        cancel.getDisplay().asyncExec(() -> cancel.setEnabled(true));
+        Display display = cancel.getDisplay();
+        if (display != null && !display.isDisposed()) {
+            display.asyncExec(() -> cancel.setEnabled(true));
+        }
     }
 
 }

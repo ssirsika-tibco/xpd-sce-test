@@ -5,8 +5,11 @@
 package com.tibco.xpd.rasc.ui.export;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
+
+import com.tibco.xpd.rasc.ui.Messages;
 
 /**
  * Progress monitor that can be linked to a ProgressBar and Label.
@@ -52,7 +55,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
     public void done() {
         bar.getDisplay().syncExec(() -> {
             bar.setSelection(totalWork);
-            label.setText("Export complete");
+            label.setText(Messages.ProgressBarMonitor_ExportComplete0);
         });
     }
 
@@ -84,7 +87,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
      */
     @Override
     public void setTaskName(String name) {
-        bar.getDisplay().syncExec(() -> label.setText(name));
+        updateText(name);
     }
 
     /**
@@ -92,7 +95,17 @@ public class ProgressBarMonitor implements IProgressMonitor {
      */
     @Override
     public void subTask(String name) {
-        bar.getDisplay().syncExec(() -> label.setText(name));
+        updateText(name);
+    }
+
+    /**
+     * @param name
+     */
+    private void updateText(String name) {
+        Display display = bar.getDisplay();
+        if (display != null && !display.isDisposed()) {
+            display.syncExec(() -> label.setText(name));
+        }
     }
 
     /**
@@ -101,7 +114,10 @@ public class ProgressBarMonitor implements IProgressMonitor {
     @Override
     public void worked(int work) {
         current += work;
-        bar.getDisplay().syncExec(() -> bar.setSelection(current));
+        Display display = bar.getDisplay();
+        if (display != null && !display.isDisposed()) {
+            display.syncExec(() -> bar.setSelection(current));
+        }
     }
 
 }
