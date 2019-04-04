@@ -34,13 +34,13 @@
             id="com.tibco.xpd.bom.gen.preferences.BomGenPreferencePage">
       </page>
    </extension>
-   <extension
-         point="com.tibco.xpd.resources.ui.postImportProjectTask">
-      <postImportTask
-            class="com.tibco.xpd.bom.gen.ui.internal.RemoveGenProjectReferencesPostImportTask"
-            id="com.tibco.xpd.bom.gen.ui.postImportTask.removeGenProjectReferences">
-      </postImportTask>
-   </extension>
+   
+   <!-- 
+    Sid ACE-458 RemoveGenProjectReferencesPostImportTask (remove project references to derived .bd / .js projects)
+    moved to com.tibco.xpd.n2.resources.postimport (as this is still desired for importing AMX BPM projects
+    but we may want to get rid of com.tibco.xpd.bom.gen plugins.
+   -->  
+
    <extension
          point="org.eclipse.ui.propertyPages">
       <page

@@ -145,8 +145,6 @@ public class Messages extends NLS {
 
     public static String BosExportFolderName_name;
 
-    public static String RemoveGenProjectReferencesPostImportTask_RemovingGeneratedProjectReferences_message;
-
     public static String StrategySelectionPage_generatedReportedErrors_error_message;
 
     public static String StrategySelectionPage_noStrategiesAvailable_label;

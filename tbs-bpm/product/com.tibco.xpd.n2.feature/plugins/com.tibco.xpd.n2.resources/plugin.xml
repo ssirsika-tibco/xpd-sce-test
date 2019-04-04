@@ -260,5 +260,13 @@
      </initializer>
   </extension>
 
+   <extension
+         point="com.tibco.xpd.resources.ui.postImportProjectTask">
+      <postImportTask
+            class="com.tibco.xpd.n2.resources.postimport.RemoveGenProjectReferencesPostImportTask"
+            id="com.tibco.xpd.bom.gen.ui.postImportTask.removeGenProjectReferences"
+            priority="50">
+      </postImportTask>
+   </extension>
 
 </plugin>

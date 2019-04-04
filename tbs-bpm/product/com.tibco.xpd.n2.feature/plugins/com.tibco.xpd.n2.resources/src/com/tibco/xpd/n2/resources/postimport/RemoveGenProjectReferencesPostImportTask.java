@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2012. All rights reserved.
  */
 
-package com.tibco.xpd.bom.gen.ui.internal;
+package com.tibco.xpd.n2.resources.postimport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 
+import com.tibco.xpd.n2.resources.internal.Messages;
 import com.tibco.xpd.resources.ui.imports.IPostImportProjectTask;
 
 /**
@@ -66,6 +67,7 @@ public class RemoveGenProjectReferencesPostImportTask implements
                     if (keptReferences.size() != referencedProjects.length) {
                         monitor.beginTask(Messages.RemoveGenProjectReferencesPostImportTask_RemovingGeneratedProjectReferences_message,
                                 1);
+
 
                         description.setReferencedProjects(keptReferences
                                 .toArray(new IProject[0]));

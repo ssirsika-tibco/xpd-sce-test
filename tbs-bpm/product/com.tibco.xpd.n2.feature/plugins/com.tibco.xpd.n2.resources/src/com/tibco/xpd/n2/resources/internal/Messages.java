@@ -84,6 +84,8 @@ public class Messages extends NLS {
 
     public static String N2LocalDevelopmentServer_Name;
 
+    public static String RemoveGenProjectReferencesPostImportTask_RemovingGeneratedProjectReferences_message;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);
