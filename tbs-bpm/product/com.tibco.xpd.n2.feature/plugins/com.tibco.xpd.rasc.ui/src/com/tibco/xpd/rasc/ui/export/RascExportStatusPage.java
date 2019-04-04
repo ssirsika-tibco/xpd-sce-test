@@ -19,6 +19,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.deploy.ui.util.DeployUtil;
@@ -48,6 +49,8 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
 
     private boolean hasErrors;
 
+    private ExportCompleteListener listener;
+
     /**
      * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
      *
@@ -60,12 +63,6 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
 
         Composite area = new Composite(parent, SWT.NONE);
         area.setLayout(new GridLayout(2, false));
-
-        ProgressBar progress = new ProgressBar(area, SWT.HORIZONTAL);
-        progress.setLayoutData(
-                new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
-
-        monitor = new ProgressBarMonitor(progress);
 
         errorMessage = new Label(area, SWT.NONE);
         errorMessage.setLayoutData(
@@ -95,6 +92,14 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
 
         sc.setContent(statusArea);
 
+        Label progressText = new Label(area, SWT.NONE);
+        progressText.setLayoutData(
+                new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
+        ProgressBar progress = new ProgressBar(area, SWT.HORIZONTAL);
+        progress.setLayoutData(
+                new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
+        monitor = new ProgressBarMonitor(progress, progressText);
+
         setControl(area);
     }
 
@@ -110,8 +115,14 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
     public void setStatus(IProject project, ExportStatus exportStatus,
             String message) {
         getShell().getDisplay().asyncExec(() -> {
-            if (exportStatus == ExportStatus.FAILED) {
+            if (exportStatus == ExportStatus.FAILED_EXPORT) {
                 setErrorMessage(Messages.RascExportStatusPage_RascExportError);
+                setPageComplete(false);
+                hasErrors = true;
+            }
+            if (exportStatus == ExportStatus.FAILED_VALIDATION) {
+                setErrorMessage(
+                        Messages.RascExportStatusPage_RascValidationError0);
                 setPageComplete(false);
                 hasErrors = true;
             }
@@ -169,10 +180,9 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
      *            The job to run.
      */
     public void run(IRunnableWithProgress runnable) {
-        SubMonitor subMonitor = SubMonitor
-                .convert(monitor,
-                        Messages.RascExportStatusPage_ExportingArtifacts_status,
-                        10);
+        SubMonitor subMonitor = SubMonitor.convert(monitor,
+                Messages.RascExportStatusPage_ExportingArtifacts_status,
+                10);
 
         getShell().getDisplay().syncExec(() -> {
             if (!DeployUtil.saveAllDirtyResourcesInWS(subMonitor.split(1))) {
@@ -201,10 +211,21 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
     protected void finishedRun() {
         // Enable launch button
         if (!hasErrors) {
-            getShell().getDisplay().asyncExec(() -> {
-                setPageComplete(true);
-            });
+            Shell shell = getShell();
+            if (shell != null && !shell.isDisposed()) {
+                shell.getDisplay().asyncExec(() -> {
+                    setPageComplete(true);
+                });
+            }
         }
+        listener.exportComplete();
+    }
+
+    /**
+     * @param rascExportWizard
+     */
+    public void setExportCompleteListener(ExportCompleteListener listener) {
+        this.listener = listener;
     }
 
     /**

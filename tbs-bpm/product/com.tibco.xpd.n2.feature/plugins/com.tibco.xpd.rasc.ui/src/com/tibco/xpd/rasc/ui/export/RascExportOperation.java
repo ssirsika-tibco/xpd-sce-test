@@ -107,8 +107,8 @@ public class RascExportOperation implements IRunnableWithProgress {
                         IResource.DEPTH_INFINITE);
                 if (severity == IMarker.SEVERITY_ERROR) {
                     listener.setStatus(project,
-                            ExportStatus.FAILED,
-                            Messages.RascExportOperation_ErrorStatus);
+                            ExportStatus.FAILED_VALIDATION,
+                            Messages.RascExportOperation_ValidationError);
                     valid = false;
                 } else {
                     listener.setStatus(project,
@@ -118,8 +118,8 @@ public class RascExportOperation implements IRunnableWithProgress {
                 }
             } catch (CoreException e) {
                 listener.setStatus(project,
-                        ExportStatus.FAILED,
-                        Messages.RascExportOperation_ErrorStatus);
+                        ExportStatus.FAILED_VALIDATION,
+                        Messages.RascExportOperation_ValidationError);
                 valid = false;
             }
             monitor.worked(1);
@@ -146,12 +146,12 @@ public class RascExportOperation implements IRunnableWithProgress {
                             Messages.RascExportOperation_CompleteStatus);
                 } catch (RascGenerationException e) {
                     listener.setStatus(project,
-                            ExportStatus.FAILED,
+                            ExportStatus.FAILED_EXPORT,
                             Messages.RascExportOperation_ErrorStatus);
                     RascUiActivator.getLogger().error(e);
                 } catch (CoreException e) {
                     listener.setStatus(project,
-                            ExportStatus.FAILED,
+                            ExportStatus.FAILED_EXPORT,
                             Messages.RascExportOperation_FolderErrorStatus);
                     RascUiActivator.getLogger().error(e);
                 }

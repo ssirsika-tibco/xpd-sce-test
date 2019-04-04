@@ -33,6 +33,8 @@ public class Messages extends NLS {
 
     public static String RascExportStatusPage_RascExportError;
 
+    public static String RascExportStatusPage_RascValidationError0;
+
     public static String RascExportStatusPage_StatusColumn;
 
     public static String RascExportOperation_CompleteStatus;
@@ -46,6 +48,8 @@ public class Messages extends NLS {
     public static String RascExportOperation_ProgressTitle;
 
     public static String RascExportOperation_ValidatingStatus;
+
+    public static String RascExportOperation_ValidationError;
 
     public static String RascExportOperation_ValidStatus;
 

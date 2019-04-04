@@ -35,7 +35,8 @@ import com.tibco.xpd.ui.importexport.exportwizard.pages.DestinationLocationType;
  * @author nwilson
  * @since 6 Mar 2019
  */
-public class RascExportWizard extends Wizard implements IExportWizard {
+public class RascExportWizard extends Wizard
+        implements IExportWizard, ExportCompleteListener {
 
     /**
      * The currently selected projects.
@@ -88,6 +89,7 @@ public class RascExportWizard extends Wizard implements IExportWizard {
         statusPage = new RascExportStatusPage();
         statusPage.setTitle(getWindowTitle());
         statusPage.setDescription(Messages.RascExportWizard_Description);
+        statusPage.setExportCompleteListener(this);
 
         addPage(exportPage);
         addPage(statusPage);
@@ -132,6 +134,7 @@ public class RascExportWizard extends Wizard implements IExportWizard {
                 statusPage.setPageComplete(false);
                 finish.setText(Messages.RascExportWizard_LaunchButton);
                 cancel.setText(Messages.RascExportWizard_CloseButton);
+                cancel.setEnabled(false);
                 export();
             }
         }
@@ -237,6 +240,16 @@ public class RascExportWizard extends Wizard implements IExportWizard {
         } else {
             launcher.launch();
         }
+    }
+
+    /**
+     * @see com.tibco.xpd.rasc.ui.export.ExportCompleteListener#exportComplete()
+     *
+     */
+    @Override
+    public void exportComplete() {
+        Button cancel = buttonMap.get(IDialogConstants.CANCEL_ID);
+        cancel.getDisplay().asyncExec(() -> cancel.setEnabled(true));
     }
 
 }
