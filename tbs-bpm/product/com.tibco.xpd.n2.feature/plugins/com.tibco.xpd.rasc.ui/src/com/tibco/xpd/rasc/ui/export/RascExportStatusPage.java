@@ -18,6 +18,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.deploy.ui.util.DeployUtil;
@@ -195,9 +196,12 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
     protected void finishedRun() {
         // Enable launch button
         if (!hasErrors) {
-            getShell().getDisplay().asyncExec(() -> {
-                setPageComplete(true);
-            });
+            Shell shell = getShell();
+            if (shell != null && !shell.isDisposed()) {
+                shell.getDisplay().asyncExec(() -> {
+                    setPageComplete(true);
+                });
+            }
         }
     }
 
