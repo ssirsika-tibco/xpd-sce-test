@@ -6,6 +6,7 @@ package com.tibco.xpd.core.test.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
@@ -58,6 +60,8 @@ import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectConfigFactory;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.ui.util.PostImportUtil;
+import com.tibco.xpd.resources.util.ProjectImporter;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.wc.AbstractWorkingCopy;
@@ -156,10 +160,10 @@ public class TestUtil {
      */
     @SuppressWarnings("nls")
     public static ProjectConfig getProjectConfig(IProject project) {
-        TestCase.assertNotNull("Project is null.", project);
+        TestCase.assertNotNull("Project is null.", project); //$NON-NLS-1$
         ProjectConfig pc =
                 XpdResourcesPlugin.getDefault().getProjectConfig(project);
-        TestCase.assertNotNull("Project Config is not avaiable", pc);
+        TestCase.assertNotNull("Project Config is not avaiable", pc); //$NON-NLS-1$
         return pc;
     }
 
@@ -232,7 +236,7 @@ public class TestUtil {
         boolean closeAllEditors =
                 PlatformUI.getWorkbench().getActiveWorkbenchWindow()
                         .getActivePage().closeAllEditors(false);
-        TestCase.assertTrue("All editors should be closed", closeAllEditors);
+        TestCase.assertTrue("All editors should be closed", closeAllEditors); //$NON-NLS-1$
     }
 
     /**
@@ -268,13 +272,13 @@ public class TestUtil {
         }
         waitForJobs(1000);
         sf = pc.getSpecialFolders().addFolder(folder, folderKind);
-        TestCase.assertNotNull("Failed to create special folder", sf);
+        TestCase.assertNotNull("Failed to create special folder", sf); //$NON-NLS-1$
 
         // access this folder through project config
         List<SpecialFolder> sFolders =
                 pc.getSpecialFolders().getFoldersOfKind(folderKind);
 
-        TestCase.assertEquals("Number of special folders of kind " + folderKind,
+        TestCase.assertEquals("Number of special folders of kind " + folderKind, //$NON-NLS-1$
                 count + 1,
                 sFolders.size());
 
@@ -309,8 +313,8 @@ public class TestUtil {
         // access this folder through project config
         List<SpecialFolder> conceptsFolders =
                 pc.getSpecialFolders().getFoldersOfKind(folderKind);
-        TestCase.assertEquals("There should be one special folder of kind '"
-                + folderKind + "'", 1, conceptsFolders.size());
+        TestCase.assertEquals("There should be one special folder of kind '" //$NON-NLS-1$
+                + folderKind + "'", 1, conceptsFolders.size()); //$NON-NLS-1$
         SpecialFolder conceptsFolder = conceptsFolders.get(0);
         return conceptsFolder;
     }
@@ -346,7 +350,7 @@ public class TestUtil {
      */
     @SuppressWarnings("nls")
     public static void waitForJobs(Object family, int initialWaitTime) {
-        System.out.print("    ==> waitForJobs(family=" + family + ")...");
+        System.out.print("    ==> waitForJobs(family=" + family + ")..."); //$NON-NLS-1$ //$NON-NLS-2$
 
         /*
          * Reduce initial wait time (this is onyl waiting for a job to kick off
@@ -375,12 +379,13 @@ public class TestUtil {
             }
 
             if (((System.currentTimeMillis() - start) / 1000) > 300) {
-                TestCase.fail("Test waited 5 minutes for completion of all jobs. But there are still some running, waiting or sleeping Jobs");
+                TestCase.fail(
+                        "Test waited 5 minutes for completion of all jobs. But there are still some running, waiting or sleeping Jobs"); //$NON-NLS-1$
             }
         }
 
         long duration = System.currentTimeMillis() - start;
-        System.out.println(String.format("  waited %dms <==", duration));
+        System.out.println(String.format("  waited %dms <==", duration)); //$NON-NLS-1$
     }
 
     /**
@@ -962,7 +967,7 @@ public class TestUtil {
             TempConfigurationElement config =
                     new TempConfigurationElement(wizardId);
 
-            factory.setInitializationData(config, "class", parameters);
+            factory.setInitializationData(config, "class", parameters); //$NON-NLS-1$
 
             XpdProjectWizard projWizard = (XpdProjectWizard) factory.create();
 
@@ -1033,7 +1038,7 @@ public class TestUtil {
             TempConfigurationElement config =
                     new TempConfigurationElement(wizardId);
 
-            factory.setInitializationData(config, "class", parameters);
+            factory.setInitializationData(config, "class", parameters); //$NON-NLS-1$
 
             XpdProjectWizard wizard = (XpdProjectWizard) factory.create();
 
@@ -1123,4 +1128,71 @@ public class TestUtil {
         return false;
     }
 
+    /**
+     * Import the projects from a given resource folder (or single project in
+     * the given zip) in the test plugin-relative resource path and execute the
+     * standard post import tasks on them.
+     * 
+     * Note that the {@link ProjectImporter} looks like it deletes existing
+     * projects before doing the import.
+     * 
+     * @param testRsourcePluginId
+     *            The id of the plugin where the test resource zip'd projects
+     *            can be found.
+     * @param resourcePath
+     *            the list of strings representing bundle relative project URIs.
+     *            Two forms are allowed:
+     *            <li>plug-in relative path to folder containing project
+     *            (resource/myProject/)</li>
+     *            <li>plug-in relative path to zip file containing project
+     *            content (resource/myProject.zip)</li>. If the project is the
+     *            folder the relative URI should have trailing path separator
+     *            '/'.
+     * @param expectedProjectNames
+     *            The expected projects in the resourcePath
+     * 
+     * @return The {@link ProjectImporter} used to import th projects or
+     *         <code>null</code> on failure
+     */
+    public static ProjectImporter importProjectsFromZip(
+            String testRsourcePluginId,
+            List<String> resourcePaths, String[] expectedProjectNames) {
+
+        ProjectImporter importer = ProjectImporter.createPluginProjectImporter(
+                testRsourcePluginId,
+                resourcePaths);
+
+        if (!importer.performImport()) {
+            XpdResourcesPlugin.getDefault().getLogger()
+                    .error("ProjectImporter.performImport() failed."); //$NON-NLS-1$
+            return null;
+        }
+
+        for (String projectName : expectedProjectNames) {
+            IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                    .getProject(projectName);
+
+            if (!project.isAccessible()) {
+                XpdResourcesPlugin.getDefault().getLogger()
+                        .error("Expected project '" + projectName //$NON-NLS-1$
+                                + "' isn't accessible after import (wrong name provided or not in given import resources?)."); //$NON-NLS-1$
+                return null;
+            }
+
+            IStatus performPostImportTasks = PostImportUtil.getInstance()
+                    .performPostImportTasks(Collections.singletonList(project),
+                            new NullProgressMonitor());
+
+            if (!performPostImportTasks.isOK()) {
+                XpdResourcesPlugin.getDefault().getLogger()
+                        .error("Post import tasks failed for project '" //$NON-NLS-1$
+                                + projectName
+                                + "' isn't accessible after import (" //$NON-NLS-1$
+                                + performPostImportTasks.getMessage() + ")"); //$NON-NLS-1$
+                return null;
+            }
+        }
+
+        return importer;
+    }
 }

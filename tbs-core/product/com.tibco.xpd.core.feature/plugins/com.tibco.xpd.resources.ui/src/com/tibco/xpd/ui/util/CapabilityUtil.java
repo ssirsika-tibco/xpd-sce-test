@@ -30,11 +30,23 @@ public final class CapabilityUtil {
         if (!XpdResourcesPlugin.isInHeadlessMode()) {
             IWorkbenchActivitySupport activitySupport =
                     PlatformUI.getWorkbench().getActivitySupport();
-            IActivityManager activityManager =
-                    activitySupport.getActivityManager();
-            Set<String> enabledActivityIds =
-                    (Set<String>) activityManager.getEnabledActivityIds();
-            return enabledActivityIds.contains(DEVELOPER_ACTIVITY_ID);
+            
+            /*
+             * When run from junit test on an imported MAA project this failed
+             * because activitySupport wasn't set yet, so added some null
+             * checking.
+             */
+            if (activitySupport != null) {
+
+                IActivityManager activityManager =
+                        activitySupport.getActivityManager();
+
+                if (activityManager != null) {
+                    Set<String> enabledActivityIds =
+                            activityManager.getEnabledActivityIds();
+                    return enabledActivityIds.contains(DEVELOPER_ACTIVITY_ID);
+                }
+            }
         }
         return true;
     }

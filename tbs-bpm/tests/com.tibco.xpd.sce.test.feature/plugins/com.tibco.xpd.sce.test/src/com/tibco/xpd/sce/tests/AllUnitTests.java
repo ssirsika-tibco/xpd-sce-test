@@ -6,6 +6,7 @@ package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.cdm.transform.SimpleCdmTransformTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
+import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectConfigTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
@@ -24,15 +25,27 @@ public class AllUnitTests {
     public static Test suite() {
         TestSuite suite = new TestSuite("Test for com.tibco.xpd.sce.tests");
 
-        // RASC contributors
+        /*
+         * RASC contributors
+         */
         suite.addTestSuite(OrgModelRascContributorTest.class);
         suite.addTestSuite(PERascContributorTest.class);
+        suite.addTestSuite(SimpleCdmTransformTest.class);
+        // BOM->CDM transformation
         suite.addTestSuite(CdmRascContributorTest.class);
 
-        // BOM->CDM transformation
-        suite.addTestSuite(SimpleCdmTransformTest.class);
+        /*
+         * AMX BPM project migration
+         */
+        suite.addTestSuite(Bpm2CeProjectConfigTest.class);
 
+        /*
+         * Miscellaneous
+         */
         suite.addTestSuite(NewCeProjectsTest.class);
+
+
+
         return suite;
     }
 }

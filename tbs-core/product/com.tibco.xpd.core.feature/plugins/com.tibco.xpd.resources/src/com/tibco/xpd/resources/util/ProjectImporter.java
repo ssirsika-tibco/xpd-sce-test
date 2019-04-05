@@ -137,6 +137,7 @@ public class ProjectImporter extends AbstractExampleInstallerWizard {
             File directory = new File(location);
             if (directory.isDirectory() && directory.canRead()) {
                 File[] projectFiles = directory.listFiles(new FileFilter() {
+                    @Override
                     public boolean accept(File f) {
                         boolean isOKDir =
                                 f.isDirectory() && f.canRead()
@@ -214,6 +215,7 @@ public class ProjectImporter extends AbstractExampleInstallerWizard {
             File directory = new File(location);
             if (directory.isDirectory() && directory.canRead()) {
                 File[] projectFiles = directory.listFiles(new FileFilter() {
+                    @Override
                     public boolean accept(File f) {
                         boolean isOKDir =
                                 f.isDirectory() && f.canRead()
@@ -239,7 +241,7 @@ public class ProjectImporter extends AbstractExampleInstallerWizard {
     }
 
     @Override
-    protected List<ProjectDescriptor> getProjectDescriptors() {
+    public List<ProjectDescriptor> getProjectDescriptors() {
         if (projectDescriptors == null) {
             createProjectDescriptors(contextPluginId, projectURLs);
         }
@@ -341,6 +343,7 @@ public class ProjectImporter extends AbstractExampleInstallerWizard {
             IProgressService ps =
                     PlatformUI.getWorkbench().getProgressService();
             ps.busyCursorWhile(new IRunnableWithProgress() {
+                @Override
                 public void run(IProgressMonitor monitor)
                         throws InvocationTargetException, InterruptedException {
                     monitor.beginTask("Importing projects", 3);
@@ -399,6 +402,7 @@ public class ProjectImporter extends AbstractExampleInstallerWizard {
             IProgressService ps =
                     PlatformUI.getWorkbench().getProgressService();
             ps.busyCursorWhile(new IRunnableWithProgress() {
+                @Override
                 public void run(IProgressMonitor monitor)
                         throws InvocationTargetException, InterruptedException {
                     monitor.beginTask("Deleting projects", 3);

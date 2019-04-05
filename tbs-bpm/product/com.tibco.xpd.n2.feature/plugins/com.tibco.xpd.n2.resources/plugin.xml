@@ -264,8 +264,17 @@
          point="com.tibco.xpd.resources.ui.postImportProjectTask">
       <postImportTask
             class="com.tibco.xpd.n2.resources.postimport.RemoveGenProjectReferencesPostImportTask"
-            id="com.tibco.xpd.bom.gen.ui.postImportTask.removeGenProjectReferences"
+            id="com.tibco.xpd.n2.resources.postImportTask.removeGenProjectReferences"
             priority="50">
+      </postImportTask>
+   </extension>
+   <extension
+         point="com.tibco.xpd.resources.ui.postImportProjectTask">
+      <postImportTask
+            appliesToNatureIds="com.tibco.xpd.resources.xpdNature"
+            class="com.tibco.xpd.n2.resources.postimport.Bpm2CeProjectConfigPostImportTask"
+            id="com.tibco.xpd.n2.resources.setCeDestinationPostImportTask"
+            priority="20">
       </postImportTask>
    </extension>
 
