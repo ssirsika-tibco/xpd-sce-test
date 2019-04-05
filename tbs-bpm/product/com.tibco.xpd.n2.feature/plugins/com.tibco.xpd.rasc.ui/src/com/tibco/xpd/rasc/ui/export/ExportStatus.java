@@ -10,11 +10,11 @@ package com.tibco.xpd.rasc.ui.export;
  * @since 14 Mar 2019
  */
 public enum ExportStatus {
-    WAITING("IMG_OBJS_INCOMPLETE_TSK"), RUNNING( //$NON-NLS-1$
-            "IMG_TOOL_FORWARD"), FAILED_EXPORT( //$NON-NLS-1$
-                    "IMG_OBJS_ERROR_TSK"), FAILED_VALIDATION( //$NON-NLS-1$
-                            "IMG_OBJS_ERROR_TSK"), COMPLETE( //$NON-NLS-1$
-                                    "IMG_OBJS_COMPLETE_TSK"); //$NON-NLS-1$
+    WAITING("IMG_OBJS_INCOMPLETE_TSK"), //$NON-NLS-1$
+    RUNNING("IMG_TOOL_FORWARD"), //$NON-NLS-1$
+    FAILED_EXPORT("IMG_OBJS_ERROR_TSK"), //$NON-NLS-1$
+    FAILED_VALIDATION("IMG_OBJS_ERROR_TSK"), //$NON-NLS-1$
+    COMPLETE("IMG_OBJS_COMPLETE_TSK"); //$NON-NLS-1$
 
     private String iconName;
 

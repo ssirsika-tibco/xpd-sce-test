@@ -17,7 +17,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.util.CyclicDependencyException;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;

@@ -8,7 +8,7 @@
             class="com.tibco.xpd.rasc.ui.export.RascExportWizard"
             icon="icons/obj16/rasc_16x16.png"
             id="com.tibco.xpd.rasc.export"
-            name="Export Deployment Artifacts">
+            name="%exportDeploymentArtifacts">
       </wizard>
    </extension>
    <extension
@@ -43,9 +43,10 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            category="com.tibco.bx.bpmGeneral"
             class="com.tibco.xpd.rasc.ui.AdminUrlPreferencePage"
             id="com.tibco.xpd.rasc.ui.adminUrlPage"
-            name="Admin UI">
+            name="%adminUIPreferencePage">
       </page>
    </extension>
 

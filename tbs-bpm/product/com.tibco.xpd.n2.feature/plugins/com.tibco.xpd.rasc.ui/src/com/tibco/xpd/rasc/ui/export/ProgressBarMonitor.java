@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 
-import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 
 /**
  * Progress monitor that can be linked to a ProgressBar and Label.

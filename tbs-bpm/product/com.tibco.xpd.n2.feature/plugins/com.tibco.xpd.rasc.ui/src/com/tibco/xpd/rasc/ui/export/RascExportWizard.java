@@ -26,8 +26,8 @@ import org.eclipse.ui.PartInitException;
 
 import com.tibco.xpd.rasc.core.RascActivator;
 import com.tibco.xpd.rasc.core.RascController;
-import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.DestinationLocationType;
 
 /**

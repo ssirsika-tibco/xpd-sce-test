@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.rasc.ui;
+package com.tibco.xpd.rasc.ui.internal;
 
 import org.eclipse.osgi.util.NLS;
 
@@ -13,7 +13,8 @@ import org.eclipse.osgi.util.NLS;
  * @since 6 Mar 2019
  */
 public class Messages extends NLS {
-    private static final String BUNDLE_NAME = "com.tibco.xpd.rasc.ui.messages"; //$NON-NLS-1$
+    private static final String BUNDLE_NAME =
+            "com.tibco.xpd.rasc.ui.internal.messages"; //$NON-NLS-1$
 
     public static String AdminUrlPropertyDialog_HideDialogCheckbox;
 

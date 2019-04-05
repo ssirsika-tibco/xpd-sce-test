@@ -15,8 +15,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
-import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
 import com.tibco.xpd.ui.properties.XpdWizardToolkit;
 

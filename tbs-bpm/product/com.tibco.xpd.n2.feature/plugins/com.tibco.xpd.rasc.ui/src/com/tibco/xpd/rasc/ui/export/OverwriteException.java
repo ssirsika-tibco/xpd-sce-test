@@ -4,7 +4,7 @@
 
 package com.tibco.xpd.rasc.ui.export;
 
-import com.tibco.xpd.rasc.ui.Messages;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 
 /**
  * Exception when a file could not be overwritten.

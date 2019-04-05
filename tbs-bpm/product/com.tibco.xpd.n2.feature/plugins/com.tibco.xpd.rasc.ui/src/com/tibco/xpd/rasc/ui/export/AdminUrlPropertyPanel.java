@@ -11,8 +11,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
 
 /**
@@ -31,8 +31,12 @@ public class AdminUrlPropertyPanel extends Composite {
     private Label warning;
 
     /**
+     * @param toolkit
+     *            The toolkit to use for creating components.
      * @param parent
+     *            The parent composite.
      * @param style
+     *            The style to apply to the panel composite.
      */
     public AdminUrlPropertyPanel(BaseXpdToolkit toolkit, Composite parent,
             int style) {
