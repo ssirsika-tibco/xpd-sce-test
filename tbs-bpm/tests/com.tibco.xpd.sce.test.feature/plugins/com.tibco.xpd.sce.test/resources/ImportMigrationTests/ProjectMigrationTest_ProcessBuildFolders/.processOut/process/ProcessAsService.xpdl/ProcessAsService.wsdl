@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_VLp0gBCEEeON57gSdlnC5A" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://example.com/dataclass" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProcessAsService" targetNamespace="http://www.tibco.com/bs3.0/_VLp0gBCEEeON57gSdlnC5A" tibex:XPDL="ProcessAsService.xpdl">
+    <partnerLinkType name="SubProcessAsServiceProcess_PLT" xmlns="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <role name="SubProcessAsServiceProcessProvider" portType="ns:SubProcessAsServiceProcess"/>
+  </partnerLinkType>
+    <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_VLp0gBCEEeON57gSdlnC5A" targetNamespace="http://www.tibco.com/bs3.0/_VLp0gBCEEeON57gSdlnC5A"/>
+    <xsd:schema xmlns="http://example.com/dataclass" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/dataclass" targetNamespace="http://example.com/dataclass">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/ProcessAndSubProcess/Business Objects/DataClass.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="DataClass">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="text">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="integer" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DataClassElement" type="DataClass"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SubProcessAsServiceProcess_StartSubprocessAsService_INPUT">
+    <wsdl:part name="Parameter" type="ttns:DataClass"/>
+  </wsdl:message>
+  <wsdl:message name="SubProcessAsServiceProcess_StartSubprocessAsService_OUTPUT">
+    <wsdl:part name="Parameter" type="ttns:DataClass"/>
+  </wsdl:message>
+  <wsdl:portType name="SubProcessAsServiceProcess" tibex:FlowContainer="_VLp0gRCEEeON57gSdlnC5A">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="StartSubprocessAsService">
+      <wsdl:input message="ns:SubProcessAsServiceProcess_StartSubprocessAsService_INPUT" tibex:Event="_ZV3LJxCEEeON57gSdlnC5A"/>
+      <wsdl:output message="ns:SubProcessAsServiceProcess_StartSubprocessAsService_OUTPUT" tibex:Event="_ZV3LJxCEEeON57gSdlnC5A"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+
+/**
+ * Forms 3.1.0 V12 compliant.
+ */
+    .fbdb6388f-5f9a-4c12-9998-effa3ccd86da .pane_toolbar > .label {
+        display:none !important;
+    }
+    .fbdb6388f-5f9a-4c12-9998-effa3ccd86da .pane_root > .label {
+        
+display:block !important;    }
+/** 
+ * The font properties are applied to all controls that are children of the pane. This will cascade through all children unless
+ * overridden at a lower level.
+ */
+    .fbdb6388f-5f9a-4c12-9998-effa3ccd86da .pane_root .control .tf-container .control-widget,
+
+ .fbdb6388f-5f9a-4c12-9998-effa3ccd86da .pane_root .control .tf-container .control-widget input{
+ 	color: #ff0000;
+ 	text-align: left;
+}
+    .fbdb6388f-5f9a-4c12-9998-effa3ccd86da .pane_messages > .label {
+        display:none !important;
+    }
+/** 
+ * The child label properties set at the form level apply only to the labels of the root panes. 
+ */
+.TibcoForms.fbdb6388f-5f9a-4c12-9998-effa3ccd86da > .tf-container > .component > .pane-label {
+	font-family: verdana;
+ 	font-size: 12px;
+ 	color: #000000;
+ 	text-align: left;
+
+    display:table-cell;
+}

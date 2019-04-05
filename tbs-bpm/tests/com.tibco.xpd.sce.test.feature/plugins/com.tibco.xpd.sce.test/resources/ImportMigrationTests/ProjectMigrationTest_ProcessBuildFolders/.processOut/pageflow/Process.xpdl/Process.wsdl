@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_NwxkUA_1EeON57gSdlnC5A" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://example.com/dataclass" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Process" targetNamespace="http://www.tibco.com/bs3.0/_NwxkUA_1EeON57gSdlnC5A" tibex:XPDL="Process.xpdl">
+    <partnerLinkType name="MainProcess_PLT" xmlns="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <role name="MainProcessProvider" portType="ns:MainProcess"/>
+  </partnerLinkType>
+    <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_NwxkUA_1EeON57gSdlnC5A" targetNamespace="http://www.tibco.com/bs3.0/_NwxkUA_1EeON57gSdlnC5A">
+      <xsd:simpleType name="string_250">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="250"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/dataclass" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/dataclass" targetNamespace="http://example.com/dataclass">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/ProcessAndSubProcess/Business Objects/DataClass.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="DataClass">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="text">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="integer" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DataClassElement" type="DataClass"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MainProcess_CatchMessageEvent_INPUT">
+    <wsdl:part name="LoginId" type="ns:string_250"/>
+    <wsdl:part name="Parameter" type="ttns:DataClass"/>
+  </wsdl:message>
+  <wsdl:portType name="MainProcess" tibex:FlowContainer="_Nw4SAA_1EeON57gSdlnC5A">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="CatchMessageEvent">
+      <wsdl:input message="ns:MainProcess_CatchMessageEvent_INPUT" tibex:Event="_QbdB4g_1EeON57gSdlnC5A"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

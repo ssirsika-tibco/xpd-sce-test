@@ -6,6 +6,7 @@ package com.tibco.xpd.core.test.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -1156,11 +1157,11 @@ public class TestUtil {
      */
     public static ProjectImporter importProjectsFromZip(
             String testRsourcePluginId,
-            List<String> resourcePaths, String[] expectedProjectNames) {
+            String[] resourcePaths, String[] expectedProjectNames) {
 
         ProjectImporter importer = ProjectImporter.createPluginProjectImporter(
                 testRsourcePluginId,
-                resourcePaths);
+                Arrays.asList(resourcePaths));
 
         if (!importer.performImport()) {
             XpdResourcesPlugin.getDefault().getLogger()
