@@ -23,9 +23,11 @@ public class Messages extends NLS {
 
     public static String AdminUrlPropertyPanel_BaseUrlLabel;
 
-    public static String DefaultUrlWarning0;
+    public static String AdminUrlPropertyPanel_DefaultUrlWarning;
 
-    public static String ProgressBarMonitor_ExportComplete0;
+    public static String OverwriteException_FileMessage;
+
+    public static String ProgressBarMonitor_ExportComplete;
 
     public static String RascExportStatusPage_ExportError;
 
@@ -35,7 +37,7 @@ public class Messages extends NLS {
 
     public static String RascExportStatusPage_RascExportError;
 
-    public static String RascExportStatusPage_RascValidationError0;
+    public static String RascExportStatusPage_RascValidationError;
 
     public static String RascExportStatusPage_StatusColumn;
 
@@ -46,6 +48,8 @@ public class Messages extends NLS {
     public static String RascExportOperation_ExportingStatus;
 
     public static String RascExportOperation_FolderErrorStatus;
+
+    public static String RascExportOperation_OverwriteDialogTitle;
 
     public static String RascExportOperation_ProgressTitle;
 

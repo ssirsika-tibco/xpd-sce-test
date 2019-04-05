@@ -62,7 +62,7 @@ public class AdminUrlPropertyPanel extends Composite {
 
     void updateMessages() {
         if (DEFUALT_URL.equals(adminUrl.getText())) {
-            warning.setText(Messages.DefaultUrlWarning0);
+            warning.setText(Messages.AdminUrlPropertyPanel_DefaultUrlWarning);
         } else {
             warning.setText(""); //$NON-NLS-1$
         }

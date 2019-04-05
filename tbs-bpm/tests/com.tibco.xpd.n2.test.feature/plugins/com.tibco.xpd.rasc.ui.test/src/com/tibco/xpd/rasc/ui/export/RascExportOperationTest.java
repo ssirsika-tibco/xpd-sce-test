@@ -68,8 +68,8 @@ public class RascExportOperationTest {
     public void testProjectRelative() {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
-        RascExportOperation operation = new RascExportOperation(controller,
-                listener, projects, "Export/RASC", true);
+        RascExportOperation operation = new RascExportOperation(null,
+                controller, listener, projects, "Export/RASC", true); //$NON-NLS-1$
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),
@@ -85,8 +85,8 @@ public class RascExportOperationTest {
     public void testSystemFolder() {
         List<IProject> projects = new ArrayList<>();
         projects.add(project);
-        RascExportOperation operation = new RascExportOperation(controller,
-                listener, projects, "/tmp/Export/RASC", false);
+        RascExportOperation operation = new RascExportOperation(null,
+                controller, listener, projects, "/tmp/Export/RASC", false); //$NON-NLS-1$
         try {
             operation.run(monitor);
             verify(controller).generateRasc(Matchers.eq(project),

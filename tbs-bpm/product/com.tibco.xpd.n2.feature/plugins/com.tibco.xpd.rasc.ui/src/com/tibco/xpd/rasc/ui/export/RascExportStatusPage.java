@@ -122,7 +122,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
             }
             if (exportStatus == ExportStatus.FAILED_VALIDATION) {
                 setErrorMessage(
-                        Messages.RascExportStatusPage_RascValidationError0);
+                        Messages.RascExportStatusPage_RascValidationError);
                 setPageComplete(false);
                 hasErrors = true;
             }

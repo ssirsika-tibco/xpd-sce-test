@@ -218,9 +218,9 @@ public class RascExportWizard extends Wizard
                 .equals(exportPage.getLocationType());
         RascController controller =
                 RascActivator.getDefault().getRascController();
-        IRunnableWithProgress op =
-                new RascExportOperation(controller, statusPage, projects,
-                        exportPage.getLocationPath(), isProjectRelative);
+        IRunnableWithProgress op = new RascExportOperation(getShell(),
+                controller, statusPage, projects, exportPage.getLocationPath(),
+                isProjectRelative);
         statusPage.run(op);
     }
 

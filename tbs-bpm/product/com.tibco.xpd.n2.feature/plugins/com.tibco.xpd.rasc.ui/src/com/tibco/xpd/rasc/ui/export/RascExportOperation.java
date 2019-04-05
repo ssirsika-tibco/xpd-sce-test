@@ -7,6 +7,7 @@ package com.tibco.xpd.rasc.ui.export;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -19,12 +20,15 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.swt.widgets.Shell;
 
 import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 import com.tibco.xpd.rasc.ui.Messages;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
+import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
+import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteStatus;
 
 /**
  * Operation to export projects.
@@ -33,6 +37,11 @@ import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
  * @since 6 Mar 2019
  */
 public class RascExportOperation implements IRunnableWithProgress {
+
+    /**
+     * The parent shell in case we need to show a dialog.
+     */
+    private Shell shell;
 
     /**
      * The RASC controller.
@@ -61,12 +70,18 @@ public class RascExportOperation implements IRunnableWithProgress {
     private boolean isProjectRelative;
 
     /**
+     * Set to true to automatically overwrite existing files.
+     */
+    private Boolean overwrite;
+
+    /**
      * @param projects
      *            The projects to export.
      */
-    public RascExportOperation(RascController controller,
+    public RascExportOperation(Shell shell, RascController controller,
             ExportStatusListener listener, List<IProject> projects, String path,
             boolean isProjectRelative) {
+        this.shell = shell;
         this.controller = controller;
         this.listener = listener;
         this.projects = projects;
@@ -132,14 +147,10 @@ public class RascExportOperation implements IRunnableWithProgress {
                         Messages.RascExportOperation_ExportingStatus);
                 try {
                     if (isProjectRelative) {
-                        controller.generateRasc(project,
-                                getWorkspacePath(project),
-                                monitor.split(9));
+                        generateRelativePath(project, monitor);
 
                     } else {
-                        controller.generateRasc(project,
-                                getSystemPath(project),
-                                null);
+                        generateSystemPath(project, monitor);
                     }
                     listener.setStatus(project,
                             ExportStatus.COMPLETE,
@@ -154,11 +165,87 @@ public class RascExportOperation implements IRunnableWithProgress {
                             ExportStatus.FAILED_EXPORT,
                             Messages.RascExportOperation_FolderErrorStatus);
                     RascUiActivator.getLogger().error(e);
+                } catch (OverwriteException e) {
+                    listener.setStatus(project,
+                            ExportStatus.FAILED_EXPORT,
+                            e.getMessage());
                 }
 
             }
         }
         monitor.done();
+    }
+
+    /**
+     * @param project
+     *            The project to generate a RASC for.
+     * @param monitor
+     *            The progress monitor.
+     * @throws RascGenerationException
+     *             If the RASC could not be generated.
+     * @throws CoreException
+     *             If there was any other error.
+     * @throws OverwriteException
+     */
+    private void generateSystemPath(IProject project, SubMonitor monitor)
+            throws RascGenerationException, CoreException, OverwriteException {
+        File systemPath = getSystemPath(project);
+        if (systemPath.exists()) {
+            showOverwriteDialog(systemPath.toString());
+        }
+        controller.generateRasc(project, systemPath, monitor.split(9));
+    }
+
+    /**
+     * @param project
+     *            The project to generate a RASC for.
+     * @param monitor
+     *            The progress monitor.
+     * @throws RascGenerationException
+     *             If the RASC could not be generated.
+     * @throws CoreException
+     *             If there was any other error.
+     * @throws OverwriteException
+     */
+    private void generateRelativePath(IProject project, SubMonitor monitor)
+            throws RascGenerationException, CoreException, OverwriteException {
+        IFile workspacePath = getWorkspacePath(project);
+        if (workspacePath.exists()) {
+            showOverwriteDialog(project.getName() + File.separator
+                    + workspacePath.getProjectRelativePath().toOSString());
+        }
+        controller.generateRasc(project, workspacePath, monitor.split(9));
+    }
+
+    /**
+     * @param file
+     *            The name of the file to overwrite.
+     * @throws OverwriteException
+     */
+    private void showOverwriteDialog(String file) throws OverwriteException {
+        OverwriteStatus status;
+        if (Boolean.FALSE.equals(overwrite)) {
+            status = OverwriteStatus.CANCEL;
+        } else if (Boolean.TRUE.equals(overwrite)) {
+            status = OverwriteStatus.ALL_FILES;
+        } else {
+            OverwriteFileMessageDialog overwriteDialog =
+                    new OverwriteFileMessageDialog(shell,
+                            Messages.RascExportOperation_OverwriteDialogTitle,
+                            file);
+            final AtomicInteger result = new AtomicInteger(-1);
+            shell.getDisplay()
+                    .syncExec(() -> result.set(overwriteDialog.open()));
+            status = overwriteDialog.getOverwriteStatus(result.get());
+        }
+        if (status == OverwriteStatus.ALL_FILES) {
+            overwrite = Boolean.TRUE;
+        } else if (status == OverwriteStatus.NO) {
+            throw new OverwriteException(file);
+        } else if (status == OverwriteStatus.CANCEL) {
+            overwrite = Boolean.FALSE;
+            throw new OverwriteException(file);
+        }
     }
 
     /**

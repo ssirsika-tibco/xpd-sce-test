@@ -55,7 +55,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
     public void done() {
         bar.getDisplay().syncExec(() -> {
             bar.setSelection(totalWork);
-            label.setText(Messages.ProgressBarMonitor_ExportComplete0);
+            label.setText(Messages.ProgressBarMonitor_ExportComplete);
         });
     }
 
