@@ -23,7 +23,12 @@ import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
  */
 public class AdminUrlPropertyPanel extends Composite {
 
+    private static final String DEFUALT_URL =
+            "https://<domain>/admin-app/index.html"; //$NON-NLS-1$
+
     private Text adminUrl;
+
+    private Label warning;
 
     /**
      * @param parent
@@ -33,14 +38,34 @@ public class AdminUrlPropertyPanel extends Composite {
             int style) {
         super(parent, style);
         setLayout(new GridLayout(2, false));
-        Label adminUrlLabel = toolkit.createLabel(parent, Messages.AdminUrlPropertyPanel_BaseUrlLabel);
+        Label adminUrlLabel = toolkit.createLabel(this,
+                Messages.AdminUrlPropertyPanel_BaseUrlLabel);
         adminUrlLabel.setLayoutData(
                 new GridData(SWT.LEFT, SWT.CENTER, false, false));
         String defaultText = RascUiActivator.getDefault().getAdminBaseUrl();
-        adminUrl = toolkit.createText(parent,
-                defaultText,
-                RascUiActivator.ADMIN_BASE_URL);
+        if (defaultText == null || defaultText.length() == 0) {
+            defaultText = DEFUALT_URL;
+        }
+        adminUrl = toolkit
+                .createText(this, defaultText, RascUiActivator.ADMIN_BASE_URL);
         adminUrl.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+
+        warning = toolkit.createLabel(this, ""); //$NON-NLS-1$
+        warning.setLayoutData(
+                new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
+        warning.setForeground(
+                getShell().getDisplay().getSystemColor(SWT.COLOR_RED));
+
+        adminUrl.addModifyListener(event -> updateMessages());
+        updateMessages();
+    }
+
+    void updateMessages() {
+        if (DEFUALT_URL.equals(adminUrl.getText())) {
+            warning.setText(Messages.DefaultUrlWarning0);
+        } else {
+            warning.setText(""); //$NON-NLS-1$
+        }
     }
 
     /**

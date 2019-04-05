@@ -30,6 +30,7 @@ public class AdminUrlPreferencePage extends PreferencePage
 
     @Override
     public void init(IWorkbench workbench) {
+        // Nothing to init.
     }
 
     @Override

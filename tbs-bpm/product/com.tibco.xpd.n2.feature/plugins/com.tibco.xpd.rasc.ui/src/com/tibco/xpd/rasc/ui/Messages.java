@@ -21,9 +21,9 @@ public class Messages extends NLS {
 
     public static String AdminUrlPropertyDialog_Message;
 
-    public static String AdminUrlPropertyDialog_Title;
-
     public static String AdminUrlPropertyPanel_BaseUrlLabel;
+
+    public static String DefaultUrlWarning0;
 
     public static String ProgressBarMonitor_ExportComplete0;
 
