@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="Process.xpdl#_6rgTMRYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=Process%3a%3aProcessProcess%26n=DefaultGeneratedForm?" formatVersion="4.0.0">
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="Process.xpdl#_6rgTMRYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=Process%3a%3aProcessProcess%26n=DefaultGeneratedForm?" formatVersion="4.0.0">
   <form:externalResources>
     <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
     <form:externalResource name="resource.form" uri=".default/Process/ProcessProcess/DefaultGeneratedForm/DefaultGeneratedForm.properties" sfRelative="true" internal="true" localized="true"/>
   </form:externalResources>
   <form:dataModel>
-    <form:parameter generated="true" generatorSource="Process.xpdl#_4--f8xYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=Parameter?" name="data.Parameter" label="Parameter" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" type="com.example.dataclass::DataClass" inout="INOUT"/>
-    <form:parameter generated="true" generatorSource="Process.xpdl#_f9MRMYNTEeOcadlsg2IG1w?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsOriginal?" name="data.LoginDetailsOriginal" label="Login Details Original" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
-    <form:parameter generated="true" generatorSource="Process.xpdl#_f9MRMINTEeOcadlsg2IG1w?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsFinal?" name="data.LoginDetailsFinal" label="Login Details Final" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="Process.xpdl#_4--f8xYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=Parameter?" name="data.Parameter" label="Parameter" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" type="com.example.dataclass::DataClass" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="Process.xpdl#_f9MRMYNTEeOcadlsg2IG1w?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsOriginal?" name="data.LoginDetailsOriginal" label="Login Details Original" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="Process.xpdl#_f9MRMINTEeOcadlsg2IG1w?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsFinal?" name="data.LoginDetailsFinal" label="Login Details Final" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
   </form:dataModel>
   <form:services/>
   <form:actions/>
@@ -23,80 +23,80 @@
     </form:rule>
   </form:rules>
   <form:bindings>
-    <form:binding generated="true" direction="bothways" name="_lQ6IIFe3EemFgfYvz9T_3w">
+    <form:binding generated="true" direction="bothways" name="_kxXeUFnZEemxUMp1MP_2QQ">
       <form:source target="data.Parameter" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.Parameter.value"/>
       <form:destination target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.Parameter.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lQ79UFe3EemFgfYvz9T_3w">
-      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" data="form.pane.Parameter.value.text"/>
+    <form:binding generated="true" direction="bothways" name="_kxXeUVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" data="form.pane.Parameter.value.text"/>
       <form:destination target="control.Parameter_text" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter_text.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lQ9LcFe3EemFgfYvz9T_3w">
-      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" data="form.pane.Parameter.value.integer"/>
+    <form:binding generated="true" direction="bothways" name="_kxYFYFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" data="form.pane.Parameter.value.integer"/>
       <form:destination target="control.Parameter_integer" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter_integer.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lQ9ygFe3EemFgfYvz9T_3w">
+    <form:binding generated="true" direction="bothways" name="_kxYFYVnZEemxUMp1MP_2QQ">
       <form:source target="data.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsOriginal.value"/>
       <form:destination target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lQ_AoFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsOriginal.value.loginId"/>
+    <form:binding generated="true" direction="bothways" name="_kxYFYlnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsOriginal.value.loginId"/>
       <form:destination target="control.LoginDetailsOriginal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRAOwFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsOriginal.value.password"/>
+    <form:binding generated="true" direction="bothways" name="_kxYFY1nZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsOriginal.value.password"/>
       <form:destination target="control.LoginDetailsOriginal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRA10Fe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsOriginal.value.address"/>
+    <form:binding generated="true" direction="bothways" name="_kxYFZFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsOriginal.value.address"/>
       <form:destination target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal_address.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRCD8Fe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsOriginal_address.value.line1"/>
+    <form:binding generated="true" direction="bothways" name="_kxYscFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsOriginal_address.value.line1"/>
       <form:destination target="control.LoginDetailsOriginal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRCrAFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsOriginal_address.value.line2"/>
+    <form:binding generated="true" direction="bothways" name="_kxYscVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsOriginal_address.value.line2"/>
       <form:destination target="control.LoginDetailsOriginal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRD5IFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsOriginal_address.value.town"/>
+    <form:binding generated="true" direction="bothways" name="_kxYsclnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsOriginal_address.value.town"/>
       <form:destination target="control.LoginDetailsOriginal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRFHQFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsOriginal_address.value.postcode"/>
+    <form:binding generated="true" direction="bothways" name="_kxYsc1nZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsOriginal_address.value.postcode"/>
       <form:destination target="control.LoginDetailsOriginal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_postcode.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRFuUFe3EemFgfYvz9T_3w">
+    <form:binding generated="true" direction="bothways" name="_kxYsdFnZEemxUMp1MP_2QQ">
       <form:source target="data.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsFinal.value"/>
       <form:destination target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRG8cFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsFinal.value.loginId"/>
+    <form:binding generated="true" direction="bothways" name="_kxZTgFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsFinal.value.loginId"/>
       <form:destination target="control.LoginDetailsFinal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRIKkFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsFinal.value.password"/>
+    <form:binding generated="true" direction="bothways" name="_kxZTgVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsFinal.value.password"/>
       <form:destination target="control.LoginDetailsFinal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRIKkVe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsFinal.value.address"/>
+    <form:binding generated="true" direction="bothways" name="_kxZTglnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsFinal.value.address"/>
       <form:destination target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal_address.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRIxoFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsFinal_address.value.line1"/>
+    <form:binding generated="true" direction="bothways" name="_kxZTg1nZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsFinal_address.value.line1"/>
       <form:destination target="control.LoginDetailsFinal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRJYsFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsFinal_address.value.line2"/>
+    <form:binding generated="true" direction="bothways" name="_kxZThFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsFinal_address.value.line2"/>
       <form:destination target="control.LoginDetailsFinal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRJ_wFe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsFinal_address.value.town"/>
+    <form:binding generated="true" direction="bothways" name="_kxZ6kFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsFinal_address.value.town"/>
       <form:destination target="control.LoginDetailsFinal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_lRKm0Fe3EemFgfYvz9T_3w">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsFinal_address.value.postcode"/>
+    <form:binding generated="true" direction="bothways" name="_kxZ6kVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsFinal_address.value.postcode"/>
       <form:destination target="control.LoginDetailsFinal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_postcode.value"/>
     </form:binding>
   </form:bindings>
@@ -114,7 +114,7 @@
     <form:defaults>
       <form:labelProperties position="top"/>
     </form:defaults>
-    <form:pane generated="true" generatorSource="Process.xpdl#_4--f8xYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=Parameter?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" name="pane.Parameter" paneType="com.tibco.forms.panes.vertical">
+    <form:pane generated="true" generatorSource="Process.xpdl#_4--f8xYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=Parameter?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" name="pane.Parameter" paneType="com.tibco.forms.panes.vertical">
       <form:label>Parameter</form:label>
       <form:hint/>
       <form:visible>true</form:visible>
@@ -122,7 +122,7 @@
       <form:defaults>
         <form:labelProperties position="left"/>
       </form:defaults>
-      <form:control generated="true" generatorSource="DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.Parameter_text">
+      <form:control generated="true" generatorSource="DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.Parameter_text">
         <form:propertySet xsi:type="et:TextAreaPropertySet">
           <et:rows>10</et:rows>
           <et:cols>25</et:cols>
@@ -134,7 +134,7 @@
         <form:enabled>true</form:enabled>
         <form:required>false</form:required>
       </form:control>
-      <form:control generated="true" generatorSource="DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.Parameter_integer">
+      <form:control generated="true" generatorSource="DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.Parameter_integer">
         <form:propertySet xsi:type="et:TextPropertySet">
           <et:numeric>true</et:numeric>
           <et:formatRef>resource.common.format_integer</et:formatRef>
@@ -146,7 +146,7 @@
         <form:required>false</form:required>
       </form:control>
     </form:pane>
-    <form:pane generated="true" generatorSource="Process.xpdl#_f9MRMYNTEeOcadlsg2IG1w?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsOriginal?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsOriginal" paneType="com.tibco.forms.panes.vertical">
+    <form:pane generated="true" generatorSource="Process.xpdl#_f9MRMYNTEeOcadlsg2IG1w?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsOriginal?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsOriginal" paneType="com.tibco.forms.panes.vertical">
       <form:label>Login Details Original</form:label>
       <form:hint/>
       <form:visible>true</form:visible>
@@ -154,7 +154,7 @@
       <form:defaults>
         <form:labelProperties position="left"/>
       </form:defaults>
-      <form:control generated="true" generatorSource="BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_loginId">
+      <form:control generated="true" generatorSource="BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_loginId">
         <form:propertySet xsi:type="et:TextPropertySet">
           <et:displayLength>40</et:displayLength>
           <et:maxLength>50</et:maxLength>
@@ -165,7 +165,7 @@
         <form:enabled>true</form:enabled>
         <form:required>true</form:required>
       </form:control>
-      <form:control generated="true" generatorSource="BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_password">
+      <form:control generated="true" generatorSource="BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_password">
         <form:propertySet xsi:type="et:TextPropertySet">
           <et:displayLength>40</et:displayLength>
           <et:maxLength>50</et:maxLength>
@@ -176,7 +176,7 @@
         <form:enabled>true</form:enabled>
         <form:required>false</form:required>
       </form:control>
-      <form:pane generated="true" generatorSource="BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsOriginal_address" paneType="com.tibco.forms.panes.vertical">
+      <form:pane generated="true" generatorSource="BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsOriginal_address" paneType="com.tibco.forms.panes.vertical">
         <form:label>Address</form:label>
         <form:hint/>
         <form:visible>true</form:visible>
@@ -184,7 +184,7 @@
         <form:defaults>
           <form:labelProperties position="top"/>
         </form:defaults>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line1">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line1">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -195,7 +195,7 @@
           <form:enabled>true</form:enabled>
           <form:required>true</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line2">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line2">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -206,7 +206,7 @@
           <form:enabled>true</form:enabled>
           <form:required>false</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_town">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_town">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -217,7 +217,7 @@
           <form:enabled>true</form:enabled>
           <form:required>true</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_postcode">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_postcode">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -230,7 +230,7 @@
         </form:control>
       </form:pane>
     </form:pane>
-    <form:pane generated="true" generatorSource="Process.xpdl#_f9MRMINTEeOcadlsg2IG1w?p=ProcessAndSubProcess%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsFinal?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsFinal" paneType="com.tibco.forms.panes.vertical">
+    <form:pane generated="true" generatorSource="Process.xpdl#_f9MRMINTEeOcadlsg2IG1w?p=ProjectMigrationTest_ProcessBuildFolders%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=Process%3a%3aProcessProcess%26n=LoginDetailsFinal?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsFinal" paneType="com.tibco.forms.panes.vertical">
       <form:label>Login Details Final</form:label>
       <form:hint/>
       <form:visible>true</form:visible>
@@ -238,7 +238,7 @@
       <form:defaults>
         <form:labelProperties position="left"/>
       </form:defaults>
-      <form:control generated="true" generatorSource="BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_loginId">
+      <form:control generated="true" generatorSource="BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_loginId">
         <form:propertySet xsi:type="et:TextPropertySet">
           <et:displayLength>40</et:displayLength>
           <et:maxLength>50</et:maxLength>
@@ -249,7 +249,7 @@
         <form:enabled>true</form:enabled>
         <form:required>true</form:required>
       </form:control>
-      <form:control generated="true" generatorSource="BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_password">
+      <form:control generated="true" generatorSource="BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_password">
         <form:propertySet xsi:type="et:TextPropertySet">
           <et:displayLength>40</et:displayLength>
           <et:maxLength>50</et:maxLength>
@@ -260,7 +260,7 @@
         <form:enabled>true</form:enabled>
         <form:required>false</form:required>
       </form:control>
-      <form:pane generated="true" generatorSource="BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsFinal_address" paneType="com.tibco.forms.panes.vertical">
+      <form:pane generated="true" generatorSource="BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsFinal_address" paneType="com.tibco.forms.panes.vertical">
         <form:label>Address</form:label>
         <form:hint/>
         <form:visible>true</form:visible>
@@ -268,7 +268,7 @@
         <form:defaults>
           <form:labelProperties position="top"/>
         </form:defaults>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line1">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line1">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -279,7 +279,7 @@
           <form:enabled>true</form:enabled>
           <form:required>true</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line2">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line2">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -290,7 +290,7 @@
           <form:enabled>true</form:enabled>
           <form:required>false</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_town">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_town">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>
@@ -301,7 +301,7 @@
           <form:enabled>true</form:enabled>
           <form:required>true</form:required>
         </form:control>
-        <form:control generated="true" generatorSource="BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_postcode">
+        <form:control generated="true" generatorSource="BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_postcode">
           <form:propertySet xsi:type="et:TextPropertySet">
             <et:displayLength>40</et:displayLength>
             <et:maxLength>50</et:maxLength>

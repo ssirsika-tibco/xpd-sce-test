@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:fault="http://www.tibco.com/bx/_Nw4SAA_1EeON57gSdlnC5A/fault" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MainProcess" targetNamespace="http://www.tibco.com/bx/_Nw4SAA_1EeON57gSdlnC5A/fault" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <message name="ERRORUpdateCaseDataFailedFault">
+    <part name="errorCode" type="xsd:string"/>
+  </message>
+  <message name="ERRORCaseDataNotUpdatedFault">
+    <part name="errorCode" type="xsd:string"/>
+  </message>
+  <message name="ERRORDeleteCaseDataFailedFault">
+    <part name="errorCode" type="xsd:string"/>
+  </message>
+  <portType name="MainProcess">
+    <operation name="MainProcess">
+      <fault message="fault:ERRORUpdateCaseDataFailedFault" name="fault_Error1"/>
+      <fault message="fault:ERRORCaseDataNotUpdatedFault" name="fault_CaseDataNotUpdated"/>
+      <fault message="fault:ERRORDeleteCaseDataFailedFault" name="fault_DeleteCaseDataFailed"/>
+    </operation>
+  </portType>
+</definitions>

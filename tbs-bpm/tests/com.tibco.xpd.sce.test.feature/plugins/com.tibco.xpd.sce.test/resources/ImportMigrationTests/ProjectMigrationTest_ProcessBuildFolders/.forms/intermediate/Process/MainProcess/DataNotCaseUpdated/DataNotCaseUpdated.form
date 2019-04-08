@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" generated="true" id="_o1aJoFe3EemFgfYvz9T_3w" formatVersion="4.0.0">
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" generated="true" id="_xNiEEFnZEemxUMp1MP_2QQ" formatVersion="4.0.0">
   <form:runtimeDependencies>
-    <form:package>com.example.businessdataproject.BusinessdataprojectPackage</form:package>
     <form:package>com.example.dataclass.DataclassPackage</form:package>
-    <form:factory>com.example.businessdataproject.BusinessdataprojectFactory</form:factory>
+    <form:package>com.example.businessdataproject.BusinessdataprojectPackage</form:package>
     <form:factory>com.example.dataclass.DataclassFactory</form:factory>
+    <form:factory>com.example.businessdataproject.BusinessdataprojectFactory</form:factory>
+    <form:class>com.example.dataclass.DataClass</form:class>
     <form:class>com.example.businessdataproject.LoginDetails</form:class>
     <form:class>com.example.businessdataproject.Address</form:class>
-    <form:class>com.example.dataclass.DataClass</form:class>
   </form:runtimeDependencies>
   <form:externalResources>
     <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
     <form:externalResource name="resource.form" uri="DataNotCaseUpdated.properties" internal="true" localized="true"/>
   </form:externalResources>
   <form:dataModel>
-    <form:parameter generated="true" name="data.Parameter" label="Parameter" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" type="com.example.dataclass::DataClass" inout="IN"/>
+    <form:parameter generated="true" name="data.Parameter" label="Parameter" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" type="com.example.dataclass::DataClass" inout="IN"/>
     <form:parameter generated="true" name="data.LoginId" label="Login Id" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="250" inout="IN"/>
-    <form:parameter generated="true" name="data.LoginDetailsCaseReference" label="Login Details Case Reference" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="IN"/>
-    <form:parameter generated="true" name="data.LoginDetailsOriginal" label="Login Details Original" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
-    <form:parameter generated="true" name="data.LoginDetailsTemp" label="Login Details Temp" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
-    <form:parameter generated="true" name="data.LoginDetailsFinal" label="Login Details Final" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
     <form:parameter generated="true" name="data.ErrorCode" label="Error Code" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="250" inout="INOUT"/>
     <form:parameter generated="true" name="data.ErrorDetail" label="Error Detail" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" inout="INOUT"/>
+    <form:parameter generated="true" name="data.LoginDetailsCaseReference" label="Login Details Case Reference" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="IN"/>
+    <form:parameter generated="true" name="data.LoginDetailsOriginal" label="Login Details Original" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
+    <form:parameter generated="true" name="data.LoginDetailsTemp" label="Login Details Temp" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
+    <form:parameter generated="true" name="data.LoginDetailsFinal" label="Login Details Final" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" type="com.example.businessdataproject::LoginDetails" inout="INOUT"/>
   </form:dataModel>
   <form:services/>
   <form:actions/>
@@ -49,22 +49,6 @@
       <form:source target="data.LoginId" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginId.value"></form:source>
       <form:destination target="control.LoginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginId.value"></form:destination>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVGnQoNUEeOSfpYD7aPqgA">
-      <form:source target="data.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsCaseReference.value"></form:source>
-      <form:destination target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsCaseReference.value"></form:destination>
-    </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVJDgYNUEeOSfpYD7aPqgA">
-      <form:source target="data.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsOriginal.value"></form:source>
-      <form:destination target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal.value"></form:destination>
-    </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVLfwYNUEeOSfpYD7aPqgA">
-      <form:source target="data.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsTemp.value"></form:source>
-      <form:destination target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsTemp.value"></form:destination>
-    </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVN8AYNUEeOSfpYD7aPqgA">
-      <form:source target="data.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsFinal.value"></form:source>
-      <form:destination target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal.value"></form:destination>
-    </form:binding>
     <form:binding generated="true" direction="bothways" name="_GVQYQYNUEeOSfpYD7aPqgA">
       <form:source target="data.ErrorCode" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ErrorCode.value"></form:source>
       <form:destination target="control.ErrorCode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ErrorCode.value"></form:destination>
@@ -73,125 +57,141 @@
       <form:source target="data.ErrorDetail" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ErrorDetail.value"></form:source>
       <form:destination target="control.ErrorDetail" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ErrorDetail.value"></form:destination>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVH1YINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsCaseReference.value.address"></form:source>
-      <form:destination target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsCaseReference_address.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EC_joFnZEemxUMp1MP_2QQ">
+      <form:source target="data.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsCaseReference.value"/>
+      <form:destination target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsCaseReference.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVKRoINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsOriginal.value.address"></form:source>
-      <form:destination target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal_address.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDGRUFnZEemxUMp1MP_2QQ">
+      <form:source target="data.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsOriginal.value"/>
+      <form:destination target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVMt4INUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsTemp.value.address"></form:source>
-      <form:destination target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsTemp_address.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDJUoFnZEemxUMp1MP_2QQ">
+      <form:source target="data.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsTemp.value"/>
+      <form:destination target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsTemp.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVOjEoNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsFinal.value.address"></form:source>
-      <form:destination target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal_address.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDMX8FnZEemxUMp1MP_2QQ">
+      <form:source target="data.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LoginDetailsFinal.value"/>
+      <form:destination target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_EDD1EFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsCaseReference.value.address"/>
+      <form:destination target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsCaseReference_address.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_EDHfcFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsOriginal.value.address"/>
+      <form:destination target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsOriginal_address.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_EDKiwFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsTemp.value.address"/>
+      <form:destination target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsTemp_address.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_EDM_AVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_gzXvc4NMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=address?" data="form.pane.LoginDetailsFinal.value.address"/>
+      <form:destination target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LoginDetailsFinal_address.value"/>
     </form:binding>
     <form:binding generated="true" direction="sourceToDest" name="_GVGAMINUEeOSfpYD7aPqgA">
-      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" data="form.pane.Parameter.value.text"></form:source>
+      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_Gk2VMBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=text?" data="form.pane.Parameter.value.text"></form:source>
       <form:destination target="control.Parameter_text" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter_text.value"></form:destination>
     </form:binding>
     <form:binding generated="true" direction="sourceToDest" name="_GVGnQINUEeOSfpYD7aPqgA">
-      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" data="form.pane.Parameter.value.integer"></form:source>
+      <form:source target="pane.Parameter" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value DataClass.bom#_JeolwBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.dataclass%3a%3aDataClass%26n=integer?" data="form.pane.Parameter.value.integer"></form:source>
       <form:destination target="control.Parameter_integer" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter_integer.value"></form:destination>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVHOUINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsCaseReference.value.loginId"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_loginId.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDBY0FnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsCaseReference.value.loginId"/>
+      <form:destination target="control.LoginDetailsCaseReference_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVHOUYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsCaseReference.value.password"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_password.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDCm8FnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsCaseReference.value.password"/>
+      <form:destination target="control.LoginDetailsCaseReference_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVH1YYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsCaseReference_address.value.line1"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_line1.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDEcIFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsCaseReference_address.value.line1"/>
+      <form:destination target="control.LoginDetailsCaseReference_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVIccINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsCaseReference_address.value.line2"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_line2.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDEcIVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsCaseReference_address.value.line2"/>
+      <form:destination target="control.LoginDetailsCaseReference_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVIccYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsCaseReference_address.value.town"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_town.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDFDMFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsCaseReference_address.value.town"/>
+      <form:destination target="control.LoginDetailsCaseReference_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="sourceToDest" name="_GVJDgINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsCaseReference_address.value.postcode"></form:source>
-      <form:destination target="control.LoginDetailsCaseReference_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_postcode.value"></form:destination>
+    <form:binding generated="true" direction="sourceToDest" name="_EDFqQFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsCaseReference_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsCaseReference_address.value.postcode"/>
+      <form:destination target="control.LoginDetailsCaseReference_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsCaseReference_address_postcode.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVJqkINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsOriginal.value.loginId"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_loginId.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDG4YFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsOriginal.value.loginId"/>
+      <form:destination target="control.LoginDetailsOriginal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVJqkYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsOriginal.value.password"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_password.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDG4YVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsOriginal.value.password"/>
+      <form:destination target="control.LoginDetailsOriginal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVKRoYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsOriginal_address.value.line1"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line1.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDIGgFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsOriginal_address.value.line1"/>
+      <form:destination target="control.LoginDetailsOriginal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVK4sINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsOriginal_address.value.line2"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line2.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDIGgVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsOriginal_address.value.line2"/>
+      <form:destination target="control.LoginDetailsOriginal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVK4sYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsOriginal_address.value.town"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_town.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDItkFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsOriginal_address.value.town"/>
+      <form:destination target="control.LoginDetailsOriginal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVLfwINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsOriginal_address.value.postcode"></form:source>
-      <form:destination target="control.LoginDetailsOriginal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_postcode.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDItkVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsOriginal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsOriginal_address.value.postcode"/>
+      <form:destination target="control.LoginDetailsOriginal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsOriginal_address_postcode.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVMG0INUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsTemp.value.loginId"></form:source>
-      <form:destination target="control.LoginDetailsTemp_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_loginId.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDJ7sFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsTemp.value.loginId"/>
+      <form:destination target="control.LoginDetailsTemp_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVMG0YNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsTemp.value.password"></form:source>
-      <form:destination target="control.LoginDetailsTemp_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_password.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDJ7sVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsTemp.value.password"/>
+      <form:destination target="control.LoginDetailsTemp_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVMt4YNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsTemp_address.value.line1"></form:source>
-      <form:destination target="control.LoginDetailsTemp_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_line1.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDKiwVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsTemp_address.value.line1"/>
+      <form:destination target="control.LoginDetailsTemp_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVNU8INUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsTemp_address.value.line2"></form:source>
-      <form:destination target="control.LoginDetailsTemp_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_line2.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDLJ0FnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsTemp_address.value.line2"/>
+      <form:destination target="control.LoginDetailsTemp_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVNU8YNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsTemp_address.value.town"></form:source>
-      <form:destination target="control.LoginDetailsTemp_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_town.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDLJ0VnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsTemp_address.value.town"/>
+      <form:destination target="control.LoginDetailsTemp_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVN8AINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsTemp_address.value.postcode"></form:source>
-      <form:destination target="control.LoginDetailsTemp_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_postcode.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDLw4FnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsTemp_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsTemp_address.value.postcode"/>
+      <form:destination target="control.LoginDetailsTemp_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsTemp_address_postcode.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVOjEINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsFinal.value.loginId"></form:source>
-      <form:destination target="control.LoginDetailsFinal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_loginId.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDMX8VnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_MuedwINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=loginId?" data="form.pane.LoginDetailsFinal.value.loginId"/>
+      <form:destination target="control.LoginDetailsFinal_loginId" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_loginId.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVOjEYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsFinal.value.password"></form:source>
-      <form:destination target="control.LoginDetailsFinal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_password.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDM_AFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Qq6eIINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aLoginDetails%26n=password?" data="form.pane.LoginDetailsFinal.value.password"/>
+      <form:destination target="control.LoginDetailsFinal_password" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_password.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVPKIINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsFinal_address.value.line1"></form:source>
-      <form:destination target="control.LoginDetailsFinal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line1.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDNmEFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_YSLKcINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line1?" data="form.pane.LoginDetailsFinal_address.value.line1"/>
+      <form:destination target="control.LoginDetailsFinal_address_line1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line1.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVPxMINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsFinal_address.value.line2"></form:source>
-      <form:destination target="control.LoginDetailsFinal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line2.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDONIFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_Zw7AYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=line2?" data="form.pane.LoginDetailsFinal_address.value.line2"/>
+      <form:destination target="control.LoginDetailsFinal_address_line2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_line2.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVPxMYNUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsFinal_address.value.town"></form:source>
-      <form:destination target="control.LoginDetailsFinal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_town.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDONIVnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_agOWYINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=town?" data="form.pane.LoginDetailsFinal_address.value.town"/>
+      <form:destination target="control.LoginDetailsFinal_address_town" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_town.value"/>
     </form:binding>
-    <form:binding generated="true" direction="bothways" name="_GVQYQINUEeOSfpYD7aPqgA">
-      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsFinal_address.value.postcode"></form:source>
-      <form:destination target="control.LoginDetailsFinal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_postcode.value"></form:destination>
+    <form:binding generated="true" direction="bothways" name="_EDO0MFnZEemxUMp1MP_2QQ">
+      <form:source target="pane.LoginDetailsFinal_address" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BusinessDataProject.bom#_cINA0INMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.businessdataproject%3a%3aAddress%26n=postcode?" data="form.pane.LoginDetailsFinal_address.value.postcode"/>
+      <form:destination target="control.LoginDetailsFinal_address_postcode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LoginDetailsFinal_address_postcode.value"/>
     </form:binding>
   </form:bindings>
   <form:targets>
@@ -211,7 +211,7 @@
     <form:defaults>
       <form:labelProperties position="left"/>
     </form:defaults>
-    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProcessAndSubProcess%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" name="pane.Parameter" paneType="com.tibco.forms.panes.vertical">
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class DataClass.bom#_FgptQBYAEeO3r4rIOUpwpw?p=ProjectMigrationTest_ProcessBuildFolders%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.dataclass%26n=DataClass?" name="pane.Parameter" paneType="com.tibco.forms.panes.vertical">
       <form:label>Parameter</form:label>
       <form:hint></form:hint>
       <form:visible>true</form:visible>
@@ -273,414 +273,6 @@ regex.test(typeof context.stringValue == 'undefined' ? context.value : context.s
       </form:validation>
       <form:required>false</form:required>
     </form:control>
-    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsCaseReference" paneType="com.tibco.forms.panes.vertical">
-      <form:label>Login Details Case Reference</form:label>
-      <form:hint></form:hint>
-      <form:visible>true</form:visible>
-      <form:enabled>true</form:enabled>
-      <form:defaults>
-        <form:labelProperties position="left"/>
-      </form:defaults>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_loginId">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>loginId</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_loginId__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>false</form:required>
-      </form:control>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_password">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>password</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_password__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>false</form:required>
-      </form:control>
-      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsCaseReference_address" paneType="com.tibco.forms.panes.vertical">
-        <form:label>Address</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:defaults>
-          <form:labelProperties position="top"/>
-        </form:defaults>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_line1">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line1</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_line2">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line2</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_town">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>town</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_town__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_postcode">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>postcode</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-      </form:pane>
-    </form:pane>
-    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsOriginal" paneType="com.tibco.forms.panes.vertical">
-      <form:label>Login Details Original</form:label>
-      <form:hint></form:hint>
-      <form:visible>true</form:visible>
-      <form:enabled>true</form:enabled>
-      <form:defaults>
-        <form:labelProperties position="left"/>
-      </form:defaults>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_loginId">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>loginId</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_loginId__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>true</form:required>
-      </form:control>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_password">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>password</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_password__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>false</form:required>
-      </form:control>
-      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsOriginal_address" paneType="com.tibco.forms.panes.vertical">
-        <form:label>Address</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:defaults>
-          <form:labelProperties position="top"/>
-        </form:defaults>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line1">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line1</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line2">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line2</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_town">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>town</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_town__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_postcode">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>postcode</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-      </form:pane>
-    </form:pane>
-    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsTemp" paneType="com.tibco.forms.panes.vertical">
-      <form:label>Login Details Temp</form:label>
-      <form:hint></form:hint>
-      <form:visible>true</form:visible>
-      <form:enabled>true</form:enabled>
-      <form:defaults>
-        <form:labelProperties position="left"/>
-      </form:defaults>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_loginId">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>loginId</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_loginId__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>true</form:required>
-      </form:control>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_password">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>password</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_password__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>false</form:required>
-      </form:control>
-      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsTemp_address" paneType="com.tibco.forms.panes.vertical">
-        <form:label>Address</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:defaults>
-          <form:labelProperties position="top"/>
-        </form:defaults>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_line1">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line1</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_line2">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line2</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_town">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>town</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_town__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_postcode">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>postcode</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-      </form:pane>
-    </form:pane>
-    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsFinal" paneType="com.tibco.forms.panes.vertical">
-      <form:label>Login Details Final</form:label>
-      <form:hint></form:hint>
-      <form:visible>true</form:visible>
-      <form:enabled>true</form:enabled>
-      <form:defaults>
-        <form:labelProperties position="left"/>
-      </form:defaults>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_loginId">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>loginId</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_loginId__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>true</form:required>
-      </form:control>
-      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_password">
-        <form:propertySet xsi:type="et:TextPropertySet">
-          <et:displayLength>40</et:displayLength>
-          <et:maxLength>50</et:maxLength>
-        </form:propertySet>
-        <form:label>password</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_password__length" type="javascript" when="oncontrolchange" simple="true">
-          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-        </form:validation>
-        <form:required>false</form:required>
-      </form:control>
-      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=BusinessDataProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsFinal_address" paneType="com.tibco.forms.panes.vertical">
-        <form:label>Address</form:label>
-        <form:hint></form:hint>
-        <form:visible>true</form:visible>
-        <form:enabled>true</form:enabled>
-        <form:defaults>
-          <form:labelProperties position="top"/>
-        </form:defaults>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line1">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line1</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line2">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>line2</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>false</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_town">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>town</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_town__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_postcode">
-          <form:propertySet xsi:type="et:TextPropertySet">
-            <et:displayLength>40</et:displayLength>
-            <et:maxLength>50</et:maxLength>
-          </form:propertySet>
-          <form:label>postcode</form:label>
-          <form:hint></form:hint>
-          <form:visible>true</form:visible>
-          <form:enabled>true</form:enabled>
-          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
-            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
-          </form:validation>
-          <form:required>true</form:required>
-        </form:control>
-      </form:pane>
-    </form:pane>
     <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.ErrorCode">
       <form:propertySet xsi:type="et:TextAreaPropertySet">
         <et:rows>10</et:rows>
@@ -707,6 +299,414 @@ regex.test(typeof context.stringValue == 'undefined' ? context.value : context.s
       <form:enabled>true</form:enabled>
       <form:required>false</form:required>
     </form:control>
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsCaseReference" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Login Details Case Reference</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_loginId">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>loginId</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_loginId__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_password">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>password</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_password__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsCaseReference_address" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Address</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_line1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_line2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_town">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>town</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_town__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsCaseReference_address_postcode">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>postcode</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsCaseReference_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsOriginal" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Login Details Original</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_loginId">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>loginId</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_loginId__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>true</form:required>
+      </form:control>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_password">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>password</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_password__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsOriginal_address" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Address</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_line2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_town">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>town</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_town__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsOriginal_address_postcode">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>postcode</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsOriginal_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsTemp" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Login Details Temp</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_loginId">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>loginId</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_loginId__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>true</form:required>
+      </form:control>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_password">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>password</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_password__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsTemp_address" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Address</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_line1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_line2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_town">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>town</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_town__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsTemp_address_postcode">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>postcode</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsTemp_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_LRLZUINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=LoginDetails?" name="pane.LoginDetailsFinal" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Login Details Final</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_loginId">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>loginId</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_loginId__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>true</form:required>
+      </form:control>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_password">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>password</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_password__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BusinessDataProject.bom#_TRdCkINMEeOcadlsg2IG1w?p=ProjectMigrationTest_GenAndUserBOMData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.businessdataproject%26n=Address?" name="pane.LoginDetailsFinal_address" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Address</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_line1__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_line2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>line2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_line2__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_town">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>town</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_town__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.LoginDetailsFinal_address_postcode">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>postcode</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="LoginDetailsFinal_address_postcode__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>true</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
   </form:pane>
   <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
     <form:label>Toolbar</form:label>

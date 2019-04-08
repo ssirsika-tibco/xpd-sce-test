@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service:Service-Archive-Descriptor xmlns:service="http://service.archive.wp.n2.tibco.com">
+  <service:channels>
+    <service:channel channelId="GIGWTPull_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>GIChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Pull</service:implementation-type>
+      <service:work-type guid="WT__O_30cINTEeOcadlsg2IG1w" name="CaseDataWasNotUpdated" version="1.0.0.20190408103910202">
+        <service:form name="DataNotCaseUpdated.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/DataNotCaseUpdated/DataNotCaseUpdated.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/DataNotCaseUpdated</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__x8aDFBCEEeON57gSdlnC5A" name="EndOfProcessPageflow" version="1.0.0.20190408103910202">
+        <service:page-flow-ref refId="_4--f8BYAEeO3r4rIOUpwpw"/>
+      </service:work-type>
+      <service:work-type guid="WT__KdmZoIT0EeOECuB6y1c95w" name="DeleteCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="DeleteCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed/DeleteCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__UydTkoNSEeOcadlsg2IG1w" name="UpdateCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="UpdateCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed/UpdateCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="GIGWTPull_DefaultChannel.properties" location="1.0.0.20190408103910202/GIGWTPull_DefaultChannel"/>
+      <service:business-service id="_LPeYoBX9EeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="StartSanityTestProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/StartSanityTestProcess.bpel">
+        <service:page-activity id="_LQE1kxX9EeO3r4rIOUpwpw" name="EnterDetails">
+          <service:page-reference name="UserTask.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/StartMainProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/StartMainProcess/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_Sls6YoNNEeOcadlsg2IG1w" name="GlobalCaseCreateError">
+          <service:page-reference name="GlobalCaseCreateError.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError/GlobalCaseCreateError.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:page-flow id="_4--f8BYAEeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="ProcessProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/ProcessProcess.bpel">
+        <service:page-activity id="_6rgTMRYAEeO3r4rIOUpwpw" name="DefaultGeneratedForm">
+          <service:page-reference name="DefaultGeneratedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm/DefaultGeneratedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_8u4gMRYAEeO3r4rIOUpwpw" name="UserDefinedForm">
+          <service:page-reference name="UserDefinedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/ProcessProcess/UserDefinedForm/UserDefinedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/GIGWTPull_DefaultChannel/Process/ProcessProcess/UserDefinedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:page-flow>
+    </service:channel>
+    <service:channel channelId="openspaceGWTPull_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>openspaceChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Pull</service:implementation-type>
+      <service:work-type guid="WT__O_30cINTEeOcadlsg2IG1w" name="CaseDataWasNotUpdated" version="1.0.0.20190408103910202">
+        <service:form name="DataNotCaseUpdated.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/DataNotCaseUpdated/DataNotCaseUpdated.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/DataNotCaseUpdated</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__x8aDFBCEEeON57gSdlnC5A" name="EndOfProcessPageflow" version="1.0.0.20190408103910202">
+        <service:page-flow-ref refId="_4--f8BYAEeO3r4rIOUpwpw"/>
+      </service:work-type>
+      <service:work-type guid="WT__KdmZoIT0EeOECuB6y1c95w" name="DeleteCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="DeleteCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed/DeleteCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__UydTkoNSEeOcadlsg2IG1w" name="UpdateCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="UpdateCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed/UpdateCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="openspaceGWTPull_DefaultChannel.properties" location="1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel"/>
+      <service:business-service id="_LPeYoBX9EeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="StartSanityTestProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/StartSanityTestProcess.bpel">
+        <service:page-activity id="_LQE1kxX9EeO3r4rIOUpwpw" name="EnterDetails">
+          <service:page-reference name="UserTask.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/StartMainProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/StartMainProcess/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_Sls6YoNNEeOcadlsg2IG1w" name="GlobalCaseCreateError">
+          <service:page-reference name="GlobalCaseCreateError.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError/GlobalCaseCreateError.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:page-flow id="_4--f8BYAEeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="ProcessProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/ProcessProcess.bpel">
+        <service:page-activity id="_6rgTMRYAEeO3r4rIOUpwpw" name="DefaultGeneratedForm">
+          <service:page-reference name="DefaultGeneratedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm/DefaultGeneratedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_8u4gMRYAEeO3r4rIOUpwpw" name="UserDefinedForm">
+          <service:page-reference name="UserDefinedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/ProcessProcess/UserDefinedForm/UserDefinedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceGWTPull_DefaultChannel/Process/ProcessProcess/UserDefinedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:page-flow>
+    </service:channel>
+    <service:channel channelId="openspaceEmailPush_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>EmailChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Push</service:implementation-type>
+      <service:work-type guid="WT__O_30cINTEeOcadlsg2IG1w" name="CaseDataWasNotUpdated" version="1.0.0.20190408103910202">
+        <service:form name="DataNotCaseUpdated.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/DataNotCaseUpdated/DataNotCaseUpdated.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/DataNotCaseUpdated</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__x8aDFBCEEeON57gSdlnC5A" name="EndOfProcessPageflow" version="1.0.0.20190408103910202">
+        <service:page-flow-ref refId="_4--f8BYAEeO3r4rIOUpwpw"/>
+      </service:work-type>
+      <service:work-type guid="WT__KdmZoIT0EeOECuB6y1c95w" name="DeleteCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="DeleteCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed/DeleteCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/DeleteCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__UydTkoNSEeOcadlsg2IG1w" name="UpdateCaseDataFailed" version="1.0.0.20190408103910202">
+        <service:form name="UpdateCaseDataFailed.gwt.json" version="1.0.0.20190408103910202">
+          <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed/UpdateCaseDataFailed.gwt.json</service:formIdentifier>
+          <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/MainProcess/UpdateCaseDataFailed</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="openspaceEmailPush_DefaultChannel.properties" location="1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel"/>
+      <service:business-service id="_LPeYoBX9EeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="StartSanityTestProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/StartSanityTestProcess.bpel">
+        <service:page-activity id="_LQE1kxX9EeO3r4rIOUpwpw" name="EnterDetails">
+          <service:page-reference name="UserTask.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/StartMainProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/StartMainProcess/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_Sls6YoNNEeOcadlsg2IG1w" name="GlobalCaseCreateError">
+          <service:page-reference name="GlobalCaseCreateError.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError/GlobalCaseCreateError.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/StartSanityTestProcess/GlobalCaseCreateError</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:page-flow id="_4--f8BYAEeO3r4rIOUpwpw" moduleName="/ProjectMigrationTest_ProcessBuildFolders/Process Packages/Process.xpdl" moduleVersion="1.0.0.20190408103910202" name="ProcessProcess" url="ProjectMigrationTest_ProcessBuildFolders/.bpm/.processOut/pageflow/Process.xpdl/ProcessProcess.bpel">
+        <service:page-activity id="_6rgTMRYAEeO3r4rIOUpwpw" name="DefaultGeneratedForm">
+          <service:page-reference name="DefaultGeneratedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm/DefaultGeneratedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/.default/Process/ProcessProcess/DefaultGeneratedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_8u4gMRYAEeO3r4rIOUpwpw" name="UserDefinedForm">
+          <service:page-reference name="UserDefinedForm.gwt.json" version="1.0.0.20190408103910202">
+            <service:formIdentifier>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/ProcessProcess/UserDefinedForm/UserDefinedForm.gwt.json</service:formIdentifier>
+            <service:relative-path>1.0.0.20190408103910202/openspaceEmailPush_DefaultChannel/Process/ProcessProcess/UserDefinedForm</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:page-flow>
+    </service:channel>
+  </service:channels>
+</service:Service-Archive-Descriptor>

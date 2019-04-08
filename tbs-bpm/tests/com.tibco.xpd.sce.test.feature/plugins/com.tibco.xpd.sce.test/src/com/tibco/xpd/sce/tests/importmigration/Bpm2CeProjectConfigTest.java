@@ -8,6 +8,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.junit.Test;
 
+import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -34,43 +35,156 @@ public class Bpm2CeProjectConfigTest extends TestCase {
 
     // @Test
     public void testOrgProjectMigration() {
-        doTestProject("ProjectMigrationTest_Org"); //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_Org"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
     @Test
     public void testDataProjectMigration() {
-        doTestProject("ProjectMigrationTest_Data"); //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_Data"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
     @Test
     public void testProcessProjectMigration() {
-        doTestProject("ProjectMigrationTest_Process"); //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_Process"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
     @Test
     public void testMaaProjectMigration() {
-        doTestProject("ProjectMigrationTest_maa"); //$NON-NLS-1$
-
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_maa"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
     @Test
     public void testProcessAndDataBuildFolderRemovalMigration() {
-        doTestProject("ProjectMigrationTest_ProcessBuildFolders"); //$NON-NLS-1$
-
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_ProcessBuildFolders"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
     @Test
     public void testOrgBuildFolderRemovalMigration() {
-        doTestProject("ProjectMigrationTest_OrgBuildFolders"); //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject("ProjectMigrationTest_OrgBuildFolders"); //$NON-NLS-1$
+        projectImporter.performDelete();
     }
 
+    @Test
+    public void testGenBomMoveMigration1_UserBomAlreadyExists() {
+        String projectName = "ProjectMigrationTest_GenAndUserBOMData"; //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject(projectName); // $NON-NLS-1$
+
+        IProject project =
+                ResourcesPlugin.getWorkspace().getRoot()
+                        .getProject(projectName);
+
+        /*
+         * Check that the expected BOMs are in new location and not in old
+         * location.
+         */
+        assertTrue(
+                "BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                !project.getFile(
+                        "Generated Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                !project.getFile(
+                        "Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                project.getFile(
+                        "Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                project.getFile(
+                        "Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
+                        .exists());
+
+        projectImporter.performDelete();
+
+    }
+
+
+    @Test
+    public void testGenBomMoveMigration1_UserBomNotExist() {
+        String projectName = "ProjectMigrationTest_GenBOMOnly"; //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject(projectName); // $NON-NLS-1$
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+        /*
+         * Check that the expected BOMs are in new location and not in old
+         * location.
+         */
+        assertTrue(
+                "BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                !project.getFile(
+                        "Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                !project.getFile(
+                        "Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                project.getFile(
+                        "Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
+                        .exists());
+
+        assertTrue(
+                "BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                project.getFile(
+                        "Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
+                        .exists());
+
+        /* Check that special folder has been added. */
+        ProjectConfig projectConfig =
+                XpdResourcesPlugin.getDefault().getProjectConfig(project);
+
+        boolean found = false;
+        for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
+                .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
+            if (specialFolder.getGenerated() == null) {
+                if (specialFolder.getFolder().exists()) {
+                    if ("Business Objects" //$NON-NLS-1$
+                            .equals(specialFolder.getFolder().getName())) {
+                        found = true;
+                    }
+                }
+            }
+        }
+
+        assertTrue(
+                "User defined 'Business Objects' folder is not configured as a Special Folder", //$NON-NLS-1$
+                found);
+
+        projectImporter.performDelete();
+
+    }
 
     /**
      * Test the given project.
      * 
      * @param projectName
      */
-    private void doTestProject(String projectName) {
+    private ProjectImporter doTestProject(String projectName) {
 
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip(
                 "com.tibco.xpd.sce.test", //$NON-NLS-1$
@@ -145,8 +259,7 @@ public class Bpm2CeProjectConfigTest extends TestCase {
         assertTrue("Project should have no '.daabin' folder", //$NON-NLS-1$
                 !project.getFolder(".daabin").exists()); //$NON-NLS-1$
 
-        projectImporter.performDelete();
-
+        return projectImporter;
     }
 
     /**

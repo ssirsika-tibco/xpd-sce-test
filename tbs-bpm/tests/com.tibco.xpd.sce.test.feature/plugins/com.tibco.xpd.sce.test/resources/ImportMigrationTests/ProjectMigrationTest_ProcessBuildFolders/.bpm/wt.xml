@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="1.0.0.20190408103910202">
+  <worktype:WorkType>
+    <workTypeUID>WT__O_30cINTEeOcadlsg2IG1w</workTypeUID>
+    <workTypeDescription>CaseDataWasNotUpdated</workTypeDescription>
+    <dataModel>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inputs name="LoginDetailsCaseReference" optional="true" type="Data Reference"/>
+      <inputs name="LoginId" optional="false" type="String">
+        <simpleSpec length="250"/>
+      </inputs>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__x8aDFBCEEeON57gSdlnC5A</workTypeUID>
+    <workTypeDescription>EndOfProcessPageflow</workTypeDescription>
+    <dataModel>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__KdmZoIT0EeOECuB6y1c95w</workTypeUID>
+    <workTypeDescription>DeleteCaseDataFailed</workTypeDescription>
+    <dataModel>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inputs name="LoginDetailsCaseReference" optional="true" type="Data Reference"/>
+      <inputs name="LoginId" optional="false" type="String">
+        <simpleSpec length="250"/>
+      </inputs>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__UydTkoNSEeOcadlsg2IG1w</workTypeUID>
+    <workTypeDescription>UpdateCaseDataFailed</workTypeDescription>
+    <dataModel>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

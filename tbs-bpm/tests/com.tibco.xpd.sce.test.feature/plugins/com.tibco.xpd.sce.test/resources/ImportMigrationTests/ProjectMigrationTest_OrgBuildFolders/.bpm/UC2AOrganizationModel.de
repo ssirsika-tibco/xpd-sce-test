@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:model xmlns:de="http://tibco.com/bpm/directory-model/2.0" name="UC2AOrganizationModel" version="1.0.0.20190408103856703">
+  <de:meta-model>
+    <de:location-type id="_bYt781cOEd6ECemE0GiJmQ" label="Standard Location Type" name="StandardLocationType">
+      <de:attribute id="_bYt79FcOEd6ECemE0GiJmQ" label="Country" name="Country" data-type="String"/>
+      <de:attribute id="_bYt79VcOEd6ECemE0GiJmQ" label="State" name="State" data-type="String"/>
+      <de:attribute id="_bYt79lcOEd6ECemE0GiJmQ" label="City" name="City" data-type="String"/>
+      <de:attribute id="_bYt791cOEd6ECemE0GiJmQ" label="Street" name="Street" data-type="String"/>
+      <de:attribute id="_bYt7-FcOEd6ECemE0GiJmQ" label="Postcode" name="Postcode" data-type="String"/>
+    </de:location-type>
+    <de:organization-type id="_bYt7-VcOEd6ECemE0GiJmQ" label="Standard Organization Type" name="StandardOrganizationType">
+      <de:org-unit-feature id="_bYt7-lcOEd6ECemE0GiJmQ" label="Head Unit" name="HeadUnit" definition="_bYt7_FcOEd6ECemE0GiJmQ" lower-bound="0" upper-bound="1"/>
+      <de:org-unit-feature id="_bYt7-1cOEd6ECemE0GiJmQ" label="Member Unit" name="MemberUnit" definition="_bYt7_FcOEd6ECemE0GiJmQ" lower-bound="0" upper-bound="-1"/>
+    </de:organization-type>
+    <de:org-unit-type id="_bYt7_FcOEd6ECemE0GiJmQ" label="Standard Organization Unit Type" name="StandardOrganizationUnitType">
+      <de:org-unit-feature id="_bYt7_VcOEd6ECemE0GiJmQ" label="Sub Unit" name="SubUnit" definition="_bYt7_FcOEd6ECemE0GiJmQ" lower-bound="0" upper-bound="-1"/>
+      <de:position-feature id="_bYt7_lcOEd6ECemE0GiJmQ" label="Manager Position" name="ManagerPosition" definition="_bYt8AFcOEd6ECemE0GiJmQ" lower-bound="0" upper-bound="1"/>
+      <de:position-feature id="_bYt7_1cOEd6ECemE0GiJmQ" label="Member Position" name="MemberPosition" definition="_bYt8AFcOEd6ECemE0GiJmQ" lower-bound="0" upper-bound="-1"/>
+    </de:org-unit-type>
+    <de:position-type id="_bYt8AFcOEd6ECemE0GiJmQ" label="Standard Position Type" name="StandardPositionType">
+      <de:attribute id="_bYt8AVcOEd6ECemE0GiJmQ" label="Contract Type" name="ContractType" data-type="Enum">
+        <de:enum>temporary</de:enum>
+        <de:enum>permanent</de:enum>
+      </de:attribute>
+    </de:position-type>
+  </de:meta-model>
+  <de:group id="_e1GjQFcOEd6ECemE0GiJmQ" label="Group" name="Group" alloc-method="ANY"/>
+  <de:organization description="&#x9;" id="_bYt78VcOEd6ECemE0GiJmQ" label="Organization" name="Organization" alloc-method="NEXT"/>
+</de:model>

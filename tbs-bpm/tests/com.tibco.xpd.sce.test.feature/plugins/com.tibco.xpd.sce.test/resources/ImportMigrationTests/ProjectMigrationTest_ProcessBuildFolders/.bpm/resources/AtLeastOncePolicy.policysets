@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy" 
+   xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" 
+   xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"  
+   xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"  
+   xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+   xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+   xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+   xmlns:jmsbt="http://xsd.tns.tibco.com/amf/models/sca/bindingtype/jms"
+   xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+   xmlns:webapp="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/webapp"
+   xmlns:systempolicy="http://xsd.tns.tibco.com/amf/models/sca/policy/system" 
+   targetNamespace="http://www.tibco.com/wrm/policy/atleastonce">
+ 
+  <sca:policySet name="AtLeastOnce_WRMComponent" appliesTo="sca:binding.sca.reference | sca:binding.sca.service" provides="sca:atLeastOnce">
+    <systempolicy:atLeastOnce scaext:label="At Least Once">
+      <messageRedeliveryConfig redeliveryInterval="60" maxRedeliveryCount="5" errorQueueName="" enableErrorQueue="true"/>
+      <scaext:description>This indicates that a message sent by a client is always delivered to the component. No Message Loss, messages are persisted. No Transaction involved in message delivery although component can process the message under transaction. Messages are removed from persistent store only after successful processing. If this policy is applied to any binding other than Virtualization, then it will take effect on the virtualization proxy between the binding and the component.</scaext:description>
+    </systempolicy:atLeastOnce>
+  </sca:policySet>
+  
+</ep:policySetContainer>

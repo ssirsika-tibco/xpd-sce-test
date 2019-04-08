@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.20190408103910202">
+  <workmodel:WorkModel workModelUID="WM__O_30cINTEeOcadlsg2IG1w">
+    <BaseModelInfo description=" Case Data Was Not Updated" name="CaseDataWasNotUpdated" priority="50"/>
+    <WorkModelSpecification>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inputs name="LoginDetailsCaseReference" optional="true" type="Data Reference"/>
+      <inputs name="LoginId" optional="false" type="String">
+        <simpleSpec length="250"/>
+      </inputs>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190408103910202,1.0.0.20190408103910202]" workTypeID="WT__O_30cINTEeOcadlsg2IG1w">
+        <WorkModelMapping>
+          <TypeParamName>Parameter</TypeParamName>
+          <ModelParamName>Parameter</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsCaseReference</TypeParamName>
+          <ModelParamName>LoginDetailsCaseReference</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginId</TypeParamName>
+          <ModelParamName>LoginId</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsTemp</TypeParamName>
+          <ModelParamName>LoginDetailsTemp</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorDetail</TypeParamName>
+          <ModelParamName>ErrorDetail</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsOriginal</TypeParamName>
+          <ModelParamName>LoginDetailsOriginal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsFinal</TypeParamName>
+          <ModelParamName>LoginDetailsFinal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorCode</TypeParamName>
+          <ModelParamName>ErrorCode</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+    <WorkModelScripts>
+      <WorkModelScript scriptBody="//&#xA;// Auto-Generated Process DataTo Work Item Attribute Script&#xA;// &#xA;// This script is derived from the process-scope data mappings to work item attributes.&#xA;//&#xA;&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = LoginDetailsFinal.address.line1; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = LoginDetailsFinal.address.line2; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = LoginDetailsFinal.address.postcode; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = LoginDetailsFinal.address.town; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/CaseDataWasNotUpdated: Info: Work item attribute mapping: mapping from attribute `attribute2` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.loginId` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = LoginDetailsFinal.loginId; &#xD;&#xA;}&#xA;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="SYSAPPEND" scriptTypeID="_Nw4SAA_1EeON57gSdlnC5A"/>
+    </WorkModelScripts>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__x8aDFBCEEeON57gSdlnC5A">
+    <BaseModelInfo description="End Of Process Pageflow" name="EndOfProcessPageflow" priority="50"/>
+    <WorkModelSpecification>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190408103910202,1.0.0.20190408103910202]" workTypeID="WT__x8aDFBCEEeON57gSdlnC5A">
+        <WorkModelMapping>
+          <TypeParamName>Parameter</TypeParamName>
+          <ModelParamName>Parameter</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsOriginal</TypeParamName>
+          <ModelParamName>LoginDetailsOriginal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsFinal</TypeParamName>
+          <ModelParamName>LoginDetailsFinal</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+    <WorkModelScripts>
+      <WorkModelScript scriptBody="//&#xA;// Auto-Generated Process DataTo Work Item Attribute Script&#xA;// &#xA;// This script is derived from the process-scope data mappings to work item attributes.&#xA;//&#xA;&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = LoginDetailsFinal.address.line1; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = LoginDetailsFinal.address.line2; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = LoginDetailsFinal.address.postcode; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = LoginDetailsFinal.address.town; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/EndOfProcessPageflow: Info: Work item attribute mapping: mapping from attribute `attribute2` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.loginId` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = LoginDetailsFinal.loginId; &#xD;&#xA;}&#xA;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="SYSAPPEND" scriptTypeID="_Nw4SAA_1EeON57gSdlnC5A"/>
+    </WorkModelScripts>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__KdmZoIT0EeOECuB6y1c95w">
+    <BaseModelInfo description="Delete Case Data Failed" name="DeleteCaseDataFailed" priority="50"/>
+    <WorkModelSpecification>
+      <inputs name="Parameter" optional="false" type="Complex">
+        <complexSpec className="com.example.dataclass.DataClass"/>
+      </inputs>
+      <inputs name="LoginDetailsCaseReference" optional="true" type="Data Reference"/>
+      <inputs name="LoginId" optional="false" type="String">
+        <simpleSpec length="250"/>
+      </inputs>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="LoginDetailsFinal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190408103910202,1.0.0.20190408103910202]" workTypeID="WT__KdmZoIT0EeOECuB6y1c95w">
+        <WorkModelMapping>
+          <TypeParamName>Parameter</TypeParamName>
+          <ModelParamName>Parameter</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsCaseReference</TypeParamName>
+          <ModelParamName>LoginDetailsCaseReference</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginId</TypeParamName>
+          <ModelParamName>LoginId</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsTemp</TypeParamName>
+          <ModelParamName>LoginDetailsTemp</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorDetail</TypeParamName>
+          <ModelParamName>ErrorDetail</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsOriginal</TypeParamName>
+          <ModelParamName>LoginDetailsOriginal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsFinal</TypeParamName>
+          <ModelParamName>LoginDetailsFinal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorCode</TypeParamName>
+          <ModelParamName>ErrorCode</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+    <WorkModelScripts>
+      <WorkModelScript scriptBody="//&#xA;// Auto-Generated Process DataTo Work Item Attribute Script&#xA;// &#xA;// This script is derived from the process-scope data mappings to work item attributes.&#xA;//&#xA;&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line1` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = LoginDetailsFinal.address.line1; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.line2` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = LoginDetailsFinal.address.line2; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute9` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.postcode` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute9 = LoginDetailsFinal.address.postcode; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else if(LoginDetailsFinal.address == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute8` was unset because parent element `LoginDetailsFinal.address` of source path `LoginDetailsFinal.address.town` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute8 = LoginDetailsFinal.address.town; &#xD;&#xA;}&#xA;&#xA;if(LoginDetailsFinal == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = null; &#xD;&#xA; &#x9;Log.write(&quot;MainProcess/DeleteCaseDataFailed: Info: Work item attribute mapping: mapping from attribute `attribute2` was unset because parent element `LoginDetailsFinal` of source path `LoginDetailsFinal.loginId` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = LoginDetailsFinal.loginId; &#xD;&#xA;}&#xA;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="SYSAPPEND" scriptTypeID="_Nw4SAA_1EeON57gSdlnC5A"/>
+    </WorkModelScripts>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__UydTkoNSEeOcadlsg2IG1w">
+    <BaseModelInfo description="Update Case Data Failed" name="UpdateCaseDataFailed" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="LoginDetailsTemp" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorDetail" optional="true" type="String">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="LoginDetailsOriginal" optional="true" type="Complex">
+        <complexSpec className="com.example.businessdataproject.LoginDetails"/>
+      </inouts>
+      <inouts name="ErrorCode" optional="true" type="String">
+        <simpleSpec length="250"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190408103910202,1.0.0.20190408103910202]" workTypeID="WT__UydTkoNSEeOcadlsg2IG1w">
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsTemp</TypeParamName>
+          <ModelParamName>LoginDetailsTemp</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorDetail</TypeParamName>
+          <ModelParamName>ErrorDetail</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>LoginDetailsOriginal</TypeParamName>
+          <ModelParamName>LoginDetailsOriginal</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ErrorCode</TypeParamName>
+          <ModelParamName>ErrorCode</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

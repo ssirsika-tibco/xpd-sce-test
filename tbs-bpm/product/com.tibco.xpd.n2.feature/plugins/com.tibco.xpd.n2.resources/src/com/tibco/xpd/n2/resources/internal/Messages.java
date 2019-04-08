@@ -72,6 +72,10 @@ public class Messages extends NLS {
 
     public static String AllowUnqualifiedSubProcIdAdvProp_SetUnsetUnqualifiedNamesCommand_label;
 
+    public static String Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label;
+
+    public static String Bpm2CeProjectConfigPostImportTask_MovingGenBOMs_status;
+
     public static String Bpm2CeProjectConfigPostImportTask_RemoveBuildFolders_status;
 
     public static String Bpm2CeProjectConfigPostImportTask_RestDestinationEnv_status;
