@@ -9,6 +9,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.junit.Test;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -113,6 +114,8 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                         "Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
                         .exists());
 
+
+        
         projectImporter.performDelete();
 
     }
@@ -258,6 +261,46 @@ public class Bpm2CeProjectConfigTest extends TestCase {
 
         assertTrue("Project should have no '.daabin' folder", //$NON-NLS-1$
                 !project.getFolder(".daabin").exists()); //$NON-NLS-1$
+
+        /*
+         * ACE-457 Check that unwanted 'Generate Business Objects' special
+         * folder was removed.
+         */
+        boolean found = false;
+
+        for (SpecialFolder specialFolder : projectConfig.getSpecialFolders()
+                .getFoldersOfKind(BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
+            if (BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
+                    .equals(specialFolder.getGenerated())) {
+                found = true;
+            }
+        }
+
+        if (!found) {
+            /*
+             * check the actual folder even if special folder removed from
+             * .config
+             */
+            found = projectConfig.getProject()
+                    .getFolder("Generated Business Objects").exists(); //$NON-NLS-1$
+        }
+
+        assertTrue(
+                "'Generated Business Objects' folder has not been removed from Special Folders / file system", //$NON-NLS-1$
+                !found);
+
+        /*
+         * Make sure all generated/user defined WSDL folders have been removed.
+         */
+        assertTrue(
+                "All generated/user defined WSDL Special folders have not been removed", //$NON-NLS-1$
+                !hasSpecialFolder(projectConfig, "wsdl"));
+
+        assertTrue(
+                "All generated/user defined WSDL Special folders have not been removed", //$NON-NLS-1$
+                !project.getFolder("Generated Services") //$NON-NLS-1$
+                        .exists()
+                        && !project.getFolder("Services Descriptors").exists()); //$NON-NLS-1$
 
         return projectImporter;
     }

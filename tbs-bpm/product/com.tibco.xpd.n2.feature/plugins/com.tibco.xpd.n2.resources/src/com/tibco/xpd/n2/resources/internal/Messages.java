@@ -78,6 +78,8 @@ public class Messages extends NLS {
 
     public static String Bpm2CeProjectConfigPostImportTask_RemoveBuildFolders_status;
 
+    public static String Bpm2CeProjectConfigPostImportTask_RemovingUnwantedUserFolders_status;
+
     public static String Bpm2CeProjectConfigPostImportTask_RestDestinationEnv_status;
 
     public static String FlowAnalyzerPreferenceContributor_AnalyzerTimeoutEditor_tooltip;

@@ -66,7 +66,7 @@ public class Bpm2CeProjectConfigPostImportTask
     @Override
     public void runPostImportTask(IProject project,
             IProgressMonitor aProgressMonitor) throws CoreException {
-        SubMonitor monitor = SubMonitor.convert(aProgressMonitor, "", 3); //$NON-NLS-1$
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor, "", 4); //$NON-NLS-1$
 
         try {
 
@@ -95,6 +95,9 @@ public class Bpm2CeProjectConfigPostImportTask
 
                         moveGeneratedBOMs(projectConfig, monitor);
 
+                        removeUnwantedSpecialUserFolders(projectConfig,
+                                monitor);
+
                         /* Save it. */
                         ProjectConfigWorkingCopy wc =
                                 (ProjectConfigWorkingCopy) WorkingCopyUtil
@@ -112,6 +115,7 @@ public class Bpm2CeProjectConfigPostImportTask
             monitor.done();
         }
     }
+
 
 
     /**
@@ -177,6 +181,11 @@ public class Bpm2CeProjectConfigPostImportTask
 
                     if (unwantedTypes.contains(specialFolder.getKind())) {
                         /*
+                         * Remove the special folder from project config
+                         */
+                        iterator.remove();
+
+                        /*
                          * Remove the physical folder itself if it exists.
                          */
                         String sfLocation = specialFolder.getLocation();
@@ -187,11 +196,6 @@ public class Bpm2CeProjectConfigPostImportTask
                             actualFolder.delete(true,
                                     new NullProgressMonitor());
                         }
-
-                        /*
-                         * Remove the special folder from project config
-                         */
-                        iterator.remove();
                     }
                 }
             }
@@ -292,6 +296,63 @@ public class Bpm2CeProjectConfigPostImportTask
         }
 
     }
+
+    /**
+     * Remove unwanted user-visible folders (Service Descriptors, Generated
+     * Business Objects, Generated Services)
+     * 
+     * @param projectConfig
+     * @param monitor
+     */
+    private void removeUnwantedSpecialUserFolders(ProjectConfig projectConfig,
+            SubMonitor monitor) {
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_RemovingUnwantedUserFolders_status);
+
+        IProject project = projectConfig.getProject();
+
+        try {
+            SpecialFolders specialFolders = projectConfig.getSpecialFolders();
+
+            if (specialFolders != null) {
+                for (Iterator iterator =
+                        specialFolders.getFolders().iterator(); iterator
+                                .hasNext();) {
+                    SpecialFolder specialFolder =
+                            (SpecialFolder) iterator.next();
+
+                    if (isUnwantedUserSpecialFolder(specialFolder)) {
+                        /*
+                         * Remove the special folder from project config
+                         */
+                        iterator.remove();
+
+                        /*
+                         * Remove the physical folder itself if it exists.
+                         */
+                        String sfLocation = specialFolder.getLocation();
+
+                        IFolder actualFolder = project.getFolder(sfLocation);
+
+                        if (actualFolder.exists()) {
+                            actualFolder.delete(true,
+                                    new NullProgressMonitor());
+                        }
+
+                    }
+                }
+            }
+
+        } catch (CoreException e) {
+            BundleActivator.getDefault().getLogger().error(
+                    "During project import conversion could not remove folder: " //$NON-NLS-1$
+                            + e.getMessage());
+        } finally {
+            monitor.subTask(""); //$NON-NLS-1$
+            monitor.worked(1);
+        }
+    }
+
 
     /**
      * Move all the generated BOM content to user defined BOM folder.
@@ -405,6 +466,30 @@ public class Bpm2CeProjectConfigPostImportTask
             }
             folder.create(false, true, null);
         }
+    }
+
+    /**
+     * @param specialFolder
+     * 
+     * @return <code>true</code> if the given special folder is one that we no
+     *         longer need or want.
+     */
+    private boolean isUnwantedUserSpecialFolder(SpecialFolder specialFolder) {
+        /* Generated BOMs folder. */
+        if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND
+                .equals(specialFolder.getKind())
+                && BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
+                        .equals(specialFolder.getGenerated())) {
+            return true;
+
+        }
+        /* Generated and user defined Services folders. */
+        else if ("wsdl".equals(specialFolder.getKind())) { //$NON-NLS-1$
+            return true;
+
+        }
+
+        return false;
     }
 
 }
