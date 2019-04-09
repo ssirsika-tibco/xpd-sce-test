@@ -482,47 +482,43 @@ public class Bpm2CeProjectConfigTest extends TestCase {
          * Ensure that all integer attributes and primitive types have been
          * changed to Decimal, Fixed Point with 0 decimals.
          */
-        // PrimitiveType integerType =
-        // PrimitivesUtil.getStandardPrimitiveTypeByName(
-        // XpdResourcesPlugin.getDefault().getEditingDomain()
-        // .getResourceSet(),
-        // PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
-        //
-        // for (IResource bomFile : bomFiles) {
-        // WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
-        //
-        // Model model = (Model) wc.getRootElement();
-        //
-        // /* Ensure that there are no Integer type properties/primitives */
-        // EList<Element> allOwnedElements = model.allOwnedElements();
-        //
-        // for (Element element : allOwnedElements) {
-        // if (element instanceof Property) {
-        // Property property = (Property) element;
-        //
-        // assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$
-        // //$NON-NLS-2$
-        // + property.getName()
-        // + "' should have been converted from Integer to Decimal, FixedPoint
-        // with Zero decimals", //$NON-NLS-1$
-        // !(integerType.equals(property.getType())));
-        //
-        // } else if (element instanceof PrimitiveType) {
-        // PrimitiveType primitiveType = (PrimitiveType) element;
-        //
-        // for (Element general : primitiveType.getGenerals()) {
-        // assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$
-        // //$NON-NLS-2$
-        // + primitiveType.getName()
-        // + "' should have been converted from Integer to Decimal, FixedPoint
-        // with Zero decimals", //$NON-NLS-1$
-        // !(integerType.equals(general)));
-        //
-        // }
-        // }
-        // }
-        //
-        // }
+        PrimitiveType integerType =
+                PrimitivesUtil.getStandardPrimitiveTypeByName(
+                        XpdResourcesPlugin.getDefault().getEditingDomain()
+                                .getResourceSet(),
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+
+        for (IResource bomFile : bomFiles) {
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+
+            Model model = (Model) wc.getRootElement();
+
+            /* Ensure that there are no Integer type properties/primitives */
+            EList<Element> allOwnedElements = model.allOwnedElements();
+
+            for (Element element : allOwnedElements) {
+                if (element instanceof Property) {
+                    Property property = (Property) element;
+
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' should have been converted from Integer to Decimal, FixedPoint with Zero decimals", //$NON-NLS-1$
+                            !(integerType.equals(property.getType())));
+
+                } else if (element instanceof PrimitiveType) {
+                    PrimitiveType primitiveType = (PrimitiveType) element;
+
+                    for (Element general : primitiveType.getGenerals()) {
+                        assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                                + primitiveType.getName()
+                                + "' should have been converted from Integer to Decimal, FixedPoint with Zero decimals", //$NON-NLS-1$
+                                !(integerType.equals(general)));
+
+                    }
+                }
+            }
+
+        }
 
         return projectImporter;
     }
