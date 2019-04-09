@@ -29,6 +29,8 @@ public class ProgressBarMonitor implements IProgressMonitor {
 
     private boolean cancelled = false;
 
+    private String taskName;
+
     public ProgressBarMonitor(ProgressBar bar, Label label) {
         this.bar = bar;
         this.label = label;
@@ -40,6 +42,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
      */
     @Override
     public void beginTask(String name, int totalWork) {
+        taskName = name;
         this.totalWork = totalWork;
         bar.getDisplay().syncExec(() -> {
             bar.setMaximum(totalWork);
@@ -87,6 +90,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
      */
     @Override
     public void setTaskName(String name) {
+        taskName = name;
         updateText(name);
     }
 
@@ -95,7 +99,11 @@ public class ProgressBarMonitor implements IProgressMonitor {
      */
     @Override
     public void subTask(String name) {
-        updateText(name);
+        if (name == null || name.length() == 0) {
+            updateText(taskName);
+        } else {
+            updateText(name);
+        }
     }
 
     /**

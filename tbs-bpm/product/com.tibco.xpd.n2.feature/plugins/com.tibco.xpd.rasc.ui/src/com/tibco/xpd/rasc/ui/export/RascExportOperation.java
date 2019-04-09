@@ -104,6 +104,7 @@ public class RascExportOperation implements IRunnableWithProgress {
         SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                 Messages.RascExportOperation_ProgressTitle,
                 projects.size() * 10);
+        monitor.subTask(Messages.RascExportOperation_ProgressTitle);
 
         for (IProject project : projects) {
             listener.setStatus(project, ExportStatus.WAITING, ""); //$NON-NLS-1$
@@ -111,6 +112,9 @@ public class RascExportOperation implements IRunnableWithProgress {
         boolean valid = true;
 
         BuildSynchronizerUtil.waitForBuildsToFinish(monitor);
+
+        // Fix the main task name after build synchronizer.
+        monitor.setTaskName(Messages.RascExportOperation_ProgressTitle);
 
         for (IProject project : projects) {
             listener.setStatus(project,
@@ -173,6 +177,7 @@ public class RascExportOperation implements IRunnableWithProgress {
 
             }
         }
+        monitor.subTask(""); //$NON-NLS-1$
         monitor.done();
     }
 

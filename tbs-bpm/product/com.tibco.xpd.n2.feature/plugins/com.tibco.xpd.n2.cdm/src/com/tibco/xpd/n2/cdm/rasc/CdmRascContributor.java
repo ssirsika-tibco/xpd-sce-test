@@ -84,8 +84,7 @@ public class CdmRascContributor implements RascContributor {
     public void process(IProject aProject, IProgressMonitor aProgressMonitor,
             RascWriter aWriter) throws Exception {
 
-        List<IFile> bomFiles =
-                getBomRascDescriptors(aProject);
+        List<IFile> bomFiles = getBomRascDescriptors(aProject);
         if (bomFiles.isEmpty()) {
             if (aProgressMonitor != null) {
                 aProgressMonitor.done();
@@ -98,6 +97,7 @@ public class CdmRascContributor implements RascContributor {
         SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                 Messages.CdmRascContributor_progress_message,
                 bomFiles.size() * 2);
+        monitor.subTask(Messages.CdmRascContributor_progress_message);
 
         for (IFile bomFile : bomFiles) {
             Model bomModel = getBomModel(bomFile);
@@ -139,6 +139,7 @@ public class CdmRascContributor implements RascContributor {
             }
         }
 
+        monitor.subTask(""); //$NON-NLS-1$
         monitor.done();
 
     }
@@ -228,5 +229,5 @@ public class CdmRascContributor implements RascContributor {
         }
         return null;
     }
-    
+
 }

@@ -41,7 +41,11 @@ public class AdminUrlPropertyPanel extends Composite {
     public AdminUrlPropertyPanel(BaseXpdToolkit toolkit, Composite parent,
             int style) {
         super(parent, style);
-        setLayout(new GridLayout(2, false));
+        GridLayout panelLayout = new GridLayout(2, false);
+        panelLayout.marginHeight = 0;
+        panelLayout.marginWidth = 0;
+        panelLayout.marginBottom = 5;
+        setLayout(panelLayout);
         Label adminUrlLabel = toolkit.createLabel(this,
                 Messages.AdminUrlPropertyPanel_BaseUrlLabel);
         adminUrlLabel.setLayoutData(

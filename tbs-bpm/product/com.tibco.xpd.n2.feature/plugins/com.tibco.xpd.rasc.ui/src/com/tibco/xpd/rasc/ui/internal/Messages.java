@@ -16,6 +16,8 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.rasc.ui.internal.messages"; //$NON-NLS-1$
 
+    public static String AdminUrlPreferencePage_ShowAdminUrlDialog;
+
     public static String AdminUrlPropertyDialog_HideDialogCheckbox;
 
     public static String AdminUrlPropertyDialog_InfoMessage;

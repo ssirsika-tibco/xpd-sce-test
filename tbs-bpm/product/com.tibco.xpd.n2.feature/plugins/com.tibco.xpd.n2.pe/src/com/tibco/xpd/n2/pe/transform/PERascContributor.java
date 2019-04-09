@@ -46,8 +46,7 @@ public class PERascContributor implements RascContributor {
     /**
      * The unique identifier for this RascContribution implementation.
      */
-    private static String ID =
-            "com.tibco.xpd.n2.pe.transform.pe.contributor"; //$NON-NLS-1$
+    private static String ID = "com.tibco.xpd.n2.pe.transform.pe.contributor"; //$NON-NLS-1$
 
     private static final String LOG_BUILD_FAILED = "Project build failed ."; //$NON-NLS-1$
 
@@ -95,6 +94,7 @@ public class PERascContributor implements RascContributor {
         SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                 Messages.PERascContributor_BuildingProcesses_status,
                 2);
+        monitor.subTask(Messages.PERascContributor_BuildingProcesses_status);
 
         // refresh the generated BPEL files for the given project
         BPELOnDemandBuilder bpelBuilder = new BPELOnDemandBuilder(aProject);
@@ -110,6 +110,7 @@ public class PERascContributor implements RascContributor {
 
         addBpelToRasc(monitor.split(1), aWriter, bpelBuilder);
 
+        monitor.subTask(""); //$NON-NLS-1$
         monitor.done();
     }
 
@@ -124,16 +125,19 @@ public class PERascContributor implements RascContributor {
     private void addBpelToRasc(IProgressMonitor aProgressMonitor,
             final RascWriter aWriter, BPELOnDemandBuilder bpelBuilder)
             throws CoreException {
-        /* Get the target derived file info - we will then output content to the RASC according to these  */
+        /*
+         * Get the target derived file info - we will then output content to the
+         * RASC according to these
+         */
         Collection<BuildTargetSet> builtTargets = bpelBuilder.getBuiltTargets();
-        
+
         int numTargets = countBpelResources(builtTargets);
-        
-        SubMonitor monitor = SubMonitor
-                .convert(aProgressMonitor,
-                        Messages.PERascContributor_AddingRuntimeProcesses,
-                        numTargets);
-        
+
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
+                Messages.PERascContributor_AddingRuntimeProcesses,
+                numTargets);
+        monitor.subTask(Messages.PERascContributor_AddingRuntimeProcesses);
+
         try {
             /*
              * Iterate the build targets. Output the BPEL files to the
@@ -169,6 +173,7 @@ public class PERascContributor implements RascContributor {
             }
 
         } finally {
+            monitor.subTask(""); //$NON-NLS-1$
             monitor.done();
         }
     }
@@ -187,8 +192,8 @@ public class PERascContributor implements RascContributor {
      * @throws CoreException
      */
     private void addRascResource(RascWriter aWriter, IResource resource,
-            Process sourceProcess,
-            MicroService[] destinations) throws CoreException {
+            Process sourceProcess, MicroService[] destinations)
+            throws CoreException {
 
         // find the real location of the BPEL file
         URI uri = resource.getLocationURI();
@@ -213,11 +218,10 @@ public class PERascContributor implements RascContributor {
                 }
 
                 // create a RASC artifact with the BPEL file name
-                OutputStream output =
-                        aWriter.addContent(relativePath,
-                                Xpdl2ModelUtil.getDisplayName(sourceProcess),
-                                sourceProcess.getName(),
-                                destinations);
+                OutputStream output = aWriter.addContent(relativePath,
+                        Xpdl2ModelUtil.getDisplayName(sourceProcess),
+                        sourceProcess.getName(),
+                        destinations);
                 try {
                     int len;
                     byte[] buffer = new byte[1024];

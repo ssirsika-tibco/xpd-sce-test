@@ -183,6 +183,8 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
         SubMonitor subMonitor = SubMonitor.convert(monitor,
                 Messages.RascExportStatusPage_ExportingArtifacts_status,
                 10);
+        subMonitor.subTask(
+                Messages.RascExportStatusPage_ExportingArtifacts_status);
 
         getShell().getDisplay().syncExec(() -> {
             if (!DeployUtil.saveAllDirtyResourcesInWS(subMonitor.split(1))) {
@@ -200,6 +202,8 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
                 Thread.currentThread().interrupt();
             } finally {
                 finishedRun();
+                subMonitor.subTask(""); //$NON-NLS-1$
+                subMonitor.done();
             }
         });
         job.schedule();
@@ -209,6 +213,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
      * Override so we don't close until the user has acknowledged the result.
      */
     protected void finishedRun() {
+        monitor.done();
         // Enable launch button
         if (!hasErrors) {
             Shell shell = getShell();

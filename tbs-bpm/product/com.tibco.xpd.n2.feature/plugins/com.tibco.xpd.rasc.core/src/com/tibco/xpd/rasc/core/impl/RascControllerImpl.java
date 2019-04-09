@@ -192,6 +192,7 @@ public class RascControllerImpl implements RascController {
             SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                     RascControllerImpl.PROGRESS_TASK,
                     contributors.size());
+            monitor.subTask(RascControllerImpl.PROGRESS_TASK);
             try {
                 // has the job been cancelled by the user
                 if (monitor.isCanceled()) {
@@ -242,6 +243,7 @@ public class RascControllerImpl implements RascController {
                     deployment.close();
                 }
             } finally {
+                monitor.subTask(""); //$NON-NLS-1$
                 monitor.done();
             }
         } catch (Exception e) {

@@ -3,19 +3,36 @@ package com.tibco.xpd.rasc.ui;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.tibco.xpd.rasc.ui.export.AdminUrlPropertyPanel;
+import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
 import com.tibco.xpd.ui.properties.XpdWizardToolkit;
 
+/**
+ * Preference page for setting the Admin URL.
+ *
+ * @author nwilson
+ * @since 9 Apr 2019
+ */
 public class AdminUrlPreferencePage extends PreferencePage
         implements IWorkbenchPreferencePage {
 
+    /**
+     * URL property panel, also used in export admin URL launch dialog.
+     */
     private AdminUrlPropertyPanel panel;
+
+    /**
+     * Checkbox for hiding the admin URL dialog.
+     */
+    private Button showAdminUrl;
 
     public AdminUrlPreferencePage() {
     }
@@ -36,8 +53,24 @@ public class AdminUrlPreferencePage extends PreferencePage
     @Override
     protected Control createContents(Composite parent) {
         BaseXpdToolkit toolkit = new XpdWizardToolkit(parent);
-        panel = new AdminUrlPropertyPanel(toolkit, parent, SWT.NONE);
-        return panel;
+        Composite page = toolkit.createComposite(parent);
+        // GridLayout pageLayout = new GridLayout();
+        // pageLayout.marginHeight = 0;
+        // pageLayout.marginWidth = 0;
+        // page.setLayout(pageLayout);
+        page.setLayout(new RowLayout(SWT.VERTICAL));
+
+        panel = new AdminUrlPropertyPanel(toolkit, page, SWT.NONE);
+        // panel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+        boolean showAminUrlDialog =
+                !RascUiActivator.getDefault().getHideAdminUrlDialog();
+        showAdminUrl = toolkit.createCheckbox(page,
+                showAminUrlDialog,
+                Messages.AdminUrlPreferencePage_ShowAdminUrlDialog,
+                RascUiActivator.HIDE_ADMIN_BASE_URL);
+        // showAdminUrl.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true,
+        // true));
+        return page;
     }
 
     /**
@@ -47,6 +80,8 @@ public class AdminUrlPreferencePage extends PreferencePage
     @Override
     protected void performDefaults() {
         panel.reset();
+        showAdminUrl.setSelection(
+                !RascUiActivator.getDefault().getHideAdminUrlDialog());
         super.performDefaults();
     }
 
@@ -58,6 +93,8 @@ public class AdminUrlPreferencePage extends PreferencePage
     @Override
     public boolean performOk() {
         RascUiActivator.getDefault().setAdminBaseUrl(panel.getAdminBaseUrl());
+        RascUiActivator.getDefault()
+                .setHideAdminUrlDialog(!showAdminUrl.getSelection());
         return super.performOk();
     }
 
