@@ -6,12 +6,10 @@ package com.tibco.xpd.sce.tests.cdm.transform;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 import org.eclipse.uml2.uml.Model;
 import org.junit.Assert;
 
-import com.tibco.bpm.da.dm.api.Attribute;
 import com.tibco.bpm.da.dm.api.DataModel;
 import com.tibco.bpm.da.dm.api.StructuredType;
 
@@ -35,6 +33,20 @@ import com.tibco.bpm.da.dm.api.StructuredType;
 @SuppressWarnings("nls")
 public class StructuredTypesCdmTransformTest
         extends AbstractSingleBomCdmTransformTest {
+
+    @Override
+    protected void validateCdmModel(DataModel cdmModel) {
+        // Model validation reports external references as errors. So it is
+        // switched for this test.
+
+        // ValidationResult result = cdmModel.validate();
+        // if (result.containsIssues() || result.containsErrors()) {
+        // String msg = String.format("Issues:\n%s", result.toReportMessage());
+        // //$NON-NLS-1$
+        // System.out.printf(msg);
+        // fail(msg);
+        // }
+    }
 
     /**
      * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#getBomFileName()
@@ -64,7 +76,7 @@ public class StructuredTypesCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return true;
+        return false;
     }
 
     /**
@@ -101,41 +113,6 @@ public class StructuredTypesCdmTransformTest
                 array);
 
         assertAttribute(classB, "classC", "ClassC", !mandatory, array);
-    }
-
-    /**
-     * Asserts name and type of a simple type property.
-     * 
-     * @param type
-     *            the class containing attribute.
-     * @param name
-     *            name of the attribute.
-     * @param expectedType
-     *            expected type name.
-     * @return the attribute with the name or 'null'.
-     */
-    private Attribute assertAttribute(StructuredType type, String name,
-            String expectedType, boolean expectedIsMandatory,
-            boolean expectedIsArray) {
-        Function<String, String> m =
-                facet -> String.format("Type '%s' attr: '%s' facet: %s",
-                        type.getName(),
-                        name,
-                        facet);
-
-        Attribute attr = type.getAttributeByName(name);
-        Assert.assertNotNull(String
-                .format("Type %s is missing attr '%s'", type.getName(), name),
-                attr);
-        Assert.assertEquals(m.apply("name"), name, attr.getName());
-        Assert.assertEquals(m.apply("type"), expectedType, attr.getType());
-        Assert.assertEquals(m.apply("isMandatory"),
-                expectedIsMandatory,
-                attr.getIsMandatory());
-        Assert.assertEquals(m.apply("isArray"),
-                expectedIsArray,
-                attr.getIsArray());
-        return attr;
     }
 
 }

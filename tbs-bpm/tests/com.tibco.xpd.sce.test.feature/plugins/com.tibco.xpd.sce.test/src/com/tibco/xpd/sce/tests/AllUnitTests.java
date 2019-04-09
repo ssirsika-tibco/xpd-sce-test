@@ -4,7 +4,9 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.sce.tests.cdm.transform.ConstraintsCdmTransformTest;
 import com.tibco.xpd.sce.tests.cdm.transform.SimpleCdmTransformTest;
+import com.tibco.xpd.sce.tests.cdm.transform.StructuredTypesCdmTransformTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectConfigTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
@@ -31,8 +33,14 @@ public class AllUnitTests {
         suite.addTestSuite(OrgModelRascContributorTest.class);
         suite.addTestSuite(PERascContributorTest.class);
         suite.addTestSuite(SimpleCdmTransformTest.class);
-        // BOM->CDM transformation
         suite.addTestSuite(CdmRascContributorTest.class);
+
+        /*
+         * BOM->CDM transformation
+         */
+        suite.addTestSuite(SimpleCdmTransformTest.class);
+        suite.addTestSuite(StructuredTypesCdmTransformTest.class);
+        suite.addTestSuite(ConstraintsCdmTransformTest.class);
 
         /*
          * AMX BPM project migration

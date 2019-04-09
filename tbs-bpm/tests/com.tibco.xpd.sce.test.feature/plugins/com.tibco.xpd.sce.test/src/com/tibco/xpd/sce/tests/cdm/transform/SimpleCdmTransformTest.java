@@ -4,8 +4,6 @@
 
 package com.tibco.xpd.sce.tests.cdm.transform;
 
-import java.util.function.Function;
-
 import org.eclipse.uml2.uml.Model;
 import org.junit.Assert;
 
@@ -55,8 +53,6 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
     @Override
     protected void assertBomCdmTransformation(DataModel cdmModel,
             Model bomModel) {
-        boolean mandatory = true;
-        boolean array = true;
 
         Assert.assertEquals("com.example.simple", cdmModel.getNamespace());
 
@@ -147,43 +143,6 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
         // assertAttribute(simpleClassType, "dateTimeTzAttrArray",
         // "base:DateTimeTZ", !mandatory,array);
         // assertAttribute(simpleClassType, "idAttrArray", "base:Time");
-    }
-
-    /**
-     * Asserts name and type of a simple type property.
-     * 
-     * @param type
-     *            the class containing attribute.
-     * @param name
-     *            name of the attribute.
-     * @param expectedType
-     *            expected type name.
-     * @return the attribute with the name or 'null'.
-     */
-    private Attribute assertAttribute(StructuredType type, String name,
-            String expectedType, boolean expectedIsMandatory,
-            boolean expectedIsArray) {
-        Function<String, String> m =
-                facet -> String.format("Type '%s' attr: '%s' facet: %s",
-                        type.getName(),
-                        name,
-                        facet);
-
-        Attribute attr = type.getAttributeByName(name);
-        Assert.assertNotNull(
-                String.format("Type %s is missing attr '%s'",
-                        type.getName(),
-                        name),
-                attr);
-        Assert.assertEquals(m.apply("name"), name, attr.getName());
-        Assert.assertEquals(m.apply("type"), expectedType, attr.getType());
-        Assert.assertEquals(m.apply("isMandatory"),
-                expectedIsMandatory,
-                attr.getIsMandatory());
-        Assert.assertEquals(m.apply("isArray"),
-                expectedIsArray,
-                attr.getIsArray());
-        return attr;
     }
 
 }

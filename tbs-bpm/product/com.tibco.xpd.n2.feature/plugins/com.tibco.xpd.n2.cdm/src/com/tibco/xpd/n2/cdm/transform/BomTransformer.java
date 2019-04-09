@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -39,6 +40,9 @@ public class BomTransformer {
     private static final String ALLOW_EXPORT_BOM_UNRESOLVED_PROXY =
             "allowExportBomUnresolvedProxy"; //$NON-NLS-1$
 
+    /** Transforms BOM constraints to CDM constraints. */
+    private static final BomConstraintTransformer CONSTRANT_TRANSFORMER =
+            new BomConstraintTransformer();
     /**
      * Prefix for CDM base type.
      */
@@ -57,6 +61,8 @@ public class BomTransformer {
     private final static String CDM_BASE_TIME_TYPE =
             BASE_PREFIX + BaseType.TIME.getName();
 
+    private final static String CDM_BASE_BOOLEAN_TYPE =
+            BASE_PREFIX + BaseType.BOOLEAN.getName();
 
     /**
      * Transforms BOM model.
@@ -126,6 +132,17 @@ public class BomTransformer {
         cdmAttribute.setIsMandatory(lower != 0);
         // -1 means +infinity (unbounded).
         cdmAttribute.setIsArray(upper == -1 || upper > 1);
+        CONSTRANT_TRANSFORMER.getContraints(bomAttribute).stream().forEach(
+                c -> cdmAttribute.newConstraint(c.getName(), c.getValue()));
+        CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
+                .forEach(literal -> cdmAttribute
+                        .newAllowedValue(/* label */getLabel(literal),
+                                /* value */ literal.getName()));
+        String defaultValue =
+                CONSTRANT_TRANSFORMER.getDefaultValue(bomAttribute);
+        if (defaultValue != null) {
+            cdmAttribute.setDefaultValue(defaultValue);
+        }
         return cdmAttribute;
     }
 
@@ -134,19 +151,23 @@ public class BomTransformer {
      * 
      * @param bomType
      *            the BOM type.
-     * @param bomAttribute
-     *            context bomAttribute
+     * @param contextProperty
+     *            context bom property that has the type.
      * @return the string representation of a CDM type.
      */
-    private String transformType(Type bomType, Property bomAttribute) {
+    private String transformType(Type bomType, Property contextProperty) {
         if (bomType instanceof PrimitiveType) {
-            switch (bomType.getName()) {
+            String baseType = PrimitivesUtil
+                    .getBasePrimitiveType((PrimitiveType) bomType).getName();
+            switch (baseType) {
             case PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME:
                 return CDM_BASE_TEXT_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME:
                 return CDM_BASE_NUMBER_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:
                 return CDM_BASE_NUMBER_TYPE;
+            case PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME:
+                return CDM_BASE_BOOLEAN_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME:
                 return CDM_BASE_DATE_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME:
@@ -157,8 +178,6 @@ public class BomTransformer {
             // TODO These cases will be supported when the CDM model is updated.
             // case PrimitivesUtil.BOM_PRIMITIVE_ID_NAME:
             // return BASE_PREFIX + BaseType.ID;
-            // case PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME:
-            // return BASE_PREFIX + BaseType.BOOLEAN;
             // case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
             // return BASE_PREFIX + BaseType.DATE_TIME_TZ;
             // case PrimitivesUtil.BOM_PRIMITIVE_URI_NAME:
@@ -170,7 +189,7 @@ public class BomTransformer {
             if (!bomType.eIsProxy()) {
                 String typePackageName = bomType.getPackage().getName();
                 String typeName = bomType.getName();
-                String localPackageName = getPackageName(bomAttribute);
+                String localPackageName = getPackageName(contextProperty);
                 if (localPackageName != null
                         && localPackageName.equals(typePackageName)) {
                     return typeName;
@@ -181,8 +200,8 @@ public class BomTransformer {
                 // Unresolved proxy situation. Should never happen if all
                 // necessary referenced files are in the workspace.
                 String javaFQType = getTypeNameFromUnresolvedProxy(bomType);
-                boolean allowBomUnresolvedProxy = Boolean.getBoolean(System
-                        .getProperty(ALLOW_EXPORT_BOM_UNRESOLVED_PROXY,
+                boolean allowBomUnresolvedProxy = Boolean.getBoolean(
+                        System.getProperty(ALLOW_EXPORT_BOM_UNRESOLVED_PROXY,
                                 "false")); //$NON-NLS-1$
                 if (javaFQType != null && allowBomUnresolvedProxy) {
                     return javaFQType;
@@ -192,6 +211,8 @@ public class BomTransformer {
                                 (javaFQType != null) ? javaFQType : ""); //$NON-NLS-1$
                 throw new RuntimeException(errorMessage);
             }
+        } else if (bomType instanceof Enumeration) {
+            return CDM_BASE_TEXT_TYPE; // $NON-NLS-1$
         }
         return null;
     }
@@ -257,4 +278,5 @@ public class BomTransformer {
         }
         return null; // $NON-NLS-1$
     }
+
 }
