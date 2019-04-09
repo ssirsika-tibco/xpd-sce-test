@@ -4,14 +4,21 @@
 
 package com.tibco.xpd.sce.tests.importmigration;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.junit.Test;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
@@ -32,7 +39,6 @@ import junit.framework.TestCase;
  * @since 22 Mar 2019
  */
 public class Bpm2CeProjectConfigTest extends TestCase {
-
 
     // @Test
     public void testOrgProjectMigration() {
@@ -79,12 +85,10 @@ public class Bpm2CeProjectConfigTest extends TestCase {
     @Test
     public void testGenBomMoveMigration1_UserBomAlreadyExists() {
         String projectName = "ProjectMigrationTest_GenAndUserBOMData"; //$NON-NLS-1$
-        ProjectImporter projectImporter =
-                doTestProject(projectName); // $NON-NLS-1$
+        ProjectImporter projectImporter = doTestProject(projectName); // $NON-NLS-1$
 
-        IProject project =
-                ResourcesPlugin.getWorkspace().getRoot()
-                        .getProject(projectName);
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
 
         /*
          * Check that the expected BOMs are in new location and not in old
@@ -104,8 +108,7 @@ public class Bpm2CeProjectConfigTest extends TestCase {
 
         assertTrue(
                 "BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                project.getFile(
-                        "Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
+                project.getFile("Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
                         .exists());
 
         assertTrue(
@@ -114,18 +117,14 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                         "Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
                         .exists());
 
-
-        
         projectImporter.performDelete();
 
     }
 
-
     @Test
     public void testGenBomMoveMigration1_UserBomNotExist() {
         String projectName = "ProjectMigrationTest_GenBOMOnly"; //$NON-NLS-1$
-        ProjectImporter projectImporter =
-                doTestProject(projectName); // $NON-NLS-1$
+        ProjectImporter projectImporter = doTestProject(projectName); // $NON-NLS-1$
 
         IProject project = ResourcesPlugin.getWorkspace().getRoot()
                 .getProject(projectName);
@@ -193,8 +192,7 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                 "com.tibco.xpd.sce.test", //$NON-NLS-1$
                 new String[] {
                         "resources/ImportMigrationTests/" + projectName + "/" }, //$NON-NLS-1$ //$NON-NLS-2$
-                new String[] {
-                        projectName });
+                new String[] { projectName });
 
         assertTrue(
                 "Failed to load projects from \"resources/ImportMigrationTests/ImportMigrationTests/" //$NON-NLS-1$
@@ -233,8 +231,7 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                 "Project should have no 'compositeModulesOutput' special-folder", //$NON-NLS-1$
                 !hasSpecialFolder(projectConfig, "compositeModulesOutput")); //$NON-NLS-1$
 
-        assertTrue(
-                "Project should have no 'bom2xsd' special-folder", //$NON-NLS-1$
+        assertTrue("Project should have no 'bom2xsd' special-folder", //$NON-NLS-1$
                 !hasSpecialFolder(projectConfig, "bom2xsd")); //$NON-NLS-1$
 
         assertTrue("Project should have no 'deModulesOutput' special-folder", //$NON-NLS-1$
@@ -294,13 +291,71 @@ public class Bpm2CeProjectConfigTest extends TestCase {
          */
         assertTrue(
                 "All generated/user defined WSDL Special folders have not been removed", //$NON-NLS-1$
-                !hasSpecialFolder(projectConfig, "wsdl"));
+                !hasSpecialFolder(projectConfig, "wsdl")); //$NON-NLS-1$
 
         assertTrue(
                 "All generated/user defined WSDL Special folders have not been removed", //$NON-NLS-1$
                 !project.getFolder("Generated Services") //$NON-NLS-1$
                         .exists()
                         && !project.getFolder("Services Descriptors").exists()); //$NON-NLS-1$
+
+        /*
+         * Ensure that the WSDL project asset as been removed.
+         */
+        found = false;
+        for (AssetType asset : projectConfig.getAssetTypes()) {
+            if ("com.tibco.xpd.asset.wsdl".equals(asset.getId())) { //$NON-NLS-1$
+                found = true;
+            }
+        }
+        assertTrue("WSDL project asset should have been removed", !found); //$NON-NLS-1$
+
+        /*
+         * Ensure that unwanted natures have been removed.
+         */
+        try {
+            IProjectDescription description = project.getDescription();
+
+            List<String> natures = Arrays.asList(description.getNatureIds());
+
+            assertTrue(
+                    "Nature 'com.tibco.xpd.wsdltobom.wsdlBomNature' should have been removed from project", //$NON-NLS-1$
+                    !natures.contains("com.tibco.xpd.wsdltobom.wsdlBomNature")); //$NON-NLS-1$
+            assertTrue(
+                    "Nature 'com.tibco.xpd.bom.xsdtransform.xsdNature' should have been removed from project", //$NON-NLS-1$
+                    !natures.contains(
+                            "com.tibco.xpd.bom.xsdtransform.xsdNature")); //$NON-NLS-1$
+            assertTrue(
+                    "Nature 'com.tibco.xpd.wsdlgen.wsdlGenNature' should have been removed from project", //$NON-NLS-1$
+                    !natures.contains("com.tibco.xpd.wsdlgen.wsdlGenNature")); //$NON-NLS-1$
+            assertTrue(
+                    "Nature 'com.tibco.xpd.n2.daa.cleanBpmFolderNature' should have been removed from project", //$NON-NLS-1$
+                    !natures.contains(
+                            "com.tibco.xpd.n2.daa.cleanBpmFolderNature")); //$NON-NLS-1$
+
+            /*
+             * Check builders have been removed.
+             */
+            assertTrue(
+                    "Builder 'com.tibco.xpd.wsdltobom.wsdlToBomBuilder' should have been removed from project", //$NON-NLS-1$
+                    !hasBuilder(description,
+                            "com.tibco.xpd.wsdltobom.wsdlToBomBuilder")); //$NON-NLS-1$
+            assertTrue(
+                    "Builder 'com.tibco.xpd.bom.xsdtransform.xsdBuilder' should have been removed from project", //$NON-NLS-1$
+                    !hasBuilder(description,
+                            "com.tibco.xpd.bom.xsdtransform.xsdBuilder")); //$NON-NLS-1$
+            assertTrue(
+                    "Builder 'com.tibco.xpd.n2.daa.cleanBpmFolderBuilder' should have been removed from project", //$NON-NLS-1$
+                    !hasBuilder(description,
+                            "com.tibco.xpd.n2.daa.cleanBpmFolderBuilder")); //$NON-NLS-1$
+            assertTrue(
+                    "Builder 'com.tibco.xpd.wsdlgen.wsdlGen' should have been removed from project", //$NON-NLS-1$
+                    !hasBuilder(description, "com.tibco.xpd.wsdlgen.wsdlGen")); //$NON-NLS-1$
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+            fail("Exception thrown during test execution: " + e.getMessage()); //$NON-NLS-1$
+        }
 
         return projectImporter;
     }
@@ -332,6 +387,24 @@ public class Bpm2CeProjectConfigTest extends TestCase {
             }
         }
 
+        return false;
+    }
+
+    /**
+     * Check if a given builder is configured for the given project.
+     * 
+     * @param description
+     * @param builderName
+     * @return <code>true</code> if the project has the given builder configured
+     *         on it
+     */
+    private boolean hasBuilder(IProjectDescription description,
+            String builderName) {
+        for (ICommand builder : description.getBuildSpec()) {
+            if (builderName.equals(builder.getBuilderName())) {
+                return true;
+            }
+        }
         return false;
     }
 

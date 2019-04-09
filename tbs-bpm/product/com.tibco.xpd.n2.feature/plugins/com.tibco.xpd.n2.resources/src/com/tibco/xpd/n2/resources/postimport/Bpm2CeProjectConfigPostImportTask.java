@@ -11,15 +11,19 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
@@ -27,6 +31,7 @@ import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.n2.resources.BundleActivator;
 import com.tibco.xpd.n2.resources.internal.Messages;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.Destination;
 import com.tibco.xpd.resources.projectconfig.Destinations;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -66,7 +71,7 @@ public class Bpm2CeProjectConfigPostImportTask
     @Override
     public void runPostImportTask(IProject project,
             IProgressMonitor aProgressMonitor) throws CoreException {
-        SubMonitor monitor = SubMonitor.convert(aProgressMonitor, "", 4); //$NON-NLS-1$
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor, "", 6); //$NON-NLS-1$
 
         try {
 
@@ -98,6 +103,11 @@ public class Bpm2CeProjectConfigPostImportTask
                         removeUnwantedSpecialUserFolders(projectConfig,
                                 monitor);
 
+                        removeUnwantedProjectAssets(projectConfig, monitor);
+
+                        removeUnwantedProjectNaturesAndBuilders(project,
+                                monitor);
+
                         /* Save it. */
                         ProjectConfigWorkingCopy wc =
                                 (ProjectConfigWorkingCopy) WorkingCopyUtil
@@ -108,15 +118,19 @@ public class Bpm2CeProjectConfigPostImportTask
             }
 
         } catch (IOException e) {
-            BundleActivator.getDefault().getLogger().error(e,
+            e.printStackTrace();
+
+            String message =
                     "Failed to save Project details working copy for project: " //$NON-NLS-1$
-                            + project.getName());
+                            + project.getName();
+            BundleActivator.getDefault().getLogger().error(e, message);
+
+            throw new CoreException(new Status(IStatus.ERROR,
+                    BundleActivator.PLUGIN_ID, message));
         } finally {
             monitor.done();
         }
     }
-
-
 
     /**
      * Replace all existing destinations with CE destination.
@@ -126,7 +140,8 @@ public class Bpm2CeProjectConfigPostImportTask
      */
     private void resetDestinationEnvironments(ProjectDetails projectDetails,
             IProgressMonitor monitor) {
-        monitor.subTask(Messages.Bpm2CeProjectConfigPostImportTask_RestDestinationEnv_status);
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_RestDestinationEnv_status);
 
         Destinations destinations =
                 ProjectConfigFactory.eINSTANCE.createDestinations();
@@ -152,10 +167,12 @@ public class Bpm2CeProjectConfigPostImportTask
      * ".bom2Xsd"/>)
      * 
      * @param projectDetails
+     * @throws CoreException
      */
     private void removeSpecialBuildFolders(ProjectConfig projectConfig,
-            IProgressMonitor monitor) {
-        monitor.subTask(Messages.Bpm2CeProjectConfigPostImportTask_RemoveBuildFolders_status);
+            IProgressMonitor monitor) throws CoreException {
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_RemoveBuildFolders_status);
 
         IProject project = projectConfig.getProject();
 
@@ -173,7 +190,7 @@ public class Bpm2CeProjectConfigPostImportTask
             SpecialFolders specialFolders = projectConfig.getSpecialFolders();
 
             if (specialFolders != null) {
-                for (Iterator iterator =
+                for (Iterator<?> iterator =
                         specialFolders.getFolders().iterator(); iterator
                                 .hasNext();) {
                     SpecialFolder specialFolder =
@@ -214,9 +231,16 @@ public class Bpm2CeProjectConfigPostImportTask
             }
 
         } catch (CoreException e) {
-            BundleActivator.getDefault().getLogger().error(
+            e.printStackTrace();
+
+            String message =
                     "During project import conversion Could not remove folder: " //$NON-NLS-1$
-                            + e.getMessage());
+                            + e.getMessage();
+            BundleActivator.getDefault().getLogger().error(message);
+
+            throw new CoreException(new Status(IStatus.ERROR,
+                    BundleActivator.PLUGIN_ID, message));
+
         } finally {
             monitor.subTask(""); //$NON-NLS-1$
             monitor.worked(1);
@@ -228,20 +252,21 @@ public class Bpm2CeProjectConfigPostImportTask
      * 
      * @param projectConfig
      * @param monitor
+     * @throws CoreException
      */
     private void moveGeneratedBOMs(ProjectConfig projectConfig,
-            SubMonitor monitor) {
+            SubMonitor monitor) throws CoreException {
         monitor.subTask(
                 Messages.Bpm2CeProjectConfigPostImportTask_MovingGenBOMs_status);
 
         try {
-            /* 
+            /*
              * Find generated BOM folders...
              */
             SpecialFolder userBomSpecialFolder = null;
 
             SpecialFolders specialFolders = projectConfig.getSpecialFolders();
-            
+
             if (specialFolders != null) {
                 /*
                  * Copy the list as we may add a new special folder during
@@ -252,8 +277,9 @@ public class Bpm2CeProjectConfigPostImportTask
                 copySpecialFolders.addAll(specialFolders.getFolders());
 
                 for (SpecialFolder specialFolder : copySpecialFolders) {
-                    if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND.equals(specialFolder.getKind()) &&
-                            BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
+                    if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND
+                            .equals(specialFolder.getKind())
+                            && BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
                                     .equals(specialFolder.getGenerated())
                             && specialFolder.getFolder() != null
                             && specialFolder.getFolder().exists()) {
@@ -283,13 +309,17 @@ public class Bpm2CeProjectConfigPostImportTask
                     }
                 }
             }
-            
-
 
         } catch (CoreException e) {
-            BundleActivator.getDefault().getLogger().error(
+            e.printStackTrace();
+
+            String message =
                     "During project import conversion caught error moving generated BOMs to user defined BOM folders: " //$NON-NLS-1$
-                            + e.getMessage());
+                            + e.getMessage();
+            BundleActivator.getDefault().getLogger().error(message);
+
+            throw new CoreException(new Status(IStatus.ERROR,
+                    BundleActivator.PLUGIN_ID, message));
         } finally {
             monitor.subTask(""); //$NON-NLS-1$
             monitor.worked(1);
@@ -303,9 +333,10 @@ public class Bpm2CeProjectConfigPostImportTask
      * 
      * @param projectConfig
      * @param monitor
+     * @throws CoreException
      */
     private void removeUnwantedSpecialUserFolders(ProjectConfig projectConfig,
-            SubMonitor monitor) {
+            SubMonitor monitor) throws CoreException {
         monitor.subTask(
                 Messages.Bpm2CeProjectConfigPostImportTask_RemovingUnwantedUserFolders_status);
 
@@ -315,7 +346,7 @@ public class Bpm2CeProjectConfigPostImportTask
             SpecialFolders specialFolders = projectConfig.getSpecialFolders();
 
             if (specialFolders != null) {
-                for (Iterator iterator =
+                for (Iterator<?> iterator =
                         specialFolders.getFolders().iterator(); iterator
                                 .hasNext();) {
                     SpecialFolder specialFolder =
@@ -344,15 +375,143 @@ public class Bpm2CeProjectConfigPostImportTask
             }
 
         } catch (CoreException e) {
-            BundleActivator.getDefault().getLogger().error(
+            e.printStackTrace();
+
+            String message =
                     "During project import conversion could not remove folder: " //$NON-NLS-1$
-                            + e.getMessage());
+                            + e.getMessage();
+            BundleActivator.getDefault().getLogger().error(message);
+
+            throw new CoreException(new Status(IStatus.ERROR,
+                    BundleActivator.PLUGIN_ID, message));
         } finally {
             monitor.subTask(""); //$NON-NLS-1$
             monitor.worked(1);
         }
     }
 
+    /**
+     * Remove unwanted asset definitions from project configuration
+     * 
+     * Currently this is just the WSDL asset.
+     * 
+     * @param projectConfig
+     * @param monitor
+     */
+    private void removeUnwantedProjectAssets(ProjectConfig projectConfig,
+            SubMonitor monitor) {
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_RemoveUnwantedAssetConfig_status);
+
+        try {
+            for (Iterator<AssetType> iterator =
+                    projectConfig.getAssetTypes().iterator(); iterator
+                            .hasNext();) {
+                AssetType asset = iterator.next();
+
+                if ("com.tibco.xpd.asset.wsdl".equals(asset.getId())) { //$NON-NLS-1$
+                    iterator.remove();
+                }
+            }
+
+        } finally {
+            monitor.subTask(""); //$NON-NLS-1$
+            monitor.worked(1);
+        }
+    }
+
+    /**
+     * Remove unwanted nature definitions from project configuration
+     * <p>
+     * Natures...
+     * <li>com.tibco.xpd.wsdltobom.wsdlBomNature - WSDL to BOM nature</li>
+     * <li>com.tibco.xpd.bom.xsdtransform.xsdNature - BOM to XSD nature</li>
+     * <li>com.tibco.xpd.wsdlgen.wsdlGenNature - XPDL to WSDL nature</li>
+     * <li>com.tibco.xpd.n2.daa.cleanBpmFolderNature - .bpm DAA build cleanup
+     * nature</li>
+     * <p>
+     * Builders...
+     * <li>com.tibco.xpd.wsdltobom.wsdlToBomBuilder</li>
+     * <li>com.tibco.xpd.bom.xsdtransform.xsdBuilder</li>
+     * <li>com.tibco.xpd.n2.daa.cleanBpmFolderBuilder</li>
+     * <li>com.tibco.xpd.wsdlgen.wsdlGen</li>
+     * 
+     * @param project
+     * @param monitor
+     * @throws CoreException
+     */
+    private void removeUnwantedProjectNaturesAndBuilders(IProject project,
+            SubMonitor monitor) throws CoreException {
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_RemoveUnwantedNatures_status);
+
+        try {
+            /* Remove unwanted natures */
+            IProjectDescription description = project.getDescription();
+            ArrayList<String> naturesList = new ArrayList<String>(
+                    Arrays.asList(description.getNatureIds()));
+
+            naturesList.remove("com.tibco.xpd.wsdltobom.wsdlBomNature"); //$NON-NLS-1$
+            naturesList.remove("com.tibco.xpd.bom.xsdtransform.xsdNature"); //$NON-NLS-1$
+            naturesList.remove("com.tibco.xpd.wsdlgen.wsdlGenNature"); //$NON-NLS-1$
+            naturesList.remove("com.tibco.xpd.n2.daa.cleanBpmFolderNature"); //$NON-NLS-1$
+
+            /* Reset nature list. */
+            String[] newNatures =
+                    naturesList.toArray(new String[naturesList.size()]);
+            description.setNatureIds(newNatures);
+
+            /* Remove unwanted builders */
+            ArrayList<ICommand> buildersList = new ArrayList<ICommand>(
+                    Arrays.asList(description.getBuildSpec()));
+
+            for (Iterator<ICommand> iterator = buildersList.iterator(); iterator
+                    .hasNext();) {
+                ICommand builder = iterator.next();
+
+                if ("com.tibco.xpd.wsdltobom.wsdlToBomBuilder" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
+
+                } else if ("com.tibco.xpd.bom.xsdtransform.xsdBuilder" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
+
+                } else if ("com.tibco.xpd.n2.daa.cleanBpmFolderBuilder" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
+
+                } else if ("com.tibco.xpd.wsdlgen.wsdlGen" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
+                }
+
+            }
+
+            /* Reset nature list. */
+            ICommand[] newBuilders =
+                    buildersList.toArray(new ICommand[buildersList.size()]);
+            description.setBuildSpec(newBuilders);
+
+            /* Save the .project file. */
+            project.setDescription(description, null);
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+
+            String message =
+                    "During project import conversion could not remove folder: " //$NON-NLS-1$
+                            + e.getMessage();
+            BundleActivator.getDefault().getLogger().error(message);
+
+            throw new CoreException(new Status(IStatus.ERROR,
+                    BundleActivator.PLUGIN_ID, message));
+
+        } finally {
+            monitor.subTask(""); //$NON-NLS-1$
+            monitor.worked(1);
+        }
+    }
 
     /**
      * Move all the generated BOM content to user defined BOM folder.
@@ -393,10 +552,10 @@ public class Bpm2CeProjectConfigPostImportTask
             if (!bomTgtFolder.exists()) {
                 createFolder(bomTgtFolder);
             }
-            
+
             IPath bomTgtFilePath = bomTgtParentPath.append(bomFile.getName());
             bomFile.move(bomTgtFilePath, true, null);
-            
+
         }
 
     }
