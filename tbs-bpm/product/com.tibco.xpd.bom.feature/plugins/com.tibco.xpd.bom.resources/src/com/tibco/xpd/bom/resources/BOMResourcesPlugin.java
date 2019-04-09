@@ -22,11 +22,14 @@ public class BOMResourcesPlugin extends AbstractUIPlugin {
      * eclipse 3.7 platform, the BOM models should be migrated to refer to this
      * latest UML2 version. Updating the BOM model version will trigger save
      * action which saves the UML namespace from the loaded BOM model, which is
-     * the latest. No explicit extension is required. The same case is for UML2 
-     * version moving to 5.0.0 in eclipse 4.7 (hance the version was moved 
-     * another notch - to 5). 
+     * the latest. No explicit extension is required. The same case is for UML2
+     * version moving to 5.0.0 in eclipse 4.7 (hance the version was moved
+     * another notch - to 5).
+     * 
+     * Sid ACE-467 - bumped BOM format version to 6 to exnsure migrations from
+     * BPM to CE envs are done.
      */
-    public static final String BOM_VERSION = "5"; //$NON-NLS-1$
+    public static final String BOM_VERSION = "6"; //$NON-NLS-1$
 
     // The plug-in ID
     public static final String PLUGIN_ID = "com.tibco.xpd.bom.resources"; //$NON-NLS-1$

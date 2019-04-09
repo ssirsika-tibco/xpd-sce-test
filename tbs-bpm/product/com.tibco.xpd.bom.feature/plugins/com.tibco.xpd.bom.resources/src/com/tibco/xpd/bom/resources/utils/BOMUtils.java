@@ -50,6 +50,16 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
 public class BOMUtils {
 
     /**
+     * The BOM generated from XSD profile.
+     */
+    public static final String XSD_NOTATION_PROFILE = "XsdNotationProfile"; //$NON-NLS-1$
+
+    /*
+     * Name of an EAnnotation that says the BOM model was generated from DB
+     */
+    public static final String BOM_DB_GENERATED_EANNOTATION = "Generated"; //$NON-NLS-1$
+
+    /**
      * id of the Business Data asset.
      */
     private static final String BUSINESS_DATA_ASSET_ID =
@@ -247,7 +257,7 @@ public class BOMUtils {
         if (pkg != null) {
             String currentPackageName = pkg.getName();
             Stereotype xsdBasedModelStereotype =
-                    getStereotype(pkg, "XsdBasedModel", "XsdNotationProfile"); //$NON-NLS-1$ //$NON-NLS-2$
+                    getStereotype(pkg, "XsdBasedModel", XSD_NOTATION_PROFILE); //$NON-NLS-1$ //$NON-NLS-2$
             Object property = null;
             if (xsdBasedModelStereotype != null) {
                 property =

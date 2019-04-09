@@ -5,18 +5,30 @@
 package com.tibco.xpd.sce.tests.importmigration;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.resources.ICommand;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.EnumerationLiteral;
+import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Property;
 import org.junit.Test;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
+import com.tibco.xpd.bom.resources.utils.BOMUtils;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -24,6 +36,8 @@ import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.SpecialFolders;
 import com.tibco.xpd.resources.util.ProjectImporter;
+import com.tibco.xpd.resources.util.SpecialFolderUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
 
 import junit.framework.TestCase;
@@ -49,8 +63,95 @@ public class Bpm2CeProjectConfigTest extends TestCase {
 
     @Test
     public void testDataProjectMigration() {
-        ProjectImporter projectImporter =
-                doTestProject("ProjectMigrationTest_Data"); //$NON-NLS-1$
+        String projectName = "ProjectMigrationTest_Data"; //$NON-NLS-1$
+
+        ProjectImporter projectImporter = doTestProject(projectName);
+
+        /*
+         * Check that the specific integer properties/primtives we know about
+         * for definite have been changed.
+         */
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+
+        IFile testBomFile =
+                project.getFile("Business Objects/NumberRefactoring.bom"); //$NON-NLS-1$
+        WorkingCopy testWC = WorkingCopyUtil.getWorkingCopy(testBomFile);
+        Model model = (Model) testWC.getRootElement();
+
+        EList<Element> allOwnedElements = model.allOwnedElements();
+
+        PrimitiveType decimalType =
+                PrimitivesUtil.getStandardPrimitiveTypeByName(
+                        XpdResourcesPlugin.getDefault().getEditingDomain()
+                                .getResourceSet(),
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
+
+        for (Element element : allOwnedElements) {
+            if (element instanceof Property && "integerAttribute"
+                    .equals(((Property) element).getName())) {
+                Property property = (Property) element;
+
+                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + property.getName()
+                        + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
+                        (decimalType.equals(property.getType())));
+
+                Object facetPropertyValue =
+                        PrimitivesUtil.getFacetPropertyValue(
+                                (PrimitiveType) property.getType(),
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                property);
+
+                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + property.getName()
+                        + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
+                        facetPropertyValue instanceof EnumerationLiteral
+                                && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
+                                        .equals((((EnumerationLiteral) facetPropertyValue)
+                                                .getName())));
+
+                facetPropertyValue =
+                        PrimitivesUtil.getFacetPropertyValue(
+                                (PrimitiveType) property.getType(),
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
+                                property);
+                
+                assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + property.getName()
+                        + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
+                        new Integer(0).equals(facetPropertyValue));
+
+            } else if (element instanceof PrimitiveType && "MyIntegerPrimitive"
+                    .equals(((PrimitiveType) element).getName())) {
+                PrimitiveType primitiveType = (PrimitiveType) element;
+
+                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + primitiveType.getName()
+                        + "' should have been converted from Integer to Decimal", //$NON-NLS-1$
+                        decimalType.equals(primitiveType.getGenerals().get(0)));
+
+                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + primitiveType.getName()
+                        + "' should have been converted to Decimal Subtype FixedPoint", //$NON-NLS-1$
+                        PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
+                                .equals(((EnumerationLiteral) PrimitivesUtil
+                                        .getFacetPropertyValue(
+                                        primitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE))
+                                                        .getName()));
+
+                assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                        + primitiveType.getName()
+                        + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
+                        new Integer(0)
+                                .equals(PrimitivesUtil.getFacetPropertyValue(
+                                primitiveType,
+                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES)));
+            }
+        }
+
+        /* Clean up. */
         projectImporter.performDelete();
     }
 
@@ -356,6 +457,72 @@ public class Bpm2CeProjectConfigTest extends TestCase {
             e.printStackTrace();
             fail("Exception thrown during test execution: " + e.getMessage()); //$NON-NLS-1$
         }
+
+        /*
+         * No project should have BOM models with XSD notation profile set.
+         */
+        Collection<IResource> bomFiles = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(project,
+                        BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                        BOMResourcesPlugin.BOM_FILE_EXTENSION,
+                        false);
+
+        for (IResource bomFile : bomFiles) {
+            WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+
+            Model model = (Model) wc.getRootElement();
+
+            assertTrue("BOM file '" + bomFile.getName() //$NON-NLS-1$
+                    + "' should have had the XsdNotationProfile removed", //$NON-NLS-1$
+                    model.getAppliedProfile(
+                            BOMUtils.XSD_NOTATION_PROFILE) == null);
+        }
+
+        /*
+         * Ensure that all integer attributes and primitive types have been
+         * changed to Decimal, Fixed Point with 0 decimals.
+         */
+        // PrimitiveType integerType =
+        // PrimitivesUtil.getStandardPrimitiveTypeByName(
+        // XpdResourcesPlugin.getDefault().getEditingDomain()
+        // .getResourceSet(),
+        // PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+        //
+        // for (IResource bomFile : bomFiles) {
+        // WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+        //
+        // Model model = (Model) wc.getRootElement();
+        //
+        // /* Ensure that there are no Integer type properties/primitives */
+        // EList<Element> allOwnedElements = model.allOwnedElements();
+        //
+        // for (Element element : allOwnedElements) {
+        // if (element instanceof Property) {
+        // Property property = (Property) element;
+        //
+        // assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$
+        // //$NON-NLS-2$
+        // + property.getName()
+        // + "' should have been converted from Integer to Decimal, FixedPoint
+        // with Zero decimals", //$NON-NLS-1$
+        // !(integerType.equals(property.getType())));
+        //
+        // } else if (element instanceof PrimitiveType) {
+        // PrimitiveType primitiveType = (PrimitiveType) element;
+        //
+        // for (Element general : primitiveType.getGenerals()) {
+        // assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$
+        // //$NON-NLS-2$
+        // + primitiveType.getName()
+        // + "' should have been converted from Integer to Decimal, FixedPoint
+        // with Zero decimals", //$NON-NLS-1$
+        // !(integerType.equals(general)));
+        //
+        // }
+        // }
+        // }
+        //
+        // }
 
         return projectImporter;
     }

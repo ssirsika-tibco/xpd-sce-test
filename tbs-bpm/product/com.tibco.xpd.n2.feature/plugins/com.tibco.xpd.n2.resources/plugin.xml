@@ -277,5 +277,14 @@
             priority="20">
       </postImportTask>
    </extension>
+   <extension
+         point="com.tibco.xpd.bom.resources.migration">
+      <migrate
+            class="com.tibco.xpd.n2.resources.postimport.Bpm2CeBomMigration"
+            id="com.tibco.xpd.n2.resources.bpm2ceBomMigration"
+            name="BPM 2 CE BOM Migration"
+            version="6">
+      </migrate>
+   </extension>
 
 </plugin>
