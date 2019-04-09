@@ -81,6 +81,8 @@ public abstract class AbstractSingleBomCdmTransformTest
             String msg = String.format("Issues:\n%s", result.toReportMessage());
             System.out.printf(msg);
             fail(msg);
+        } else {
+            System.out.printf("CDM model validation: OK");
         }
     }
 
