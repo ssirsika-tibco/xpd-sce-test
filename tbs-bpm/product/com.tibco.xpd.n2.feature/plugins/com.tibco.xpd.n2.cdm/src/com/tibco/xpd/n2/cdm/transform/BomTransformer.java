@@ -43,6 +43,7 @@ public class BomTransformer {
     /** Transforms BOM constraints to CDM constraints. */
     private static final BomConstraintTransformer CONSTRANT_TRANSFORMER =
             new BomConstraintTransformer();
+
     /**
      * Prefix for CDM base type.
      */
@@ -135,9 +136,9 @@ public class BomTransformer {
         CONSTRANT_TRANSFORMER.getContraints(bomAttribute).stream().forEach(
                 c -> cdmAttribute.newConstraint(c.getName(), c.getValue()));
         CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
-                .forEach(literal -> cdmAttribute
-                        .newAllowedValue(/* label */getLabel(literal),
-                                /* value */ literal.getName()));
+                .forEach(literal -> cdmAttribute.newAllowedValue(
+                        /* label */ getLabel(literal),
+                        /* value */ literal.getName()));
         String defaultValue =
                 CONSTRANT_TRANSFORMER.getDefaultValue(bomAttribute);
         if (defaultValue != null) {
@@ -197,6 +198,7 @@ public class BomTransformer {
                 return typePackageName + BOMWorkingCopy.JAVA_PACKAGE_SEPARATOR
                         + typeName;
             } else {
+
                 // Unresolved proxy situation. Should never happen if all
                 // necessary referenced files are in the workspace.
                 String javaFQType = getTypeNameFromUnresolvedProxy(bomType);
