@@ -400,11 +400,28 @@ public class Xpdl2ProcessorUtil {
                     String name = extAttr.getName();
                     if (name != null && DEST_EXT_ATTR.equals(name)) {
                         String destValue = extAttr.getValue();
-                        StringTokenizer sTokenizer =
-                                new StringTokenizer(destValue, "::"); //$NON-NLS-1$
-                        String destId = sTokenizer.nextToken();
-                        String destName = sTokenizer.nextToken();
-                        destEnvs.put(destId, destName);
+
+                        /*
+                         * Sid ACE-467 I'm not sure this 'feature' has ever been
+                         * used (setting the Destination ExtendedAttribute to
+                         * "<dest id>::<name>"
+                         * 
+                         * But now as ALL processes have only ONE target
+                         * destination the migration XSLT will set all fragments
+                         * to have a destination of "CE" and therefore this code
+                         * will throw an exception
+                         * 
+                         * There are no built in fragments with this in BUT
+                         * maybe there are user fragments out there. So for now
+                         * we'll just protect against the name not having :: in
+                         */
+                        if (destValue.contains("::")) { //$NON-NLS-1$
+                            StringTokenizer sTokenizer =
+                                    new StringTokenizer(destValue, "::"); //$NON-NLS-1$
+                            String destId = sTokenizer.nextToken();
+                            String destName = sTokenizer.nextToken();
+                            destEnvs.put(destId, destName);
+                        }
                     }
                 }
             }

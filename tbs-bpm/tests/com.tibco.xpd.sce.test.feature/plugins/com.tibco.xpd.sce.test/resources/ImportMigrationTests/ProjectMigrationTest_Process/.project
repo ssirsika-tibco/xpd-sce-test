@@ -3,7 +3,8 @@
 	<name>ProjectMigrationTest_Process</name>
 	<comment></comment>
 	<projects>
-		<project>.com.example.bdp.bds</project>
+		<project>ProjectMigrationTest_REST</project>
+		<project>ProjectMigrationTest_GlobalSignal</project>
 		<project>ProjectMigrationTest_Data</project>
 	</projects>
 	<buildSpec>
@@ -52,6 +53,16 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.tibco.xpd.forms.designer.bom.bomJsBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.tibco.xpd.bom.gen.bomGenBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.tibco.xpd.resources.xpdNature</nature>
@@ -63,5 +74,7 @@
 		<nature>com.tibco.xpd.n2.daa.cleanBpmFolderNature</nature>
 		<nature>com.tibco.xpd.n2.bpel.bpelNature</nature>
 		<nature>com.tibco.xpd.forms.process.processNature</nature>
+		<nature>com.tibco.xpd.forms.designer.bom.bomJsNature</nature>
+		<nature>com.tibco.xpd.bom.gen.bomGenNature</nature>
 	</natures>
 </projectDescription>

@@ -197,6 +197,9 @@ public class XpdlMigrate {
      * <li>20 - Studio version 4.2.0 (V03)</li>
      * <li>21 - Studio version 4.3.0 (V01)</li>
      * <li>22 - Studio version 4.3.0 (V09)</li>
+     * ==============================================
+     * <li>23 - Studio Container Edition 5.0.0 (V88) (marks the transition
+     * between BPMN and SCE Studio)</i>
      * 
      * Note that this is defined as "nn".toString() to prevent Java compiler
      * statically compiling the value into referencing code (otherwise
@@ -204,7 +207,7 @@ public class XpdlMigrate {
      * in a different feature (like decisions add-in) then that won't always
      * happen.
      */
-    public static final String FORMAT_VERSION_ATT_VALUE = "22".toString(); //$NON-NLS-1$
+    public static final String FORMAT_VERSION_ATT_VALUE = "23".toString(); //$NON-NLS-1$
 
     private static final int nCurrentFormatVersion =
             Integer.parseInt(FORMAT_VERSION_ATT_VALUE);

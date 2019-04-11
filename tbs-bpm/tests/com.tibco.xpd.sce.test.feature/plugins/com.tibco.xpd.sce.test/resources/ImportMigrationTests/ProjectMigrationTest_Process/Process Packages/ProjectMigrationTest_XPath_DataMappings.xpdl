@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_hiqokFuYEemv57AKFO26Pg" xpdExt:DisplayName="ProjectMigrationTest_DataMappings" Name="ProjectMigrationTest_DataMappings">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-04-10</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_hirPoFuYEemv57AKFO26Pg" xpdExt:DisplayName="NewWSDLFile_Provider" Name="NewWSDLFile_Provider">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/NewWSDLFile/NewWSDLFile" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_hirPoVuYEemv57AKFO26Pg" xpdExt:DisplayName="Invoke_Consumer" Name="Invoke_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_hirPoluYEemv57AKFO26Pg" xpdExt:DisplayName="Invoke_Provider" Name="Invoke_Provider">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/Invoke/Invoke" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_hirPo1uYEemv57AKFO26Pg" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;xxx&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_hirPpFuYEemv57AKFO26Pg" xpdExt:DisplayName="ProjectMigrationTest_DataMapper-DataMappings-Process (API Activity EndPoint)" Name="ProjectMigrationTest_DataMapperDataMappingsProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/ProjectMigrationTest_DataMappings/ProjectMigrationTest_DataMapperDataMappingsProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_hirPpVuYEemv57AKFO26Pg" xpdExt:DisplayName="ProjectMigrationTest_ProcessAsServiceMappings-Process (API Activity EndPoint)" Name="ProjectMigrationTest_ProcessAsServiceMappingsProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_hir2sluYEemv57AKFO26Pg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_hiwvNFuYEemv57AKFO26Pg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_hir2s1uYEemv57AKFO26Pg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="694.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_hiwvNFuYEemv57AKFO26Pg" xpdExt:DisplayName="ProjectMigrationTest_Xpath-DataMappings-Process" Name="ProjectMigrationTest_XpathDataMappingsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_hixWUVuYEemv57AKFO26Pg" Name="Parameter" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_hix9UFuYEemv57AKFO26Pg" Name="Parameter2" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_hix9UVuYEemv57AKFO26Pg" Name="Parameter3" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_hix9UluYEemv57AKFO26Pg" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hix9U1uYEemv57AKFO26Pg" xpdExt:DisplayName="Field2" Name="Field2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hix9VFuYEemv57AKFO26Pg" xpdExt:DisplayName="Field3" Name="Field3" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hix9VVuYEemv57AKFO26Pg" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_Fe74AFxcEemv57AKFO26Pg">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_hiwvRVuYEemv57AKFO26Pg" Name="Throwmessagemappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Throw message mappings">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+                  <xpdl2:TriggerResultMessage CatchThrow="THROW">
+                    <xpdl2:Message Id="_hiwvR1uYEemv57AKFO26Pg">
+                      <xpdl2:DataMappings>
+                        <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                        <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                      </xpdl2:DataMappings>
+                    </xpdl2:Message>
+                    <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoVuYEemv57AKFO26Pg" OperationName="">
+                      <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                        <xpdl2:EndPoint EndPointType="WSDL">
+                          <xpdl2:ExternalReference location="Invoke.wsdl"/>
+                        </xpdl2:EndPoint>
+                      </xpdl2:Service>
+                    </xpdl2:WebServiceOperation>
+                    <xpdExt:PortTypeOperation PortTypeName="Invoke" OperationName="NewOperation">
+                      <xpdExt:ExternalReference location="Invoke.wsdl"/>
+                    </xpdExt:PortTypeOperation>
+                  </xpdl2:TriggerResultMessage>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:Performers>
+                <xpdl2:Performer>_hirPoVuYEemv57AKFO26Pg</xpdl2:Performer>
+              </xpdl2:Performers>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="461.0" YCoordinate="52.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ScriptInformation Id="_hiwvRluYEemv57AKFO26Pg">
+                <xpdExt:Expression ScriptGrammar="XPath"/>
+              </xpdExt:ScriptInformation>
+              <xpdExt:NamespacePrefixMap>
+                <xpdExt:NamespaceEntries>
+                  <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+                  <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/Invoke/"/>
+                  <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+                  <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                </xpdExt:NamespaceEntries>
+              </xpdExt:NamespacePrefixMap>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_hiwvO1uYEemv57AKFO26Pg" Name="Webservicetaskmappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Web-service task mappings">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                    <xpdl2:MessageIn Id="_hiwvP1uYEemv57AKFO26Pg">
+                      <xpdl2:DataMappings>
+                        <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                        <xpdl2:DataMapping Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                          <xpdExt:ScriptInformation Id="_hiwvQFuYEemv57AKFO26Pg" Name="Script1">
+                            <xpdExt:Expression ScriptGrammar="XPath"/>
+                          </xpdExt:ScriptInformation>
+                          <xpdl2:Actual ScriptGrammar="XPath">/Field</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                      </xpdl2:DataMappings>
+                    </xpdl2:MessageIn>
+                    <xpdl2:MessageOut Id="_hiwvQVuYEemv57AKFO26Pg">
+                      <xpdl2:DataMappings>
+                        <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/out[0]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                        <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                      </xpdl2:DataMappings>
+                    </xpdl2:MessageOut>
+                    <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoVuYEemv57AKFO26Pg" OperationName="">
+                      <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                        <xpdl2:EndPoint EndPointType="WSDL">
+                          <xpdl2:ExternalReference location="Invoke.wsdl"/>
+                        </xpdl2:EndPoint>
+                      </xpdl2:Service>
+                    </xpdl2:WebServiceOperation>
+                    <xpdExt:PortTypeOperation PortTypeName="Invoke" OperationName="NewOperation">
+                      <xpdExt:ExternalReference location="Invoke.wsdl"/>
+                    </xpdExt:PortTypeOperation>
+                  </xpdl2:TaskService>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Performers>
+                <xpdl2:Performer>_hirPoVuYEemv57AKFO26Pg</xpdl2:Performer>
+              </xpdl2:Performers>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="162.0" YCoordinate="52.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ScriptInformation Id="_hiwvPFuYEemv57AKFO26Pg">
+                <xpdExt:Expression ScriptGrammar="XPath"/>
+              </xpdExt:ScriptInformation>
+              <xpdExt:NamespacePrefixMap>
+                <xpdExt:NamespaceEntries>
+                  <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+                  <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/Invoke/"/>
+                  <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+                  <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                </xpdExt:NamespaceEntries>
+              </xpdExt:NamespacePrefixMap>
+              <xpdExt:ScriptInformation Id="_hiwvPVuYEemv57AKFO26Pg" Name="Unmapped script">
+                <xpdExt:Expression ScriptGrammar="XPath">/Parameter</xpdExt:Expression>
+              </xpdExt:ScriptInformation>
+              <xpdExt:ScriptInformation Id="_hiwvPluYEemv57AKFO26Pg" Direction="OUT">
+                <xpdExt:Expression ScriptGrammar="XPath"/>
+              </xpdExt:ScriptInformation>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_hiwvQluYEemv57AKFO26Pg" Name="SendTaskmappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Send Task mappings">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskSend xpdExt:ImplementationType="WebService" Implementation="WebService">
+                    <xpdl2:Message Id="_hiwvRFuYEemv57AKFO26Pg">
+                      <xpdl2:DataMappings>
+                        <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                        <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                          <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                        </xpdl2:DataMapping>
+                      </xpdl2:DataMappings>
+                    </xpdl2:Message>
+                    <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoVuYEemv57AKFO26Pg" OperationName="">
+                      <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                        <xpdl2:EndPoint EndPointType="WSDL">
+                          <xpdl2:ExternalReference location="Invoke.wsdl"/>
+                        </xpdl2:EndPoint>
+                      </xpdl2:Service>
+                    </xpdl2:WebServiceOperation>
+                    <xpdExt:PortTypeOperation PortTypeName="Invoke" OperationName="NewOperation">
+                      <xpdExt:ExternalReference location="Invoke.wsdl"/>
+                    </xpdExt:PortTypeOperation>
+                  </xpdl2:TaskSend>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Performers>
+                <xpdl2:Performer>_hirPoVuYEemv57AKFO26Pg</xpdl2:Performer>
+              </xpdl2:Performers>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="329.0" YCoordinate="52.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+              <xpdExt:ScriptInformation Id="_hiwvQ1uYEemv57AKFO26Pg">
+                <xpdExt:Expression ScriptGrammar="XPath"/>
+              </xpdExt:ScriptInformation>
+              <xpdExt:NamespacePrefixMap>
+                <xpdExt:NamespaceEntries>
+                  <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+                  <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/Invoke/"/>
+                  <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+                  <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                </xpdExt:NamespaceEntries>
+              </xpdExt:NamespacePrefixMap>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_FrlM4FxcEemv57AKFO26Pg" Name="StartEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Event">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="33.0" YCoordinate="51.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_FrlM4lxcEemv57AKFO26Pg" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="556.0" YCoordinate="51.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_hixWSVuYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_hiwvO1uYEemv57AKFO26Pg" To="_hiwvQluYEemv57AKFO26Pg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_hixWSluYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_hiwvQluYEemv57AKFO26Pg" To="_hiwvRVuYEemv57AKFO26Pg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_FrlM4VxcEemv57AKFO26Pg" Name="" From="_FrlM4FxcEemv57AKFO26Pg" To="_hiwvO1uYEemv57AKFO26Pg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_Frlz8FxcEemv57AKFO26Pg" Name="" From="_hiwvRVuYEemv57AKFO26Pg" To="_FrlM4lxcEemv57AKFO26Pg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_hiwvNVuYEemv57AKFO26Pg" Name="StartEventUserdefinedWSDL" xpdExt:DisplayName="Start Event User defined WSDL">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="CATCH">
+                <xpdl2:Message Id="_hiwvN1uYEemv57AKFO26Pg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/NewElement1[2]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings/>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoFuYEemv57AKFO26Pg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_hirPoFuYEemv57AKFO26Pg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_hiwvNluYEemv57AKFO26Pg" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="XPath"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:NamespacePrefixMap>
+            <xpdExt:NamespaceEntries>
+              <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+              <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/NewWSDLFile/"/>
+              <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+              <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            </xpdExt:NamespaceEntries>
+          </xpdExt:NamespacePrefixMap>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hiwvOFuYEemv57AKFO26Pg" Name="ReplyToStartEventUserdefinedWSDL" xpdExt:DisplayName="Reply To: Start Event User defined WSDL">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_hiwvNVuYEemv57AKFO26Pg" CatchThrow="THROW">
+                <xpdl2:Message Id="_hiwvOluYEemv57AKFO26Pg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/out[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/NewElement[1]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/NewElement1[2]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoFuYEemv57AKFO26Pg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="92.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="68.0">
+              <xpdl2:Coordinates XCoordinate="1123.0" YCoordinate="522.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_hiwvOVuYEemv57AKFO26Pg">
+            <xpdExt:Expression ScriptGrammar="XPath"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:NamespacePrefixMap>
+            <xpdExt:NamespaceEntries>
+              <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+              <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/NewWSDLFile/"/>
+              <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+              <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            </xpdExt:NamespaceEntries>
+          </xpdExt:NamespacePrefixMap>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hiwvSFuYEemv57AKFO26Pg" Name="ReplyToReceiveTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Reply To: Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ReplyToActivityId="_hixWRVuYEemv57AKFO26Pg" xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_hixWQVuYEemv57AKFO26Pg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/part:parameters/group:sequence[0]/out[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoFuYEemv57AKFO26Pg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation1">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_hirPoFuYEemv57AKFO26Pg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="844.0" YCoordinate="522.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_hixWQFuYEemv57AKFO26Pg">
+            <xpdExt:Expression ScriptGrammar="XPath"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:NamespacePrefixMap>
+            <xpdExt:NamespaceEntries>
+              <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+              <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/NewWSDLFile/"/>
+              <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+              <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            </xpdExt:NamespaceEntries>
+          </xpdExt:NamespacePrefixMap>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hixWQluYEemv57AKFO26Pg" Name="ErrorEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Error Event 2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_hixWRVuYEemv57AKFO26Pg" ErrorCode="fault">
+                <xpdExt:FaultMessage Id="_hixWRFuYEemv57AKFO26Pg" FaultName="fault">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/fault:fault/part:parameters/group:sequence[0]/NewOperation1Fault[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="wso:/fault:fault/part:parameters/group:sequence[0]/NewElement[1]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:InputMappings MapperContext="OutputFaultFromProcess" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="OutputFromProcess.DataMapperContent" Direction="IN" Formal="parameters.newElement">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="OutputFromProcess.DataMapperContent" Direction="IN" Formal="parameters.newOperation1Fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:InputMappings>
+                </xpdExt:FaultMessage>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="68.0">
+              <xpdl2:Coordinates XCoordinate="853.0" YCoordinate="603.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_hixWQ1uYEemv57AKFO26Pg">
+            <xpdExt:Expression ScriptGrammar="XPath"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:NamespacePrefixMap>
+            <xpdExt:NamespaceEntries>
+              <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+              <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/NewWSDLFile/"/>
+              <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+              <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            </xpdExt:NamespaceEntries>
+          </xpdExt:NamespacePrefixMap>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hixWRVuYEemv57AKFO26Pg" Name="ReceiveTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_hixWR1uYEemv57AKFO26Pg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">Parameter3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="wso:/part:parameters/group:sequence[0]/in[0]">
+                      <xpdl2:Actual ScriptGrammar="XPath">CorrelationField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_hirPoFuYEemv57AKFO26Pg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation1">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_hirPoFuYEemv57AKFO26Pg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="575.0" YCoordinate="522.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_hixWRluYEemv57AKFO26Pg" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="XPath"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:NamespacePrefixMap>
+            <xpdExt:NamespaceEntries>
+              <xpdExt:NamespaceEntry Prefix="wsdl" Namespace="http://schemas.xmlsoap.org/wsdl/"/>
+              <xpdExt:NamespaceEntry Prefix="tns" Namespace="http://www.example.org/NewWSDLFile/"/>
+              <xpdExt:NamespaceEntry Prefix="xsd" Namespace="http://www.w3.org/2001/XMLSchema"/>
+              <xpdExt:NamespaceEntry Prefix="soap" Namespace="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            </xpdExt:NamespaceEntries>
+          </xpdExt:NamespacePrefixMap>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hixWSFuYEemv57AKFO26Pg">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_hixWTFuYEemv57AKFO26Pg"/>
+                  <xpdl2:TransitionRef Id="_hixWTluYEemv57AKFO26Pg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="711.0" YCoordinate="522.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Fe74AVxcEemv57AKFO26Pg" Name="EmbeddedSubProcess" xpdExt:DisplayName="Embedded Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="false" ActivitySetId="_Fe74AFxcEemv57AKFO26Pg" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="168.0" LaneId="_hir2s1uYEemv57AKFO26Pg" Width="634.0">
+              <xpdl2:Coordinates XCoordinate="770.0" YCoordinate="166.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_hixWS1uYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_Fe74AVxcEemv57AKFO26Pg" To="_hixWRVuYEemv57AKFO26Pg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="190.0" YCoordinate="136.0"/>
+              <xpdl2:Coordinates XCoordinate="469.0" YCoordinate="-231.0"/>
+              <xpdl2:Coordinates XCoordinate="-263.0" YCoordinate="283.0"/>
+              <xpdl2:Coordinates XCoordinate="16.0" YCoordinate="-84.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hixWTFuYEemv57AKFO26Pg" Name="" From="_hixWSFuYEemv57AKFO26Pg" To="_hiwvSFuYEemv57AKFO26Pg">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">true</xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hixWTVuYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_hixWRVuYEemv57AKFO26Pg" To="_hixWSFuYEemv57AKFO26Pg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hixWTluYEemv57AKFO26Pg" Name="" From="_hixWSFuYEemv57AKFO26Pg" To="_hixWQluYEemv57AKFO26Pg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hixWT1uYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_hiwvSFuYEemv57AKFO26Pg" To="_hiwvOFuYEemv57AKFO26Pg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hixWUFuYEemv57AKFO26Pg" xpdExt:DisplayName="" Name="" From="_hiwvNVuYEemv57AKFO26Pg" To="_Fe74AVxcEemv57AKFO26Pg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="Parameter"/>
+            <simulation:ParameterDistribution ParameterId="Parameter2"/>
+            <simulation:ParameterDistribution ParameterId="Parameter3"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

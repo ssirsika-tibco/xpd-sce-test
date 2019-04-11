@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_98d4EFuKEemv57AKFO26Pg" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProjectMigrationTest_DataMappings" targetNamespace="http://www.tibco.com/bs3.0/_98d4EFuKEemv57AKFO26Pg" tibex:XPDL="ProjectMigrationTest_DataMappings.xpdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_98d4EFuKEemv57AKFO26Pg" targetNamespace="http://www.tibco.com/bs3.0/_98d4EFuKEemv57AKFO26Pg">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" type="string_50"/>
+      <xsd:element name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" type="string_50"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_CatchMessageEvent_INPUT">
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" name="Parameter"/>
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_CatchMessageEvent_OUTPUT">
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" name="Parameter"/>
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_Error1_fault">
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" name="Parameter"/>
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_INPUT">
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" name="Parameter"/>
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_OUTPUT">
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter" name="Parameter"/>
+    <wsdl:part element="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:portType name="ProjectMigrationTest_ProcessAsServiceMappingsProcess" tibex:FlowContainer="_g83wsFuUEemv57AKFO26Pg">
+    <wsdl:operation name="CatchMessageEvent">
+      <wsdl:input message="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_CatchMessageEvent_INPUT" tibex:Event="_g84-11uUEemv57AKFO26Pg"/>
+      <wsdl:output message="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_CatchMessageEvent_OUTPUT" tibex:Event="_g84-11uUEemv57AKFO26Pg"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveTask">
+      <wsdl:input message="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_INPUT" tibex:Event="_kuuRsVuUEemv57AKFO26Pg"/>
+      <wsdl:output message="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_OUTPUT" tibex:Event="_kuuRsVuUEemv57AKFO26Pg"/>
+      <wsdl:fault message="ns:ProjectMigrationTest_ProcessAsServiceMappingsProcess_ReceiveTask_Error1_fault" name="Error1" tibex:Error="_yX-VoVuUEemv57AKFO26Pg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

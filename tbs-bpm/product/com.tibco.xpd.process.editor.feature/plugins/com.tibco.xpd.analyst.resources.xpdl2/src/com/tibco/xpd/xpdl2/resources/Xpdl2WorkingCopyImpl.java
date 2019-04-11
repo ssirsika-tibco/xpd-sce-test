@@ -336,8 +336,17 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
 
             final Map<String, String> map = scLoc.map();
             final EMap<String, String> nsMap = docRoot.getXMLNSPrefixMap();
-            if (!map.containsKey(Xpdl2Package.eNS_URI)) {
+
+            /*
+             * Sid ACE-467 - Need to remove simulation namespace, so if it's
+             * there then run the command to reset it.
+             */
+
+            if (!map.containsKey(Xpdl2Package.eNS_URI)
+                    || nsMap.containsKey("simulation")) { //$NON-NLS-1$
+
                 WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(docRoot);
+
                 if (wc != null) {
                     EditingDomain ed = wc.getEditingDomain();
                     if (ed instanceof TransactionalEditingDomain) {
@@ -354,7 +363,13 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                                 // namespaces were written in a non-write
                                 // transaction.
 
-                                nsMap.put("simulation", "http://www.tibco.com/xpd/Simulation1.0.1"); //$NON-NLS-1$ //$NON-NLS-2$
+                                /*
+                                 * Sid ACE-467: Don't need or want the
+                                 * simulation namespace any more (migration
+                                 * should remove all simulation elements.
+                                 */
+                                nsMap.removeKey("simulation"); //$NON-NLS-1$
+
                                 nsMap.put("iProcessExt", "http://www.tibco.com/XPD/iProcessExt1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 nsMap.put("database", "http://www.tibco.com/XPD/database1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 nsMap.put("xpdExt", "http://www.tibco.com/XPD/xpdExtension1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$

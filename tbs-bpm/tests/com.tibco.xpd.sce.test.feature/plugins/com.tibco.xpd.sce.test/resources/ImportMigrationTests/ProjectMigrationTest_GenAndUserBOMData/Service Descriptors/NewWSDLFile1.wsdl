@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/NewWSDLFile1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewWSDLFile1" targetNamespace="http://www.example.org/NewWSDLFile1/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/NewWSDLFileYY/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewWSDLFile" targetNamespace="http://www.example.org/NewWSDLFileYY/">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://www.example.org/NewWSDLFile1/">
+    <xsd:schema targetNamespace="http://www.example.org/NewWSDLFileYY/">
       <xsd:element name="NewOperation">
         <xsd:complexType>
           <xsd:sequence>
@@ -18,6 +18,7 @@
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
+  
   <wsdl:message name="NewOperationRequest">
     <wsdl:part element="tns:NewOperation" name="parameters"/>
   </wsdl:message>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/bdp" xmlns:tns1="http://example.com/bdp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/bdp">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/ProjectMigrationTest_Data/Business Objects/NumberRefactoring.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="MyIntegerPrimitive" id="_IoKEIFraEemv57AKFO26Pg" name="MyIntegerPrimitive">
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TextPrimitiveType" id="_MrKmkFraEemv57AKFO26Pg" name="TextPrimitiveType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DecimalsfloatingpointPrimitiveType" id="_RJ5bsFraEemv57AKFO26Pg"
+      name="DecimalsfloatingpointPrimitiveType">
+    <xsd:restriction base="tns1:double_StudioGeneratedTemplate"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DecimalsFixedPoint0decimals" id="_blMV4FraEemv57AKFO26Pg"
+      name="DecimalsFixedPoint0decimals">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="10"/>
+      <xsd:fractionDigits value="0"/>
+      <xsd:pattern value="[+-]?([1-9][0-9]{0,9}|0)(\.[0-9]{0,0})?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DecimalsFixedPoint2decimals" id="_jh2DYFraEemv57AKFO26Pg"
+      name="DecimalsFixedPoint2decimals">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="10"/>
+      <xsd:fractionDigits value="2"/>
+      <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="IntegerPrimTypeSubType" id="_3LzskFraEemv57AKFO26Pg"
+      name="IntegerPrimTypeSubType">
+    <xsd:restriction base="tns1:MyIntegerPrimitive"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DecimalsFixedPoint2SubType" id="_9yRDMFraEemv57AKFO26Pg"
+      name="DecimalsFixedPoint2SubType">
+    <xsd:restriction base="tns1:DecimalsFixedPoint2decimals">
+      <xsd:totalDigits value="10"/>
+      <xsd:fractionDigits value="2"/>
+      <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="NumberAttributes1" id="_i0yfUFbYEemINopYpE9toA" name="NumberAttributes1">
+    <xsd:sequence>
+      <xsd:element ecore:name="textAttribute" id="_jyQNIFbYEemINopYpE9toA" maxOccurs="1"
+          minOccurs="0" name="textAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="integerAttribute" id="_O7zeYFrYEemv57AKFO26Pg" maxOccurs="1"
+          minOccurs="0" name="integerAttribute" type="xsd:int"/>
+      <xsd:element ecore:name="decimalsFixedPointZeroAttribute" id="_Rvz3EFrYEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFixedPointZeroAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="0"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,9}|0)(\.[0-9]{0,0})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="decimalsFixedPointTwoAttribute" id="_Tc4c4FrYEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFixedPointTwoAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="2"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="decimalsFloatingPointAttribute" id="_WbcfwFrYEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFloatingPointAttribute" type="tns1:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="primitiveTypeDecimalsFloatingPointAttribute" id="_nmNQsFraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="primitiveTypeDecimalsFloatingPointAttribute"
+          type="tns1:DecimalsfloatingpointPrimitiveType"/>
+      <xsd:element ecore:name="primitiveTypeDecimalsFixedPoint2Attribute" id="_txg8YFraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="primitiveTypeDecimalsFixedPoint2Attribute">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:DecimalsfloatingpointPrimitiveType">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="2"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Copy_1_NumberAttributes1" id="_D4NjSVraEemv57AKFO26Pg"
+      name="Copy_1_NumberAttributes1">
+    <xsd:sequence>
+      <xsd:element ecore:name="textAttribute" id="_D4NjSlraEemv57AKFO26Pg" maxOccurs="1"
+          minOccurs="0" name="textAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="integerAttribute" id="_D4NjTVraEemv57AKFO26Pg" maxOccurs="1"
+          minOccurs="0" name="integerAttribute" type="xsd:int"/>
+      <xsd:element ecore:name="decimalsFixedPointZeroAttribute" id="_D4NjUFraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFixedPointZeroAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="0"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,9}|0)(\.[0-9]{0,0})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="decimalsFixedPointFourAttribute" id="_D4NjU1raEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFixedPointFourAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="4"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,5}|0)(\.[0-9]{0,4})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="decimalsFloatingPointAttribute" id="_D4NjVlraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="decimalsFloatingPointAttribute" type="tns1:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="primitiveTypeDecimalsFloatingPointAttribute" id="_tPWqgFraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="primitiveTypeDecimalsFloatingPointAttribute"
+          type="tns1:DecimalsfloatingpointPrimitiveType"/>
+      <xsd:element ecore:name="primitiveTypeDecimalsFixedPoint2Attribute" id="_xvpl4FraEemv57AKFO26Pg"
+          maxOccurs="1" minOccurs="0" name="primitiveTypeDecimalsFixedPoint2Attribute">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:DecimalsfloatingpointPrimitiveType">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="2"/>
+            <xsd:pattern value="[+-]?([1-9][0-9]{0,7}|0)(\.[0-9]{0,2})?"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="MyIntegerPrimitiveElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:MyIntegerPrimitive"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="TextPrimitiveTypeElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:TextPrimitiveType"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DecimalsfloatingpointPrimitiveTypeElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:DecimalsfloatingpointPrimitiveType"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DecimalsFixedPoint0decimalsElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:DecimalsFixedPoint0decimals"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DecimalsFixedPoint2decimalsElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:DecimalsFixedPoint2decimals"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="IntegerPrimTypeSubTypeElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:IntegerPrimTypeSubType"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="DecimalsFixedPoint2SubTypeElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:DecimalsFixedPoint2SubType"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="NumberAttributes1Element" type="NumberAttributes1"/>
+  <xsd:element name="Copy_1_NumberAttributes1Element" type="Copy_1_NumberAttributes1"/>
+</xsd:schema>
