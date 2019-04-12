@@ -44,7 +44,7 @@ public class ConstraintsCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return true;
+        return false;
     }
 
     /**
@@ -87,8 +87,13 @@ public class ConstraintsCdmTransformTest
                 "base:Number",
                 !mandatory,
                 !array);
+        /*
+         * Sid ACE-467 - integer attribtues now converted to Decimals type with
+         * max decimals = 0
+         */
         assertConstraints(integerAttr,
-                Arrays.asList(new NameValuePair("length", "10"),
+                Arrays.asList(new NameValuePair("decimalPlaces", "0"),
+                        new NameValuePair("length", "10"),
                         new NameValuePair("minValue", "23"),
                         new NameValuePair("minValueInclusive", "true"),
                         new NameValuePair("maxValue", "100"),

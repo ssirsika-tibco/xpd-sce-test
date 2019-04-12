@@ -978,9 +978,13 @@ public class TestUtil {
              * of the tests as based on these assets we explicitly add them to
              * the test framework.
              */
+            /*
+             * ACE-467 Sid - Don't create WSDL assets by default any more, not
+             * supported in SCE!
+             */
             if (wizardId == null) {
                 String[] assetIdsToEnable =
-                        new String[] { BOM_ASSET_ID, WSDL_ASSET_ID };
+                        new String[] { BOM_ASSET_ID };
 
                 /* Add the BOM and Wsdl assets to the project. */
                 projWizard.setAssetIdsToEnable(assetIdsToEnable);

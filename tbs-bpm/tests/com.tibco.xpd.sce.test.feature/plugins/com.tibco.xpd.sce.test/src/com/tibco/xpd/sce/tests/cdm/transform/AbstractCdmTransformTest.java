@@ -15,9 +15,9 @@ import org.junit.Assert;
 
 import com.tibco.bpm.da.dm.api.DataModel;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
-import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.n2.cdm.transform.BomTransformer;
+import com.tibco.xpd.n2.test.core.AbstractN2BaseResourceTest;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
@@ -28,7 +28,7 @@ import com.tibco.xpd.resources.util.WorkingCopyUtil;
  * @since 4 Mar 2019
  */
 public abstract class AbstractCdmTransformTest
-        extends AbstractBuildingBaseResourceTest {
+        extends AbstractN2BaseResourceTest {
 
     /**
      * BOM -> CDM model transformation result.
@@ -150,9 +150,10 @@ public abstract class AbstractCdmTransformTest
         long start = System.currentTimeMillis();
         DataModel cdmModel = new BomTransformer().transformBomModel(bomModel);
         long elapsed = System.currentTimeMillis() - start;
-        System.out.printf("BOM->CDM transf. time [%s]: %d ms.\n", //$NON-NLS-1$
-                bomFileName,
-                elapsed);
+        // System.out.printf("BOM->CDM transf. time [%s]: %d ms.\n",
+        // //$NON-NLS-1$
+        // bomFileName,
+        // elapsed);
         Assert.assertNotNull(cdmModel);
         return new BomCdmTransfomation(cdmModel, bomModel);
     }
