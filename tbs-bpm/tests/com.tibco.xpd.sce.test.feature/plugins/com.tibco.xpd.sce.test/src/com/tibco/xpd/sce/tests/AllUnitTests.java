@@ -7,6 +7,7 @@ package com.tibco.xpd.sce.tests;
 import com.tibco.xpd.sce.tests.cdm.transform.ConstraintsCdmTransformTest;
 import com.tibco.xpd.sce.tests.cdm.transform.SimpleCdmTransformTest;
 import com.tibco.xpd.sce.tests.cdm.transform.StructuredTypesCdmTransformTest;
+import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
@@ -50,6 +51,7 @@ public class AllUnitTests {
          * Miscellaneous
          */
         suite.addTestSuite(NewCeProjectsTest.class);
+        suite.addTestSuite(BpmProjectMustBeCeTest.class);
 
 
 

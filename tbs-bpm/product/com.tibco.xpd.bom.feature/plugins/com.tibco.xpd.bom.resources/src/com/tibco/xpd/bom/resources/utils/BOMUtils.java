@@ -54,11 +54,6 @@ public class BOMUtils {
      */
     public static final String XSD_NOTATION_PROFILE = "XsdNotationProfile"; //$NON-NLS-1$
 
-    /*
-     * Name of an EAnnotation that says the BOM model was generated from DB
-     */
-    public static final String BOM_DB_GENERATED_EANNOTATION = "Generated"; //$NON-NLS-1$
-
     /**
      * id of the Business Data asset.
      */
