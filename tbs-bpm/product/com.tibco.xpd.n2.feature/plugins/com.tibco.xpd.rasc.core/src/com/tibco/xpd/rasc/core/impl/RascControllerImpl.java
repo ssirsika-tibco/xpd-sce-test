@@ -4,13 +4,14 @@
 
 package com.tibco.xpd.rasc.core.impl;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubMonitor;
 
@@ -27,6 +27,7 @@ import com.tibco.bpm.dt.rasc.DeploymentWriter;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.bpm.dt.rasc.VersionRange.Endpoint;
+import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 import com.tibco.bpm.dt.rasc.impl.DeploymentFactoryImpl;
 import com.tibco.xpd.rasc.core.Messages;
 import com.tibco.xpd.rasc.core.RascActivator;
@@ -51,8 +52,7 @@ import com.tibco.xpd.resources.util.ProjectUtil2;
  * @since 1 Mar 2019
  */
 public class RascControllerImpl implements RascController {
-    private static final String PROGRESS_TASK =
-            Messages.RascControllerImpl_ProgressTask;
+    private static final String PROGRESS_TASK = Messages.RascControllerImpl_ProgressTask;
 
     private static final String LOG_GENERATION_STARTED =
             "Generating RASC started."; //$NON-NLS-1$
@@ -110,36 +110,15 @@ public class RascControllerImpl implements RascController {
      *      org.eclipse.core.runtime.IProgressMonitor)
      */
     @Override
-    public void generateRasc(IProject aProject, final IFile aFile,
+    public void generateRasc(IProject aProject, IFile aFile,
             IProgressMonitor aProgressMonitor) throws RascGenerationException {
-        final PipedOutputStream output = new PipedOutputStream();
-        try {
-            // use a thread to pipe the RASC output to the IFile
-            new Thread(() -> {
-                // we won't monitor the thread activity
-                IProgressMonitor monitor = new NullProgressMonitor();
-                try {
-                    PipedInputStream input = new PipedInputStream(output);
-
-                    if (!aFile.exists()) {
-                        aFile.create(input, true, monitor);
-                    } else {
-                        aFile.setContents(input, true, false, monitor);
-                    }
-                } catch (Exception e) {
-                    Logger logger = RascActivator.getDefault().getLogger();
-                    logger.warn(e, e.getMessage());
-                }
-            }).start();
-
+        File rasc = generate(aProject, aProgressMonitor);
+        if (rasc != null) {
             try {
-                // generate RASC and write it to the pipe
-                generate(aProject, output, aProgressMonitor);
-            } finally {
-                output.close();
+                copy(rasc, aFile, aProgressMonitor);
+            } catch (IOException e) {
+                throw new RascInternalException(e.getMessage(), e);
             }
-        } catch (IOException e) {
-            throw new RascInternalException(e.getMessage(), e);
         }
     }
 
@@ -150,62 +129,56 @@ public class RascControllerImpl implements RascController {
     @Override
     public void generateRasc(IProject aProject, File aFile,
             IProgressMonitor aProgressMonitor) throws RascGenerationException {
-        try {
-            try (BufferedOutputStream output =
-                    new BufferedOutputStream(new FileOutputStream(aFile))) {
-                // generate RASC and write it to the file
-                generate(aProject, output, aProgressMonitor);
+        File rasc = generate(aProject, aProgressMonitor);
+        if (rasc != null) {
+            try {
+                copy(rasc, aFile, aProgressMonitor);
+            } catch (IOException e) {
+                throw new RascInternalException(e.getMessage(), e);
             }
-        } catch (IOException e) {
-            throw new RascInternalException(e.getMessage(), e);
         }
     }
 
-    /**
-     * Performs the generation of the RASC and ouputs it directly to the given
-     * OutputStream.
-     * 
-     * @param aProject
-     *            the Project for which the RASC is being generated.
-     * @param aOutput
-     *            the OutputStream to which the RASC is to be written.
-     * @param aProgressMonitor
-     *            the progress monitor to use to convey progress.
-     * @throws RascGenerationException
-     *             if any error should occur.
-     */
-    private void generate(IProject aProject, OutputStream aOutput,
-            IProgressMonitor aProgressMonitor) throws RascGenerationException {
+    private File generate(IProject aProject, IProgressMonitor aProgressMonitor)
+            throws RascGenerationException {
         try {
             /*
              * Only interested in contributors that have something to do for
              * this project.
              */
+            List<RascContributor> allContributors =
+                    contributorlocator.getContributors();
             List<RascContributor> contributors = new ArrayList<>();
-            for (RascContributor contributor : contributorlocator
-                    .getContributors()) {
+            
+            for (RascContributor contributor : allContributors) {
                 if (contributor.hasContributionsFor(aProject)) {
                     contributors.add(contributor);
                 }
             }
-
+            
+            int workSize = contributors.size();
+            
             SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                     RascControllerImpl.PROGRESS_TASK,
-                    contributors.size());
+                    workSize);
             monitor.subTask(RascControllerImpl.PROGRESS_TASK);
+
             try {
                 // has the job been cancelled by the user
                 if (monitor.isCanceled()) {
-                    return;
+                    return null;
                 }
 
                 Logger logger = RascActivator.getDefault().getLogger();
                 logger.debug(RascControllerImpl.LOG_GENERATION_STARTED);
 
-                // create a new deployment
-                final DeploymentWriter deployment = deploymentFactory
-                        .forDeployment(NullIdGenerator.INSTANCE, aOutput);
+                File result = File.createTempFile("sce", "rasc"); //$NON-NLS-1$ //$NON-NLS-2$
+                OutputStream output = new FileOutputStream(result);
                 try {
+                    // create a new deployment
+                    final DeploymentWriter deployment = deploymentFactory
+                            .forDeployment(NullIdGenerator.INSTANCE, output);
+
                     // create a facade over the DeploymentWriter
                     RascWriter writer = (aName, aArtifactName, aInternalName,
                             aMicroServices) -> deployment.addContent(aName,
@@ -216,7 +189,7 @@ public class RascControllerImpl implements RascController {
 
                     // has the job been cancelled by the user
                     if (monitor.isCanceled()) {
-                        return;
+                        return null;
                     }
 
                     // call each contributor in the given order
@@ -229,8 +202,10 @@ public class RascControllerImpl implements RascController {
                             contributor.process(aProject,
                                     monitor.split(1),
                                     writer);
+
                         } catch (OperationCanceledException e) {
-                            return; // job has been cancelled by the user
+                            // job has been cancelled by the user
+                            return null;
                         } catch (Exception e) {
                             throw new RascContributionException(contributor, e);
                         }
@@ -238,15 +213,21 @@ public class RascControllerImpl implements RascController {
 
                     // write manifest and close stream
                     setManifest(deployment, aProject);
-                    logger.debug(RascControllerImpl.LOG_GENERATION_COMPLETE);
-                } finally {
                     deployment.close();
+
+                    logger.debug(RascControllerImpl.LOG_GENERATION_COMPLETE);
+                } catch (RuntimeApplicationException e) {
+                    throw new RascInternalException(e.getMessage(), e);
+                } finally {
+                    output.close();
                 }
+
+                return result;
             } finally {
-                monitor.subTask(""); //$NON-NLS-1$
+                monitor.subTask("");
                 monitor.done();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RascInternalException(e.getMessage(), e);
         }
     }
@@ -291,6 +272,70 @@ public class RascControllerImpl implements RascController {
             }
         } catch (CoreException e) {
             throw new RascInternalException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Copies the given File to the given IFile.
+     * 
+     * @param aSource
+     *            the source file to be copied.
+     * @param aDest
+     *            the destination to which the source is to be copied.
+     * @param aProgressMonitor
+     *            a progress monitor, or null if progress reporting is not
+     *            desired.
+     * @throws IOException
+     *             if an error occurs during the copy.
+     */
+    private void copy(File aSource, IFile aDest,
+            IProgressMonitor aProgressMonitor) throws IOException {
+        InputStream input =
+                new BufferedInputStream(new FileInputStream(aSource));
+        try {
+            if (!aDest.exists()) {
+                aDest.create(input, true, aProgressMonitor);
+            } else {
+                aDest.setContents(input, true, false, aProgressMonitor);
+            }
+        } catch (CoreException e) {
+            throw new IOException(e);
+        } finally {
+            input.close();
+        }
+    }
+
+    /**
+     * Copies the given source File to the given destination File.
+     * 
+     * @param aSource
+     *            the source file to be copied.
+     * @param aDest
+     *            the destination to which the source is to be copied.
+     * @param aProgressMonitor
+     *            a progress monitor, or null if progress reporting is not
+     *            desired.
+     * @throws IOException
+     *             if an error occurs during the copy.
+     */
+    private void copy(File aSource, File aDest,
+            IProgressMonitor aProgressMonitor) throws IOException {
+        InputStream input =
+                new BufferedInputStream(new FileInputStream(aSource));
+        try {
+            OutputStream output =
+                    new BufferedOutputStream(new FileOutputStream(aDest));
+            try {
+                byte[] buffer = new byte[8192];
+                int len;
+                while ((len = input.read(buffer, 0, buffer.length)) != -1) {
+                    output.write(buffer, 0, len);
+                }
+            } finally {
+                output.close();
+            }
+        } finally {
+            input.close();
         }
     }
 
