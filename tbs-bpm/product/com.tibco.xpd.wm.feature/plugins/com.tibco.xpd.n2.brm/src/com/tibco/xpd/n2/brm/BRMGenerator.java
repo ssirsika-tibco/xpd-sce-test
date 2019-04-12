@@ -136,12 +136,12 @@ public class BRMGenerator {
     /**
      * The BRM Work Type model RASC artifact name
      */
-    public static final String WORKTYPE_ARTIFACT_NAME = "wt.xml"; //$NON-NLS-1$
+    public static final String WORKTYPE_ARTIFACT_NAME = "workType.wt"; //$NON-NLS-1$
 
     /**
      * The BRM Work Model RASC artifact name
      */
-    public static final String WORKMODEL_ARTIFACT_NAME = "wm.xml"; //$NON-NLS-1$
+    public static final String WORKMODEL_ARTIFACT_NAME = "workModel.wm"; //$NON-NLS-1$
 
 
     private static final String GRAMMAR_JAVA_SCRIPT = "JavaScript"; //$NON-NLS-1$
@@ -162,6 +162,12 @@ public class BRMGenerator {
 
     /** XML file extension */
     private static final String XML_EXTENSION = "xml"; //$NON-NLS-1$
+
+    /** workType.wt file extension */
+    private static final String WT_EXTENSION = "wt"; //$NON-NLS-1$
+
+    /** workModel.wm file extension */
+    private static final String WM_EXTENSION = "wm"; //$NON-NLS-1$
 
     /*
      * Script Constants for Physical Work Item Attribute Mapping script
@@ -269,8 +275,11 @@ public class BRMGenerator {
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 
-        final Object previousXMLFactory =
-                extensionToFactoryMap.get(XML_EXTENSION);
+        final Object previousWTFactory =
+                extensionToFactoryMap.get(WT_EXTENSION);
+
+        final Object previousWMFactory =
+                extensionToFactoryMap.get(WM_EXTENSION);
 
         try {
 
@@ -288,7 +297,7 @@ public class BRMGenerator {
                     createBRMWorkTypes(manualN2Activities, version);
 
             if (brmWorkType != null) {
-                extensionToFactoryMap.put(XML_EXTENSION,
+                extensionToFactoryMap.put(WT_EXTENSION,
                         new WorktypeResourceFactoryImpl());
 
                 Resource workTypeResource =
@@ -307,7 +316,7 @@ public class BRMGenerator {
                     createBRMWorkModels(aProject, manualN2Activities, version);
 
             if (brmWorkModel != null) {
-                extensionToFactoryMap.put(XML_EXTENSION,
+                extensionToFactoryMap.put(WM_EXTENSION,
                         new WorkmodelResourceFactoryImpl());
 
                 Resource workModelsResource = rs
@@ -319,7 +328,8 @@ public class BRMGenerator {
             }
 
         } finally {
-            extensionToFactoryMap.put(XML_EXTENSION, previousXMLFactory);
+            extensionToFactoryMap.put(WM_EXTENSION, previousWMFactory);
+            extensionToFactoryMap.put(WT_EXTENSION, previousWTFactory);
         }
         return brmModels;
     }
