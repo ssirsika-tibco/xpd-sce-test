@@ -78,46 +78,7 @@
             class="com.tibco.n2.common.attributefacade.util.AttributefacadeResourceFactoryImpl"/>
    </extension>
    
-   <extension
-         point="org.eclipse.ui.exportWizards">
-      <wizard
-            category="com.tibco.xpd.resources.ui.exportWizard.bpm.category"
-            class="com.tibco.xpd.n2.brm.internal.wizards.WorkDataModelExportWizard"
-            icon="icons/obj16/WDMExport.gif"
-            id="com.tibco.xpd.brm.workDataModelExportWizard"
-            name="%wdmExportWizard_name">
-      </wizard>
-   </extension>
-      <extension
-         point="org.eclipse.ui.navigator.navigatorContent">
-      <commonWizard
-            menuGroupId="additions.xpd"
-            type="export"
-            wizardId="com.tibco.xpd.brm.workDataModelExportWizard">
-         <enablement>
-            <and>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
-               <test
-                     forcePluginActivation="true"
-                     property="org.eclipse.core.resources.projectNature"
-                     value="com.tibco.xpd.resources.xpdNature">
-               </test>
-               <test
-                     forcePluginActivation="true"
-                     property="com.tibco.xpd.destinations.hasGlobalDestination"
-                     value="com.tibco.xpd.n2.core.n2GlobalDestination">
-               </test>
-               <test
-                     forcePluginActivation="true"
-                     property="com.tibco.xpd.capabilityTester.isSolutionDesignEnabled"
-                     value="true">
-               </test>
-            </and>
-         </enablement>
-      </commonWizard>
-   </extension>
+
    <extension
          point="com.tibco.xpd.validation.destinations">
       <workspaceResourceDestination
@@ -147,4 +108,13 @@
             </issue>
          </issues>
       </extension>
+
+   <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.xpd.n2.brm.BrmModelsRascContributor"
+            id="com.tibco.xpd.n2.brm.rasc.model.contributor">
+      </contributor>
+   </extension>
+
 </plugin>

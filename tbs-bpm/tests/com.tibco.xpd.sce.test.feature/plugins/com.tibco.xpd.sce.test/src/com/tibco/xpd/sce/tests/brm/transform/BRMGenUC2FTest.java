@@ -2,11 +2,10 @@
  * Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.
  */
 
-package com.tibco.xpd.wm.test.generator;
+package com.tibco.xpd.sce.tests.brm.transform;
 
 import java.util.Arrays;
-
-import junit.framework.TestCase;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -19,18 +18,24 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.n2.brm.BRMGenerator;
 import com.tibco.xpd.n2.brm.utils.BRMSchemaUtil;
+import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.util.ProjectImporter;
 import com.tibco.xpd.resources.util.ProjectUtil;
-import com.tibco.xpd.wm.test.WMTestActivator;
+
+import junit.framework.TestCase;
 
 /**
- * @author Jan Arciuchiewicz
+ * Revamped for ACE and moved from WM test feature
+ * 
+ * @author Jan Arciuchiewicz / aallway
  */
 public class BRMGenUC2FTest extends TestCase {
 
@@ -40,16 +45,17 @@ public class BRMGenUC2FTest extends TestCase {
     protected void setUp() throws Exception {
         projectImporter =
                 ProjectImporter
-                        .createPluginProjectImporter(WMTestActivator.PLUGIN_ID,
+                        .createPluginProjectImporter("com.tibco.xpd.sce.test", //$NON-NLS-1$
                                 Arrays
-                                        .asList("resources/UC2FWorkItemScripts.zip", //$NON-NLS-1$
-                                                "resources/UC2ANoneStartEventWithUserTasks.zip")); //$NON-NLS-1$
+                                        .asList("resources/BRMModelTransformTest/UC2FWorkItemScripts.zip", //$NON-NLS-1$
+                                                "resources/BRMModelTransformTest/UC2ANoneStartEventWithUserTasks.zip")); //$NON-NLS-1$
         assertTrue(projectImporter.performImport());
     }
 
     public void testWMandWTagainstSchema() throws Exception {
         final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
         ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
+            @Override
             public void run(IProgressMonitor monitor) throws CoreException {
                 migrateXpdls(root);
             }
@@ -60,18 +66,43 @@ public class BRMGenUC2FTest extends TestCase {
 
         IProject project = root.getProject("UC2FWorkItemScripts"); //$NON-NLS-1$
         assertTrue(project.isAccessible());
-        IFolder brmFolder =
-                project.getFolder(BRMGenerator.BRM_MODULES_SPECIAL_FOLDER_NAME);
+
+        IFolder brmFolder = project.getFolder(".brmModules"); //$NON-NLS-1$
         ProjectUtil.createFolder(brmFolder, false, new NullProgressMonitor());
-        BRMGenerator.getInstance().generateBRMModules(project,
-                brmFolder,
-                "12345678"); //$NON-NLS-1$
-        IFile wtFile = brmFolder.getFile("wt.xml"); //$NON-NLS-1$
+
+        Map<String, Resource> brmModels = BRMGenerator.getInstance()
+                .generateBRMModels(project, "1.0.0.1234567890"); //$NON-NLS-1$
+
+        Resource wmResource =
+                brmModels.get(BRMGenerator.WORKMODEL_ARTIFACT_NAME);
+        assertTrue(
+                BRMGenerator.WORKMODEL_ARTIFACT_NAME
+                        + " missing from generated resource map", //$NON-NLS-1$
+                        wmResource != null);
+
+        IFile wmFile = brmFolder.getFile(BRMGenerator.WORKMODEL_ARTIFACT_NAME);
+        wmResource.setURI(URI.createURI(wmFile.getFullPath().toString()));
+
+        wmResource.save(N2Utils.getDefaultXMLSaveOptions());
+
+        assertTrue(wmFile.exists());
+        assertTrue(BRMSchemaUtil
+                .validateAgainstBRMXSD(wmFile) == Status.OK_STATUS);
+
+        Resource wtResource =
+                brmModels.get(BRMGenerator.WORKTYPE_ARTIFACT_NAME);
+        assertTrue(
+                BRMGenerator.WORKMODEL_ARTIFACT_NAME
+                        + " missing from generated resource map", //$NON-NLS-1$
+                        wtResource != null);
+
+        IFile wtFile = brmFolder.getFile(BRMGenerator.WORKTYPE_ARTIFACT_NAME);
+        wtResource.setURI(URI.createURI(wtFile.getFullPath().toString()));
+
+        wtResource.save(N2Utils.getDefaultXMLSaveOptions());
+        
         assertTrue(wtFile.exists());
         assertTrue(BRMSchemaUtil.validateAgainstBRMXSD(wtFile) == Status.OK_STATUS);
-        IFile wmFile = brmFolder.getFile("wm.xml"); //$NON-NLS-1$
-        assertTrue(wmFile.exists());
-        assertTrue(BRMSchemaUtil.validateAgainstBRMXSD(wmFile) == Status.OK_STATUS);
 
     }
 

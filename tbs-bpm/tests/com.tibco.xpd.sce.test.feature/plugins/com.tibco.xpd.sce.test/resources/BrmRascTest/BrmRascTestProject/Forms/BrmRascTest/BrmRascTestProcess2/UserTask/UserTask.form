@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="BrmRascTest.xpdl#_LkS6YF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=BrmRascTest%3a%3aBrmRascTestProcess2%26n=UserTask?" formatVersion="4.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri="BrmRascTest/BrmRascTestProcess2/UserTask/UserTask.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="BrmRascTest.xpdl#_IolXMF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=BrmRascTest%3a%3aBrmRascTestProcess2%26n=Parameter?" name="data.Parameter" label="Parameter" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="BrmRascTest.xpdl#_JR6oEF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=BrmRascTest%3a%3aBrmRascTestProcess2%26n=Parameter2?" name="data.Parameter2" label="Parameter2" dataType="uml:Class BrmRascTest.bom#_DgW5IF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.brmrasctest%26n=Class1?" type="com.example.brmrasctest::Class1" inout="INOUT"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_NEZbMF0lEemv57AKFO26Pg">
+      <form:source target="data.Parameter" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.Parameter.value"></form:source>
+      <form:destination target="control.Parameter" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_NEZbMV0lEemv57AKFO26Pg">
+      <form:source target="data.Parameter2" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.Parameter2.value"></form:source>
+      <form:destination target="pane.Parameter2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.Parameter2.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_NEZbMl0lEemv57AKFO26Pg">
+      <form:source target="pane.Parameter2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BrmRascTest.bom#_Fv9kQF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.brmrasctest%3a%3aClass1%26n=attribute1?" data="form.pane.Parameter2.value.attribute1"></form:source>
+      <form:destination target="control.Parameter2_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter2_attribute1.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_NEaCQF0lEemv57AKFO26Pg">
+      <form:source target="pane.Parameter2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value BrmRascTest.bom#_GApEkF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.brmrasctest%3a%3aClass1%26n=attribute2?" data="form.pane.Parameter2.value.attribute2"></form:source>
+      <form:destination target="control.Parameter2_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.Parameter2_attribute2.value"></form:destination>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>User Task</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="left"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="BrmRascTest.xpdl#_JR6oEF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=BrmRascTest%3a%3aBrmRascTestProcess2%26n=Parameter2?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class BrmRascTest.bom#_DgW5IF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.brmrasctest%26n=Class1?" name="pane.Parameter2" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Parameter2</form:label>
+      <form:hint></form:hint>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="BrmRascTest.bom#_Fv9kQF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.brmrasctest%3a%3aClass1%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.Parameter2_attribute1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>attribute1</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="BrmRascTest.bom#_GApEkF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.brmrasctest%3a%3aClass1%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.Parameter2_attribute2">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>attribute2</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+    <form:control generated="true" generatorSource="BrmRascTest.xpdl#_IolXMF0lEemv57AKFO26Pg?p=BrmRascTest%26s=Process%20Packages%26t=xpdl2%3aFormalParameter%26q=BrmRascTest%3a%3aBrmRascTestProcess2%26n=Parameter?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.Parameter">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>Parameter</form:label>
+      <form:hint></form:hint>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>true</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

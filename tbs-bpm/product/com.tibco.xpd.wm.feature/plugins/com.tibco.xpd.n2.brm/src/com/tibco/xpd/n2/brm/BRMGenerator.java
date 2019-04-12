@@ -6,6 +6,7 @@ package com.tibco.xpd.n2.brm;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -61,9 +62,6 @@ import com.tibco.n2.common.organisation.api.OrganisationFactory;
 import com.tibco.n2.common.organisation.api.OrganisationalEntityType;
 import com.tibco.n2.common.organisation.api.XmlModelEntityId;
 import com.tibco.n2.common.organisation.api.XmlResourceQuery;
-import com.tibco.n2.common.pageactivitymodel.PageActivities;
-import com.tibco.n2.common.pageactivitymodel.PageActivity;
-import com.tibco.n2.common.pageactivitymodel.PageactivitymodelFactory;
 import com.tibco.n2.common.worktype.DocumentRoot;
 import com.tibco.n2.common.worktype.WorktypeFactory;
 import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
@@ -72,6 +70,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
+import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
 import com.tibco.xpd.n2.brm.internal.Messages;
 import com.tibco.xpd.n2.brm.utils.BRMUtils;
 import com.tibco.xpd.n2.resources.util.N2Utils;
@@ -86,6 +85,7 @@ import com.tibco.xpd.om.core.om.Position;
 import com.tibco.xpd.om.core.om.Privilege;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
+import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.util.ProjectUtil;
@@ -125,6 +125,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Generates N2 deployment artifacts.
+ * 
  * <p>
  * <i>Created: 10 Sep 2008</i>
  * </p>
@@ -132,25 +133,20 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author Jan Arciuchiewicz
  */
 public class BRMGenerator {
+    /**
+     * The BRM Work Type model RASC artifact name
+     */
+    public static final String WORKTYPE_ARTIFACT_NAME = "wt.xml"; //$NON-NLS-1$
 
-    private static final String PF_ACT_MODULE_FILE_NAME_BASE =
-            "pfActivityTypes"; //$NON-NLS-1$
+    /**
+     * The BRM Work Model RASC artifact name
+     */
+    public static final String WORKMODEL_ARTIFACT_NAME = "wm.xml"; //$NON-NLS-1$
 
-    /** Business resource management special folder kind. */
-    public static final String BRM_MODULES_SPECIAL_FOLDER_KIND = "brmOutput"; //$NON-NLS-1$
-
-    /** Business resource management special folder name. */
-    public static final String BRM_MODULES_SPECIAL_FOLDER_NAME = ".brmModules"; //$NON-NLS-1$
 
     private static final String GRAMMAR_JAVA_SCRIPT = "JavaScript"; //$NON-NLS-1$
 
     private static final Logger LOG = BRMActivator.getDefault().getLogger();
-
-    /** */
-    private static final String WT_MODULE_FILE_NAME_BASE = "wt"; //$NON-NLS-1$
-
-    /** */
-    private static final String WM_MODULE_FILE_NAME_BASE = "wm"; //$NON-NLS-1$
 
     /** Default version of OM model. */
     private static final int OM_ENTITY_DEFAULT_VERSION = 0;
@@ -163,9 +159,6 @@ public class BRMGenerator {
 
     /** Work model ID prefix. */
     private static final String WORK_TYPE_ID_PREFIX = "WT_"; //$NON-NLS-1$
-
-    /** Page flow activity ID prefix. */
-    private static final String PAGE_FLOW_ACTIVITY_ID_PREFIX = "PA_"; //$NON-NLS-1$
 
     /** XML file extension */
     private static final String XML_EXTENSION = "xml"; //$NON-NLS-1$
@@ -205,8 +198,11 @@ public class BRMGenerator {
 
     private static final Version WLF_BASE_VERSION = new Version("1.0.0"); //$NON-NLS-1$
 
-    private static BRMGenerator INSTANCE = new BRMGenerator();
+    private static final BRMGenerator INSTANCE = new BRMGenerator();
 
+    /**
+     * Get the singleton instance of the generator.
+     */
     public static BRMGenerator getInstance() {
         return INSTANCE;
     }
@@ -217,293 +213,133 @@ public class BRMGenerator {
     private BRMGenerator() {
     }
 
-    /**
-     * Generate work types and work model from Workforce Management Model
-     * without using a job.
-     * 
-     * @param wmModel
-     *            workforce management model.
-     * @param project
-     *            the context project.
-     */
-    public void generateBRMModules(final IProject project,
-            final IFolder brmModulesOut, final String timestamp) {
-        try {
-            ResourceSet rs = new ResourceSetImpl();
-            List<Resource> resourcesToSave =
-                    generateBRMResources(project, brmModulesOut, rs, timestamp);
-            for (Resource r : resourcesToSave) {
-                IFile file = WorkspaceSynchronizer.getFile(r);
-                if (file == null) {
-                    // out of workspace resource.
-                    r.save(N2Utils.getDefaultXMLSaveOptions());
-                } else {
-                    // don't exist or exist and is derived
-                    r.save(N2Utils.getDefaultXMLSaveOptions()); // overwrite if
-                    // exist
-                    file.refreshLocal(IResource.DEPTH_ZERO, null);
-                    file.setDerived(true);
-                }
 
-            }
-        } catch (final Exception e) {
-            BRMActivator.getDefault().getLogger().error(e);
-        }
-    }
 
     /**
-     * Generate work type resources in the context of the provided resource set.
+     * Check if the project has relevant content for requiring generation of the
+     * work model and work type models.
      * 
-     * @param wmModel
-     *            the source model.
-     * @param generationRoot
-     *            the generation resources structure root folder.
+     * @param aProject
      * 
-     * @param rs
-     *            context resource set for generated resources.
-     * @param timestamp
+     * @return <code>true</code> if the project has relevant content for
+     *         requiring generation of the work model and work type models.
      */
-    public List<Resource> generateBRMResources(final IProject project,
-            final IFolder generationRoot, final ResourceSet rs,
-            String timestamp) {
-        final Map<String, Object> extensionToFactoryMap =
-                Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
-        final Object previousXMLFactory =
-                extensionToFactoryMap.get(XML_EXTENSION);
-        final IPath baseWTPath = generationRoot.getFullPath();
-
+    public boolean projectHasRelevantContent(IProject aProject) {
         // get manual activities for the project.
         final Collection<Package> packages =
-                BRMUtils.getN2ProcessPackages(project);
-        final Collection<Activity> manualN2Activities =
-                BRMUtils.getN2ManualActivities(packages);
+                BRMUtils.getN2ProcessPackages(aProject);
 
-        List<Resource> brmResources = new ArrayList<Resource>();
+        for (Package pkg : packages) {
+            for (Process process : pkg.getProcesses()) {
 
-        /**
-         * TODO SID ACE-122 replace method of getting version into work-type
-         * root.
-         */
-        if (true) {
-            throw new RuntimeException(
-                    "TODO SID ACE-122 replace method of getting version into work-type");
-        }
-        String version = "1.0.0.gazillion";
-        // PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-        // .getVersionNumber(project), timestamp);
+                if (GlobalDestinationHelper.isGlobalDestinationEnabled(process,
+                        N2Utils.N2_GLOBAL_DESTINATION_ID)) {
+                    for (Activity activity : Xpdl2ModelUtil
+                            .getAllActivitiesInProc(process)) {
 
-        // create BRM resources
-        try {
-            // WorkType resources
-            {
-                final List<WorkType> workTypes =
-                        createBRMWorkTypes(manualN2Activities,
-                                project,
-                                timestamp);
-                if (!workTypes.isEmpty()) {
-                    // Only create WT resource when
-                    // there are work types.
-                    extensionToFactoryMap.put(XML_EXTENSION,
-                            new WorktypeResourceFactoryImpl());
-                    final String filePath = baseWTPath
-                            .append(WT_MODULE_FILE_NAME_BASE)
-                            .addFileExtension(XML_EXTENSION).toPortableString();
-                    final URI resourceURI =
-                            URI.createPlatformResourceURI(filePath, true);
-                    final Resource workTypeResource =
-                            rs.createResource(resourceURI);
-
-                    final DocumentRoot docRoot =
-                            WorktypeFactory.eINSTANCE.createDocumentRoot();
-                    com.tibco.n2.common.worktype.WorkType workTypeRoot =
-                            WorktypeFactory.eINSTANCE.createWorkType();
-                    docRoot.setWorkTypes(workTypeRoot);
-                    workTypeRoot.getWorkType().addAll(workTypes);
-                    workTypeRoot.setVersion(version);
-                    workTypeResource.getContents().add(docRoot);
-                    brmResources.add(workTypeResource);
-                }
-            }
-            // WorkModel resources
-            {
-                final List<WorkModel> workModels =
-                        createBRMWorkModels(manualN2Activities,
-                                project,
-                                timestamp);
-                if (!workModels.isEmpty()) {
-                    // only create WM resource when there
-                    // are work models.
-                    extensionToFactoryMap.put(XML_EXTENSION,
-                            new WorkmodelResourceFactoryImpl());
-                    final String filePath = baseWTPath
-                            .append(WM_MODULE_FILE_NAME_BASE)
-                            .addFileExtension(XML_EXTENSION).toPortableString();
-                    final URI resourceURI =
-                            URI.createPlatformResourceURI(filePath, true);
-                    final Resource workModelsResource =
-                            rs.createResource(resourceURI);
-
-                    final com.tibco.n2.brm.workmodel.DocumentRoot docRoot =
-                            WorkmodelFactory.eINSTANCE.createDocumentRoot();
-                    com.tibco.n2.brm.workmodel.WorkModel workModelRoot =
-                            WorkmodelFactory.eINSTANCE.createWorkModel();
-                    docRoot.setWorkModels(workModelRoot);
-                    workModelRoot.setVersion(version);
-
-                    Integer majorVer =
-                            BRMUtils.getReferencedOMMajorVersion(project);
-                    if (majorVer == null) {
-                        majorVer = -1;
+                        if (TaskType.USER_LITERAL
+                                .equals(TaskObjectUtil
+                                        .getTaskTypeStrict(activity))) {
+                            return true;
+                        }
                     }
-                    workModelRoot.setOrgModelVersion(majorVer);
-                    workModelRoot.getWorkModel().addAll(workModels);
-
-                    workModelsResource.getContents().add(docRoot);
-                    brmResources.add(workModelsResource);
                 }
             }
-
-        } finally {
-            extensionToFactoryMap.put(XML_EXTENSION, previousXMLFactory);
         }
-        return brmResources;
+
+        return false;
     }
 
     /**
-     * Generate page flow PageActiviteis model resource for the project.
+     * Generate the BRM related run-time models for Work-Types (wt.xml) and
+     * Work-Models (wm.xml)
      * 
-     * @param project
-     *            the context project.
-     * @param generationRoot
-     *            the generation resources structure root folder.
-     * @param timestamp
-     *            time stamp for this generation.
+     * @param aProject
+     * @param version
+     * 
+     * @return a Map pf the models (nominal RASC artifact name to EMF document
+     *         root for the model).
      */
-    public IStatus generatePFActivityModel(final IProject project,
-            final IFolder generationRoot, String timestamp) {
+    public Map<String, Resource> generateBRMModels(IProject aProject,
+            String version) {
+        LinkedHashMap<String, Resource> brmModels = new LinkedHashMap();
+
+        ResourceSet rs = new ResourceSetImpl();
 
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
+
         final Object previousXMLFactory =
                 extensionToFactoryMap.get(XML_EXTENSION);
 
-        // get page flow activities for the project.
-        final Collection<Package> packages =
-                BRMUtils.getN2ProcessPackages(project);
-        final Collection<Activity> pageFlowManualActivities =
-                BRMUtils.getN2PageFlowManualActivities(packages);
-
         try {
-            final PageActivities pageActivities =
-                    createPageActivities(pageFlowManualActivities,
-                            project,
-                            timestamp);
 
-            if (!pageActivities.getPageActivity().isEmpty()) {
-                /*
-                 * Temporarily register "xml" extension so EMF resource is
-                 * created using specific factory.
-                 */
+            /*
+             * get user task activities for the project.
+             */
+            final Collection<Activity> manualN2Activities =
+                    BRMUtils.getN2ManualActivities(
+                            BRMUtils.getN2ProcessPackages(aProject));
+
+            /*
+             * Create the work types model.
+             */
+            DocumentRoot brmWorkType =
+                    createBRMWorkTypes(manualN2Activities, version);
+
+            if (brmWorkType != null) {
                 extensionToFactoryMap.put(XML_EXTENSION,
                         new WorktypeResourceFactoryImpl());
 
-                final IPath filePath = generationRoot.getFullPath()
-                        .append(PF_ACT_MODULE_FILE_NAME_BASE)
-                        .addFileExtension(XML_EXTENSION);
-                final URI resourceURI = URI.createPlatformResourceURI(
-                        filePath.toPortableString(),
-                        true);
-                final ResourceSet rs = new ResourceSetImpl();
-                final Resource resource = rs.createResource(resourceURI);
+                Resource workTypeResource =
+                        rs.createResource(
+                                URI.createURI(WORKTYPE_ARTIFACT_NAME));
 
-                com.tibco.n2.common.pageactivitymodel.DocumentRoot docRoot =
-                        PageactivitymodelFactory.eINSTANCE.createDocumentRoot();
-                docRoot.setPageActivities(pageActivities);
-                resource.getContents().add(docRoot);
+                workTypeResource.getContents().add(brmWorkType);
 
-                resource.save(N2Utils.getDefaultXMLSaveOptions());
-
-                IFile file = ResourcesPlugin.getWorkspace().getRoot()
-                        .getFile(filePath);
-                if (file.isAccessible()) {
-                    file.refreshLocal(IResource.DEPTH_ZERO, null);
-                    file.setDerived(true);
-                }
+                brmModels.put(WORKTYPE_ARTIFACT_NAME, workTypeResource);
             }
-        } catch (Exception e) {
-            BRMActivator.getDefault().getLogger().error(e);
-            String msg = e.getLocalizedMessage();
-            msg = (msg == null || msg.trim().isEmpty())
-                    ? Messages.BRMGenerator_GenerationException_message
-                    : msg;
-            return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg, e);
+
+            /*
+             * Create the work-models model
+             */
+            com.tibco.n2.brm.workmodel.DocumentRoot brmWorkModel =
+                    createBRMWorkModels(aProject, manualN2Activities, version);
+
+            if (brmWorkModel != null) {
+                extensionToFactoryMap.put(XML_EXTENSION,
+                        new WorkmodelResourceFactoryImpl());
+
+                Resource workModelsResource = rs
+                        .createResource(URI.createURI(WORKMODEL_ARTIFACT_NAME));
+
+                workModelsResource.getContents().add(brmWorkModel);
+
+                brmModels.put(WORKMODEL_ARTIFACT_NAME, workModelsResource);
+            }
+
         } finally {
-            /* Revert previous registry settings. */
             extensionToFactoryMap.put(XML_EXTENSION, previousXMLFactory);
         }
-        return Status.OK_STATUS;
+        return brmModels;
     }
-
-    /**
-     * Create PageActivities model element for provided collection of page flow
-     * manual activities.
-     */
-    private PageActivities createPageActivities(
-            Collection<Activity> pageFlowManualActivities, IProject project,
-            String timestamp) {
-
-        /**
-         * TODO SID ACE-122 replace method of getting version into work-type
-         * root.
-         */
-        if (true) {
-            throw new RuntimeException(
-                    "TODO SID ACE-122 replace method of getting version into work-type");
-        }
-        String version = "1.0.0.gazillion";
-
-        // String version = PluginManifestHelper.getUpdatedBundleVersion(
-        // CompositeUtil.getVersionNumber(project),
-        // timestamp);
-
-        PageactivitymodelFactory f = PageactivitymodelFactory.eINSTANCE;
-        PageActivities wpPageActivities = f.createPageActivities();
-        for (Activity activity : pageFlowManualActivities) {
-            PageActivity wpPageActivity = f.createPageActivity();
-            wpPageActivity.setActivityModelID(
-                    PAGE_FLOW_ACTIVITY_ID_PREFIX + activity.getId());
-            wpPageActivity.setActivityDescription(activity.getName());
-            wpPageActivity.setProcessName(activity.getProcess().getName());
-            wpPageActivity.setModuleName(getModuleName(activity));
-            wpPageActivity.setModuleVersion(version);
-            DataModel dataModel = DatamodelFactory.eINSTANCE.createDataModel();
-            Collection<ActivityInterfaceData> activityData =
-                    ActivityInterfaceDataUtil
-                            .getActivityInterfaceData(activity);
-            for (ActivityInterfaceData interfaceMember : activityData) {
-                addInterfacerMemberToDataModel(dataModel, interfaceMember);
-            }
-            wpPageActivity.setDataModel(dataModel);
-            wpPageActivities.getPageActivity().add(wpPageActivity);
-        }
-        wpPageActivities.setVersion(version);
-        return wpPageActivities;
-    }
-
+    
     /**
      * Creates the list of N2 specific WorkTypes based on the provided model.
      * 
-     * @param timestamp
-     * @param project
+     * Sid ACE-240 - the RASC contribution is easier with EObjects than
+     * Resources, so changed the generator to publicly generate the document
+     * root of the wm.xml
      * 
-     * @param wmModel
-     *            the source model.
-     * @return the list of N2 specific WorkTypes based on provided model.
+     * @param manualN2Activities
+     * @param version
+     * 
+     * @return The model root for N2 specific WorkTypes
      */
-    private List<WorkType> createBRMWorkTypes(
-            final Collection<Activity> manualN2Activities, IProject project,
-            String timestamp) {
+    private DocumentRoot createBRMWorkTypes(
+            Collection<Activity> manualN2Activities, String version) {
         List<WorkType> brmWorkTypes = new ArrayList<WorkType>();
+
         for (Activity activity : manualN2Activities) {
             WorkType brmWorkType = DatamodelFactory.eINSTANCE.createWorkType();
             brmWorkType.setWorkTypeUID(WORK_TYPE_ID_PREFIX + activity.getId());
@@ -588,10 +424,26 @@ public class BRMGenerator {
             brmWorkType.setDataModel(dataModel);
             brmWorkTypes.add(brmWorkType);
         }
-        return brmWorkTypes;
+
+        /*
+         * Build the main work type model and add the content.
+         */
+        final DocumentRoot docRoot =
+                WorktypeFactory.eINSTANCE.createDocumentRoot();
+        com.tibco.n2.common.worktype.WorkType workTypeRoot =
+                WorktypeFactory.eINSTANCE.createWorkType();
+        docRoot.setWorkTypes(workTypeRoot);
+        workTypeRoot.getWorkType().addAll(brmWorkTypes);
+        workTypeRoot.setVersion(version);
+
+        return docRoot;
     }
 
     /**
+     * Sid ACE-240 - the RASC contribution is easier with EObjects than
+     * Resources, so changed the generator to publicly generate the document
+     * root of the wt.xml
+     * 
      * @param activity
      * @return The {@link AllocationStrategy} defined fo rthe given activity or
      *         <code>null</code> if not defined.
@@ -609,15 +461,15 @@ public class BRMGenerator {
      * Creates the list of N2 specific WorkModels based on the provided model.
      * 
      * @param project
-     * @param timestamp
+     * @param manualN2Activities
+     * @param version
      * 
-     * @param wmModel
-     *            the source model.
-     * @return the list of N2 specific WorkModels based on provided model.
+     * @return the root of the work-model model.
      */
-    private List<WorkModel> createBRMWorkModels(
-            final Collection<Activity> manualN2Activities, IProject project,
-            String timestamp) {
+    private com.tibco.n2.brm.workmodel.DocumentRoot createBRMWorkModels(
+            IProject project,
+            Collection<Activity> manualN2Activities, 
+            String version) {
         List<WorkModel> brmWorkModels = new ArrayList<WorkModel>();
 
         for (Activity activity : manualN2Activities) {
@@ -774,20 +626,6 @@ public class BRMGenerator {
                     brmApiFactory.createWorkModelTypes();
             WorkModelType workModelType = brmApiFactory.createWorkModelType();
 
-            /**
-             * TODO SID ACE-122 replace method of getting version into work-type
-             * root.
-             */
-            if (true) {
-                throw new RuntimeException(
-                        "TODO SID ACE-122 replace method of getting version into work-type");
-            }
-            String version = "1.0.0.gazillion";
-
-            // String version = PluginManifestHelper.getUpdatedBundleVersion(
-            // CompositeUtil.getVersionNumber(project),
-            // timestamp);
-
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("["); //$NON-NLS-1$
             stringBuilder.append(version);
@@ -896,7 +734,28 @@ public class BRMGenerator {
 
             brmWorkModels.add(brmWorkModel);
         }
-        return brmWorkModels;
+
+        /*
+         * Set up the main document root
+         */
+        com.tibco.n2.brm.workmodel.DocumentRoot docRoot =
+                WorkmodelFactory.eINSTANCE.createDocumentRoot();
+        com.tibco.n2.brm.workmodel.WorkModel workModelRoot =
+                WorkmodelFactory.eINSTANCE.createWorkModel();
+
+        docRoot.setWorkModels(workModelRoot);
+
+        workModelRoot.setVersion(version);
+
+        Integer majorVer = BRMUtils.getReferencedOMMajorVersion(project);
+        if (majorVer == null) {
+            majorVer = -1;
+        }
+
+        workModelRoot.setOrgModelVersion(majorVer);
+        workModelRoot.getWorkModel().addAll(brmWorkModels);
+
+        return docRoot;
     }
 
     /**
@@ -1479,11 +1338,9 @@ public class BRMGenerator {
      *            the context project.
      * @param generationRoot
      *            the generation resources structure root folder.
-     * @param timestamp
-     *            time stamp for this generation used for version's qualifier.
      */
     public IStatus generateWlfModel(final IProject project,
-            final IFolder generationRoot, final String timestamp) {
+            final IFolder generationRoot) {
 
         final List<IResource> wlfFiles = SpecialFolderUtil
                 .getAllDeepResourcesInSpecialFolderOfKind(project,

@@ -87,8 +87,7 @@ public class WorkListFacadeGenTest extends AbstractBuildingBaseResourceTest {
         ProjectUtil.createFolder(genOutFolder, true, null);
         BRMGenerator.getInstance()
                 .generateWlfModel(wlfResourceInfo.getProject(),
-                        genOutFolder,
-                        "123456789"); //$NON-NLS-1$
+                        genOutFolder); // $NON-NLS-1$
         IFile generatedWlfFile = genOutFolder.getFile("wlf.xml"); //$NON-NLS-1$
         assertTrue(generatedWlfFile.exists());
 

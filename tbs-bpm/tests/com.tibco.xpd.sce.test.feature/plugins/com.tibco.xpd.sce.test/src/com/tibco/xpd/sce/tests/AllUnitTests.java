@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.cdm.transform.ConstraintsCdmTransformTest;
 import com.tibco.xpd.sce.tests.cdm.transform.SimpleCdmTransformTest;
 import com.tibco.xpd.sce.tests.cdm.transform.StructuredTypesCdmTransformTest;
@@ -53,6 +54,7 @@ public class AllUnitTests {
         suite.addTestSuite(NewCeProjectsTest.class);
         suite.addTestSuite(BpmProjectMustBeCeTest.class);
 
+        suite.addTestSuite(BRMGenUC2FTest.class);
 
 
         return suite;

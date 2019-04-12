@@ -67,6 +67,8 @@ public class Messages extends NLS {
 
     public static String BRMCompositeContributor_CreateingComponents_message;
 
+    public static String BrmModelsRascContributor_UserTaskModelExport_status;
+
     public static String WorkDataModelFolder_title;
 
     public static String ExportsFolder_title;
