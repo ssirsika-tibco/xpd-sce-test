@@ -147,6 +147,57 @@ public class Bpm2CeBomMigration implements IBOMMigration {
                                     PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
                                     0,
                                     property);
+
+                            /*
+                             * Move the old integer constraints to their decimal
+                             * equivalents
+                             */
+                            moveConstraint(property,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE,
+                                    decimalType);
+
+                            moveConstraint(property,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER,
+                                    decimalType);
+
+                            moveConstraint(property,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER,
+                                    decimalType);
+                        }
+
+                        /**
+                         * Move the srcConstraint to the tgtConstraint
+                         * 
+                         * @param property
+                         * @param srcConstraint
+                         * @param tgtConstraint
+                         * @param propertyType
+                         */
+                        private void moveConstraint(Property property,
+                                String srcConstraint, String tgtConstraint,
+                                PrimitiveType propertyType) {
+                            Object srcValue =
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            (PrimitiveType) property.getType(),
+                                            srcConstraint,
+                                            property);
+
+                            if (srcValue != null) {
+                                PrimitivesUtil.setFacetPropertyValue(
+                                        propertyType,
+                                        tgtConstraint,
+                                        srcValue,
+                                        property);
+
+                                PrimitivesUtil.setFacetPropertyValue(
+                                        propertyType,
+                                        srcConstraint,
+                                        null,
+                                        property);
+                            }
                         }
                     };
 
@@ -187,6 +238,54 @@ public class Bpm2CeBomMigration implements IBOMMigration {
                             PrimitivesUtil.setFacetPropertyValue(primitiveType,
                                     PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
                                     0);
+                            /*
+                             * Move the old integer constraints to their decimal
+                             * equivalents
+                             */
+                            moveConstraint(primitiveType,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE,
+                                    decimalType);
+
+                            moveConstraint(primitiveType,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER,
+                                    decimalType);
+
+                            moveConstraint(primitiveType,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER,
+                                    decimalType);
+                        }
+
+                        /**
+                         * Move the srcConstraint to the tgtConstraint
+                         * 
+                         * @param primitiveType
+                         * @param srcConstraint
+                         * @param tgtConstraint
+                         * @param decimalType
+                         */
+                        private void moveConstraint(PrimitiveType primitiveType,
+                                String srcConstraint,
+                                String tgtConstraint,
+                                PrimitiveType decimalType) {
+                            Object srcValue =
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            primitiveType,
+                                            srcConstraint);
+
+                            if (srcValue != null) {
+                                PrimitivesUtil.setFacetPropertyValue(
+                                        primitiveType,
+                                        tgtConstraint,
+                                        srcValue);
+
+                                PrimitivesUtil.setFacetPropertyValue(
+                                        primitiveType,
+                                        srcConstraint,
+                                        null);
+                            }
                         }
                     };
 

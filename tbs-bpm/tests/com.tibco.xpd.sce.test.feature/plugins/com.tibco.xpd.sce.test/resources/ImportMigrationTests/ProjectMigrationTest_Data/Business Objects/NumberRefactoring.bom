@@ -41,7 +41,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_txg8YlraEemv57AKFO26Pg" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_D4NjSVraEemv57AKFO26Pg" name="Copy_1_NumberAttributes1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_D4NjSVraEemv57AKFO26Pg" name="NumberAttributes2withconstraints">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_D4NjSlraEemv57AKFO26Pg" name="textAttribute" aggregation="composite">
         <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D4NjS1raEemv57AKFO26Pg"/>
@@ -106,6 +106,11 @@
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9yRDMFraEemv57AKFO26Pg" name="DecimalsFixedPoint2SubType">
       <generalization xmi:type="uml:Generalization" xmi:id="_gJqxMFrbEemv57AKFO26Pg" general="_jh2DYFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsFixedPoint2decimals?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_ugxj2F0DEemv57AKFO26Pg" name="MyIntegerPrimitiveWithConstraints">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ugxj2V0DEemv57AKFO26Pg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hwUKkFbYEemINopYpE9toA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hwXN4FbYEemINopYpE9toA" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -181,30 +186,30 @@
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_i1oM0lbYEemINopYpE9toA" gradStartColor="6356832" gradEndColor="16777215"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i1oM01bYEemINopYpE9toA" x="239" y="40" width="521" height="212"/>
     </children>
-    <children xmi:type="notation:Node" xmi:id="_D4NjMFraEemv57AKFO26Pg" type="1002" element="_D4NjSVraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1?">
+    <children xmi:type="notation:Node" xmi:id="_D4NjMFraEemv57AKFO26Pg" type="1002" element="_D4NjSVraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints?">
       <children xmi:type="notation:Node" xmi:id="_D4NjMVraEemv57AKFO26Pg" type="4003"/>
       <children xmi:type="notation:Node" xmi:id="_D4NjMlraEemv57AKFO26Pg" type="4004"/>
       <children xmi:type="notation:Node" xmi:id="_D4NjM1raEemv57AKFO26Pg" type="4005"/>
       <children xmi:type="notation:Node" xmi:id="_D4NjNFraEemv57AKFO26Pg" type="5002">
-        <children xmi:type="notation:Node" xmi:id="_D4NjNVraEemv57AKFO26Pg" type="2001" element="_D4NjSlraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3atextAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_D4NjNVraEemv57AKFO26Pg" type="2001" element="_D4NjSlraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3atextAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_D4NjNlraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_D4NjN1raEemv57AKFO26Pg" type="2001" element="_D4NjTVraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aintegerAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_D4NjN1raEemv57AKFO26Pg" type="2001" element="_D4NjTVraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aintegerAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_D4NjOFraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_D4NjOVraEemv57AKFO26Pg" type="2001" element="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointZeroAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_D4NjOVraEemv57AKFO26Pg" type="2001" element="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointZeroAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_D4NjOlraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_D4NjO1raEemv57AKFO26Pg" type="2001" element="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointFourAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_D4NjO1raEemv57AKFO26Pg" type="2001" element="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointFourAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_D4NjPFraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_D4NjPVraEemv57AKFO26Pg" type="2001" element="_D4NjVlraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFloatingPointAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_D4NjPVraEemv57AKFO26Pg" type="2001" element="_D4NjVlraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFloatingPointAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_D4NjPlraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_tPWDcFraEemv57AKFO26Pg" type="2001" element="_tPWqgFraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aprimitiveTypeDecimalsFloatingPointAttribute?">
+        <children xmi:type="notation:Node" xmi:id="_tPWDcFraEemv57AKFO26Pg" type="2001" element="_tPWqgFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aprimitiveTypeDecimalsFloatingPointAttribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_tPWDcVraEemv57AKFO26Pg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_xvo-1FraEemv57AKFO26Pg" type="2001" element="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?">
+        <children xmi:type="notation:Node" xmi:id="_xvo-1FraEemv57AKFO26Pg" type="2001" element="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_xvo-1VraEemv57AKFO26Pg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_D4NjP1raEemv57AKFO26Pg"/>
@@ -226,7 +231,7 @@
       <children xmi:type="notation:Node" xmi:id="_IoXfgFraEemv57AKFO26Pg" type="4008"/>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_IoUcMVraEemv57AKFO26Pg" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_IoUcMlraEemv57AKFO26Pg" gradStartColor="12632256" gradEndColor="16777215"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IoUcM1raEemv57AKFO26Pg" x="245" y="325"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IoUcM1raEemv57AKFO26Pg" x="110" y="285"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_MrSiYFraEemv57AKFO26Pg" type="1003" element="_MrKmkFraEemv57AKFO26Pg?com.example.bdp%3a%3aTextPrimitiveType?">
       <children xmi:type="notation:Node" xmi:id="_MrTJc1raEemv57AKFO26Pg" type="4006"/>
@@ -266,7 +271,7 @@
       <children xmi:type="notation:Node" xmi:id="_3L8PclraEemv57AKFO26Pg" type="4008"/>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_3L7oYVraEemv57AKFO26Pg" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_3L7oYlraEemv57AKFO26Pg" gradStartColor="12632256" gradEndColor="16777215"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3L7oY1raEemv57AKFO26Pg" x="920" y="334"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3L7oY1raEemv57AKFO26Pg" x="310" y="285"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_9yZmEFraEemv57AKFO26Pg" type="1003" element="_9yRDMFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsFixedPoint2SubType?">
       <children xmi:type="notation:Node" xmi:id="_9yZmFFraEemv57AKFO26Pg" type="4006"/>
@@ -275,6 +280,14 @@
       <styles xmi:type="notation:ShapeStyle" xmi:id="_9yZmEVraEemv57AKFO26Pg" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_9yZmElraEemv57AKFO26Pg" gradStartColor="12632256" gradEndColor="16777215"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9yZmE1raEemv57AKFO26Pg" x="920" y="430" width="219"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ugxj0V0DEemv57AKFO26Pg" type="1003" element="_ugxj2F0DEemv57AKFO26Pg?com.example.bdp%3a%3aMyIntegerPrimitiveWithConstraints?">
+      <children xmi:type="notation:Node" xmi:id="_ugxj0l0DEemv57AKFO26Pg" type="4006"/>
+      <children xmi:type="notation:Node" xmi:id="_ugxj010DEemv57AKFO26Pg" type="4007"/>
+      <children xmi:type="notation:Node" xmi:id="_ugxj1F0DEemv57AKFO26Pg" type="4008"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_ugxj1V0DEemv57AKFO26Pg" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_ugxj1l0DEemv57AKFO26Pg" gradStartColor="12632256" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ugxj110DEemv57AKFO26Pg" x="239" y="355"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_hQTNwVbYEemINopYpE9toA"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_hQTNwlbYEemINopYpE9toA"/>
@@ -287,14 +300,13 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_Wbdt4FrYEemv57AKFO26Pg" displayLabel="decimalsFloatingPointAttribute" base_NamedElement="_WbcfwFrYEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3adecimalsFloatingPointAttribute?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_fSJasFrYEemv57AKFO26Pg" decimalPlaces="0" decimalSubType="fixedPoint" base_Property="_Rvz3EFrYEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3adecimalsFixedPointZeroAttribute?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_3aqdYFrZEemv57AKFO26Pg" decimalSubType="fixedPoint" base_Property="_Tc4c4FrYEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3adecimalsFixedPointTwoAttribute?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8IFraEemv57AKFO26Pg" displayLabel="textAttribute" base_NamedElement="_D4NjSlraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3atextAttribute?"/>
-  <PrimitiveTypeFacets:RestrictedType xmi:id="_D4M8IVraEemv57AKFO26Pg" decimalPlaces="4" decimalSubType="fixedPoint" base_Property="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointFourAttribute?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8IlraEemv57AKFO26Pg" displayLabel="integerAttribute" base_NamedElement="_D4NjTVraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aintegerAttribute?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8I1raEemv57AKFO26Pg" displayLabel="decimals(FixedPoint)FourAttribute" base_NamedElement="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointFourAttribute?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8JFraEemv57AKFO26Pg" displayLabel="Number Attributes 2" base_NamedElement="_D4NjSVraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8JVraEemv57AKFO26Pg" displayLabel="decimals(FixedPoint)ZeroAttribute" base_NamedElement="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointZeroAttribute?"/>
-  <PrimitiveTypeFacets:RestrictedType xmi:id="_D4M8JlraEemv57AKFO26Pg" decimalPlaces="0" decimalSubType="fixedPoint" base_Property="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFixedPointZeroAttribute?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8J1raEemv57AKFO26Pg" displayLabel="decimalsFloatingPointAttribute" base_NamedElement="_D4NjVlraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3adecimalsFloatingPointAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8IFraEemv57AKFO26Pg" displayLabel="textAttribute" base_NamedElement="_D4NjSlraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3atextAttribute?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_D4M8IVraEemv57AKFO26Pg" decimalPlaces="4" decimalSubType="fixedPoint" base_Property="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointFourAttribute?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8IlraEemv57AKFO26Pg" displayLabel="integerAttribute" base_NamedElement="_D4NjTVraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aintegerAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8I1raEemv57AKFO26Pg" displayLabel="decimals(FixedPoint)FourAttribute" base_NamedElement="_D4NjU1raEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointFourAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8JFraEemv57AKFO26Pg" displayLabel="Number Attributes 2 (with constraints)" base_NamedElement="_D4NjSVraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8JVraEemv57AKFO26Pg" displayLabel="decimals(FixedPoint)ZeroAttribute" base_NamedElement="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointZeroAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D4M8J1raEemv57AKFO26Pg" displayLabel="decimalsFloatingPointAttribute" base_NamedElement="_D4NjVlraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFloatingPointAttribute?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_IoKrMFraEemv57AKFO26Pg" displayLabel="My Integer Primitive" base_NamedElement="_IoKEIFraEemv57AKFO26Pg?com.example.bdp%3a%3aMyIntegerPrimitive?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_MrKmkVraEemv57AKFO26Pg" displayLabel="Text Primitive Type" base_NamedElement="_MrKmkFraEemv57AKFO26Pg?com.example.bdp%3a%3aTextPrimitiveType?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_RJ6CwFraEemv57AKFO26Pg" displayLabel="Decimals (floating point) Primitive Type" base_NamedElement="_RJ5bsFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsfloatingpointPrimitiveType?"/>
@@ -303,11 +315,15 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_jh1cVFraEemv57AKFO26Pg" displayLabel="Decimals Fixed Point 2 decimals" base_NamedElement="_jh2DYFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsFixedPoint2decimals?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_jh1cVVraEemv57AKFO26Pg" decimalSubType="fixedPoint" base_PrimitiveType="_jh2DYFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsFixedPoint2decimals?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_nmN3wFraEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFloatingPointAttribute" base_NamedElement="_nmNQsFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3aprimitiveTypeDecimalsFloatingPointAttribute?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_tPVcYFraEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFloatingPointAttribute" base_NamedElement="_tPWqgFraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aprimitiveTypeDecimalsFloatingPointAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tPVcYFraEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFloatingPointAttribute" base_NamedElement="_tPWqgFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aprimitiveTypeDecimalsFloatingPointAttribute?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_txegIFraEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFixedPoint2Attribute" base_NamedElement="_txg8YFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_xBrsoFraEemv57AKFO26Pg" decimalSubType="fixedPoint" base_Property="_txg8YFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes1%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:RestrictedType xmi:id="_xvo-0lraEemv57AKFO26Pg" decimalSubType="fixedPoint" base_Property="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_xvo-01raEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFixedPoint2Attribute" base_NamedElement="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aCopy_1_NumberAttributes1%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_xvo-0lraEemv57AKFO26Pg" decimalSubType="fixedPoint" base_Property="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_xvo-01raEemv57AKFO26Pg" displayLabel="primitiveTypeDecimalsFixedPoint2Attribute" base_NamedElement="_xvpl4FraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aprimitiveTypeDecimalsFixedPoint2Attribute?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_3LzskVraEemv57AKFO26Pg" displayLabel="Integer Prim Type Sub Type" base_NamedElement="_3LzskFraEemv57AKFO26Pg?com.example.bdp%3a%3aIntegerPrimTypeSubType?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_9yRqQFraEemv57AKFO26Pg" displayLabel="Decimals Fixed Point 2 SubType" base_NamedElement="_9yRDMFraEemv57AKFO26Pg?com.example.bdp%3a%3aDecimalsFixedPoint2SubType?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h5uEEF0AEemv57AKFO26Pg" integerDefaultValue="123" integerUpper="999" integerLower="111" base_Property="_D4NjTVraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3aintegerAttribute?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_D4M8JlraEemv57AKFO26Pg" decimalUpper="888" decimalLower="222" decimalPlaces="0" decimalDefaultValue="321" decimalSubType="fixedPoint" base_Property="_D4NjUFraEemv57AKFO26Pg?com.example.bdp%3a%3aNumberAttributes2withconstraints%3a%3adecimalsFixedPointZeroAttribute?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ugxj0F0DEemv57AKFO26Pg" displayLabel="MyIntegerPrimitive with Constraints" base_NamedElement="_ugxj2F0DEemv57AKFO26Pg?com.example.bdp%3a%3aMyIntegerPrimitiveWithConstraints?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_1vNgcF0DEemv57AKFO26Pg" integerDefaultValue="123" integerUpper="999" integerLower="111" base_PrimitiveType="_ugxj2F0DEemv57AKFO26Pg?com.example.bdp%3a%3aMyIntegerPrimitiveWithConstraints?" booleanDefaultValue="false"/>
 </xmi:XMI>

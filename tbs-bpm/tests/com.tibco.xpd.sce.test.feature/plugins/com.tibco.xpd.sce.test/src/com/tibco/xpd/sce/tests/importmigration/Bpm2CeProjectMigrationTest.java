@@ -79,18 +79,13 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 import junit.framework.TestCase;
 
 /**
- * Test for DDP 2.a
- * (http://confluence.tibco.com/pages/viewpage.action?pageId=171031408)
+ * Test for All of DDP 2 (migration and conversion from AMX BPM proejcst to ACE
+ * projects (http://confluence.tibco.com/pages/viewpage.action?pageId=171031408)
  * 
- * Projects with XPD Nature should have all destinations removed and CE
- * destination added.
- *
  * @author aallway
  * @since 22 Mar 2019
  */
-public class Bpm2CeProjectConfigTest extends TestCase {
-
-    private static final String ParticipantSharedResource = null;
+public class Bpm2CeProjectMigrationTest extends TestCase {
 
     // @Test
     public void testOrgProjectMigration() {
@@ -157,10 +152,78 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                 assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
                         + property.getName()
                         + "' should have been converted to Decimal, FixedPoint with ZERO decimal places", //$NON-NLS-1$
-                        new Integer(0).equals(facetPropertyValue));
+                        facetPropertyValue != null
+                                && new Integer(0).equals(facetPropertyValue));
 
-            } else if (element instanceof PrimitiveType && "MyIntegerPrimitive" //$NON-NLS-1$
-                    .equals(((PrimitiveType) element).getName())) {
+                /*
+                 * In the 2nd class the integerAttribute has default values that
+                 * should have been carried over to the decimals equivalent.
+                 * (And should have had the integer constriants removed.
+                 */
+                if ("NumberAttributes2withconstraints" //$NON-NLS-1$
+                        .equals(property.getClass_().getName())) {
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have carried over it's integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
+                            "123".equals( //$NON-NLS-1$
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            (PrimitiveType) property.getType(),
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE,
+                                            property)));
+
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                            (PrimitiveType) property.getType(),
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE,
+                            property);
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
+                            "111".equals( //$NON-NLS-1$
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            (PrimitiveType) property.getType(),
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER,
+                                            property)));
+
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                            (PrimitiveType) property.getType(),
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER,
+                            property);
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have removed its integerLower", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
+                            "999".equals( //$NON-NLS-1$
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            (PrimitiveType) property.getType(),
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER,
+                                            property)));
+
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                            (PrimitiveType) property.getType(),
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER,
+                            property);
+                    assertTrue("Property '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + property.getName()
+                            + "' Should have removed its integerUpper", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                }
+
+            } else if (element instanceof PrimitiveType && ("MyIntegerPrimitive" //$NON-NLS-1$
+                    .equals(((PrimitiveType) element).getName())
+                    || "MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
+                            .equals(((PrimitiveType) element).getName()))) {
                 PrimitiveType primitiveType = (PrimitiveType) element;
 
                 assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
@@ -183,6 +246,66 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                         new Integer(0).equals(PrimitivesUtil
                                 .getFacetPropertyValue(primitiveType,
                                         PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES)));
+
+                /*
+                 * In the 2nd class the integerAttribute has default values that
+                 * should have been carried over to the decimals equivalent.
+                 * (And should have had the integer constriants removed.
+                 */
+                if ("MyIntegerPrimitiveWithConstraints" //$NON-NLS-1$
+                        .equals(primitiveType.getName())) {
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have carried over its integerDefaultValue as decimalDefaultValue (123)", //$NON-NLS-1$
+                            "123".equals(PrimitivesUtil //$NON-NLS-1$
+                                    .getFacetPropertyValue(primitiveType,
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_DEFAULT_VALUE)));
+
+                    Object facetPropertyValue =
+                            PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                                    primitiveType,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_DEFAULT_VALUE);
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have removed its integerDefaultValue", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have carried over its integerLower as decimalLower (111)", //$NON-NLS-1$
+                            "111".equals( //$NON-NLS-1$
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            primitiveType,
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER)));
+
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                            primitiveType,
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LOWER);
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have removed its integerLower", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have carried over its integerUpper as decimalUpper (999)", //$NON-NLS-1$
+                            "999".equals( //$NON-NLS-1$
+                                    PrimitivesUtil.getFacetPropertyValue(
+                                            primitiveType,
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER)));
+
+                    facetPropertyValue = PrimitivesUtil.getFacetPropertyValue( // $NON-NLS-1$
+                            primitiveType,
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_UPPER);
+                    assertTrue("PrimitiveType '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + primitiveType.getName()
+                            + "' Should have removed its integerUpper", //$NON-NLS-1$
+                            facetPropertyValue == null
+                                    || "".equals(facetPropertyValue)); //$NON-NLS-1$
+                }
+
             }
         }
 
@@ -712,8 +835,8 @@ public class Bpm2CeProjectConfigTest extends TestCase {
                                             XpdExtensionPackage.eINSTANCE
                                                     .getDocumentRoot_InitialValues()) == null);
 
-                        } 
-                        
+                        }
+
                         if (Xpdl2ModelUtil.getDisplayName(param)
                                 .contains("nteger")) { //$NON-NLS-1$
                             /*
