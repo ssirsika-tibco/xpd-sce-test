@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_a2wX0F0lEemv57AKFO26Pg" xpdExt:DisplayName="BrmRascTest2" Name="BrmRascTest2">
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_a2wX0F0lEemv57AKFO26Pg" xpdExt:DisplayName="BrmRascTest2" Name="BrmRascTest2">
   <xpdl2:PackageHeader xpdExt:Language="en_GB">
     <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
     <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
@@ -166,7 +166,7 @@
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_a2w-8F0lEemv57AKFO26Pg" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="BrmRascTest-Process2 - xpdl2" Name="BrmRascTestProcess2xpdl2">
@@ -248,17 +248,13 @@
         </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
-        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
-        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
-            <simulation:ParameterDistribution ParameterId="Parameter"/>
-            <simulation:ParameterDistribution ParameterId="Parameter2"/>
-          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
     </xpdl2:WorkflowProcess>
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>

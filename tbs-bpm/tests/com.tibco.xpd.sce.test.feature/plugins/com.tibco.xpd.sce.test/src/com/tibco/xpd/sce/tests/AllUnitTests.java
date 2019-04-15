@@ -11,6 +11,7 @@ import com.tibco.xpd.sce.tests.cdm.transform.StructuredTypesCdmTransformTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
@@ -35,6 +36,7 @@ public class AllUnitTests {
         suite.addTestSuite(OrgModelRascContributorTest.class);
         suite.addTestSuite(PERascContributorTest.class);
         suite.addTestSuite(CdmRascContributorTest.class);
+        suite.addTestSuite(BrmModelRascContributorTest.class);
 
         /*
          * BOM->CDM transformation

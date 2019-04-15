@@ -1,0 +1,281 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2004, 2014. All rights reserved.
+ */
+
+package com.tibco.xpd.sce.tests.rasc.contributors;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+
+import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
+import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.n2.brm.BrmModelsRascContributor;
+import com.tibco.xpd.rasc.core.RascContributor;
+import com.tibco.xpd.rasc.core.RascWriter;
+import com.tibco.xpd.resources.util.ProjectImporter;
+
+import junit.framework.TestCase;
+
+/**
+ * Test Org-Model RASC Contribution.
+ *
+ * @author pwatson
+ * @since 20 Mar 2019
+ */
+@SuppressWarnings("nls")
+public class BrmModelRascContributorTest extends TestCase {
+
+    /**
+     * Test that the hasContributionsFor and RASC generation contribution for
+     * BRM work model and work-type model work corectly.
+     * 
+     * @throws Exception
+     */
+    public void testProjectWithContributions() throws Exception {
+        String projectName = "BrmRascTestProject";
+
+        ProjectImporter projectImporter = importProject(projectName);
+
+        RascContributor fixture = new BrmModelsRascContributor();
+
+        IProject project =
+                ResourcesPlugin.getWorkspace().getRoot()
+                        .getProject(projectName);
+
+        assertTrue(projectName + " project should have BRM RASC contributions",
+                fixture.hasContributionsFor(project));
+
+        // create a mock writer to capture contributor's output
+        MockRascWriter writer = new MockRascWriter();
+
+        // call the contributor's process() method
+        fixture.process(project, null, writer);
+
+        // the two BRM artifacts should have been added to the writer
+        WriterContent wmArtifact = null;
+        WriterContent wtArtifact = null;
+        
+        List<WriterContent> artifacts = writer.getArtifacts();
+
+        for (WriterContent artifact : artifacts) {
+            if ("workModel.wm".equals(artifact.getArtifactName())) {
+                wmArtifact = artifact;
+            } else if ("workType.wt".equals(artifact.getArtifactName())) {
+                wtArtifact = artifact;
+            }
+        }
+
+        assertTrue(projectName
+                + " project should have a contributed workModel.wm artifact",
+                wmArtifact != null);
+        assertTrue(projectName
+                + " project should have a contributed workType.wt artifact",
+                wtArtifact != null);
+
+        // The work model should be delivered to the Work-Manager service
+        assertArrayEquals(projectName
+                + " project workModel.wm artifact should be targeted to the Work-manager micro-service",
+                new MicroService[] { MicroService.WM },
+                wmArtifact.getServices());
+
+        // The work type model should be delivered to the Work-Manager service
+        // ...
+        boolean foundWMService = false;
+        // TODO AND the Work-Presentation service
+        boolean foundWPService = false;
+
+        for (MicroService microService : wtArtifact.getServices()) {
+            if (MicroService.WM.equals(microService)) {
+                foundWMService = true;
+            }
+            // TODO AND the Work-Presentation service
+            // else if (MicroService.WP.equals(microService)) {
+            // foundWPService = true;
+            // }
+        }
+
+        assertTrue(projectName
+                + " project workType.wt artifact should be targeted to the Work-manager micro-service",
+                foundWMService);
+
+        // TODO AND the Work-Presentation service
+//        assertTrue(projectName
+//                + " project workType.wt artifact should be targeted to the Work-manager micro-service",
+//                foundWPService);
+
+        // some data was written to the artifacts
+        assertTrue(
+                projectName
+                        + " project workModel.wm artifact should have content",
+                wmArtifact.getContent().size() > 0);
+
+        assertTrue(
+                projectName
+                        + " project workType.wt artifact should have content",
+                wtArtifact.getContent().size() > 0);
+
+        projectImporter.performDelete();
+    }
+
+    /**
+     * Check that a process project with no user tasks doesn't claim to have
+     * contributions.
+     * 
+     * @throws Exception
+     */
+    public void testProjectWithoutContributions1() throws Exception {
+        String projectName = "BrmRascTestProjectWithoutContributions";
+
+        ProjectImporter projectImporter = importProject(projectName);
+
+        RascContributor fixture = new BrmModelsRascContributor();
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+
+        assertFalse(
+                projectName + " project should not have BRM RASC contributions",
+                fixture.hasContributionsFor(project));
+
+        projectImporter.performDelete();
+    }
+
+    /**
+     * Check that a data project doesn't claim to have contributions.
+     * 
+     * @throws Exception
+     */
+    public void testProjectWithoutContributions2() throws Exception {
+        String projectName = "BrmRascTestProjectWithoutContributions";
+
+        ProjectImporter projectImporter = importProject(projectName);
+
+        RascContributor fixture = new BrmModelsRascContributor();
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+
+        assertFalse(
+                projectName + " project should not have BRM RASC contributions",
+                fixture.hasContributionsFor(project));
+
+        projectImporter.performDelete();
+    }
+
+
+
+    /**
+     * Import the given project from test plugin resources.
+     * 
+     * @param projectName
+     * @return
+     */
+    private ProjectImporter importProject(String projectName) {
+        /*
+         * Import and mgirate the project
+         */
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip(
+                "com.tibco.xpd.sce.test", //$NON-NLS-1$
+                new String[] {
+                        "resources/BrmRascTest/" + projectName + "/" }, //$NON-NLS-1$ //$NON-NLS-2$
+                new String[] { projectName });
+
+        assertTrue(
+                "Failed to load projects from \"resources/BrmRascTest/" //$NON-NLS-1$
+                        + projectName + "\"", //$NON-NLS-1$
+                projectImporter != null);
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName); // $NON-NLS-1$
+        assertTrue(projectName + " project does not exist", //$NON-NLS-1$
+                project.isAccessible());
+        return projectImporter;
+    }
+
+
+    /**
+     * Used to capture the properties and content of an artifact written to the
+     * MockRascWriter.
+     */
+    private static class WriterContent {
+        private String resourcePath;
+
+        private MicroService[] services;
+
+        private ByteArrayOutputStream content;
+
+        private String internalName;
+
+        private String artifactName;
+
+        public WriterContent(String aResourcePath, String aArtifactName,
+                String aInternalName, MicroService[] aServices) {
+            resourcePath = aResourcePath;
+            artifactName = aArtifactName;
+            internalName = aInternalName;
+            services = aServices;
+            content = new ByteArrayOutputStream();
+        }
+
+        public String getArtifactName() {
+            return artifactName;
+        }
+
+        public String getInternalName() {
+            return internalName;
+        }
+
+        public String getFullPath() {
+            return resourcePath;
+        }
+
+        public MicroService[] getServices() {
+            return services;
+        }
+
+        public ByteArrayOutputStream getContent() {
+            return content;
+        }
+    }
+
+    /**
+     * A mock implementation of RascWriter to capture the properties and content
+     * of the artifacts written to the RASC by the RascContributor.
+     */
+    private static class MockRascWriter implements RascWriter {
+        final ArrayList<WriterContent> artifacts = new ArrayList<>();
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascWriter#addContent(java.lang.String,
+         *      com.tibco.bpm.dt.rasc.MicroService[])
+         */
+        @Override
+        public OutputStream addContent(String aName, String aArtifactName,
+                String aInternalName, MicroService[] aMicroServices)
+                throws RuntimeApplicationException, IOException {
+            WriterContent result = new WriterContent(aName, aArtifactName,
+                    aInternalName, aMicroServices);
+            artifacts.add(result);
+            return result.getContent();
+        }
+
+        /**
+         * Allows the test to retrieve the captured artifacts, in the order they
+         * were captured.
+         *
+         * @return the ordered collection of captured artifacts.
+         */
+        public List<WriterContent> getArtifacts() {
+            return artifacts;
+        }
+    }
+}
