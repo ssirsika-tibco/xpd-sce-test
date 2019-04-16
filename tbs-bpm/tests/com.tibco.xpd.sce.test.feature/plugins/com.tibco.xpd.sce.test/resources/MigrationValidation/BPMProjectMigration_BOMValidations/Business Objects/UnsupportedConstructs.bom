@@ -89,6 +89,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zsMSAWAzEemgPPDBEdhwDQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zsMSAmAzEemgPPDBEdhwDQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RoivAGBKEem0apsFwpSXJg" name="c2" type="_FPaRPmA0EemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aNoCaseStateEnumSetandnotmandatory?" association="_RodPcGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional?">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RoivAWBKEem0apsFwpSXJg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RojWEGBKEem0apsFwpSXJg" value="1"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_FPaRPmA0EemgPPDBEdhwDQ" name="NoCaseStateEnumSetandnotmandatory">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FPaRP2A0EemgPPDBEdhwDQ" name="textCaseId" aggregation="composite">
@@ -151,6 +155,12 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5ioZk2A2EemgPPDBEdhwDQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5ioZlGA2EemgPPDBEdhwDQ" value="1"/>
       </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RodPcGBKEem0apsFwpSXJg" name="Notbidirectional" memberEnd="_RogSwGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional%3a%3ac1? _RoivAGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNoCaseStateNonMandatoryCaseid%3a%3ac2?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RogSwGBKEem0apsFwpSXJg" name="c1" type="_han0kGAyEemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aNoCaseStateNonMandatoryCaseid?" association="_RodPcGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional?">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rohg4GBKEem0apsFwpSXJg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RoiH8GBKEem0apsFwpSXJg" value="1"/>
+      </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_p5xvBWAuEemjK7MhjOTqUg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_p5xvBmAuEemjK7MhjOTqUg" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -400,7 +410,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_FPaRO2A0EemgPPDBEdhwDQ" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_FPaRPGA0EemgPPDBEdhwDQ" gradStartColor="16096809" gradEndColor="16777215"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FPaRPWA0EemgPPDBEdhwDQ" x="975" y="470"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FPaRPWA0EemgPPDBEdhwDQ" x="1118" y="475"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_M6wWwGA1EemgPPDBEdhwDQ" type="1002" element="_M6i7YGA1EemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aUnsupportedSearchableAttribute?">
       <children xmi:type="notation:Node" xmi:id="_M6wWxGA1EemgPPDBEdhwDQ" type="4003"/>
@@ -504,6 +514,27 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FSS_U2AvEemjK7MhjOTqUg" points="[-4, -8, 13, 140]$[37, -89, 54, 59]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FSUNcGAvEemjK7MhjOTqUg" id="(0.37628865979381443,0.075)"/>
     </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_RpwP8GBKEem0apsFwpSXJg" type="3002" element="_RodPcGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional?" source="_hanNjGAyEemgPPDBEdhwDQ" target="_FPaRK2A0EemgPPDBEdhwDQ">
+      <children xmi:type="notation:Node" xmi:id="_RpzTQGBKEem0apsFwpSXJg" type="4010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RpzTQWBKEem0apsFwpSXJg" x="11" y="-28"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Rp0hYGBKEem0apsFwpSXJg" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Rp0hYWBKEem0apsFwpSXJg" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Rp1IcGBKEem0apsFwpSXJg" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Rp1IcWBKEem0apsFwpSXJg" y="15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Rp2WkGBKEem0apsFwpSXJg" type="4013">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Rp2WkWBKEem0apsFwpSXJg" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Rp3ksGBKEem0apsFwpSXJg" type="4014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Rp3ksWBKEem0apsFwpSXJg" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_RpwP8WBKEem0apsFwpSXJg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RpwP8mBKEem0apsFwpSXJg" fontName="Segoe UI" fontHeight="10"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RpwP82BKEem0apsFwpSXJg" points="[126, 12, -145, -13]$[272, 59, 1, 34]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RqLGsGBKEem0apsFwpSXJg" id="(0.2491349480968858,0.7166666666666667)"/>
+    </edges>
   </notation:Diagram>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_qsryomAuEemjK7MhjOTqUg" displayLabel="Enumeration1" base_NamedElement="_qsrLkGAuEemjK7MhjOTqUg?com.example.unsupportedconstructs%3a%3aEnumeration1?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_rS1zsGAuEemjK7MhjOTqUg" displayLabel="ENUMLIT1" base_NamedElement="_rS1MoGAuEemjK7MhjOTqUg?com.example.unsupportedconstructs%3a%3aEnumeration1%3a%3aENUMLIT1?"/>
@@ -568,4 +599,7 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_1n3NIGA2EemgPPDBEdhwDQ" displayLabel="GLobal classes can't have searchable attribs" base_NamedElement="_1n2mEGA2EemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aGLobalclassescanthavesearchableattribs?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_5inygmA2EemgPPDBEdhwDQ" displayLabel="searchable attribute6" base_NamedElement="_5ioZkmA2EemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aGLobalclassescanthavesearchableattribs%3a%3asearchableattribute6?"/>
   <BOMGlobalDataProfile:Searchable xmi:id="_5inyg2A2EemgPPDBEdhwDQ" Searchable="true" base_Property="_5ioZkmA2EemgPPDBEdhwDQ?com.example.unsupportedconstructs%3a%3aGLobalclassescanthavesearchableattribs%3a%3asearchableattribute6?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RonngGBKEem0apsFwpSXJg" displayLabel="c1" base_NamedElement="_RogSwGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional%3a%3ac1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RosgAGBKEem0apsFwpSXJg" displayLabel="c2" base_NamedElement="_RoivAGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNoCaseStateNonMandatoryCaseid%3a%3ac2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_TuRFYGBKEem0apsFwpSXJg" displayLabel="Not -bi-directional" base_NamedElement="_RodPcGBKEem0apsFwpSXJg?com.example.unsupportedconstructs%3a%3aNotbidirectional?"/>
 </xmi:XMI>
