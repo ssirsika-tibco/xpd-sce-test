@@ -17,7 +17,7 @@
       <provider
             id="com.tibco.xpd.n2.cds.validator"
             markerType="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
-            name="CDS"
+            name="CDS / ACE"
             scopeProvider="com.tibco.xpd.bom.validator.BOMScopeProvider">
 
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeDefaultValueRule"/>
@@ -31,8 +31,9 @@
          <rule class="com.tibco.bds.designtime.validator.rules.EmptyEnumerationRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.CDSEntityNameRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.NameClashCaseMismatchRule"/>
-         <rule class="com.tibco.bds.designtime.validator.rules.AttachmentPreventionRule: Property"/>
-         <rule class="com.tibco.bds.designtime.validator.rules.AttachmentPreventionRule: PrimitiveType"/>
+         
+         <!-- Sid ACE-470 "The Attachment type is not supported " superseded by AceSupportedBomTypesRule. -->
+         
          <rule
                class="com.tibco.bds.designtime.validator.rules.EnumerationValidationRule">
          </rule>
@@ -42,6 +43,21 @@
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.AssociationGlobalDataRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.SubPackageRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.MandatorySelfContainmentRule"/>
+     <rule
+           class="com.tibco.bds.designtime.validator.ace.rules.AceSupportedBomTypesRule">
+     </rule>
+     <rule
+           class="com.tibco.bds.designtime.validator.ace.rules.AceConstraintConfigurationRules">
+     </rule>
+     <rule
+           class="com.tibco.bds.designtime.validator.ace.rules.AceEnumerationRules">
+     </rule>
+     <rule
+           class="com.tibco.bds.designtime.validator.ace.rules.AceBomClassRules">
+     </rule>
+     <rule
+           class="com.tibco.bds.designtime.validator.ace.rules.AceCaseClassRules">
+     </rule>
       </provider>
       <issue 
       		id="bom.cds.name.clash.getternoun.class.issue"
@@ -79,14 +95,7 @@
                id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
          </resolution>
       </issue>
-      <issue
-            id="bom.cds.attachmenttype.attribute"
-            message="%cds.attachmenttype.attribute"
-            severity="ERROR"/>
-      <issue
-            id="bom.cds.attachmenttype.primitivetype"
-            message="%cds.attachmenttype.primitivetype"
-            severity="ERROR"/>
+	  <!-- Sid ACE-470 "The Attachment type is not supported " superseded by AceSupportedBomTypesRule. -->
       <issue
             id="bom.cds.name.clash.classifier.ignorecase.issue"
             message="%cds.name.clash.classifier.ignorecase.issue.message"
@@ -410,12 +419,92 @@
        <issue id="bom.cds.attribute.global.association.selfreference.issue"
       		message = "%cds.attribute.global.association.selfreference.issue"
       		severity="ERROR"/>
-       <issue id="bom.cds.global.subpackage.issue"
-      		message = "%cds.global.subpackage.issue"
+       <issue id="ace.bom.subpackage.issue"
+      		message = "%ace.bom.subpackage.issue"
       		severity="ERROR"/>
        <issue id="bom.cds.mandatory.self.contained.issue"
       		message = "%cds.mandatory.self.contained.issue"
       		severity="ERROR"/>
+       <issue
+             id="ace.bom.illegal.property.type"
+             message="%ace.bom.illegal.property.type"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.illegal.primitive.type"
+             message="%ace.bom.illegal.primitive.type"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.number.property.max.length"
+             message="%ace.bom.number.property.max.length"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.number.primitive.max.length"
+             message="%ace.bom.number.primitive.max.length"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.enumeration.superclass"
+             message="%ace.bom.enumeration.superclass"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.class.superclass"
+             message="%ace.bom.class.superclass"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.class.operation"
+             message="%ace.bom.class.operation"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.composite.caseid"
+             message="%ace.bom.composite.caseid"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.case.must.have.casestate"
+             message="%ace.bom.case.must.have.casestate"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.casestate.must.have.enum"
+             message="%ace.bom.casestate.must.have.enum"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.casestate.must.be.mandatory.nonarray"
+             message="%ace.bom.casestate.must.be.mandatory.nonarray"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.caseid.must.be.mandatory.nonarray"
+             message="%ace.bom.caseid.must.be.mandatory.nonarray"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.case.must.have.caseid"
+             message="%ace.bom.case.must.have.caseid"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.max.5.searchable"
+             message="%ace.bom.max.5.searchable"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.searchable.in.case.only"
+             message="%ace.bom.searchable.in.case.only"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.searchable.must.be.nonarray"
+             message="%ace.bom.searchable.must.be.nonarray"
+             severity="ERROR">
+       </issue>
    </extension>
    
    <!-- ============ DESTINATIONS ========================================== -->

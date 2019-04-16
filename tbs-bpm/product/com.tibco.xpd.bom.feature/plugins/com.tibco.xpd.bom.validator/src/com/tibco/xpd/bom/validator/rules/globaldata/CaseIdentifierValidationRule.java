@@ -10,7 +10,6 @@ import java.util.List;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
-import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -23,11 +22,12 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class CaseIdentifierValidationRule implements IValidationRule {
 
-    private static final String ISSUE_AUTOCID_MULTIPLICITY_INVALID =
-            "auto.cid.invalid.multiplicity.issue"; //$NON-NLS-1$
 
-    private static final String ISSUE_CID_MULTIPLICITY_INVALID =
-            "cid.invalid.multiplicity.issue"; //$NON-NLS-1$
+
+    /*
+     * Sid ACE-470 cid.invalid.multiplicity.issue.message removed in favour of
+     * ACE specific rules.
+     */
 
     @Override
     public Class<?> getTargetClass() {
@@ -54,11 +54,12 @@ public class CaseIdentifierValidationRule implements IValidationRule {
                  * otherwise
                  */
                 if (!(prop.getUpper() == 1 && prop.getLower() == 0)) {
-                    additionalMessages.add(prop.getName());
-                    scope.createIssue(ISSUE_AUTOCID_MULTIPLICITY_INVALID,
-                            BOMValidationUtil.getLocation(prop),
-                            prop.eResource()
-                            .getURIFragment(prop), additionalMessages);
+                    /*
+                     * Sid ACE-470 cid.invalid.multiplicity.issue.message /
+                     * auto.cid.invalid.multiplicity.issue.message removed in
+                     * favour of ACE specific rules
+                     */
+
                 }
             } else if (GlobalDataProfileManager.getInstance().isCID(prop)
                     || GlobalDataProfileManager.getInstance()
@@ -68,11 +69,11 @@ public class CaseIdentifierValidationRule implements IValidationRule {
                  * multiplicity is not 1.
                  */
                 if (!(prop.getUpper() == 1 && prop.getLower() == 1)) {
-                    additionalMessages.add(prop.getName());
-                    scope.createIssue(ISSUE_CID_MULTIPLICITY_INVALID,
-                            BOMValidationUtil.getLocation(prop),
-                            prop.eResource()
-                            .getURIFragment(prop), additionalMessages);
+
+                    /*
+                     * Sid ACE-470 cid.invalid.multiplicity.issue.message
+                     * removed in favour of ACE specific rules.
+                     */
                 }
             }
         }

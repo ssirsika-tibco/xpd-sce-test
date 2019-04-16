@@ -25,8 +25,10 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class CaseStateValidationRule implements IValidationRule {
 
-    private static final String ISSUE_CASESTATE_MULTIPLICITY_INVALID =
-            "casestate.invalid.multiplicity.issue"; //$NON-NLS-1$
+    /*
+     * Sid ACE-470 casestate.invalid.multiplicity.issue.message removed in
+     * favour of ACE specific rules.
+     */
 
     private static final String ISSUE_CASESTATE_TYPE_INVALID =
             "casestate.invalid.type.issue"; //$NON-NLS-1$
@@ -58,11 +60,12 @@ public class CaseStateValidationRule implements IValidationRule {
                 // Make sure the case state has max multiplicity of 1
                 // so can be either 0..1 or 1..1
                 if ((prop.getUpper() > 1) || (prop.getUpper() == -1)) {
-                    additionalMessages.add(prop.getName());
-                    scope.createIssue(ISSUE_CASESTATE_MULTIPLICITY_INVALID,
-                            BOMValidationUtil.getLocation(prop),
-                            prop.eResource().getURIFragment(prop),
-                            additionalMessages);
+
+                    /*
+                     * Sid ACE-470 casestate.invalid.multiplicity.issue.message
+                     * removed in favour of ACE specific rules.
+                     */
+
                 }
                 // Make sure the type is an enumeration, if there is no type set
                 // for the property, there will already be a validation marker

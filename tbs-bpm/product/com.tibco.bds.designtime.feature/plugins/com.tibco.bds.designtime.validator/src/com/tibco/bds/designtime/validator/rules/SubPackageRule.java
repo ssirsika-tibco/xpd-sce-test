@@ -4,13 +4,12 @@ import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Package;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
-import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
 /**
- * Check that Sub-Packages are not used in BOMs that contain Global Data
+ * Check that Sub-Packages are not used in BOMs
  *
  */
 public class SubPackageRule implements IValidationRule {
@@ -40,12 +39,13 @@ public class SubPackageRule implements IValidationRule {
         if ((obj instanceof Package) && (!(obj instanceof Model))) {
             Package pkg = (Package) obj;
 
-            // Need to check to see if this BOM contains Global Data
-            if (BOMGlobalDataUtils.hasGlobalDataElements(pkg.getModel())) {
-                scope.createIssue(CDSIssueIds.GLOBAL_SUBPACKAGE,
-                        BOMValidationUtil.getLocation(pkg),
-                        pkg.eResource().getURIFragment(pkg));
-            }
+            /*
+             * Sid ACE-470 - sub-packages are never supported in ace regardless
+             * of the presence of case/global classes or not.
+             */
+            scope.createIssue(CDSIssueIds.GLOBAL_SUBPACKAGE,
+                    BOMValidationUtil.getLocation(pkg),
+                    pkg.eResource().getURIFragment(pkg));
         }
     }
 }

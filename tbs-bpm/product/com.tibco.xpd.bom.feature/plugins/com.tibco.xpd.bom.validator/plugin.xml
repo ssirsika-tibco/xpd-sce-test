@@ -206,18 +206,12 @@
             id="model.tag.invalid.length.issue"
             message="%model.tag.invalid.length.issue.message"
             severity="ERROR"/>
-   	 <issue
-           id="auto.cid.invalid.multiplicity.issue"
-           message="%auto.cid.invalid.multiplicity.issue.message"
-           severity="ERROR"/>
-     <issue
-           id="cid.invalid.multiplicity.issue"
-           message="%cid.invalid.multiplicity.issue.message"
-           severity="ERROR"/>
-     <issue
-           id="casestate.invalid.multiplicity.issue"
-           message="%casestate.invalid.multiplicity.issue.message"
-           severity="ERROR"/>
+
+	<!-- Sid ACE-470 cid.invalid.multiplicity.issue.message / auto.cid.invalid.multiplicity.issue.message removed in favour of ACE specific rules. -->
+
+	<!-- Sid ACE-470 casestate.invalid.multiplicity.issue.message removed in favour of ACE specific rules. -->
+	
+
      <issue
            id="casestate.invalid.type.issue"
            message="%casestate.invalid.type.issue.message"
@@ -419,11 +413,9 @@
             message="%globaldataBOM.attribute.caseidentifier.typerestriction.issue.message"
             severity="ERROR">
       </issue>
-      <issue
-            id="bom.globaldata.class.caseidentifier.required.issue"
-            message="%globaldataBOM.class.case.caseidentifier.required.issue"
-            severity="ERROR">
-      </issue>
+
+	  <!-- Sid ACE-470 globaldataBOM.class.case.caseidentifier.required.issue replaced by new ace specific, tighter issue. -->
+
       <issue
             id="bom.globaldata.class.local.caseidentifier.restricted.issue"
             message="%globaldataBOM.class.local.caseidentifier.restricted.issue"
@@ -461,11 +453,9 @@
             message="%globaldataBOM.class.case.compositecaseidentifier.multiplicity.issue"
             severity="ERROR">
       </issue>      
-      <issue
-            id="bom.globaldata.class.local.searchable.restricted.issue"
-            message="%globaldataBOM.class.local.searchable.restricted.issue"
-            severity="ERROR">
-      </issue>
+      
+      <!-- Sid ACE-470 globaldataBOM.class.local.searchable.restricted.issue removed in favour of ACE specific rule. -->
+
       <issue
             id="bom.globaldata.attribute.searchable.typerestriction.issue"
             message="%globaldataBOM.attribute.searchable.typerestriction.issue"
@@ -627,18 +617,7 @@
             id="brokenReference.issue"
             label="%resolution.label.restoreReference">
       </resolution>
-      
-      <!-- Global Data-->      
-      <resolution
-            class="com.tibco.xpd.bom.validator.resolution.globaldata.SetCaseIDMultiplicityResolution"
-            id="auto.cid.invalid.multiplicity.issue"
-            label="%auto.cid.invalid.multiplicity.resolution.message">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.bom.validator.resolution.globaldata.SetCaseIDMultiplicityResolution"
-            id="cid.invalid.multiplicity.issue"
-            label="%cid.invalid.multiplicity.resolution.message">
-      </resolution>
+
    </extension>
 
    <!-- ============ REUSABLE RESOLUTIONS ================================== -->

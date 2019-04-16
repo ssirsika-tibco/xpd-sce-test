@@ -19,8 +19,11 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class CaseIdAttributeRequiredRule implements IValidationRule {
 
-    private static final String ISSUE_ID =
-            "bom.globaldata.class.caseidentifier.required.issue"; //$NON-NLS-1$
+    /*
+     * Sid ACE-470 globaldataBOM.class.case.caseidentifier.required.issue
+     * replaced by new ace specific, tighter issue.
+     */
+
 
     private static final String COMPOSITE_SINGLE_ISSUE_ID =
             "bom.globaldata.class.case.compositecaseidentifier.single.issue"; //$NON-NLS-1$
@@ -53,10 +56,12 @@ public class CaseIdAttributeRequiredRule implements IValidationRule {
 
             // Check if there is a case ID for this class
             if (!hasCaseIdentifier(gdClass, scope)) {
-                scope.createIssue(ISSUE_ID,
-                        BOMValidationUtil.getLocation(gdClass),
-                        gdClass
-                        .eResource().getURIFragment(gdClass));
+                /*
+                 * Sid ACE-470
+                 * globaldataBOM.class.case.caseidentifier.required.issue
+                 * replaced by new ace specific, tighter issue.
+                 */
+
             }
         }
     }

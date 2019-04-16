@@ -1,7 +1,6 @@
 package com.tibco.xpd.bom.validator.rules.globaldata;
 
 import java.util.Collections;
-import java.util.Iterator;
 
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
@@ -20,8 +19,10 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class SearchableRestrictionRule implements IValidationRule {
 
-    private final String ISSUE_ID =
-            "bom.globaldata.class.local.searchable.restricted.issue"; //$NON-NLS-1$
+    /*
+     * Sid ACE-470 globaldataBOM.class.local.searchable.restricted.issue removed
+     * in favour of ACE specific rule.
+     */
 
     private final String ISSUE_ID_UNSUPPORTED_TYPE =
             "bom.globaldata.attribute.searchable.typerestriction.issue"; //$NON-NLS-1$
@@ -39,24 +40,11 @@ public class SearchableRestrictionRule implements IValidationRule {
                 GlobalDataProfileManager.getInstance();
 
         if (gdManager.isLocal(clazz)) {
-            boolean searchablePresent = false;
+            /*
+             * Sid ACE-470 globaldataBOM.class.local.searchable.restricted.issue
+             * removed in favour of ACE specific rule.
+             */
 
-            for (Iterator<Property> it = clazz.getOwnedAttributes().iterator(); it
-                    .hasNext() && !searchablePresent;) {
-                Property prop = it.next();
-                boolean isCaseIdentifier =
-                        gdManager.isCID(prop)
-                                || gdManager.isAutoCaseIdentifier(prop);
-                searchablePresent =
-                        gdManager.isSearchable(prop) && !isCaseIdentifier;
-            }
-
-            if (searchablePresent) {
-                scope.createIssue(ISSUE_ID,
-                        BOMValidationUtil.getLocation(clazz),
-                        clazz
-                        .eResource().getURIFragment(clazz));
-            }
         } else {
             // Now check all of the search-able attributes to make sure that
             // none of them are of type class, as you cannot have a Class, Case

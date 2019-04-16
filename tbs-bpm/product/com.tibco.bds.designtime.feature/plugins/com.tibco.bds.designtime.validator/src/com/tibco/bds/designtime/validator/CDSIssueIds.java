@@ -77,11 +77,10 @@ public interface CDSIssueIds {
     public static final String NAME_ILLEGAL_PACKAGE_RESERVED_WORDS =
             "bom.cds.name.invalid.package.reservedwords.issue"; //$NON-NLS-1$
 
-    public static final String ATTACHMENTTYPE_ATTRIBUTE =
-            "bom.cds.attachmenttype.attribute"; //$NON-NLS-1$
-
-    public static final String ATTACHMENTTYPE_PRIMITIVETYPE =
-            "bom.cds.attachmenttype.primitivetype"; //$NON-NLS-1$
+    /*
+     * Sid ACE-470 "The Attachment type is not supported " superseded by
+     * AceSupportedBomTypesRule.
+     */
 
     public static final String NAME_CLASH_GETTER_NOUN_CLASS =
             "bom.cds.name.clash.getternoun.class.issue"; //$NON-NLS-1$
@@ -129,7 +128,7 @@ public interface CDSIssueIds {
             "bom.cds.attribute.global.association.selfreference.issue"; //$NON-NLS-1$
 
     public static final String GLOBAL_SUBPACKAGE =
-            "bom.cds.global.subpackage.issue"; //$NON-NLS-1$
+            "ace.bom.subpackage.issue"; //$NON-NLS-1$
 
     public static final String UNSUPPORTED_SERVICE_ONLY_BOM =
             "bom.cds.unsupported.service.only.bom.issue"; //$NON-NLS-1$
