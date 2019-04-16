@@ -21,6 +21,7 @@ import com.tibco.xpd.bom.modeler.custom.enumlitext.SingleValue;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.bom.resources.ui.internal.calendar.BOMDateUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.ui.components.calendar.DateType;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
@@ -486,7 +487,7 @@ public class EnumerationValidationRule implements IValidationRule {
             String... params) {
         createIssue(scope,
                 enumeration,
-                PrimitivesUtil.getDisplayLabel(enumeration),
+                BOMValidationUtil.getLocation(enumeration),
                 issue_id,
                 params);
     }

@@ -7,18 +7,20 @@ import java.util.Set;
 
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.NamedElement;
 
 import com.tibco.xpd.bom.validator.GenericIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
 public class EnumLitNameDuplicateRule implements IValidationRule {
 
+    @Override
     public Class<?> getTargetClass() {
         return org.eclipse.uml2.uml.Enumeration.class;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public void validate(IValidationScope scope, Object o) {
         if (o instanceof Enumeration) {
@@ -38,7 +40,9 @@ public class EnumLitNameDuplicateRule implements IValidationRule {
 
             if (!duplicateLits.isEmpty()) {
                 for (EnumerationLiteral enLit : duplicateLits) {
-                    createIssues(scope, enLit.getName(), ownedLits);
+                    createIssues(scope,
+                            BOMValidationUtil.getLocation(enLit),
+                            ownedLits);
                 }
             }
         }
@@ -62,7 +66,8 @@ public class EnumLitNameDuplicateRule implements IValidationRule {
         for (EnumerationLiteral enLit : ownedLits) {
             if (enLit.getName().equals(name)) {                
                 scope.createIssue(GenericIssueIds.ENUMLIT_NAME_DUPLICATE,
-                        enLit.getName(), enLit.eResource()
+                        BOMValidationUtil.getLocation(enLit),
+                        enLit.eResource()
                                 .getURIFragment(enLit), additionalMessages);
             }
         }

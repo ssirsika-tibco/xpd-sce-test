@@ -29,6 +29,7 @@ import com.tibco.xpd.bom.resources.utils.DependencyAnalyzer;
 import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
 import com.tibco.xpd.bom.validator.GenericIssueIds;
 import com.tibco.xpd.bom.validator.rules.BOMValidationRule;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.validation.provider.IValidationScope;
@@ -186,7 +187,7 @@ public class CyclicDependencyRule extends BOMValidationRule {
         if (targetPkg != null && !targetPkg.equals(tmpPkg)) {
             if (isReferencingPackage(targetPkg, tmpPkg)) {
                 createIssue(scope,
-                        tmpPkg.getName(),
+                        BOMValidationUtil.getLocation(tmpPkg),
                         resource.getURIFragment(tmpPkg));
                 return true;
             }

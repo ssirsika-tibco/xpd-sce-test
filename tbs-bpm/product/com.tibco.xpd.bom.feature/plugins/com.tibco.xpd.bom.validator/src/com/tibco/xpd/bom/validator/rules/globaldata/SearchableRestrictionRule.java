@@ -8,6 +8,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -51,7 +52,9 @@ public class SearchableRestrictionRule implements IValidationRule {
             }
 
             if (searchablePresent) {
-                scope.createIssue(ISSUE_ID, clazz.eClass().getName(), clazz
+                scope.createIssue(ISSUE_ID,
+                        BOMValidationUtil.getLocation(clazz),
+                        clazz
                         .eResource().getURIFragment(clazz));
             }
         } else {
@@ -65,7 +68,7 @@ public class SearchableRestrictionRule implements IValidationRule {
                         String displayName =
                                 PrimitivesUtil.getDisplayLabel(type);
                         scope.createIssue(ISSUE_ID_UNSUPPORTED_TYPE,
-                                clazz.eClass().getName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 property.eResource().getURIFragment(property),
                                 Collections.singletonList(displayName));
                     }

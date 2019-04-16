@@ -40,6 +40,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
      * 
      * @return
      */
+    @Override
     public Class<?> getTargetClass() {
         return Property.class;
     }
@@ -51,6 +52,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
      * @param scope
      * @param o
      */
+    @Override
     public void validate(IValidationScope scope, Object o) {
 
         // Only handle UML Property types as they are attributes in the BOM
@@ -98,7 +100,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
         if (upperCaseAttribName.endsWith("_IDX")
                 || upperCaseAttribName.endsWith("_BDSID")) {
             scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_DB_CLASH_ENDING,
-                    prop.getQualifiedName(),
+                    BOMValidationUtil.getLocation(prop),
                     prop.eResource().getURIFragment(prop));
         }
 
@@ -119,7 +121,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
         if (attribName.length() > MAX_ATTRIBUTE_NAME_SIZE) {
             String strSize = Integer.toString(MAX_ATTRIBUTE_NAME_SIZE);
             scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_NAME_SIZE,
-                    prop.getQualifiedName(),
+                    BOMValidationUtil.getLocation(prop),
                     prop.eResource().getURIFragment(prop),
                     Collections.singleton(strSize));
         }
@@ -148,7 +150,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
         // Make sure Objects are not used as attribute types
         if (PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME.equals(primType.getName())) {
             scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_OBJECT,
-                    prop.getQualifiedName(),
+                    BOMValidationUtil.getLocation(prop),
                     prop.eResource().getURIFragment(prop));
         }
 
@@ -157,7 +159,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
         if (isSearchable) {
             if (PrimitivesUtil.BOM_PRIMITIVE_ID_NAME.equals(primType.getName())) {
                 scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NOT_SEARCHABLE,
-                        prop.getQualifiedName(),
+                        BOMValidationUtil.getLocation(prop),
                         prop.eResource().getURIFragment(prop));
             }
         }
@@ -169,7 +171,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
             String typeName = primType.getName();
             if (!PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME.equals(typeName)) {
                 scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NOT_AUTO_CID,
-                        prop.getQualifiedName(),
+                        BOMValidationUtil.getLocation(prop),
                         prop.eResource().getURIFragment(prop));
             }
         } else if (isCID) {
@@ -192,7 +194,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
                         || typeName
                                 .equals(PrimitivesUtil.BOM_PRIMITIVE_ID_NAME)) {
                     scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NOT_CID,
-                            prop.getQualifiedName(),
+                            BOMValidationUtil.getLocation(prop),
                             prop.eResource().getURIFragment(prop));
                 }
             }
@@ -227,7 +229,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
                         String strLength =
                                 Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
                         scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
-                                prop.getQualifiedName(),
+                                BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 Collections.singleton(strLength));
                     }
@@ -264,7 +266,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
                         String strLength =
                                 Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION);
                         scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH,
-                                prop.getQualifiedName(),
+                                BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 Collections.singleton(strLength));
                     }
@@ -290,7 +292,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
                         String strLength =
                                 Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MINIMUM_STRING_LENGTH);
                         scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_SEARCHABLE_LENGTH,
-                                prop.getQualifiedName(),
+                                BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 Collections.singleton(strLength));
                     }
@@ -356,7 +358,7 @@ public class AttributeGlobalDataRule implements IValidationRule {
             // Need to mark all clashes
             for (Property property : matchedProps) {
                 scope.createIssue(CDSIssueIds.NAME_CLASH_PROPERTY_IGNORECASE,
-                        property.getQualifiedName(),
+                        BOMValidationUtil.getLocation(property),
                         property.eResource().getURIFragment(property),
                         Collections.singleton(property.getName()));
             }

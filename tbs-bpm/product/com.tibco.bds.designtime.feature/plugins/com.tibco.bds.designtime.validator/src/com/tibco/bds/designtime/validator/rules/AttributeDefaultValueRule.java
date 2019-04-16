@@ -6,6 +6,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -67,7 +68,7 @@ public class AttributeDefaultValueRule implements IValidationRule {
                             if ((p.getLower() == 1) && (p.getUpper() == 1)) {
                                 scope.createIssue(
                                         CDSIssueIds.RESTRICTION_VALUE_ATTRIBUTE_DEFAULT,
-                                        p.getQualifiedName(),
+                                        BOMValidationUtil.getLocation(p),
                                         p.eResource().getURIFragment(p));
                             }
                         }
@@ -77,7 +78,7 @@ public class AttributeDefaultValueRule implements IValidationRule {
                             scope.createIssue(checkedType
                                     ? CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT_FROM_TYPE
                                     : CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT,
-                                    p.getQualifiedName(),
+                                    BOMValidationUtil.getLocation(p),
                                     p.eResource().getURIFragment(p));
 
                         } else if (p.getLower() == 0) {
@@ -87,7 +88,7 @@ public class AttributeDefaultValueRule implements IValidationRule {
                             scope.createIssue(checkedType
                                     ? CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT_FROM_TYPE
                                     : CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT,
-                                    p.getQualifiedName(),
+                                    BOMValidationUtil.getLocation(p),
                                     p.eResource().getURIFragment(p));
                         }
                     }

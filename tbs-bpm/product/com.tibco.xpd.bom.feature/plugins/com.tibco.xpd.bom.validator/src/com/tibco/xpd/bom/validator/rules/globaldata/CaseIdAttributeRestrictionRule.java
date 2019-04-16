@@ -9,6 +9,7 @@ import java.util.Iterator;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -69,7 +70,9 @@ public class CaseIdAttributeRestrictionRule implements IValidationRule {
                 String issue_id =
                         gdManager.isGlobal(clazz) ? GLOBAL_ISSUE_ID
                                 : LOCAL_ISSUE_ID;
-                scope.createIssue(issue_id, clazz.eClass().getName(), clazz
+                scope.createIssue(issue_id,
+                        BOMValidationUtil.getLocation(clazz),
+                        clazz
                         .eResource().getURIFragment(clazz));
             } else if (gdManager.isCase(clazz)) {
                 // If this class is a Case class then we need to ensure that it
@@ -81,8 +84,9 @@ public class CaseIdAttributeRestrictionRule implements IValidationRule {
                 // (Oracle) will not allow more than a single null due to the
                 // unique constraint
                 if (!clazz.getGenerals().isEmpty()) {
-                    scope.createIssue(GENERALIZATION_ISSUE_ID, clazz.eClass()
-                            .getName(), clazz.eResource().getURIFragment(clazz));
+                    scope.createIssue(GENERALIZATION_ISSUE_ID,
+                            BOMValidationUtil.getLocation(clazz),
+                            clazz.eResource().getURIFragment(clazz));
                 }
             }
         }

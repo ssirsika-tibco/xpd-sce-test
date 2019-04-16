@@ -16,6 +16,7 @@ import org.eclipse.uml2.uml.Association;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.validator.internal.Messages;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 
 /**
@@ -124,7 +125,7 @@ public class AssociationEndsRule extends BaseAssociationEndsRule {
 
             if (msgParams != null && msgParams.length == 4) {
                 scope.createIssue(ISSUE_ID,
-                        association.eClass().getName(),
+                        BOMValidationUtil.getLocation(association),
                         association.eResource().getURIFragment(association),
                         Arrays.asList(msgParams));
             }
@@ -197,7 +198,7 @@ public class AssociationEndsRule extends BaseAssociationEndsRule {
 
             if (issueID != null) {
                 scope.createIssue(issueID,
-                        association.eClass().getName(),
+                        BOMValidationUtil.getLocation(association),
                         association.eResource().getURIFragment(association),
                         Arrays.asList(msgParams));
             }

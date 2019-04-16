@@ -5,16 +5,15 @@
 package com.tibco.xpd.bom.validator.rules.generic;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.ParameterDirectionKind;
 
 import com.tibco.xpd.bom.validator.GenericIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -25,10 +24,12 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class OperationParametersDuplicateRule implements IValidationRule {
 
+    @Override
     public Class<?> getTargetClass() {
         return Operation.class;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public void validate(IValidationScope scope, Object o) {
         if (o instanceof Operation) {
@@ -42,7 +43,8 @@ public class OperationParametersDuplicateRule implements IValidationRule {
                     if (!checkDuplicates) {
                         scope.createIssue(
                                 GenericIssueIds.OPERATION_DUPLICATE_PARAMETERS,
-                                operation.getName(), operation.eResource()
+                                BOMValidationUtil.getLocation(operation),
+                                operation.eResource()
                                         .getURIFragment(operation));
                         return;
                     }

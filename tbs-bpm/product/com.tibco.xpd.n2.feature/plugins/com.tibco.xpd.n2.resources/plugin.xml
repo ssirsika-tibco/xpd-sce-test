@@ -12,17 +12,30 @@
             globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
             name="%n2GlobalDestination_label_notrans">
       </defaultGlobalDestination>
+
+      <!-- Sid ACE-470 Reinstated BOM CDS validation component because all the rules for BOM names not 
+      	clashing with JavaScript names, valid name characters etc are there. 
+      	PLUS we will be generating JavaScript classes for BOM class handling, so makes sense for them to remain. -->
+      <globalDestinationComponent
+            globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
+            id="com.tibco.xpd.bom.cds.globalDestinationComponent"
+            name="Generate CDS From BOM Component"
+            visible="false">
+      </globalDestinationComponent>
+
       <globalDestinationComponent
             globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
             id="com.tibco.xpd.process.cds.globalDestinationComponent"
             name="Validate process use of CDS related data"
             visible="false">
       </globalDestinationComponent>
+
       <defaultGlobalDestinationComponent
             globalDestinationComponentId="com.tibco.xpd.bom.cds.globalDestinationComponent"
             name="%n2GlobalDestination_label_notrans"
             validationDestinationId="bom.cds.destination">
       </defaultGlobalDestinationComponent>
+
        <defaultGlobalDestinationComponent
             globalDestinationComponentId="com.tibco.xpd.process.cds.globalDestinationComponent"
             name="%n2GlobalDestination_label_notrans"

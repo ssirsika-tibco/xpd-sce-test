@@ -7,6 +7,7 @@ import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -52,7 +53,9 @@ public class CaseIdAttributeRequiredRule implements IValidationRule {
 
             // Check if there is a case ID for this class
             if (!hasCaseIdentifier(gdClass, scope)) {
-                scope.createIssue(ISSUE_ID, gdClass.eClass().getName(), gdClass
+                scope.createIssue(ISSUE_ID,
+                        BOMValidationUtil.getLocation(gdClass),
+                        gdClass
                         .eResource().getURIFragment(gdClass));
             }
         }
@@ -85,14 +88,16 @@ public class CaseIdAttributeRequiredRule implements IValidationRule {
         // Check the case where only a single composite ID has been
         // specified in a class (need min of 2)
         if (numCompIds == 1) {
-            scope.createIssue(COMPOSITE_SINGLE_ISSUE_ID, gdClass.eClass()
-                    .getName(), gdClass.eResource().getURIFragment(gdClass));
+            scope.createIssue(COMPOSITE_SINGLE_ISSUE_ID,
+                    BOMValidationUtil.getLocation(gdClass),
+                    gdClass.eResource().getURIFragment(gdClass));
         }
         if ((compIdsExist == true) && (numCompIds > 0)) {
             // Already have a composite ID in this hierarchy so can not have
             // another
-            scope.createIssue(COMPOSITE_MULTIPLE_ISSUE_ID, gdClass.eClass()
-                    .getName(), gdClass.eResource().getURIFragment(gdClass));
+            scope.createIssue(COMPOSITE_MULTIPLE_ISSUE_ID,
+                    BOMValidationUtil.getLocation(gdClass),
+                    gdClass.eResource().getURIFragment(gdClass));
         }
         if( numCompIds > 0 ) {
             compIdsExist = true;

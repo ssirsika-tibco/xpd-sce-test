@@ -29,6 +29,7 @@ import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.internal.IAdditionalInfoMarkerKeys;
 import com.tibco.xpd.bom.validator.internal.Messages;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
@@ -156,7 +157,7 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
                                 String displayName =
                                         PrimitivesUtil.getDisplayLabel(prop);
                                 scope.createIssue(INTERBOM_ENUMERATION_ISSUE_ID,
-                                        prop.eClass().getName(),
+                                        BOMValidationUtil.getLocation(prop),
                                         prop.eResource().getURIFragment(prop),
                                         Collections.singletonList(displayName));
                             } else {
@@ -169,7 +170,7 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
                                             PrimitivesUtil
                                                     .getDisplayLabel(prop);
                                     scope.createIssue(INTERBOM_ENUMERATION_BDPNONBDP_ISSUE_ID,
-                                            prop.eClass().getName(),
+                                            BOMValidationUtil.getLocation(prop),
                                             prop.eResource()
                                                     .getURIFragment(prop),
                                             Collections
@@ -206,7 +207,7 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
                                             PrimitivesUtil
                                                     .getDisplayLabel(prop);
                                     scope.createIssue(INTERBOM_PRIMITIVE_TYPE_ISSUE_ID,
-                                            prop.eClass().getName(),
+                                            BOMValidationUtil.getLocation(prop),
                                             prop.eResource()
                                                     .getURIFragment(prop),
                                             Collections
@@ -223,7 +224,8 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
                                                 PrimitivesUtil
                                                         .getDisplayLabel(prop);
                                         scope.createIssue(INTERBOM_PRIMITIVE_TYPE_BDPNONBDP_ISSUE_ID,
-                                                prop.eClass().getName(),
+                                                BOMValidationUtil
+                                                        .getLocation(prop),
                                                 prop.eResource()
                                                         .getURIFragment(prop),
                                                 Collections
@@ -309,7 +311,7 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
             paramList.add(compositeOwnedAttribute.getName());
 
             scope.createIssue(INTRABOM_UNIDIRECTIONAL_ISSUE_ID,
-                    whole.eClass().getName(),
+                    BOMValidationUtil.getLocation(whole),
                     whole.eResource().getURIFragment(compositeOwnedAttribute),
                     paramList,
                     additionalInfo);
@@ -401,7 +403,7 @@ public class AttributeClassTypeReferenceRule implements IValidationRule {
                             : INTERBOM_UNIDIRECTIONAL_ISSUE_ID;
 
             scope.createIssue(issueId,
-                    whole.eClass().getName(),
+                    BOMValidationUtil.getLocation(whole),
                     whole.eResource().getURIFragment(compositeOwnedAttribute),
                     paramList,
                     additionalInfo);

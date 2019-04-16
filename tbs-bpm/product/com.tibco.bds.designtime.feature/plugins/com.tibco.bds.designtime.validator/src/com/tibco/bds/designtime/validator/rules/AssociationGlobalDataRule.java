@@ -10,6 +10,7 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bds.designtime.validator.CDSIssueIds;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -24,6 +25,7 @@ public class AssociationGlobalDataRule implements IValidationRule {
      * 
      * @return
      */
+    @Override
     public Class<?> getTargetClass() {
         return Association.class;
     }
@@ -35,6 +37,7 @@ public class AssociationGlobalDataRule implements IValidationRule {
      * @param scope
      * @param o
      */
+    @Override
     public void validate(IValidationScope scope, Object o) {
 
         if (o instanceof Association) {
@@ -50,7 +53,7 @@ public class AssociationGlobalDataRule implements IValidationRule {
                     Model model = association.getModel();
                     if (BOMGlobalDataUtils.isGlobalDataBOM(model)) {
                         scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_ASSOCIATION_BIDIRECTIONAL,
-                                association.getQualifiedName(),
+                                BOMValidationUtil.getLocation(association),
                                 association.eResource()
                                         .getURIFragment(association));
                         return;
@@ -72,7 +75,7 @@ public class AssociationGlobalDataRule implements IValidationRule {
                                 && ((BOMGlobalDataUtils.isCaseClass(class_) || BOMGlobalDataUtils
                                         .isGlobalClass(class_)))) {
                             scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_ASSOCIATION_MANDATORY,
-                                    association.getQualifiedName(),
+                                    BOMValidationUtil.getLocation(association),
                                     association.eResource()
                                             .getURIFragment(association));
                             return; // Only want one error
@@ -96,7 +99,7 @@ public class AssociationGlobalDataRule implements IValidationRule {
                         // Just check one as we know they are the same
                         if (BOMGlobalDataUtils.isCaseClass(class1)) {
                             scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_ASSOCIATION_SELFREFERENCE,
-                                    association.getQualifiedName(),
+                                    BOMValidationUtil.getLocation(association),
                                     association.eResource()
                                             .getURIFragment(association));
                         }

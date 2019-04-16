@@ -10,11 +10,14 @@ import java.util.Map;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.Package;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.BOMProfileUtils;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.indexer.IndexerItem;
@@ -41,7 +44,49 @@ public class BOMValidationUtil {
      * @return
      */
     public static String getLocation(NamedElement element) {
-        return element.eClass().getName();
+        if (element == null) {
+            return "[?]"; //$NON-NLS-1$
+        }
+        /*
+         * Sid ACE-470 - used to just list the name of the type of the named
+         * element ("Class", "Property" etc) which was always just about as
+         * useful as an ashtray on a motorbike to users. So now we'll try and
+         * use the human readable label, if not then the name, if not then the
+         * object type name.
+         */
+        String pkgName = null;
+
+        Package pkg = (element.eContainer() instanceof Element)
+                ? ((Element) element.eContainer()).getNearestPackage()
+                : null;
+        if (pkg != null) {
+            pkgName = getBaseLocation(pkg);
+        } 
+
+        String name = getBaseLocation(element);
+
+        if (pkgName != null) {
+            return String.format("%1$s (%2$s)", name, pkgName); //$NON-NLS-1$
+        }
+        
+        return name;
+
+    }
+
+    /**
+     * @param element
+     * @return the base location name (without appending package name
+     */
+    private static String getBaseLocation(NamedElement element) {
+        String name = PrimitivesUtil.getDisplayLabel(element, true);
+        if (name == null || name.isEmpty()) {
+            name = element.getName();
+        }
+
+        if (name == null || name.isEmpty()) {
+            name = element.eClass().getName();
+        }
+        return name;
     }
 
     /**

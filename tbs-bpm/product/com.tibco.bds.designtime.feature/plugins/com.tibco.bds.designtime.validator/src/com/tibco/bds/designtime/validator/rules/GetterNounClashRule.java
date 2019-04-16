@@ -18,6 +18,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -59,6 +60,7 @@ public class GetterNounClashRule implements IValidationRule,
         return result;
     }
 
+    @Override
     public void setInitializationData(IConfigurationElement config,
             String propertyName, Object data) throws CoreException {
         if (data instanceof String) {
@@ -156,7 +158,7 @@ public class GetterNounClashRule implements IValidationRule,
                                         CDSIssueIds.NAME_CLASH_GETTER_NOUN_PRIMITIVETYPE;
                             }
                             scope.createIssue(issueId,
-                                    elem.getQualifiedName(),
+                                    BOMValidationUtil.getLocation(elem),
                                     elem.eResource().getURIFragment(elem),
                                     Collections.singleton(clashElement
                                             .getName()));
@@ -173,7 +175,8 @@ public class GetterNounClashRule implements IValidationRule,
                             if (!sameClass) {
                                 scope
                                         .createIssue(CDSIssueIds.NAME_CLASH_GETTER_NOUN_PROPERTY,
-                                                elem.getQualifiedName(),
+                                                BOMValidationUtil
+                                                        .getLocation(elem),
                                                 elem.eResource()
                                                         .getURIFragment(elem),
                                                 Arrays

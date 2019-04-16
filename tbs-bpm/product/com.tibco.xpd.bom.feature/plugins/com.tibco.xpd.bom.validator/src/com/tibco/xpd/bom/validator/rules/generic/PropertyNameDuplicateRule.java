@@ -12,9 +12,9 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.NamedElement;
-import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.validator.GenericIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -28,10 +28,12 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class PropertyNameDuplicateRule implements IValidationRule {
 
+    @Override
     public Class<?> getTargetClass() {
         return org.eclipse.uml2.uml.Class.class;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public void validate(IValidationScope scope, Object o) {
         if (o instanceof org.eclipse.uml2.uml.Class && !(o instanceof AssociationClass)) {
@@ -51,7 +53,9 @@ public class PropertyNameDuplicateRule implements IValidationRule {
 
             if (!duplicateAttributes.isEmpty()) {
                 for (NamedElement attribute : duplicateAttributes) {
-                    createIssues(scope, attribute.getName(), ownedAttributes);
+                    createIssues(scope,
+                            BOMValidationUtil.getLocation(attribute),
+                            ownedAttributes);
                 }
             }
         }
@@ -76,7 +80,8 @@ public class PropertyNameDuplicateRule implements IValidationRule {
         for (NamedElement attribute : ownedAttributes) {
             if (attribute.getName().equals(name)) {
                 scope.createIssue(GenericIssueIds.PROPERTY_NAME_DUPLICATE,
-                        attribute.getName(), attribute.eResource()
+                        BOMValidationUtil.getLocation(attribute),
+                        attribute.eResource()
                                 .getURIFragment(attribute), additionalMessages);
             }
         }

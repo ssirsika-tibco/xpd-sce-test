@@ -15,6 +15,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -36,6 +37,7 @@ public class CaseStateValidationRule implements IValidationRule {
     private static final String ISSUE_CASESTATE_MULTIPLE_INVALID =
             "casestate.invalid.multiple.issue"; //$NON-NLS-1$
 
+    @Override
     public Class<?> getTargetClass() {
         return Property.class;
     }
@@ -58,7 +60,7 @@ public class CaseStateValidationRule implements IValidationRule {
                 if ((prop.getUpper() > 1) || (prop.getUpper() == -1)) {
                     additionalMessages.add(prop.getName());
                     scope.createIssue(ISSUE_CASESTATE_MULTIPLICITY_INVALID,
-                            prop.eClass().getName(),
+                            BOMValidationUtil.getLocation(prop),
                             prop.eResource().getURIFragment(prop),
                             additionalMessages);
                 }
@@ -78,7 +80,7 @@ public class CaseStateValidationRule implements IValidationRule {
                                         .equals(primType.getName())) {
                                     additionalMessages.add(prop.getName());
                                     scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
-                                            prop.eClass().getName(),
+                                            BOMValidationUtil.getLocation(prop),
                                             prop.eResource()
                                                     .getURIFragment(prop),
                                             additionalMessages);
@@ -87,8 +89,9 @@ public class CaseStateValidationRule implements IValidationRule {
                         }
                     } else {
                         additionalMessages.add(prop.getName());
-                        scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID, prop
-                                .eClass().getName(), prop.eResource()
+                        scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
+                                BOMValidationUtil.getLocation(prop),
+                                prop.eResource()
                                 .getURIFragment(prop), additionalMessages);
                     }
                 }
@@ -100,7 +103,7 @@ public class CaseStateValidationRule implements IValidationRule {
                     if (!GlobalDataProfileManager.getInstance().isCase(clazz)) {
                         additionalMessages.add(prop.getName());
                         scope.createIssue(ISSUE_CASESTATE_CONTAINING_CLASS_INVALID,
-                                prop.eClass().getName(),
+                                BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 additionalMessages);
                     }
@@ -125,7 +128,8 @@ public class CaseStateValidationRule implements IValidationRule {
                         for (Property caseStateProp : caseStates) {
                             additionalMessages.add(caseStateProp.getName());
                             scope.createIssue(ISSUE_CASESTATE_MULTIPLE_INVALID,
-                                    caseStateProp.eClass().getName(),
+                                    BOMValidationUtil
+                                            .getLocation(caseStateProp),
                                     caseStateProp.eResource()
                                             .getURIFragment(prop),
                                     additionalMessages);

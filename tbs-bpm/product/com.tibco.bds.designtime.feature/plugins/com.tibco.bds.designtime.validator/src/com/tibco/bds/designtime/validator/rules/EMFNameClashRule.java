@@ -15,6 +15,7 @@ import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Package;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -144,7 +145,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                 String ifaceName = clazz.getName();
                 if (nam.contains(ifaceName.toLowerCase())) {
                     scope.createIssue(CDSIssueIds.NAME_CLASH_UTILITY,
-                            clazz.getQualifiedName(),
+                            BOMValidationUtil.getLocation(clazz),
                             clazz.eResource().getURIFragment(clazz),
                             Arrays.asList(new String[] { ifaceName,
                                     superPkg.getQualifiedName() }));
@@ -168,7 +169,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                     // Check for clash with factory class implementation
                     if (ifaceName.equalsIgnoreCase(factoryInterfaceName)) {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_FACTORY,
-                                clazz.getQualifiedName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Arrays.asList(new String[] { ifaceName,
                                         pkg.getQualifiedName() }));
@@ -177,7 +178,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                     // Check for clash with factory class implementation
                     if (ifaceName.equalsIgnoreCase(packageInterfaceName)) {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_PACKAGE,
-                                clazz.getQualifiedName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Arrays.asList(new String[] { ifaceName,
                                         pkg.getQualifiedName() }));
@@ -227,7 +228,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                 if (ifaceName != null) {
                     if (impls.keySet().contains(ifaceName.toLowerCase())) {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_CLASS,
-                                clazz.getQualifiedName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Arrays.asList(new String[] { ifaceName,
                                         impls.get(ifaceName.toLowerCase())
@@ -237,7 +238,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                     // Check for clash with factory class implementation
                     if (ifaceName.equalsIgnoreCase(factoryImplClassName)) {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_FACTORY_IMPL,
-                                clazz.getQualifiedName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Arrays.asList(new String[] { ifaceName,
                                         superPkg.getQualifiedName() }));
@@ -246,7 +247,7 @@ public class EMFNameClashRule implements IValidationRule, IExecutableExtension {
                     // Check for clash with factory class implementation
                     if (ifaceName.equalsIgnoreCase(packageImplClassName)) {
                         scope.createIssue(CDSIssueIds.NAME_CLASH_PACKAGE_IMPL,
-                                clazz.getQualifiedName(),
+                                BOMValidationUtil.getLocation(clazz),
                                 clazz.eResource().getURIFragment(clazz),
                                 Arrays.asList(new String[] { ifaceName,
                                         superPkg.getQualifiedName() }));

@@ -24,6 +24,7 @@ import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.validator.internal.Messages;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
@@ -266,7 +267,7 @@ public class GeneralizationEndsRule implements IValidationRule {
                             : mutationSolution.issueID;
 
             scope.createIssue(issueID,
-                    subClass.eClass().getName(),
+                    BOMValidationUtil.getLocation(subClass),
                     subClass.eResource().getURIFragment(subClass),
                     Arrays.asList(msgParams),
                     getAdditionalInfo(mutationSolution, generalization));

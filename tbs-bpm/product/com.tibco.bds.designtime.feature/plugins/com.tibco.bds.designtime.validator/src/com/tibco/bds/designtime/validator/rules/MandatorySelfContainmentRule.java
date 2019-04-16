@@ -8,6 +8,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -23,6 +24,7 @@ public class MandatorySelfContainmentRule implements IValidationRule {
      * 
      * @return
      */
+    @Override
     public Class<?> getTargetClass() {
         return org.eclipse.uml2.uml.Class.class;
     }
@@ -34,6 +36,7 @@ public class MandatorySelfContainmentRule implements IValidationRule {
      * @param scope
      * @param o
      */
+    @Override
     public void validate(IValidationScope scope, Object o) {
 
         if (o instanceof org.eclipse.uml2.uml.Class) {
@@ -47,7 +50,7 @@ public class MandatorySelfContainmentRule implements IValidationRule {
             // mandatory loop
             if (getMandatoryLinkedCompositionClasses(rootClass, compareTo)) {
                 scope.createIssue(CDSIssueIds.MANDATORY_SELF_CONTAINED,
-                        rootClass.getQualifiedName(),
+                        BOMValidationUtil.getLocation(rootClass),
                         rootClass.eResource().getURIFragment(rootClass));
             }
         }

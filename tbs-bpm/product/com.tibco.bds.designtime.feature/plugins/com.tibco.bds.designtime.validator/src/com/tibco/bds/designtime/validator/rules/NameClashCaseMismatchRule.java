@@ -11,6 +11,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -25,6 +26,7 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class NameClashCaseMismatchRule implements IValidationRule {
 
+    @Override
     public Class<?> getTargetClass() {
         return NamedElement.class;
     }
@@ -34,6 +36,7 @@ public class NameClashCaseMismatchRule implements IValidationRule {
                 || o instanceof Enumeration || o instanceof PrimitiveType);
     }
 
+    @Override
     public void validate(IValidationScope scope, Object o) {
         if (isAffectedClassifier(o)) {
             Classifier clazz = (Classifier) o;
@@ -63,7 +66,7 @@ public class NameClashCaseMismatchRule implements IValidationRule {
                 }
                 if (clash) {
                     scope.createIssue(CDSIssueIds.NAME_CLASH_CLASSIFIER_IGNORECASE,
-                            clazz.getQualifiedName(),
+                            BOMValidationUtil.getLocation(clazz),
                             clazz.eResource().getURIFragment(clazz),
                             Collections.singleton(clazz.getName()));
 
@@ -92,7 +95,7 @@ public class NameClashCaseMismatchRule implements IValidationRule {
                 }
                 if (clash) {
                     scope.createIssue(CDSIssueIds.NAME_CLASH_PROPERTY_IGNORECASE,
-                            prop.getQualifiedName(),
+                            BOMValidationUtil.getLocation(prop),
                             prop.eResource().getURIFragment(prop),
                             Collections.singleton(prop.getName()));
                 }

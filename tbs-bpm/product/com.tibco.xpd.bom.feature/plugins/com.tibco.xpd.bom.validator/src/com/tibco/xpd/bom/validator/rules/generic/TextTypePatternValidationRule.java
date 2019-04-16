@@ -25,6 +25,7 @@ import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.TypedElement;
 
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
@@ -79,6 +80,7 @@ public class TextTypePatternValidationRule implements IValidationRule,
      * com.tibco.xpd.validation.rules.IValidationRule#validate(com.tibco.xpd
      * .validation.provider.IValidationScope, java.lang.Object)
      */
+    @Override
     public void validate(IValidationScope scope, Object obj) {
         if (scope != null && obj instanceof NamedElement) {
             NamedElement target = (NamedElement) obj;
@@ -133,8 +135,9 @@ public class TextTypePatternValidationRule implements IValidationRule,
                 params.add(e.getLocalizedMessage());
                 params.add(String.valueOf(e.getLocation()));
 
-                scope.createIssue(PATTERN_XML_REGEX_ISSUE_ID, target
-                        .getQualifiedName(), target.eResource()
+                scope.createIssue(PATTERN_XML_REGEX_ISSUE_ID,
+                        BOMValidationUtil.getLocation(target),
+                        target.eResource()
                         .getURIFragment(target), params);
 
                 return;
@@ -190,6 +193,7 @@ public class TextTypePatternValidationRule implements IValidationRule,
      * 
      * @see com.tibco.xpd.validation.rules.IValidationRule#getTargetClass()
      */
+    @Override
     public Class<?> getTargetClass() {
         if (option != null) {
             switch (option) {
@@ -210,6 +214,7 @@ public class TextTypePatternValidationRule implements IValidationRule,
      * .eclipse.core.runtime.IConfigurationElement, java.lang.String,
      * java.lang.Object)
      */
+    @Override
     public void setInitializationData(IConfigurationElement config,
             String propertyName, Object data) throws CoreException {
         if (data instanceof String) {

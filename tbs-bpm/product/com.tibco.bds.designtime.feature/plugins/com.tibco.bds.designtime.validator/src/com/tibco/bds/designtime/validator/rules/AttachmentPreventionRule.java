@@ -10,6 +10,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bds.designtime.validator.CDSIssueIds;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
@@ -40,6 +41,7 @@ public class AttachmentPreventionRule implements IValidationRule,
                         PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME);
     }
 
+    @Override
     public Class<?> getTargetClass() {
         Class<?> result = null;
         if (option != null) {
@@ -55,13 +57,15 @@ public class AttachmentPreventionRule implements IValidationRule,
         return result;
     }
     
+    @Override
     public void validate(IValidationScope scope, Object o) {
         if (o instanceof Property) {
             Property prop = (Property) o;
             Type propType = prop.getType();
             if (propType != null && propType.equals(attachmentType)) {
-                scope.createIssue(CDSIssueIds.ATTACHMENTTYPE_ATTRIBUTE, prop
-                        .getQualifiedName(), prop.eResource()
+                scope.createIssue(CDSIssueIds.ATTACHMENTTYPE_ATTRIBUTE,
+                        BOMValidationUtil.getLocation(prop),
+                        prop.eResource()
                         .getURIFragment(prop));
             }
         } else if (o instanceof PrimitiveType) {
@@ -69,14 +73,16 @@ public class AttachmentPreventionRule implements IValidationRule,
             // Check its ultimate super-type isn't Attachment
             Type baseType = PrimitivesUtil.getBasePrimitiveType(pt);
             if (baseType.equals(attachmentType)) {
-                scope.createIssue(CDSIssueIds.ATTACHMENTTYPE_PRIMITIVETYPE, pt
-                        .getQualifiedName(), pt.eResource().getURIFragment(pt));
+                scope.createIssue(CDSIssueIds.ATTACHMENTTYPE_PRIMITIVETYPE,
+                        BOMValidationUtil.getLocation(pt),
+                        pt.eResource().getURIFragment(pt));
 
             }
 
         }
     }
 
+    @Override
     public void setInitializationData(IConfigurationElement config,
             String propertyName, Object data) throws CoreException {
         if (data instanceof String) {

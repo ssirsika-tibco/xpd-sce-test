@@ -10,6 +10,7 @@ import java.util.List;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -28,6 +29,7 @@ public class CaseIdentifierValidationRule implements IValidationRule {
     private static final String ISSUE_CID_MULTIPLICITY_INVALID =
             "cid.invalid.multiplicity.issue"; //$NON-NLS-1$
 
+    @Override
     public Class<?> getTargetClass() {
         return Property.class;
     }
@@ -53,8 +55,9 @@ public class CaseIdentifierValidationRule implements IValidationRule {
                  */
                 if (!(prop.getUpper() == 1 && prop.getLower() == 0)) {
                     additionalMessages.add(prop.getName());
-                    scope.createIssue(ISSUE_AUTOCID_MULTIPLICITY_INVALID, prop
-                            .eClass().getName(), prop.eResource()
+                    scope.createIssue(ISSUE_AUTOCID_MULTIPLICITY_INVALID,
+                            BOMValidationUtil.getLocation(prop),
+                            prop.eResource()
                             .getURIFragment(prop), additionalMessages);
                 }
             } else if (GlobalDataProfileManager.getInstance().isCID(prop)
@@ -66,8 +69,9 @@ public class CaseIdentifierValidationRule implements IValidationRule {
                  */
                 if (!(prop.getUpper() == 1 && prop.getLower() == 1)) {
                     additionalMessages.add(prop.getName());
-                    scope.createIssue(ISSUE_CID_MULTIPLICITY_INVALID, prop
-                            .eClass().getName(), prop.eResource()
+                    scope.createIssue(ISSUE_CID_MULTIPLICITY_INVALID,
+                            BOMValidationUtil.getLocation(prop),
+                            prop.eResource()
                             .getURIFragment(prop), additionalMessages);
                 }
             }

@@ -11,6 +11,7 @@ import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -71,7 +72,7 @@ public class CaseIdTypeRestrictionRule implements IValidationRule {
                     String displayName =
                             PrimitivesUtil.getDisplayLabel(propertyType);
                     scope.createIssue(ISSUE_ID,
-                            prop.eClass().getName(),
+                            BOMValidationUtil.getLocation(prop),
                             prop.eResource().getURIFragment(prop),
                             Collections.singletonList(displayName));
                 } else {

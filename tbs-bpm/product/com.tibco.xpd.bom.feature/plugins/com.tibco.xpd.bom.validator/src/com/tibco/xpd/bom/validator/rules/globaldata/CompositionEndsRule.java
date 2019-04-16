@@ -21,9 +21,10 @@ import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
-import com.tibco.xpd.bom.validator.internal.Messages;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
+import com.tibco.xpd.bom.validator.internal.Messages;
+import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 
 /**
@@ -100,7 +101,7 @@ public class CompositionEndsRule extends BaseAssociationEndsRule {
             for (Property ownedEnd : association.getOwnedEnds()) {
                 if ((ownedEnd.getUpper() > 1) || (ownedEnd.getUpper() == -1)) {
                     scope.createIssue(ISSUE_ID_UNSUPPORTED_MULTIPLICITY,
-                            association.getQualifiedName(),
+                            BOMValidationUtil.getLocation(association),
                             association.eResource().getURIFragment(association));
                 }
             }
@@ -177,7 +178,7 @@ public class CompositionEndsRule extends BaseAssociationEndsRule {
                 if (classifier != null) {
 
                     scope.createIssue(INTRABOM_ISSUE_ID,
-                            classifier.eClass().getName(),
+                            BOMValidationUtil.getLocation(classifier),
                             classifier.eResource().getURIFragment(classifier),
                             Arrays.asList(msgParams),
                             additionalInfo);
@@ -253,7 +254,7 @@ public class CompositionEndsRule extends BaseAssociationEndsRule {
                             : mutationSolution.issueID;
 
             scope.createIssue(issueID,
-                    association.eClass().getName(),
+                    BOMValidationUtil.getLocation(association),
                     association.eResource().getURIFragment(association),
                     Arrays.asList(msgParams),
                     getAdditionalInfo(mutationSolution, association));
@@ -271,7 +272,7 @@ public class CompositionEndsRule extends BaseAssociationEndsRule {
     protected void doBidirectionalValidation(Association association,
             IValidationScope scope) {
         scope.createIssue(ISSUE_ID_UNSUPPORTED_BIDIRECTIONAL,
-                association.eClass().getName(),
+                BOMValidationUtil.getLocation(association),
                 association.eResource().getURIFragment(association));
     }
 
