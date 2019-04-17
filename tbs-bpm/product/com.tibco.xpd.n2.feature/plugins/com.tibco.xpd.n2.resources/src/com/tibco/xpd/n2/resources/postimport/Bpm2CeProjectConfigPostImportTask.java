@@ -184,7 +184,7 @@ public class Bpm2CeProjectConfigPostImportTask
             List<String> unwantedTypes = Arrays.asList("compositeModulesOutput", //$NON-NLS-1$
                     "bom2xsd", //$NON-NLS-1$
                     "deModulesOutput", //$NON-NLS-1$
-                    "daaBinFolder"//$NON-NLS-1$
+                    "daaBinFolder" //$NON-NLS-1$
             );
 
             SpecialFolders specialFolders = projectConfig.getSpecialFolders();
@@ -411,6 +411,9 @@ public class Bpm2CeProjectConfigPostImportTask
 
                 if ("com.tibco.xpd.asset.wsdl".equals(asset.getId())) { //$NON-NLS-1$
                     iterator.remove();
+                } else if ("com.tibco.xpd.asset.decisions" //$NON-NLS-1$
+                        .equals(asset.getId())) {
+                    iterator.remove();
                 }
             }
 
@@ -455,6 +458,7 @@ public class Bpm2CeProjectConfigPostImportTask
             naturesList.remove("com.tibco.xpd.bom.xsdtransform.xsdNature"); //$NON-NLS-1$
             naturesList.remove("com.tibco.xpd.wsdlgen.wsdlGenNature"); //$NON-NLS-1$
             naturesList.remove("com.tibco.xpd.n2.daa.cleanBpmFolderNature"); //$NON-NLS-1$
+            naturesList.remove("com.tibco.xpd.decisions.resources.ui.beNature"); //$NON-NLS-1$
 
             /* Reset nature list. */
             String[] newNatures =
@@ -484,7 +488,16 @@ public class Bpm2CeProjectConfigPostImportTask
                 } else if ("com.tibco.xpd.wsdlgen.wsdlGen" //$NON-NLS-1$
                         .equals(builder.getBuilderName())) {
                     iterator.remove();
+
+                } else if ("com.tibco.xpd.decisions.resources.ui.beBuilder" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
+
+                } else if ("com.tibco.xpd.decisions.daa.cleanDecisionStagingBuilder" //$NON-NLS-1$
+                        .equals(builder.getBuilderName())) {
+                    iterator.remove();
                 }
+
 
             }
 
@@ -644,6 +657,9 @@ public class Bpm2CeProjectConfigPostImportTask
         }
         /* Generated and user defined Services folders. */
         else if ("wsdl".equals(specialFolder.getKind())) { //$NON-NLS-1$
+            return true;
+
+        } else if ("decisions".equals(specialFolder.getKind())) { //$NON-NLS-1$
             return true;
 
         }
