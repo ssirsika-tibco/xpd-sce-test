@@ -76,7 +76,7 @@ public class StructuredTypesCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return false;
+        return super.printCdmModel();
     }
 
     /**

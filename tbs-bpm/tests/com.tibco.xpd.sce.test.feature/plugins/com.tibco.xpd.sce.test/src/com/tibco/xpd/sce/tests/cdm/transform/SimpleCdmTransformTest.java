@@ -43,7 +43,7 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
      */
     @Override
     protected boolean printCdmModel() {
-        return false;
+        return super.printCdmModel();
     }
 
     /**

@@ -46,7 +46,7 @@ public class ConstraintsCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return true;
+        return super.printCdmModel();
     }
 
     /**

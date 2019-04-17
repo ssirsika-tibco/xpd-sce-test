@@ -6,8 +6,11 @@ package com.tibco.xpd.n2.cdm.transform;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.uml2.uml.AggregationKind;
+import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Element;
@@ -23,6 +26,8 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bpm.da.dm.api.Attribute;
 import com.tibco.bpm.da.dm.api.BaseType;
 import com.tibco.bpm.da.dm.api.DataModel;
+import com.tibco.bpm.da.dm.api.Link;
+import com.tibco.bpm.da.dm.api.LinkEnd;
 import com.tibco.bpm.da.dm.api.StateModel;
 import com.tibco.bpm.da.dm.api.StructuredType;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
@@ -86,6 +91,14 @@ public class BomTransformer {
                 Class bomClass = (Class) packageableElement;
                 transformClass(bomClass, cdmModel);
             }
+            if (packageableElement instanceof Association) {
+                Association bomAssociation = (Association) packageableElement;
+                boolean is2WayAssociation =
+                        bomAssociation.getOwnedEnds().isEmpty();
+                if (is2WayAssociation) {
+                    transformAssociation(bomAssociation, cdmModel);
+                }
+            }
         }
         return cdmModel;
     }
@@ -106,14 +119,15 @@ public class BomTransformer {
         cdmType.setDescription(getFirstOwnedComment(bomClass));
         cdmType.setIsCase(BOMGlobalDataUtils.isCaseClass(bomClass));
 
-        // Attributes.
-        for (Property bomAttribute : bomClass.getAttributes()) {
-            transformAttribute(bomAttribute, cdmType);
-        }
+        // Attributes - only properties with aggregation="composite".
+        bomClass.getAttributes().stream()
+                .filter(attr -> AggregationKind.COMPOSITE_LITERAL
+                        .equals(attr.getAggregation()))
+                .forEach(attr -> transformAttribute(attr, cdmType));
 
-        // Features 'stateModel' and 'identifierInitialisationInfo' are set in
-        // attribute transformation as they depend on specific attributes.
-
+        // Features of StructuredType like: 'stateModel' and
+        // 'identifierInitialisationInfo' are set in attribute
+        // transformation as they depend on specific attributes.
         return cdmType;
     }
 
@@ -136,21 +150,18 @@ public class BomTransformer {
         String cdmAttributeType =
                 transformType(bomAttribute.getType(), bomAttribute);
         cdmAttribute.setType(cdmAttributeType);
-        int upper = bomAttribute.getUpper();
-        int lower = bomAttribute.getLower();
-        cdmAttribute.setIsMandatory(lower != 0);
-        // -1 means +infinity (unbounded).
-        cdmAttribute.setIsArray(upper == -1 || upper > 1);
+        cdmAttribute.setIsMandatory(isMandatory(bomAttribute));
+        cdmAttribute.setIsArray(isArray(bomAttribute));
         CONSTRANT_TRANSFORMER.getContraints(bomAttribute).stream().forEach(
                 c -> cdmAttribute.newConstraint(c.getName(), c.getValue()));
-        
+
         boolean isStateAttribute = BOMGlobalDataUtils.isCaseState(bomAttribute);
         if (!isStateAttribute) {
             // Only set the allowed values for non-state attributes.
             CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
-            .forEach(literal -> cdmAttribute.newAllowedValue(            
-                        /* label */ getLabel(literal),
-                        /* value */ literal.getName()));
+                    .forEach(literal -> cdmAttribute.newAllowedValue(
+                            /* label */ getLabel(literal),
+                            /* value */ literal.getName()));
         }
         String defaultValue =
                 CONSTRANT_TRANSFORMER.getDefaultValue(bomAttribute);
@@ -275,6 +286,43 @@ public class BomTransformer {
     }
 
     /**
+     * Transforms BOM {@link Association} to a CDM link.
+     * 
+     * @param bomAssociation
+     *            the BOM association.
+     * @param cdmModel
+     *            the context CDM model.
+     * @return the {@link Link} created for the association.
+     */
+    private Link transformAssociation(Association bomAssociation,
+            DataModel cdmModel) {
+        EList<Property> memberEnds = bomAssociation.getMemberEnds();
+        if (memberEnds.size() == 2) {
+            Property bomEnd1 = memberEnds.get(0);
+            Property bomEnd2 = memberEnds.get(1);
+            if (bomEnd1 != null && bomEnd2 != null) {
+                Link cdmLink = cdmModel.newLink();
+    
+                LinkEnd cdmEnd1 = cdmLink.getEnd1();
+                cdmEnd1.setName(bomEnd1.getName());
+                cdmEnd1.setLabel(getLabel(bomEnd1));
+                cdmEnd1.setType(transformType(bomEnd1.getType(), bomEnd1));
+                cdmEnd1.setIsArray(isArray(bomEnd1));
+    
+                LinkEnd cdmEnd2 = cdmLink.getEnd2();
+                cdmEnd2.setName(bomEnd2.getName());
+                cdmEnd2.setLabel(getLabel(bomEnd2));
+                cdmEnd2.setType(transformType(bomEnd2.getType(), bomEnd2));
+                cdmEnd2.setIsArray(isArray(bomEnd2));
+    
+                return cdmLink;
+            }
+        }
+        throw new AssertionError(String.format("Invalid association: %s", //$NON-NLS-1$
+                bomAssociation.toString()));
+    }
+
+    /**
      * Returns package name of the attribute or null.
      * 
      * @param attribute
@@ -334,6 +382,30 @@ public class BomTransformer {
             }
         }
         return null; // $NON-NLS-1$
+    }
+
+    /**
+     * Returns true if BOM attribute is mandatory.
+     * 
+     * @param bomAttribute
+     *            the bom attribute.
+     * @return true if BOM attribute is mandatory.
+     */
+    private boolean isMandatory(Property bomAttribute) {
+        return bomAttribute.getLower() != 0;
+    }
+
+    /**
+     * Returns true if BOM attribute is array.
+     * 
+     * @param bomAttribute
+     *            the bom attribute.
+     * @return true if BOM attribute is array.
+     */
+    private boolean isArray(Property bomAttribute) {
+        int upper = bomAttribute.getUpper();
+        // -1 means +infinity (unbounded).
+        return upper == -1 || upper > 1;
     }
 
 }

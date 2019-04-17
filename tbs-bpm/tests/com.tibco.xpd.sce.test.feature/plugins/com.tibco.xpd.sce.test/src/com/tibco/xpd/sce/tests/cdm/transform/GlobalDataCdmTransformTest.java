@@ -52,7 +52,7 @@ public class GlobalDataCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return false;
+        return super.printCdmModel();
     }
 
     /**

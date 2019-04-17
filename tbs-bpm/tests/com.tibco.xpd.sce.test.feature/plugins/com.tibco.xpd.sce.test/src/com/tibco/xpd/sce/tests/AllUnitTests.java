@@ -5,9 +5,7 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
-import com.tibco.xpd.sce.tests.cdm.transform.ConstraintsCdmTransformTest;
-import com.tibco.xpd.sce.tests.cdm.transform.SimpleCdmTransformTest;
-import com.tibco.xpd.sce.tests.cdm.transform.StructuredTypesCdmTransformTest;
+import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
@@ -42,9 +40,7 @@ public class AllUnitTests {
         /*
          * BOM->CDM transformation
          */
-        suite.addTestSuite(SimpleCdmTransformTest.class);
-        suite.addTestSuite(StructuredTypesCdmTransformTest.class);
-        suite.addTestSuite(ConstraintsCdmTransformTest.class);
+        suite.addTest(AllBomCdmTransformTests.suite());
 
         /*
          * AMX BPM project migration
