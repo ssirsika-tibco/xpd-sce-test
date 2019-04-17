@@ -39,7 +39,7 @@ public class BomConstraintTransformer {
      * Represents a constraint in CDM.
      */
     public static class NameValuePair {
-        String name, value;
+        private final String name, value;
 
         public NameValuePair(String name, String value) {
             this.name = name;

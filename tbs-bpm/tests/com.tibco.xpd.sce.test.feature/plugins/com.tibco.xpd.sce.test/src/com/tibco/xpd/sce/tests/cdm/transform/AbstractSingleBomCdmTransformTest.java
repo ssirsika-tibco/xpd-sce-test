@@ -82,7 +82,9 @@ public abstract class AbstractSingleBomCdmTransformTest
             System.out.printf(msg);
             fail(msg);
         } else {
-            System.out.printf("CDM model validation: OK");
+            if (printCdmModel()) {
+                System.out.printf("CDM model validation: OK");
+            }
         }
     }
 

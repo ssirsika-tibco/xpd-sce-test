@@ -15,13 +15,15 @@ import com.tibco.bpm.da.dm.api.StructuredType;
 import com.tibco.xpd.n2.cdm.transform.BomConstraintTransformer.NameValuePair;
 
 /**
- * StructuredTypes bom transformation test.
+ * BOM properties constraints transformation test.
  * 
- * Package with class (ClassA) containing containing containing properties of
- * various types with set constraints and default values.
+ * Package with class (ClassA) containing containing properties of various types
+ * with set constraints and default values and allowed values.
  * <p>
  * Testing:
- * <li></li>
+ * <li>constraints</li>
+ * <li>default value</li>
+ * <li>allowed values</li> for various types of properties.
  * </p>
  *
  * @author jarciuch
@@ -44,7 +46,7 @@ public class ConstraintsCdmTransformTest
      */
     @Override
     protected boolean printCdmModel() {
-        return false;
+        return true;
     }
 
     /**

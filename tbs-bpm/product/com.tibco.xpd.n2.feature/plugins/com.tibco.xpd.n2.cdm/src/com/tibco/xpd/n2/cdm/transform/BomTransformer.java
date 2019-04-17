@@ -4,12 +4,15 @@
 
 package com.tibco.xpd.n2.cdm.transform;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -20,7 +23,9 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bpm.da.dm.api.Attribute;
 import com.tibco.bpm.da.dm.api.BaseType;
 import com.tibco.bpm.da.dm.api.DataModel;
+import com.tibco.bpm.da.dm.api.StateModel;
 import com.tibco.bpm.da.dm.api.StructuredType;
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cdm.internal.Messages;
@@ -79,8 +84,7 @@ public class BomTransformer {
                 .getPackagedElements()) {
             if (packageableElement instanceof org.eclipse.uml2.uml.Class) {
                 Class bomClass = (Class) packageableElement;
-                StructuredType cdmStructuredType =
-                        transformClass(bomClass, cdmModel);
+                transformClass(bomClass, cdmModel);
             }
         }
         return cdmModel;
@@ -100,11 +104,15 @@ public class BomTransformer {
         cdmType.setName(bomClass.getName());
         cdmType.setLabel(getLabel(bomClass));
         cdmType.setDescription(getFirstOwnedComment(bomClass));
+        cdmType.setIsCase(BOMGlobalDataUtils.isCaseClass(bomClass));
 
         // Attributes.
         for (Property bomAttribute : bomClass.getAttributes()) {
-            Attribute cdmAttribute = transformAttribute(bomAttribute, cdmType);
+            transformAttribute(bomAttribute, cdmType);
         }
+
+        // Features 'stateModel' and 'identifierInitialisationInfo' are set in
+        // attribute transformation as they depend on specific attributes.
 
         return cdmType;
     }
@@ -135,15 +143,62 @@ public class BomTransformer {
         cdmAttribute.setIsArray(upper == -1 || upper > 1);
         CONSTRANT_TRANSFORMER.getContraints(bomAttribute).stream().forEach(
                 c -> cdmAttribute.newConstraint(c.getName(), c.getValue()));
-        CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
-                .forEach(literal -> cdmAttribute.newAllowedValue(
+        
+        boolean isStateAttribute = BOMGlobalDataUtils.isCaseState(bomAttribute);
+        if (!isStateAttribute) {
+            // Only set the allowed values for non-state attributes.
+            CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute).stream()
+            .forEach(literal -> cdmAttribute.newAllowedValue(            
                         /* label */ getLabel(literal),
                         /* value */ literal.getName()));
+        }
         String defaultValue =
                 CONSTRANT_TRANSFORMER.getDefaultValue(bomAttribute);
         if (defaultValue != null) {
             cdmAttribute.setDefaultValue(defaultValue);
         }
+
+        // Global/Case data aspects.
+        if (BOMGlobalDataUtils.isCID(bomAttribute)) {
+            // Case Identifier
+            cdmAttribute.setIsIdentifier(true);
+            cdmAttribute.setIsSummary(true);
+            cdmAttribute.setIsSearchable(true);
+            if (BOMGlobalDataUtils.isAutoCID(bomAttribute)) {
+                // TODO: Add IdentifierInitialisationInfo when the information
+                // is provided in BOM.
+                // IdentifierInitialisationInfo idInfo =
+                // cdmType.newIdentifierInitialisationInfo();
+                // idInfo.setMinNumLength(minNumLength);
+                // idInfo.setPrefix(prefix);
+                // idInfo.setSuffix(suffix);
+                // idInfo.setStart(start);
+            }
+        } else if (isStateAttribute) {
+            // Case State
+            cdmAttribute.setIsState(true);
+            cdmAttribute.setIsSummary(true);
+            cdmAttribute.setIsSearchable(true);
+            Collection<EnumerationLiteral> states =
+                    CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute);
+            if (!states.isEmpty()) {
+                StateModel stateModel = cdmType.newStateModel();
+                states.stream().forEach(state -> {
+                    // TODO: Set terminal states when they are available in BOM.
+                    boolean isTerminal = false;
+                    stateModel.newState(getLabel(state),
+                            state.getName(),
+                            isTerminal);
+                });
+            }
+        } else {
+            // Searchable and Summary attribute facets.
+            cdmAttribute.setIsSearchable(
+                    BOMGlobalDataUtils.isSearchable(bomAttribute));
+            // TODO Add when the isSummary is available in BOM.
+            // cdmAttribute.setIsSummary(isSummary);
+        }
+
         return cdmAttribute;
     }
 
