@@ -416,24 +416,8 @@
 
 	  <!-- Sid ACE-470 globaldataBOM.class.case.caseidentifier.required.issue replaced by new ace specific, tighter issue. -->
 
-      <issue
-            id="bom.globaldata.class.local.caseidentifier.restricted.issue"
-            message="%globaldataBOM.class.local.caseidentifier.restricted.issue"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.caseidentifiers.remove.resolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bom.globaldata.class.global.caseidentifier.restricted.issue"
-            message="%globaldataBOM.class.global.caseidentifier.restricted.issue"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.caseidentifiers.remove.resolution">
-         </resolution>
-      </issue>
+	  <!-- Sid ACE-470 globaldataBOM.class.global.caseidentifier.restricted.issue / globaldataBOM.class.local.caseidentifier.restricted.issue removed in favour of ACE specific rule. -->
+
       <issue
             id="bom.globaldata.class.case.caseidentifier.generalization.issue"
             message="%globaldataBOM.class.case.caseidentifier.generalization.issue"

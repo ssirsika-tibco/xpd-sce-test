@@ -21,11 +21,12 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  */
 public class CaseIdAttributeRestrictionRule implements IValidationRule {
 
-    private static final String LOCAL_ISSUE_ID =
-            "bom.globaldata.class.local.caseidentifier.restricted.issue"; //$NON-NLS-1$
+    /*
+     * Sid ACE-470 globaldataBOM.class.global.caseidentifier.restricted.issue /
+     * globaldataBOM.class.local.caseidentifier.restricted.issue removed in
+     * favour of ACE specific rule.
+     */
 
-    private static final String GLOBAL_ISSUE_ID =
-            "bom.globaldata.class.global.caseidentifier.restricted.issue"; //$NON-NLS-1$
 
     private static final String GENERALIZATION_ISSUE_ID =
             "bom.globaldata.class.case.caseidentifier.generalization.issue"; //$NON-NLS-1$
@@ -67,13 +68,12 @@ public class CaseIdAttributeRestrictionRule implements IValidationRule {
 
         if (caseIdPresent) {
             if (gdManager.isGlobal(clazz) || gdManager.isLocal(clazz)) {
-                String issue_id =
-                        gdManager.isGlobal(clazz) ? GLOBAL_ISSUE_ID
-                                : LOCAL_ISSUE_ID;
-                scope.createIssue(issue_id,
-                        BOMValidationUtil.getLocation(clazz),
-                        clazz
-                        .eResource().getURIFragment(clazz));
+                /*
+                 * Sid ACE-470
+                 * globaldataBOM.class.global.caseidentifier.restricted.issue /
+                 * globaldataBOM.class.local.caseidentifier.restricted.issue
+                 * removed in favour of ACE specific rule.
+                 */
             } else if (gdManager.isCase(clazz)) {
                 // If this class is a Case class then we need to ensure that it
                 // enforces the rule that the case identifiers must only exist
