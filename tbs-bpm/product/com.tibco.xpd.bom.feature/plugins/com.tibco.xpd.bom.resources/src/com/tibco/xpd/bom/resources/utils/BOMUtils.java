@@ -57,7 +57,7 @@ public class BOMUtils {
     /**
      * id of the Business Data asset.
      */
-    private static final String BUSINESS_DATA_ASSET_ID =
+    public static final String BUSINESS_DATA_ASSET_ID =
             "com.tibco.xpd.asset.businessdata.bom"; //$NON-NLS-1$
 
     /*
@@ -111,6 +111,19 @@ public class BOMUtils {
         }
 
         return false;
+    }
+
+    /**
+     * Make the given project a business data project
+     * 
+     * @param project
+     */
+    public static void setAsBusinessDataProject(IProject project) {
+        ProjectConfig config =
+                XpdResourcesPlugin.getDefault().getProjectConfig(project);
+
+        config.addAssetTask(BOMUtils.BUSINESS_DATA_ASSET_ID);
+        config.saveWorkingCopy();
     }
 
     /**

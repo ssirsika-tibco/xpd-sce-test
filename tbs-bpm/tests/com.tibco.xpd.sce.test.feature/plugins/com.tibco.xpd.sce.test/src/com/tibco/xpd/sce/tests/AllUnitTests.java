@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
+import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -49,6 +50,11 @@ public class AllUnitTests {
          * AMX BPM project migration
          */
         suite.addTestSuite(Bpm2CeProjectMigrationTest.class);
+
+        /*
+         * Validations
+         */
+        suite.addTestSuite(AceBomMigrationValidationsTest.class);
 
         /*
          * Miscellaneous
