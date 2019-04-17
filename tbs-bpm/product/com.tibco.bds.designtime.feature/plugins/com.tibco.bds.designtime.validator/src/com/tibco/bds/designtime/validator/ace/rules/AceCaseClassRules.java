@@ -169,8 +169,7 @@ public class AceCaseClassRules implements IValidationRule {
 
             if (caseIdProperty.getLower() <= 0
                     || caseIdProperty.getUpper() != 1) {
-                scope.createIssue(
-                        ISSUE_ACE_CASEID_MUST_BE_MANDATORY_NONARRAY,
+                scope.createIssue(ISSUE_ACE_CASEID_MUST_BE_MANDATORY_NONARRAY,
                         BOMValidationUtil.getLocation(caseIdProperty),
                         caseIdProperty.eResource()
                                 .getURIFragment(caseIdProperty));
@@ -183,15 +182,15 @@ public class AceCaseClassRules implements IValidationRule {
                     BOMValidationUtil.getLocation(clazz),
                     clazz.eResource().getURIFragment(clazz));
 
-        } else {
-            for (Property searchProperty : searchProperties) {
-                if (searchProperty.getUpper() != 1) {
-                    scope.createIssue(
-                            ISSUE_ACE_CASEID_MUST_BE_MANDATORY_NONARRAY,
-                            BOMValidationUtil.getLocation(searchProperty),
-                            searchProperty.eResource()
-                                    .getURIFragment(searchProperty));
-                }
+        }
+
+        // Search attribute cannot be aray.
+        for (Property searchProperty : searchProperties) {
+            if (searchProperty.getUpper() != 1) {
+                scope.createIssue(ISSUE_ACE_SEARCHABLE_MUST_BE_NONARRAY,
+                        BOMValidationUtil.getLocation(searchProperty),
+                        searchProperty.eResource()
+                                .getURIFragment(searchProperty));
             }
         }
 
