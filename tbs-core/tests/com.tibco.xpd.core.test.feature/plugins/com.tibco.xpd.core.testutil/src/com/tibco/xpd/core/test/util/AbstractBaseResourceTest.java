@@ -89,6 +89,7 @@ public abstract class AbstractBaseResourceTest extends TestCase {
                     for (IProject project : projects) {
                         configureProject(project);
                     }
+
                 } catch (Exception e) {
                     throw new CoreException(new Status(IStatus.ERROR,
                             TestUtilPlugin.PLUGIN_ID, e.getMessage(), e));
@@ -96,6 +97,21 @@ public abstract class AbstractBaseResourceTest extends TestCase {
             }
         },
                 new NullProgressMonitor());
+
+        customTestResourceSetup();
+
+    }
+
+    /**
+     * Sub-class can override to do any further test resource addition /
+     * configuration (for example importing and migrating projects etc.
+     * 
+     * This is called just after the files returned by getTestResources() (and
+     * their implied projects) have been created and before the initial
+     * buildAndWait() calls
+     */
+    protected void customTestResourceSetup() {
+
     }
 
     /**

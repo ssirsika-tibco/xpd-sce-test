@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_mPqGcGEaEemASo-CA987hg" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceProvider_GeneratedWSDL" targetNamespace="http://www.tibco.com/bs3.0/_mPqGcGEaEemASo-CA987hg" tibex:XPDL="ServiceProvider_GeneratedWSDL.xpdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_mPqGcGEaEemASo-CA987hg" targetNamespace="http://www.tibco.com/bs3.0/_mPqGcGEaEemASo-CA987hg">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ServiceProvider_GeneratedWSDLProcess_Parameter" type="string_50"/>
+      <xsd:element name="ServiceProvider_GeneratedWSDLProcess_Parameter2" type="string_50"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedCatchMessageEvent_INPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedCatchMessageEvent_OUTPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedReceiveTask_INPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedReceiveTask_OUTPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedStart2_INPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter2" name="Parameter2"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedStart_GeneratedFault_fault">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedStart_INPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceProvider_GeneratedWSDLProcess_GeneratedStart_OUTPUT">
+    <wsdl:part element="ns:ServiceProvider_GeneratedWSDLProcess_Parameter" name="Parameter"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceProvider_GeneratedWSDLProcess" tibex:FlowContainer="_mP0egGEaEemASo-CA987hg">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="GeneratedCatchMessageEvent">
+      <wsdl:input message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedCatchMessageEvent_INPUT" tibex:Event="_pJB_8GEdEemASo-CA987hg"/>
+      <wsdl:output message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedCatchMessageEvent_OUTPUT" tibex:Event="_pJB_8GEdEemASo-CA987hg"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratedReceiveTask">
+      <wsdl:input message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedReceiveTask_INPUT" tibex:Event="_u_JJoWEbEemASo-CA987hg"/>
+      <wsdl:output message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedReceiveTask_OUTPUT" tibex:Event="_u_JJoWEbEemASo-CA987hg"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratedStart">
+      <wsdl:input message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedStart_INPUT" tibex:Event="_oQy3wmEaEemASo-CA987hg"/>
+      <wsdl:output message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedStart_OUTPUT" tibex:Event="_oQy3wmEaEemASo-CA987hg"/>
+      <wsdl:fault message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedStart_GeneratedFault_fault" name="GeneratedFault" tibex:Error="_w3SzgmEaEemASo-CA987hg"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratedStart2">
+      <wsdl:input message="ns:ServiceProvider_GeneratedWSDLProcess_GeneratedStart2_INPUT" tibex:Event="_7eK5UGEfEemASo-CA987hg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

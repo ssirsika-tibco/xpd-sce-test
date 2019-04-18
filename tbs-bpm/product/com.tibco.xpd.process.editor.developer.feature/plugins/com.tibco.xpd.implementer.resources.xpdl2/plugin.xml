@@ -395,12 +395,9 @@
             class="com.tibco.xpd.implementer.resources.xpdl2.precommit.RequestActivityPreCommitListener">
       </ProcessPreCommitCommandContributor>
    </extension>
-   <extension
-         point="com.tibco.xpd.processeditor.xpdl2.operationInformationProvider">
-      <faultMessageNameProvider
-            class="com.tibco.xpd.implementer.resources.xpdl2.errorEvents.FaultMessageNameProviderContribution">
-      </faultMessageNameProvider>
-   </extension>
+   
+   <!-- Sid ACE-473. Removed contribution of now non-existent WSDL FaultMessageNameProviderContribution -->
+    
    <extension
          id="bpmnJsTypeMatcher"
          name="%bpmnJsTypeMatcher"
@@ -416,12 +413,6 @@
    </extension>
    <extension
          point="com.tibco.xpd.processwidget.activityHyperlinkHandler">
-      <activityHyperlinkHandler
-            class="com.tibco.xpd.implementer.resources.xpdl2.activityhyperlinkhandlers.WebServiceActivityHyperlinkHandler">
-      </activityHyperlinkHandler>
-      <activityHyperlinkHandler
-            class="com.tibco.xpd.implementer.resources.xpdl2.activityhyperlinkhandlers.InvokeBusinessProcessTaskHyperlinkHandler">
-      </activityHyperlinkHandler>
       <activityHyperlinkHandler
             class="com.tibco.xpd.implementer.resources.xpdl2.activityhyperlinkhandlers.RestServiceActivityHyperlinkHandler">
       </activityHyperlinkHandler>

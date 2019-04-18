@@ -54,6 +54,13 @@ public class ThrowErrorEventRules extends ProcessValidationRule {
     private static final String ISSUE_CANT_THROW_FAULT_FOR_REQUEST_ONLY =
             "bpmn.throwErrorCantThrowFaultForRequestOnlyOperation"; //$NON-NLS-1$
 
+    /*
+     * Sid ACE-473 Disable WSDL error event related rules. Only disabling rather
+     * than removing in case we need to bring them back for the ACE equivalent
+     * of Process-as-a-Service later on.
+     */
+    private boolean disableWSDLFaultIssues = true;
+
     @Override
     protected void validateFlowContainer(Process process,
             EList<Activity> activities, EList<Transition> transitions) {
@@ -88,6 +95,10 @@ public class ThrowErrorEventRules extends ProcessValidationRule {
      * @param requestActivity
      */
     private void checkIncomingRequestRules(Activity requestActivity) {
+        if (disableWSDLFaultIssues) {
+            return;
+        }
+
         /*
          * All Throw Fault Message Error Events for the same auto-generated
          * request with the same fault name MUST have the same associated
@@ -212,6 +223,10 @@ public class ThrowErrorEventRules extends ProcessValidationRule {
      * @param throwFaultErrorEvent
      */
     private void checkThrowFaultErrorRules(Activity throwFaultErrorEvent) {
+        if (disableWSDLFaultIssues) {
+            return;
+        }
+
         if (!Xpdl2ModelUtil.isEventImplemented(throwFaultErrorEvent)) {
 
             Activity requestActivity =

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.example.org/ProcessValidationTest_NewWSDLFile/" xmlns:tns1="http://www.example.org/ProcessValidationTest_NewWSDLFile/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.example.org/ProcessValidationTest_NewWSDLFile/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/BPMProjectMigration_ProcessValidation/Generated Business Objects/org.example.ProcessValidationTest_NewWSDLFile.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="NewOperation" nillable="false">
+    <xsd:complexType ecore:name="NewOperationType" id="org.example.ProcessValidationTest_NewWSDLFileNewOperationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperationResponse" nillable="false">
+    <xsd:complexType ecore:name="NewOperationResponseType" id="org.example.ProcessValidationTest_NewWSDLFileNewOperationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperationFault" nillable="false">
+    <xsd:complexType ecore:name="NewOperationFaultType" id="org.example.ProcessValidationTest_NewWSDLFileNewOperationFaultType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="newOperationFault" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="NewOperationFault" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IntermediateOperation" nillable="false">
+    <xsd:complexType ecore:name="IntermediateOperationType" id="org.example.ProcessValidationTest_NewWSDLFileIntermediateOperationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IntermediateOperationResponse" nillable="false">
+    <xsd:complexType ecore:name="IntermediateOperationResponseType" id="org.example.ProcessValidationTest_NewWSDLFileIntermediateOperationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IntermediateOperationFault" nillable="false">
+    <xsd:complexType ecore:name="IntermediateOperationFaultType" id="org.example.ProcessValidationTest_NewWSDLFileIntermediateOperationFaultType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="intermediateOperationFault" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="IntermediateOperationFault" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

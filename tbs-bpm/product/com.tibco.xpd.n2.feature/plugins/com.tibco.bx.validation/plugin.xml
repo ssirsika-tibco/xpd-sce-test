@@ -30,6 +30,10 @@
          <validationProvider
                id="com.tibco.bx.xpdl2bpel.validation.activityValidationProvider">
          </validationProvider>
+         <validationProvider
+               id="com.tibco.ace.validation.provider.process">
+         </validationProvider>
+         
       </destination>
    </extension>
 
@@ -4870,7 +4874,52 @@ s         <scriptContribution
       </destination>
    </extension>
    
-     
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.ace.validation.provider.process"
+            markerType="com.tibco.bx.validation.validationMarker"
+            name="CE specific process rules"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceProcessWsdlActivityRules">
+         </rule>
+	  </provider>
+      <issue
+            id="ace.invoke.businessprocess.not.supported"
+            message="%ace.invoke.businessprocess.not.supported"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="ace.incoming.message.event.not.supported"
+            message="%ace.incoming.message.event.not.supported"
+            severity="ERROR">
+         	<resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.setToTriggerTypeNone">
+         	</resolution>
+      </issue>
+      <issue
+            id="ace.incoming.message.task.not.supported"
+            message="%ace.incoming.message.task.not.supported"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="ace.webservice.invoke.not.supported"
+            message="%ace.webservice.invoke.not.supported"
+            severity="ERROR">
+            
+      </issue>
+      <issue
+            id="ace.wsdl.error.not.supported"
+            message="%ace.wsdl.error.not.supported"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.configureAsThrowProcessError">
+         </resolution>
+      </issue>
+	</extension>     
 
 </plugin>
 
