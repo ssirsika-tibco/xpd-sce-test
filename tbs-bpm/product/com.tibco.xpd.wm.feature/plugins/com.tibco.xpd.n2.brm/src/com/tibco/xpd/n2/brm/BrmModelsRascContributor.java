@@ -104,7 +104,7 @@ public class BrmModelsRascContributor implements RascContributor {
             Map<String, Resource> brmModels =
                     TRANSFORMER.generateBRMModels(aProject, version.toString());
 
-            // System.out.println("** TOOK this ling to generate BRM models: "
+            // System.out.println("** TOOK this long to generate BRM models: "
             // //$NON-NLS-1$
             // + (System.currentTimeMillis() - start));
 
