@@ -360,14 +360,23 @@ public class Bpm2CeProjectConfigPostImportTask
 
                         /*
                          * Remove the physical folder itself if it exists.
+                         * Unless it's the decisions files as the user may not
+                         * realise what tehy're doing on import and might commit
+                         * back to svn without thinking (Jan requested in code
+                         * review)
+                         * 
                          */
-                        String sfLocation = specialFolder.getLocation();
+                        if (!"com.tibco.xpd.asset.decisions" //$NON-NLS-1$
+                                .equals(specialFolder.getKind())) {
+                            String sfLocation = specialFolder.getLocation();
 
-                        IFolder actualFolder = project.getFolder(sfLocation);
+                            IFolder actualFolder =
+                                    project.getFolder(sfLocation);
 
-                        if (actualFolder.exists()) {
-                            actualFolder.delete(true,
-                                    new NullProgressMonitor());
+                            if (actualFolder.exists()) {
+                                actualFolder.delete(true,
+                                        new NullProgressMonitor());
+                            }
                         }
 
                     }

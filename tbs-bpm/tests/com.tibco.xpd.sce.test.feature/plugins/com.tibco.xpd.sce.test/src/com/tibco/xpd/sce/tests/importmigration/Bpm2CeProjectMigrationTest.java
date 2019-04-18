@@ -1162,9 +1162,12 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         for (AssetType asset : projectConfig.getAssetTypes()) {
             if ("com.tibco.xpd.asset.wsdl".equals(asset.getId())) { //$NON-NLS-1$
                 found = true;
+            } else if ("com.tibco.xpd.asset.decisions".equals(asset.getId())) { //$NON-NLS-1$
+                found = true;
             }
         }
-        assertTrue("WSDL project asset should have been removed", !found); //$NON-NLS-1$
+        assertTrue("WSDL/Decisions project asset should have been removed", //$NON-NLS-1$
+                !found);
     }
 
     /**
