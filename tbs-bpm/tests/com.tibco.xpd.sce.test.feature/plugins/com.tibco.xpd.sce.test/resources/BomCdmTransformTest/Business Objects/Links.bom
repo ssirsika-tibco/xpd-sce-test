@@ -12,7 +12,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-eW1MGEREemTRLNbCtkHyg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-eW1MWEREemTRLNbCtkHyg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_c4Pkw2ESEemTRLNbCtkHyg" name="customer" type="_3HSoYGEOEemTRLNbCtkHyg?com.example.links%3a%3aCustomer?" association="_c4NvkGESEemTRLNbCtkHyg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_c4Pkw2ESEemTRLNbCtkHyg" name="myCustomerName" type="_3HSoYGEOEemTRLNbCtkHyg?com.example.links%3a%3aCustomer?" association="_c4NvkGESEemTRLNbCtkHyg">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c4PkxGESEemTRLNbCtkHyg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c4PkxWESEemTRLNbCtkHyg" value="1"/>
       </ownedAttribute>
@@ -51,7 +51,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VRvtdGESEemTRLNbCtkHyg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VRvtdWESEemTRLNbCtkHyg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_c4PkwGESEemTRLNbCtkHyg" name="order" type="_1ms_YGEOEemTRLNbCtkHyg?com.example.links%3a%3aOrder?" association="_c4NvkGESEemTRLNbCtkHyg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_c4PkwGESEemTRLNbCtkHyg" name="myOrderName" type="_1ms_YGEOEemTRLNbCtkHyg?com.example.links%3a%3aOrder?" association="_c4NvkGESEemTRLNbCtkHyg">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c4PkwWESEemTRLNbCtkHyg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c4PkwmESEemTRLNbCtkHyg" value="1"/>
       </ownedAttribute>
@@ -65,7 +65,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iwHHUmEjEemTRLNbCtkHyg" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_c4NvkGESEemTRLNbCtkHyg" memberEnd="_c4PkwGESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aorder? _c4Pkw2ESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3acustomer?"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_c4NvkGESEemTRLNbCtkHyg" memberEnd="_c4PkwGESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3amyOrderName? _c4Pkw2ESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3amyCustomerName?"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_deXJkGESEemTRLNbCtkHyg" memberEnd="_deXJkWESEemTRLNbCtkHyg?com.example.links%3a%3aProduct%3a%3aorder? _deXwomESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3aproduct?"/>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_mx5xgGESEemTRLNbCtkHyg" name="OrderPhase">
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TDZ0UGEXEemTRLNbCtkHyg" name="INPROGRESS" classifier="_mx5xgGESEemTRLNbCtkHyg?com.example.links%3a%3aOrderPhase?">
@@ -323,8 +323,8 @@
   <BOMGlobalDataProfile:CaseIdentifier xmi:id="_VRvGYGESEemTRLNbCtkHyg" base_Property="_VRvtc2ESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aid?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_VRvGYWESEemTRLNbCtkHyg" displayLabel="id" base_NamedElement="_VRvtc2ESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aid?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_VRvtcGESEemTRLNbCtkHyg" integerLength="19" integerSubType="fixedLength" base_Property="_VRvtc2ESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aid?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_c4Qy4GESEemTRLNbCtkHyg" displayLabel="Order" base_NamedElement="_c4PkwGESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aorder?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_c4RZ8GESEemTRLNbCtkHyg" displayLabel="Customer" base_NamedElement="_c4Pkw2ESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3acustomer?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_c4Qy4GESEemTRLNbCtkHyg" displayLabel="MyOrderLabel" base_NamedElement="_c4PkwGESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3amyOrderName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_c4RZ8GESEemTRLNbCtkHyg" displayLabel="MyCustomerLabel" base_NamedElement="_c4Pkw2ESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3amyCustomerName?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_deYXsGESEemTRLNbCtkHyg" displayLabel="Order" base_NamedElement="_deXJkWESEemTRLNbCtkHyg?com.example.links%3a%3aProduct%3a%3aorder?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_deY-wGESEemTRLNbCtkHyg" displayLabel="Product" base_NamedElement="_deXwomESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3aproduct?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_iCqbMGESEemTRLNbCtkHyg" displayLabel="name" base_NamedElement="_iComAGESEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3aname?"/>

@@ -75,19 +75,19 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
         // Order - Customer link.
         {
             Optional<Link> orderCustomerLink =
-                    findLink(links, "order", "customer");
+                    findLink(links, "myOrderName", "myCustomerName");
             Assert.assertTrue("Link Order-Customer should exist",
                     orderCustomerLink.isPresent());
             assertLinkEnd(orderCustomerLink.get(),
                     orderCustomerLink.get().getEnd1(),
-                    /* name */ "order",
-                    /* label */ "Order",
+                    /* name */ "myOrderName",
+                    /* label */ "MyOrderLabel",
                     /* type */ "Order",
                     /* isArray */ false);
             assertLinkEnd(orderCustomerLink.get(),
                     orderCustomerLink.get().getEnd2(),
-                    /* name */ "customer",
-                    /* label */ "Customer",
+                    /* name */ "myCustomerName",
+                    /* label */ "MyCustomerLabel",
                     /* type */ "Customer",
                     /* isArray */ false);
         }
