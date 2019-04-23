@@ -14,6 +14,9 @@ import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
+import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
+import com.tibco.xpd.sce.tests.validation.AceProcessMigrationWSDLValidationsTest;
+import com.tibco.xpd.sce.tests.validation.AceProcessValidDataRulesTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -51,6 +54,9 @@ public class AllUnitTests {
          * Validations
          */
         suite.addTestSuite(AceBomMigrationValidationsTest.class);
+        suite.addTestSuite(AceProcessMigrationWSDLValidationsTest.class);
+        suite.addTestSuite(AceProcessInvalidDataRulesTest.class);
+        suite.addTestSuite(AceProcessValidDataRulesTest.class);
 
         /*
          * Miscellaneous

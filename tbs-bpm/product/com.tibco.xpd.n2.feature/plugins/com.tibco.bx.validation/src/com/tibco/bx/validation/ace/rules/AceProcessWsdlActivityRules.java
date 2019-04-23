@@ -29,6 +29,9 @@ import com.tibco.xpd.xpdl2.util.ThrowErrorEventUtil;
  * supported. Use 'type none' instead and invoke these thru run-time API if
  * required.</li>
  * 
+ * <li>Web-service error replies are no longer supported. Use 'Throw Process /
+ * Sub-Process Error' instead.</li>
+ * 
  * @author aallway
  * @since 17 Apr 2019
  */

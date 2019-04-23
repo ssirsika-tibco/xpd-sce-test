@@ -4884,6 +4884,9 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.AceProcessWsdlActivityRules">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceProcessDataRules">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -4918,6 +4921,11 @@ s         <scriptContribution
                canApplyToMultiple="false"
                id="resolution.bpmn.configureAsThrowProcessError">
          </resolution>
+      </issue>
+      <issue
+            id="ace.invalid.base.datatype"
+            message="%ace.invalid.base.datatype"
+            severity="ERROR">
       </issue>
 	</extension>     
 
