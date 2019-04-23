@@ -112,28 +112,28 @@ public class AceProcessMigrationWSDLValidationsTest
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_7eK5UGEfEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedStart2)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedStart2)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_oQy3w2EaEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedCatchMessageEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedCatchMessageEvent)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_oQy3wmEaEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedStart)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedStart)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_pJB_8GEdEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedCatchMessageEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedCatchMessageEvent)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
@@ -147,14 +147,14 @@ public class AceProcessMigrationWSDLValidationsTest
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.task.not.supported", //$NON-NLS-1$
                                 "_rUkKwWEaEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedStart)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedStart)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.task.not.supported", //$NON-NLS-1$
                                 "_u_JJoWEbEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedReceiveTask)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedReceiveTask)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
@@ -168,14 +168,14 @@ public class AceProcessMigrationWSDLValidationsTest
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_y_jrEWEbEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedReceiveTask)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:ReplyToGeneratedReceiveTask)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.task.not.supported", //$NON-NLS-1$
                                 "__4VbsGEYEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyTo2StartEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyTo2StartEvent)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
@@ -189,35 +189,35 @@ public class AceProcessMigrationWSDLValidationsTest
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.task.not.supported", //$NON-NLS-1$
                                 "_ITkioWEZEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReceiveTask)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReceiveTask)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_p1KqAWEZEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:CatchMessageEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:CatchMessageEvent)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_s0mhh2EXEem0lq-eL9iD2A", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:StartEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:StartEvent)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_s0mhiGEXEem0lq-eL9iD2A", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyToCatchMessageEvent)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyToCatchMessageEvent)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
                                 "ace.incoming.message.event.not.supported", //$NON-NLS-1$
                                 "_XosSgGEZEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their are replies not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyToReceiveTask)", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyToReceiveTask)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
                 };
