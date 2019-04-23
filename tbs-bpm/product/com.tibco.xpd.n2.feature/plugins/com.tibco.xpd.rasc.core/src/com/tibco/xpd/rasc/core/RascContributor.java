@@ -61,4 +61,36 @@ public interface RascContributor {
      */
     public void process(IProject aProject, IProgressMonitor aProgressMonitor,
             RascWriter aWriter) throws Exception;
+
+    /**
+     * Invoked by the RascController to allow the contributor to generate (from
+     * the given IProject) whatever content it wishes and add it to the RASC via
+     * the given RascWriter. The context provides additional information
+     * regarding the deployment that the contributor may use.
+     * <p>
+     * For backward compatibility, the default implementation will invoke the
+     * <tt>process()</tt> method without the RascContext.
+     * 
+     * @param aProject
+     *            the project from which the RASC content is to be generated.
+     * @param aContext
+     *            contains additional information regarding the Application and
+     *            the RASC generation.
+     * @param aProgressMonitor
+     *            the progress monitor to use for reporting progress to the
+     *            user. It is the caller's responsibility to call done() on the
+     *            given monitor. Accepts null, indicating that no progress
+     *            should be reported and that the operation cannot be cancelled.
+     * @param aWriter
+     *            a writer to allow the contributor to add content to the RASC.
+     * @throws Exception
+     *             any exception that the contributor raises will be logged and
+     *             wrapped in a RascContributionException, before being rethrown
+     *             by the RascController.
+     */
+    public default void process(IProject aProject, RascContext aContext,
+            IProgressMonitor aProgressMonitor, RascWriter aWriter)
+            throws Exception {
+        process(aProject, aProgressMonitor, aWriter);
+    }
 }
