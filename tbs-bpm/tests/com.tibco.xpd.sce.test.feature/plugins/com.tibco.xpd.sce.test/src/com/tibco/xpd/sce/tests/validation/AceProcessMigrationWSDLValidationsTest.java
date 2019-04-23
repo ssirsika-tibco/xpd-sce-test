@@ -61,7 +61,7 @@ public class AceProcessMigrationWSDLValidationsTest
      */
     @Override
     protected void tearDown() throws Exception {
-        // projectImporter.performDelete();
+        projectImporter.performDelete();
         super.tearDown();
     }
 
