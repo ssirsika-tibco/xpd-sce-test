@@ -22,6 +22,7 @@ import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.util.OMUtil;
 import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
 import com.tibco.xpd.om.transform.de.transform.OrgModelTransformer;
+import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.resources.WorkingCopy;
@@ -86,12 +87,20 @@ public class OrgModelRascContributor implements RascContributor {
 
     /**
      * @see com.tibco.xpd.rasc.core.RascContributor#process(org.eclipse.core.resources.IProject,
+     *      com.tibco.xpd.rasc.core.RascContext,
      *      org.eclipse.core.runtime.IProgressMonitor,
      *      com.tibco.xpd.rasc.core.RascWriter)
+     *
+     * @param aProject
+     * @param aContext
+     * @param aProgressMonitor
+     * @param aWriter
+     * @throws Exception
      */
     @Override
-    public void process(IProject aProject, IProgressMonitor aProgressMonitor,
-            RascWriter aWriter) throws Exception {
+    public void process(IProject aProject, RascContext aContext,
+            IProgressMonitor aProgressMonitor, RascWriter aWriter)
+            throws Exception {
 
         // if the project contains an org-model
         IResource orgFile = findOrgModel(aProject);
@@ -116,7 +125,8 @@ public class OrgModelRascContributor implements RascContributor {
 
         // transform the studio org-model to rasc org-model (XML)
         ModelType transformOrgModel =
-                OrgModelRascContributor.TRANSFORMER.transformOrgModel(orgModel);
+                OrgModelRascContributor.TRANSFORMER.transformOrgModel(orgModel,
+                        aContext.getVersion().toString());
 
         // has the job been cancelled by the user
         if (monitor.isCanceled()) {

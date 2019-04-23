@@ -6,8 +6,6 @@ package com.tibco.xpd.wm.test.om.transform;
 
 import java.util.Collection;
 
-import junit.framework.Assert;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
@@ -31,6 +29,8 @@ import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
 import com.tibco.xpd.om.transform.de.transform.OrgModelTransformer;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
+
+import junit.framework.Assert;
 
 /**
  * Abstract Test Class for Validating transformed DE Model.The extending class
@@ -112,7 +112,8 @@ public abstract class AbstractDETransformationTest extends
         assertNotNull("Org Model could not be loaded", om_orgModel); //$NON-NLS-1$
         // Transform to DE model
         ModelType deModel =
-                new OrgModelTransformer().transformOrgModel(om_orgModel);
+                new OrgModelTransformer().transformOrgModel(om_orgModel,
+                        "1.0.0.123456789");
         Assert.assertNotNull(deModel);
         assertTransformedModel(deModel, om_orgModel);
     }

@@ -168,19 +168,20 @@ public class OrgModelTransformer {
      *            source of transformation.
      * @return transformed DE ModelType based on orgModel.
      */
-    public ModelType transformOrgModel(OrgModel orgModel) {
+    public ModelType transformOrgModel(OrgModel orgModel, String version) {
         TransfContext tc = new TransfContext(DeFactory.eINSTANCE);
-        return transformOrgModel(tc, orgModel);
+        return transformOrgModel(tc, orgModel, version);
     }
 
-    private ModelType transformOrgModel(final TransfContext tc, OrgModel s) {
+    private ModelType transformOrgModel(final TransfContext tc, OrgModel s,
+            String version) {
         return tc.<OrgModel, ModelType> create(DePackage.eINSTANCE
                 .getModelType(), s, new CreateFuncton<OrgModel, ModelType>() {
             @Override
             public void create(OrgModel s, ModelType d) {
 
-                d.setName(s.getName());
-                d.setVersion(s.getVersion());
+                        d.setName(s.getName());
+                        d.setVersion(version);
 
                 /*
                  * Transform the Capabilities

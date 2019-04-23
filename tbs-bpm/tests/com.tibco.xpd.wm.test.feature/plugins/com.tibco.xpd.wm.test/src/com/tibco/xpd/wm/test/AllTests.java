@@ -6,7 +6,6 @@ package com.tibco.xpd.wm.test;
 
 import com.tibco.xpd.wm.test.om.transform.DynamiOrgTransformationTest;
 import com.tibco.xpd.wm.test.om.transform.NestedOrgUnitTest;
-import com.tibco.xpd.wm.test.om.transform.OrgDeployModelSchemaTest;
 import com.tibco.xpd.wm.test.om.transform.QualifierAttributeValueTest;
 
 import junit.framework.Test;
@@ -24,7 +23,7 @@ public class AllTests {
         suite.addTestSuite(DynamiOrgTransformationTest.class);
         suite.addTestSuite(NestedOrgUnitTest.class);
         suite.addTestSuite(QualifierAttributeValueTest.class);
-        suite.addTestSuite(OrgDeployModelSchemaTest.class);
+
         // $JUnit-END$
         return suite;
     }
