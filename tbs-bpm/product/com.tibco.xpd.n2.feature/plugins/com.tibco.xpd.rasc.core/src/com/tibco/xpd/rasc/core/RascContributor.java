@@ -59,8 +59,12 @@ public interface RascContributor {
      *             wrapped in a RascContributionException, before being rethrown
      *             by the RascController.
      */
-    public void process(IProject aProject, IProgressMonitor aProgressMonitor,
-            RascWriter aWriter) throws Exception;
+    public default void process(IProject aProject,
+            IProgressMonitor aProgressMonitor, RascWriter aWriter)
+            throws Exception {
+        throw new UnsupportedOperationException(
+                "An implementation should be provided for new process() method with RascContext."); //$NON-NLS-1$
+    }
 
     /**
      * Invoked by the RascController to allow the contributor to generate (from
