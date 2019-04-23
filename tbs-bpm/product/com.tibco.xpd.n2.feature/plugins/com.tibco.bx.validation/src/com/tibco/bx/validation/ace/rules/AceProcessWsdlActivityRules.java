@@ -25,7 +25,7 @@ import com.tibco.xpd.xpdl2.util.ThrowErrorEventUtil;
  * activities to invoke 3rd party services or asynchronous sub-process for
  * invoking business processes from business service or pageflow processes</li>
  * 
- * <li>Incoming web-service message activities and their are replies not
+ * <li>Incoming web-service message activities and their replies are not
  * supported. Use 'type none' instead and invoke these thru run-time API if
  * required.</li>
  * 
