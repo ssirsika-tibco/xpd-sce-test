@@ -108,8 +108,6 @@ public class AceProcessInvalidDataRulesTest extends AbstractN2BaseValidationTest
         TestResourceInfo[] testResources = new TestResourceInfo[] {
                 new TestResourceInfo("resources/AceProcessDataRulesTest", //$NON-NLS-1$
                         "BPMProjectMigration_ProcessDataValidation/Process Packages{processes}/InvalidTypes.xpdl"), //$NON-NLS-1$
-                new TestResourceInfo("resources/AceProcessDataRulesTest", //$NON-NLS-1$
-                        "BPMProjectMigration_ProcessDataValidation/Process Packages{processes}/ValidTypes.xpdl"), //$NON-NLS-1$
         };
     
         return testResources;
