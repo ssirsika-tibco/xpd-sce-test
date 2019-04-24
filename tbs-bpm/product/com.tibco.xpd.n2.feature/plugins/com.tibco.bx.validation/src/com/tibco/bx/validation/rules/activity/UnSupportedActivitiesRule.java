@@ -57,8 +57,13 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
     private static final String UNSUPPORTED_MULTIPLE_END_EVENT =
             "bx.unSupportedMultipleEndEvent"; //$NON-NLS-1$
 
-    private static final String UNSUPPORTED_CANCEL_END_EVENT =
-            "bx.unSupportedCancelEndEvent"; //$NON-NLS-1$
+    /*
+     * Sid ACE-476 - Already a rule to cover 'Cancel event no tsupported'
+     * elsewhere
+     * ("Cancel End event can only be used within Transaction enabled Embedded Sub-Process"
+     * )
+     */
+
 
     private static final String ISSUE_EVENT_HANDLER_TYPE_NOT_SUPPORTED_IN_EMBEDDED_SUB_PROC =
             "bx.eventHandlerTypeNotSupportedInEmbeddedSubProc"; //$NON-NLS-1$
@@ -196,10 +201,7 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
                         .equals(EventObjectUtil.getEventTriggerType(activity))) {
                     addIssue(UNSUPPORTED_MULTIPLE_END_EVENT, activity);
                 }
-                if (EventTriggerType.EVENT_CANCEL_LITERAL
-                        .equals(EventObjectUtil.getEventTriggerType(activity))) {
-                    addIssue(UNSUPPORTED_CANCEL_END_EVENT, activity);
-                }
+
             }
 
             /**

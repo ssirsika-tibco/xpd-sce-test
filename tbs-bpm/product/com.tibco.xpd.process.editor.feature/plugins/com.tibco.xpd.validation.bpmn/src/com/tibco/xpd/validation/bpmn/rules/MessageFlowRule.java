@@ -15,14 +15,9 @@ import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.MessageFlow;
-import com.tibco.xpd.xpdl2.No;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Pool;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.Reference;
-import com.tibco.xpd.xpdl2.SubFlow;
-import com.tibco.xpd.xpdl2.Task;
-import com.tibco.xpd.xpdl2.TriggerResultMessage;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
@@ -41,8 +36,18 @@ public class MessageFlowRule extends PackageValidationRule {
 
     private static final String INVALID_TARGET = "bpm.msgFlowInvalidTarget"; //$NON-NLS-1$
 
+    /*
+     * Sid ACE-476 Suppress individual Message Flow rules for ACE as they are
+     * simply not supported at all (via AceProcessFlowRules).
+     */
+    private static boolean suppressMessageFlowRulesForAce = true;
+
     @Override
     public void validate(Package pckg) {
+        if (suppressMessageFlowRulesForAce) {
+            return;
+        }
+
         for (Process process : pckg.getProcesses()) {
             validateMessageFlows(process);
         }

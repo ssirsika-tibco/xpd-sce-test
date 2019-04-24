@@ -1604,11 +1604,7 @@
             message="%bx.unSupportedMultipleEndEvent"
             severity="ERROR">
       </issue>
-      <issue
-            id="bx.unSupportedCancelEndEvent"
-            message="%bx.unSupportedCancelEndEvent"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bx.subProcessArrayNonArrayMappingDisallowed"
             message="%bx.subProcessArrayNonArrayMappingDisallowed"
@@ -4907,6 +4903,9 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.AceProcessDataRules">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceProcessFlowRules">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -4946,6 +4945,15 @@ s         <scriptContribution
             id="ace.invalid.base.datatype"
             message="%ace.invalid.base.datatype"
             severity="ERROR">
+      </issue>
+      <issue
+            id="ace.message.flow.not.supported"
+            message="%ace.message.flow.not.supported"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="resolution.bpmn.removeMessageFlow">
+         </resolution>
       </issue>
 	</extension>     
 

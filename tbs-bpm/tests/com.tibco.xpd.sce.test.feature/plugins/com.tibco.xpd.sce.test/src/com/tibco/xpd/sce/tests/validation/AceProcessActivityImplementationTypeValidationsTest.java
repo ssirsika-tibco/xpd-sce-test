@@ -43,7 +43,7 @@ public class AceProcessActivityImplementationTypeValidationsTest
          * This test doesn't create files via the normal getTestResources()
          * because we want to import and migrate a whole project from AMX BPM.
          */
-         projectImporter = TestUtil.importProjectsFromZip(
+        projectImporter = TestUtil.importProjectsFromZip(
                 "com.tibco.xpd.sce.test", //$NON-NLS-1$
                 new String[] {
                         "resources/AceProcessMigrationValidationsTest/BPMProjectMigration_ProcessValidation/" }, //$NON-NLS-1$
@@ -275,6 +275,119 @@ public class AceProcessActivityImplementationTypeValidationsTest
                                 "_QEdSwWEeEemASo-CA987hg", //$NON-NLS-1$
                                 "BPM  : Java service tasks are not supported (consider use of REST service task instead). (ServiceConsumer:Java)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedMultipleEndEvent", //$NON-NLS-1$
+                                "_4F8nwGaaEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Multi-end events are not supported. (EventsProcess:ThrowMultipleEvent2)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bpmn.cancelEndEvent", //$NON-NLS-1$
+                                "_6aCKQGaaEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Cancel End event can only be used within Transaction enabled Embedded Sub-Process (EventsProcess:CancelEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "ace.message.flow.not.supported", //$NON-NLS-1$
+                                "__GkOAGaeEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Message flows are not supported. ()", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "ace.message.flow.not.supported", //$NON-NLS-1$
+                                "_AF_qsGafEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Message flows are not supported. ()", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "ace.message.flow.not.supported", //$NON-NLS-1$
+                                "_B2O5QGafEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Message flows are not supported. ()", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "ace.message.flow.not.supported", //$NON-NLS-1$
+                                "_BbBj8GafEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Message flows are not supported. ()", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "n2pe.manualTaskNotSupported", //$NON-NLS-1$
+                                "_Fkl-MGabEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Manual Task is not supported. (OtherUnsupportedTasksProcess:ManualTask)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.referenceTasksNotSupported", //$NON-NLS-1$
+                                "_HOVjMGabEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : Reference tasks are not supported (OtherUnsupportedTasksProcess:RefManualTask)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedConditionalIntermediateEvent", //$NON-NLS-1$
+                                "_JShTYWaZEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Conditional catch events are not supported. (EventsProcess:ConditionalEvent2)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.startEventTimerNotSupported", //$NON-NLS-1$
+                                "_LUsb8maYEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Timer start events are not supported. (EventsProcess:TimerEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedCatchMultipleIntermediateEvent", //$NON-NLS-1$
+                                "_OaQCMWaZEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Multi-catch events are not supported. (EventsProcess:CatchMultipleEvent2)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedConditionalStartEvent", //$NON-NLS-1$
+                                "_P00YMGaYEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Conditional start events are not supported. (EventsProcess:ConditionalEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedMultipleStartEvent", //$NON-NLS-1$
+                                "_QGbsoGaYEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Multi-start events are not supported. (EventsProcess:CatchMultipleEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.mustCatchSpecificSignal", //$NON-NLS-1$
+                                "_QV0McGaYEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Catch signal Event must reference a specific signal.  (EventsProcess:CatchSignalEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedSignalStartEvent", //$NON-NLS-1$
+                                "_QV0McGaYEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Signal start events are not supported (you can use signal event handlers for already started processes). (EventsProcess:CatchSignalEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bx.unSupportedThrowMultipleIntermediateEvent", //$NON-NLS-1$
+                                "_SWYgkWaZEem__5ZHhmQfmg", //$NON-NLS-1$
+                                "BPM  : Multi-throw events are not supported. (EventsProcess:ThrowMultipleEvent)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
                 };
         return markerInfos;
     }
