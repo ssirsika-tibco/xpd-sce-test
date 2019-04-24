@@ -35,7 +35,11 @@ public class N2_32_DocumentOperationsServiceTaskTest extends
      * @throws Exception
      */
     public void testN232DocumentOperationsServiceTaskTest() throws Exception {
-        doTestValidations();
+        /*
+         * Sid ACE-475 - document operation validations suppressed as we do not
+         * support them any more.
+         */
+        // doTestValidations();
         return;
     }
 

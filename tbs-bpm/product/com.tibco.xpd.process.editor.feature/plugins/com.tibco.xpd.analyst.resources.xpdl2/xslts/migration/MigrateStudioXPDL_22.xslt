@@ -138,7 +138,8 @@
 	
 	<!--
 	===============================================================================
-	Remove all references to simulation elements
+	Remove all references to simulation schema elements (the extension model contribution is
+	no longer part of the SCE feature set so have to remove it). 
 	===============================================================================
     -->
 	<xsl:template match="@simulation:* | simulation:*">
@@ -147,6 +148,26 @@
 
 	<xsl:template match="xpdl2:ExtendedAttribute[@Name = 'ParticipantSimulationData' or @Name = 'StartSimulationData' or @Name = 'ActivitySimulationData' or @Name = 'WorkflowProcessSimulationData']">
 		<!-- Do nothing (e.g. do not output the simulation extended attribute / element)-->
+	</xsl:template>
+
+	<!--
+	===============================================================================
+	Remove all references to eaijava schema elements (the extension model contribution is
+	no longer part of the SCE feature set so have to remove it). 
+	===============================================================================
+    -->
+	<xsl:template match="@eaijava:* | eaijava:*">
+		<!-- Do nothing (e.g. do not output he simulation attribute / element)-->
+	</xsl:template>
+	
+	<!--
+	===============================================================================
+	Remove all references to database schema elements (the extension model contribution is
+	no longer part of the SCE feature set so have to remove it). 
+	===============================================================================
+    -->
+	<xsl:template match="@database:* | database:*">
+		<!-- Do nothing (e.g. do not output he simulation attribute / element)-->
 	</xsl:template>
 
 	<!--

@@ -748,8 +748,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
          * set.
          * 
          * This also has the advantage of checking that the XPDL migration has
-         * created valid format xpdl files with things like simulation namespace
-         * elements removed.
+         * created valid format xpdl files with things like
+         * simulation/eaijava/database namespace elements removed.
          * 
          */
         Collection<IResource> xpdlFiles = SpecialFolderUtil

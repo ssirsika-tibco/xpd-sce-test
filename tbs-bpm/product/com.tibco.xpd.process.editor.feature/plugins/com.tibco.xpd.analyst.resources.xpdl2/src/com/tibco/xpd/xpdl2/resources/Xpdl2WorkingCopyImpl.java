@@ -340,10 +340,16 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             /*
              * Sid ACE-467 - Need to remove simulation namespace, so if it's
              * there then run the command to reset it.
+             * 
+             * Sid ACE-475 - Same goes for the eaijava and database namespaces
+             * (for which we also have removed the model contribution from the
+             * product)
              */
 
             if (!map.containsKey(Xpdl2Package.eNS_URI)
-                    || nsMap.containsKey("simulation")) { //$NON-NLS-1$
+                    || nsMap.containsKey("simulation") //$NON-NLS-1$
+                    || nsMap.containsKey("eaijava") //$NON-NLS-1$
+                    || nsMap.containsKey("database")) { //$NON-NLS-1$
 
                 WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(docRoot);
 
@@ -369,12 +375,14 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                                  * should remove all simulation elements.
                                  */
                                 nsMap.removeKey("simulation"); //$NON-NLS-1$
+                                /* Sid ACE-475 - same for eaijava & database */
+                                nsMap.removeKey("eaijava"); //$NON-NLS-1$
+                                nsMap.removeKey("database"); //$NON-NLS-1$
 
                                 nsMap.put("iProcessExt", "http://www.tibco.com/XPD/iProcessExt1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
-                                nsMap.put("database", "http://www.tibco.com/XPD/database1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 nsMap.put("xpdExt", "http://www.tibco.com/XPD/xpdExtension1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 nsMap.put("email", "http://www.tibco.com/XPD/email1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
-                                nsMap.put("eaijava", "http://www.tibco.com/XPD/EAIJava1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
+
                                 nsMap.put("orchestrator", "http://www.tibco.com/XPD/orchestrator1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
                                 nsMap.put("order", "http://www.tibco.com/XPD/order1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
 

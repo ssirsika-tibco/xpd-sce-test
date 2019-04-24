@@ -12,7 +12,7 @@ import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.SubFlow;
 
 /**
- * Variosu decision service task validation rules.
+ * Various decision service task validation rules.
  * 
  * @author aallway
  * @since 3 Aug 2011
@@ -25,6 +25,9 @@ public class DecisionServiceTaskRules extends ProcessActivitiesValidationRule {
     private static final String ISSUE_DECISIONFLOW_REFERENCE_CANT_ACCESS =
             "bpmn.dev.referencedDecisionServiceDoesNotExist"; //$NON-NLS-1$
 
+    /* Sid ACE-475 suppress Decision service task config rules for ACE env' */
+    private static final boolean suppressDecisionTaskValidationsForAce = true;
+
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule#validate(com.tibco.xpd.xpdl2.Activity)
      * 
@@ -32,6 +35,10 @@ public class DecisionServiceTaskRules extends ProcessActivitiesValidationRule {
      */
     @Override
     protected void validate(Activity activity) {
+        if (suppressDecisionTaskValidationsForAce) {
+            return;
+        }
+        
         if (DecisionTaskObjectUtil.isDecisionServiceTask(activity)) {
 
             /*
@@ -63,7 +70,8 @@ public class DecisionServiceTaskRules extends ProcessActivitiesValidationRule {
                         DecisionTaskObjectUtil.getDecisionFlow(activity);
 
                 if (decisionFlow == null) {
-                    addIssue(ISSUE_DECISIONFLOW_REFERENCE_CANT_ACCESS, activity);
+                    addIssue(ISSUE_DECISIONFLOW_REFERENCE_CANT_ACCESS,
+                            activity);
                 }
             }
 

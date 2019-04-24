@@ -24,12 +24,12 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  * @author
  * @since
  */
-public class AceProcessMigrationWSDLValidationsTest
+public class AceProcessActivityImplementationTypeValidationsTest
         extends AbstractN2BaseValidationTest {
 
     private ProjectImporter projectImporter;
 
-    public AceProcessMigrationWSDLValidationsTest() {
+    public AceProcessActivityImplementationTypeValidationsTest() {
         super(true);
     }
 
@@ -220,6 +220,61 @@ public class AceProcessMigrationWSDLValidationsTest
                                 "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReplyToReceiveTask)", //$NON-NLS-1$
                                 "Set to trigger type 'Untriggered Event'."), //$NON-NLS-1$
 
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.document.task.not.supported", //$NON-NLS-1$
+                                "_Co6ToWEeEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Document operation service tasks are not supported (control of case documents is provided via UI / run-time API only). (ServiceConsumer:CaseDocument)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.decision.task.not.supported", //$NON-NLS-1$
+                                "_FcgnNmEfEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Decision service tasks are not supported. (Pageflow_ServiceConsumer:BPMProjectMigration_ProcessValidationDecisionFlow)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.document.task.not.supported", //$NON-NLS-1$
+                                "_FcgnPmEfEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Document operation service tasks are not supported (control of case documents is provided via UI / run-time API only). (Pageflow_ServiceConsumer:CaseDocument)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.database.task.not.supported", //$NON-NLS-1$
+                                "_FchOQmEfEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Database service tasks are not supported (consider use of REST service task instead). (Pageflow_ServiceConsumer:Database)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.java.task.not.supported", //$NON-NLS-1$
+                                "_FchORWEfEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Java service tasks are not supported (consider use of REST service task instead). (Pageflow_ServiceConsumer:Java)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.database.task.not.supported", //$NON-NLS-1$
+                                "_ISPToWEeEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Database service tasks are not supported (consider use of REST service task instead). (ServiceConsumer:Database)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.decision.task.not.supported", //$NON-NLS-1$
+                                "_KXzWIGEXEem0lq-eL9iD2A", //$NON-NLS-1$
+                                "BPM  : Decision service tasks are not supported. (ServiceConsumer:BPMProjectMigration_ProcessValidationDecisionFlow)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.java.task.not.supported", //$NON-NLS-1$
+                                "_QEdSwWEeEemASo-CA987hg", //$NON-NLS-1$
+                                "BPM  : Java service tasks are not supported (consider use of REST service task instead). (ServiceConsumer:Java)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
                 };
         return markerInfos;
     }

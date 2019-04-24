@@ -8,8 +8,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 import com.tibco.bx.xpdl2bpel.converter.internal.ConverterExtensions;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.processeditor.xpdl2.util.DecisionTaskObjectUtil;
+import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.validation.xpdl2.rules.ActivityValidationRule;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Implementation;
@@ -26,6 +28,18 @@ public class ExtensionValidationRule extends ActivityValidationRule {
 
     public static final String ISSUE_MANUAL_TASK_NOT_SUPPORTED =
             "n2pe.manualTaskNotSupported"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_DECISIONS_TASK_NOT_SUPPORTED =
+            "ace.decision.task.not.supported"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_DATABASE_TASK_NOT_SUPPORTED =
+            "ace.database.task.not.supported"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_JAVA_TASK_NOT_SUPPORTED =
+            "ace.java.task.not.supported"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_DOCUMENT_TASK_NOT_SUPPORTED =
+            "ace.document.task.not.supported"; //$NON-NLS-1$
 
     @Override
     public void validate(Activity activity) {
@@ -54,10 +68,8 @@ public class ExtensionValidationRule extends ActivityValidationRule {
                 if (taskService.getImplementation() == ImplementationType.OTHER_LITERAL) {
                     FeatureMap featureMap = taskService.getOtherElements();
                     if (featureMap.isEmpty()) {
-                        if (!DecisionTaskObjectUtil
-                                .isDecisionServiceTask(activity)) {
-                            addNoConfigData(activity.getName(), taskService);
-                        }
+                        validateExtension(activity, null);
+
                     } else {
                         EObject obj = (EObject) featureMap.getValue(0);
                         validateExtension(activity, obj);
@@ -78,15 +90,65 @@ public class ExtensionValidationRule extends ActivityValidationRule {
         }
     }
 
-    private void validateExtension(EObject container, EObject model) {
-        boolean hasExtension = false;
-        try {
-            hasExtension = ConverterExtensions.hasModelBuilderExtension(model);
-        } catch (CoreException e) {
-        }
-        if (!hasExtension) {
-            String className = model.eClass().getInstanceClass().getName();
-            addNoModelBuilderError(className, container);
+    /**
+     * Check that the given activity implementation type is supported.
+     * 
+     * @param activity
+     * @param model
+     */
+    private void validateExtension(Activity activity, EObject model) {
+        /*
+         * Sid ACE-475: Suppress old generic task extension validations in
+         * favour of new ACE specific rules.
+         */
+        String implementationId =
+                TaskObjectUtil.getTaskImplementationExtensionId(activity);
+
+        if (TaskImplementationTypeDefinitions.DATABASE_SERVICE
+                .equals(implementationId)) {
+            addIssue(ACE_ISSUE_DATABASE_TASK_NOT_SUPPORTED, activity);
+
+        } else if (TaskImplementationTypeDefinitions.DECISION_SERVICE
+                .equals(implementationId)) {
+            addIssue(ACE_ISSUE_DECISIONS_TASK_NOT_SUPPORTED, activity);
+
+        } else if (TaskImplementationTypeDefinitions.JAVA_SERVICE
+                .equals(implementationId)) {
+            addIssue(ACE_ISSUE_JAVA_TASK_NOT_SUPPORTED, activity);
+
+        } else if (TaskImplementationTypeDefinitions.DOCUMENT_OPERATIONS
+                .equals(implementationId)) {
+            addIssue(ACE_ISSUE_DOCUMENT_TASK_NOT_SUPPORTED, activity);
+
+        } else {
+
+            /*
+             * Else fall back on the old 'do we have a BPEL converter extension'
+             * generic problem.
+             */
+            if (model == null) {
+                /*
+                 * Moved from parent function as we want to consider the known
+                 * impl' types first.
+                 */
+                if (!DecisionTaskObjectUtil.isDecisionServiceTask(activity)) {
+                    addNoConfigData(activity.getName(), activity);
+                }
+
+            } else {
+
+                boolean hasExtension = false;
+                try {
+                    hasExtension =
+                            ConverterExtensions.hasModelBuilderExtension(model);
+                } catch (CoreException e) {
+                }
+                if (!hasExtension) {
+                    String className =
+                            model.eClass().getInstanceClass().getName();
+                    addNoModelBuilderError(className, activity);
+                }
+            }
         }
 
     }

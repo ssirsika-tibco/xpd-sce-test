@@ -67,6 +67,9 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class CaseDocumentServiceTaskRule extends
         ProcessActivitiesValidationRule {
 
+    /* Sid ACE-475 suppress Decision service task config rules for ACE env' */
+    private static final boolean suppressDocumentTaskValidationsForAce = true;
+
     private static final String OPERATION_NOT_SELECTED_ERROR =
             "bpmn.dev.caseDocumentTask.operationNotSelected"; //$NON-NLS-1$
 
@@ -131,6 +134,7 @@ public class CaseDocumentServiceTaskRule extends
     private static final String CMIS_DOC_ONLY_WITH_CONTAINS =
             "bpmn.dev.caseDocumentTask.CmisDocumentPropertyOnlyAllowedWithContains"; //$NON-NLS-1$
 
+
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule#validate(com.tibco.xpd.xpdl2.Activity)
      * 
@@ -138,6 +142,9 @@ public class CaseDocumentServiceTaskRule extends
      */
     @Override
     protected void validate(Activity activity) {
+        if (suppressDocumentTaskValidationsForAce) {
+            return;
+        }
 
         /* Validate only Case Document Service Task Activity */
         TaskType taskType = TaskObjectUtil.getTaskTypeStrict(activity);
