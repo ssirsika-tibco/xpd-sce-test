@@ -24,12 +24,12 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  * @author
  * @since
  */
-public class AceProcessActivityImplementationTypeValidationsTest
+public class AceMigratedProcessValidationsTest
         extends AbstractN2BaseValidationTest {
 
     private ProjectImporter projectImporter;
 
-    public AceProcessActivityImplementationTypeValidationsTest() {
+    public AceMigratedProcessValidationsTest() {
         super(true);
     }
 
