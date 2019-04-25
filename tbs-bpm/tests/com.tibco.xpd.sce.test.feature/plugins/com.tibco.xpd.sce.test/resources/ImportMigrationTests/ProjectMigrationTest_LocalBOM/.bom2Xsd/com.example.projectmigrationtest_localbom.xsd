@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/projectmigrationtest_localbom" xmlns:tns1="http://example.com/projectmigrationtest_localbom"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/projectmigrationtest_localbom">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/ProjectMigrationTest_LocalBOM/Business Objects/ProjectMigrationTest_LocalBOM.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Class1" id="_TxQ9kGdyEemc57YnadR58Q" name="Class1">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_UXwV0GdyEemc57YnadR58Q" maxOccurs="1"
+          minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Class1Element" type="Class1"/>
+</xsd:schema>

@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -46,6 +47,7 @@ import com.tibco.xpd.resources.util.ProjectImporter;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
+import com.tibco.xpd.validation.provider.IIssue;
 import com.tibco.xpd.xpdExtension.Audit;
 import com.tibco.xpd.xpdExtension.CatchErrorMappings;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
@@ -86,6 +88,22 @@ import junit.framework.TestCase;
  * @since 22 Mar 2019
  */
 public class Bpm2CeProjectMigrationTest extends TestCase {
+
+    // @Test
+    public void testLocalBOMDataProjectMigration() {
+        String projectName = "ProjectMigrationTest_LocalBOM"; //$NON-NLS-1$
+        ProjectImporter projectImporter =
+                doTestProject(projectName);
+        
+        assertTrue(projectName
+                + " project should have problem marker 'Business Object assets must be in a Business Data project.'", //$NON-NLS-1$
+                hasProblemMarker(
+                        ResourcesPlugin.getWorkspace().getRoot()
+                                .getProject(projectName),
+                        "ace.bom.asset.must.be.in.biz.data")); //$NON-NLS-1$
+        
+        projectImporter.performDelete();
+    }
 
     // @Test
     public void testOrgProjectMigration() {
@@ -556,8 +574,25 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
     @Test
     public void testMaaProjectMigration() {
+        String projectName = "ProjectMigrationTest_maa"; //$NON-NLS-1$
+
         ProjectImporter projectImporter =
-                doTestProject("ProjectMigrationTest_maa"); //$NON-NLS-1$
+                doTestProject(projectName); // $NON-NLS-1$
+
+        assertTrue(projectName
+                + " project should have problem marker 'Organisation assets must be in their own project (not mixed with other asset types such as Process and Business Object etc).'", //$NON-NLS-1$
+                hasProblemMarker(
+                        ResourcesPlugin.getWorkspace().getRoot()
+                                .getProject(projectName),
+                        "ace.org.asset.must.be.alone")); //$NON-NLS-1$
+
+        assertTrue(projectName
+                + " project should have problem marker 'Business Object assets must be alone in their own Business Data project (not mixed with other asset types such as Process and Organisation etc).'", //$NON-NLS-1$
+                hasProblemMarker(
+                        ResourcesPlugin.getWorkspace().getRoot()
+                                .getProject(projectName),
+                        "ace.bom.asset.must.be.alone")); //$NON-NLS-1$
+
         projectImporter.performDelete();
     }
 
@@ -698,6 +733,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 .getProject(projectName); // $NON-NLS-1$
         assertTrue(projectName + " project does not exist", //$NON-NLS-1$
                 project.isAccessible());
+
+        TestUtil.buildAndWait();
 
         ProjectConfig projectConfig =
                 XpdResourcesPlugin.getDefault().getProjectConfig(project);
@@ -1344,6 +1381,33 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 return true;
             }
         }
+        return false;
+    }
+
+    /**
+     * 
+     * @param resource
+     * @param markerId
+     * @return <code>true</code> if given resource has given problem marker
+     *         raised on it.
+     */
+    private boolean hasProblemMarker(IResource resource, String markerId) {
+        try {
+            IMarker[] markers = resource
+                    .findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+
+            if (markers != null) {
+                for (IMarker marker : markers) {
+                    if (markerId.equals(marker.getAttribute(IIssue.ID))) {
+                        return true;
+                    }
+                }
+            }
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 

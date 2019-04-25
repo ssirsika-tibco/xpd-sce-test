@@ -3621,8 +3621,8 @@ s         <scriptContribution
                validateType="FILE">
          </validator>
          <validator
-               class="com.tibco.bx.validation.rules.XPDLAndGDBOMInSameProjectValidator"
-               id="com.tibco.bx.validation.processAndGDBOMRestrictionProvider"
+               class="com.tibco.bx.validation.ace.rules.AceProjectRules"
+               id="com.tibco.bx.validation.ace.projectRules"
                validateType="PROJECT">
          </validator>
          <validator
@@ -3694,13 +3694,23 @@ s         <scriptContribution
                severity="ERROR">
          </issue>
          <issue
-               id="bx.xpdlAndGDBOMInSameProjectRestricted"
-               message="%bx.xpdlAndGDBOMInSameProjectRestricted"
+               id="bx.invalidFolderNameInPresentationResources"
+               message="%bx.invalidFolderNameInPresentationResources"
                severity="ERROR">
          </issue>
          <issue
-               id="bx.invalidFolderNameInPresentationResources"
-               message="%bx.invalidFolderNameInPresentationResources"
+               id="ace.org.asset.must.be.alone"
+               message="%ace.org.asset.must.be.alone"
+               severity="ERROR">
+         </issue>
+         <issue
+               id="ace.bom.asset.must.be.alone"
+               message="%ace.bom.asset.must.be.alone"
+               severity="ERROR">
+         </issue>
+         <issue
+               id="ace.bom.asset.must.be.in.biz.data"
+               message="%ace.bom.asset.must.be.in.biz.data"
                severity="ERROR">
          </issue>
       </issues>
@@ -4987,7 +4997,7 @@ s         <scriptContribution
             message="%ace.system.participant.must.have.type.set"
             severity="ERROR">
       </issue>
-	</extension>     
+	</extension>
 
 </plugin>
 
