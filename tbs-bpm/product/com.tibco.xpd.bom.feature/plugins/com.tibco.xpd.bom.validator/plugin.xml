@@ -700,11 +700,6 @@
                validateType="FILE">
          </validator>
          <validator
-               class="com.tibco.xpd.bom.validator.rules.BusinessDataAssetsRule"
-               id="com.tibco.xpd.bom.validation.businessDataAllowedAssets"
-               validateType="PROJECT">
-         </validator>
-         <validator
                class="com.tibco.xpd.bom.validator.rules.GlobalBOMsInOtherProjectsRule"
                filter=".*[\\.]bom"
                id="com.tibco.xpd.bom.validation.caseAndGlobalInOtherProjects"
@@ -721,11 +716,7 @@
                   id="businessdata.applyGDProfile">
             </resolution>
          </issue>
-         <issue
-               id="businessdata.businessDataCantHaveOtherAssets"
-               message="%businessdata.businessDataCantHaveOtherAssets"
-               severity="ERROR">
-         </issue>
+
          <issue
                id="businessdata.otherProjectCantHaveGlobalBOM"
                message="%businessdata.otherProjectCantHaveGlobalBOM"
