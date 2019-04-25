@@ -4925,6 +4925,9 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.AceProcessFlowRules">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceParticipantRules">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -4973,6 +4976,16 @@ s         <scriptContribution
                canApplyToMultiple="true"
                id="resolution.bpmn.removeMessageFlow">
          </resolution>
+      </issue>
+      <issue
+            id="ace.invalid.participant.type"
+            message="%ace.invalid.participant.type"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="ace.system.participant.must.have.type.set"
+            message="%ace.system.participant.must.have.type.set"
+            severity="ERROR">
       </issue>
 	</extension>     
 

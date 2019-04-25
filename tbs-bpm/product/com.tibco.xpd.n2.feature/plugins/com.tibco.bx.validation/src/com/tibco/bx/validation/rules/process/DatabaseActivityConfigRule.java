@@ -36,6 +36,15 @@ public class DatabaseActivityConfigRule extends ProcessValidationRule {
             "bx.dbTaskParticipantMustBeSystem"; //$NON-NLS-1$
 
     /*
+     * Sid ACE-479 Suppress datbase participant related rules as database
+     * partic's are not supported in ACE and we remove their configurations
+     * during import migration and their shared resource type becomes undefined
+     * (so just want the user to see the 'you must select a shared resource
+     * type' problem.
+     */
+    private static final boolean suppressDatabaseParticipantRules = true;
+
+    /*
      * (non-Javadoc)
      * 
      * @seecom.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule#
@@ -100,12 +109,14 @@ public class DatabaseActivityConfigRule extends ProcessValidationRule {
                 addIssue(MUST_HAVE_PARTICIPANT, activity);
             } else { // participant is not null, check if the participant
                 // type is SYSTEM
-                ParticipantTypeElem participantType =
-                        participant.getParticipantType();
-                if (participantType == null
-                        || !ParticipantType.SYSTEM_LITERAL
-                                .equals(participantType.getType())) {
-                    addIssue(PARTICIPANT_NOT_SYSTEM, activity);
+                if (!suppressDatabaseParticipantRules) {
+                    ParticipantTypeElem participantType =
+                            participant.getParticipantType();
+                    if (participantType == null
+                            || !ParticipantType.SYSTEM_LITERAL
+                                    .equals(participantType.getType())) {
+                        addIssue(PARTICIPANT_NOT_SYSTEM, activity);
+                    }
                 }
             }
         }

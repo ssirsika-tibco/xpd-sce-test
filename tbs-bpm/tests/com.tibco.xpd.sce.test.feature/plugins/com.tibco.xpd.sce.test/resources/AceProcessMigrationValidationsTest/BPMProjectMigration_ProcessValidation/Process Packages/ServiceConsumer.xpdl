@@ -57,6 +57,33 @@
         </xpdExt:WebService>
       </xpdExt:ParticipantSharedResource>
     </xpdl2:Participant>
+    <xpdl2:Participant Id="_Ksll8GdPEemc57YnadR58Q" xpdExt:DisplayName="Human Participant" Name="Human Participant">
+      <xpdl2:ParticipantType Type="HUMAN"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_NV0SAGdPEemc57YnadR58Q" xpdExt:DisplayName="Role Participant" Name="Role Participant">
+      <xpdl2:ParticipantType Type="ROLE"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_PBhl4GdPEemc57YnadR58Q" xpdExt:DisplayName="Org Unit Participant" Name="Org Unit Participant">
+      <xpdl2:ParticipantType Type="ORGANIZATIONAL_UNIT"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_SXL6IGdPEemc57YnadR58Q" xpdExt:DisplayName="RESTParticipant" Name="RESTParticipant">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService HttpClientInstanceName="REST Client instance">
+          <xpdExt:SecurityPolicy PolicyType="Basic">
+            <xpdl2:ExtendedAttributes>
+              <xpdl2:ExtendedAttribute Name="IdentityProvider" Value="REST Gov App"/>
+            </xpdl2:ExtendedAttributes>
+          </xpdExt:SecurityPolicy>
+        </xpdExt:RestService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Difr4GdREemc57YnadR58Q" xpdExt:DisplayName="EmailParticipant" Name="EmailParticipant">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Email InstanceName="Email instance"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
   </xpdl2:Participants>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_udPvwGEWEem0lq-eL9iD2A" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_dgMYwGEWEem0lq-eL9iD2A">

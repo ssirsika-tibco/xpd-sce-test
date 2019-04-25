@@ -927,9 +927,26 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                         assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
                                 + Xpdl2ModelUtil.getDisplayName(process) + ":" //$NON-NLS-1$
                                 + Xpdl2ModelUtil.getDisplayName(participant)
-                                + " - REST/WEB system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-                                psr.getRestService() == null
-                                        && psr.getWebService() == null);
+                                + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
+                                psr.getWebService() == null
+                                        && psr.getJdbc() == null);
+
+                        /*
+                         * Sid ACE-479 We now only remove the content of
+                         * xpdExt:RestService not the whole element so that we
+                         * preserve it's type but not it's config
+                         */
+                        if (psr.getRestService() != null) {
+                            assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
+                                    + Xpdl2ModelUtil.getDisplayName(participant)
+                                    + ":" //$NON-NLS-1$
+                                    + " - REST system participant should have had all content from xpdExt:ParticipantSharedResource/xpdExt:RestService removed", //$NON-NLS-1$
+                                    psr.getRestService()
+                                            .getHttpClientInstanceName() == null
+                                            && psr.getRestService()
+                                                    .getSecurityPolicy()
+                                                    .isEmpty());
+                        }
                     }
                 }
 
@@ -949,9 +966,20 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 if (psr != null) {
                     assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
-                            + " - REST/WEB system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-                            psr.getRestService() == null
-                                    && psr.getWebService() == null);
+                            + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
+                           psr.getWebService() == null
+                                    && psr.getJdbc() == null);
+                    
+                    /* Sid ACE-479 We now only remove the content of xpdExt:RestService not the whole element so that we preserve it's type but not it's config */
+                    if (psr.getRestService() != null) {
+                        assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
+                                + " - REST system participant should have had all content from xpdExt:ParticipantSharedResource/xpdExt:RestService removed", //$NON-NLS-1$
+                                psr.getRestService()
+                                        .getHttpClientInstanceName() == null
+                                        && psr.getRestService()
+                                                .getSecurityPolicy().isEmpty());
+                    }
                 }
             }
 

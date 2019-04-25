@@ -51,6 +51,15 @@ public class BxParticipantSharedResourceUriRules extends PackageValidationRule {
     private static final String ISSUE_DBACT_PARTIC_MUSTHAVE_PROFILE_NAME =
             "bx.dbActParticSharedResMustHaveJdbcProfName"; //$NON-NLS-1$
 
+    /*
+     * Sid ACE-479 Suppress datbase participant related rules as database
+     * partic's are not supported in ACE and we remove their configurations
+     * during import migration and their shared resource type becomes undefined
+     * (so just want the user to see the 'you must select a shared resource
+     * type' problem.
+     */
+    private static final boolean suppressDatabaseParticipantRules = true;
+
     @Override
     public void validate(Package pckg) {
         for (Participant participant : pckg.getParticipants()) {
@@ -87,24 +96,29 @@ public class BxParticipantSharedResourceUriRules extends PackageValidationRule {
                 /*
                  * Rules for all database related activity participant.
                  */
-                boolean isUsedInDBActivity =
-                        containsDBActivity(referencingObjects);
-                if (isUsedInDBActivity) {
-                    if (null == participantSharedRes
-                            || null == participantSharedRes.getJdbc()) {
-                        addIssue(ISSUE_DBACT_PARTIC_MUSTBE_SHAREDRES_DBSVC,
-                                participant);
-                    } else if (participantSharedRes.getJdbc().getInstanceName() == null
-                            || participantSharedRes.getJdbc().getInstanceName()
-                                    .trim().length() == 0) {
-                        addIssue(ISSUE_DBACT_PARTIC_MUSTHAVE_SHAREDRES_NAME,
-                                participant);
-                    } else if (null == participantSharedRes.getJdbc()
-                            .getJdbcProfileName()
-                            || participantSharedRes.getJdbc()
-                                    .getJdbcProfileName().trim().length() == 0) {
-                        addIssue(ISSUE_DBACT_PARTIC_MUSTHAVE_PROFILE_NAME,
-                                participant);
+                if (!suppressDatabaseParticipantRules) {
+                    boolean isUsedInDBActivity =
+                            containsDBActivity(referencingObjects);
+                    if (isUsedInDBActivity) {
+                        if (null == participantSharedRes
+                                || null == participantSharedRes.getJdbc()) {
+                            addIssue(ISSUE_DBACT_PARTIC_MUSTBE_SHAREDRES_DBSVC,
+                                    participant);
+                        } else if (participantSharedRes.getJdbc()
+                                .getInstanceName() == null
+                                || participantSharedRes.getJdbc()
+                                        .getInstanceName().trim()
+                                        .length() == 0) {
+                            addIssue(ISSUE_DBACT_PARTIC_MUSTHAVE_SHAREDRES_NAME,
+                                    participant);
+                        } else if (null == participantSharedRes.getJdbc()
+                                .getJdbcProfileName()
+                                || participantSharedRes.getJdbc()
+                                        .getJdbcProfileName().trim()
+                                        .length() == 0) {
+                            addIssue(ISSUE_DBACT_PARTIC_MUSTHAVE_PROFILE_NAME,
+                                    participant);
+                        }
                     }
                 }
 

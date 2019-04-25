@@ -85,12 +85,24 @@
 	
 	<!--
 	===============================================================================
-	Remove current configuration information from REST and WEB service system participants 
+	Remove current configuration information from WEB and JDBC service system participants 
 	(as in SCE the configuration UI and model will be different).
+	
+	Sid ACE-479: Remvoe JBCD participant type info as well.
+	Sid ACE-479: Do not remove the entire xpdExt:RestServie element as it is this that 
+	             defines the participant as REST type (instead, the next template will 
+	             remove all of the configuration within it.
 	===============================================================================
     -->
-	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:RestService or xpdExt:WebService]">
+	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource[xpdExt:WebService or xpdExt:Jdbc]">
 		<!-- Do nothing (e.g. do not output the element)-->
+	</xsl:template>
+
+	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:RestService">
+		<!-- Just output the bare element -->
+		<xpdExt:RestService>
+		</xpdExt:RestService>
+
 	</xsl:template>
 
 	<!--
