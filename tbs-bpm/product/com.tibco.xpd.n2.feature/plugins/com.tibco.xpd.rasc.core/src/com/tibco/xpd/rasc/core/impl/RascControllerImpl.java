@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.SubMonitor;
 
 import com.tibco.bpm.dt.rasc.DeploymentFactory;
 import com.tibco.bpm.dt.rasc.DeploymentWriter;
+import com.tibco.bpm.dt.rasc.GovernanceState;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.bpm.dt.rasc.VersionRange.Endpoint;
@@ -256,6 +257,7 @@ public class RascControllerImpl implements RascController {
             aManifest.setApplicationName(aAppSummary.getName());
             aManifest.setApplicationInternalName(aAppSummary.getInternalName());
             aManifest.setAppVersion(aAppSummary.getVersion());
+            aManifest.setGovernanceState(GovernanceState.DRAFT);
 
             for (IProject dependency : aAppSummary.getReferencedProjects()) {
                 AppSummary summary = new AppSummary(dependency);
