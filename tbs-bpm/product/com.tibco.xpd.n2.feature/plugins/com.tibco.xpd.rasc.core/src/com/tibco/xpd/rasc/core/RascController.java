@@ -5,6 +5,7 @@
 package com.tibco.xpd.rasc.core;
 
 import java.io.File;
+import java.io.OutputStream;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -65,5 +66,21 @@ public interface RascController {
      * @throws RascGenerationException
      */
     public void generateRasc(IProject aProject, File aFile,
+            IProgressMonitor aProgressMonitor) throws RascGenerationException;
+
+    /**
+     * Generates a deployment RASC for the given project and outputs it to the
+     * given OutputStream.
+     * 
+     * @param aProject
+     *            the project for which the RASC is to be generated.
+     * @param aOutput
+     *            the output stream to which the RASC is to be written.
+     * @param aProgressMonitor
+     *            allows the RascController and the RascContributors to convey
+     *            their progress to the caller.
+     * @throws RascGenerationException
+     */
+    public void generateRasc(IProject aProject, OutputStream aOutput,
             IProgressMonitor aProgressMonitor) throws RascGenerationException;
 }
