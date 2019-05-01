@@ -92,7 +92,7 @@ public class RascExportProjectSelectionPage
      */
     @Override
     protected String getWorkspaceExportFolder() {
-        return "Exports"; //$NON-NLS-1$
+        return "Exports/Deployment Artifacts"; //$NON-NLS-1$
     }
 
     /**
