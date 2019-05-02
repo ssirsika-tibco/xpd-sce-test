@@ -369,7 +369,8 @@ public class ProjectDetailsSection extends DialogPage {
         if (this.showProjectVersion) {
             GridData layoutData = new GridData();
             layoutData.widthHint = STANDARD_LABEL_WIDTH;
-            layoutData.verticalIndent = 8;
+            /* Slight change to align with vertical centre of edit box. */
+            layoutData.verticalIndent = 4;
             layoutData.verticalAlignment = SWT.TOP;
 
             createLabel(root,
@@ -433,7 +434,16 @@ public class ProjectDetailsSection extends DialogPage {
      */
     private void createVersionControl(Composite aParent) {
         Composite container = new Composite(aParent, SWT.NONE);
-        container.setLayout(new GridLayout(2, false));
+
+        /*
+         * When creating a wrapping composite that you do not want to affect
+         * positioning, then set the layout margins to 0.
+         */
+        GridLayout containerLayout = new GridLayout(2, false);
+        containerLayout.marginHeight = containerLayout.marginWidth = 0;
+
+        container.setLayout(containerLayout);
+
         container.setLayoutData(new GridData(SWT.TOP, SWT.LEFT, false, false));
 
         String value = ""; //$NON-NLS-1$
@@ -477,7 +487,15 @@ public class ProjectDetailsSection extends DialogPage {
                 Messages.ProjectDetailsSection_Incr_version_hint1,
                 layoutData);
 
+        /*
+         * Should not re-use layout-data instances in multiple controls (there
+         * can be private cached information that is set by the layout for each
+         * individual control's layout data)
+         */
+        layoutData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        layoutData.widthHint = STANDARD_TEXT_WIDTH;
         new Composite(container, SWT.NONE);
+
         createLabel(container,
                 Messages.ProjectDetailsSection_Incr_version_hint2,
                 layoutData);
@@ -613,7 +631,7 @@ public class ProjectDetailsSection extends DialogPage {
             ModifyListener aListener) {
         Text result = new Text(aParent, SWT.BORDER);
 
-        GridData data = new GridData(SWT.FILL, SWT.LEFT, true, false);
+        GridData data = new GridData(SWT.FILL, SWT.CENTER, true, false);
         data.widthHint = aWidth;
         result.setLayoutData(data);
 
