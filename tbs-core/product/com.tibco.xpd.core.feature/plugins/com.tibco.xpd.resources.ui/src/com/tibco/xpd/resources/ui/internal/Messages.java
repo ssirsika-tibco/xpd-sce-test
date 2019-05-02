@@ -238,19 +238,19 @@ public class Messages extends NLS {
 
     public static String ProjectDetailsSection_EmptyId_error_shortdesc;
 
-    public static String ProjectDetailsSection_emptyVersion_error_shortdesc;
-
     public static String ProjectDetailsSection_id_label;
 
     public static String ProjectDetailsSection_invalidId_error_shortdesc;
 
-    public static String ProjectDetailsSection_InvalidVersionFormat_error_shortdesc;
-
-    public static String ProjectDetailsSection_VersionQualifierCantExceed36Chars_error_shortdesc;
-
-    public static String ProjectDetailsSection_VersionPartLeadingZero_warning_shortdesc;
-
     public static String ProjectDetailsSection_name_column_title;
+
+    public static String ProjectDetailsSection_Incr_version_hint1;
+
+    public static String ProjectDetailsSection_Incr_version_hint2;
+
+    public static String ProjectDetailsSection_increment_version_btn;
+
+    public static String ProjectDetailsSection_increment_version_tooltip;
 
     public static String ProjectDetailsSection_status_label;
 

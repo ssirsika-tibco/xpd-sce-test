@@ -41,10 +41,13 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
@@ -77,7 +80,7 @@ public class ProjectDetailsSection extends DialogPage {
 
     private Text idTxt;
 
-    private String version;
+    private Version version;
 
     private Text versionTxt;
 
@@ -214,20 +217,21 @@ public class ProjectDetailsSection extends DialogPage {
      * @return
      */
     public String getVersion() {
-        return version;
+        return version.toString();
     }
 
     /**
      * Set the version in this section.
      * 
-     * @param version
+     * @param aValue
      */
-    public void setVersion(String version) {
+    public void setVersion(String aValue) {
         listenToChanges = false;
         try {
-            this.version = version;
+            version = new Version(aValue);
             if (versionTxt != null && !versionTxt.isDisposed()) {
-                versionTxt.setText(version != null ? version : ""); //$NON-NLS-1$
+                aValue = "" + version.getMajor() + "." + version.getMinor(); //$NON-NLS-1$ //$NON-NLS-2$
+                versionTxt.setText(aValue);
             }
         } finally {
             listenToChanges = true;
@@ -273,7 +277,6 @@ public class ProjectDetailsSection extends DialogPage {
          * Validate id, if not hidden
          */
         if (showId) {
-            String id = getId();
             if (id != null && id.length() > 0) {
                 /*
                  * SCF-137 - Kapil: The special character '-' has been added to
@@ -289,56 +292,6 @@ public class ProjectDetailsSection extends DialogPage {
                 return new Status(IStatus.ERROR, XpdResourcesUIActivator.ID,
                         Messages.ProjectDetailsSection_EmptyId_error_shortdesc);
             }
-        }
-        /*
-         * Validate version
-         */
-        String version = getVersion();
-        if (version != null && version.length() > 0) {
-            /*
-             * XPD-8334: Discourage use of leading zeroes in project version
-             * numbers.
-             */
-            String[] versionParts = version.split("\\.");
-            for (int i = 0; i < versionParts.length; i++) {
-                /*
-                 * Need to validate only the first 3 parts here.
-                 */
-                if (i == 3) {
-                    break;
-                }
-                /*
-                 * Validate against use of leading zeroes in project version
-                 * parts.
-                 */
-                if (versionParts[i].length() > 1
-                        && versionParts[i].startsWith("0")) {
-                    return new Status(IStatus.WARNING,
-                            XpdResourcesUIActivator.ID,
-                            Messages.ProjectDetailsSection_VersionPartLeadingZero_warning_shortdesc);
-                }
-            }
-
-            try {
-                Version parsedVersion = Version.parseVersion(version);
-
-                /*
-                 * Project version qualifier must not contain more than 36
-                 * characters.
-                 */
-                if (parsedVersion.getQualifier().toString().length() > 36) {
-
-                    return new Status(IStatus.ERROR, XpdResourcesUIActivator.ID,
-                            Messages.ProjectDetailsSection_VersionQualifierCantExceed36Chars_error_shortdesc);
-                }
-
-            } catch (IllegalArgumentException e) {
-                return new Status(IStatus.ERROR, XpdResourcesUIActivator.ID,
-                        Messages.ProjectDetailsSection_InvalidVersionFormat_error_shortdesc);
-            }
-        } else {
-            return new Status(IStatus.ERROR, XpdResourcesUIActivator.ID,
-                    Messages.ProjectDetailsSection_emptyVersion_error_shortdesc);
         }
 
         return Status.OK_STATUS;
@@ -393,25 +346,18 @@ public class ProjectDetailsSection extends DialogPage {
     @Override
     public void createControl(Composite parent) {
         root = new Composite(parent, SWT.NONE);
-        GridLayout layout = new GridLayout(2, false);
-        root.setLayout(layout);
+        root.setLayout(new GridLayout(2, false));
 
         Label idLbl =
                 createLabel(root, Messages.ProjectDetailsSection_id_label);
-        idTxt = createText(root, id);
-        idTxt.addModifyListener(new ModifyListener() {
-            @Override
-            public void modifyText(ModifyEvent e) {
-                id = idTxt.getText();
-                fireModifyEvent(idTxt);
-            }
+        idTxt = createText(root, id, STANDARD_TEXT_WIDTH, (ModifyEvent e) -> {
+            id = idTxt.getText();
+            fireModifyEvent(idTxt);
         });
 
         // If not in developer capability then hide the id entry controls
         if (!showId) {
-            GridData data = new GridData();
-            data.widthHint = 0;
-            data.heightHint = 0;
+            GridData data = new GridData(0, 0);
 
             idLbl.setVisible(false);
             idLbl.setLayoutData(data);
@@ -421,15 +367,16 @@ public class ProjectDetailsSection extends DialogPage {
 
         /* Sid ACE-441 Only show project version if required. */
         if (this.showProjectVersion) {
-            createLabel(root, Messages.ProjectDetailsSection_version_label);
-            versionTxt = createText(root, version);
-            versionTxt.addModifyListener(new ModifyListener() {
-                @Override
-                public void modifyText(ModifyEvent e) {
-                    version = versionTxt.getText();
-                    fireModifyEvent(versionTxt);
-                }
-            });
+            GridData layoutData = new GridData();
+            layoutData.widthHint = STANDARD_LABEL_WIDTH;
+            layoutData.verticalIndent = 8;
+            layoutData.verticalAlignment = SWT.TOP;
+
+            createLabel(root,
+                    Messages.ProjectDetailsSection_version_label,
+                    layoutData);
+
+            createVersionControl(root);
         }
 
         createLabel(root, Messages.ProjectDetailsSection_status_label);
@@ -460,6 +407,7 @@ public class ProjectDetailsSection extends DialogPage {
                         }
                     }
                 });
+
         if (showDestinationEnv) {
             createLabel(root,
                     Messages.ProjectDetailsSection_destinationEnvironment_label);
@@ -472,6 +420,67 @@ public class ProjectDetailsSection extends DialogPage {
             noDestinationMessage.setText("* " //$NON-NLS-1$
                     + Messages.ProjectDetailsSection_DestinationEnvDoesNotExist_longdesc);
         }
+    }
+
+    /**
+     * Creates a collection of controls (adding them to the given composite)
+     * that displays the current version and allows the user to increment the
+     * major version. Incrementing the major version will automatically set the
+     * minor and micro version to 0 whilst maintaining the qualifier.
+     * 
+     * @param aParent
+     *            the container into which the components are to be added.
+     */
+    private void createVersionControl(Composite aParent) {
+        Composite container = new Composite(aParent, SWT.NONE);
+        container.setLayout(new GridLayout(2, false));
+        container.setLayoutData(new GridData(SWT.TOP, SWT.LEFT, false, false));
+
+        String value = ""; //$NON-NLS-1$
+        if (version != null) {
+            value += version.getMajor() + "." + version.getMinor(); //$NON-NLS-1$
+        }
+        versionTxt = createText(container, value, 30, null);
+        versionTxt.setEditable(false);
+        versionTxt.setCapture(false);
+
+        SelectionListener buttonClick = new SelectionListener() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                // increment the major version (reset minor and micro)
+                version = new Version(version.getMajor() + 1, 0, 0,
+                        version.getQualifier());
+
+                // display the new value and notify listeners
+                versionTxt.setText("" + version.getMajor() + ".0"); //$NON-NLS-1$//$NON-NLS-2$
+                fireModifyEvent(versionTxt);
+
+                // prevent double increments
+                ((Button) e.getSource()).setEnabled(false);
+            }
+
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+                widgetSelected(e);
+            }
+        };
+        createButton(container,
+                Messages.ProjectDetailsSection_increment_version_btn,
+                SWT.PUSH,
+                buttonClick).setToolTipText(
+                        Messages.ProjectDetailsSection_increment_version_tooltip);
+
+        GridData layoutData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        layoutData.widthHint = STANDARD_TEXT_WIDTH;
+        new Composite(container, SWT.NONE);
+        createLabel(container,
+                Messages.ProjectDetailsSection_Incr_version_hint1,
+                layoutData);
+
+        new Composite(container, SWT.NONE);
+        createLabel(container,
+                Messages.ProjectDetailsSection_Incr_version_hint2,
+                layoutData);
     }
 
     /*
@@ -533,36 +542,90 @@ public class ProjectDetailsSection extends DialogPage {
      *            parent container
      * @param label
      *            label text
-     * @return
+     * @return the newly created label.
      */
     private Label createLabel(Composite parent, String label) {
-        Label lbl = new Label(parent, SWT.WRAP);
-        lbl.setText(label);
-        GridData data = new GridData();
-        data.widthHint = STANDARD_LABEL_WIDTH;
-        lbl.setLayoutData(data);
-        return lbl;
+        GridData layout = new GridData();
+        layout.widthHint = STANDARD_LABEL_WIDTH;
+        return createLabel(parent, label, layout);
+    }
+
+    /**
+     * Creates a label and adds it to the given parent composite.
+     * 
+     * @param aParent
+     *            the parent composite to which the label is added.
+     * @param aText
+     *            the text to be displayed within the label.
+     * @param aLayout
+     *            the layout data to be assigned to the label.
+     * @return the newly created label.
+     */
+    private Label createLabel(Composite aParent, String aText, Object aLayout) {
+        Label result = new Label(aParent, SWT.WRAP);
+        result.setLayoutData(aLayout);
+
+        if (aText != null) {
+            result.setText(aText);
+        }
+        return result;
+    }
+
+    /**
+     * Creates a button and adds it to the given parent composite.
+     * 
+     * @param aParent
+     *            the parent composite to which the button is added.
+     * @param aLabel
+     *            the label to be displayed within the button.
+     * @param aStyle
+     *            the button style.
+     * @param aListener
+     *            an optional listener implementation.
+     * @return the newly created button.
+     */
+    private Button createButton(Composite aParent, String aLabel, int aStyle,
+            SelectionListener aListener) {
+        Button result = new Button(aParent, aStyle);
+
+        if (aLabel != null) {
+            result.setText(aLabel);
+        }
+
+        if (aListener != null) {
+            result.addSelectionListener(aListener);
+        }
+
+        return result;
     }
 
     /**
      * Create a {@link Text} control with a default width hint.
      * 
-     * @param parent
+     * @param aParent
      *            parent container
-     * @param text
+     * @param aText
      *            text to set in the control, <code>null</code> if no text
      *            should be set
-     * @return
+     * @return the newly created text field.
      */
-    private Text createText(Composite parent, String text) {
-        Text txt = new Text(parent, SWT.BORDER);
+    private Text createText(Composite aParent, String aText, int aWidth,
+            ModifyListener aListener) {
+        Text result = new Text(aParent, SWT.BORDER);
+
         GridData data = new GridData(SWT.FILL, SWT.LEFT, true, false);
-        data.widthHint = STANDARD_TEXT_WIDTH;
-        txt.setLayoutData(data);
-        if (text != null) {
-            txt.setText(text);
+        data.widthHint = aWidth;
+        result.setLayoutData(data);
+
+        if (aText != null) {
+            result.setText(aText);
         }
-        return txt;
+
+        if (aListener != null) {
+            result.addModifyListener(aListener);
+        }
+
+        return result;
     }
 
     /**
@@ -705,13 +768,13 @@ public class ProjectDetailsSection extends DialogPage {
 
         @Override
         protected Object getValue(Object element) {
-            return selectedDestinations.contains(element);
+            return Boolean.valueOf(selectedDestinations.contains(element));
         }
 
         @Override
         protected void setValue(Object element, Object value) {
             if (value instanceof Boolean && element instanceof String) {
-                if ((Boolean) value) {
+                if (((Boolean) value).booleanValue()) {
                     if (!selectedDestinations.contains(element)) {
                         selectedDestinations.add((String) element);
                     }
