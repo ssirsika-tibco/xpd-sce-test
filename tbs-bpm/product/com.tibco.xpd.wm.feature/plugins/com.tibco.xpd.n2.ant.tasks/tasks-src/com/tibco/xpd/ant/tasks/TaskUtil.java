@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.ui.PlatformUI;
 
+@SuppressWarnings("nls")
 public class TaskUtil {
     /**
      * This method is to set the target platform before executing some of the
@@ -57,7 +58,5 @@ public class TaskUtil {
                 var7.printStackTrace();
             }
         }
-
     }
-
 }

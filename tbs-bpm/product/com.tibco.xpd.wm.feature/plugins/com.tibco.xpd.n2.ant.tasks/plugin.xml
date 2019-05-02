@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   <extension
-         point="org.eclipse.ant.core.antTasks">
-<!-- Sid ACE-122 removed DAA related code 
+   <extension point="org.eclipse.ant.core.antTasks">
       <antTask
-            class="com.tibco.xpd.ant.tasks.BPMGenerateDAATask"
+            class="com.tibco.xpd.ant.tasks.GenerateRascTask"
             library="lib/bpm-antTaskDefinitions.jar"
-            name="bpm.generateDAA">
+            name="bpm.generateRASC">
       </antTask>
-      
--->
-      <!-- Sid - this was aalready removed prior to ACE <antTask
-            class="com.tibco.xpd.ant.tasks.ImportProjectTask"
-            library="lib/bpm-antTaskDefinitions.jar"
-            name="bpm.importProject">
-      </antTask>-->
    </extension>
-   <extension
-         point="org.eclipse.ant.core.extraClasspathEntries">
-      <extraClasspathEntry
-            library="lib/bpm-antTaskDefinitions.jar">
-      </extraClasspathEntry>
+
+   <extension point="org.eclipse.ant.core.extraClasspathEntries">
+      <extraClasspathEntry library="lib/bpm-antTaskDefinitions.jar"/>
    </extension>
 
 </plugin>

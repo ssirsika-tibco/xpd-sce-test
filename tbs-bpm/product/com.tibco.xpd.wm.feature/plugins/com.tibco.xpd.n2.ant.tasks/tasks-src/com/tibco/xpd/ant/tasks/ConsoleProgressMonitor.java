@@ -9,52 +9,49 @@ import org.eclipse.core.runtime.IProgressMonitor;
  */
 public class ConsoleProgressMonitor implements IProgressMonitor{
 
-	public String subTaskName = ""; //$NON-NLS-1$
-	public int worked = 0;
-	
 	private String currentTask;
-	private int totalWork;
 	
-	private boolean isCancelled = false;
+    private boolean isCancelled;
 	
-	public void beginTask(String name, int totalWork) {
-		this.currentTask = name;
-		this.totalWork = totalWork;;
-		System.out.println(name);
+    @Override
+    public void beginTask(String aTaskName, int aTotalWork) {
+        setTaskName(aTaskName);
 	}
 
-	public void done() {
-		this.worked = totalWork;
-		this.subTaskName = ""; //$NON-NLS-1$
+	@Override
+    public void done() {
 	}
 
-	public void internalWorked(double work) {
-		//this.internalWorked(work);			
+	@Override
+    public void worked(int work) {
+    }
+
+    @Override
+    public void internalWorked(double work) {
 	}
 
-	public boolean isCanceled() {
+	@Override
+    public boolean isCanceled() {
 		return isCancelled;
 	}
 
-	public void setCanceled(boolean value) {
+	@Override
+    public void setCanceled(boolean value) {
 		isCancelled = value;
 	}
 
-	public void setTaskName(String name) {
+    public String getCurrentTask() {
+        return currentTask;
+    }
+
+    @Override
+    public void setTaskName(String name) {
 		currentTask = name;
 		System.out.println(name);
 	}
 
-	public void subTask(String name) {
-		this.subTaskName = name;
+	@Override
+    public void subTask(String name) {
 		System.out.println(name);
-	}
-
-	public void worked(int work) {		
-		this.worked += work;
-	}
-	
-	public String getCurrentTask(){
-		return currentTask;
 	}
 }

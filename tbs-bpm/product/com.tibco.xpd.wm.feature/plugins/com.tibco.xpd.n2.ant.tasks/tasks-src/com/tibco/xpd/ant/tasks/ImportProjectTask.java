@@ -33,7 +33,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.dialogs.IOverwriteQuery;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.wizards.datatransfer.FileSystemStructureProvider;
@@ -45,6 +45,7 @@ import com.tibco.xpd.n2.ant.tasks.AntTasksActivator;
  * 
  * @author mtorres
  */
+@SuppressWarnings("nls")
 public class ImportProjectTask extends Task {
 
     private String allProjectsLoc;
@@ -83,21 +84,22 @@ public class ImportProjectTask extends Task {
         }
     }
 
-    @SuppressWarnings({ "unchecked", "restriction" })
+    @SuppressWarnings({ "restriction" })
     private void doImport(IProgressMonitor monitor)
             throws InvocationTargetException, InterruptedException,
             CoreException {
         if (null == monitor) {
             monitor = new NullProgressMonitor();
         }
-        String allProjectsLoc = getAllProjectsLoc();
-        if (allProjectsLoc != null) {
-            File[] allProjectsInFolder = getAllProjectsInFolder(allProjectsLoc);
+        String projectsLocation = getAllProjectsLoc();
+        if (projectsLocation != null) {
+            File[] allProjectsInFolder =
+                    getAllProjectsInFolder(projectsLocation);
             if (allProjectsInFolder == null
                     || allProjectsInFolder.length == 0) {
                 throw new BuildException(
                         "No projects found to import from location: "
-                                + allProjectsLoc);
+                                + projectsLocation);
             }
             for (File projectLoc : allProjectsInFolder) {
                 IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -113,10 +115,10 @@ public class ImportProjectTask extends Task {
                     } else {
                         try {
                             IPath path = new Path(dotPrjFile.getPath());
-                            IProjectDescription description =
+                            IProjectDescription projectDesc =
                                     IDEWorkbenchPlugin.getPluginWorkspace()
                                             .loadProjectDescription(path);
-                            projectName = description.getName();
+                            projectName = projectDesc.getName();
                         } catch (CoreException e) {
                             e.printStackTrace();
                             continue;
@@ -132,22 +134,15 @@ public class ImportProjectTask extends Task {
                 monitor.beginTask(MessageFormat.format("Importing project ",
                         new Object[] { projectName }), 15);
 
-                IProject project = root.getProject(projectName);
-
                 if (isCopyFiles()) {
-                    List filesToImport = FileSystemStructureProvider.INSTANCE
+                    List<?> filesToImport = FileSystemStructureProvider.INSTANCE
                             .getChildren(projectLoc);
 
                     IPath path = root.getFullPath().append(projectName);
                     ImportOperation op = new ImportOperation(path, projectLoc,
                             FileSystemStructureProvider.INSTANCE,
-                            new IOverwriteQuery() {
-                                @Override
-                                public String queryOverwrite(
-                                        String pathString) {
-                                    return IOverwriteQuery.NO_ALL;
-                                }
-                            }, filesToImport);
+                            (String pathString) -> IOverwriteQuery.NO_ALL,
+                            filesToImport);
                     op.setOverwriteResources(true);
                     op.setCreateContainerStructure(false);
                     op.run(monitor);
@@ -165,15 +160,17 @@ public class ImportProjectTask extends Task {
                         }
                     }
                     if (dotProjectFile != null) {
-                        IProjectDescription description = null;
+                        IProjectDescription projectDesc = null;
                         IPath path = new Path(dotProjectFile.getPath());
-                        description = ResourcesPlugin.getWorkspace()
+                        projectDesc = ResourcesPlugin.getWorkspace()
                                 .loadProjectDescription(path);
-                        project.create(description,
-                                new SubProgressMonitor(monitor, 5));
-                        project.open(new SubProgressMonitor(monitor, 5));
-                        project.refreshLocal(IResource.DEPTH_INFINITE,
-                                new SubProgressMonitor(monitor, 5));
+                        IProject prject = root.getProject(projectName);
+
+                        prject.create(projectDesc,
+                                SubMonitor.convert(monitor, 5));
+                        prject.open(SubMonitor.convert(monitor, 5));
+                        prject.refreshLocal(IResource.DEPTH_INFINITE,
+                                SubMonitor.convert(monitor, 5));
                         monitor.done();
                     }
                 }
@@ -184,17 +181,16 @@ public class ImportProjectTask extends Task {
         }
     }
 
-    private File[] getAllProjectsInFolder(String allProjectsLoc) {
-        File parentFolder = new File(allProjectsLoc);
-        if (parentFolder != null && parentFolder.exists()
-                && parentFolder.isDirectory()) {
+    private File[] getAllProjectsInFolder(String aProjectsLoc) {
+        File parentFolder = new File(aProjectsLoc);
+        if (parentFolder.exists() && parentFolder.isDirectory()) {
             return parentFolder.listFiles();
         }
         return new File[0];
     }
 
-    private File getDotProjectFile(File projectLoc) {
-        File prjFiles[] = projectLoc.listFiles(createFileTypeFilter(
+    private File getDotProjectFile(File aProjectsLoc) {
+        File prjFiles[] = aProjectsLoc.listFiles(createFileTypeFilter(
                 IProjectDescription.DESCRIPTION_FILE_NAME));
         if (prjFiles.length != 0) {
             return prjFiles[0];
