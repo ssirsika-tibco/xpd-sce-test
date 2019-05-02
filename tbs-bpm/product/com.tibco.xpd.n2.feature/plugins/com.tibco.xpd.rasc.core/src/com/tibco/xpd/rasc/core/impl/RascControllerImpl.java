@@ -114,12 +114,7 @@ public class RascControllerImpl implements RascController {
             IProgressMonitor aProgressMonitor) throws RascGenerationException {
         try {
             String location = aFile.getLocation().toOSString();
-            try (OutputStream output = new FileOutputStream(location)) {
-                // generate RASC and write it to the file
-                generateRasc(aProject, output, aProgressMonitor);
-            }
-        } catch (IOException e) {
-            throw new RascInternalException(e.getMessage(), e);
+            generateRasc(aProject, new File(location), aProgressMonitor);
         } finally {
             try {
                 // refresh the generated file
@@ -137,6 +132,12 @@ public class RascControllerImpl implements RascController {
     public void generateRasc(IProject aProject, File aFile,
             IProgressMonitor aProgressMonitor) throws RascGenerationException {
         try {
+            // make sure the parent folder exists
+            File parent = aFile.getParentFile();
+            if ((parent != null) && (!parent.exists())) {
+                parent.mkdirs();
+            }
+
             try (OutputStream output = new FileOutputStream(aFile)) {
                 // generate RASC and write it to the file
                 generateRasc(aProject, output, aProgressMonitor);

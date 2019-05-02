@@ -22,6 +22,13 @@ import com.tibco.xpd.rasc.core.exception.RascGenerationException;
  */
 public interface RascController {
     /**
+     * The folder (within the project) to which the generated rasc file will be
+     * written, unless the user overrides it.
+     */
+    public static final String DEFAULT_DEST_DIR =
+            Messages.RascController_default_deploy_folder;
+
+    /**
      * Used to determine if there are any contributors with any contributions to
      * include in the RASC for the given IProject.
      * 

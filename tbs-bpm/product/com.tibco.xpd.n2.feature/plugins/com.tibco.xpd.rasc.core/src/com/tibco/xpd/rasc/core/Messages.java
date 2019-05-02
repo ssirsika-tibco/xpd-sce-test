@@ -16,6 +16,8 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.rasc.core.messages"; //$NON-NLS-1$
 
+    public static String RascController_default_deploy_folder;
+
     public static String RascControllerImpl_ProgressTask;
     static {
         // initialize resource bundle
