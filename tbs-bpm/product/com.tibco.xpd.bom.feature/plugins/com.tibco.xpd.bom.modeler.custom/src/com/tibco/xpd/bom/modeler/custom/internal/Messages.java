@@ -453,6 +453,8 @@ public class Messages extends NLS {
 
     public static String SummaryTabSection_dialog_exists;
 
+    public static String TerminalStatesTabSection_statesLabel;
+
     public static String TextLengthSection_maximum_length_label;
     
     public static String TextLengthSection_maximum_length_tooltip;

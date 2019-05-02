@@ -27,6 +27,7 @@ import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLFactory;
 
 import com.tibco.xpd.bom.globaldata.GlobalDataActivator;
@@ -49,23 +50,23 @@ import com.tibco.xpd.resources.util.SpecialFolderUtil;
  */
 public class BOMGlobalDataUtils {
 
-    private final static Logger LOG = GlobalDataActivator.getDefault()
-            .getLogger();
+    private final static Logger LOG =
+            GlobalDataActivator.getDefault().getLogger();
 
     // The GlobalData profile manager.
     private static GlobalDataProfileManager GD_PROFILE_MANAGER =
             GlobalDataProfileManager.getInstance();
 
-    private static String[] DISALLOWED_CID_PRIMITIVE_TYPE_NAMES = {
-            PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_URI_NAME };
+    private static String[] DISALLOWED_CID_PRIMITIVE_TYPE_NAMES =
+            { PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME,
+                    PrimitivesUtil.BOM_PRIMITIVE_URI_NAME };
 
     /**
      * This checks whether the BOM has any global data element. To have a global
@@ -95,9 +96,8 @@ public class BOMGlobalDataUtils {
      * @return <code>true</code> if supplied type and name are disallowed
      */
     public static boolean isDisallowedCaseIdTypeName(String name) {
-        HashSet<String> disallowedNames =
-                new HashSet<String>(
-                        Arrays.asList(DISALLOWED_CID_PRIMITIVE_TYPE_NAMES));
+        HashSet<String> disallowedNames = new HashSet<String>(
+                Arrays.asList(DISALLOWED_CID_PRIMITIVE_TYPE_NAMES));
         return disallowedNames.contains(name);
     }
 
@@ -156,13 +156,11 @@ public class BOMGlobalDataUtils {
         if (null != bomResource) {
 
             String fileExt = bomResource.getFileExtension();
-            if (null != fileExt
-                    && BOMResourcesPlugin.BOM_FILE_EXTENSION
-                            .equalsIgnoreCase(fileExt)) {
+            if (null != fileExt && BOMResourcesPlugin.BOM_FILE_EXTENSION
+                    .equalsIgnoreCase(fileExt)) {
 
-                WorkingCopy wc =
-                        XpdResourcesPlugin.getDefault()
-                                .getWorkingCopy(bomResource);
+                WorkingCopy wc = XpdResourcesPlugin.getDefault()
+                        .getWorkingCopy(bomResource);
                 EObject rootElement = wc.getRootElement();
                 if (rootElement instanceof Model) {
 
@@ -229,7 +227,8 @@ public class BOMGlobalDataUtils {
      * @param pElems
      * @return
      */
-    private static boolean hasGlobalCaseClass(EList<PackageableElement> pElems) {
+    private static boolean hasGlobalCaseClass(
+            EList<PackageableElement> pElems) {
 
         for (PackageableElement packageableElement : pElems) {
             if (packageableElement instanceof Package) {
@@ -256,12 +255,10 @@ public class BOMGlobalDataUtils {
 
         if (bomResource != null) {
             String fileExt = bomResource.getFileExtension();
-            if (fileExt != null
-                    && fileExt
-                            .equalsIgnoreCase(BOMResourcesPlugin.BOM_FILE_EXTENSION)) {
-                WorkingCopy wc =
-                        XpdResourcesPlugin.getDefault()
-                                .getWorkingCopy(bomResource);
+            if (fileExt != null && fileExt
+                    .equalsIgnoreCase(BOMResourcesPlugin.BOM_FILE_EXTENSION)) {
+                WorkingCopy wc = XpdResourcesPlugin.getDefault()
+                        .getWorkingCopy(bomResource);
                 EObject rootElement = wc.getRootElement();
                 if (rootElement instanceof Model) {
                     Model model = (Model) rootElement;
@@ -284,12 +281,10 @@ public class BOMGlobalDataUtils {
 
         if (bomResource != null) {
             String fileExt = bomResource.getFileExtension();
-            if (fileExt != null
-                    && fileExt
-                            .equalsIgnoreCase(BOMResourcesPlugin.BOM_FILE_EXTENSION)) {
-                WorkingCopy wc =
-                        XpdResourcesPlugin.getDefault()
-                                .getWorkingCopy(bomResource);
+            if (fileExt != null && fileExt
+                    .equalsIgnoreCase(BOMResourcesPlugin.BOM_FILE_EXTENSION)) {
+                WorkingCopy wc = XpdResourcesPlugin.getDefault()
+                        .getWorkingCopy(bomResource);
                 EObject rootElement = wc.getRootElement();
                 if (rootElement instanceof Model) {
                     Model model = (Model) rootElement;
@@ -297,7 +292,8 @@ public class BOMGlobalDataUtils {
                         // Only checks for global data elements if global
                         // profile is applied to the BOM
                         if (hasGlobalDataProfile(model)) {
-                            if (hasGlobalCaseClass(model.getPackagedElements())) {
+                            if (hasGlobalCaseClass(
+                                    model.getPackagedElements())) {
                                 return true;
                             }
                         }
@@ -366,8 +362,8 @@ public class BOMGlobalDataUtils {
      * development.
      */
     public static boolean isGlobalDataDevelopmentEnabled() {
-        return Boolean.parseBoolean(System
-                .getProperty("globaldata.development", "false")); //$NON-NLS-1$//$NON-NLS-2$
+        return Boolean.parseBoolean(
+                System.getProperty("globaldata.development", "false")); //$NON-NLS-1$//$NON-NLS-2$
     }
 
     /**
@@ -414,6 +410,15 @@ public class BOMGlobalDataUtils {
     }
 
     /**
+     * Get the CaseState stereotype.
+     * 
+     * @return the CaseState stereotype.
+     */
+    public static Stereotype getCaseStateStereotype() {
+        return GD_PROFILE_MANAGER.getStereotype(StereotypeKind.CASE_STATE);
+    }
+
+    /**
      * Returns the tag value for the Model, returns blank "" string when the tag
      * is not set or model without a GlobalData profile.
      * 
@@ -433,13 +438,12 @@ public class BOMGlobalDataUtils {
         }
 
         if (BOMGlobalDataUtils.hasGlobalDataProfile(model)) {
-            if (pkg.hasValue(GD_PROFILE_MANAGER
-                    .getStereotype(StereotypeKind.TAG),
+            if (pkg.hasValue(
+                    GD_PROFILE_MANAGER.getStereotype(StereotypeKind.TAG),
                     BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Tag)) {
-                Object value =
-                        pkg.getValue(GD_PROFILE_MANAGER
-                                .getStereotype(StereotypeKind.TAG),
-                                BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Tag);
+                Object value = pkg.getValue(
+                        GD_PROFILE_MANAGER.getStereotype(StereotypeKind.TAG),
+                        BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Tag);
                 if (value instanceof String) {
                     tag = ((String) value).trim();
                 }
@@ -468,9 +472,8 @@ public class BOMGlobalDataUtils {
                     Association association =
                             ((Property) namedElement).getAssociation();
                     if (association != null) {
-                        batchSize =
-                                GD_PROFILE_MANAGER
-                                        .getFetchingBatchSize(association);
+                        batchSize = GD_PROFILE_MANAGER
+                                .getFetchingBatchSize(association);
                     }
                 }
             }
@@ -499,10 +502,10 @@ public class BOMGlobalDataUtils {
         EnumerationLiteral createEnumerationLiteral =
                 UMLFactory.eINSTANCE.createEnumerationLiteral();
         createEnumerationLiteral
-                .setName(PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH); //$NON-NLS-1$
+                .setName(PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH); // $NON-NLS-1$
         // Fixed length sub type
         PrimitivesUtil.setFacetPropertyValue(primType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE, //$NON-NLS-1$
+                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE, // $NON-NLS-1$
                 createEnumerationLiteral,
                 newElement);
         // set fixed length value
@@ -660,11 +663,8 @@ public class BOMGlobalDataUtils {
                     }
                 }
             } catch (CoreException e) {
-                XpdResourcesPlugin
-                        .getDefault()
-                        .getLogger()
-                        .error(e,
-                                "Problem accessing resources of supplied container."); //$NON-NLS-1$
+                XpdResourcesPlugin.getDefault().getLogger().error(e,
+                        "Problem accessing resources of supplied container."); //$NON-NLS-1$
             }
         }
 

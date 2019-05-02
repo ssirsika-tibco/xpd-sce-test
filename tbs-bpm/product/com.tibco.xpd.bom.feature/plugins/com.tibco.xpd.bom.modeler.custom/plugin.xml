@@ -59,6 +59,12 @@
              id="com.tibco.xpd.bom.propertyTabs.export"
              label="%tab_export_label">
        </propertyTab>
+       <propertyTab
+             afterTab="property.tab.description"
+             category="general"
+             id="property.tab.terminalstates"
+             label="%tab_terminal_states_label">
+       </propertyTab>
     </propertyTabs>
  </extension>
  <extension
@@ -800,6 +806,12 @@
                type="org.eclipse.gef.EditPart">
          </input>
       </propertySection>
+      <propertySection
+            class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.TerminalStatesTabSection"
+            filter="com.tibco.xpd.bom.modeler.custom.internal.propertysection.TerminalStatesTabSection"
+            id="com.tibco.xpd.bom.modeler.custom.section.terminalstates"
+            tab="property.tab.terminalstates">
+      </propertySection>
    </propertySections>
 </extension>
 <extension
@@ -948,6 +960,12 @@
          <input
                type="org.eclipse.uml2.uml.Element">
          </input>
+      </propertySection>
+      <propertySection
+            class="com.tibco.xpd.bom.modeler.custom.internal.propertysection.TerminalStatesTabSection"
+            filter="com.tibco.xpd.bom.modeler.custom.internal.propertysection.TerminalStatesTabSection"
+            id="com.tibco.xpd.bom.modeler.custom.explorer.section.terminalstates"
+            tab="property.tab.terminalstates">
       </propertySection>
    </propertySections>
 </extension>

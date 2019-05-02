@@ -7,13 +7,16 @@ package com.tibco.xpd.bom.validator.rules.globaldata;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
@@ -38,6 +41,9 @@ public class CaseStateValidationRule implements IValidationRule {
 
     private static final String ISSUE_CASESTATE_MULTIPLE_INVALID =
             "casestate.invalid.multiple.issue"; //$NON-NLS-1$
+
+    private static final String ISSUE_CASESTATE_NO_TERMINAL_STATES =
+            "casestate.no.terminal.states.issue"; //$NON-NLS-1$
 
     @Override
     public Class<?> getTargetClass() {
@@ -76,13 +82,14 @@ public class CaseStateValidationRule implements IValidationRule {
                         for (Classifier baseType : enumProp.getGenerals()) {
                             if (baseType instanceof PrimitiveType) {
                                 PrimitiveType primType =
-                                        PrimitivesUtil
-                                                .getBasePrimitiveType((PrimitiveType) baseType);
+                                        PrimitivesUtil.getBasePrimitiveType(
+                                                (PrimitiveType) baseType);
                                 // Make sure it is a text enumeration
                                 if (!PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
                                         .equals(primType.getName())) {
                                     additionalMessages.add(prop.getName());
-                                    scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
+                                    scope.createIssue(
+                                            ISSUE_CASESTATE_TYPE_INVALID,
                                             BOMValidationUtil.getLocation(prop),
                                             prop.eResource()
                                                     .getURIFragment(prop),
@@ -90,12 +97,26 @@ public class CaseStateValidationRule implements IValidationRule {
                                 }
                             }
                         }
+
+                        // ACE-533 There must be at least 1 terminal state
+                        // defined
+                        TerminalStateProperties tsp =
+                                new TerminalStateProperties();
+                        EList<EnumerationLiteral> states =
+                                tsp.getTerminalStates(prop);
+                        if (states == null || states.isEmpty()) {
+                            scope.createIssue(
+                                    ISSUE_CASESTATE_NO_TERMINAL_STATES,
+                                    BOMValidationUtil.getLocation(prop),
+                                    prop.eResource().getURIFragment(prop),
+                                    additionalMessages);
+                        }
                     } else {
                         additionalMessages.add(prop.getName());
                         scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
                                 BOMValidationUtil.getLocation(prop),
-                                prop.eResource()
-                                .getURIFragment(prop), additionalMessages);
+                                prop.eResource().getURIFragment(prop),
+                                additionalMessages);
                     }
                 }
 
@@ -105,7 +126,8 @@ public class CaseStateValidationRule implements IValidationRule {
                     // Make sure that the containing class is a Case Class
                     if (!GlobalDataProfileManager.getInstance().isCase(clazz)) {
                         additionalMessages.add(prop.getName());
-                        scope.createIssue(ISSUE_CASESTATE_CONTAINING_CLASS_INVALID,
+                        scope.createIssue(
+                                ISSUE_CASESTATE_CONTAINING_CLASS_INVALID,
                                 BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 additionalMessages);

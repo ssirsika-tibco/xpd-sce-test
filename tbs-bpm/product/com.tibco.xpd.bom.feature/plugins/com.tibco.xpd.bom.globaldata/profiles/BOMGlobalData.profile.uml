@@ -79,6 +79,9 @@
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_UyAEBPfCEeOAy9I6nn9Rkw" name="base_Property" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
         </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_SPHSEGzHEemopcP8z9HeqQ" name="terminalStates" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//EnumerationLiteral"/>
+        </eStructuralFeatures>
       </eClassifiers>
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_AC-xBwwrEeSYEKBxPLXVFg" name="CaseDocumentationEnabled">
         <eAnnotations xmi:id="_AC-xCAwrEeSYEKBxPLXVFg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_7ZDZUAwfEeSYEKBxPLXVFg"/>
@@ -102,6 +105,9 @@
   </elementImport>
   <elementImport xmi:id="_i8eYADshEeOPXIyJgSrR8A">
     <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Association"/>
+  </elementImport>
+  <elementImport xmi:id="_BRyqwGzGEemopcP8z9HeqQ">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
   </elementImport>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_DvOK0Gs3EeC_hvle0zpSaA" name="Case">
     <generalization xmi:id="_TWiqsGtHEeC_hvle0zpSaA" general="_0uFG4Gs2EeC_hvle0zpSaA"/>
@@ -201,6 +207,11 @@
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_6m-zUPe_EeOAy9I6nn9Rkw" name="CaseState">
     <ownedAttribute xmi:id="_moG0oPfAEeOAy9I6nn9Rkw" name="base_Property" association="_XL-BUPfBEeOAy9I6nn9Rkw">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_y-4l0GzFEemopcP8z9HeqQ" name="terminalStates">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UMD8YGzGEemopcP8z9HeqQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S-UW4GzGEemopcP8z9HeqQ" value="*"/>
     </ownedAttribute>
     <icon xmi:id="_kMKPQPfDEeOAy9I6nn9Rkw" location="platform:/plugin/com.tibco.xpd.bom.globaldata/icons/16x16/CaseState16.png"/>
   </packagedElement>
