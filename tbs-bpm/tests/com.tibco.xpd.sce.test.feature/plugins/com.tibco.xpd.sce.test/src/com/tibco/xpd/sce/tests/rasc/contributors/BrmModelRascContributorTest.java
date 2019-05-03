@@ -29,10 +29,10 @@ import com.tibco.xpd.resources.util.ProjectUtil2;
 import junit.framework.TestCase;
 
 /**
- * Test Org-Model RASC Contribution.
+ * Test Work Model RASC Contribution.
  *
- * @author pwatson
- * @since 20 Mar 2019
+ * @author aallway
+ * @since 12 Apr 2019
  */
 @SuppressWarnings("nls")
 public class BrmModelRascContributorTest extends TestCase {
@@ -44,6 +44,12 @@ public class BrmModelRascContributorTest extends TestCase {
      * @throws Exception
      */
     public void testProjectWithContributions() throws Exception {
+        /*
+         * TODO ACE-1031 - WP RASC content is prevented by default (initially),
+         * so enabled it with system property (wil be removed later).
+         */
+        System.setProperty("tibco.forms.rasc", "true");
+
         String projectName = "BrmRascTestProject";
 
         ProjectImporter projectImporter = importProject(projectName);
@@ -102,27 +108,27 @@ public class BrmModelRascContributorTest extends TestCase {
         // The work type model should be delivered to the Work-Manager service
         // ...
         boolean foundWMService = false;
-        // TODO AND the Work-Presentation service
+        // AND the Work-Presentation service
         boolean foundWPService = false;
 
         for (MicroService microService : wtArtifact.getServices()) {
             if (MicroService.WM.equals(microService)) {
                 foundWMService = true;
             }
-            // TODO AND the Work-Presentation service
-            // else if (MicroService.WP.equals(microService)) {
-            // foundWPService = true;
-            // }
+            // AND the Work-Presentation service
+            else if (MicroService.WP.equals(microService)) {
+                foundWPService = true;
+            }
         }
 
         assertTrue(projectName
-                + " project workType.wt artifact should be targeted to the Work-manager micro-service",
+                + " project workType.wt artifact should be targeted to the Work-Manager micro-service",
                 foundWMService);
 
-        // TODO AND the Work-Presentation service
-//        assertTrue(projectName
-//                + " project workType.wt artifact should be targeted to the Work-manager micro-service",
-//                foundWPService);
+        // AND the Work-Presentation service
+        assertTrue(projectName
+                + " project workType.wt artifact should be targeted to the Work-Presentation micro-service",
+                foundWPService);
 
         // some data was written to the artifacts
         assertTrue(
@@ -157,6 +163,12 @@ public class BrmModelRascContributorTest extends TestCase {
      * @throws Exception
      */
     public void testProjectWithoutContributions1() throws Exception {
+        /*
+         * TODO ACE-1031 - WP RASC content is prevented by default (initially),
+         * so enabled it with system property (wil be removed later).
+         */
+        System.setProperty("tibco.forms.rasc", "true");
+
         String projectName = "BrmRascTestProjectWithoutContributions";
 
         ProjectImporter projectImporter = importProject(projectName);
@@ -179,6 +191,12 @@ public class BrmModelRascContributorTest extends TestCase {
      * @throws Exception
      */
     public void testProjectWithoutContributions2() throws Exception {
+        /*
+         * TODO ACE-1031 - WP RASC content is prevented by default (initially),
+         * so enabled it with system property (wil be removed later).
+         */
+        System.setProperty("tibco.forms.rasc", "true");
+
         String projectName = "BrmRascTestProjectWithoutContributions";
 
         ProjectImporter projectImporter = importProject(projectName);
@@ -222,6 +240,9 @@ public class BrmModelRascContributorTest extends TestCase {
                 .getProject(projectName); // $NON-NLS-1$
         assertTrue(projectName + " project does not exist", //$NON-NLS-1$
                 project.isAccessible());
+
+        TestUtil.buildAndWait();
+
         return projectImporter;
     }
 

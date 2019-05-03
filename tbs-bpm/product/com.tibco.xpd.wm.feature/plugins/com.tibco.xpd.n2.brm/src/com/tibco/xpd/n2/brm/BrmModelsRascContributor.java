@@ -16,11 +16,9 @@ import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.n2.brm.internal.Messages;
 import com.tibco.xpd.n2.resources.util.N2Utils;
-import com.tibco.xpd.om.transform.de.XMLModelWriter;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascWriter;
-import com.tibco.xpd.resources.util.ProjectUtil;
 
 /**
  * The RascContributor implementation to add the exported BRM-Models to the
@@ -48,18 +46,17 @@ public class BrmModelsRascContributor implements RascContributor {
      * will be delivered.
      */
     // TODO Add Work Presentation MicroService when a available
-    private static final MicroService[] WT_MODEL_DESTINATION_SERVICES =
+    private static final MicroService[] TEMPORARY_WT_MODEL_DESTINATION_SERVICES =
             { MicroService.WM };
+
+    private static final MicroService[] WT_MODEL_DESTINATION_SERVICES =
+            { MicroService.WM, MicroService.WP };
 
     /**
      * The transformer to generate the RASC BRM models.
      */
     private BRMGenerator TRANSFORMER = BRMGenerator.getInstance();
 
-    /**
-     * The writer to be used to write the XML document to the RASC artifact.
-     */
-    private static final XMLModelWriter MODEL_WRITER = new XMLModelWriter();
 
     /**
      * @see com.tibco.xpd.rasc.core.RascContributor#getId()
@@ -102,9 +99,6 @@ public class BrmModelsRascContributor implements RascContributor {
 
         try {
             // Generate the BRM relevant models
-            Version projectVersion =
-                    new Version(ProjectUtil.getProjectVersion(aProject));
-
             Version version = aContext.getVersion();
 
             long start = System.currentTimeMillis();
@@ -142,11 +136,21 @@ public class BrmModelsRascContributor implements RascContributor {
                 Resource wtResource =
                         brmModels.get(BRMGenerator.WORKTYPE_ARTIFACT_NAME);
                 if (wtResource != null) {
+                    MicroService[] targetServices;
+
+                    if (!"true".equalsIgnoreCase(
+                            System.getProperty("tibco.forms.rasc"))) {
+                        targetServices =
+                                TEMPORARY_WT_MODEL_DESTINATION_SERVICES;
+                    } else {
+                        targetServices = WT_MODEL_DESTINATION_SERVICES;
+                    }
+
                     OutputStream output = aWriter.addContent(
                             BRMGenerator.WORKTYPE_ARTIFACT_NAME,
                             BRMGenerator.WORKTYPE_ARTIFACT_NAME,
                             BRMGenerator.WORKTYPE_ARTIFACT_NAME,
-                            BrmModelsRascContributor.WT_MODEL_DESTINATION_SERVICES);
+                            targetServices);
 
                     // output the rasc model to the rasc artifact
                     wtResource.save(output, N2Utils.getDefaultXMLSaveOptions());

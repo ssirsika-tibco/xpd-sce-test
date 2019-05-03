@@ -13,9 +13,10 @@ import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
-import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
+import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessValidDataRulesTest;
 
 import junit.framework.Test;
@@ -39,6 +40,7 @@ public class AllUnitTests {
         suite.addTestSuite(PERascContributorTest.class);
         suite.addTestSuite(CdmRascContributorTest.class);
         suite.addTestSuite(BrmModelRascContributorTest.class);
+        suite.addTestSuite(WpModelRascContributorTest.class);
 
         /*
          * BOM->CDM transformation

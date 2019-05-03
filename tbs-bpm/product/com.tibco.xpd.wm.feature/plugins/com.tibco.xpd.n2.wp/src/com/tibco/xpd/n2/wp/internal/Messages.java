@@ -38,6 +38,8 @@ public class Messages extends NLS {
     public static String WPModelConstraint_versionNeeded_message;
 
     public static String WPModelConstraint_wpDescLoadingProblem_message2;
+
+    public static String WpModelsRascContributor_Export_status;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

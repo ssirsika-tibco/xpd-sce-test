@@ -12,7 +12,12 @@ public class WPUtil {
 
     public static final String SERVICE_ARCHIVE_DESC_ROOT_FOLDER_NAME = "wp";//$NON-NLS-1$
 
-    public static final String SERVICE_ARCHIVE_DESC_NAME = "wpModel.xml";//$NON-NLS-1$
+    /*
+     * Sid ACE-1028 - change of name file extension so that run-time recognises
+     * the file type (don't want lots of .xml's that things c an get confused
+     * with.
+     */
+    public static final String SERVICE_ARCHIVE_DESC_NAME = "wpModel.wp";//$NON-NLS-1$
 
     public static final String WP_RESOURCES_FOLDERNAME =
             SERVICE_ARCHIVE_DESC_ROOT_FOLDER_NAME;

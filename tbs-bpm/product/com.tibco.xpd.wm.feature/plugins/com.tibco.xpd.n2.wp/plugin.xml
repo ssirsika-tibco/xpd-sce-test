@@ -151,4 +151,16 @@
         description="%bx.switchWorkspaceEmailToOpenspaceEmailGWTChannel.resolution.desc.1">
    </resolution>
  </extension>
+ 
+    <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.xpd.n2.wp.WpModelsRascContributor"
+            id="com.tibco.xpd.n2.wp.rasc.model.contributor">
+         <dependsOn
+               contributorId="com.tibco.xpd.forms.rasc.contributor">
+         </dependsOn>
+      </contributor>
+   </extension>
+ 
 </plugin>
