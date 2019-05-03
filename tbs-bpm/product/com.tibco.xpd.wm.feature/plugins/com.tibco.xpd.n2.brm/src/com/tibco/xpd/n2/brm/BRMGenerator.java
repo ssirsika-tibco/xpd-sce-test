@@ -10,16 +10,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -88,7 +82,6 @@ import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.logger.Logger;
-import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeExtPointHelper;
@@ -200,9 +193,14 @@ public class BRMGenerator {
             "if \t(%1s == null) {%n \t WorkManagerFactory.getWorkItem().workItemAttributes.%2s = 0; %n} else {%n \tWorkManagerFactory.getWorkItem().workItemAttributes.%3s = %4s; %n }%n%n"; //$NON-NLS-1$
 
     /** Work list facade runtime model base name. */
-    private static final String WLF_MODULE_FILE_NAME_BASE = "wlf"; //$NON-NLS-1$
+    private static final String WLF_MODULE_FILE_NAME_BASE = "workListFacade"; //$NON-NLS-1$
 
-    private static final Version WLF_BASE_VERSION = new Version("1.0.0"); //$NON-NLS-1$
+    /** workListFacade.wm file extension */
+    public static final String WLF_MODULE_FILE_EXTENSION = "wlf"; //$NON-NLS-1$
+
+    /** Worklist facade complete file name. */
+    public static final String WORKLISTFACADE_FILENAME =
+            WLF_MODULE_FILE_NAME_BASE + "." + WLF_MODULE_FILE_EXTENSION; //$NON-NLS-1$
 
     private static final BRMGenerator INSTANCE = new BRMGenerator();
 
@@ -1346,11 +1344,14 @@ public class BRMGenerator {
      * 
      * @param project
      *            the context project.
-     * @param generationRoot
-     *            the generation resources structure root folder.
+     * @param version
+     *            the RASC project generation-timestamped version
+     * 
+     * @return The EMF Resource for the worklist facade model or null if none
+     *         generated.
      */
-    public IStatus generateWlfModel(final IProject project,
-            final IFolder generationRoot) {
+    public Resource generateWlfModel(final IProject project,
+            String version) {
 
         final List<IResource> wlfFiles = SpecialFolderUtil
                 .getAllDeepResourcesInSpecialFolderOfKind(project,
@@ -1360,48 +1361,38 @@ public class BRMGenerator {
 
         if (!wlfFiles.isEmpty()) {
             if (wlfFiles.size() != 1) {
-                final String msg =
-                        Messages.BRMGenerator_onlyOneWlfPerProject_message;
-                return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg);
+                BRMActivator.getDefault().getLogger().error(
+                        Messages.BRMGenerator_onlyOneWlfPerProject_message);
+                return null;
             }
+
             IFile srcWlfFile = (IFile) wlfFiles.get(0);
             WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(srcWlfFile);
             if (wc == null) {
-                final String msg =
+                BRMActivator.getDefault().getLogger().error(
                         String.format(Messages.BRMGenerator_invalidWlf_message,
-                                srcWlfFile.getFullPath());
-                return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg);
+                                srcWlfFile.getFullPath()));
+                return null;
             }
+
             com.tibco.xpd.worklistfacade.model.DocumentRoot srcWlfRoot =
                     (com.tibco.xpd.worklistfacade.model.DocumentRoot) wc
                             .getRootElement();
             if (srcWlfRoot == null || wc.isInvalidFile()) {
-                final String msg = String.format(
-                        Messages.BRMGenerator_invalidWlfContent_message,
-                        srcWlfFile.getFullPath());
-                return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg);
+                BRMActivator.getDefault().getLogger()
+                        .error(String.format(
+                                Messages.BRMGenerator_invalidWlfContent_message,
+                                srcWlfFile.getFullPath()));
+                return null;
             }
+
             WorkListFacade srcWlf = srcWlfRoot.getWorkListFacade();
             AttributefacadeFactory destFactory =
                     AttributefacadeFactory.eINSTANCE;
             WorkListAttributeFacadeType destWlf =
                     destFactory.createWorkListAttributeFacadeType();
-            String projectVersion = ProjectUtil.getProjectVersion(project);
 
-            /**
-             * TODO SID ACE-122 replace method of getting version into work-type
-             * root.
-             */
-            if (true) {
-                throw new RuntimeException(
-                        "TODO SID ACE-122 replace method of getting version into work-type");
-            }
-            String wlfVersion = "1.0.0.gazillion";
-
-            // @SuppressWarnings("restriction")
-            // String wlfVersion = PluginManifestHelper
-            // .getUpdatedBundleVersion(projectVersion, timestamp);
-            destWlf.setVersion(wlfVersion);
+            destWlf.setVersion(version);
 
             // DAA generation fails for empty WLF file.
             if (srcWlf.getWorkItemAttributes() != null) {
@@ -1419,69 +1410,69 @@ public class BRMGenerator {
             }
             final com.tibco.n2.common.attributefacade.DocumentRoot destWlfRoot =
                     destFactory.createDocumentRoot();
+
             destWlfRoot.setWorkListAttributeFacade(destWlf);
-            final IPath filePath = generationRoot.getFullPath()
-                    .append(WLF_MODULE_FILE_NAME_BASE)
-                    .addFileExtension(XML_EXTENSION);
-            return saveXmlFileToWorkspace(filePath,
-                    destWlfRoot,
-                    new AttributefacadeResourceFactoryImpl());
+
+            /* Sid ACE-245 Now returns EMF resource for runtime WLF model. */ 
+            return createWlfResource(WORKLISTFACADE_FILENAME,
+                    destWlfRoot);
         }
-        return Status.OK_STATUS;
+
+        return null;
     }
 
     /**
      * Saves emf model in XML format (with 'xml' extension).
+     * Sid ACE-245 Now returns EMF resource for runtime WLF model.
      * 
-     * @param filePath
-     *            path to the file. (It should ane with 'xml' extension.)
+     * @param rascRelativePath
+     *            path to the file. 
      * @param documentRoot
      *            the document root element.
+     * 
+     * @return The EMF Resource for the worklist facade model or null if none
+     *         generated.
      */
-    private IStatus saveXmlFileToWorkspace(IPath filePath, EObject documentRoot,
-            Resource.Factory resourceFactory) {
+    private Resource createWlfResource(String rascRelativePath,
+            EObject documentRoot) {
+        Resource.Factory resourceFactory =
+                new AttributefacadeResourceFactoryImpl();
+
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
         final Object previousXMLFactory =
-                extensionToFactoryMap.get(XML_EXTENSION);
+                extensionToFactoryMap.get(WLF_MODULE_FILE_EXTENSION);
+
         try {
             /*
-             * Temporarily register "xml" extension so EMF resource is created
+             * Temporarily register "wlf" extension so EMF resource is created
              * using specific factory.
              */
-            extensionToFactoryMap.put(XML_EXTENSION, resourceFactory);
+            extensionToFactoryMap.put(WLF_MODULE_FILE_EXTENSION,
+                    resourceFactory);
             final URI resourceURI =
-                    URI.createPlatformResourceURI(filePath.toPortableString(),
-                            true);
+                    URI.createURI(rascRelativePath);
             final ResourceSet rs = new ResourceSetImpl();
-            final Resource resource = rs.createResource(resourceURI);
-            resource.getContents().add(documentRoot);
-            resource.save(N2Utils.getDefaultXMLSaveOptions());
-            IFile file =
-                    ResourcesPlugin.getWorkspace().getRoot().getFile(filePath);
+            
+            Resource wlfResource = rs.createResource(resourceURI);
 
-            IContainer parent = file.getParent();
+            wlfResource.getContents().add(documentRoot);
+            
+            return wlfResource;
 
-            if (null != parent && parent.isAccessible()) {
-
-                parent.refreshLocal(IResource.DEPTH_INFINITE, null);
-            }
-
-            // if (file.isAccessible()) {
-            // file.refreshLocal(IResource.DEPTH_ZERO, null);
-            // file.setDerived(true);
-            // }
         } catch (Exception e) {
-            BRMActivator.getDefault().getLogger().error(e);
+
             String msg = e.getLocalizedMessage();
             msg = (msg == null || msg.trim().isEmpty()) ? String.format(
                     Messages.BRMGenerator_resourceSaveProblem_message,
-                    filePath) : msg;
-            return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg, e);
+                    rascRelativePath) : msg;
+            BRMActivator.getDefault().getLogger().error(msg);
+            
         } finally {
             /* Revert previous registry settings. */
-            extensionToFactoryMap.put(XML_EXTENSION, previousXMLFactory);
+            extensionToFactoryMap.put(WLF_MODULE_FILE_EXTENSION,
+                    previousXMLFactory);
         }
-        return Status.OK_STATUS;
+        return null;
     }
 }

@@ -24,6 +24,9 @@ public class Messages extends NLS {
 
     public static String BrmModelsRascContributor_UserTaskModelExport_status;
 
+
+    public static String WlfModelsRascContributor_Export_status;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

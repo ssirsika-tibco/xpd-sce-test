@@ -9,10 +9,12 @@ import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
@@ -41,6 +43,7 @@ public class AllUnitTests {
         suite.addTestSuite(CdmRascContributorTest.class);
         suite.addTestSuite(BrmModelRascContributorTest.class);
         suite.addTestSuite(WpModelRascContributorTest.class);
+        suite.addTestSuite(WlfModelRascContributorTest.class);
 
         /*
          * BOM->CDM transformation
@@ -68,6 +71,10 @@ public class AllUnitTests {
 
         suite.addTestSuite(BRMGenUC2FTest.class);
 
+        /*
+         * Related Legacy Studio tests moved to SCE once proved work
+         */
+        suite.addTestSuite(WorkListFacadeGenTest.class);
 
         return suite;
     }
