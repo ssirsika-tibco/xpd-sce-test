@@ -159,12 +159,17 @@ public class WPGenerator {
         }
 
         /**
-         * @return The RASC folder for output that goes in the project versioned
-         *         older under the base folder (RASC /wp/1.0.0.123456789)
+         * @return The RASC folder for output resources other than the WP model
+         *         itself. CURRENTLY this is exactly the same as ther wpModel.wp
+         *         file's folder as it was decided that no wp/<project
+         *         version&timestamp>/ version folder was required because this
+         *         version is available to WR in the RASC manifest anyway.). If
+         *         necessary the version folder can be re-introduced by
+         *         appending {@link #getProjectGenerationVersion()} as a new
+         *         element after the base path.
          */
-        public IPath getProjectVersionedOutputRelativePath() {
-            return getBaseOutputRelativePath()
-                    .append(getProjectGenerationVersion());
+        public IPath getBaseResourcesOutputRelativePath() {
+            return getBaseOutputRelativePath();
         }
 
     }
@@ -399,7 +404,7 @@ public class WPGenerator {
                         // All attr. of type: RESOURCE will have this path
                         // prepended (if it's not empty).
                         IPath resourcesPrefixPath =
-                                ctx.getProjectVersionedOutputRelativePath();
+                                ctx.getBaseResourcesOutputRelativePath();
 
                         Properties propetries = new Properties();
 
@@ -452,7 +457,7 @@ public class WPGenerator {
                         String propertyFileName =
                                 channelID + "." + PROPERTIES_EXTENSION; //$NON-NLS-1$
                         IPath propertyPath =
-                                ctx.getProjectVersionedOutputRelativePath()
+                                ctx.getBaseResourcesOutputRelativePath()
                                         .append(channelID)
                                         .append(propertyFileName);
 

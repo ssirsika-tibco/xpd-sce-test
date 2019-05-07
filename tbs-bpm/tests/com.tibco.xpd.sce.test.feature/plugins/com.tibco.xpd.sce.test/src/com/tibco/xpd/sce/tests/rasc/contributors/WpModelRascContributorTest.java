@@ -87,18 +87,28 @@ public class WpModelRascContributorTest extends TestCase {
 
         List<WriterContent> artifacts = writer.getArtifacts();
 
-        String baseVersionFolder =
-                "wp/" + rascContext.getVersion().toString() + "/";
+        String baseOtherResourcesFolder = "wp/";
+        /*
+         * + rascContext.getVersion().toString() + "/";
+         * 
+         * The RASC folder for output resources other than the WP model itself.
+         * CURRENTLY this is exactly the same as ther wpModel.wp file's folder
+         * as it was decided that no wp/<project version&timestamp>/ version
+         * folder was required because this version is available to WR in the
+         * RASC manifest anyway.). If necessary the version folder can be
+         * re-introduced by appending {@link #getProjectGenerationVersion()} as
+         * a new element after the base path.
+         */
 
         for (WriterContent artifact : artifacts) {
             if ("wp/wpModel.wp".equals(artifact.getFullPath())) {
                 wpModelArtifact = artifact;
 
-            } else if (artifact.getFullPath().equals(baseVersionFolder
+            } else if (artifact.getFullPath().equals(baseOtherResourcesFolder
                     + "GIGWTPull_DefaultChannel/GIGWTPull_DefaultChannel.properties")) {
                 gwtChannelProperties = artifact;
 
-            } else if (artifact.getFullPath().equals(baseVersionFolder
+            } else if (artifact.getFullPath().equals(baseOtherResourcesFolder
                     + "openspaceEmailPush_DefaultChannel/openspaceEmailPush_DefaultChannel.properties")) {
                 emailChannelProperties = artifact;
             }
