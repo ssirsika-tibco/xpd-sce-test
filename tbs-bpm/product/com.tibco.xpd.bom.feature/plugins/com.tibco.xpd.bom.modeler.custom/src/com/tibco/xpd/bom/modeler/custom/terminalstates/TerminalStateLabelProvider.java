@@ -9,6 +9,9 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 
+import com.tibco.xpd.bom.resources.ui.Activator;
+import com.tibco.xpd.bom.resources.ui.BOMImages;
+
 /**
  *
  *
@@ -64,7 +67,7 @@ public class TerminalStateLabelProvider implements ILabelProvider {
      */
     @Override
     public Image getImage(Object element) {
-        return null;
+        return Activator.getDefault().getImageRegistry().get(BOMImages.ENUMLIT);
     }
 
     /**

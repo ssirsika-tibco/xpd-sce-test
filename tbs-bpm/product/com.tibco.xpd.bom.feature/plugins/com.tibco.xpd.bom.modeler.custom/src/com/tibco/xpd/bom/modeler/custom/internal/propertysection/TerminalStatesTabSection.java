@@ -1,7 +1,10 @@
 package com.tibco.xpd.bom.modeler.custom.internal.propertysection;
 
+import java.util.List;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
@@ -16,9 +19,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateContentProvider;
@@ -68,7 +74,7 @@ public class TerminalStatesTabSection extends AbstractTransactionalSection
         terminalLabel
                 .setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
         terminal = CheckboxTableViewer.newCheckList(panel,
-                SWT.V_SCROLL | SWT.SINGLE);
+                SWT.V_SCROLL | SWT.SINGLE | SWT.BORDER);
         terminal.getTable()
                 .setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         terminal.setContentProvider(new TerminalStateContentProvider());
@@ -89,11 +95,20 @@ public class TerminalStatesTabSection extends AbstractTransactionalSection
     public void setInput(IWorkbenchPart part, ISelection selection) {
         super.setInput(part, selection);
         property = getInput(selection);
+        updateFromProperty();
+    }
+
+    /**
+     * 
+     */
+    private void updateFromProperty() {
         terminal.setInput(property);
         EList<EnumerationLiteral> states =
                 properties.getTerminalStates(property);
         if (states != null) {
             terminal.setCheckedElements(states.toArray());
+        } else {
+            terminal.setAllChecked(false);
         }
     }
 
@@ -159,6 +174,8 @@ public class TerminalStatesTabSection extends AbstractTransactionalSection
      */
     @Override
     protected void doRefresh() {
+        property = getInput(getSelection());
+        updateFromProperty();
     }
 
     /**
@@ -185,6 +202,31 @@ public class TerminalStatesTabSection extends AbstractTransactionalSection
             }
         }
         return cmd;
+    }
+
+    /**
+     * @see com.tibco.xpd.ui.properties.AbstractTransactionalSection#shouldRefresh(java.util.List)
+     *
+     * @param notifications
+     * @return
+     */
+    @Override
+    protected boolean shouldRefresh(List<Notification> notifications) {
+        boolean shouldRefresh = false;
+        for (Notification notification : notifications) {
+            Object notifier = notification.getNotifier();
+            if (notifier instanceof EObject) {
+                EObject eo = (EObject) notifier;
+                Element base = UMLUtil.getBaseElement(eo);
+                if (base instanceof Property) {
+                    Property baseProperty = (Property) base;
+                    if (BOMGlobalDataUtils.isCaseState(baseProperty)) {
+                        shouldRefresh = true;
+                    }
+                }
+            }
+        }
+        return shouldRefresh;
     }
 
 }
