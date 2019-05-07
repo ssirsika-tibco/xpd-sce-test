@@ -132,7 +132,7 @@ public class AceSupportedBomTypesRule implements IValidationRule {
 
         /*
          * Sid ACE-1051: Allow properties and primitive types to be of
-         * user-defined primitive types (the base suprt-type of all of these
+         * user-defined primitive types (the base super-type of all of these
          * will be validated ultimately.
          */
         EList<Classifier> superType = ((PrimitiveType) type).getGenerals();
