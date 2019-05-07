@@ -1,6 +1,8 @@
 package com.tibco.bds.designtime.validator.ace.rules;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
@@ -125,6 +127,16 @@ public class AceSupportedBomTypesRule implements IValidationRule {
 
         if (!(type instanceof PrimitiveType)) {
             /* Complex types are all ok as far as this rule is concerned */
+            return true;
+        }
+
+        /*
+         * Sid ACE-1051: Allow properties and primitive types to be of
+         * user-defined primitive types (the base suprt-type of all of these
+         * will be validated ultimately.
+         */
+        EList<Classifier> superType = ((PrimitiveType) type).getGenerals();
+        if (superType != null && !superType.isEmpty()) {
             return true;
         }
 
