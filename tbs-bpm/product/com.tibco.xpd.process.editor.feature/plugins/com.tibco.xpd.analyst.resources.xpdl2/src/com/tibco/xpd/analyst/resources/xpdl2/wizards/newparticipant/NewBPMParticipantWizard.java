@@ -57,9 +57,13 @@ public class NewBPMParticipantWizard extends AbstractNewParticipantWizard {
                         XpdExtensionPackage.eINSTANCE
                                 .getDocumentRoot_DisplayName(),
                         Messages.NewParticipantWizard_3);
-        // Set role participant type
+
+        /*
+         * Sid ACE-484 Default to Org Model Query instead of Role type (as the
+         * latter isn't supported in ACE).
+         */
         ParticipantTypeElem typeElem = fact.createParticipantTypeElem();
-        typeElem.setType(ParticipantType.ROLE_LITERAL);
+        typeElem.setType(ParticipantType.RESOURCE_SET_LITERAL);
 
         input.setParticipantType(typeElem);
 

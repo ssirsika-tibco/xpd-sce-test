@@ -246,7 +246,13 @@ public class ParticipantTable extends AbstractProcessRelevantDataTable {
                         participantName);
                 ParticipantTypeElem participantTypeElem =
                         fact.createParticipantTypeElem();
-                participantTypeElem.setType(ParticipantType.ROLE_LITERAL);
+
+                /*
+                 * Sid ACE-484 Default to Org Model Query instead of Role type
+                 * (as the latter isn't supported in ACE).
+                 */
+                participantTypeElem
+                        .setType(ParticipantType.RESOURCE_SET_LITERAL);
 
                 input.setParticipantType(participantTypeElem);
                 return input;
@@ -319,19 +325,13 @@ public class ParticipantTable extends AbstractProcessRelevantDataTable {
 
     protected Map<String, String> getTypes() {
         // Add basic types to the combo
+        /*
+         * Sid ACE-484 Only Org Model Query and System are valid in ACE.
+         */
         String typeName;
         String typeLit;
-        typeName = Messages.ParticipantsSection_Role_Label;
-        typeLit = ParticipantType.ROLE_LITERAL.getLiteral();
-        typeNameMap.put(typeLit, typeName);
-        typeName = Messages.ParticipantsSection_OrganizationalUnit_Label;
-        typeLit = ParticipantType.ORGANIZATIONAL_UNIT_LITERAL.getLiteral();
-        typeNameMap.put(typeLit, typeName);
         typeName = Messages.ParticipantsSection_OrganizationModelQuery_Label;
         typeLit = ParticipantType.RESOURCE_SET_LITERAL.getLiteral();
-        typeNameMap.put(typeLit, typeName);
-        typeName = Messages.ParticipantsSection_Human_Label;
-        typeLit = ParticipantType.HUMAN_LITERAL.getLiteral();
         typeNameMap.put(typeLit, typeName);
         typeName = Messages.ParticipantsSection_System_Label;
         typeLit = ParticipantType.SYSTEM_LITERAL.getLiteral();

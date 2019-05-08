@@ -12,12 +12,6 @@
     <xpdl2:Author>bharge</xpdl2:Author>
     <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
-  <xpdl2:Participants>
-    <xpdl2:Participant Id="_TcZiceduEd-0ceiqUezQHg" xpdExt:DisplayName="Business Process (API Activity EndPoint)" Name="ProcessPackage_ProcessPackageProcess">
-      <xpdl2:ParticipantType Type="SYSTEM"/>
-      <xpdExt:SharedResource Type="WebService" URI="/ProcessPackage/ProcessPackageProcess/qualifier"/>
-    </xpdl2:Participant>
-  </xpdl2:Participants>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_TcZicuduEd-0ceiqUezQHg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_TcZie-duEd-0ceiqUezQHg">
       <xpdl2:Lanes>
@@ -49,34 +43,14 @@
       <xpdl2:Activities>
         <xpdl2:Activity Id="_TcZid-duEd-0ceiqUezQHg" Name="StartEvent" xpdExt:DisplayName="Start Event">
           <xpdl2:Event>
-            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
-              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
-                <xpdl2:Message Id="_TcZieOduEd-0ceiqUezQHg" xpdExt:DisplayName=""/>
-                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_TcZiceduEd-0ceiqUezQHg" OperationName="">
-                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
-                    <xpdl2:EndPoint EndPointType="WSDL">
-                      <xpdl2:ExternalReference location="package_template.wsdl"/>
-                    </xpdl2:EndPoint>
-                  </xpdl2:Service>
-                </xpdl2:WebServiceOperation>
-                <xpdExt:PortTypeOperation PortTypeName="ProcessPackageProcess" OperationName="StartEvent">
-                  <xpdExt:ExternalReference location="package_template.wsdl"/>
-                </xpdExt:PortTypeOperation>
-              </xpdl2:TriggerResultMessage>
-            </xpdl2:StartEvent>
+            <xpdl2:StartEvent Trigger="None"/>
           </xpdl2:Event>
-          <xpdl2:Performers>
-            <xpdl2:Performer>_TcZiceduEd-0ceiqUezQHg</xpdl2:Performer>
-          </xpdl2:Performers>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_TcZideduEd-0ceiqUezQHg" Width="27.0">
               <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
-          <xpdExt:ActivityResourcePatterns>
-            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
-          </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
         <xpdl2:Activity Id="_TcZieeduEd-0ceiqUezQHg" Name="EndEvent" xpdExt:DisplayName="End Event">
           <xpdl2:Event>
@@ -139,38 +113,18 @@
             <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
           </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
-        <xpdl2:Activity Id="_TcZigOduEd-0ceiqUezQHg" Name="SendTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Send Task">
+        <xpdl2:Activity Id="_TcZigOduEd-0ceiqUezQHg" Name="Invokebusinessprocess" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="Invoke business process">
           <xpdl2:Implementation>
-            <xpdl2:Task>
-              <xpdl2:TaskSend xpdExt:ImplementationType="InvokeBusinessProcess" Implementation="WebService">
-                <xpdl2:Message Id="_TcZigeduEd-0ceiqUezQHg" xpdExt:DisplayName=""/>
-                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_TcZiceduEd-0ceiqUezQHg" OperationName="">
-                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
-                    <xpdl2:EndPoint EndPointType="WSDL">
-                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
-                    </xpdl2:EndPoint>
-                  </xpdl2:Service>
-                </xpdl2:WebServiceOperation>
-                <xpdExt:PortTypeOperation PortTypeName="ProcessPackageProcess" OperationName="StartEvent">
-                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
-                </xpdExt:PortTypeOperation>
-                <xpdExt:BusinessProcess BusinessProcessId="_TcZiduduEd-0ceiqUezQHg"/>
-              </xpdl2:TaskSend>
-            </xpdl2:Task>
+            <xpdl2:SubFlow Execution="ASYNCHR" Id="_TcZiduduEd-0ceiqUezQHg" xpdExt:AsyncExecutionMode="Detached" xpdExt:StartStrategy="ScheduleStart" xpdExt:SuspendResumeWithParent="false"/>
           </xpdl2:Implementation>
-          <xpdl2:Performers>
-            <xpdl2:Performer>_TcZiceduEd-0ceiqUezQHg</xpdl2:Performer>
-          </xpdl2:Performers>
+          <xpdl2:Priority></xpdl2:Priority>
           <xpdl2:NodeGraphicsInfos>
-            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_TcZic-duEd-0ceiqUezQHg" Width="96.0">
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="76.0" LaneId="_TcZic-duEd-0ceiqUezQHg" Width="106.0">
               <xpdl2:Coordinates XCoordinate="454.0" YCoordinate="73.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
-          <xpdExt:ActivityResourcePatterns>
-            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
-          </xpdExt:ActivityResourcePatterns>
-        </xpdl2:Activity>
+        </xpdl2:Activity>        
       </xpdl2:Activities>
       <xpdl2:Transitions>
         <xpdl2:Transition Id="_TcZiguduEd-0ceiqUezQHg" xpdExt:DisplayName="" Name="" From="_TcZifOduEd-0ceiqUezQHg" To="_TcZifeduEd-0ceiqUezQHg">

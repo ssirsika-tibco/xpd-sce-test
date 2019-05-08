@@ -390,7 +390,7 @@ public class ProcessDataUtil {
         if (BasicTypeType.STRING_LITERAL.equals(basicTypeType)) {
             uIReadableBasicTypeLabel = "Text"; //$NON-NLS-1$
         } else if (BasicTypeType.FLOAT_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Decimal";//$NON-NLS-1$
+            uIReadableBasicTypeLabel = "Number";//$NON-NLS-1$
         } else if (BasicTypeType.INTEGER_LITERAL.equals(basicTypeType)) {
             uIReadableBasicTypeLabel = "Integer";//$NON-NLS-1$
         } else if (BasicTypeType.BOOLEAN_LITERAL.equals(basicTypeType)) {
@@ -400,7 +400,7 @@ public class ProcessDataUtil {
         } else if (BasicTypeType.TIME_LITERAL.equals(basicTypeType)) {
             uIReadableBasicTypeLabel = "Time";//$NON-NLS-1$
         } else if (BasicTypeType.DATETIME_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Date Time";//$NON-NLS-1$
+            uIReadableBasicTypeLabel = "Date Time and Timezone";//$NON-NLS-1$
         } else if (BasicTypeType.PERFORMER_LITERAL.equals(basicTypeType)) {
             uIReadableBasicTypeLabel = "Performer";//$NON-NLS-1$
         } else {

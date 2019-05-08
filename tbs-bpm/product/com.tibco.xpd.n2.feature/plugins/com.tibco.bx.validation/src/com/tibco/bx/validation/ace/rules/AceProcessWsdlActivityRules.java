@@ -119,7 +119,14 @@ public class AceProcessWsdlActivityRules
              * If it's not an incoming request or reply to one then check if
              * it's an outgoing WebService invocation
              */
+            /*
+             * Sid ACE-484 - noticed that some template have older "Web Service"
+             * (with space) implementation id, that highlighted that we should
+             * be checking for it here.
+             */
             if (TaskImplementationTypeDefinitions.WEB_SERVICE
+                    .equals(implementationId)
+                    || TaskImplementationTypeDefinitions.WEB_SERVICE_V2_0
                     .equals(implementationId)
                     || EventTriggerType.EVENT_MESSAGE_THROW_LITERAL.equals(
                             EventObjectUtil.getEventTriggerType(activity))) {

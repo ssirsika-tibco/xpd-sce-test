@@ -89,6 +89,11 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public abstract class BaseTypeSection extends
         AbstractFilteredTransactionalSection implements ISectionContentCreator {
 
+    /*
+     * Sid ACE-484 switch on suppress unsupported types for ACE.
+     */
+    private final boolean suppressAceUnsupportedTypes = true;
+
     // Data Types;
     protected static final int BASICTYPE = 0;
 
@@ -1199,8 +1204,14 @@ public abstract class BaseTypeSection extends
         typeNameMap.put(BasicTypeType.FLOAT_LITERAL,
                 ProcessDataUtil.getBasicTypeLabel(BasicTypeType.FLOAT_LITERAL));
 
-        typeNameMap.put(BasicTypeType.INTEGER_LITERAL, ProcessDataUtil
-                .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));
+        /*
+         * Sid ACE-484 suppress Integer type for ACE.
+         */
+        if (suppressAceUnsupportedTypes) {
+            typeNameMap.put(BasicTypeType.INTEGER_LITERAL,
+                    ProcessDataUtil
+                            .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));
+        }
 
         typeNameMap.put(BasicTypeType.BOOLEAN_LITERAL, ProcessDataUtil
                 .getBasicTypeLabel(BasicTypeType.BOOLEAN_LITERAL));

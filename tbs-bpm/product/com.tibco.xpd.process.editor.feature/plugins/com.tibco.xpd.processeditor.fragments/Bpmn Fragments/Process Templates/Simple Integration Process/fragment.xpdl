@@ -37,10 +37,14 @@
             <xpdl2:Activity Id="_OtFyLIDfEd28P6TQ-F95eg" Name="Enrichincomingdatawithexternaldata" xpdExt:DisplayName="Enrich incoming data with external data">
               <xpdl2:Implementation>
                 <xpdl2:Task>
-                  <xpdl2:TaskService xpdExt:ImplementationType="Web Service" Implementation="WebService">
-                    <xpdl2:MessageIn Id="_OtFyLYDfEd28P6TQ-F95eg"/>
-                    <xpdl2:MessageOut Id="_OtFyLoDfEd28P6TQ-F95eg"/>
-                  </xpdl2:TaskService>
+                  <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                    <xpdl2:MessageIn Id="_OtFyLYDfEd28P6TQ-F95eg">
+                      <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN"/>
+                    </xpdl2:MessageIn>
+                    <xpdl2:MessageOut Id="_OtFyLoDfEd28P6TQ-F95eg">
+                      <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT"/>
+                    </xpdl2:MessageOut>
+                  </xpdl2:TaskService>                    
                 </xpdl2:Task>
               </xpdl2:Implementation>
               <xpdl2:NodeGraphicsInfos>
@@ -52,10 +56,14 @@
             <xpdl2:Activity Id="_OtFyL4DfEd28P6TQ-F95eg" Name="Fetchexternaldata" xpdExt:DisplayName="Fetch external data">
               <xpdl2:Implementation>
                 <xpdl2:Task>
-                  <xpdl2:TaskService xpdExt:ImplementationType="Web Service" Implementation="WebService">
-                    <xpdl2:MessageIn Id="_OtFyMIDfEd28P6TQ-F95eg"/>
-                    <xpdl2:MessageOut Id="_OtFyMYDfEd28P6TQ-F95eg"/>
-                  </xpdl2:TaskService>
+                  <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                    <xpdl2:MessageIn Id="_OtFyMIDfEd28P6TQ-F95eg">
+                      <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN"/>
+                    </xpdl2:MessageIn>
+                    <xpdl2:MessageOut Id="_OtFyMYDfEd28P6TQ-F95eg">
+                      <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT"/>
+                    </xpdl2:MessageOut>
+                  </xpdl2:TaskService>                    
                 </xpdl2:Task>
               </xpdl2:Implementation>
               <xpdl2:NodeGraphicsInfos>
@@ -77,16 +85,7 @@
       <xpdl2:Activities>
         <xpdl2:Activity Id="_OtFyGoDfEd28P6TQ-F95eg">
           <xpdl2:Event>
-            <xpdl2:StartEvent Trigger="Message">
-              <xpdl2:TriggerResultMessage CatchThrow="CATCH">
-                <xpdl2:Message Id="_OtFyG4DfEd28P6TQ-F95eg"/>
-                <xpdl2:WebServiceOperation>
-                  <xpdl2:Service>
-                    <xpdl2:EndPoint/>
-                  </xpdl2:Service>
-                </xpdl2:WebServiceOperation>
-              </xpdl2:TriggerResultMessage>
-            </xpdl2:StartEvent>
+            <xpdl2:StartEvent Trigger="None"/>
           </xpdl2:Event>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_OtFyGYDfEd28P6TQ-F95eg" Width="30.0">
@@ -111,9 +110,13 @@
         <xpdl2:Activity Id="_OtFyHYDfEd28P6TQ-F95eg" Name="Standardisedatatoenterpriseconceptmodel" xpdExt:DisplayName="Standardise data to enterprise concept model">
           <xpdl2:Implementation>
             <xpdl2:Task>
-              <xpdl2:TaskService xpdExt:ImplementationType="Web Service" Implementation="WebService">
-                <xpdl2:MessageIn Id="_OtFyHoDfEd28P6TQ-F95eg"/>
-                <xpdl2:MessageOut Id="_OtFyH4DfEd28P6TQ-F95eg"/>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_OtFyHoDfEd28P6TQ-F95eg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_OtFyH4DfEd28P6TQ-F95eg">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
               </xpdl2:TaskService>
             </xpdl2:Task>
           </xpdl2:Implementation>
@@ -133,16 +136,7 @@
         </xpdl2:Activity>
         <xpdl2:Activity Id="_OtFyIYDfEd28P6TQ-F95eg" Name="" xpdExt:DisplayName="">
           <xpdl2:Event>
-            <xpdl2:EndEvent Result="Message">
-              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_OtFyGoDfEd28P6TQ-F95eg" CatchThrow="THROW">
-                <xpdl2:Message Id="_OtFyIoDfEd28P6TQ-F95eg"/>
-                <xpdl2:WebServiceOperation>
-                  <xpdl2:Service>
-                    <xpdl2:EndPoint/>
-                  </xpdl2:Service>
-                </xpdl2:WebServiceOperation>
-              </xpdl2:TriggerResultMessage>
-            </xpdl2:EndEvent>
+            <xpdl2:EndEvent Result="None"/>
           </xpdl2:Event>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_OtFyGYDfEd28P6TQ-F95eg" Width="30.0">
@@ -153,9 +147,13 @@
         <xpdl2:Activity Id="_OtFyI4DfEd28P6TQ-F95eg" Name="Transformtotheoutgoingdataformat" xpdExt:DisplayName="Transform to the outgoing data format">
           <xpdl2:Implementation>
             <xpdl2:Task>
-              <xpdl2:TaskService xpdExt:ImplementationType="Web Service" Implementation="WebService">
-                <xpdl2:MessageIn Id="_OtFyJIDfEd28P6TQ-F95eg"/>
-                <xpdl2:MessageOut Id="_OtFyJYDfEd28P6TQ-F95eg"/>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_OtFyJIDfEd28P6TQ-F95eg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN"/>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_OtFyJYDfEd28P6TQ-F95eg">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
               </xpdl2:TaskService>
             </xpdl2:Task>
           </xpdl2:Implementation>

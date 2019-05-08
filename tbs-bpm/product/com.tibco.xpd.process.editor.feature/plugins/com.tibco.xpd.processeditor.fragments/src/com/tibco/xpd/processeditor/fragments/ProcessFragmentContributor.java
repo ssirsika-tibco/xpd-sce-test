@@ -80,7 +80,7 @@ public class ProcessFragmentContributor extends BaseXpdlTemplatesContributor {
      * re-loaded and therefore migrated.
      */
     private static final String FRAGMENT_VERSION =
-            "10" + "." + XpdlMigrate.FORMAT_VERSION_ATT_VALUE; //$NON-NLS-1$
+            "11" + "." + XpdlMigrate.FORMAT_VERSION_ATT_VALUE; //$NON-NLS-1$
 
     private static final String SYSTEM_FRAGMENTS_LOCATION = "Bpmn Fragments"; //$NON-NLS-1$
 

@@ -113,30 +113,7 @@
  </extension>
  <extension
        point="org.eclipse.ui.popupMenus">
-    <objectContribution
-          adaptable="false"
-          id="com.tibco.xpd.implementer.resources.xpdl2.startEventPageflowContribution"
-          objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
-       <menu
-             id="starteventPageflowMenu"
-             label="%pageflowMenu.label"
-             path="object">
-       </menu>
-       <action
-             class="com.tibco.xpd.implementer.resources.xpdl2.actions.GenerateBizServiceOnIncomingReqActivityAction"
-             enablesFor="1"
-             icon="icons/NewProcessBusinessService.png"
-             id="com.tibco.xpd.implementer.resources.xpdl2.starteventpageflow.generate"
-             label="%generatePageflow.label"
-             menubarPath="starteventPageflowMenu/group1">
-       </action>
-       <visibility>
-          <objectState
-                name="com.tibco.xpd.processwidget.IS_BUSINESS_PROCESS_REQUEST_ACTIVITY"
-                value="TRUE">
-          </objectState>
-       </visibility>
-    </objectContribution>
+
     <objectContribution
           adaptable="false"
           id="com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneContribution"

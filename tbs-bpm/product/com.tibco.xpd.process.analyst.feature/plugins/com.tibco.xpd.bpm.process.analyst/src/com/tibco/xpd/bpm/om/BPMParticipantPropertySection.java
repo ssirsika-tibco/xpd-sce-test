@@ -299,9 +299,13 @@ public class BPMParticipantPropertySection extends ParticipantPropertySection {
                 compCmd.append(cmd);
 
                 // When setting back to basic type, set role as default.
+                /*
+                 * Sid ACE-484 Default to Org Model Query instead of Role type
+                 * (as the latter isn't supported in ACE).
+                 */
                 ParticipantTypeElem typeElem =
                         Xpdl2Factory.eINSTANCE.createParticipantTypeElem();
-                typeElem.setType(ParticipantType.ROLE_LITERAL);
+                typeElem.setType(ParticipantType.RESOURCE_SET_LITERAL);
                 compCmd.append(SetCommand
                         .create(getEditingDomain(),
                                 participant,
@@ -685,11 +689,13 @@ public class BPMParticipantPropertySection extends ParticipantPropertySection {
      * @return
      */
     private List<EEnumLiteral> getOrderedTypes(EEnum type) {
+        /*
+         * Sid ACE-484 Reduce the list to only those supported by ACE. (System,
+         * Org model query)
+         */
         List<EEnumLiteral> literals = new ArrayList<EEnumLiteral>();
         int[] types =
-                new int[] { ParticipantType.ROLE,
-                        ParticipantType.ORGANIZATIONAL_UNIT,
-                        ParticipantType.RESOURCE_SET, ParticipantType.HUMAN,
+                new int[] { ParticipantType.RESOURCE_SET,
                         ParticipantType.SYSTEM };
         for (int count : types) {
             EEnumLiteral enumLiteral = type.getELiterals().get(count);

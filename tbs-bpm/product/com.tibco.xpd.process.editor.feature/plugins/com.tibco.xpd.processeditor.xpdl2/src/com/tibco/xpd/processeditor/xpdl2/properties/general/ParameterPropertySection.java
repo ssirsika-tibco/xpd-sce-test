@@ -309,6 +309,9 @@ public class ParameterPropertySection extends BaseFieldOrParamPropertySection {
 
         GridData gridData = null;
         EObject inputType = getInputType();
+
+        BasicType modelBasicType = getModelBasicType();
+
         if (inputType != null) {
 
             switch (inputType.eClass().getClassifierID()) {
@@ -321,7 +324,9 @@ public class ParameterPropertySection extends BaseFieldOrParamPropertySection {
                 initialValueComposite.setLayoutData(gridData);
 
                 initialValueComposite.getParent().layout(true);
-                showBasicExtrasPage(getModelBasicType());
+
+                showBasicExtrasPage(modelBasicType);
+
                 break;
 
             // Declared type
@@ -348,6 +353,20 @@ public class ParameterPropertySection extends BaseFieldOrParamPropertySection {
                 basicTypeExtrasPageBook.showEmptyPage();
                 break;
             }
+
+            /*
+             * Sid ACE-484: Only show Allowed Values section for text type
+             * parameters.
+             */
+            if (modelBasicType != null && BasicTypeType.STRING_LITERAL
+                    .equals(modelBasicType.getType())) {
+                getExpandableHeaderController()
+                        .setSectionVisible(INIT_VALUES_HEADER_ID, true);
+            } else {
+                getExpandableHeaderController()
+                        .setSectionVisible(INIT_VALUES_HEADER_ID, false);
+            }
+
         }
     }
 

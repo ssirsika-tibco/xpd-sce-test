@@ -99,6 +99,8 @@
             name="%globalDataServiceName"
             showForPageflow="true"
             taskType="Service"/>
+            
+<!-- Sid ACE-484: Case Document Operations are no longer supported in ACE 
 	  <implementation
             class="com.tibco.xpd.implementer.nativeservices.documentoperationsservice.DocumentOperationsTaskServiceSection"
             default="false"
@@ -107,6 +109,8 @@
             name="%DocumentServiceName"
             showForPageflow="true"
             taskType="Service"/>
+-->   
+         
 	   <implementation
 	         class="com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskSection"
 	         id="RESTService"

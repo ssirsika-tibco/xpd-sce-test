@@ -74,7 +74,7 @@ public class PageflowProcessFragmentContributor extends
      * re-loaded and therefore migrated.
      */
     private static final String FRAGMENT_VERSION =
-            "5" + "." + XpdlMigrate.FORMAT_VERSION_ATT_VALUE; //$NON-NLS-1$
+            "6" + "." + XpdlMigrate.FORMAT_VERSION_ATT_VALUE; //$NON-NLS-1$
 
     private static final String SYSTEM_FRAGMENTS_LOCATION =
             "Pageflow Fragments"; //$NON-NLS-1$

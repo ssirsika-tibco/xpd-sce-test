@@ -327,12 +327,12 @@ public class ElementsFactory {
             break;
         }
         case TaskType.RECEIVE:
+            /*
+             * Sid ACE-484 - Don't default implementation type to WebService any
+             * more.
+             */
             TaskReceive recv = xpdlFact.createTaskReceive();
-            recv.setImplementation(ImplementationType.WEB_SERVICE_LITERAL);
-            Xpdl2ModelUtil.setOtherAttribute(recv,
-                    XpdExtensionPackage.eINSTANCE
-                            .getDocumentRoot_ImplementationType(),
-                    TaskImplementationTypeDefinitions.WEB_SERVICE);
+            recv.setImplementation(ImplementationType.UNSPECIFIED_LITERAL);
 
             // Add blank elements for valid xpdl
             recv.setInstantiate(false);
@@ -352,13 +352,12 @@ public class ElementsFactory {
             break;
         case TaskType.SEND:
             TaskSend sendt = xpdlFact.createTaskSend();
+            /*
+             * Sid ACE-484 - Don't default implementation type to WebService any
+             * more.
+             */
             /* Web service should be the default implementation. */
-            sendt.setImplementation(ImplementationType.WEB_SERVICE_LITERAL);
-
-            Xpdl2ModelUtil.setOtherAttribute(sendt,
-                    XpdExtensionPackage.eINSTANCE
-                            .getDocumentRoot_ImplementationType(),
-                    TaskImplementationTypeDefinitions.WEB_SERVICE);
+            sendt.setImplementation(ImplementationType.UNSPECIFIED_LITERAL);
 
             // Add blank elements for valid xpdl
             sendt.setMessage(xpdlFact.createMessage());
@@ -523,12 +522,13 @@ public class ElementsFactory {
 
             switch (eventType.getValue()) {
             case EventTriggerType.EVENT_MESSAGE_THROW:
+                /*
+                 * Sid ACE-484 - Don't default implementation type to WebService
+                 * any more.
+                 */
                 endEvent.setResult(ResultType.MESSAGE_LITERAL);
-                Xpdl2ModelUtil.setOtherAttribute(endEvent,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_ImplementationType(),
-                        TaskImplementationTypeDefinitions.WEB_SERVICE);
-                endEvent.setImplementation(ImplementationType.WEB_SERVICE_LITERAL);
+                endEvent.setImplementation(
+                        ImplementationType.UNSPECIFIED_LITERAL);
                 endEvent.setTriggerResultMessage((TriggerResultMessage) createEventDetail(flowType,
                         eventType,
                         parentProcess));
@@ -583,18 +583,18 @@ public class ElementsFactory {
             switch (eventType.getValue()) {
             case EventTriggerType.EVENT_MESSAGE_CATCH:
             case EventTriggerType.EVENT_MESSAGE_THROW:
+                /*
+                 * Sid ACE-484 - Don't default implementation type to WebService
+                 * any more.
+                 */
                 intermediateEvent.setTrigger(TriggerType.MESSAGE_LITERAL);
                 intermediateEvent
                         .setTriggerResultMessage((TriggerResultMessage) createEventDetail(flowType,
                                 eventType,
                                 parentProcess));
-                Xpdl2ModelUtil.setOtherAttribute(intermediateEvent,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_ImplementationType(),
-                        TaskImplementationTypeDefinitions.WEB_SERVICE);
-
                 intermediateEvent
-                        .setImplementation(ImplementationType.WEB_SERVICE_LITERAL);
+                        .setImplementation(
+                                ImplementationType.UNSPECIFIED_LITERAL);
                 break;
             case EventTriggerType.EVENT_TIMER:
                 intermediateEvent.setTrigger(TriggerType.TIMER_LITERAL);
@@ -679,18 +679,18 @@ public class ElementsFactory {
 
             switch (eventType.getValue()) {
             case EventTriggerType.EVENT_MESSAGE_CATCH:
+                /*
+                 * Sid ACE-484 - Don't default implementation type to WebService
+                 * any more.
+                 */
                 startEvent.setTrigger(TriggerType.MESSAGE_LITERAL);
                 startEvent
                         .setTriggerResultMessage((TriggerResultMessage) createEventDetail(flowType,
                                 eventType,
                                 parentProcess));
-                Xpdl2ModelUtil.setOtherAttribute(startEvent,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_ImplementationType(),
-                        TaskImplementationTypeDefinitions.WEB_SERVICE);
-
                 startEvent
-                        .setImplementation(ImplementationType.WEB_SERVICE_LITERAL);
+                        .setImplementation(
+                                ImplementationType.UNSPECIFIED_LITERAL);
                 break;
             case EventTriggerType.EVENT_TIMER:
                 startEvent.setTrigger(TriggerType.TIMER_LITERAL);
