@@ -609,8 +609,7 @@ public class WPGenerator {
                                 f.createChannelExtentionType();
 
                         channelExtention.setLocation(
-                                new Path(ctx.getProjectGenerationVersion())
-                                .append(channelID).toPortableString());
+                                new Path(channelID).toPortableString());
                         channelExtention.setFilename(new Path(channelID)
                                 .addFileExtension(PROPERTIES_EXTENSION)
                                 .toPortableString());
@@ -1068,8 +1067,7 @@ public class WPGenerator {
                 projectRelativePath.removeFirstSegments(fragmentsToRemove);
 
 
-        projectRelativePath = new Path(ctx.getProjectGenerationVersion())
-                .append(path)
+        projectRelativePath = path
                 .append(projectRelativePath);
         String toReturn = projectRelativePath.toPortableString();
         return toReturn;
