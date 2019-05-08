@@ -217,16 +217,23 @@ public class BomConstraintTransformer {
             constraints.add(new NameValuePair(NAME_LENGTH, length.toString()));
         }
 
-        Object pattern = PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
-                bomProperty,
-                FALLBACK_TO_BASE_TYPE);
-        // Empty text is consider as not-set.
-        if (pattern instanceof String && !((String) pattern).isEmpty()) {
-            constraints
-                    .add(new NameValuePair(NAME_PATTERN, pattern.toString()));
+        /*
+         * TODO ACE-738: This causes failures in CDM validation
+         * "Unknown constraint "pattern", therefore disabling for now until it
+         * is supported.
+         */
+        if (false) {
+            Object pattern = PrimitivesUtil.getFacetPropertyValue(
+                    bomPrimitiveType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
+                    bomProperty,
+                    FALLBACK_TO_BASE_TYPE);
+            // Empty text is consider as not-set.
+            if (pattern instanceof String && !((String) pattern).isEmpty()) {
+                constraints.add(
+                        new NameValuePair(NAME_PATTERN, pattern.toString()));
+            }
         }
-
         return constraints;
     }
 
@@ -297,12 +304,33 @@ public class BomConstraintTransformer {
                 ((PrimitiveType) bomProperty.getType());
         List<NameValuePair> constraints = new ArrayList<>();
 
-        Object length = PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH,
-                bomProperty,
-                FALLBACK_TO_BASE_TYPE);
-        if (length instanceof Integer) {
-            constraints.add(new NameValuePair(NAME_LENGTH, length.toString()));
+        /*
+         * Sid ACE-1079: Do not output length or decimal places for Floating Point Decimals
+         * (length property at least defaults to 10 but CDM says you should not have a length
+         * spec'd for Floating point).
+         */
+
+        if (!suppressLenAndDecimalsConstraints(bomPrimitiveType, bomProperty)) {
+
+            Object length =
+                    PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH,
+                            bomProperty,
+                            FALLBACK_TO_BASE_TYPE);
+            if (length instanceof Integer) {
+                constraints
+                        .add(new NameValuePair(NAME_LENGTH, length.toString()));
+            }
+
+            Object decimalPlaces =
+                    PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
+                            bomProperty,
+                            FALLBACK_TO_BASE_TYPE);
+            if (decimalPlaces instanceof Integer) {
+                constraints.add(new NameValuePair(NAME_DECIMAL_PLACES,
+                        decimalPlaces.toString()));
+            }
         }
 
         // If upper or lower are null that means the value was not-set.
@@ -343,17 +371,48 @@ public class BomConstraintTransformer {
             }
         }
 
-        Object decimalPlaces =
-                PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
-                        bomProperty,
-                        FALLBACK_TO_BASE_TYPE);
-        if (decimalPlaces instanceof Integer) {
-            constraints.add(new NameValuePair(NAME_DECIMAL_PLACES,
-                    decimalPlaces.toString()));
-        }
+
 
         return constraints;
+    }
+
+
+    /**
+     * 
+     * @param type
+     * @param property
+     * @return <code>true</code> if the type should NOT have length and decimal
+     *         constraints output for it
+     */
+    private boolean suppressLenAndDecimalsConstraints(PrimitiveType type,
+            Property property) {
+        Object decimalSubType = PrimitivesUtil.getFacetPropertyValue(type,
+                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                property);
+
+        /*
+         * Check if this type is a floating point
+         */
+        if ((decimalSubType instanceof EnumerationLiteral)
+                && PrimitivesUtil.DECIMAL_SUBTYPE_FLOATINGPOINT.equals(
+                        ((EnumerationLiteral) decimalSubType).getName())) {
+            return true;
+        }
+
+        /*
+         * TODO ACE-738: Sid - REMOVE THIS WHEN WE IMPLEMENT Transform to Fixed
+         * point number.
+         */
+
+        if ((decimalSubType instanceof EnumerationLiteral)
+                && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                        ((EnumerationLiteral) decimalSubType).getName())) {
+            return true;
+        }
+
+
+
+        return false;
     }
 
 }
