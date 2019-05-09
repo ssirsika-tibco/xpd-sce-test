@@ -34,6 +34,7 @@ import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.xpd.bom.globaldata.GlobalDataActivator;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils.AutoCidProperty;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -106,30 +107,6 @@ public class GlobalDataProfileManager {
         @Override
         public String toString() {
             return id;
-        }
-    }
-
-    /**
-     * AutoCaseIdentifier stereotype properties.
-     */
-    public enum AutoCidProperty {
-        MIN_DIGITS("minDigits"), //$NON-NLS-1$
-        PREFIX("prefix"), //$NON-NLS-1$
-        SUFFIX("suffix"); //$NON-NLS-1$
-
-        private final String name;
-
-        AutoCidProperty(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String toString() {
-            return name;
         }
     }
 
@@ -741,14 +718,33 @@ public class GlobalDataProfileManager {
         return batchSize;
     }
 
-    public Object getAutoCidPropetyValue(Property property,
+    /**
+     * Gets the value of the Auto Case Id meta property.
+     * 
+     * @param property
+     *            the auto case id attribute.
+     * @param autoCidProperty
+     *            the enum for the meta property.
+     * @return the value of the meta property for Auto Case ID.
+     */
+    public Object getAutoCidPropetyValueInternal(Property property,
             AutoCidProperty autoCidProperty) {
         return property.getValue(
                     getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER),
                     autoCidProperty.getName());
     }
 
-    public void setAutoCidPropetyValue(Property property,
+    /**
+     * Sets the value of the Auto Case Id meta property.
+     * 
+     * @param property
+     *            the auto case id attribute.
+     * @param autoCidProperty
+     *            the enum for the meta property.
+     * @param value
+     *            the value of the meta property to be set.
+     */
+    public void setAutoCidPropetyValueInternal(Property property,
             AutoCidProperty autoCidProperty, Object value) {
         property.setValue(
                 getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER),

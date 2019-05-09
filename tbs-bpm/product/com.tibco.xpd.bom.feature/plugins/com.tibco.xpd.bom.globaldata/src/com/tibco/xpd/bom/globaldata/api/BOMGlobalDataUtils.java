@@ -67,6 +67,30 @@ public class BOMGlobalDataUtils {
                     PrimitivesUtil.BOM_PRIMITIVE_URI_NAME };
 
     /**
+     * AutoCaseIdentifier stereotype properties.
+     */
+    public enum AutoCidProperty {
+        MIN_DIGITS("minDigits"), //$NON-NLS-1$
+        PREFIX("prefix"), //$NON-NLS-1$
+        SUFFIX("suffix"); //$NON-NLS-1$
+
+        private final String name;
+
+        AutoCidProperty(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+    }
+
+    /**
      * This checks whether the BOM has any global data element. To have a global
      * data element the GD profile must have been applied to the model
      * 
@@ -654,4 +678,35 @@ public class BOMGlobalDataUtils {
         return false;
     }
 
+    /**
+     * Gets the value of the Auto Case Id meta property.
+     * 
+     * @param property
+     *            the auto case id attribute.
+     * @param autoCidProperty
+     *            the enum for the meta property.
+     * @return the value of the meta property for Auto Case ID.
+     */
+    public static Object getAutoCidPropetyValue(Property property,
+            AutoCidProperty autoCidProperty) {
+        return GD_PROFILE_MANAGER.getAutoCidPropetyValueInternal(property,
+                autoCidProperty);
+    }
+
+    /**
+     * Sets the value of the Auto Case Id meta property.
+     * 
+     * @param property
+     *            the auto case id attribute.
+     * @param autoCidProperty
+     *            the enum for the meta property.
+     * @param value
+     *            the value of the meta property to be set.
+     */
+    public static void setAutoCidPropetyValue(Property property,
+            AutoCidProperty autoCidProperty, Object value) {
+        GD_PROFILE_MANAGER.setAutoCidPropetyValueInternal(property,
+                autoCidProperty,
+                value);
+    }
 }

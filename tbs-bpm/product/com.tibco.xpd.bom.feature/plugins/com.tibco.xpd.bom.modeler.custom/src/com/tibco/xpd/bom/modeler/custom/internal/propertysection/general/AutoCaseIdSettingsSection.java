@@ -22,7 +22,6 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
-import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
@@ -64,7 +63,9 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
             XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        Label minDigitsLabel = createLabel(root, toolkit, Messages.AutoCaseIdSettingsSection_minDigits_label);
+        Label minDigitsLabel = createLabel(root,
+                toolkit,
+                Messages.AutoCaseIdSettingsSection_minDigits_label);
         minDigitsLabel.setToolTipText(
                 Messages.AutoCaseIdSettingsSection_minDigits_tooltip);
         minDigitsText = toolkit.createText(root, ""); //$NON-NLS-1$
@@ -86,16 +87,22 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
             }
         });
 
-        Label prefixLabel = createLabel(root, toolkit, Messages.AutoCaseIdSettingsSection_prefix_label);
-        prefixLabel.setToolTipText(Messages.AutoCaseIdSettingsSection_prefix_tooltip);
+        Label prefixLabel = createLabel(root,
+                toolkit,
+                Messages.AutoCaseIdSettingsSection_prefix_label);
+        prefixLabel.setToolTipText(
+                Messages.AutoCaseIdSettingsSection_prefix_tooltip);
         prefixText = toolkit.createText(root, ""); //$NON-NLS-1$
         prefixText.setTextLimit(MAX_PREFIX_SUFFIX_LENGTH);
         prefixText.setToolTipText(prefixLabel.getToolTipText());
         setLayoutData(prefixText);
         manageControlUpdateOnDeactivate(prefixText);
 
-        Label suffixLabel = createLabel(root, toolkit, Messages.AutoCaseIdSettingsSection_suffix_label);
-        suffixLabel.setToolTipText(Messages.AutoCaseIdSettingsSection_suffix_tooltip);
+        Label suffixLabel = createLabel(root,
+                toolkit,
+                Messages.AutoCaseIdSettingsSection_suffix_label);
+        suffixLabel.setToolTipText(
+                Messages.AutoCaseIdSettingsSection_suffix_tooltip);
         suffixText = toolkit.createText(root, ""); //$NON-NLS-1$
         suffixText.setTextLimit(MAX_PREFIX_SUFFIX_LENGTH);
         suffixText.setToolTipText(suffixLabel.getToolTipText());
@@ -223,9 +230,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
      *         default 0 if not set.
      */
     private Integer getMinDigits(Property prop) {
-        Object value = GlobalDataProfileManager.getInstance()
-                .getAutoCidPropetyValue(prop,
-                        GlobalDataProfileManager.AutoCidProperty.MIN_DIGITS);
+        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS);
         if (value instanceof Integer) {
             return (Integer) value;
         }
@@ -246,8 +252,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
         if (minDigits != null && !minDigits.isEmpty()) {
             minDigitsInteger = Integer.valueOf(minDigits);
         }
-        GlobalDataProfileManager.getInstance().setAutoCidPropetyValue(prop,
-                GlobalDataProfileManager.AutoCidProperty.MIN_DIGITS,
+        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS,
                 minDigitsInteger);
     }
 
@@ -260,9 +266,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
      *         not defined.
      */
     private String getPrefix(Property prop) {
-        Object value = GlobalDataProfileManager.getInstance()
-                .getAutoCidPropetyValue(prop,
-                        GlobalDataProfileManager.AutoCidProperty.PREFIX);
+        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.PREFIX);
         if (value instanceof String) {
             return (String) value;
         }
@@ -281,8 +286,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
         if (prefix != null && prefix.isEmpty()) {
             prefix = null; // Unset empty string value.
         }
-        GlobalDataProfileManager.getInstance().setAutoCidPropetyValue(prop,
-                GlobalDataProfileManager.AutoCidProperty.PREFIX,
+        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.PREFIX,
                 prefix);
     }
 
@@ -295,9 +300,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
      *         not defined.
      */
     private String getSuffix(Property prop) {
-        Object value = GlobalDataProfileManager.getInstance()
-                .getAutoCidPropetyValue(prop,
-                        GlobalDataProfileManager.AutoCidProperty.SUFFIX);
+        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.SUFFIX);
         if (value instanceof String) {
             return (String) value;
         }
@@ -316,8 +320,8 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
         if (suffix != null && suffix.isEmpty()) {
             suffix = null; // Unset empty string value.
         }
-        GlobalDataProfileManager.getInstance().setAutoCidPropetyValue(prop,
-                GlobalDataProfileManager.AutoCidProperty.SUFFIX,
+        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
+                BOMGlobalDataUtils.AutoCidProperty.SUFFIX,
                 suffix);
     }
 }
