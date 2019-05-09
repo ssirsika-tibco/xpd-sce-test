@@ -92,7 +92,7 @@ public abstract class BaseTypeSection extends
     /*
      * Sid ACE-484 switch on suppress unsupported types for ACE.
      */
-    private final boolean suppressAceUnsupportedTypes = true;
+    public final static boolean suppressAceUnsupportedTypes = true;
 
     // Data Types;
     protected static final int BASICTYPE = 0;
@@ -1207,7 +1207,7 @@ public abstract class BaseTypeSection extends
         /*
          * Sid ACE-484 suppress Integer type for ACE.
          */
-        if (suppressAceUnsupportedTypes) {
+        if (!suppressAceUnsupportedTypes) {
             typeNameMap.put(BasicTypeType.INTEGER_LITERAL,
                     ProcessDataUtil
                             .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));

@@ -51,6 +51,7 @@ import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
@@ -868,9 +869,14 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             typeLit = ProcessRelevantDataUtil.CASE_REFERENCE_TYPE;
             typeNameMap.put(typeLit, typeName);
 
-            typeNameMap.put(BasicTypeType.INTEGER_LITERAL.getLiteral(),
+            /*
+             * Sid ACE-484 - suppress Integer type for ACE.
+             */
+            if (!BaseTypeSection.suppressAceUnsupportedTypes) {
+                typeNameMap.put(BasicTypeType.INTEGER_LITERAL.getLiteral(),
                     ProcessDataUtil
                             .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));
+            }
 
             typeNameMap
                     .put(BasicTypeType.PERFORMER_LITERAL.getLiteral(),
