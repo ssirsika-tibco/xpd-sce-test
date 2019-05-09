@@ -585,25 +585,23 @@ public class GenerateRascTask extends Task {
             if (PRINT_SUMMARY.equals(event.getName())) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(
-                        "-----------------DEPLOYMENT ARTIFACT GENERATION SUMARY-----------------\n");
+                        "---------------- DEPLOYMENT ARTIFACT GENERATION SUMMARY ---------------\n");
 
                 for (Event[] events : endEvents) {
                     Event begin = events[0];
                     Event end = events[1];
 
-                    long elapsed = (end.getTime() - begin.getTime());
+                    Long elapsed =
+                            Long.valueOf(end.getTime() - begin.getTime());
                     String endResult =
                             end.getLabels().length > 0 ? end.getLabels()[0]
                                     : "";
                     sb.append(
-                            String.format("|%-35s -> %s %-15s \n|  %s %s \n|\n",
+                            String.format(
+                                    "|%-35s -> Result: %-15s \n|  Duration (ms): %d \n|\n",
                                     end.getName(),
-                                    "Result:",
                                     endResult,
-                                    "Time:",
-                                    CorrelatingEventHandler
-                                            .getElapsedTimeString(elapsed)));
-
+                                    elapsed));
                 }
                 sb.append(
                         "-----------------------------------------------------------------------\n");
