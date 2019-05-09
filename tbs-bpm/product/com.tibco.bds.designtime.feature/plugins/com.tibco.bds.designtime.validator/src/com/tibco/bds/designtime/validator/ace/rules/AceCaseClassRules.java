@@ -6,10 +6,13 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
 
@@ -27,6 +30,8 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  * <li>Case classes cannot have more than 5 searchable attributes</li>
  * <li>Only case classes can contain searchable attributes</li>
  * <li>Searchable attributes cannot be arrays</li>
+ * <li>Case identifier attributes must be Text type</li>
+ * <li>Auto case identifier minimum digits must not be greater than 15</li>
  *
  * @author aallway
  * @since 16 Apr 2019
@@ -50,6 +55,9 @@ public class AceCaseClassRules implements IValidationRule {
 
     private static final String ISSUE_ACE_CASEID_MUST_BE_MANDATORY_NONARRAY =
             "ace.bom.caseid.must.be.mandatory.nonarray"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_CASEID_MUST_BE_TEXT =
+            "ace.bom.caseid.must.be.text"; //$NON-NLS-1$
 
     private static final String ISSUE_ACE_MAX_5_SEARCHABLE =
             "ace.bom.max.5.searchable"; //$NON-NLS-1$
@@ -185,6 +193,21 @@ public class AceCaseClassRules implements IValidationRule {
                         BOMValidationUtil.getLocation(caseIdProperty),
                         caseIdProperty.eResource()
                                 .getURIFragment(caseIdProperty));
+            } 
+            
+            // Case identifier attributes must be Text type
+            PrimitiveType textPrimitiveType =
+                    PrimitivesUtil.getStandardPrimitiveTypeByName(
+                            XpdResourcesPlugin.getDefault().getEditingDomain()
+                                    .getResourceSet(),
+                    PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+            
+            if (textPrimitiveType != null
+                    && !textPrimitiveType.equals(caseIdProperty.getType())) {
+                scope.createIssue(ISSUE_ACE_CASEID_MUST_BE_TEXT,
+                        BOMValidationUtil.getLocation(caseIdProperty),
+                        caseIdProperty.eResource()
+                                .getURIFragment(caseIdProperty));
             }
         }
 
@@ -221,6 +244,8 @@ public class AceCaseClassRules implements IValidationRule {
                     BOMValidationUtil.getLocation(property),
                     property.eResource().getURIFragment(property));
         }
+
+        // Auto case identifier minimum digits must not be greater than 15
         if (BOMGlobalDataUtils.isAutoCID(property)) {
             int minDigits = getMinDigits(property).intValue();
             if (minDigits > 15) {

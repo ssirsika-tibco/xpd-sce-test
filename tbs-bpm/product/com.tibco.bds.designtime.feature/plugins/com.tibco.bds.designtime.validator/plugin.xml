@@ -479,11 +479,19 @@
              id="ace.bom.casestate.must.be.mandatory.nonarray"
              message="%ace.bom.casestate.must.be.mandatory.nonarray"
              severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyMandatorySingle">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.caseid.must.be.mandatory.nonarray"
              message="%ace.bom.caseid.must.be.mandatory.nonarray"
              severity="ERROR">
+          <resolution
+                canApplyToMultiple="false"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyMandatorySingle">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.case.must.have.caseid"
@@ -509,6 +517,15 @@
              id="ace.bom.caseid.in.case.only"
              message="%ace.bom.caseid.in.case.only"
              severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.caseid.must.be.text"
+             message="%ace.bom.caseid.must.be.text"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.caseid.mindigits.max.15"
@@ -628,7 +645,17 @@
       <resolution
             class="com.tibco.bds.designtime.validator.resolution.MakePropertyMandatoryResolution"
             id="com.tibco.xpd.n2.cds.validator.resolution.makepropertymandatoryresolution"
-            label="Make the attribute mandatory">
+            label="%makepropertymandatory_resolution_label">
+      </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.MakePropertyMandatorySingleResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyMandatorySingle"
+            label="%makepropertymandatorysingle_resolution_label">
+      </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.SetTypeTextResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType"
+            label="%makepropertytexttype_resolution_label">
       </resolution>      
    </extension>
 

@@ -8,6 +8,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -155,7 +156,14 @@ public class AceSupportedBomTypesRule implements IValidationRule {
     @Override
     public void validate(IValidationScope scope, Object obj) {
         if (obj instanceof Property) {
-            validateProperty(scope, (Property) obj);
+            /*
+             * Sid ACE-525. Don't raise the 'must be type a,b,c' rule for case
+             * id as it will have it's own 'Case identifier must be Text type'
+             * problem.
+             */
+            if (!BOMGlobalDataUtils.isCID((Property) obj)) {
+                validateProperty(scope, (Property) obj);
+            }
 
         } else if (obj instanceof PrimitiveType) {
             validatePrimitiveType(scope, (PrimitiveType) obj);
