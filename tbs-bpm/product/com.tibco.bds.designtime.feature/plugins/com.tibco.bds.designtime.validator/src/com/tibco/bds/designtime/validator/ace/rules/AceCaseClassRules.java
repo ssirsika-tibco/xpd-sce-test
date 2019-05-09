@@ -9,6 +9,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.validation.provider.IValidationScope;
 import com.tibco.xpd.validation.rules.IValidationRule;
@@ -62,6 +63,9 @@ public class AceCaseClassRules implements IValidationRule {
 
     private static final String ISSUE_ACE_IDENTIFIER_IN_CASE_ONLY =
             "ace.bom.caseid.in.case.only"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_MIN_DIGITS_MAX_15 =
+            "ace.bom.caseid.mindigits.max.15"; //$NON-NLS-1$
 
     @Override
     public Class<?> getTargetClass() {
@@ -218,6 +222,31 @@ public class AceCaseClassRules implements IValidationRule {
                     BOMValidationUtil.getLocation(property),
                     property.eResource().getURIFragment(property));
         }
+        if (BOMGlobalDataUtils.isAutoCID(property)) {
+            int minDigits = getMinDigits(property).intValue();
+            if (minDigits > 15) {
+                scope.createIssue(ISSUE_ACE_MIN_DIGITS_MAX_15,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
+            }
+        }
     }
 
+    /**
+     * Gets the minimal number of digits in the auto generated identifier.
+     * 
+     * @param prop
+     *            the case id class attribute.
+     * @return the current value of minDigits as set in the tagged value or
+     *         default 0 if not set.
+     */
+    private Integer getMinDigits(Property prop) {
+        Object value = GlobalDataProfileManager.getInstance()
+                .getAutoCidPropetyValue(prop,
+                        GlobalDataProfileManager.AutoCidProperty.MIN_DIGITS);
+        if (value instanceof Integer) {
+            return (Integer) value;
+        }
+        return Integer.valueOf(0);
+    }
 }

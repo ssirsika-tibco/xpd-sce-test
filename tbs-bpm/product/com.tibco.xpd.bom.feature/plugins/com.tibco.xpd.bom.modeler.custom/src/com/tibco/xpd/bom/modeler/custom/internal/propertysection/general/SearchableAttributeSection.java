@@ -14,6 +14,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
@@ -38,14 +39,18 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         // related class
         if (eo instanceof Property) {
             Property prop = (Property) eo;
+            // Hide for caseId or caseState properties.
+            if (BOMGlobalDataUtils.isCID(prop)
+                    || BOMGlobalDataUtils.isCaseState(prop)) {
+                return false;
+            }
             // Do not want to display search-able for properties (i.e.
             // multiplicity) on associations
             if (prop.getAssociation() == null) {
                 Class class_ = prop.getClass_();
                 if ((class_ != null)
-                        && (GlobalDataProfileManager.getInstance()
-                                .isCase(class_) || GlobalDataProfileManager
-                                .getInstance().isGlobal(class_))) {
+                        && (BOMGlobalDataUtils.isCaseClass(class_)
+                                || BOMGlobalDataUtils.isGlobalClass(class_))) {
                     return true;
                 }
             }

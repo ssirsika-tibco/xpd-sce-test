@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -33,6 +34,11 @@ public class TextLengthSection extends AbstractGeneralSection {
     protected boolean shouldDisplay(EObject eo) {
         // Only display the length field for text attributes
         if (eo instanceof Property) {
+
+            // Hide for caseId of type Auto.
+            if (BOMGlobalDataUtils.isAutoCID((Property) eo)) {
+                return false;
+            }
             // We need to support all properties, as in theory the type could be
             // changed and we need to be able to pick up on that and either show
             // or hide the field on the screen
@@ -59,6 +65,7 @@ public class TextLengthSection extends AbstractGeneralSection {
         // Add a Verify Listener that will check to ensure that only
         // numbers are added to the Text Box
         maxLengthTxt.addVerifyListener(new VerifyListener() {
+            @Override
             public void verifyText(VerifyEvent e) {
                 if (Character.isDigit(e.character) || e.keyCode == SWT.DEL
                         || e.keyCode == SWT.BS || e.character == 0) {
@@ -90,7 +97,7 @@ public class TextLengthSection extends AbstractGeneralSection {
             return null;
         }
         final PrimitiveType primType =
-                (PrimitiveType) (((Property) prop).getType());
+                (PrimitiveType) (prop.getType());
         // Get the max text length
         Object maxLengthAttribute =
                 PrimitivesUtil.getFacetPropertyValue(primType,
@@ -136,7 +143,7 @@ public class TextLengthSection extends AbstractGeneralSection {
         if (maxLengthTxt != null && !maxLengthTxt.isDisposed()) {
             if (prop.getType() instanceof PrimitiveType) {
                 PrimitiveType primType =
-                        (PrimitiveType) (((Property) prop).getType());
+                        (PrimitiveType) (prop.getType());
 
                 // Check to see if this is a text type
                 if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME.compareTo(primType

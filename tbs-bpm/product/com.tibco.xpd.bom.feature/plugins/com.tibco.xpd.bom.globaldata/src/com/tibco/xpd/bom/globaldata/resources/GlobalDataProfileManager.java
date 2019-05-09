@@ -109,6 +109,30 @@ public class GlobalDataProfileManager {
         }
     }
 
+    /**
+     * AutoCaseIdentifier stereotype properties.
+     */
+    public enum AutoCidProperty {
+        MIN_DIGITS("minDigits"), //$NON-NLS-1$
+        PREFIX("prefix"), //$NON-NLS-1$
+        SUFFIX("suffix"); //$NON-NLS-1$
+
+        private final String name;
+
+        AutoCidProperty(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+    }
+
     private GlobalDataProfileManager() {
         // Private constructor
         editingDomain = XpdResourcesPlugin.getDefault().getEditingDomain();
@@ -715,6 +739,21 @@ public class GlobalDataProfileManager {
             }
         }
         return batchSize;
+    }
+
+    public Object getAutoCidPropetyValue(Property property,
+            AutoCidProperty autoCidProperty) {
+        return property.getValue(
+                    getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER),
+                    autoCidProperty.getName());
+    }
+
+    public void setAutoCidPropetyValue(Property property,
+            AutoCidProperty autoCidProperty, Object value) {
+        property.setValue(
+                getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER),
+                autoCidProperty.getName(),
+                value);
     }
 
 }

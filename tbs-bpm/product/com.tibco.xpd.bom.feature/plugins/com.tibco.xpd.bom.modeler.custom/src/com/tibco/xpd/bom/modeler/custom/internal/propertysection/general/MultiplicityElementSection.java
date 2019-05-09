@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.modeler.custom.Activator;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
@@ -57,15 +58,33 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
 
     private String currentValue;
 
-    private String previousValue = "";
+    private String previousValue = ""; //$NON-NLS-1$
 
     @Override
     protected boolean shouldDisplay(EObject eo) {
+        boolean isACaseId = eo instanceof Property
+                && BOMGlobalDataUtils.isCID((Property) eo);
+        // Hide for all caseIds...
+        if (isACaseId) {
+            // Don't display this section even if the caseId has not not a
+            // multiplicity of 1.
+            // This must be fixed by the validation quick-fix.
+
+            // Property prop = (Property) eo;
+            // boolean hasOneMultiplicity =
+            // prop.getUpper() == 1 && prop.getLower() == 1;
+            // // ...unless the multiplicity is not 1.
+            // if (!hasOneMultiplicity) {
+            // return true;
+            // }
+            return false;
+        }
         return eo instanceof MultiplicityElement;
     }
 
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
         createLabel(root,
@@ -131,8 +150,8 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
             EObjectAdapter hint = new EObjectAdapter(getInput());
             ParserService ps = ParserService.getInstance();
             multiplicityParser = ps.getParser(IDs.MULTIPLICITY.hint(input));
-            multiplicityDelegate
-                    .setDelegate((ISubjectControlContentAssistProcessor) multiplicityParser
+            multiplicityDelegate.setDelegate(
+                    (ISubjectControlContentAssistProcessor) multiplicityParser
                             .getCompletionProcessor(hint));
         } else {
             multiplicityParser = null;
@@ -150,16 +169,17 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
             Object input = getInput();
             if (input instanceof Property) {
                 Property prop = (Property) input;
-                
+
                 boolean makeReadOnly = false;
-                
+
                 // Make read-only if already the correct multiplicity
-                if( GlobalDataProfileManager.getInstance()
-                        .isAutoCaseIdentifier(prop) && ("0..1".compareTo(currentValue) == 0) ) {
+                if (GlobalDataProfileManager.getInstance().isAutoCaseIdentifier(
+                        prop) && ("0..1".compareTo(currentValue) == 0)) {
                     makeReadOnly = true;
-                } else if (("1".compareTo(currentValue) == 0) && (GlobalDataProfileManager.getInstance().isCID(prop)
-                        || GlobalDataProfileManager.getInstance()
-                                .isCompositeCaseIdentifier(prop))) {
+                } else if (("1".compareTo(currentValue) == 0)
+                        && (GlobalDataProfileManager.getInstance().isCID(prop)
+                                || GlobalDataProfileManager.getInstance()
+                                        .isCompositeCaseIdentifier(prop))) {
                     makeReadOnly = true;
                 }
 
@@ -198,7 +218,8 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
                 Display.getCurrent().asyncExec(new Runnable() {
                     @Override
                     public void run() {
-                        if (multiplicity != null && !multiplicity.isDisposed()) {
+                        if (multiplicity != null
+                                && !multiplicity.isDisposed()) {
                             refreshTabs();
                         }
                     }
@@ -215,12 +236,13 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
      * @author wzurek
      * 
      */
-    private class ProcessorWrapper implements
-            ISubjectControlContentAssistProcessor {
+    private class ProcessorWrapper
+            implements ISubjectControlContentAssistProcessor {
 
         private ISubjectControlContentAssistProcessor processor;
 
-        public void setDelegate(ISubjectControlContentAssistProcessor processor) {
+        public void setDelegate(
+                ISubjectControlContentAssistProcessor processor) {
             this.processor = processor;
         }
 
@@ -281,9 +303,9 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
             if (processor == null) {
                 return new ICompletionProposal[0];
             }
-            return processor
-                    .computeCompletionProposals(contentAssistSubjectControl,
-                            documentOffset);
+            return processor.computeCompletionProposals(
+                    contentAssistSubjectControl,
+                    documentOffset);
         }
 
         @Override
@@ -293,9 +315,9 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
             if (processor == null) {
                 return new IContextInformation[0];
             }
-            return processor
-                    .computeContextInformation(contentAssistSubjectControl,
-                            documentOffset);
+            return processor.computeContextInformation(
+                    contentAssistSubjectControl,
+                    documentOffset);
         }
     }
 

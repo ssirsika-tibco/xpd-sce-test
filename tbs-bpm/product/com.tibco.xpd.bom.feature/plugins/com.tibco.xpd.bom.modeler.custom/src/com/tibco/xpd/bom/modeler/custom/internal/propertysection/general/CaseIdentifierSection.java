@@ -24,8 +24,6 @@ import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
-import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
-import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 
 /**
@@ -59,7 +57,8 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
     }
 
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
 
         rootOverload = toolkit.createComposite(parent);
 
@@ -86,32 +85,23 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
         layout.marginHeight = 0;
         layout.marginWidth = 0;
         radioGroup.setLayout(layout);
-        caseIdType = new Button[3];
+        caseIdType = new Button[2];
 
-        caseIdType[0] =
-                toolkit.createButton(radioGroup,
-                        Messages.CaseIdentifierSection_auto_label,
-                        SWT.RADIO);
+        caseIdType[0] = toolkit.createButton(radioGroup,
+                Messages.CaseIdentifierSection_auto_label,
+                SWT.RADIO);
         caseIdType[0].setData(StereotypeKind.AUTO_CASE_IDENTIFIER);
         caseIdType[0]
                 .setToolTipText(Messages.CaseIdentifierSection_auto_tooltip);
         manageControl(caseIdType[0]);
-        caseIdType[1] =
-                toolkit.createButton(radioGroup,
-                        Messages.CaseIdentifierSection_custom_label,
-                        SWT.RADIO);
+        caseIdType[1] = toolkit.createButton(radioGroup,
+                Messages.CaseIdentifierSection_custom_label,
+                SWT.RADIO);
         caseIdType[1].setData(StereotypeKind.CID);
         caseIdType[1]
                 .setToolTipText(Messages.CaseIdentifierSection_custom_tooltip);
         manageControl(caseIdType[1]);
-        caseIdType[2] =
-                toolkit.createButton(radioGroup,
-                        Messages.CaseIdentifierSection_composite_label,
-                        SWT.RADIO);
-        caseIdType[2].setData(StereotypeKind.COMPOSITE_CASE_IDENTIFIER);
-        caseIdType[2]
-                .setToolTipText(Messages.CaseIdentifierSection_composite_tooltip);
-        manageControl(caseIdType[2]);
+        /* Composite case identifier removed in SCE */
 
         setLayoutData(radioGroup);
 
@@ -137,16 +127,13 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
             return null;
         }
 
-        final Stereotype stereotypeAuto =
-                GlobalDataProfileManager.getInstance()
-                        .getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER);
+        final Stereotype stereotypeAuto = GlobalDataProfileManager.getInstance()
+                .getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER);
         final Stereotype stereotypeComposite =
-                GlobalDataProfileManager
-                        .getInstance()
-                        .getStereotype(StereotypeKind.COMPOSITE_CASE_IDENTIFIER);
-        final Stereotype stereotypeCustom =
-                GlobalDataProfileManager.getInstance()
-                        .getStereotype(StereotypeKind.CID);
+                GlobalDataProfileManager.getInstance().getStereotype(
+                        StereotypeKind.COMPOSITE_CASE_IDENTIFIER);
+        final Stereotype stereotypeCustom = GlobalDataProfileManager
+                .getInstance().getStereotype(StereotypeKind.CID);
 
         // Check the new selection
         StereotypeKind newSelection = null;
@@ -180,51 +167,12 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
                     }
 
                     // Now set the new value
-                    final Stereotype stereotypeNew =
-                            GlobalDataProfileManager.getInstance()
-                                    .getStereotype(newValue);
+                    final Stereotype stereotypeNew = GlobalDataProfileManager
+                            .getInstance().getStereotype(newValue);
                     prop.applyStereotype(stereotypeNew);
                     // Make sure that the auto type is set as read-only
                     // and the other types are not
                     prop.setIsReadOnly(newValue == StereotypeKind.AUTO_CASE_IDENTIFIER);
-
-                    // If we are changing to an auto case identifier, then make
-                    // sure it is optional
-                    if ((newValue == StereotypeKind.AUTO_CASE_IDENTIFIER)
-                            && (previousType != StereotypeKind.AUTO_CASE_IDENTIFIER)) {
-                        prop.setLower(0);
-                        prop.setUpper(1);
-                    }
-
-                    // If the type has changed, then check to see if the old
-                    // type had the default name when things were created, in
-                    // which case, we should change to a new default name
-                    if (newValue != previousType) {
-                        final Stereotype previousStereotype =
-                                GlobalDataProfileManager.getInstance()
-                                        .getStereotype(previousType);
-
-                        // Get the default format for the name
-                        String defaultPrefix =
-                                UML2ModelUtil.createUniquePropertyName(prop,
-                                        previousStereotype.getName());
-                        // Remove the number from the end
-                        defaultPrefix = defaultPrefix.replaceAll("\\d*$", "");
-                        // Check if the name matches the default
-                        if (prop.getName().matches(defaultPrefix + "[0-9]+")) {
-                            // Make sure the label and name still match and they
-                            // have not been changed by the user
-                            if (prop.getLabel().equals(prop.getName())) {
-                                String newName =
-                                        UML2ModelUtil
-                                                .createUniquePropertyName(prop,
-                                                        stereotypeNew.getName());
-                                prop.setName(newName);
-                                PrimitivesUtil.setDisplayLabel(prop,
-                                        prop.getName());
-                            }
-                        }
-                    }
                 }
             };
         }
@@ -235,7 +183,8 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
     @Override
     protected void doRefresh() {
         final Property prop = getSemanticInput();
-        if ((prop == null) || (rootControl == null) || rootControl.isDisposed()) {
+        if ((prop == null) || (rootControl == null)
+                || rootControl.isDisposed()) {
             return;
         }
 
@@ -273,18 +222,16 @@ public class CaseIdentifierSection extends AbstractGeneralSection {
                 currentValue = StereotypeKind.AUTO_CASE_IDENTIFIER;
                 caseIdType[0].setSelection(true);
                 caseIdType[1].setSelection(false);
-                caseIdType[2].setSelection(false);
             } else if (GlobalDataProfileManager.getInstance()
                     .isCompositeCaseIdentifier(prop)) {
+                // Removed in SCE: Needs to be handled by the validation.
                 currentValue = StereotypeKind.COMPOSITE_CASE_IDENTIFIER;
-                caseIdType[2].setSelection(true);
                 caseIdType[0].setSelection(false);
                 caseIdType[1].setSelection(false);
             } else if (GlobalDataProfileManager.getInstance().isCID(prop)) {
                 currentValue = StereotypeKind.CID;
                 caseIdType[1].setSelection(true);
                 caseIdType[0].setSelection(false);
-                caseIdType[2].setSelection(false);
             } else if (previousValue != null) {
                 // Refresh has been called when there is no CID, make sure we
                 // reset the current value to unset

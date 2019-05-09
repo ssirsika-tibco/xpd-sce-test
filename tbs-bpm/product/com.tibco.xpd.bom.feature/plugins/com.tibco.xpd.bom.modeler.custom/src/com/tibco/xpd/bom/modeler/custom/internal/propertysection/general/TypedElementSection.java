@@ -22,6 +22,7 @@ import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.TypedElement;
 import org.eclipse.uml2.uml.UMLPackage;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
@@ -45,17 +46,34 @@ public class TypedElementSection extends AbstractGeneralSection {
 
     @Override
     protected boolean shouldDisplay(EObject eo) {
+        boolean isACaseId = eo instanceof Property
+                && BOMGlobalDataUtils.isCID((Property) eo);
+        // Hide for caseIds properties ...
+        if (isACaseId) {
+            // Don't display this even if the caseId has not the Text type.
+            // This must be fixed by the validation quick-fix.
+
+            // Property prop = (Property) eo;
+            // boolean isTextType = prop.getType() instanceof PrimitiveType
+            // && PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
+            // .equals(prop.getType().getName());
+            // // ...unless it's not a text type.
+            // if (!isTextType) {
+            // return true;
+            // }
+            return false;
+        }
         return eo instanceof TypedElement;
     }
 
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        label =
-                createLabel(root,
-                        toolkit,
-                        Messages.TypedElementSection_type_label);
+        label = createLabel(root,
+                toolkit,
+                Messages.TypedElementSection_type_label);
         typeCtrl = new TypePickerControl(root, toolkit, getEditingDomain());
         typeCtrl.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         return root;
@@ -118,10 +136,10 @@ public class TypedElementSection extends AbstractGeneralSection {
                      * can't change the type Unless it is an incorrect type at
                      * the moment, then a change may be required
                      */
-                    isEnabled =
-                            !(property.getAssociation() != null || (GlobalDataProfileManager
-                                    .getInstance()
-                                    .isAutoCaseIdentifier(property) && isInteger));
+                    isEnabled = !(property.getAssociation() != null
+                            || (GlobalDataProfileManager.getInstance()
+                                    .isAutoCaseIdentifier(property)
+                                    && isInteger));
                 }
             }
 
@@ -143,8 +161,10 @@ public class TypedElementSection extends AbstractGeneralSection {
         public TypePickerControl(Composite parent, XpdFormToolkit toolkit,
                 EditingDomain editingDomain) {
             super(parent, SWT.NONE, toolkit, editingDomain);
-            setToolTipText(Messages.TypedElementSection_selectType_button_tooltip);
-            setClearTooltip(Messages.TypedElementSection_clearType_button_tooltip);
+            setToolTipText(
+                    Messages.TypedElementSection_selectType_button_tooltip);
+            setClearTooltip(
+                    Messages.TypedElementSection_clearType_button_tooltip);
             setLabelProvider(new PickerControlLabelProvider());
             setHyperlinkActive(true);
         }
@@ -187,11 +207,10 @@ public class TypedElementSection extends AbstractGeneralSection {
             Command cmd = null;
             EObject input = getInput();
             if (input instanceof TypedElement) {
-                cmd =
-                        SetCommand.create(editingDomain,
-                                input,
-                                UMLPackage.eINSTANCE.getTypedElement_Type(),
-                                SetCommand.UNSET_VALUE);
+                cmd = SetCommand.create(editingDomain,
+                        input,
+                        UMLPackage.eINSTANCE.getTypedElement_Type(),
+                        SetCommand.UNSET_VALUE);
 
                 if (input instanceof Property) {
                     final Property prop = (Property) input;
@@ -215,17 +234,15 @@ public class TypedElementSection extends AbstractGeneralSection {
             Command cmd = null;
             EObject input = getInput();
             if (input instanceof TypedElement) {
-                cmd =
-                        SetCommand.create(editingDomain,
-                                input,
-                                UMLPackage.eINSTANCE.getTypedElement_Type(),
-                                value);
+                cmd = SetCommand.create(editingDomain,
+                        input,
+                        UMLPackage.eINSTANCE.getTypedElement_Type(),
+                        value);
 
                 if ((input instanceof Property)
                         && (value instanceof PrimitiveType)) {
-                    PrimitiveType primType =
-                            PrimitivesUtil
-                                    .getBasePrimitiveType((PrimitiveType) value);
+                    PrimitiveType primType = PrimitivesUtil
+                            .getBasePrimitiveType((PrimitiveType) value);
 
                     // Clear searchable from durations
                     if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME
@@ -256,23 +273,21 @@ public class TypedElementSection extends AbstractGeneralSection {
          */
         private Command getClearSearchableCommand(final Property prop) {
             Command cmd = null;
-            final Stereotype stereotype =
-                    GlobalDataProfileManager.getInstance()
-                            .getStereotype(StereotypeKind.SEARCHABLE);
+            final Stereotype stereotype = GlobalDataProfileManager.getInstance()
+                    .getStereotype(StereotypeKind.SEARCHABLE);
             // Check if the searchable stereotype is already applied
             Stereotype appliedStereo =
                     prop.getAppliedStereotype(stereotype.getQualifiedName());
             if (appliedStereo != null) {
                 // Create command to remove the searchable stereotype
-                cmd =
-                        new RecordingCommand(
-                                (TransactionalEditingDomain) getEditingDomain()) {
-                            @Override
-                            protected void doExecute() {
-                                // Remove the stereotype if not enabled
-                                prop.unapplyStereotype(stereotype);
-                            }
-                        };
+                cmd = new RecordingCommand(
+                        (TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        // Remove the stereotype if not enabled
+                        prop.unapplyStereotype(stereotype);
+                    }
+                };
             }
             return cmd;
         }

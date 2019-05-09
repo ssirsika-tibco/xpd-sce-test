@@ -28,6 +28,15 @@
       </eClassifiers>
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_V_RKYMkVEeKrMZ9I529TSA" name="AutoCaseIdentifier" eSuperTypes="_-r7KHXyPEeCumvZ6xHSUiw">
         <eAnnotations xmi:id="_V_RKYckVEeKrMZ9I529TSA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_c67SwMkGEeKrMZ9I529TSA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wmRyE229EemOePsQ_uItBw" name="minDigits" ordered="false" lowerBound="1" defaultValueLiteral="0">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wmRyFW29EemOePsQ_uItBw" name="prefix" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wmRyF229EemOePsQ_uItBw" name="suffix" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
         <eAnnotations xmi:id="_V_RKYskVEeKrMZ9I529TSA" source="duplicates">
           <contents xmi:type="ecore:EReference" xmi:id="_V_RKY8kVEeKrMZ9I529TSA" name="base_Property" ordered="false" lowerBound="1">
             <eAnnotations xmi:id="_V_RKZMkVEeKrMZ9I529TSA" source="redefines" references="_-r7KIHyPEeCumvZ6xHSUiw"/>
@@ -144,6 +153,18 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_c67SwMkGEeKrMZ9I529TSA" name="AutoCaseIdentifier">
     <generalization xmi:id="_SKeDEMkVEeKrMZ9I529TSA" general="_ZXZVsGtOEeC_hvle0zpSaA"/>
+    <ownedAttribute xmi:id="_3XdkMG24EemOePsQ_uItBw" name="minDigits">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_gx8d8G26EemOePsQ_uItBw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_l1tSwG26EemOePsQ_uItBw" name="prefix">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_quYR4G26EemOePsQ_uItBw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_6eCosG26EemOePsQ_uItBw" name="suffix">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7gp8QG26EemOePsQ_uItBw"/>
+    </ownedAttribute>
     <ownedAttribute xmi:id="_Qdu0cMkVEeKrMZ9I529TSA" name="base_Property" association="_QduNYMkVEeKrMZ9I529TSA">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
     </ownedAttribute>

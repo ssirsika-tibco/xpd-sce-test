@@ -125,6 +125,18 @@ public class Messages extends NLS {
 
     public static String AttributesTabSection_type_column_title;
 
+    public static String AutoCaseIdSettingsSection_minDigits_label;
+
+    public static String AutoCaseIdSettingsSection_minDigits_tooltip;
+
+    public static String AutoCaseIdSettingsSection_prefix_label;
+
+    public static String AutoCaseIdSettingsSection_prefix_tooltip;
+
+    public static String AutoCaseIdSettingsSection_suffix_label;
+
+    public static String AutoCaseIdSettingsSection_suffix_tooltip;
+
     public static String BOMAuthorParser_AuthorNotSet_label;
 
     public static String BOMAuthorParser_SetAuthorCommand_label;

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
@@ -28,7 +27,6 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
-import org.eclipse.uml2.uml.UMLFactory;
 
 import com.tibco.xpd.bom.globaldata.GlobalDataActivator;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
@@ -489,30 +487,15 @@ public class BOMGlobalDataUtils {
      */
     public static void setAutoCaseIdentifierRestrictions(Property newElement,
             ResourceSet rset) {
-        /*
-         * XPD-4793 Global data: AutoCaseIdentifier will be of a fixed type of
-         * “Fixed Length Integer” with a “Number Length” set to 19 – These
-         * values should not be possible for the user to change via the
-         * properties window.
-         */
+        // ACE-529: In SCE AutoCaseId type Decimal(Fixed) -> Text.
+        // It is also now always set multiplicity to 1.
         PrimitiveType primType =
                 PrimitivesUtil.getStandardPrimitiveTypeByName(rset,
-                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         newElement.setType(primType);
-        EnumerationLiteral createEnumerationLiteral =
-                UMLFactory.eINSTANCE.createEnumerationLiteral();
-        createEnumerationLiteral
-                .setName(PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH); // $NON-NLS-1$
-        // Fixed length sub type
-        PrimitivesUtil.setFacetPropertyValue(primType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE, // $NON-NLS-1$
-                createEnumerationLiteral,
-                newElement);
-        // set fixed length value
-        PrimitivesUtil.setFacetPropertyValue(primType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH,
-                GlobalDataProfileManager.LENGTH_AUTO_CASE_IDENTIFIER,
-                newElement);
+        newElement.setUpper(1);
+        newElement.setLower(1);
+
         newElement.setIsReadOnly(true);
     }
 
