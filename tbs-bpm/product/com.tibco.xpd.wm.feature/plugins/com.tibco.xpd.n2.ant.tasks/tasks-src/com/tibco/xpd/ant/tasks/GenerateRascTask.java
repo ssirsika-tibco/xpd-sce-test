@@ -598,7 +598,7 @@ public class GenerateRascTask extends Task {
                                     : "";
                     sb.append(
                             String.format(
-                                    "|%-35s -> Result: %-15s \n|  Duration (ms): %d \n|\n",
+                                    "|%-35s -> %s\n|  Duration (ms): %d\n|\n",
                                     end.getName(),
                                     endResult,
                                     elapsed));
