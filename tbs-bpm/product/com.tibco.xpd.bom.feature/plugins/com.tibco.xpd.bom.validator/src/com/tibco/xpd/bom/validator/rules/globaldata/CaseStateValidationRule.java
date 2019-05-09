@@ -42,8 +42,14 @@ public class CaseStateValidationRule implements IValidationRule {
     private static final String ISSUE_CASESTATE_MULTIPLE_INVALID =
             "casestate.invalid.multiple.issue"; //$NON-NLS-1$
 
+    private static final String ISSUE_CASESTATE_NOT_ENOUGH_STATES =
+            "casestate.not.enough.states.issue"; //$NON-NLS-1$
+
     private static final String ISSUE_CASESTATE_NO_TERMINAL_STATES =
             "casestate.no.terminal.states.issue"; //$NON-NLS-1$
+
+    private static final String ISSUE_CASESTATE_NO_NON_TERMINAL_STATES =
+            "casestate.no.non.terminal.states.issue"; //$NON-NLS-1$
 
     @Override
     public Class<?> getTargetClass() {
@@ -98,18 +104,37 @@ public class CaseStateValidationRule implements IValidationRule {
                             }
                         }
 
-                        // ACE-533 There must be at least 1 terminal state
-                        // defined
-                        TerminalStateProperties tsp =
-                                new TerminalStateProperties();
-                        EList<EnumerationLiteral> states =
-                                tsp.getTerminalStates(prop);
-                        if (states == null || states.isEmpty()) {
-                            scope.createIssue(
-                                    ISSUE_CASESTATE_NO_TERMINAL_STATES,
+                        // ACE-533 There must be at least 2 states defined
+                        // This is checked before validating terminal states
+                        int stateCount = enumProp.getOwnedLiterals().size();
+                        if (stateCount < 2) {
+                            scope.createIssue(ISSUE_CASESTATE_NOT_ENOUGH_STATES,
                                     BOMValidationUtil.getLocation(prop),
                                     prop.eResource().getURIFragment(prop),
                                     additionalMessages);
+                        } else {
+
+                            TerminalStateProperties tsp =
+                                    new TerminalStateProperties();
+                            EList<EnumerationLiteral> states =
+                                    tsp.getTerminalStates(prop);
+                            if (states == null || states.isEmpty()) {
+                                // ACE-533 There must be at least 1 terminal
+                                // state defined
+                                scope.createIssue(
+                                        ISSUE_CASESTATE_NO_TERMINAL_STATES,
+                                        BOMValidationUtil.getLocation(prop),
+                                        prop.eResource().getURIFragment(prop),
+                                        additionalMessages);
+                            } else if (states.size() == stateCount) {
+                                // ACE-533 There must be at least 1 non-terminal
+                                // state defined
+                                scope.createIssue(
+                                        ISSUE_CASESTATE_NO_NON_TERMINAL_STATES,
+                                        BOMValidationUtil.getLocation(prop),
+                                        prop.eResource().getURIFragment(prop),
+                                        additionalMessages);
+                            }
                         }
                     } else {
                         additionalMessages.add(prop.getName());

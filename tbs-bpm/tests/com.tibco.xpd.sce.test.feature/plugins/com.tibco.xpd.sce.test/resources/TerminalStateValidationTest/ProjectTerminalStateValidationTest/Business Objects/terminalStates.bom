@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BOMGlobalDataProfile="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:elx="http://www.tibco.com/EnumLiteralExt" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0 pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_NB5coHC0Eem3Q-NuNCuNWw" name="com.example.terminalstates">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NB5coXC0Eem3Q-NuNCuNWw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NB5conC0Eem3Q-NuNCuNWw" key="author" value="nwilson"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NB5co3C0Eem3Q-NuNCuNWw" key="created" value="1557229088234"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NB5cpHC0Eem3Q-NuNCuNWw" key="version" value="6"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PKoqwHC0Eem3Q-NuNCuNWw" name="valid">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kqoogHC0Eem3Q-NuNCuNWw" name="cid" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kqsS4HC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kqsS4XC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_f5t3MHC0Eem3Q-NuNCuNWw" name="state" type="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f8llAHC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f8llAXC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QxG5UHC0Eem3Q-NuNCuNWw" name="notEnoughStates">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pw6l0HC0Eem3Q-NuNCuNWw" name="cid" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pw8bAHC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pw8bAXC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hrn5sHC0Eem3Q-NuNCuNWw" name="state" type="_W6BYUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3aoneState?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hrpu4XC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hrqV8HC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_S1BR0HC0Eem3Q-NuNCuNWw" name="noTerminalStates">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sP_QUHC0Eem3Q-NuNCuNWw" name="cid" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sQC6sHC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sQC6sXC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_iepSEHC0Eem3Q-NuNCuNWw" name="state" type="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iep5IXC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iep5InC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UEumMHC0Eem3Q-NuNCuNWw" name="noNonTerminalStates">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_urb_EHC0Eem3Q-NuNCuNWw" name="cid" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_urd0QXC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_urd0QnC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jWHFkHC0Eem3Q-NuNCuNWw" name="state" type="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jWITsnC0Eem3Q-NuNCuNWw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jWI6wHC0Eem3Q-NuNCuNWw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_W6BYUHC0Eem3Q-NuNCuNWw" name="oneState">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_cmdWsHC0Eem3Q-NuNCuNWw" name="ONE" classifier="_W6BYUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3aoneState?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cmdWsXC0Eem3Q-NuNCuNWw" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_cmdWsnC0Eem3Q-NuNCuNWw" value="ONE"/>
+        </eAnnotations>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_a8lO0HC0Eem3Q-NuNCuNWw" name="twoStates">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_eGwr0HC0Eem3Q-NuNCuNWw" name="ONE" classifier="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eGwr0XC0Eem3Q-NuNCuNWw" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_eGwr0nC0Eem3Q-NuNCuNWw" value="ONE"/>
+        </eAnnotations>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ens1sHC0Eem3Q-NuNCuNWw" name="TWO" classifier="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_entcwHC0Eem3Q-NuNCuNWw" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_entcwXC0Eem3Q-NuNCuNWw" value="TWO"/>
+        </eAnnotations>
+      </ownedLiteral>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NB5cpXC0Eem3Q-NuNCuNWw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NB5cpnC0Eem3Q-NuNCuNWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_20kHsWs1EeC_hvle0zpSaA?BOM%20Global%20Data%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PKpR0XC0Eem3Q-NuNCuNWw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PKp44HC0Eem3Q-NuNCuNWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_NB744HC0Eem3Q-NuNCuNWw" type="Business Object Model" element="_NB5coHC0Eem3Q-NuNCuNWw?com.example.terminalstates?" name="terminalStates.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_NEOX4HC0Eem3Q-NuNCuNWw" type="1007" element="_NB5coHC0Eem3Q-NuNCuNWw?com.example.terminalstates?">
+      <children xmi:type="notation:Node" xmi:id="_NEQ0IHC0Eem3Q-NuNCuNWw" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_NEQ0IXC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_NESCQHC0Eem3Q-NuNCuNWw" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_NESpUHC0Eem3Q-NuNCuNWw" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_NETQYHC0Eem3Q-NuNCuNWw" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_NEUegHC0Eem3Q-NuNCuNWw" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_NEUegXC0Eem3Q-NuNCuNWw" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_NEVFkHC0Eem3Q-NuNCuNWw" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_NEVsoHC0Eem3Q-NuNCuNWw" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_NEWTsHC0Eem3Q-NuNCuNWw" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_NEWTsXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_NEWTsnC0Eem3Q-NuNCuNWw" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NEWTs3C0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NEWTtHC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_NEOX4XC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_NEOX4nC0Eem3Q-NuNCuNWw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NEOX43C0Eem3Q-NuNCuNWw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_PLbU8HC0Eem3Q-NuNCuNWw" type="1002" element="_PKoqwHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid?">
+      <children xmi:type="notation:Node" xmi:id="_PLdxMHC0Eem3Q-NuNCuNWw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_PLe_UHC0Eem3Q-NuNCuNWw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_PLgNcHC0Eem3Q-NuNCuNWw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_PLg0gHC0Eem3Q-NuNCuNWw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_kq3SAHC0Eem3Q-NuNCuNWw" type="2001" element="_kqoogHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3acid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_kq3SAXC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_f8344HC0Eem3Q-NuNCuNWw" type="2001" element="_f5t3MHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3astate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_f8344XC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_PLg0gXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_PLg0gnC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_PLiCoHC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_PLjQwHC0Eem3Q-NuNCuNWw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_PLjQwXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_PLjQwnC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_PLjQw3C0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_PLbU8XC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_PLbU8nC0Eem3Q-NuNCuNWw" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PLbU83C0Eem3Q-NuNCuNWw" x="70" y="155"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Qxf64HC0Eem3Q-NuNCuNWw" type="1002" element="_QxG5UHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates?">
+      <children xmi:type="notation:Node" xmi:id="_Qxgh8HC0Eem3Q-NuNCuNWw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_QxhJAHC0Eem3Q-NuNCuNWw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_QxhJAXC0Eem3Q-NuNCuNWw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_QxhJAnC0Eem3Q-NuNCuNWw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_pxFk8HC0Eem3Q-NuNCuNWw" type="2001" element="_pw6l0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3acid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_pxFk8XC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_hry40HC0Eem3Q-NuNCuNWw" type="2001" element="_hrn5sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3astate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_hry40XC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_QxhJA3C0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_QxhJBHC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_QxhJBXC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QxhJBnC0Eem3Q-NuNCuNWw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_QxhJB3C0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_QxhJCHC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_QxhJCXC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Qxf64XC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Qxf64nC0Eem3Q-NuNCuNWw" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qxf643C0Eem3Q-NuNCuNWw" x="255" y="155"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_S1aTYHC0Eem3Q-NuNCuNWw" type="1002" element="_S1BR0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates?">
+      <children xmi:type="notation:Node" xmi:id="_S1a6cHC0Eem3Q-NuNCuNWw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_S1a6cXC0Eem3Q-NuNCuNWw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_S1a6cnC0Eem3Q-NuNCuNWw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_S1a6c3C0Eem3Q-NuNCuNWw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_sQOg4HC0Eem3Q-NuNCuNWw" type="2001" element="_sP_QUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3acid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_sQOg4XC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iexN4HC0Eem3Q-NuNCuNWw" type="2001" element="_iepSEHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3astate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_iexN4XC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_S1a6dHC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_S1a6dXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_S1a6dnC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_S1a6d3C0Eem3Q-NuNCuNWw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_S1a6eHC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_S1a6eXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_S1a6enC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_S1aTYXC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_S1aTYnC0Eem3Q-NuNCuNWw" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S1aTY3C0Eem3Q-NuNCuNWw" x="63" y="335"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_UFI14HC0Eem3Q-NuNCuNWw" type="1002" element="_UEumMHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates?">
+      <children xmi:type="notation:Node" xmi:id="_UFI15HC0Eem3Q-NuNCuNWw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_UFJc8HC0Eem3Q-NuNCuNWw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_UFJc8XC0Eem3Q-NuNCuNWw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_UFJc8nC0Eem3Q-NuNCuNWw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_urpacHC0Eem3Q-NuNCuNWw" type="2001" element="_urb_EHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3acid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_urpacXC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_jWQPgHC0Eem3Q-NuNCuNWw" type="2001" element="_jWHFkHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3astate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_jWQPgXC0Eem3Q-NuNCuNWw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_UFJc83C0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_UFJc9HC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_UFJc9XC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UFJc9nC0Eem3Q-NuNCuNWw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_UFJc93C0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_UFJc-HC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_UFJc-XC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_UFI14XC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_UFI14nC0Eem3Q-NuNCuNWw" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UFI143C0Eem3Q-NuNCuNWw" x="255" y="335"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_W6VhYHC0Eem3Q-NuNCuNWw" type="1004" element="_W6BYUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3aoneState?">
+      <children xmi:type="notation:Node" xmi:id="_W6X9oHC0Eem3Q-NuNCuNWw" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_W6ZLwHC0Eem3Q-NuNCuNWw" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_W6aZ4HC0Eem3Q-NuNCuNWw" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_W6boAHC0Eem3Q-NuNCuNWw" type="5004">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_W6boAXC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_W6boAnC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_W6boA3C0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_W6VhYXC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_W6VhYnC0Eem3Q-NuNCuNWw" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_W6VhY3C0Eem3Q-NuNCuNWw" x="500" y="155"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_a84JwHC0Eem3Q-NuNCuNWw" type="1004" element="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?">
+      <children xmi:type="notation:Node" xmi:id="_a84w0HC0Eem3Q-NuNCuNWw" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_a84w0XC0Eem3Q-NuNCuNWw" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_a84w0nC0Eem3Q-NuNCuNWw" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_a84w03C0Eem3Q-NuNCuNWw" type="5004">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_a84w1HC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_a84w1XC0Eem3Q-NuNCuNWw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_a84w1nC0Eem3Q-NuNCuNWw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_a84JwXC0Eem3Q-NuNCuNWw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_a84JwnC0Eem3Q-NuNCuNWw" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a84Jw3C0Eem3Q-NuNCuNWw" x="506" y="336"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_NB744XC0Eem3Q-NuNCuNWw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_NB744nC0Eem3Q-NuNCuNWw"/>
+  </notation:Diagram>
+  <BOMGlobalDataProfile:Case xmi:id="_PKpR0HC0Eem3Q-NuNCuNWw" base_Class="_PKoqwHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PKrHAHC0Eem3Q-NuNCuNWw" displayLabel="valid" base_NamedElement="_PKoqwHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid?"/>
+  <BOMGlobalDataProfile:Case xmi:id="_QxHgYHC0Eem3Q-NuNCuNWw" base_Class="_QxG5UHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QxIugHC0Eem3Q-NuNCuNWw" displayLabel="notEnoughStates" base_NamedElement="_QxG5UHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates?"/>
+  <BOMGlobalDataProfile:Case xmi:id="_S1BR0XC0Eem3Q-NuNCuNWw" base_Class="_S1BR0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_S1Cf8HC0Eem3Q-NuNCuNWw" displayLabel="noTerminalStates" base_NamedElement="_S1BR0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates?"/>
+  <BOMGlobalDataProfile:Case xmi:id="_UEvNQHC0Eem3Q-NuNCuNWw" base_Class="_UEumMHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UEwbYHC0Eem3Q-NuNCuNWw" displayLabel="noNonTerminalStates" base_NamedElement="_UEumMHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_W6B_YHC0Eem3Q-NuNCuNWw" displayLabel="oneState" base_NamedElement="_W6BYUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3aoneState?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_a8l14HC0Eem3Q-NuNCuNWw" displayLabel="twoStates" base_NamedElement="_a8lO0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dhATYHC0Eem3Q-NuNCuNWw" displayLabel="One" base_NamedElement="_cmdWsHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3aoneState%3a%3aONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_eW-SEHC0Eem3Q-NuNCuNWw" displayLabel="One" base_NamedElement="_eGwr0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates%3a%3aONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_e-iBUHC0Eem3Q-NuNCuNWw" displayLabel="Two" base_NamedElement="_ens1sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates%3a%3aTWO?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_f8jv0HC0Eem3Q-NuNCuNWw" base_Property="_f5t3MHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3astate?" terminalStates="_ens1sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates%3a%3aTWO?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_f8k98HC0Eem3Q-NuNCuNWw" displayLabel="state" base_NamedElement="_f5t3MHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3astate?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_hrpH0HC0Eem3Q-NuNCuNWw" base_Property="_hrn5sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hrpu4HC0Eem3Q-NuNCuNWw" displayLabel="state" base_NamedElement="_hrn5sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3astate?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_iepSEXC0Eem3Q-NuNCuNWw" base_Property="_iepSEHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iep5IHC0Eem3Q-NuNCuNWw" displayLabel="state" base_NamedElement="_iepSEHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3astate?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_jWITsHC0Eem3Q-NuNCuNWw" base_Property="_jWHFkHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3astate?" terminalStates="_ens1sHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates%3a%3aTWO? _eGwr0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3atwoStates%3a%3aONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_jWITsXC0Eem3Q-NuNCuNWw" displayLabel="state" base_NamedElement="_jWHFkHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_kqqdsHC0Eem3Q-NuNCuNWw" displayLabel="cid" base_NamedElement="_kqoogHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3acid?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_kqrEwHC0Eem3Q-NuNCuNWw" integerLength="19" integerSubType="fixedLength" base_Property="_kqoogHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3acid?" booleanDefaultValue="false"/>
+  <BOMGlobalDataProfile:CaseIdentifier xmi:id="_mnuAQHC0Eem3Q-NuNCuNWw" base_Property="_kqoogHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3avalid%3a%3acid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_pw7z8HC0Eem3Q-NuNCuNWw" displayLabel="cid" base_NamedElement="_pw6l0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3acid?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_pw7z8XC0Eem3Q-NuNCuNWw" integerLength="19" integerSubType="fixedLength" base_Property="_pw6l0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3acid?" booleanDefaultValue="false"/>
+  <BOMGlobalDataProfile:CaseIdentifier xmi:id="_qpArcHC0Eem3Q-NuNCuNWw" base_Property="_pw6l0HC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anotEnoughStates%3a%3acid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sQBFgHC0Eem3Q-NuNCuNWw" displayLabel="cid" base_NamedElement="_sP_QUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3acid?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_sQBskHC0Eem3Q-NuNCuNWw" integerLength="19" integerSubType="fixedLength" base_Property="_sP_QUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3acid?" booleanDefaultValue="false"/>
+  <BOMGlobalDataProfile:CaseIdentifier xmi:id="_taYm4HC0Eem3Q-NuNCuNWw" base_Property="_sP_QUHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoTerminalStates%3a%3acid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_urdNMHC0Eem3Q-NuNCuNWw" displayLabel="cid" base_NamedElement="_urb_EHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3acid?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_urd0QHC0Eem3Q-NuNCuNWw" integerLength="19" integerSubType="fixedLength" base_Property="_urb_EHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3acid?" booleanDefaultValue="false"/>
+  <BOMGlobalDataProfile:CaseIdentifier xmi:id="_v93QQHC0Eem3Q-NuNCuNWw" base_Property="_urb_EHC0Eem3Q-NuNCuNWw?com.example.terminalstates%3a%3anoNonTerminalStates%3a%3acid?"/>
+</xmi:XMI>
