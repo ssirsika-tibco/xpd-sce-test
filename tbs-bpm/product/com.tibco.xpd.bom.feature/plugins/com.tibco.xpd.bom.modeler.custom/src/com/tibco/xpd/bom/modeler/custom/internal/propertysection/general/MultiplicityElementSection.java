@@ -62,11 +62,13 @@ public class MultiplicityElementSection extends AbstractGeneralSection {
 
     @Override
     protected boolean shouldDisplay(EObject eo) {
-        boolean isACaseId = eo instanceof Property
+        boolean isACaseIdProperty = eo instanceof Property
                 && BOMGlobalDataUtils.isCID((Property) eo);
-        // Hide for all caseIds...
-        if (isACaseId) {
-            // Don't display this section even if the caseId has not not a
+        boolean isStateProperty = eo instanceof Property
+                && BOMGlobalDataUtils.isCaseState((Property) eo);
+        // Hide for all caseIds or state properties...
+        if (isACaseIdProperty || isStateProperty) {
+            // Don't display this section even if the caseId or state has not a
             // multiplicity of 1.
             // This must be fixed by the validation quick-fix.
 
