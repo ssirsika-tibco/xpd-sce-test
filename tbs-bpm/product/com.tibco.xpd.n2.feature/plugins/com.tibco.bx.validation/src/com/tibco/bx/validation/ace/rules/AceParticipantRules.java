@@ -60,8 +60,10 @@ public class AceParticipantRules extends PackageValidationRule {
         ParticipantTypeElem participantType = participant.getParticipantType();
 
         if (participantType == null) {
-            // participant must be system, external ref or org query
-            addIssue(ACE_ISSUE_INVALID_PARTICIPANT_TYPE, participant);
+            if (participant.getExternalReference() == null) {
+                // participant must be system, external ref or org query
+                addIssue(ACE_ISSUE_INVALID_PARTICIPANT_TYPE, participant);
+            }
 
         } else {
             ParticipantType type = participantType.getType();
@@ -76,7 +78,8 @@ public class AceParticipantRules extends PackageValidationRule {
                 }
 
             } else if (!ParticipantType.RESOURCE_LITERAL.equals(type)
-                    && !ParticipantType.RESOURCE_SET_LITERAL.equals(type)) {
+                    && !ParticipantType.RESOURCE_SET_LITERAL.equals(type)
+                    && participant.getExternalReference() == null) {
                 // participant must be system, external ref or org query
                 addIssue(ACE_ISSUE_INVALID_PARTICIPANT_TYPE, participant);
 
