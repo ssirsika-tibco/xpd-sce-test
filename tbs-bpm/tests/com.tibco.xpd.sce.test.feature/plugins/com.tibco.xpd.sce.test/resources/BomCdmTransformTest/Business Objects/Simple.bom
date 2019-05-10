@@ -4,7 +4,7 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PwEMAUDxEem2S6U5XI0gKg" source="model.metadata">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PwEMAkDxEem2S6U5XI0gKg" key="author" value="jarciuch"/>
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PwEMA0DxEem2S6U5XI0gKg" key="created" value="1551977649984"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PwEMBEDxEem2S6U5XI0gKg" key="version" value="5"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PwEMBEDxEem2S6U5XI0gKg" key="version" value="6"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Class" xmi:id="_g0U-QEDxEem2S6U5XI0gKg" name="SimpleClass">
       <ownedComment xmi:type="uml:Comment" xmi:id="_moL-wEQcEem2S6U5XI0gKg" body="SimpleClass desc"/>
@@ -14,12 +14,12 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pGSkQEZeEem2S6U5XI0gKg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pGTLUEZeEem2S6U5XI0gKg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_p8Nv0EDxEem2S6U5XI0gKg" name="integerAttr" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_p8Nv0EDxEem2S6U5XI0gKg" name="fixedPointNumberAttr" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p8O98UDxEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p8O98kDxEem2S6U5XI0gKg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_zS2IAEDxEem2S6U5XI0gKg" name="decimalAttr" aggregation="composite">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zS2IAEDxEem2S6U5XI0gKg" name="numberAttr" aggregation="composite">
         <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zS3WIUDxEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zS3WIkDxEem2S6U5XI0gKg" value="1"/>
@@ -44,8 +44,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f6TwkUDyEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f6TwkkDyEem2S6U5XI0gKg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_qP6ScEDyEem2S6U5XI0gKg" name="idAttr" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_-5uA0NywEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aID?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qP6ScEDyEem2S6U5XI0gKg" name="uriAttr" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_QY6JoNyzEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aURI?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qP8HoEDyEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qP8HoUDyEem2S6U5XI0gKg" value="1"/>
       </ownedAttribute>
@@ -56,12 +56,12 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E8AhokDzEem2S6U5XI0gKg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E8Aho0DzEem2S6U5XI0gKg" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8AhpEDzEem2S6U5XI0gKg" name="integerAttrArray" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8AhpEDzEem2S6U5XI0gKg" name="fixedPointNumberAttrArray" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E8AhpUDzEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E8AhpkDzEem2S6U5XI0gKg" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8Ahp0DzEem2S6U5XI0gKg" name="decimalAttrArray" aggregation="composite">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8Ahp0DzEem2S6U5XI0gKg" name="numberAttrArray" aggregation="composite">
         <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E8AhqEDzEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E8AhqUDzEem2S6U5XI0gKg" value="*"/>
@@ -86,8 +86,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E8AhtEDzEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E8AhtUDzEem2S6U5XI0gKg" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8AhtkDzEem2S6U5XI0gKg" name="idAttrArray" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_-5uA0NywEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aID?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E8AhtkDzEem2S6U5XI0gKg" name="uriAttrArray" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_QY6JoNyzEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aURI?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E8Aht0DzEem2S6U5XI0gKg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E8AhuEDzEem2S6U5XI0gKg" value="*"/>
       </ownedAttribute>
@@ -135,10 +135,10 @@
         <children xmi:type="notation:Node" xmi:id="_jrA3gEDxEem2S6U5XI0gKg" type="2001" element="_jq6J0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3atextAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_jrA3gUDxEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_p8WSsEDxEem2S6U5XI0gKg" type="2001" element="_p8Nv0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3aintegerAttr?">
+        <children xmi:type="notation:Node" xmi:id="_p8WSsEDxEem2S6U5XI0gKg" type="2001" element="_p8Nv0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3afixedPointNumberAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_p8WSsUDxEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_zS-D0EDxEem2S6U5XI0gKg" type="2001" element="_zS2IAEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adecimalAttr?">
+        <children xmi:type="notation:Node" xmi:id="_zS-D0EDxEem2S6U5XI0gKg" type="2001" element="_zS2IAEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3anumberAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_zS-D0UDxEem2S6U5XI0gKg"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_18fq0EDxEem2S6U5XI0gKg" type="2001" element="_18YWEEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3abooleanAttr?">
@@ -153,7 +153,7 @@
         <children xmi:type="notation:Node" xmi:id="_f6Z3MEDyEem2S6U5XI0gKg" type="2001" element="_f6R7YEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adateTimeTzAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_f6Z3MUDyEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_qQAZEEDyEem2S6U5XI0gKg" type="2001" element="_qP6ScEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3aidAttr?">
+        <children xmi:type="notation:Node" xmi:id="_qQAZEEDyEem2S6U5XI0gKg" type="2001" element="_qP6ScEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3auriAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_qQAZEUDyEem2S6U5XI0gKg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_g0jnxEDxEem2S6U5XI0gKg"/>
@@ -177,10 +177,10 @@
         <children xmi:type="notation:Node" xmi:id="_E7_6lUDzEem2S6U5XI0gKg" type="2001" element="_E8AhoUDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3atextAttrArray?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_E7_6lkDzEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_E7_6l0DzEem2S6U5XI0gKg" type="2001" element="_E8AhpEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3aintegerAttrArray?">
+        <children xmi:type="notation:Node" xmi:id="_E7_6l0DzEem2S6U5XI0gKg" type="2001" element="_E8AhpEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3afixedPointNumberAttrArray?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_E7_6mEDzEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_E7_6mUDzEem2S6U5XI0gKg" type="2001" element="_E8Ahp0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3adecimalAttrArray?">
+        <children xmi:type="notation:Node" xmi:id="_E7_6mUDzEem2S6U5XI0gKg" type="2001" element="_E8Ahp0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3anumberAttrArray?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_E7_6mkDzEem2S6U5XI0gKg"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_E7_6m0DzEem2S6U5XI0gKg" type="2001" element="_E8AhqkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3abooleanAttrArray?">
@@ -195,7 +195,7 @@
         <children xmi:type="notation:Node" xmi:id="_E7_6oUDzEem2S6U5XI0gKg" type="2001" element="_E8Ahs0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3adateTimeTzAttrArray?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_E7_6okDzEem2S6U5XI0gKg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_E7_6o0DzEem2S6U5XI0gKg" type="2001" element="_E8AhtkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3aidAttrArray?">
+        <children xmi:type="notation:Node" xmi:id="_E7_6o0DzEem2S6U5XI0gKg" type="2001" element="_E8AhtkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3auriAttrArray?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_E7_6pEDzEem2S6U5XI0gKg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_E7_6pUDzEem2S6U5XI0gKg"/>
@@ -216,20 +216,23 @@
   </notation:Diagram>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_g0VlUEDxEem2S6U5XI0gKg" displayLabel="Simple Class" base_NamedElement="_g0U-QEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_jq7X8EDxEem2S6U5XI0gKg" displayLabel="text Attr" base_NamedElement="_jq6J0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3atextAttr?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_p8O98EDxEem2S6U5XI0gKg" displayLabel="integerAttr" base_NamedElement="_p8Nv0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3aintegerAttr?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_zS3WIEDxEem2S6U5XI0gKg" displayLabel="decimalAttr" base_NamedElement="_zS2IAEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adecimalAttr?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_p8O98EDxEem2S6U5XI0gKg" displayLabel="fixedPointNumberAttr" base_NamedElement="_p8Nv0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3afixedPointNumberAttr?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_zS3WIEDxEem2S6U5XI0gKg" displayLabel="numberAttr" base_NamedElement="_zS2IAEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3anumberAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_18ZkMEDxEem2S6U5XI0gKg" displayLabel="booleanAttr" base_NamedElement="_18YWEEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3abooleanAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_5IBysEDxEem2S6U5XI0gKg" displayLabel="dateAttr" base_NamedElement="_5H_9gEDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adateAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_SGkT4EDyEem2S6U5XI0gKg" displayLabel="timeAttr" base_NamedElement="_SGjs0EDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3atimeAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_f6TwkEDyEem2S6U5XI0gKg" displayLabel="dateTimeTzAttr" base_NamedElement="_f6R7YEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adateTimeTzAttr?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_qP7gkEDyEem2S6U5XI0gKg" displayLabel="idAttr" base_NamedElement="_qP6ScEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3aidAttr?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TgEDzEem2S6U5XI0gKg" displayLabel="decimalAttrArray" base_NamedElement="_E8Ahp0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3adecimalAttrArray?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TgUDzEem2S6U5XI0gKg" displayLabel="idAttrArray" base_NamedElement="_E8AhtkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3aidAttrArray?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_qP7gkEDyEem2S6U5XI0gKg" displayLabel="uriAttr" base_NamedElement="_qP6ScEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3auriAttr?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TgEDzEem2S6U5XI0gKg" displayLabel="numberAttrArray" base_NamedElement="_E8Ahp0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3anumberAttrArray?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TgUDzEem2S6U5XI0gKg" displayLabel="uriAttrArray" base_NamedElement="_E8AhtkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3auriAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TgkDzEem2S6U5XI0gKg" displayLabel="booleanAttrArray" base_NamedElement="_E8AhqkDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3abooleanAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_Tg0DzEem2S6U5XI0gKg" displayLabel="timeAttrArray" base_NamedElement="_E8AhsEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3atimeAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_ThEDzEem2S6U5XI0gKg" displayLabel="dateAttrArray" base_NamedElement="_E8AhrUDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3adateAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_ThUDzEem2S6U5XI0gKg" displayLabel="textAttrArray" base_NamedElement="_E8AhoUDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3atextAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_ThkDzEem2S6U5XI0gKg" displayLabel="dateTimeTzAttrArray" base_NamedElement="_E8Ahs0DzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3adateTimeTzAttrArray?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_Th0DzEem2S6U5XI0gKg" displayLabel="SimpleClassArray" base_NamedElement="_E8AhoEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TiEDzEem2S6U5XI0gKg" displayLabel="integerAttrArray" base_NamedElement="_E8AhpEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3aintegerAttrArray?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_E7_TiEDzEem2S6U5XI0gKg" displayLabel="fixedPointNumberAttrArray" base_NamedElement="_E8AhpEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3afixedPointNumberAttrArray?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_TH4p0HMtEemMD9x2IFaWng" decimalPlaces="0" decimalSubType="fixedPoint" base_Property="_p8Nv0EDxEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3afixedPointNumberAttr?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_TH538HMtEemMD9x2IFaWng" decimalPlaces="0" decimalSubType="fixedPoint" base_Property="_E8AhpEDzEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClassArray%3a%3afixedPointNumberAttrArray?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_v2veIHMxEemMD9x2IFaWng" base_Property="_f6R7YEDyEem2S6U5XI0gKg?com.example.simple%3a%3aSimpleClass%3a%3adateTimeTzAttr?" dateTimeTZDefaultValue="2019-05-10T16:41:00.000+01:00" booleanDefaultValue="false"/>
 </xmi:XMI>

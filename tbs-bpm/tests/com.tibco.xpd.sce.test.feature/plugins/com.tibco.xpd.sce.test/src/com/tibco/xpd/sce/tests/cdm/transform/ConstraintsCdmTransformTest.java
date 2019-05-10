@@ -57,8 +57,7 @@ public class ConstraintsCdmTransformTest
     protected void assertBomCdmTransformation(DataModel cdmModel,
             Model bomModel) {
 
-        Assert.assertEquals("com.example.constraints",
-                cdmModel.getNamespace());
+        Assert.assertEquals("com.example.constraints", cdmModel.getNamespace());
 
         // Class with primitive types attributes.
         StructuredType classA = cdmModel.getStructuredTypeByName("ClassA");
@@ -70,20 +69,20 @@ public class ConstraintsCdmTransformTest
                 "base:Text",
                 mandatory,
                 !array);
-        
+
         /*
          * TODO ACE-738: This causes failures in CDM validation
-         * "Unknown constraint "pattern", therefore disabling for now until
-         * it is supported.
+         * "Unknown constraint "pattern", therefore disabling for now until it
+         * is supported.
          * 
-         * So removed this until CDM supports pattern and BomConstraintsTransformer has this re-enabled under the same TODO
+         * So removed this until CDM supports pattern and
+         * BomConstraintsTransformer has this re-enabled under the same TODO
          * 
-         *  new NameValuePair("pattern", "aPattern")
+         * new NameValuePair("pattern", "aPattern")
          */
 
         assertConstraints(textAttr,
-                Arrays.asList(new NameValuePair("length", "30")
-                        ));
+                Arrays.asList(new NameValuePair("length", "30")));
         assertDefaultValue(textAttr, "textDefaut");
         //////////////////////
         Attribute text20Attr = assertAttribute(classA,
@@ -97,27 +96,12 @@ public class ConstraintsCdmTransformTest
         //////////////////////
         Attribute integerAttr = assertAttribute(classA,
                 "integerAttr",
-                "base:Number",
+                "base:FixedPointNumber",
                 !mandatory,
                 !array);
-        /*
-         * Sid ACE-467 - integer attribtues now converted to Decimals type with
-         * max decimals = 0
-         */
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         * 
-         * So These checked were removed...
-         * 
-         * new NameValuePair("decimalPlaces", "0"), new NameValuePair("length",
-         * "10"),
-         */
         assertConstraints(integerAttr,
-                Arrays.asList(
+                Arrays.asList(new NameValuePair("length", "10"),
+                        new NameValuePair("decimalPlaces", "0"),
                         new NameValuePair("minValue", "23"),
                         new NameValuePair("minValueInclusive", "true"),
                         new NameValuePair("maxValue", "100"),
@@ -126,40 +110,23 @@ public class ConstraintsCdmTransformTest
         //////////////////////
         Attribute integerAttrNoRestrictions = assertAttribute(classA,
                 "integerAttrNoRestrictions",
-                "base:Number",
+                "base:FixedPointNumber",
                 !mandatory,
                 !array);
-
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         */
-        // assertConstraints(integerAttrNoRestrictions,
-        // Arrays.asList(new NameValuePair("length", "10")));
+        assertConstraints(integerAttrNoRestrictions,
+                Arrays.asList(new NameValuePair("length", "10"),
+                        new NameValuePair("decimalPlaces", "0")));
         assertDefaultValue(integerAttrNoRestrictions, null);
         //////////////////////
         Attribute integer0to5Attr = assertAttribute(classA,
                 "integer0to5Attr",
-                "base:Number",
+                "base:FixedPointNumber",
                 !mandatory,
                 !array);
-
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         * 
-         * So These checked were removed...
-         * 
-         * new NameValuePair("length", "10"),
-         */
         assertConstraints(integer0to5Attr,
                 Arrays.asList(
+                        new NameValuePair("length", "10"),
+                        new NameValuePair("decimalPlaces", "0"),
                         new NameValuePair("minValue", "0"),
                         new NameValuePair("minValueInclusive", "true"),
                         new NameValuePair("maxValue", "5"),
@@ -171,22 +138,8 @@ public class ConstraintsCdmTransformTest
                 "base:Number",
                 !mandatory,
                 !array);
-
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         * 
-         * So These checked were removed...
-         * 
-         * new NameValuePair("decimalPlaces", "0"), new NameValuePair("length",
-         * "10"),
-         */
         assertConstraints(decimalAttr,
-                Arrays.asList(
-                        new NameValuePair("minValue", "-50.5"),
+                Arrays.asList(new NameValuePair("minValue", "-50.5"),
                         new NameValuePair("minValueInclusive", "false"),
                         new NameValuePair("maxValue", "500.23"),
                         new NameValuePair("maxValueInclusive", "true")));
@@ -197,22 +150,6 @@ public class ConstraintsCdmTransformTest
                 "base:Number",
                 !mandatory,
                 !array);
-
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         * 
-         * So These checked were removed...
-         * 
-         * new NameValuePair("decimalPlaces", "0"), new NameValuePair("length",
-         * "10"),
-         */
-        // assertConstraints(decimalAttrNoRestrictions,
-        // Arrays.asList(new NameValuePair("length", "10"),
-        // new NameValuePair("decimalPlaces", "2")));
         assertDefaultValue(decimalAttrNoRestrictions, null);
         //////////////////////
         Attribute decimalPiTo200 = assertAttribute(classA,
@@ -221,21 +158,8 @@ public class ConstraintsCdmTransformTest
                 !mandatory,
                 !array);
 
-        /*
-         * TODO ACE-738: Re-enable the following checks after conversion to
-         * FixedPoint number is introduced. At that point Integer should be
-         * converted to FixedPointNumber - as they're converted to floating
-         * point at the moment, there is a restriction on having length and
-         * decimals on float in CDM.
-         * 
-         * So These checked were removed...
-         * 
-         * new NameValuePair("decimalPlaces", "0"), new NameValuePair("length",
-         * "10"),
-         */
         assertConstraints(decimalPiTo200,
-                Arrays.asList(
-                        new NameValuePair("minValue", "3.14"),
+                Arrays.asList(new NameValuePair("minValue", "3.14"),
                         new NameValuePair("minValueInclusive", "false"),
                         new NameValuePair("maxValue", "200"),
                         new NameValuePair("maxValueInclusive", "true")));
@@ -264,17 +188,17 @@ public class ConstraintsCdmTransformTest
         //////////////////////
         Attribute dateTimeTzAttr = assertAttribute(classA,
                 "dateTimeTzAttr",
-                "base:Text",
+                "base:DateTimeTZ",
                 !mandatory,
                 !array);
         assertDefaultValue(dateTimeTzAttr, "2019-04-06T14:58:00.000+01:00");
         //////////////////////
-        Attribute idAttr = assertAttribute(classA,
-                "idAttr",
-                "base:Text",
+        Attribute uriAttr = assertAttribute(classA,
+                "uriAttr",
+                "base:URI",
                 !mandatory,
                 !array);
-        assertDefaultValue(idAttr, null);
+        assertDefaultValue(uriAttr, "https;//tibco.com");
         //////////////////////
         Attribute favFruit = assertAttribute(classA,
                 "favFruit",

@@ -4,7 +4,7 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xSxd8VSKEemu-fVLDDZ0Ew" source="model.metadata">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xSxd8lSKEemu-fVLDDZ0Ew" key="author" value="jarciuch"/>
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xSxd81SKEemu-fVLDDZ0Ew" key="created" value="1554132660175"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xSxd9FSKEemu-fVLDDZ0Ew" key="version" value="5"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xSxd9FSKEemu-fVLDDZ0Ew" key="version" value="6"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Class" xmi:id="_8xbAoFSMEemu-fVLDDZ0Ew" name="ClassA">
       <ownedComment xmi:type="uml:Comment" xmi:id="_8xbAoVSMEemu-fVLDDZ0Ew" body="SimpleClass desc"/>
@@ -19,12 +19,12 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UH3HIVb0EemHp81Nvleong" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_8xbAplSMEemu-fVLDDZ0Ew" name="integerAttr" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8xbAp1SMEemu-fVLDDZ0Ew"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8xbAqFSMEemu-fVLDDZ0Ew" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TGH_UFbeEemHp81Nvleong" name="integerAttrNoRestrictions" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TINqAFbeEemHp81Nvleong"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TINqAVbeEemHp81Nvleong" value="1"/>
       </ownedAttribute>
@@ -66,14 +66,14 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8xbAtlSMEemu-fVLDDZ0Ew"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8xbAt1SMEemu-fVLDDZ0Ew" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_8xbAuFSMEemu-fVLDDZ0Ew" name="idAttr" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_-5uA0NywEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aID?"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8xbAuVSMEemu-fVLDDZ0Ew"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8xbAulSMEemu-fVLDDZ0Ew" value="1"/>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_J2WE8Fb9EemHp81Nvleong" name="favFruit" type="_BndX8Fb9EemHp81Nvleong?com.example.constraints%3a%3aFruits?" aggregation="composite">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J2X6IFb9EemHp81Nvleong"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J2X6IVb9EemHp81Nvleong" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T3HMsHNAEemMD9x2IFaWng" name="uriAttr" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_QY6JoNyzEd2GZPqUy0hUvg?BomPrimitiveTypes%3a%3aURI?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T3JB4XNAEemMD9x2IFaWng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T3Jo8HNAEemMD9x2IFaWng" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_sp1IcFbxEemHp81Nvleong" name="Text20">
@@ -82,8 +82,8 @@
       </generalization>
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_x0tR4FbxEemHp81Nvleong" name="Integer0to5">
-      <generalization xmi:type="uml:Generalization" xmi:id="_z70IUFbxEemHp81Nvleong">
-        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_RhXFAHM6EemMD9x2IFaWng">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
       </generalization>
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_BvALYFbyEemHp81Nvleong" name="DecimalPiTo100">
@@ -187,11 +187,11 @@
         <children xmi:type="notation:Node" xmi:id="_8xaZolSMEemu-fVLDDZ0Ew" type="2001" element="_8xbAtVSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adateTimeTzAttr?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_8xaZo1SMEemu-fVLDDZ0Ew"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_8xaZpFSMEemu-fVLDDZ0Ew" type="2001" element="_8xbAuFSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3aidAttr?">
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_8xaZpVSMEemu-fVLDDZ0Ew"/>
-        </children>
         <children xmi:type="notation:Node" xmi:id="_J2cLkFb9EemHp81Nvleong" type="2001" element="_J2WE8Fb9EemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3afavFruit?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_J2cLkVb9EemHp81Nvleong"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_T3PIgHNAEemMD9x2IFaWng" type="2001" element="_T3HMsHNAEemMD9x2IFaWng?com.example.constraints%3a%3aClassA%3a%3auriAttr?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_T3PIgXNAEemMD9x2IFaWng"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_8xaZplSMEemu-fVLDDZ0Ew"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_8xaZp1SMEemu-fVLDDZ0Ew"/>
@@ -271,9 +271,8 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_8xZyhFSMEemu-fVLDDZ0Ew" displayLabel="dateAttr" base_NamedElement="_8xbAr1SMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adateAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_8xZyhVSMEemu-fVLDDZ0Ew" displayLabel="decimalAttr" base_NamedElement="_8xbAqVSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adecimalAttr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_8xZyhlSMEemu-fVLDDZ0Ew" displayLabel="dateTimeTzAttr" base_NamedElement="_8xbAtVSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adateTimeTzAttr?"/>
-  <PrimitiveTypeFacets:LabeledElement xmi:id="_8xaZkFSMEemu-fVLDDZ0Ew" displayLabel="idAttr" base_NamedElement="_8xbAuFSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3aidAttr?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_I2zeEFSNEemu-fVLDDZ0Ew" textLength="30" textDefaultValue="textDefaut" textPatternValue="aPattern" base_Property="_8xbAolSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3atextAttr?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:RestrictedType xmi:id="_RXiwEFSNEemu-fVLDDZ0Ew" integerDefaultValue="30" integerUpper="100" integerLower="23" integerSubType="fixedLength" base_Property="_8xbAplSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3aintegerAttr?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_RXiwEFSNEemu-fVLDDZ0Ew" decimalUpper="100" decimalLower="23" decimalPlaces="0" decimalDefaultValue="30" integerSubType="fixedLength" decimalSubType="fixedPoint" base_Property="_8xbAplSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3aintegerAttr?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_TIL00FbeEemHp81Nvleong" displayLabel="integerAttrNoRestrictions" base_NamedElement="_TGH_UFbeEemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3aintegerAttrNoRestrictions?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_qQ5c0FbeEemHp81Nvleong" decimalUpper="500.23" decimalLower="-50.5" decimalLowerInclusive="false" decimalDefaultValue="8.2" base_Property="_8xbAqVSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adecimalAttr?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_xNXfsFbeEemHp81Nvleong" displayLabel="decimalAttrNoRestrictions" base_NamedElement="_xNWRkFbeEemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3adecimalAttrNoRestrictions?"/>
@@ -282,7 +281,7 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_BvAycFbyEemHp81Nvleong" displayLabel="DecimalPiTo100" base_NamedElement="_BvALYFbyEemHp81Nvleong?com.example.constraints%3a%3aDecimalPiTo100?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_JYGqwFbyEemHp81Nvleong" displayLabel="com.example.constraints" base_NamedElement="_xSxd8FSKEemu-fVLDDZ0Ew?com.example.constraints?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_Yj7UsFbyEemHp81Nvleong" decimalUpper="100" decimalLower="3.14" decimalLowerInclusive="false" base_PrimitiveType="_BvALYFbyEemHp81Nvleong?com.example.constraints%3a%3aDecimalPiTo100?" booleanDefaultValue="false"/>
-  <PrimitiveTypeFacets:RestrictedType xmi:id="_cr6dwFbyEemHp81Nvleong" integerUpper="5" integerLower="0" base_PrimitiveType="_x0tR4FbxEemHp81Nvleong?com.example.constraints%3a%3aInteger0to5?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_cr6dwFbyEemHp81Nvleong" decimalUpper="5" decimalLower="0" decimalPlaces="0" decimalSubType="fixedPoint" base_PrimitiveType="_x0tR4FbxEemHp81Nvleong?com.example.constraints%3a%3aInteger0to5?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_EjMfYFb0EemHp81Nvleong" displayLabel="DecimalPiTo200" base_NamedElement="_EjL4UFb0EemHp81Nvleong?com.example.constraints%3a%3aDecimalPiTo200?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_UH2gEFb0EemHp81Nvleong" displayLabel="text20Attr" base_NamedElement="_UH0q4Fb0EemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3atext20Attr?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_eibokFb0EemHp81Nvleong" displayLabel="integer0to5Attr" base_NamedElement="_eiaacFb0EemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3ainteger0to5Attr?"/>
@@ -298,4 +297,7 @@
   <PrimitiveTypeFacets:RestrictedType xmi:id="_rv5_EFhrEemHp81Nvleong" base_Property="_8xbAtVSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3adateTimeTzAttr?" dateTimeTZDefaultValue="2019-04-06T14:58:00.000+01:00" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_yV_TkFoeEemHp81Nvleong" textLength="20" base_PrimitiveType="_sp1IcFbxEemHp81Nvleong?com.example.constraints%3a%3aText20?" booleanDefaultValue="false"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_aauiYFogEemHp81Nvleong" base_Property="_8xbArFSMEemu-fVLDDZ0Ew?com.example.constraints%3a%3aClassA%3a%3abooleanAttr?" booleanDefaultValue="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_RhV24HM6EemMD9x2IFaWng" decimalPlaces="0" decimalSubType="fixedPoint" base_Property="_TGH_UFbeEemHp81Nvleong?com.example.constraints%3a%3aClassA%3a%3aintegerAttrNoRestrictions?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_T3JB4HNAEemMD9x2IFaWng" displayLabel="uriAttr" base_NamedElement="_T3HMsHNAEemMD9x2IFaWng?com.example.constraints%3a%3aClassA%3a%3auriAttr?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_dyROQHNAEemMD9x2IFaWng" uriDefaultValue="https;//tibco.com" base_Property="_T3HMsHNAEemMD9x2IFaWng?com.example.constraints%3a%3aClassA%3a%3auriAttr?" booleanDefaultValue="false"/>
 </xmi:XMI>

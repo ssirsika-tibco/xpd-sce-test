@@ -16,6 +16,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.bpm.da.dm.api.Constraint;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 
 /**
@@ -54,21 +55,6 @@ public class BomConstraintTransformer {
             return value;
         }
     }
-
-    // TODO: Constraint names should be provided by CDM model enumeration.
-    private static final String NAME_LENGTH = "length"; //$NON-NLS-1$
-
-    private static final String NAME_PATTERN = "pattern"; //$NON-NLS-1$
-
-    private static final String NAME_MIN_VALUE = "minValue"; //$NON-NLS-1$
-
-    private static final String NAME_MIN_VALUE_INCLUSIVE = "minValueInclusive"; //$NON-NLS-1$
-
-    private static final String NAME_MAX_VALUE = "maxValue"; //$NON-NLS-1$
-
-    private static final String NAME_MAX_VALUE_INCLUSIVE = "maxValueInclusive"; //$NON-NLS-1$
-
-    private static final String NAME_DECIMAL_PLACES = "decimalPlaces"; //$NON-NLS-1$
 
     /**
      * Returns all applicable CDM constraints for the BOM property in the for of
@@ -145,13 +131,18 @@ public class BomConstraintTransformer {
                 return getFacetValue.apply(
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_DEFAULT_VALUE);
             case PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME:
-                // BOM time is: "hh:mm:ss" for example "16:13:00" -> CDM time is "hh:mm" for example "16:13" 
+                // BOM time is: "hh:mm:ss" for example "16:13:00" -> CDM time is
+                // "hh:mm" for example "16:13"
                 return transformToCdmTime(getFacetValue.apply(
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_TIME_DEFAULT_VALUE));
             case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
                 // for example: "2019-04-06T14:58:00.000+01:00"
                 return getFacetValue.apply(
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_TIME_TZ_DEFAULT_VALUE);
+            case PrimitivesUtil.BOM_PRIMITIVE_URI_NAME:
+                // for example: "http://google.com"
+                return getFacetValue.apply(
+                        PrimitivesUtil.BOM_PRIMITIVE_FACET_URI_DEFAULT_VALUE);
             }
         }
         return null;
@@ -165,7 +156,8 @@ public class BomConstraintTransformer {
      *            the bom attribute.
      * @return a collection enumeration literals or an empty list.
      */
-    public Collection<EnumerationLiteral> getAllowedValues(Property bomProperty) {
+    public Collection<EnumerationLiteral> getAllowedValues(
+            Property bomProperty) {
         Type bomType = bomProperty.getType();
         if (bomType instanceof Enumeration) {
             return ((Enumeration) bomType).getOwnedLiterals(); // $NON-NLS-1$
@@ -214,32 +206,37 @@ public class BomConstraintTransformer {
                 FALLBACK_TO_BASE_TYPE);
         // -1 means unbounded (not-set in UI).
         if (length instanceof Integer && ((Integer) length).intValue() != -1) {
-            constraints.add(new NameValuePair(NAME_LENGTH, length.toString()));
+            constraints.add(new NameValuePair(Constraint.NAME_LENGTH,
+                    length.toString()));
         }
 
         /*
-         * TODO ACE-738: This causes failures in CDM validation
+         * ACE-738: The pattern support was dropped from V1. According to:
+         * https://confluence.tibco.com/display/BPM/AMX-BPM%3A+Container+Edition
+         * +FP+-+Supported+data+types
+         * "Pattern (REGEX) support is a future feature for ACE"
+         * 
+         * This would currently cause failures in CDM validation
          * "Unknown constraint "pattern", therefore disabling for now until it
          * is supported.
          */
-        if (false) {
-            Object pattern = PrimitivesUtil.getFacetPropertyValue(
-                    bomPrimitiveType,
-                    PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
-                    bomProperty,
-                    FALLBACK_TO_BASE_TYPE);
-            // Empty text is consider as not-set.
-            if (pattern instanceof String && !((String) pattern).isEmpty()) {
-                constraints.add(
-                        new NameValuePair(NAME_PATTERN, pattern.toString()));
-            }
-        }
+        // Object pattern =
+        // PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
+        // PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
+        // bomProperty,
+        // FALLBACK_TO_BASE_TYPE);
+        // // Empty text is consider as not-set.
+        // if (pattern instanceof String && !((String) pattern).isEmpty()) {
+        // constraints
+        // .add(new NameValuePair(NAME_PATTERN, pattern.toString()));
+        // }
         return constraints;
     }
 
     /**
      * Returns list of CDM constraints for the property of an Integer primitive
-     * type.
+     * type. Integer is treated as a "base:FixedPointNumber" with 0 decimal
+     * places.
      * 
      * @param bomProperty
      *            the BOM property of an Integer type.
@@ -258,7 +255,8 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         if (length instanceof Integer) {
-            constraints.add(new NameValuePair(NAME_LENGTH, length.toString()));
+            constraints.add(new NameValuePair(Constraint.NAME_LENGTH,
+                    length.toString()));
         }
 
         // If minValue or maxValue are null that means the value was not-set.
@@ -270,9 +268,11 @@ public class BomConstraintTransformer {
                 FALLBACK_TO_BASE_TYPE);
         if (minValue instanceof String) {
             constraints
-                    .add(new NameValuePair(NAME_MIN_VALUE, (String) minValue));
+                    .add(new NameValuePair(Constraint.NAME_MIN_VALUE,
+                            (String) minValue));
             constraints.add(
-                    new NameValuePair(NAME_MIN_VALUE_INCLUSIVE, TRUE_STRING));
+                    new NameValuePair(Constraint.NAME_MIN_VALUE_INCLUSIVE,
+                            TRUE_STRING));
         }
 
         Object maxValue = PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
@@ -281,10 +281,14 @@ public class BomConstraintTransformer {
                 FALLBACK_TO_BASE_TYPE);
         if (maxValue instanceof String) {
             constraints
-                    .add(new NameValuePair(NAME_MAX_VALUE, (String) maxValue));
+                    .add(new NameValuePair(Constraint.NAME_MAX_VALUE,
+                            (String) maxValue));
             constraints.add(
-                    new NameValuePair(NAME_MAX_VALUE_INCLUSIVE, TRUE_STRING));
+                    new NameValuePair(Constraint.NAME_MAX_VALUE_INCLUSIVE,
+                            TRUE_STRING));
         }
+
+        constraints.add(new NameValuePair(Constraint.NAME_DECIMAL_PLACES, "0")); //$NON-NLS-1$
         return constraints;
     }
 
@@ -305,12 +309,12 @@ public class BomConstraintTransformer {
         List<NameValuePair> constraints = new ArrayList<>();
 
         /*
-         * Sid ACE-1079: Do not output length or decimal places for Floating Point Decimals
-         * (length property at least defaults to 10 but CDM says you should not have a length
-         * spec'd for Floating point).
+         * Sid ACE-1079: Do not add length or decimal places for Floating Point
+         * Decimals (length property at least defaults to 10 but CDM says you
+         * should not have a length spec'd for Floating point).
          */
 
-        if (!suppressLenAndDecimalsConstraints(bomPrimitiveType, bomProperty)) {
+        if (BomTransformer.isFixedPointDecimal(bomProperty)) {
 
             Object length =
                     PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
@@ -319,7 +323,8 @@ public class BomConstraintTransformer {
                             FALLBACK_TO_BASE_TYPE);
             if (length instanceof Integer) {
                 constraints
-                        .add(new NameValuePair(NAME_LENGTH, length.toString()));
+                        .add(new NameValuePair(Constraint.NAME_LENGTH,
+                                length.toString()));
             }
 
             Object decimalPlaces =
@@ -328,7 +333,8 @@ public class BomConstraintTransformer {
                             bomProperty,
                             FALLBACK_TO_BASE_TYPE);
             if (decimalPlaces instanceof Integer) {
-                constraints.add(new NameValuePair(NAME_DECIMAL_PLACES,
+                constraints
+                        .add(new NameValuePair(Constraint.NAME_DECIMAL_PLACES,
                         decimalPlaces.toString()));
             }
         }
@@ -342,14 +348,16 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         if (lower instanceof String) {
-            constraints.add(new NameValuePair(NAME_MIN_VALUE, (String) lower));
+            constraints.add(new NameValuePair(Constraint.NAME_MIN_VALUE,
+                    (String) lower));
             Object lowerInclusive = PrimitivesUtil.getFacetPropertyValue(
                     bomPrimitiveType,
                     PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER_INCLUSIVE,
                     bomProperty,
                     FALLBACK_TO_BASE_TYPE);
             if (lowerInclusive instanceof Boolean) {
-                constraints.add(new NameValuePair(NAME_MIN_VALUE_INCLUSIVE,
+                constraints.add(
+                        new NameValuePair(Constraint.NAME_MIN_VALUE_INCLUSIVE,
                         lowerInclusive.toString()));
             }
         }
@@ -359,60 +367,21 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         if (upper instanceof String) {
-            constraints.add(new NameValuePair(NAME_MAX_VALUE, (String) upper));
+            constraints.add(new NameValuePair(Constraint.NAME_MAX_VALUE,
+                    (String) upper));
             Object upperInclusive = PrimitivesUtil.getFacetPropertyValue(
                     bomPrimitiveType,
                     PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER_INCLUSIVE,
                     bomProperty,
                     FALLBACK_TO_BASE_TYPE);
             if (upperInclusive instanceof Boolean) {
-                constraints.add(new NameValuePair(NAME_MAX_VALUE_INCLUSIVE,
+                constraints.add(
+                        new NameValuePair(Constraint.NAME_MAX_VALUE_INCLUSIVE,
                         upperInclusive.toString()));
             }
         }
 
-
-
         return constraints;
-    }
-
-
-    /**
-     * 
-     * @param type
-     * @param property
-     * @return <code>true</code> if the type should NOT have length and decimal
-     *         constraints output for it
-     */
-    private boolean suppressLenAndDecimalsConstraints(PrimitiveType type,
-            Property property) {
-        Object decimalSubType = PrimitivesUtil.getFacetPropertyValue(type,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                property);
-
-        /*
-         * Check if this type is a floating point
-         */
-        if ((decimalSubType instanceof EnumerationLiteral)
-                && PrimitivesUtil.DECIMAL_SUBTYPE_FLOATINGPOINT.equals(
-                        ((EnumerationLiteral) decimalSubType).getName())) {
-            return true;
-        }
-
-        /*
-         * TODO ACE-738: Sid - REMOVE THIS WHEN WE IMPLEMENT Transform to Fixed
-         * point number.
-         */
-
-        if ((decimalSubType instanceof EnumerationLiteral)
-                && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
-                        ((EnumerationLiteral) decimalSubType).getName())) {
-            return true;
-        }
-
-
-
-        return false;
     }
 
 }

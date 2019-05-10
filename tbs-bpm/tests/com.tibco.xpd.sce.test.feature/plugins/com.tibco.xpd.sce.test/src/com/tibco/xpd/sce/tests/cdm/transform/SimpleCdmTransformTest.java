@@ -65,23 +65,22 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
         Assert.assertEquals("SimpleClass desc",
                 simpleClassType.getDescription());
         // textAttribute is mandatory
-        Attribute textAttr =
-                assertAttribute(simpleClassType,
-                        "textAttr",
-                        "base:Text",
-                        mandatory,
-                        !array);
+        Attribute textAttr = assertAttribute(simpleClassType,
+                "textAttr",
+                "base:Text",
+                mandatory,
+                !array);
         // Check label and description are correctly set.
         Assert.assertEquals("text Attr", textAttr.getLabel());
         Assert.assertEquals("testAttr desc", textAttr.getDescription());
         // Assert Types
         assertAttribute(simpleClassType,
-                "integerAttr",
-                "base:Number",
+                "fixedPointNumberAttr",
+                "base:FixedPointNumber",
                 !mandatory,
                 !array);
         assertAttribute(simpleClassType,
-                "decimalAttr",
+                "numberAttr",
                 "base:Number",
                 !mandatory,
                 !array);
@@ -95,14 +94,22 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
                 "base:Time",
                 !mandatory,
                 !array);
-        // TODO Uncomment when the other simple types are supported.
-        // assertAttribute(simpleClassType, "booleanAttr", "base:Boolean",
-        // !mandatory, !array);
-        // assertAttribute(simpleClassType, "dateTimeTzAttr",
-        // "base:DateTimeTZ", !mandatory, !array);
-        // assertAttribute(simpleClassType, "idAttr", "base:Time", !mandatory,
-        // !array);
-        
+        assertAttribute(simpleClassType,
+                "booleanAttr",
+                "base:Boolean",
+                !mandatory,
+                !array);
+        assertAttribute(simpleClassType,
+                "dateTimeTzAttr",
+                "base:DateTimeTZ",
+                !mandatory,
+                !array);
+        assertAttribute(simpleClassType,
+                "uriAttr",
+                "base:URI",
+                !mandatory,
+                !array);
+
         // Class with primitive type arrays attributes.
         StructuredType simpleClassArrayType =
                 cdmModel.getStructuredTypeByName("SimpleClassArray");
@@ -118,12 +125,12 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
                 mandatory,
                 array);
         assertAttribute(simpleClassArrayType,
-                "integerAttrArray",
-                "base:Number",
+                "fixedPointNumberAttrArray",
+                "base:FixedPointNumber",
                 !mandatory,
                 array);
         assertAttribute(simpleClassArrayType,
-                "decimalAttrArray",
+                "numberAttrArray",
                 "base:Number",
                 !mandatory,
                 array);
@@ -137,12 +144,21 @@ public class SimpleCdmTransformTest extends AbstractSingleBomCdmTransformTest {
                 "base:Time",
                 !mandatory,
                 array);
-        // TODO Uncomment when the other simple types are supported.
-        // assertAttribute(simpleClassType, "booleanAttrArray", "base:Boolean",
-        // !mandatory, array);
-        // assertAttribute(simpleClassType, "dateTimeTzAttrArray",
-        // "base:DateTimeTZ", !mandatory,array);
-        // assertAttribute(simpleClassType, "idAttrArray", "base:Time");
+        assertAttribute(simpleClassArrayType,
+                "booleanAttrArray",
+                "base:Boolean",
+                !mandatory,
+                array);
+        assertAttribute(simpleClassArrayType,
+                "dateTimeTzAttrArray",
+                "base:DateTimeTZ",
+                !mandatory,
+                array);
+        assertAttribute(simpleClassArrayType,
+                "uriAttrArray",
+                "base:URI",
+                !mandatory,
+                array);
     }
 
 }

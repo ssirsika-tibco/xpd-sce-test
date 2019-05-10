@@ -66,14 +66,23 @@ public class BomTransformer {
     private final static String CDM_BASE_NUMBER_TYPE =
             BASE_PREFIX + BaseType.NUMBER.getName();
 
+    private final static String CDM_BASE_FIXED_POINT_NUMBER_TYPE =
+            BASE_PREFIX + BaseType.FIXED_POINT_NUMBER.getName();
+
     private final static String CDM_BASE_DATE_TYPE =
             BASE_PREFIX + BaseType.DATE.getName();
 
     private final static String CDM_BASE_TIME_TYPE =
             BASE_PREFIX + BaseType.TIME.getName();
 
+    private final static String CDM_BASE_DATE_TIME_TZ_TYPE =
+            BASE_PREFIX + BaseType.DATE_TIME_TZ.getName();
+
     private final static String CDM_BASE_BOOLEAN_TYPE =
             BASE_PREFIX + BaseType.BOOLEAN.getName();
+
+    private final static String CDM_BASE_URI_TYPE =
+            BASE_PREFIX + BaseType.URI.getName();
 
     /**
      * Transforms BOM model.
@@ -190,6 +199,12 @@ public class BomTransformer {
             cdmAttribute.setIsState(true);
             cdmAttribute.setIsSummary(true);
             cdmAttribute.setIsSearchable(true);
+
+            // Hint from Nick - Use:
+
+            // EList<EnumerationLiteral> terminal = new
+            // TerminalStateProperties().getTerminalStates(bomAttribute);
+
             Collection<EnumerationLiteral> states =
                     CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute);
             if (!states.isEmpty()) {
@@ -224,15 +239,19 @@ public class BomTransformer {
      */
     private String transformType(Type bomType, Property contextProperty) {
         if (bomType instanceof PrimitiveType) {
-            String baseType = PrimitivesUtil
-                    .getBasePrimitiveType((PrimitiveType) bomType).getName();
-            switch (baseType) {
+            PrimitiveType baseType = PrimitivesUtil
+                    .getBasePrimitiveType((PrimitiveType) bomType);
+            switch (baseType.getName()) {
             case PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME:
                 return CDM_BASE_TEXT_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME:
-                return CDM_BASE_NUMBER_TYPE;
+                if (isFixedPointDecimal(contextProperty)) {
+                    return CDM_BASE_FIXED_POINT_NUMBER_TYPE;
+                } else {
+                    return CDM_BASE_NUMBER_TYPE;
+                }
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:
-                return CDM_BASE_NUMBER_TYPE;
+                return CDM_BASE_FIXED_POINT_NUMBER_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME:
                 return CDM_BASE_BOOLEAN_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME:
@@ -241,14 +260,10 @@ public class BomTransformer {
                 return CDM_BASE_TIME_TYPE;
             case PrimitivesUtil.BOM_PRIMITIVE_ENUMERATION_NAME:
                 return CDM_BASE_TEXT_TYPE;
-
-            // TODO These cases will be supported when the CDM model is updated.
-            // case PrimitivesUtil.BOM_PRIMITIVE_ID_NAME:
-            // return BASE_PREFIX + BaseType.ID;
-            // case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
-            // return BASE_PREFIX + BaseType.DATE_TIME_TZ;
-            // case PrimitivesUtil.BOM_PRIMITIVE_URI_NAME:
-            // return BASE_PREFIX + BaseType.URI;
+            case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
+                return CDM_BASE_DATE_TIME_TZ_TYPE;
+            case PrimitivesUtil.BOM_PRIMITIVE_URI_NAME:
+                return CDM_BASE_URI_TYPE;
             default:
                 return CDM_BASE_TEXT_TYPE; // $NON-NLS-1$
             }
@@ -302,19 +317,19 @@ public class BomTransformer {
             Property bomEnd2 = memberEnds.get(1);
             if (bomEnd1 != null && bomEnd2 != null) {
                 Link cdmLink = cdmModel.newLink();
-    
+
                 LinkEnd cdmEnd1 = cdmLink.getEnd1();
                 cdmEnd1.setName(bomEnd1.getName());
                 cdmEnd1.setLabel(getLabel(bomEnd1));
                 cdmEnd1.setType(transformType(bomEnd1.getType(), bomEnd1));
                 cdmEnd1.setIsArray(isArray(bomEnd1));
-    
+
                 LinkEnd cdmEnd2 = cdmLink.getEnd2();
                 cdmEnd2.setName(bomEnd2.getName());
                 cdmEnd2.setLabel(getLabel(bomEnd2));
                 cdmEnd2.setType(transformType(bomEnd2.getType(), bomEnd2));
                 cdmEnd2.setIsArray(isArray(bomEnd2));
-    
+
                 return cdmLink;
             }
         }
@@ -406,6 +421,31 @@ public class BomTransformer {
         int upper = bomAttribute.getUpper();
         // -1 means +infinity (unbounded).
         return upper == -1 || upper > 1;
+    }
+
+    /**
+     * Returns <code>true</code> if the Decimal property has a sub-type of
+     * fixedPoint.
+     * 
+     * @param type
+     *            the base primitive type of the property.
+     * @param property
+     *            the property.
+     * @return <code>true</code> if the Decimal property has a sub-type of
+     *         fixedPoint.
+     */
+    /* package */ static boolean isFixedPointDecimal(Property property) {
+        if (property.getType() instanceof PrimitiveType) {
+            Object decimalSubType = PrimitivesUtil.getFacetPropertyValue(
+                    (PrimitiveType) property.getType(),
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                    property,
+                    /* falbackToBaseType */ true);
+            return (decimalSubType instanceof EnumerationLiteral)
+                    && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                            ((EnumerationLiteral) decimalSubType).getName());
+        }
+        return false;
     }
 
 }
