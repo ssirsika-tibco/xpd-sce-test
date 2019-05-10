@@ -11,6 +11,7 @@ import org.eclipse.uml2.uml.EnumerationLiteral;
 
 import com.tibco.xpd.bom.resources.ui.Activator;
 import com.tibco.xpd.bom.resources.ui.BOMImages;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 
 /**
  *
@@ -79,7 +80,8 @@ public class TerminalStateLabelProvider implements ILabelProvider {
     @Override
     public String getText(Object element) {
         if (element instanceof EnumerationLiteral) {
-            return ((EnumerationLiteral) element).getLabel();
+            return PrimitivesUtil.getDisplayLabel((EnumerationLiteral) element,
+                    true);
         }
         return null;
     }
