@@ -109,9 +109,6 @@ public interface CDSIssueIds {
     public static final String ATTRIBUTE_GLOBAL_TYPE_NOT_CID =
             "bom.cds.attribute.global.type.notcid.issue"; //$NON-NLS-1$
 
-    public static final String ATTRIBUTE_GLOBAL_TYPE_NOT_AUTO_CID =
-            "bom.cds.attribute.global.type.notautocid.issue"; //$NON-NLS-1$
-
     public static final String ATTRIBUTE_GLOBAL_TYPE_NUMERIC_LENGTH =
             "bom.cds.attribute.global.type.numeric.length.issue"; //$NON-NLS-1$
 

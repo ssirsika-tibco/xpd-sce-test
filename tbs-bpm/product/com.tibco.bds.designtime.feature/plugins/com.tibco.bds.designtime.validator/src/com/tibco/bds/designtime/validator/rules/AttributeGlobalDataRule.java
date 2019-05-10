@@ -167,13 +167,10 @@ public class AttributeGlobalDataRule implements IValidationRule {
         // Handle the rules for Case Identifiers
         boolean isCID = BOMGlobalDataUtils.isCID(prop);
         if (BOMGlobalDataUtils.isAutoCID(prop)) {
-            // Auto case identifiers must be integers
-            String typeName = primType.getName();
-            if (!PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME.equals(typeName)) {
-                scope.createIssue(CDSIssueIds.ATTRIBUTE_GLOBAL_TYPE_NOT_AUTO_CID,
-                        BOMValidationUtil.getLocation(prop),
-                        prop.eResource().getURIFragment(prop));
-            }
+            /*
+             * Sid ACE-526: Auto case Id's must now be text (but this is
+             * implemented by AceCaseClassRules now; So removed check from here.
+             */
         } else if (isCID) {
             String typeName = primType.getName();
 
