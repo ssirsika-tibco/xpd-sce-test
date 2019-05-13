@@ -111,7 +111,7 @@ public class GlobalDataCdmTransformTest
         ///////// Auto Case Identifier ////////////////
         StructuredType orderClass =
                 cdmModel.getStructuredTypeByName("Order");
-        Attribute orderNoAttr = assertAttribute(classLoginDetails,
+        Attribute orderNoAttr = assertAttribute(orderClass,
                 "orderNo",
                 "base:Text",
                 mandatory,
@@ -146,7 +146,7 @@ public class GlobalDataCdmTransformTest
                 /* expected */ "pre",
                 /* actual */ autoCidInfo.getPrefix());
         assertEquals(orderIdMessage.apply("suffix"),
-                /* expected */ "pre",
+                /* expected */ "post",
                 /* actual */ autoCidInfo.getSuffix());
 
         ///////// Case State ////////////////
