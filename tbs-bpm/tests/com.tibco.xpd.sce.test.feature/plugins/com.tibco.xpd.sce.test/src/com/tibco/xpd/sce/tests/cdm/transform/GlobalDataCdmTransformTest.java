@@ -13,8 +13,10 @@ import org.junit.Assert;
 
 import com.tibco.bpm.da.dm.api.Attribute;
 import com.tibco.bpm.da.dm.api.DataModel;
+import com.tibco.bpm.da.dm.api.IdentifierInitialisationInfo;
 import com.tibco.bpm.da.dm.api.StateModel;
 import com.tibco.bpm.da.dm.api.StructuredType;
+import com.tibco.xpd.bom.globaldata.api.AutoCaseIdProperties;
 import com.tibco.xpd.n2.cdm.transform.BomConstraintTransformer.NameValuePair;
 
 /**
@@ -38,6 +40,9 @@ import com.tibco.xpd.n2.cdm.transform.BomConstraintTransformer.NameValuePair;
 @SuppressWarnings("nls")
 public class GlobalDataCdmTransformTest
         extends AbstractSingleBomCdmTransformTest {
+
+    private static final AutoCaseIdProperties AUTO_CID_PROPS =
+            new AutoCaseIdProperties();
 
     /**
      * @see com.tibco.xpd.sce.tests.cdm.transform.AbstractSingleBomCdmTransformTest#getBomFileName()
@@ -74,7 +79,7 @@ public class GlobalDataCdmTransformTest
                 classLoginDetails.getIsCase());
         assertStateModel(classLoginDetails,
                 Arrays.asList(new State("s1", "S1", false),
-                        new State("s2", "S2", false)));
+                        new State("s2", "S2", /* terminal */ true)));
 
         // Assert Attributes
 
@@ -103,6 +108,47 @@ public class GlobalDataCdmTransformTest
                 /* expected */ true,
                 /* actual */ loginIdAttr.getIsSearchable());
 
+        ///////// Auto Case Identifier ////////////////
+        StructuredType orderClass =
+                cdmModel.getStructuredTypeByName("Order");
+        Attribute orderNoAttr = assertAttribute(classLoginDetails,
+                "orderNo",
+                "base:Text",
+                mandatory,
+                !array);
+        assertConstraints(orderNoAttr,
+                Arrays.asList(new NameValuePair("length", "50")));
+        assertDefaultValue(orderNoAttr, null);
+
+        Function<String, String> orderIdMessage =
+                facet -> String.format("Class: '%s' Attr: '%s', facet: '%s'",
+                        classLoginDetails.getName(),
+                        orderNoAttr.getName(),
+                        facet);
+        assertEquals(orderIdMessage.apply("isIdentifier"),
+                /* expected */ true,
+                /* actual */ orderNoAttr.getIsIdentifier());
+        assertEquals(orderIdMessage.apply("isSummary"),
+                /* expected */ true,
+                /* actual */ orderNoAttr.getIsSummary());
+        assertEquals(orderIdMessage.apply("isSearchable"),
+                /* expected */ true,
+                /* actual */ orderNoAttr.getIsSearchable());
+        assertEquals(orderIdMessage.apply("isSearchable"),
+                /* expected */ true,
+                /* actual */ orderNoAttr.getIsSearchable());
+        IdentifierInitialisationInfo autoCidInfo =
+                orderClass.getIdentifierInitialisationInfo();
+        assertEquals(orderIdMessage.apply("minDigits"),
+                /* expected */ Integer.valueOf(10),
+                /* actual */ autoCidInfo.getMinNumLength());
+        assertEquals(orderIdMessage.apply("prefix"),
+                /* expected */ "pre",
+                /* actual */ autoCidInfo.getPrefix());
+        assertEquals(orderIdMessage.apply("suffix"),
+                /* expected */ "pre",
+                /* actual */ autoCidInfo.getSuffix());
+
         ///////// Case State ////////////////
         Attribute caseState = assertAttribute(classLoginDetails,
                 "caseState1",
@@ -126,7 +172,7 @@ public class GlobalDataCdmTransformTest
                 /* expected */ true,
                 /* actual */ caseState.getIsSearchable());
 
-        ///////// Case State ////////////////
+        ///////// Searchable Name ////////////////
         Attribute searchableName = assertAttribute(classLoginDetails,
                 "name",
                 "base:Text",
@@ -160,6 +206,7 @@ public class GlobalDataCdmTransformTest
                 "Address",
                 mandatory,
                 !array);
+
     }
 
     /** RepresentS a state . 'name' is a state label. */

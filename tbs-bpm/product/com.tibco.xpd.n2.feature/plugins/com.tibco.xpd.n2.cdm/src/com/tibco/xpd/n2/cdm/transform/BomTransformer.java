@@ -5,6 +5,9 @@
 package com.tibco.xpd.n2.cdm.transform;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -26,11 +29,13 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bpm.da.dm.api.Attribute;
 import com.tibco.bpm.da.dm.api.BaseType;
 import com.tibco.bpm.da.dm.api.DataModel;
+import com.tibco.bpm.da.dm.api.IdentifierInitialisationInfo;
 import com.tibco.bpm.da.dm.api.Link;
 import com.tibco.bpm.da.dm.api.LinkEnd;
 import com.tibco.bpm.da.dm.api.StateModel;
 import com.tibco.bpm.da.dm.api.StructuredType;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cdm.internal.Messages;
@@ -53,6 +58,9 @@ public class BomTransformer {
     /** Transforms BOM constraints to CDM constraints. */
     private static final BomConstraintTransformer CONSTRANT_TRANSFORMER =
             new BomConstraintTransformer();
+
+    private static final TerminalStateProperties TERM_STATES_PROPS =
+            new TerminalStateProperties();
 
     /**
      * Prefix for CDM base type.
@@ -185,14 +193,32 @@ public class BomTransformer {
             cdmAttribute.setIsSummary(true);
             cdmAttribute.setIsSearchable(true);
             if (BOMGlobalDataUtils.isAutoCID(bomAttribute)) {
-                // TODO: Add IdentifierInitialisationInfo when the information
-                // is provided in BOM.
-                // IdentifierInitialisationInfo idInfo =
-                // cdmType.newIdentifierInitialisationInfo();
-                // idInfo.setMinNumLength(minNumLength);
-                // idInfo.setPrefix(prefix);
-                // idInfo.setSuffix(suffix);
-                // idInfo.setStart(start);
+                IdentifierInitialisationInfo idInfo =
+                        cdmType.newIdentifierInitialisationInfo();
+                // minDigits
+                Object minDigits =
+                        BOMGlobalDataUtils.getAutoCidPropetyValue(bomAttribute,
+                                BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS);
+                if (minDigits instanceof Integer) {
+                    idInfo.setMinNumLength(((Integer) minDigits).intValue());
+                }
+
+                // prefix
+                Object prefix =
+                        BOMGlobalDataUtils.getAutoCidPropetyValue(bomAttribute,
+                                BOMGlobalDataUtils.AutoCidProperty.PREFIX);
+                if (prefix instanceof String) {
+                    idInfo.setPrefix((String) prefix);
+                }
+
+                // suffix
+                Object suffix =
+                        BOMGlobalDataUtils.getAutoCidPropetyValue(bomAttribute,
+                                BOMGlobalDataUtils.AutoCidProperty.SUFFIX);
+                if (suffix instanceof String) {
+                    idInfo.setSuffix((String) suffix);
+                }
+
             }
         } else if (isStateAttribute) {
             // Case State
@@ -200,18 +226,19 @@ public class BomTransformer {
             cdmAttribute.setIsSummary(true);
             cdmAttribute.setIsSearchable(true);
 
-            // Hint from Nick - Use:
-
-            // EList<EnumerationLiteral> terminal = new
-            // TerminalStateProperties().getTerminalStates(bomAttribute);
-
+            List<EnumerationLiteral> terminalStates =
+                    TERM_STATES_PROPS.getTerminalStates(bomAttribute);
+            terminalStates = (terminalStates != null ? terminalStates
+                    : Collections.emptyList());
+            Collection<String> terminalStateNames = terminalStates.stream()
+                    .map(state -> state.getName()).collect(Collectors.toSet());
             Collection<EnumerationLiteral> states =
                     CONSTRANT_TRANSFORMER.getAllowedValues(bomAttribute);
             if (!states.isEmpty()) {
                 StateModel stateModel = cdmType.newStateModel();
                 states.stream().forEach(state -> {
-                    // TODO: Set terminal states when they are available in BOM.
-                    boolean isTerminal = false;
+                    boolean isTerminal =
+                            terminalStateNames.contains(state.getName());
                     stateModel.newState(getLabel(state),
                             state.getName(),
                             isTerminal);

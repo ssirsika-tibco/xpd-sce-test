@@ -9,6 +9,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.bom.globaldata.api.AutoCaseIdProperties;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
@@ -37,6 +38,9 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  * @since 16 Apr 2019
  */
 public class AceCaseClassRules implements IValidationRule {
+
+    private static final AutoCaseIdProperties AUTO_CID_PROPS =
+            new AutoCaseIdProperties();
 
     private static final String ISSUE_ACE_COMPOSITE_CASEID =
             "ace.bom.composite.caseid"; //$NON-NLS-1$
@@ -247,30 +251,12 @@ public class AceCaseClassRules implements IValidationRule {
 
         // Auto case identifier minimum digits must not be greater than 15
         if (BOMGlobalDataUtils.isAutoCID(property)) {
-            int minDigits = getMinDigits(property).intValue();
+            int minDigits = AUTO_CID_PROPS.getMinDigits(property).intValue();
             if (minDigits > 15) {
                 scope.createIssue(ISSUE_ACE_MIN_DIGITS_MAX_15,
                         BOMValidationUtil.getLocation(property),
                         property.eResource().getURIFragment(property));
             }
         }
-    }
-
-    /**
-     * Gets the minimal number of digits in the auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @return the current value of minDigits as set in the tagged value or
-     *         default 0 if not set.
-     */
-    private Integer getMinDigits(Property prop) {
-        Object value = BOMGlobalDataUtils
-                .getAutoCidPropetyValue(prop,
-                        BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS);
-        if (value instanceof Integer) {
-            return (Integer) value;
-        }
-        return Integer.valueOf(0);
     }
 }

@@ -21,6 +21,7 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
+import com.tibco.xpd.bom.globaldata.api.AutoCaseIdProperties;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
@@ -43,6 +44,9 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
     private Text prefixText;
 
     private Text suffixText;
+
+    private static final AutoCaseIdProperties AUTO_CID_PROPS =
+            new AutoCaseIdProperties();
 
     /**
      * @see com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection#shouldDisplay(org.eclipse.emf.ecore.EObject)
@@ -124,38 +128,39 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
         if (obj == minDigitsText) {
             Integer newMinDigits = minDigitsText.getText().trim().isEmpty() ? 0
                     : Integer.valueOf(minDigitsText.getText().trim());
-            Integer currentMinDigits = getMinDigits(prop);
+            Integer currentMinDigits = AUTO_CID_PROPS.getMinDigits(prop);
             // Only need to run the command if the value has changed
             if (!newMinDigits.equals(currentMinDigits)) {
                 return new RecordingCommand(
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        setMinDigits(prop, minDigitsText.getText());
+                        AUTO_CID_PROPS.setMinDigits(prop,
+                                minDigitsText.getText());
                     }
                 };
             }
         } else if (obj == prefixText) {
             String newPrefix = prefixText.getText();
-            String currentPrefix = getPrefix(prop);
+            String currentPrefix = AUTO_CID_PROPS.getPrefix(prop);
             if (!newPrefix.equals(currentPrefix)) {
                 return new RecordingCommand(
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        setPrefix(prop, newPrefix);
+                        AUTO_CID_PROPS.setPrefix(prop, newPrefix);
                     }
                 };
             }
         } else if (obj == suffixText) {
             String newSuffix = suffixText.getText();
-            String currentSuffix = getPrefix(prop);
+            String currentSuffix = AUTO_CID_PROPS.getPrefix(prop);
             if (!newSuffix.equals(currentSuffix)) {
                 return new RecordingCommand(
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        setSuffix(prop, newSuffix);
+                        AUTO_CID_PROPS.setSuffix(prop, newSuffix);
                     }
                 };
             }
@@ -174,9 +179,10 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
         }
         if (minDigitsText != null && !minDigitsText.isDisposed()) {
             if (BOMGlobalDataUtils.isAutoCID(prop)) {
-                updateText(minDigitsText, getMinDigits(prop).toString());
-                updateText(prefixText, getPrefix(prop));
-                updateText(suffixText, getSuffix(prop));
+                updateText(minDigitsText,
+                        AUTO_CID_PROPS.getMinDigits(prop).toString());
+                updateText(prefixText, AUTO_CID_PROPS.getPrefix(prop));
+                updateText(suffixText, AUTO_CID_PROPS.getSuffix(prop));
             }
         }
     }
@@ -218,110 +224,5 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
             }
         }
         return false;
-    }
-
-    /* Getters and setter for AutoCaseId stereotype properties */
-    /**
-     * Gets the minimal number of digits in the auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @return the current value of minDigits as set in the tagged value or
-     *         default 0 if not set.
-     */
-    private Integer getMinDigits(Property prop) {
-        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS);
-        if (value instanceof Integer) {
-            return (Integer) value;
-        }
-        return Integer.valueOf(0);
-    }
-
-    /**
-     * Sets minimal number of digits in the auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @param minDigits
-     *            minDigitst to set. If the minDigits is null or empty string
-     *            then minDigits is set to null.
-     */
-    private void setMinDigits(Property prop, String minDigits) {
-        Integer minDigitsInteger = null;
-        if (minDigits != null && !minDigits.isEmpty()) {
-            minDigitsInteger = Integer.valueOf(minDigits);
-        }
-        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.MIN_DIGITS,
-                minDigitsInteger);
-    }
-
-    /**
-     * Gets prefix of auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @return prefix of auto generated identifier or empty string if prefix is
-     *         not defined.
-     */
-    private String getPrefix(Property prop) {
-        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.PREFIX);
-        if (value instanceof String) {
-            return (String) value;
-        }
-        return ""; //$NON-NLS-1$
-    }
-
-    /**
-     * Sets the prefix of of auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @param prefix
-     *            the prefix to set.
-     */
-    private void setPrefix(Property prop, String prefix) {
-        if (prefix != null && prefix.isEmpty()) {
-            prefix = null; // Unset empty string value.
-        }
-        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.PREFIX,
-                prefix);
-    }
-
-    /**
-     * Gets suffix of auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @return suffix of auto generated identifier or empty string if suffix is
-     *         not defined.
-     */
-    private String getSuffix(Property prop) {
-        Object value = BOMGlobalDataUtils.getAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.SUFFIX);
-        if (value instanceof String) {
-            return (String) value;
-        }
-        return ""; //$NON-NLS-1$
-    }
-
-    /**
-     * Sets the suffix of of auto generated identifier.
-     * 
-     * @param prop
-     *            the case id class attribute.
-     * @param suffix
-     *            the suffix to set.
-     */
-    private void setSuffix(Property prop, String suffix) {
-        if (suffix != null && suffix.isEmpty()) {
-            suffix = null; // Unset empty string value.
-        }
-        BOMGlobalDataUtils.setAutoCidPropetyValue(prop,
-                BOMGlobalDataUtils.AutoCidProperty.SUFFIX,
-                suffix);
     }
 }

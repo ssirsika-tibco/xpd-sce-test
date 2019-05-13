@@ -90,11 +90,21 @@
           <contents xmi:type="elx:SingleValue" xmi:id="_oCsbQGEjEemTRLNbCtkHyg" value="ACTIVE"/>
         </eAnnotations>
       </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8359EHVPEemVWN7t04t45w" name="DEAD" classifier="_nwl-oGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomerState?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_83-OgHVPEemVWN7t04t45w" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_83-OgXVPEemVWN7t04t45w" value="DEAD"/>
+        </eAnnotations>
+      </ownedLiteral>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_ziNykGEjEemTRLNbCtkHyg" name="ProductState">
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_51DCkGEjEemTRLNbCtkHyg" name="AVAILABLE" classifier="_ziNykGEjEemTRLNbCtkHyg?com.example.links%3a%3aProductState?">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_51EQsGEjEemTRLNbCtkHyg" source="domain">
           <contents xmi:type="elx:SingleValue" xmi:id="_51EQsWEjEemTRLNbCtkHyg" value="AVAILABLE"/>
+        </eAnnotations>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-Ot_AHVPEemVWN7t04t45w" name="DISCONTINUED" classifier="_ziNykGEjEemTRLNbCtkHyg?com.example.links%3a%3aProductState?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-OvNIHVPEemVWN7t04t45w" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_-OvNIXVPEemVWN7t04t45w" value="DISCONTINUED"/>
         </eAnnotations>
       </ownedLiteral>
     </packagedElement>
@@ -241,6 +251,9 @@
         <children xmi:type="notation:Node" xmi:id="_oCxTwGEjEemTRLNbCtkHyg" type="2003" element="_oCrNIGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomerState%3a%3aACTIVE?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_oCxTwWEjEemTRLNbCtkHyg"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_84wRoHVPEemVWN7t04t45w" type="2003" element="_8359EHVPEemVWN7t04t45w?com.example.links%3a%3aCustomerState%3a%3aDEAD?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_84wRoXVPEemVWN7t04t45w"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_nw0oJGEjEemTRLNbCtkHyg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_nw0oJWEjEemTRLNbCtkHyg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_nw0oJmEjEemTRLNbCtkHyg"/>
@@ -256,6 +269,9 @@
       <children xmi:type="notation:Node" xmi:id="_ziZYw2EjEemTRLNbCtkHyg" type="5004">
         <children xmi:type="notation:Node" xmi:id="_51JJMGEjEemTRLNbCtkHyg" type="2003" element="_51DCkGEjEemTRLNbCtkHyg?com.example.links%3a%3aProductState%3a%3aAVAILABLE?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_51JJMWEjEemTRLNbCtkHyg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-O160HVPEemVWN7t04t45w" type="2003" element="_-Ot_AHVPEemVWN7t04t45w?com.example.links%3a%3aProductState%3a%3aDISCONTINUED?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-O160XVPEemVWN7t04t45w"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_ziZYxGEjEemTRLNbCtkHyg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_ziZYxWEjEemTRLNbCtkHyg"/>
@@ -334,13 +350,15 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_TDbCcGEXEemTRLNbCtkHyg" displayLabel="InProgress" base_NamedElement="_TDZ0UGEXEemTRLNbCtkHyg?com.example.links%3a%3aOrderPhase%3a%3aINPROGRESS?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_Ww-5UGEXEemTRLNbCtkHyg" displayLabel="InTransit" base_NamedElement="_Ww-SQGEXEemTRLNbCtkHyg?com.example.links%3a%3aOrderPhase%3a%3aINTRANSIT?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_ZJu5YGEXEemTRLNbCtkHyg" displayLabel="Delivered" base_NamedElement="_ZJuSUGEXEemTRLNbCtkHyg?com.example.links%3a%3aOrderPhase%3a%3aDELIVERED?"/>
-  <BOMGlobalDataProfile:CaseState xmi:id="_frzBwGEjEemTRLNbCtkHyg" base_Property="_khFlcGESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3aphase?"/>
-  <BOMGlobalDataProfile:CaseState xmi:id="_iwGgQGEjEemTRLNbCtkHyg" base_Property="_iwFSIGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3astatus?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_frzBwGEjEemTRLNbCtkHyg" base_Property="_khFlcGESEemTRLNbCtkHyg?com.example.links%3a%3aOrder%3a%3aphase?" terminalStates="_ZJuSUGEXEemTRLNbCtkHyg?com.example.links%3a%3aOrderPhase%3a%3aDELIVERED?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_iwGgQGEjEemTRLNbCtkHyg" base_Property="_iwFSIGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3astatus?" terminalStates="_8359EHVPEemVWN7t04t45w?com.example.links%3a%3aCustomerState%3a%3aDEAD?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_iwHHUGEjEemTRLNbCtkHyg" displayLabel="status" base_NamedElement="_iwFSIGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomer%3a%3astatus?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_nwmlsGEjEemTRLNbCtkHyg" displayLabel="CustomerState" base_NamedElement="_nwl-oGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomerState?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_oCr0MGEjEemTRLNbCtkHyg" displayLabel="Active" base_NamedElement="_oCrNIGEjEemTRLNbCtkHyg?com.example.links%3a%3aCustomerState%3a%3aACTIVE?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_ziOZoGEjEemTRLNbCtkHyg" displayLabel="ProductState" base_NamedElement="_ziNykGEjEemTRLNbCtkHyg?com.example.links%3a%3aProductState?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_51DpoGEjEemTRLNbCtkHyg" displayLabel="Available" base_NamedElement="_51DCkGEjEemTRLNbCtkHyg?com.example.links%3a%3aProductState%3a%3aAVAILABLE?"/>
-  <BOMGlobalDataProfile:CaseState xmi:id="_-ZfeIGEjEemTRLNbCtkHyg" base_Property="_-Ze3EGEjEemTRLNbCtkHyg?com.example.links%3a%3aProduct%3a%3astate?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_-ZfeIGEjEemTRLNbCtkHyg" base_Property="_-Ze3EGEjEemTRLNbCtkHyg?com.example.links%3a%3aProduct%3a%3astate?" terminalStates="_-Ot_AHVPEemVWN7t04t45w?com.example.links%3a%3aProductState%3a%3aDISCONTINUED?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_-ZgFMGEjEemTRLNbCtkHyg" displayLabel="state" base_NamedElement="_-Ze3EGEjEemTRLNbCtkHyg?com.example.links%3a%3aProduct%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_837LMHVPEemVWN7t04t45w" displayLabel="Dead" base_NamedElement="_8359EHVPEemVWN7t04t45w?com.example.links%3a%3aCustomerState%3a%3aDEAD?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-OumEHVPEemVWN7t04t45w" displayLabel="Discontinued" base_NamedElement="_-Ot_AHVPEemVWN7t04t45w?com.example.links%3a%3aProductState%3a%3aDISCONTINUED?"/>
 </xmi:XMI>
