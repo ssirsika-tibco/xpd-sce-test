@@ -4,6 +4,7 @@
 package com.tibco.xpd.bom.modeler.diagram.edit.commands;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -42,14 +43,14 @@ public class PropertyCreateCommand extends CreateElementCommand {
      */
     public PropertyCreateCommand(CreateElementRequest req) {
         super(req);
-        stereo =
-                (Stereotype) req
-                        .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.STEREOTYPE);
+        stereo = (Stereotype) req.getParameter(
+                BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.STEREOTYPE);
     }
 
     /**
      * @generated
      */
+    @Override
     protected EObject getElementToEdit() {
         EObject container =
                 ((CreateElementRequest) getRequest()).getContainer();
@@ -62,6 +63,7 @@ public class PropertyCreateCommand extends CreateElementCommand {
     /**
      * @generated
      */
+    @Override
     protected EClass getEClassToEdit() {
         return UMLPackage.eINSTANCE.getStructuredClassifier();
     }
@@ -69,11 +71,17 @@ public class PropertyCreateCommand extends CreateElementCommand {
     /**
      * @generated NOT
      */
+    @Override
     protected EObject doDefaultElementCreation() {
 
         Property newElement = (Property) super.doDefaultElementCreation();
 
         if (newElement != null) {
+            Predicate<StereotypeKind> hasStereo = kind -> {
+                return stereo != null && (stereo.equals(GlobalDataProfileManager
+                        .getInstance().getStereotype(kind)));
+            };
+
             UMLElementTypes.init_Property_2001(newElement);
             String defaultName = null;
 
@@ -82,21 +90,20 @@ public class PropertyCreateCommand extends CreateElementCommand {
             List<Stereotype> lstStereos = newElement.getAppliedStereotypes();
             if (!lstStereos.isEmpty()) {
                 String name = lstStereos.get(0).getLabel();
-                defaultName =
-                        UML2ModelUtil
-                                .createUniquePropertyName(newElement, name);
+                defaultName = UML2ModelUtil.createUniquePropertyName(newElement,
+                        name);
             } else if (stereo != null) {
                 UML2ModelUtil.safeApplyStereotype(newElement, stereo);
-                defaultName =
-                        UML2ModelUtil.createUniquePropertyName(newElement,
-                                stereo.getName());
-            } else if (getRequest()
-                    .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME) != null) {
+                defaultName = UML2ModelUtil.createUniquePropertyName(newElement,
+                        stereo.getName());
+            } else if (getRequest().getParameter(
+                    BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME) != null) {
                 defaultName = (String) getRequest().getParameter(
-                // If the default name parameter has been set then use it,
-                // otherwise
-                // use default name
-                BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME);
+                        // If the default name parameter has been set then use
+                        // it,
+                        // otherwise
+                        // use default name
+                        BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME);
             } else {
                 defaultName =
                         UML2ModelUtil.createUniquePropertyName(newElement);
@@ -110,45 +117,35 @@ public class PropertyCreateCommand extends CreateElementCommand {
             newElement.setAggregation(AggregationKind.COMPOSITE_LITERAL);
 
             // If the type has been defined then set this as the default
-            Object type =
-                    getRequest()
-                            .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.TYPE);
+            Object type = getRequest().getParameter(
+                    BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.TYPE);
             if (type instanceof Type) {
                 newElement.setType((Type) type);
             } else {
-                ResourceSet rset =
-                        XpdResourcesPlugin.getDefault().getEditingDomain()
-                                .getResourceSet();
+                ResourceSet rset = XpdResourcesPlugin.getDefault()
+                        .getEditingDomain().getResourceSet();
                 // XPD-4793 GlobalData: set default mandatory values for
                 // AutoCaseIdentifier property
-                if (stereo != null
-                        && stereo
-                                .equals(GlobalDataProfileManager
-                                        .getInstance()
-                                        .getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER))) {
-                    BOMGlobalDataUtils
-                            .setAutoCaseIdentifierRestrictions(newElement, rset);
-                } else if (stereo != null
-                        && stereo.equals(GlobalDataProfileManager.getInstance()
-                                .getStereotype(StereotypeKind.CASE_STATE))) {
+                if (hasStereo.test(StereotypeKind.AUTO_CASE_IDENTIFIER)) {
+                    BOMGlobalDataUtils.setAutoCaseIdentifierRestrictions(
+                            newElement,
+                            rset);
+                } else if (hasStereo.test(StereotypeKind.CASE_STATE)) {
                     // For the Case State we do not set a type, so do
                     // nothing, the type is already not-set by default
                 } else {
-                    newElement.setType(PrimitivesUtil
-                            .getDefaultPrimitiveType(rset));
+                    newElement.setType(
+                            PrimitivesUtil.getDefaultPrimitiveType(rset));
                 }
 
             }
-            // Standard case identifiers and Composite identifiers need an
-            // upper limit of 1
-            if (stereo != null
-                    && (stereo.equals(GlobalDataProfileManager.getInstance()
-                            .getStereotype(StereotypeKind.CID)) || (stereo
-                            .equals(GlobalDataProfileManager
-                                    .getInstance()
-                                    .getStereotype(StereotypeKind.COMPOSITE_CASE_IDENTIFIER))))) {
+            // All case identifiers and case state need lower limit of 1.
+            if (hasStereo.test(StereotypeKind.CID)
+                    || hasStereo.test(StereotypeKind.COMPOSITE_CASE_IDENTIFIER)
+                    || hasStereo.test(StereotypeKind.AUTO_CASE_IDENTIFIER)
+                    || hasStereo.test(StereotypeKind.CASE_STATE)) {
                 // XPD-4793 : CaseIdentifiers are mandatory with upperlimit 1.
-                newElement.setLower(DEFAULT_UPPER_VALUE);
+                newElement.setLower(/* mandatory */ 1);
             } else {
                 newElement.setLower(DEFAULT_LOWER_VALUE);
             }

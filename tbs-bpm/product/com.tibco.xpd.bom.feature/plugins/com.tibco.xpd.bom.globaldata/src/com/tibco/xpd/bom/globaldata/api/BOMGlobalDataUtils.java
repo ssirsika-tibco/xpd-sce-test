@@ -517,9 +517,6 @@ public class BOMGlobalDataUtils {
                 PrimitivesUtil.getStandardPrimitiveTypeByName(rset,
                         PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         newElement.setType(primType);
-        newElement.setUpper(1);
-        newElement.setLower(1);
-
         newElement.setIsReadOnly(true);
     }
 

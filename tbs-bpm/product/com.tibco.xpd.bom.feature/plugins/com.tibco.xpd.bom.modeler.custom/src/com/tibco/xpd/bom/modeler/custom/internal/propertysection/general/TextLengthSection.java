@@ -36,7 +36,9 @@ public class TextLengthSection extends AbstractGeneralSection {
         if (eo instanceof Property) {
 
             // Hide for caseId of type Auto.
-            if (BOMGlobalDataUtils.isAutoCID((Property) eo)) {
+            Property prop = (Property) eo;
+            if (BOMGlobalDataUtils.isAutoCID(prop)
+                    || BOMGlobalDataUtils.isCaseState(prop)) {
                 return false;
             }
             // We need to support all properties, as in theory the type could be
