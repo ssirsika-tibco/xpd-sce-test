@@ -1,0 +1,46 @@
+<?xml  version="1.0"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>---Universal Installer Silent Installation Properties---</comment>
+
+<!--accept the license agreement-->
+<entry key="acceptLicense">true</entry>
+
+<!--the root installation directory-->
+<!--if the product does not support multiple instances and TIBCO_HOME has already been set then-->
+<!--this value is ignored and the existing TIBCO_HOME is used as the installation root-->
+<entry key="installationRoot">/opt/TIBCO/studio-cloud-bpm</entry>
+
+<!--If using an existing environment then the installationRoot AND environmentName MUST match a pre-existing environment-->
+<!--If creating a new environment then the installationRoot AND environmentName MUST BE UNIQUE and not match a pre-existing environment-->
+<entry key="environmentName">studio-cloud-bpm</entry>
+
+<!--Profiles Selection-->
+<!-- The 'selectedProfiles' value is a comma separated list of profiles to install. If a profile is listed which does not exist, then it is ignored. At least one profile must be listed if useInstallProfile is set to true -->
+<!-- if useInstallProfile is set to true then product Feature Settings will be ignored -->
+<entry key="useInstallProfile">true</entry>
+<entry key="selectedProfiles">Solution Designer</entry>
+
+<!--Settings for using customer provided Eclipse-->
+<!--If a customer provided Eclipse is used, the usePersona setting MUST be set to false-->
+<entry key="useCustomerProvidedEclipse">false</entry>
+
+<!-- A prerequisite is to install hibernate. This can be done by downloading hibernate or specifying the absolute path to the hibernate location on the system. To download hibernate, please specify downloadHibernate to true. To specify the absolute path of hibernate on the system instead, set downloadHibernate to false and hibernatePath value should be set to <absolute directory path> under which assembly_tibco_com_tibco_tpcl_org_hibernate_feature_3.2.500.002.zip is located.-->
+<entry key="downloadHibernate">true</entry>
+<entry key="hibernatePath"></entry>
+
+<entry key="LGPLAssemblyLicenseAccepted">true</entry>
+<entry key="LGPLAssemblyDownload">true</entry>
+<entry key="LGPLAssemblyPath"></entry>
+
+<!--Product Feature Settings
+In order to perform feature based silent installation, set 'useInstallProfile' entry to 'false' and then add product feature entries using the following format:
+
+<entry key="feature_<featureName>_<productID>">true</entry>
+
+For example:
+
+<entry key="feature_BPM Development Tools_business-studio-cloud-bpm-edition">true</entry>
+-->
+
+</properties>
