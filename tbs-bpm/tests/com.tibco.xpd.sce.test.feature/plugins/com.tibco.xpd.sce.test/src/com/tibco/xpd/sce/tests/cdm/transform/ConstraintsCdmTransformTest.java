@@ -177,21 +177,30 @@ public class ConstraintsCdmTransformTest
                 "base:Date",
                 !mandatory,
                 !array);
-        assertDefaultValue(dateAttr, "2019-04-05");
+        // ACE-738: Default values for Date, Time and DatetimeTZ will not be
+        // applied to the CDM model.
+        // assertDefaultValue(dateAttr, "2019-04-05");
+        assertDefaultValue(dateAttr, null);
         //////////////////////
         Attribute timeAttr = assertAttribute(classA,
                 "timeAttr",
                 "base:Time",
                 !mandatory,
                 !array);
-        assertDefaultValue(timeAttr, "14:58");
+        // ACE-738: Default values for Date, Time and DatetimeTZ will not be
+        // applied to the CDM model.
+        // assertDefaultValue(timeAttr, "14:58");
+        assertDefaultValue(timeAttr, null);
         //////////////////////
         Attribute dateTimeTzAttr = assertAttribute(classA,
                 "dateTimeTzAttr",
                 "base:DateTimeTZ",
                 !mandatory,
                 !array);
-        assertDefaultValue(dateTimeTzAttr, "2019-04-06T14:58:00.000+01:00");
+        // ACE-738: Default values for Date, Time and DatetimeTZ will not be
+        // applied to the CDM model.
+        // assertDefaultValue(dateTimeTzAttr, "2019-04-06T14:58:00.000+01:00");
+        assertDefaultValue(dateTimeTzAttr, null);
         //////////////////////
         Attribute uriAttr = assertAttribute(classA,
                 "uriAttr",

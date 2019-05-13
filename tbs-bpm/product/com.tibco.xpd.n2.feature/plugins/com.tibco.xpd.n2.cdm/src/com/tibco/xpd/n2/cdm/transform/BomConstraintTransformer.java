@@ -126,23 +126,36 @@ public class BomConstraintTransformer {
             case PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME:
                 return getFacetValue.apply(
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_BOOLEAN_DEFAULT_VALUE);
-            case PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME:
-                // "YYYY-MM-DD" for example "2019-04-28"
-                return getFacetValue.apply(
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_DEFAULT_VALUE);
-            case PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME:
-                // BOM time is: "hh:mm:ss" for example "16:13:00" -> CDM time is
-                // "hh:mm" for example "16:13"
-                return transformToCdmTime(getFacetValue.apply(
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_TIME_DEFAULT_VALUE));
-            case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
-                // for example: "2019-04-06T14:58:00.000+01:00"
-                return getFacetValue.apply(
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_TIME_TZ_DEFAULT_VALUE);
             case PrimitivesUtil.BOM_PRIMITIVE_URI_NAME:
                 // for example: "http://google.com"
                 return getFacetValue.apply(
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_URI_DEFAULT_VALUE);
+
+            /*
+             * ACE-738: Default values for Date, Time and DatetimeTZ will not be
+             * applied to the CDM model.
+             * 
+             * Note that initially we will not be supporting default values as
+             * per the email chain (I think you were on) that discussed the
+             * possibilities, at some point in the future we will do what
+             * LiveApps does and introduced the concept of "now" as a default
+             * value. This may not be until after V1 launch.
+             * 
+             */
+
+            // case PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME:
+            // // "YYYY-MM-DD" for example "2019-04-28"
+            // return getFacetValue.apply(
+            // PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_DEFAULT_VALUE);
+            // case PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME:
+            // // BOM time is: "hh:mm:ss" for example "16:13:00" -> CDM time is
+            // // "hh:mm" for example "16:13"
+            // return transformToCdmTime(getFacetValue.apply(
+            // PrimitivesUtil.BOM_PRIMITIVE_FACET_TIME_DEFAULT_VALUE));
+            // case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
+            // // for example: "2019-04-06T14:58:00.000+01:00"
+            // return getFacetValue.apply(
+            // PrimitivesUtil.BOM_PRIMITIVE_FACET_DATE_TIME_TZ_DEFAULT_VALUE);
             }
         }
         return null;
@@ -267,12 +280,10 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         if (minValue instanceof String) {
-            constraints
-                    .add(new NameValuePair(Constraint.NAME_MIN_VALUE,
-                            (String) minValue));
-            constraints.add(
-                    new NameValuePair(Constraint.NAME_MIN_VALUE_INCLUSIVE,
-                            TRUE_STRING));
+            constraints.add(new NameValuePair(Constraint.NAME_MIN_VALUE,
+                    (String) minValue));
+            constraints.add(new NameValuePair(
+                    Constraint.NAME_MIN_VALUE_INCLUSIVE, TRUE_STRING));
         }
 
         Object maxValue = PrimitivesUtil.getFacetPropertyValue(bomPrimitiveType,
@@ -280,12 +291,10 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         if (maxValue instanceof String) {
-            constraints
-                    .add(new NameValuePair(Constraint.NAME_MAX_VALUE,
-                            (String) maxValue));
-            constraints.add(
-                    new NameValuePair(Constraint.NAME_MAX_VALUE_INCLUSIVE,
-                            TRUE_STRING));
+            constraints.add(new NameValuePair(Constraint.NAME_MAX_VALUE,
+                    (String) maxValue));
+            constraints.add(new NameValuePair(
+                    Constraint.NAME_MAX_VALUE_INCLUSIVE, TRUE_STRING));
         }
 
         constraints.add(new NameValuePair(Constraint.NAME_DECIMAL_PLACES, "0")); //$NON-NLS-1$
@@ -322,9 +331,8 @@ public class BomConstraintTransformer {
                             bomProperty,
                             FALLBACK_TO_BASE_TYPE);
             if (length instanceof Integer) {
-                constraints
-                        .add(new NameValuePair(Constraint.NAME_LENGTH,
-                                length.toString()));
+                constraints.add(new NameValuePair(Constraint.NAME_LENGTH,
+                        length.toString()));
             }
 
             Object decimalPlaces =
@@ -335,7 +343,7 @@ public class BomConstraintTransformer {
             if (decimalPlaces instanceof Integer) {
                 constraints
                         .add(new NameValuePair(Constraint.NAME_DECIMAL_PLACES,
-                        decimalPlaces.toString()));
+                                decimalPlaces.toString()));
             }
         }
 
@@ -358,7 +366,7 @@ public class BomConstraintTransformer {
             if (lowerInclusive instanceof Boolean) {
                 constraints.add(
                         new NameValuePair(Constraint.NAME_MIN_VALUE_INCLUSIVE,
-                        lowerInclusive.toString()));
+                                lowerInclusive.toString()));
             }
         }
 
@@ -377,7 +385,7 @@ public class BomConstraintTransformer {
             if (upperInclusive instanceof Boolean) {
                 constraints.add(
                         new NameValuePair(Constraint.NAME_MAX_VALUE_INCLUSIVE,
-                        upperInclusive.toString()));
+                                upperInclusive.toString()));
             }
         }
 
