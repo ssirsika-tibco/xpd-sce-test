@@ -94,6 +94,8 @@ public class Bpm2CeProjectConfigPostImportTask
                             && !projectDetails.isGlobalDestinationEnabled(
                                     XpdConsts.ACE_DESTINATION_NAME)) {
 
+                        resetVersion(projectDetails, monitor);
+
                         resetDestinationEnvironments(projectDetails, monitor);
 
                         removeSpecialBuildFolders(projectConfig, monitor);
@@ -130,6 +132,25 @@ public class Bpm2CeProjectConfigPostImportTask
         } finally {
             monitor.done();
         }
+    }
+
+    /**
+     * Reset the version of all projects to 1.0.0.qualifier (in SCE we take full
+     * control of all versions and hence for these new-product projects it makes
+     * sense to reset the version number)
+     * 
+     * @param projectDetails
+     * @param monitor
+     */
+    private void resetVersion(ProjectDetails projectDetails,
+            IProgressMonitor monitor) {
+        monitor.subTask(
+                Messages.Bpm2CeProjectConfigPostImportTask_ResetVersion_status);
+
+        projectDetails.setVersion("1.0.0.qualifier"); //$NON-NLS-1$
+
+        monitor.subTask(""); //$NON-NLS-1$
+        monitor.worked(1);
     }
 
     /**

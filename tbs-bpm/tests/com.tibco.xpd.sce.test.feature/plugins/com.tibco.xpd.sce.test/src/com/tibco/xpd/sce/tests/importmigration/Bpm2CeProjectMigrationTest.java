@@ -107,6 +107,10 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
     // @Test
     public void testOrgProjectMigration() {
+        /*
+         * Sid ACE-992 - Org project also as a version of 2.3.4.qualifier so
+         * will test that version is reset to 1.0.0.qualifier
+         */
         ProjectImporter projectImporter =
                 doTestProject("ProjectMigrationTest_Org"); //$NON-NLS-1$
         projectImporter.performDelete();
@@ -740,6 +744,13 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 XpdResourcesPlugin.getDefault().getProjectConfig(project);
 
         ProjectDetails projectDetails = projectConfig.getProjectDetails();
+
+        /*
+         * Check version has been reset to 1.0.0.qualifier
+         */
+        assertTrue(projectName
+                + " project has not had its version set to 1.0.0.qualifier", //$NON-NLS-1$
+                "1.0.0.qualifier".equals(projectDetails.getVersion())); //$NON-NLS-1$
 
         /*
          * Check the project has only the CE destination set.
