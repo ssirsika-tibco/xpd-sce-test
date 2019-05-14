@@ -43,7 +43,7 @@ public class PhysicalWorkItemAttributesProvider {
      * WorkItem scripting.
      */
     private static final String WORK_ITEM_ATTRIBUTE_RESOURCE_URI =
-            "platform:/plugin/com.tibco.n2.common.model.eclipse/model/Business Objects/WorkItemScripting.bom"; //$NON-NLS-1$
+            "platform:/plugin/com.tibco.xpd.wm.validator/model/WorkItemScripting.bom"; //$NON-NLS-1$
 
     /**
      * List of Property which represent the work item Attributes.
