@@ -69,4 +69,69 @@
             validationDestinationId="com.tibco.xpd.destinations.empty">
       </globalDestinationComponentVersion>
    </extension>
+   
+   <!-- Sid ACE-1195 Moved WorkManagerFactory script binding from runtime com.tibco.n2.common.model.feature -->
+   	<extension point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+		<destination destinationId="n2pe1.x">
+			<scriptContribution scriptContext="ScheduleUserTask">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+			<scriptContribution scriptContext="OpenUserTask">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+
+			<scriptContribution scriptContext="CloseUserTask">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+
+			<scriptContribution scriptContext="SubmitUserTask">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+
+			<scriptContribution scriptContext="RescheduleUserTask">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+
+			<scriptContribution scriptContext="DataMapperWMMappingScripts">
+				<modelContributor
+						grammarId="JavaScript"
+						icon="icon/tibco16.gif"
+						id="com.tibco.n2.common.model.js.workItemModelContributor"
+						model="model/WorkItemScripting.bom"
+						name="com.tibco.n2.common.model.js.workItemModelContributor">
+				</modelContributor>
+			</scriptContribution>
+		</destination>
+	</extension>
+   
 </plugin>

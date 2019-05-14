@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_Z2-AkGriEeK5l7gdajX-Jw" name="com.tibco.n2.de.script">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z2-AkWriEeK5l7gdajX-Jw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z2-AkmriEeK5l7gdajX-Jw" key="author" value="mbarnett"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z2-Ak2riEeK5l7gdajX-Jw" key="created" value="1359556740503"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z2-AlGriEeK5l7gdajX-Jw" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kePhQGriEeK5l7gdajX-Jw" name="OrgModel">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhQWriEeK5l7gdajX-Jw" name="ouByGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhQmriEeK5l7gdajX-Jw" body="JavaScript ouByGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The ouByGuid method returns an EntityDetail object containing the details of the Organizational &#xD;&#xA;Unit matching the supplied unique ID.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.ouByGuid(guid);&#xD;&#xA;@return EntityDetail&#xD;&#xA;@param guid: Required. The unique ID of the Org Unit.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhQ2riEeK5l7gdajX-Jw" name="guid">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhRGriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhRWriEeK5l7gdajX-Jw" name="ouByName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhRmriEeK5l7gdajX-Jw" body="JavaScript ouByName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The ouByName method returns an array of EntityDetail objects containing the details of all the Organizational &#xD;&#xA;Units matching the supplied Org Unit name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.ouByName(name);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param name: Required. Name of the Org Unit.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhR2riEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhSGriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhSWriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhSmriEeK5l7gdajX-Jw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhS2riEeK5l7gdajX-Jw" name="groupByGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhTGriEeK5l7gdajX-Jw" body="JavaScript groupByGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The groupByGuid method returns an EntityDetail object containing the details of the Group&#xD;&#xA;matching the supplied unique ID.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.ouByName(guid);&#xD;&#xA;@return EntityDetail&#xD;&#xA;@param guid: Required. Unique ID of the group.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhTWriEeK5l7gdajX-Jw" name="guid">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhTmriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhT2riEeK5l7gdajX-Jw" name="groupByName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhUGriEeK5l7gdajX-Jw" body="JavaScript groupByName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The groupByName method returns an array of EntityDetail objects containing the details of all the Groups&#xD;&#xA;matching the supplied Group Name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.groupByName(name);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param name: Required. Name of the Group.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhUWriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhUmriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhU2riEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhVGriEeK5l7gdajX-Jw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhVWriEeK5l7gdajX-Jw" name="resourceByGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhVmriEeK5l7gdajX-Jw" body="JavaScript resourceByGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The resourceByGuid method returns an EntityDetail object containing the details of the Resource&#xD;&#xA;matching the supplied unique ID.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.resourceByGuid(guid);&#xD;&#xA;@return EntityDetail&#xD;&#xA;@param guid: Required. Unique ID of the resource.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhV2riEeK5l7gdajX-Jw" name="guid">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhWGriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhWWriEeK5l7gdajX-Jw" name="resourceByName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhWmriEeK5l7gdajX-Jw" body="JavaScript resourceByName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The resourceByName method returns an array of EntityDetail objects containing the details of all the Resources&#xD;&#xA;matching the supplied Resource name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.resourceByName(name);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param name: Required. Name of the Resource to return.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhW2riEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhXGriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhXWriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhXmriEeK5l7gdajX-Jw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhX2riEeK5l7gdajX-Jw" name="resourceByLdapDN">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhYGriEeK5l7gdajX-Jw" body="JavaScript resourceByLdapDN() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The resourceByLdapDN method returns an array of EntityDetail objects containing the details of all the Resources&#xD;&#xA;matching the supplied LdapDN. There may be multiple Entities since the LdapDN is only unique for a given LDAP alias.&#xD;&#xA;&#xD;&#xA;Useful to find an Organization Resource if only the real user within an LDAP directory is known, for example to find&#xD;&#xA;the resource for the default tibco-admin user the ldapDN parameter would be &quot;uid=admin,ou=system&quot;.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.resourceByLdapDN(ldapDN);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param ldapDN: Required. Distinguished Name of the LDAP entity.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhYWriEeK5l7gdajX-Jw" name="ldapDN">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhYmriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhY2riEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhZGriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhZWriEeK5l7gdajX-Jw" name="positionByGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhZmriEeK5l7gdajX-Jw" body="JavaScript positionByGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The positionByGuid method returns an EntityDetail object containing the details of the Position&#xD;&#xA;matching the supplied unique ID.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.positionByGuid(guid);&#xD;&#xA;@return EntityDetail&#xD;&#xA;@param guid: Required. Unique ID of the position.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhZ2riEeK5l7gdajX-Jw" name="guid">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhaGriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhaWriEeK5l7gdajX-Jw" name="positionByName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhamriEeK5l7gdajX-Jw" body="JavaScript positionByName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The positionByName method returns an array of EntityDetail objects containing the details of all the Positions&#xD;&#xA;matching the supplied Position name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.positionByName(name);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param name: Required. Name of the Position to find.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePha2riEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhbGriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhbWriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhbmriEeK5l7gdajX-Jw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhb2riEeK5l7gdajX-Jw" name="orgByGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhcGriEeK5l7gdajX-Jw" body="JavaScript orgByGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The orgByGuid method returns an EntityDetail object containing the details of the Organization&#xD;&#xA;matching the supplied unique ID.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.orgByGuid(guid);&#xD;&#xA;@return EntityDetail&#xD;&#xA;@param guid: Required. The unique ID of the Organization.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhcWriEeK5l7gdajX-Jw" name="guid">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhcmriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kePhc2riEeK5l7gdajX-Jw" name="orgByName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kePhdGriEeK5l7gdajX-Jw" body="JavaScript orgByName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The orgByName method returns an array of EntityDetail objects containing the details of all the Organizations&#xD;&#xA;matching the supplied Organization name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;OrgModel.orgByName(name);&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;@param name: Required. Name of the Organization to find.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePhdWriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kePhdmriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kePhd2riEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kePheGriEeK5l7gdajX-Jw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_m6BnV2riEeK5l7gdajX-Jw" name="EntityDetail">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_m6BnWGriEeK5l7gdajX-Jw" body="If available get a list of all Groups this Entity is associated with."/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6BnWWriEeK5l7gdajX-Jw" name="getGroups">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6BnWmriEeK5l7gdajX-Jw" body="JavaScript getGroups() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getGroups method returns an array of EntityDetail objects for all of the Organizational Groups&#xD;&#xA;the selected entity is associated with.&#xD;&#xA;If there are no Groups associated with this Entity then the return will be null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getGroups();&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6BnW2riEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6BnXGriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6BnXWriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6BnXmriEeK5l7gdajX-Jw" name="getPositions">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6BnX2riEeK5l7gdajX-Jw" body="JavaScript getPositions() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getPositions method returns an array of EntityDetail objects for all of the Organizational Positions&#xD;&#xA;the selected entity is associated with.&#xD;&#xA;If there are no Positions associated with this Entity then the return will be null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getPositions();&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6BnYGriEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6BnYWriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6BnYmriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COQGriEeK5l7gdajX-Jw" name="getName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COQWriEeK5l7gdajX-Jw" body="JavaScript getName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getName method returns the name of the Entity.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getName();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COQmriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COQ2riEeK5l7gdajX-Jw" name="getGuid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6CORGriEeK5l7gdajX-Jw" body="JavaScript getGuid() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getGuid method returns the unique ID of the Entity.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getGuid();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6CORWriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6CORmriEeK5l7gdajX-Jw" name="getMajorVersion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COR2riEeK5l7gdajX-Jw" body="JavaScript getMajorVersion() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getMajorVersion method returns the major org model version of the Entity.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getMajorVersion();&#xD;&#xA;@return Integer&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COSGriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COSWriEeK5l7gdajX-Jw" name="getAlias">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COSmriEeK5l7gdajX-Jw" body="JavaScript getAlias() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAlias method returns the LDAP alias an Organizational Resource is resolved from.&#xD;&#xA;&#xD;&#xA;If the Entity is not a Resource this method will return null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getAlias();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COS2riEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COTGriEeK5l7gdajX-Jw" name="getDn">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COTWriEeK5l7gdajX-Jw" body="JavaScript getDn() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getDn method returns the Distinguished name that uniquely identifies an Organizational&#xD;&#xA;Resource within an LDAP alias.&#xD;&#xA;&#xD;&#xA;If the Entity is not a Resource this method will return null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getDn();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COTmriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COT2riEeK5l7gdajX-Jw" name="getResourceType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COUGriEeK5l7gdajX-Jw" body="JavaScript getResourceType() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getResourceType method returns the type of resource this entity is. The type will&#xD;&#xA;be one of HUMAN, DURABLE or CONSUMABLE. Currently only HUMAN is supported.&#xD;&#xA;&#xD;&#xA;If the Entity is not a Resource this method will return null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getResourceType();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COUWriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COUmriEeK5l7gdajX-Jw" name="getEntityType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COU2riEeK5l7gdajX-Jw" body="JavaScript getEntityType() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getEntityType method returns the type for this entity. The type will&#xD;&#xA;be one of the following types:-&#xD;&#xA;&#xD;&#xA;ORGANIZATION&#xD;&#xA;ORGANIZATIONAL_UNIT&#xD;&#xA;GROUP&#xD;&#xA;POSITION&#xD;&#xA;PRIVILEGE&#xD;&#xA;RESOURCE&#xD;&#xA;LOCATION&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getEntityType();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COVGriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COVWriEeK5l7gdajX-Jw" name="getResources">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COVmriEeK5l7gdajX-Jw" body="JavaScript getResources() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Get all Resources associated with this Organizational Entity.&#xD;&#xA;&#xD;&#xA;If the Entity has no associated resources this method will return null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getResources();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COV2riEeK5l7gdajX-Jw" type="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6COWGriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6COWWriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COWmriEeK5l7gdajX-Jw" name="getAttributeValue">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COW2riEeK5l7gdajX-Jw" body="JavaScript getAttributeValue() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAttributeValue returns the value for the specified Business Attribute name.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getAttributeValue(attributeName);&#xD;&#xA;@return Text&#xD;&#xA;@param attributeName: Required. Name of the Business Attribute whose value is to be returned.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COXGriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6COXWriEeK5l7gdajX-Jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6COXmriEeK5l7gdajX-Jw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COX2riEeK5l7gdajX-Jw" name="attributeName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m6COYGriEeK5l7gdajX-Jw" name="getAttributeType">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m6COYWriEeK5l7gdajX-Jw" body="JavaScript getAttributeType() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAttributeType returns the data type for the specified Business Attribute name.&#xD;&#xA;&#xD;&#xA;The return will be one of the following:-&#xD;&#xA;    String&#xD;&#xA;    Decimal&#xD;&#xA;    Integer&#xD;&#xA;    Boolean&#xD;&#xA;    DateTime&#xD;&#xA;    Date&#xD;&#xA;    Time&#xD;&#xA;    Binary&#xD;&#xA;    Enum&#xD;&#xA;    EnumSet&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;EntityDetail.getAttributeType(attributeName);&#xD;&#xA;@return Text&#xD;&#xA;@param attributeName: Required. Name of the Business Attribute whose type is to be returned.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COYmriEeK5l7gdajX-Jw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_m6COY2riEeK5l7gdajX-Jw" name="attributeName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_fOT4sGriEeK5l7gdajX-Jw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fOcbkGriEeK5l7gdajX-Jw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_Z384AGriEeK5l7gdajX-Jw" type="Business Object Model" element="_Z2-AkGriEeK5l7gdajX-Jw?com.tibco.n2.de.script?" name="OrgModelScripting.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_keO6M2riEeK5l7gdajX-Jw" type="1002" element="_kePhQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel?">
+      <children xmi:type="notation:Node" xmi:id="_keO6NGriEeK5l7gdajX-Jw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_keO6NWriEeK5l7gdajX-Jw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_keO6NmriEeK5l7gdajX-Jw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_keO6N2riEeK5l7gdajX-Jw" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_keO6OGriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_keO6OWriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_keO6OmriEeK5l7gdajX-Jw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_keO6O2riEeK5l7gdajX-Jw" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_keO6PGriEeK5l7gdajX-Jw" type="2002" element="_kePhQWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aouByGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6PWriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6PmriEeK5l7gdajX-Jw" type="2002" element="_kePhRWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aouByName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6P2riEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6QGriEeK5l7gdajX-Jw" type="2002" element="_kePhS2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3agroupByGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6QWriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6QmriEeK5l7gdajX-Jw" type="2002" element="_kePhT2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3agroupByName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6Q2riEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6RGriEeK5l7gdajX-Jw" type="2002" element="_kePhVWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6RWriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6RmriEeK5l7gdajX-Jw" type="2002" element="_kePhWWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6R2riEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6SGriEeK5l7gdajX-Jw" type="2002" element="_kePhX2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByLdapDN?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6SWriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6SmriEeK5l7gdajX-Jw" type="2002" element="_kePhZWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3apositionByGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6S2riEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6TGriEeK5l7gdajX-Jw" type="2002" element="_kePhaWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3apositionByName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6TWriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6TmriEeK5l7gdajX-Jw" type="2002" element="_kePhb2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aorgByGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6T2riEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_keO6UGriEeK5l7gdajX-Jw" type="2002" element="_kePhc2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aorgByName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_keO6UWriEeK5l7gdajX-Jw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_keO6UmriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_keO6U2riEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_keO6VGriEeK5l7gdajX-Jw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_keO6VWriEeK5l7gdajX-Jw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_keO6VmriEeK5l7gdajX-Jw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_keO6V2riEeK5l7gdajX-Jw" x="90" y="190" width="315" height="303"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_m6BnMGriEeK5l7gdajX-Jw" type="1002" element="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?">
+      <children xmi:type="notation:Node" xmi:id="_m6BnMWriEeK5l7gdajX-Jw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_m6BnMmriEeK5l7gdajX-Jw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_m6BnM2riEeK5l7gdajX-Jw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_m6BnNGriEeK5l7gdajX-Jw" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_m6BnNWriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_m6BnNmriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_m6BnN2riEeK5l7gdajX-Jw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_m6BnOGriEeK5l7gdajX-Jw" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_m6BnOWriEeK5l7gdajX-Jw" type="2002" element="_m6BnWWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetGroups?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnOmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnO2riEeK5l7gdajX-Jw" type="2002" element="_m6BnXmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetPositions?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnPGriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnPWriEeK5l7gdajX-Jw" type="2002" element="_m6COQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnPmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnP2riEeK5l7gdajX-Jw" type="2002" element="_m6COQ2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetGuid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnQGriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnQWriEeK5l7gdajX-Jw" type="2002" element="_m6CORmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetMajorVersion?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnQmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnQ2riEeK5l7gdajX-Jw" type="2002" element="_m6COSWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAlias?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnRGriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnRWriEeK5l7gdajX-Jw" type="2002" element="_m6COTGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetDn?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnRmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnR2riEeK5l7gdajX-Jw" type="2002" element="_m6COT2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetResourceType?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnSGriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnSWriEeK5l7gdajX-Jw" type="2002" element="_m6COUmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetEntityType?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnSmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnS2riEeK5l7gdajX-Jw" type="2002" element="_m6COVWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetResources?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnTGriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnTWriEeK5l7gdajX-Jw" type="2002" element="_m6COWmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAttributeValue?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnTmriEeK5l7gdajX-Jw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_m6BnT2riEeK5l7gdajX-Jw" type="2002" element="_m6COYGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAttributeType?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_m6BnUGriEeK5l7gdajX-Jw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_m6BnUWriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_m6BnUmriEeK5l7gdajX-Jw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_m6BnU2riEeK5l7gdajX-Jw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_m6BnVGriEeK5l7gdajX-Jw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_m6BnVWriEeK5l7gdajX-Jw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m6BnVmriEeK5l7gdajX-Jw" x="495" y="190" width="310" height="323"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Z384AWriEeK5l7gdajX-Jw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Z384AmriEeK5l7gdajX-Jw"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_fOfe4GriEeK5l7gdajX-Jw" displayLabel="com.tibco.n2.de.script" base_NamedElement="_Z2-AkGriEeK5l7gdajX-Jw?com.tibco.n2.de.script?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTIGriEeK5l7gdajX-Jw" displayLabel="orgByGuid" base_NamedElement="_kePhb2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aorgByGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTIWriEeK5l7gdajX-Jw" displayLabel="positionByName" base_NamedElement="_kePhaWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3apositionByName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTImriEeK5l7gdajX-Jw" displayLabel="orgByName" base_NamedElement="_kePhc2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aorgByName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTI2riEeK5l7gdajX-Jw" displayLabel="resourceByLdapDN" base_NamedElement="_kePhX2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByLdapDN?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTJGriEeK5l7gdajX-Jw" displayLabel="positionByGuid" base_NamedElement="_kePhZWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3apositionByGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTJWriEeK5l7gdajX-Jw" displayLabel="OrgModel" base_NamedElement="_kePhQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTJmriEeK5l7gdajX-Jw" displayLabel="resourceByGuid" base_NamedElement="_kePhVWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keOTJ2riEeK5l7gdajX-Jw" displayLabel="groupByGuid" base_NamedElement="_kePhS2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3agroupByGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keO6MGriEeK5l7gdajX-Jw" displayLabel="resourceByName" base_NamedElement="_kePhWWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aresourceByName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keO6MWriEeK5l7gdajX-Jw" displayLabel="ouByGuid" base_NamedElement="_kePhQWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3aouByGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_keO6MmriEeK5l7gdajX-Jw" displayLabel="groupByName" base_NamedElement="_kePhT2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel%3a%3agroupByName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkxGriEeK5l7gdajX-Jw" displayLabel="EntityDetail" base_NamedElement="_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkxWriEeK5l7gdajX-Jw" displayLabel="getAttributeValue" base_NamedElement="_m6COWmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAttributeValue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkxmriEeK5l7gdajX-Jw" displayLabel="getDn" base_NamedElement="_m6COTGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetDn?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkx2riEeK5l7gdajX-Jw" displayLabel="getResources" base_NamedElement="_m6COVWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetResources?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkyGriEeK5l7gdajX-Jw" displayLabel="getAttributeType" base_NamedElement="_m6COYGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAttributeType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m5zkyWriEeK5l7gdajX-Jw" displayLabel="getResourceType" base_NamedElement="_m6COT2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetResourceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAIGriEeK5l7gdajX-Jw" displayLabel="getMajorVersion" base_NamedElement="_m6CORmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetMajorVersion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAIWriEeK5l7gdajX-Jw" displayLabel="getPositions" base_NamedElement="_m6BnXmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetPositions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAImriEeK5l7gdajX-Jw" displayLabel="getEntityType" base_NamedElement="_m6COUmriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetEntityType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAI2riEeK5l7gdajX-Jw" displayLabel="getGuid" base_NamedElement="_m6COQ2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetGuid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAJGriEeK5l7gdajX-Jw" displayLabel="getName" base_NamedElement="_m6COQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAJWriEeK5l7gdajX-Jw" displayLabel="getAlias" base_NamedElement="_m6COSWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetAlias?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_m6BAJmriEeK5l7gdajX-Jw" displayLabel="getGroups" base_NamedElement="_m6BnWWriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail%3a%3agetGroups?"/>
+</xmi:XMI>

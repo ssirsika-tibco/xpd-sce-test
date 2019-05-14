@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_2bbm4HtWEd6js_XbMFf3Kg" name="com.tibco.n2.brm.script">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JCblYSg5Ed-hCf-lkPJwmw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JCblYig5Ed-hCf-lkPJwmw" key="author" value="kgee"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JCblYyg5Ed-hCf-lkPJwmw" key="created" value="1267784772918"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OQvegCsdEeCPhucuxjj0hw" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_I9RxcHtXEd6js_XbMFf3Kg" name="WorkItem">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Se4qkHtXEd6js_XbMFf3Kg" name="cancel" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_wl6vkHtXEd6js_XbMFf3Kg" body="JavaScript cancel Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Used to set that the operation the script is running is to be cancelled. If read will always return false.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.cancel = true;&#xD;&#xA;@return Boolean&#xD;&#xA;&#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_V9zogHtXEd6js_XbMFf3Kg" name="description" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_liHD4HtXEd6js_XbMFf3Kg" body="JavaScript description Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Read and set the Work Item description.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.description = &quot;Text&quot;;&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_W0Md8HtXEd6js_XbMFf3Kg" name="priority" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_nMDdMHtXEd6js_XbMFf3Kg" body="JavaScript priority Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Used to set or read the Work Items priority.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.priority = 100;&#xD;&#xA;@return Integer&#xD;&#xA;&#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xWJToKeXEd-bpNWpFKQEgQ" name="workItemAttributes" type="_erE7oKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes?" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_pPmXMDA3EeC0PdA3aHHPxg" body="JavaScript workItemAttributes Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Property return the WorkItemAttributes for the current Work Item.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.workItemAttributes;&#xD;&#xA;@return WorkItemAttributes&#xD;&#xA;&#xD;&#xA;"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_zhBucHtaEd6js_XbMFf3Kg" name="getId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_18TeEHtaEd6js_XbMFf3Kg" body="JavaScript getId() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getId method returns the unique ID of the work item.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getId();&#xD;&#xA;@return Integer&#xD;&#xA;&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ky8B8HwhEd6p0rt7GHfmFA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_4zSSQHtaEd6js_XbMFf3Kg" name="getVersion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_7aVNAHtaEd6js_XbMFf3Kg" body="JavaScript getVersion() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getVersion method returns the current version of the work item.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getVersion();&#xD;&#xA;@return Integer&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_qLmvwHwhEd6p0rt7GHfmFA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_a0Mr8BckEd-sQqOv03oDPQ" name="getWorkItemResource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gDhE4BfyEd-sQqOv03oDPQ" body="JavaScript getWorkItemResource() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getWorkItemResource method returns an EntityDetail object containing the organizational resource the Work Item was&#xD;&#xA;allocated too. If the Work Item has not yet been allocated this will return null.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getWorkItemResource();&#xD;&#xA;@return EntityDetail&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ddxWQBckEd-sQqOv03oDPQ" direction="return">
+          <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.n2.pe/model/OrgModelScripting.bom#_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tG-fwBckEd-sQqOv03oDPQ" name="getWorkItemOffers">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iQersBfyEd-sQqOv03oDPQ" body="JavaScript getWorkItemOffers() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getWorkItemOffers method returns an array of EntityDetail objects containing the organizational entities&#xD;&#xA;the Work Item was offered to. If the Work Item has already been allocated this will return the single organizational&#xD;&#xA;resource the Work Item was allocated to.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getWorkItemOffers();&#xD;&#xA;@return EntityDetail[]&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_08GB4BckEd-sQqOv03oDPQ" direction="return">
+          <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.n2.pe/model/OrgModelScripting.bom#_m6BnV2riEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aEntityDetail?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HQg0cRclEd-sQqOv03oDPQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HQg0cBclEd-sQqOv03oDPQ"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1VgJcDDYEd-VhdCBuuZw6Q" name="getContext">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_LxGfkDA8EeC0PdA3aHHPxg" body="JavaScript getContext() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getContext method returns the current Work Items context object, and provide application details.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getContext();&#xD;&#xA;@return ItemContext&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_3JM7sDDYEd-VhdCBuuZw6Q" type="_C2mN0DBTEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_4J7Y4DDYEd-VhdCBuuZw6Q" name="getSchedule">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_N-7CADA8EeC0PdA3aHHPxg" body="JavaScript getSchedule() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getSchedule method returns an object that contains scheduling information about the current work item.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItem.getSchedule();&#xD;&#xA;@return ItemSchedule&#xD;&#xA;&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_5d9MkDDYEd-VhdCBuuZw6Q" type="_NkCmgDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_C2mN0DBTEd-n9s2-bVLhfA" name="ItemContext">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_7asngDBTEd-n9s2-bVLhfA" name="getActivityId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_XqmAoDA9EeC0PdA3aHHPxg" body="JavaScript getActivityId() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getActivityId method returns the unique activity ID that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getActivityId();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-dsecDBTEd-n9s2-bVLhfA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Ax-OMDBUEd-n9s2-bVLhfA" name="getActivityName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ZoFBADA9EeC0PdA3aHHPxg" body="JavaScript getActivityName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getActivityName returns the name of the activity that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getActivityName();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CRGeoDBUEd-n9s2-bVLhfA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_S25nQDDYEd-VhdCBuuZw6Q" name="getAppName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bfjgADA9EeC0PdA3aHHPxg" body="JavaScript getAppName() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAppName returns name of the application that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getAppName();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_UkZq4DDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_VDtdEDDYEd-VhdCBuuZw6Q" name="getAppInstance">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ddrZkDA9EeC0PdA3aHHPxg" body="JavaScript getAppInstance() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAppInstance returns instance of the application that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getAppInstance();&#xD;&#xA;@return Text&#xD;&#xA;&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wq-84DDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ZbnRcDDYEd-VhdCBuuZw6Q" name="getAppId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gJ8ykDA9EeC0PdA3aHHPxg" body="JavaScript getAppId() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAppId returns the unique id of the application that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getAppId();&#xD;&#xA;@return Text&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_a363YDDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cJB58DDYEd-VhdCBuuZw6Q" name="getAppInstanceDescription">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_j2wbgDA9EeC0PdA3aHHPxg" body="JavaScript getAppInstanceDescription() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getAppInstanceDescription returns the description of the application instance that this work item is associated with.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemContext.getAppInstanceDescription();&#xD;&#xA;@return Text&#xD;&#xA;&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_dzdbcDDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NkCmgDDYEd-VhdCBuuZw6Q" name="ItemSchedule">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_iDyBIDDYEd-VhdCBuuZw6Q" name="getStartDate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_p9ABADA9EeC0PdA3aHHPxg" body="JavaScript getStartDate() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getStartDate returns the start date and time for the scheduling period (duration) of this work item.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemSchedule.getStartDate();&#xD;&#xA;@return Date Time&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_p-FlQDDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rpeJADDYEd-VhdCBuuZw6Q" name="getTargetDate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tONTEDA9EeC0PdA3aHHPxg" body="JavaScript getTargetDate() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getTargetDate returns the end date and time of the scheduling period (duration) of this work item..&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;ItemSchedule.getTargetDate();&#xD;&#xA;@return Date Time&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_tRf2wDDYEd-VhdCBuuZw6Q" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ujXD4E37Ed-W0OGLPv2IyQ" name="WorkManagerFactory">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xNZBME37Ed-W0OGLPv2IyQ" name="getOrgModel" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_5rUAwGl7Ed-zvudmuhz-xQ" body="JavaScript getOrgModel() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getOrgModel method returns an OrgModel object for the default version of the Organization Model,&#xD;&#xA;this will normally be the latest version.&#xD;&#xA;To return a specific version of the Organization Model use getOrgModelByVersion.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getOrgModel();&#xD;&#xA;@return OrgModel&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_9HwhcE37Ed-W0OGLPv2IyQ" direction="return">
+          <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.n2.pe/model/OrgModelScripting.bom#_kePhQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_zLKVcE37Ed-W0OGLPv2IyQ" name="getWorkItem" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4WkrILA3Ed-tjIKq2oOe3A" body="JavaScript getWorkItem() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getWorkItem method returns a WorkItem object for the current opened WorkItem.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getWorkItem();&#xD;&#xA;@return WorkItem&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ROD4E37Ed-W0OGLPv2IyQ" type="_I9RxcHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_CW1b4Gl7Ed-zvudmuhz-xQ" name="getOrgModelByVersion" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0Iq3kGl7Ed-zvudmuhz-xQ" body="JavaScript getOrgModelByVersion() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getOrgModelByVersion method returns an OrgModel object for the specified version of the Organization Model.&#xD;&#xA;If -1 is specified the latest version will be returned similar to the getOrgModel method.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getOrgModel(majorVersion);&#xD;&#xA;@return OrgModel&#xD;&#xA;@param majorVersion: Required. The model version to return or -1 for the latest available version.&#xD;&#xA;"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L0Q_oGl7Ed-zvudmuhz-xQ" name="majorVersion">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_UDwwoGl7Ed-zvudmuhz-xQ" direction="return">
+          <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.n2.pe/model/OrgModelScripting.bom#_kePhQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_erE7oKeXEd-bpNWpFKQEgQ" name="WorkItemAttributes">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_iZnC4KeXEd-bpNWpFKQEgQ" name="attribute1" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_v6Ow8LA3Ed-tjIKq2oOe3A" body="JavaScript attribute1 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item integer attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute1;&#xD;&#xA;@return Integer&#xD;&#xA;&#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iaOG4aeXEd-bpNWpFKQEgQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iaOG4KeXEd-bpNWpFKQEgQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ldfqoKeXEd-bpNWpFKQEgQ" name="attribute2" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_xFzMMLA3Ed-tjIKq2oOe3A" body="JavaScript attribute2 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute2;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldfqoqeXEd-bpNWpFKQEgQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldfqoaeXEd-bpNWpFKQEgQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_phJGQKeXEd-bpNWpFKQEgQ" name="attribute3" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_yJDY8LA3Ed-tjIKq2oOe3A" body="JavaScript attribute3 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute3;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_phJtUaeXEd-bpNWpFKQEgQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_phJtUKeXEd-bpNWpFKQEgQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_q6BkwKeXEd-bpNWpFKQEgQ" name="attribute4" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_yeePULA3Ed-tjIKq2oOe3A" body="JavaScript attribute4 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute4;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q6CL0aeXEd-bpNWpFKQEgQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q6CL0KeXEd-bpNWpFKQEgQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UzslkKiaEeCY-uOTq1gRbQ" name="attribute5" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4OtYAMpMEeC7d7-B_O2OqQ" body="JavaScript attribute5 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Decimal attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute5;&#xD;&#xA;@return Decimal &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U0Dx8aiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U0Dx8KiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VrfJMKiaEeCY-uOTq1gRbQ" name="attribute6" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-_fvUMpMEeC7d7-B_O2OqQ" body="JavaScript attribute6 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Date Time attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute6;&#xD;&#xA;@return Date Time &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VrfwQqiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VrfwQaiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_V_j7wKiaEeCY-uOTq1gRbQ" name="attribute7" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_FcV28MpNEeC7d7-B_O2OqQ" body="JavaScript attribute7 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Date Time attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute7;&#xD;&#xA;@return Date Time &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_lJ4aiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_lJ4KiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WNH2oKiaEeCY-uOTq1gRbQ" name="attribute8" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tr12MMpMEeC7d7-B_O2OqQ" body="JavaScript attribute8 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute8;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WNIdsqiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WNIdsaiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WSI5gKiaEeCY-uOTq1gRbQ" name="attribute9" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uiJMEMpMEeC7d7-B_O2OqQ" body="JavaScript attribute9 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute9;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WSKHoqiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WSKHoaiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WYxtAKiaEeCY-uOTq1gRbQ" name="attribute10" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vaYboMpMEeC7d7-B_O2OqQ" body="JavaScript attribute10 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute10;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WYyUEqiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WYyUEaiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WdspQKiaEeCY-uOTq1gRbQ" name="attribute11" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_v9MNwMpMEeC7d7-B_O2OqQ" body="JavaScript attribute11 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute11;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wdt3YaiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wdt3YKiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WfVA8KiaEeCY-uOTq1gRbQ" name="attribute12" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_whf0sMpMEeC7d7-B_O2OqQ" body="JavaScript attribute12 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute12;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfWPEKiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfVoAaiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg68YKiaEeCY-uOTq1gRbQ" name="attribute13" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_xR2TkMpMEeC7d7-B_O2OqQ" body="JavaScript attribute13 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute13;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wg8KgaiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wg8KgKiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WmOTIKiaEeCY-uOTq1gRbQ" name="attribute14" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ymDGYMpMEeC7d7-B_O2OqQ" body="JavaScript attribute4 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute14;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WmPhQaiaEeCY-uOTq1gRbQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WmPhQKiaEeCY-uOTq1gRbQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uhG-IAskEeOiB95dU_wndg" name="attribute15" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Juev8IgMEeOPT9dCEzTUbA" body="JavaScript attribute15 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item integer attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute15;&#xD;&#xA;@return Integer&#xD;&#xA;&#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqeVgQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqeVgAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vi0SwAskEeOiB95dU_wndg" name="attribute16" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_MakiwIgMEeOPT9dCEzTUbA" body="JavaScript attribute16 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Decimal attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute16;&#xD;&#xA;@return Decimal &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vi2vAQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vi2vAAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5hzrcAskEeOiB95dU_wndg" name="attribute17" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OJQ5MIgMEeOPT9dCEzTUbA" body="JavaScript attribute17 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Decimal attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute17;&#xD;&#xA;@return Decimal &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5h2HsQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5h2HsAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5xklwAskEeOiB95dU_wndg" name="attribute18" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_QbR_IIgMEeOPT9dCEzTUbA" body="JavaScript attribute18 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Decimal attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute18;&#xD;&#xA;@return Decimal &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5xnpEgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5xnpEQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_66n4gAskEeOiB95dU_wndg" name="attribute19" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hZGyMIgMEeOPT9dCEzTUbA" body="JavaScript attribute19 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Date Time attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute19;&#xD;&#xA;@return Date Time &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_66qUwgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_66qUwQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7H4RYAskEeOiB95dU_wndg" name="attribute20" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_keeAoIgMEeOPT9dCEzTUbA" body="JavaScript attribute20 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Date Time attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute20;&#xD;&#xA;@return Date Time &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7H6toQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7H6toAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7TNXoAskEeOiB95dU_wndg" name="attribute21" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ukkG4IgMEeOPT9dCEzTUbA" body="JavaScript attribute21 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute21;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7TQa8QskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7TQa8AskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7d1TQAskEeOiB95dU_wndg" name="attribute22" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vv8U4IgMEeOPT9dCEzTUbA" body="JavaScript attribute22 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute22;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7d4WkAskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7d3vgQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7oE0YAskEeOiB95dU_wndg" name="attribute23" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_xRMsQIgMEeOPT9dCEzTUbA" body="JavaScript attribute23 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute23;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7oHQoQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7oHQoAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7zjEkAskEeOiB95dU_wndg" name="attribute24" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ybcR0IgMEeOPT9dCEzTUbA" body="JavaScript attribute24 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute24;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7zk5wAskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7zkSsQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7-NccAskEeOiB95dU_wndg" name="attribute25" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zyMCUIgMEeOPT9dCEzTUbA" body="JavaScript attribute25 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute25;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7-OqkgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7-OqkQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8NFl8AskEeOiB95dU_wndg" name="attribute26" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_1KOMQIgMEeOPT9dCEzTUbA" body="JavaScript attribute26 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute26;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8NICMQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8NICMAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8acFcAskEeOiB95dU_wndg" name="attribute27" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2g0LwIgMEeOPT9dCEzTUbA" body="JavaScript attribute27 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute27;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8aehsgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8aehsQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8lEoIAskEeOiB95dU_wndg" name="attribute28" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_35TosIgMEeOPT9dCEzTUbA" body="JavaScript attribute28 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute28;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8lGdUQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8lGdUAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8vP30AskEeOiB95dU_wndg" name="attribute29" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_5xKiMIgMEeOPT9dCEzTUbA" body="JavaScript attribute29 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute29;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8vS7IQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8vS7IAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8668UAskEeOiB95dU_wndg" name="attribute30" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_7WF4oIgMEeOPT9dCEzTUbA" body="JavaScript attribute30 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute30;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_869YkgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_869YkQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9F6EUAskEeOiB95dU_wndg" name="attribute31" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_8q028IgMEeOPT9dCEzTUbA" body="JavaScript attribute31 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute31;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9F8gkQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9F8gkAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9Tks4AskEeOiB95dU_wndg" name="attribute32" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-Vx84IgMEeOPT9dCEzTUbA" body="JavaScript attribute32 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute32;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9TnJIgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9TnJIQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9h5cwAskEeOiB95dU_wndg" name="attribute33" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_CStFcIgNEeOPT9dCEzTUbA" body="JavaScript attribute33 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute33;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9h7R8QskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9h7R8AskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-FFpYAskEeOiB95dU_wndg" name="attribute34" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_D1oQwIgNEeOPT9dCEzTUbA" body="JavaScript attribute34 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute34;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-FIFoQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-FIFoAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-TYkEAskEeOiB95dU_wndg" name="attribute35" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_GI4s0IgNEeOPT9dCEzTUbA" body="JavaScript attribute35 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute35;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-TbAUgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-TbAUQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-fVVYAskEeOiB95dU_wndg" name="attribute36" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HmpEQIgNEeOPT9dCEzTUbA" body="JavaScript attribute36 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute36;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-fXxogskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-fXxoQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-qsQ0AskEeOiB95dU_wndg" name="attribute37" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JB0BwIgNEeOPT9dCEzTUbA" body="JavaScript attribute37 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute37;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-qutEQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-qutEAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-1mgUAskEeOiB95dU_wndg" name="attribute38" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OtKbAIgNEeOPT9dCEzTUbA" body="JavaScript attribute38 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute38;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-1o8kQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-1o8kAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__Kbg0AskEeOiB95dU_wndg" name="attribute39" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_QAVTEIgNEeOPT9dCEzTUbA" body="JavaScript attribute39 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute39;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__Kd9EQskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__Kd9EAskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__Vao0AskEeOiB95dU_wndg" name="attribute40" aggregation="composite">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RZISAIgNEeOPT9dCEzTUbA" body="JavaScript attribute40 Property&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;Custom filterable and searchable Work Item Text attribute.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkItemAttributes.attribute40;&#xD;&#xA;@return Text &#xD;&#xA;"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__VdFEgskEeOiB95dU_wndg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__VdFEQskEeOiB95dU_wndg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aX4jYBckEd-sQqOv03oDPQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aX4jYRckEd-sQqOv03oDPQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_2blX4HtWEd6js_XbMFf3Kg" type="Business Object Model" element="_2bbm4HtWEd6js_XbMFf3Kg?com.tibco.n2.brm.script?" name="WorkItemScripting.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_I9udYHtXEd6js_XbMFf3Kg" type="1002" element="_I9RxcHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem?">
+      <children xmi:type="notation:Node" xmi:id="_I93nUHtXEd6js_XbMFf3Kg" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_I93nUXtXEd6js_XbMFf3Kg" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_I93nUntXEd6js_XbMFf3Kg" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_I93nU3tXEd6js_XbMFf3Kg" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_Sn-VIHtXEd6js_XbMFf3Kg" type="2001" element="_Se4qkHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3acancel?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Sn-VIXtXEd6js_XbMFf3Kg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_V99ZgHtXEd6js_XbMFf3Kg" type="2001" element="_V9zogHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3adescription?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_V99ZgXtXEd6js_XbMFf3Kg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_W0Md8XtXEd6js_XbMFf3Kg" type="2001" element="_W0Md8HtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3apriority?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_W0Md8ntXEd6js_XbMFf3Kg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_xWLI0KeXEd-bpNWpFKQEgQ" type="2001" element="_xWJToKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3aworkItemAttributes?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_xWLI0aeXEd-bpNWpFKQEgQ"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_I93nVHtXEd6js_XbMFf3Kg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_I93nVXtXEd6js_XbMFf3Kg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_I93nVntXEd6js_XbMFf3Kg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_I93nV3tXEd6js_XbMFf3Kg" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_zhBucXtaEd6js_XbMFf3Kg" type="2002" element="_zhBucHtaEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetId?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zhBucntaEd6js_XbMFf3Kg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4zSSQXtaEd6js_XbMFf3Kg" type="2002" element="_4zSSQHtaEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetVersion?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4zSSQntaEd6js_XbMFf3Kg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_a0V14BckEd-sQqOv03oDPQ" type="2002" element="_a0Mr8BckEd-sQqOv03oDPQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetWorkItemResource?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_a0V14RckEd-sQqOv03oDPQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tHHpsBckEd-sQqOv03oDPQ" type="2002" element="_tG-fwBckEd-sQqOv03oDPQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetWorkItemOffers?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_tHHpsRckEd-sQqOv03oDPQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1Vh-oDDYEd-VhdCBuuZw6Q" type="2002" element="_1VgJcDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetContext?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_1Vh-oTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4J9OEDDYEd-VhdCBuuZw6Q" type="2002" element="_4J7Y4DDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetSchedule?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4J9OETDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_I93nWHtXEd6js_XbMFf3Kg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_I93nWXtXEd6js_XbMFf3Kg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_I93nWntXEd6js_XbMFf3Kg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_I9udYXtXEd6js_XbMFf3Kg" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_I9udYntXEd6js_XbMFf3Kg" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I9udY3tXEd6js_XbMFf3Kg" x="35" y="190" width="278" height="253"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ZSJqYBckEd-sQqOv03oDPQ" type="1007" element="_2bbm4HtWEd6js_XbMFf3Kg?com.tibco.n2.brm.script?">
+      <children xmi:type="notation:Node" xmi:id="_ZSJqZBckEd-sQqOv03oDPQ" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_ZSJqZRckEd-sQqOv03oDPQ" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqZhckEd-sQqOv03oDPQ" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqZxckEd-sQqOv03oDPQ" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqaBckEd-sQqOv03oDPQ" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqaRckEd-sQqOv03oDPQ" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqahckEd-sQqOv03oDPQ" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqaxckEd-sQqOv03oDPQ" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSJqbBckEd-sQqOv03oDPQ" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_ZSS0UBckEd-sQqOv03oDPQ" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ZSS0URckEd-sQqOv03oDPQ"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_ZSS0UhckEd-sQqOv03oDPQ" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ZSS0UxckEd-sQqOv03oDPQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ZSS0VBckEd-sQqOv03oDPQ"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_ZSJqYRckEd-sQqOv03oDPQ" fontHeight="10" fillColor="15532012"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_ZSJqYhckEd-sQqOv03oDPQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZSJqYxckEd-sQqOv03oDPQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_C3atMDBTEd-n9s2-bVLhfA" type="1002" element="_C2mN0DBTEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext?">
+      <children xmi:type="notation:Node" xmi:id="_C3b7UDBTEd-n9s2-bVLhfA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_C3b7UTBTEd-n9s2-bVLhfA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_C3b7UjBTEd-n9s2-bVLhfA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_C3ciYDBTEd-n9s2-bVLhfA" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_C3ciYTBTEd-n9s2-bVLhfA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_C3ciYjBTEd-n9s2-bVLhfA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_C3ciYzBTEd-n9s2-bVLhfA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_C3dJcDBTEd-n9s2-bVLhfA" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_7ayHEDBTEd-n9s2-bVLhfA" type="2002" element="_7asngDBTEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetActivityId?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7ayHETBTEd-n9s2-bVLhfA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_AyAqcDBUEd-n9s2-bVLhfA" type="2002" element="_Ax-OMDBUEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetActivityName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_AyAqcTBUEd-n9s2-bVLhfA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_S28DgDDYEd-VhdCBuuZw6Q" type="2002" element="_S25nQDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_S28DgTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_VDvSQDDYEd-VhdCBuuZw6Q" type="2002" element="_VDtdEDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppInstance?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_VDvSQTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ZbptsDDYEd-VhdCBuuZw6Q" type="2002" element="_ZbnRcDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppId?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ZbptsTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_cJEWMDDYEd-VhdCBuuZw6Q" type="2002" element="_cJB58DDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppInstanceDescription?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_cJEWMTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_C3dJcTBTEd-n9s2-bVLhfA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_C3dJcjBTEd-n9s2-bVLhfA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_C3dJczBTEd-n9s2-bVLhfA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_C3atMTBTEd-n9s2-bVLhfA" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_C3atMjBTEd-n9s2-bVLhfA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C3atMzBTEd-n9s2-bVLhfA" x="35" y="470" width="254" height="188"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Nnx3ADDYEd-VhdCBuuZw6Q" type="1002" element="_NkCmgDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule?">
+      <children xmi:type="notation:Node" xmi:id="_Nn0TQDDYEd-VhdCBuuZw6Q" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_Nn06UDDYEd-VhdCBuuZw6Q" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_Nn06UTDYEd-VhdCBuuZw6Q" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_Nn1hYDDYEd-VhdCBuuZw6Q" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Nn1hYTDYEd-VhdCBuuZw6Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Nn1hYjDYEd-VhdCBuuZw6Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Nn1hYzDYEd-VhdCBuuZw6Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Nn2IcDDYEd-VhdCBuuZw6Q" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_iDz2UDDYEd-VhdCBuuZw6Q" type="2002" element="_iDyBIDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule%3a%3agetStartDate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_iDz2UTDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_rpewEDDYEd-VhdCBuuZw6Q" type="2002" element="_rpeJADDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule%3a%3agetTargetDate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rpewETDYEd-VhdCBuuZw6Q"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Nn2IcTDYEd-VhdCBuuZw6Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Nn2IcjDYEd-VhdCBuuZw6Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Nn2IczDYEd-VhdCBuuZw6Q"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Nnx3ATDYEd-VhdCBuuZw6Q" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Nnx3AjDYEd-VhdCBuuZw6Q" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nnx3AzDYEd-VhdCBuuZw6Q" x="370" y="575" width="220" height="103"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uktHsE37Ed-W0OGLPv2IyQ" type="1002" element="_ujXD4E37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory?">
+      <children xmi:type="notation:Node" xmi:id="_ulmfkE37Ed-W0OGLPv2IyQ" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_ulmfkU37Ed-W0OGLPv2IyQ" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_ulmfkk37Ed-W0OGLPv2IyQ" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_ulmfk037Ed-W0OGLPv2IyQ" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ulmflE37Ed-W0OGLPv2IyQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ulmflU37Ed-W0OGLPv2IyQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ulmflk37Ed-W0OGLPv2IyQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ulvpgE37Ed-W0OGLPv2IyQ" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_xNZBMU37Ed-W0OGLPv2IyQ" type="2002" element="_xNZBME37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetOrgModel?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_xNZBMk37Ed-W0OGLPv2IyQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_zLKVcU37Ed-W0OGLPv2IyQ" type="2002" element="_zLKVcE37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetWorkItem?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zLKVck37Ed-W0OGLPv2IyQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_CXSH0Gl7Ed-zvudmuhz-xQ" type="2002" element="_CW1b4Gl7Ed-zvudmuhz-xQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetOrgModelByVersion?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_CXSH0Wl7Ed-zvudmuhz-xQ"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ulvpgU37Ed-W0OGLPv2IyQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ulvpgk37Ed-W0OGLPv2IyQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ulvpg037Ed-W0OGLPv2IyQ"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uktHsU37Ed-W0OGLPv2IyQ" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_uktHsk37Ed-W0OGLPv2IyQ" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uktHs037Ed-W0OGLPv2IyQ" x="279" y="30"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_esROcKeXEd-bpNWpFKQEgQ" type="1002" element="_erE7oKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes?">
+      <children xmi:type="notation:Node" xmi:id="_esR1gKeXEd-bpNWpFKQEgQ" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_esSckKeXEd-bpNWpFKQEgQ" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_esTDoKeXEd-bpNWpFKQEgQ" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_esTqsKeXEd-bpNWpFKQEgQ" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_iaP8EKeXEd-bpNWpFKQEgQ" type="2001" element="_iZnC4KeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_iaP8EaeXEd-bpNWpFKQEgQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ldiG4KeXEd-bpNWpFKQEgQ" type="2001" element="_ldfqoKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute2?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ldiG4aeXEd-bpNWpFKQEgQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_phK7cKeXEd-bpNWpFKQEgQ" type="2001" element="_phJGQKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute3?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_phK7caeXEd-bpNWpFKQEgQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_q6DZ8KeXEd-bpNWpFKQEgQ" type="2001" element="_q6BkwKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute4?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_q6DZ8aeXEd-bpNWpFKQEgQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_U0JRgKiaEeCY-uOTq1gRbQ" type="2001" element="_UzslkKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute5?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_U0JRgaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_VrjaoKiaEeCY-uOTq1gRbQ" type="2001" element="_VrfJMKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute6?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_VrjaoaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_V_mYAKiaEeCY-uOTq1gRbQ" type="2001" element="_V_j7wKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute7?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_V_mYAaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WNJr0KiaEeCY-uOTq1gRbQ" type="2001" element="_WNH2oKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute8?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WNJr0aiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WSLVwKiaEeCY-uOTq1gRbQ" type="2001" element="_WSI5gKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute9?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WSLVwaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WYziMKiaEeCY-uOTq1gRbQ" type="2001" element="_WYxtAKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute10?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WYziMaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WduecKiaEeCY-uOTq1gRbQ" type="2001" element="_WdspQKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute11?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WduecaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WfXdMKiaEeCY-uOTq1gRbQ" type="2001" element="_WfVA8KiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute12?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WfXdMaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Wg9YoKiaEeCY-uOTq1gRbQ" type="2001" element="_Wg68YKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute13?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Wg9YoaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WmQIUKiaEeCY-uOTq1gRbQ" type="2001" element="_WmOTIKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute14?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_WmQIUaiaEeCY-uOTq1gRbQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_uqkcIAskEeOiB95dU_wndg" type="2001" element="_uhG-IAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute15?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uqkcIQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vi7ngAskEeOiB95dU_wndg" type="2001" element="_vi0SwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute16?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vi7ngQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5h5yEAskEeOiB95dU_wndg" type="2001" element="_5hzrcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute17?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_5h5yEQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5xrTcAskEeOiB95dU_wndg" type="2001" element="_5xklwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute18?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_5xrTcQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_66t_IAskEeOiB95dU_wndg" type="2001" element="_66n4gAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute19?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_66t_IQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7H-YAAskEeOiB95dU_wndg" type="2001" element="_7H4RYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute20?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7H-YAQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7TUFUAskEeOiB95dU_wndg" type="2001" element="_7TNXoAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute21?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7TUFUQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7d8A8AskEeOiB95dU_wndg" type="2001" element="_7d1TQAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute22?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7d8A8QskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7oK7AAskEeOiB95dU_wndg" type="2001" element="_7oE0YAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute23?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7oK7AQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7zmu8AskEeOiB95dU_wndg" type="2001" element="_7zjEkAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute24?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7zmu8QskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7-QfwAskEeOiB95dU_wndg" type="2001" element="_7-NccAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute25?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7-QfwQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8NLskAskEeOiB95dU_wndg" type="2001" element="_8NFl8AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute26?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8NLskQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8aiMEAskEeOiB95dU_wndg" type="2001" element="_8acFcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute27?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8aiMEQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8lISgAskEeOiB95dU_wndg" type="2001" element="_8lEoIAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute28?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8lISgQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8vV-cAskEeOiB95dU_wndg" type="2001" element="_8vP30AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute29?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8vV-cQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_87CREAskEeOiB95dU_wndg" type="2001" element="_8668UAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute30?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_87CREQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9GAyAAskEeOiB95dU_wndg" type="2001" element="_9F6EUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute31?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9GAyAQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9TqzgAskEeOiB95dU_wndg" type="2001" element="_9Tks4AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute32?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9TqzgQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9h9uMAskEeOiB95dU_wndg" type="2001" element="_9h5cwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute33?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9h9uMQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-FLI8AskEeOiB95dU_wndg" type="2001" element="_-FFpYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute34?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-FLI8QskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-TeqsAskEeOiB95dU_wndg" type="2001" element="_-TYkEAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute35?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-TeqsQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-fbcAAskEeOiB95dU_wndg" type="2001" element="_-fVVYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute36?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-fbcAQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-qyXcAskEeOiB95dU_wndg" type="2001" element="_-qsQ0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute37?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-qyXcQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-1sm8AskEeOiB95dU_wndg" type="2001" element="_-1mgUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute38?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-1sm8QskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="__KhAYAskEeOiB95dU_wndg" type="2001" element="__Kbg0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute39?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="__KhAYQskEeOiB95dU_wndg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="__VgvcAskEeOiB95dU_wndg" type="2001" element="__Vao0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute40?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="__VgvcQskEeOiB95dU_wndg"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_esTqsaeXEd-bpNWpFKQEgQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_esTqsqeXEd-bpNWpFKQEgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_esTqs6eXEd-bpNWpFKQEgQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_esTqtKeXEd-bpNWpFKQEgQ" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_esTqtaeXEd-bpNWpFKQEgQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_esTqtqeXEd-bpNWpFKQEgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_esTqt6eXEd-bpNWpFKQEgQ"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_esROcaeXEd-bpNWpFKQEgQ" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_esROcqeXEd-bpNWpFKQEgQ" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_esROc6eXEd-bpNWpFKQEgQ" x="370" y="190" width="175" height="353"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_2blX4XtWEd6js_XbMFf3Kg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_2blX4ntWEd6js_XbMFf3Kg"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_cf71ABckEd-sQqOv03oDPQ" displayLabel="getWorkItemResource" base_NamedElement="_a0Mr8BckEd-sQqOv03oDPQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetWorkItemResource?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_zuBFMBckEd-sQqOv03oDPQ" displayLabel="getWorkItemOffers" base_NamedElement="_tG-fwBckEd-sQqOv03oDPQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetWorkItemOffers?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_5gnEABcmEd-sQqOv03oDPQ" displayLabel="WorkItem" base_NamedElement="_I9RxcHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_az-10BeuEd-sQqOv03oDPQ" displayLabel="com.tibco.n2.brm.script" base_NamedElement="_2bbm4HtWEd6js_XbMFf3Kg?com.tibco.n2.brm.script?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DW6soDBTEd-n9s2-bVLhfA" displayLabel="ItemContext" base_NamedElement="_C2mN0DBTEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9zRocDBTEd-n9s2-bVLhfA" displayLabel="getActivityId" base_NamedElement="_7asngDBTEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetActivityId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CBpGUDBUEd-n9s2-bVLhfA" displayLabel="getActivityName" base_NamedElement="_Ax-OMDBUEd-n9s2-bVLhfA?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetActivityName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_OMtwEDDYEd-VhdCBuuZw6Q" displayLabel="ItemSchedule" base_NamedElement="_NkCmgDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UQ8jYDDYEd-VhdCBuuZw6Q" displayLabel="getAppName" base_NamedElement="_S25nQDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WYI5YDDYEd-VhdCBuuZw6Q" displayLabel="getAppInstance" base_NamedElement="_VDtdEDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppInstance?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ahxoQDDYEd-VhdCBuuZw6Q" displayLabel="getAppId" base_NamedElement="_ZbnRcDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dkxfMDDYEd-VhdCBuuZw6Q" displayLabel="getAppInstanceDescription" base_NamedElement="_cJB58DDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemContext%3a%3agetAppInstanceDescription?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ijsQQDDYEd-VhdCBuuZw6Q" displayLabel="getStartDate" base_NamedElement="_iDyBIDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule%3a%3agetStartDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tAtBsDDYEd-VhdCBuuZw6Q" displayLabel="getTargetDate" base_NamedElement="_rpeJADDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aItemSchedule%3a%3agetTargetDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2ZmqwDDYEd-VhdCBuuZw6Q" displayLabel="getContext" base_NamedElement="_1VgJcDDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetContext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_4xM0QDDYEd-VhdCBuuZw6Q" displayLabel="getSchedule" base_NamedElement="_4J7Y4DDYEd-VhdCBuuZw6Q?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3agetSchedule?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wo4l8E37Ed-W0OGLPv2IyQ" displayLabel="WorkManagerFactory" base_NamedElement="_ujXD4E37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_xu7A8E37Ed-W0OGLPv2IyQ" displayLabel="getOrgModel" base_NamedElement="_xNZBME37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetOrgModel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_z_xCME37Ed-W0OGLPv2IyQ" displayLabel="getWorkItem" base_NamedElement="_zLKVcE37Ed-W0OGLPv2IyQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetWorkItem?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FDZIwGl7Ed-zvudmuhz-xQ" displayLabel="getOrgModelByVersion" base_NamedElement="_CW1b4Gl7Ed-zvudmuhz-xQ?com.tibco.n2.brm.script%3a%3aWorkManagerFactory%3a%3agetOrgModelByVersion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_fz3IoKeXEd-bpNWpFKQEgQ" displayLabel="WorkItemAttributes" base_NamedElement="_erE7oKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_jumf4KeXEd-bpNWpFKQEgQ" displayLabel="attribute1" base_NamedElement="_iZnC4KeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_mCOIUKeXEd-bpNWpFKQEgQ" displayLabel="attribute2" base_NamedElement="_ldfqoKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute2?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oiRqQKeXEd-bpNWpFKQEgQ" textLength="64" base_Property="_ldfqoKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute2?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_qUkuUKeXEd-bpNWpFKQEgQ" textLength="64" base_Property="_phJGQKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute3?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_rx8rQKeXEd-bpNWpFKQEgQ" textLength="64" base_Property="_q6BkwKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute4?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_zcdf4KeXEd-bpNWpFKQEgQ" displayLabel="workItemAttributes" base_NamedElement="_xWJToKeXEd-bpNWpFKQEgQ?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3aworkItemAttributes?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ykMbIBpWEeCC9uvgt-OZjA" integerUpper="100" integerLower="0" base_Property="_W0Md8HtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem%3a%3apriority?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_U0DK4KiaEeCY-uOTq1gRbQ" displayLabel="attribute5" base_NamedElement="_UzslkKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute5?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VrfwQKiaEeCY-uOTq1gRbQ" displayLabel="attribute6" base_NamedElement="_VrfJMKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute6?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_V_ki0KiaEeCY-uOTq1gRbQ" displayLabel="attribute7" base_NamedElement="_V_j7wKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute7?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WNIdsKiaEeCY-uOTq1gRbQ" displayLabel="attribute8" base_NamedElement="_WNH2oKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute8?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WSKHoKiaEeCY-uOTq1gRbQ" displayLabel="attribute9" base_NamedElement="_WSI5gKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute9?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WYyUEKiaEeCY-uOTq1gRbQ" displayLabel="attribute10" base_NamedElement="_WYxtAKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute10?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WdtQUKiaEeCY-uOTq1gRbQ" displayLabel="attribute11" base_NamedElement="_WdspQKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute11?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WfVoAKiaEeCY-uOTq1gRbQ" displayLabel="attribute12" base_NamedElement="_WfVA8KiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute12?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Wg7jcKiaEeCY-uOTq1gRbQ" displayLabel="attribute13" base_NamedElement="_Wg68YKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute13?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WmO6MKiaEeCY-uOTq1gRbQ" displayLabel="attribute14" base_NamedElement="_WmOTIKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute14?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_s5LlkKifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WNH2oKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute8?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_tXIF0KifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WSI5gKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute9?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_t4ftgKifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WYxtAKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute10?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_uzhyYKifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WdspQKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute11?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_vPcSUKifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WfVA8KiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute12?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_v_M7UKifEeCY-uOTq1gRbQ" textLength="20" base_Property="_Wg68YKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute13?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_xcD64KifEeCY-uOTq1gRbQ" textLength="20" base_Property="_WmOTIKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute14?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_1xWdQNMqEeCqxeLeLzPKZQ" decimalLength="38" decimalPlaces="10" decimalSubType="fixedPoint" base_Property="_UzslkKiaEeCY-uOTq1gRbQ?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute5?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_uqXn0AskEeOiB95dU_wndg" displayLabel="attribute15" base_NamedElement="_uhG-IAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute15?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vi2H8AskEeOiB95dU_wndg" displayLabel="attribute16" base_NamedElement="_vi0SwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute16?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_5h1goAskEeOiB95dU_wndg" displayLabel="attribute17" base_NamedElement="_5hzrcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute17?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_5xnpEAskEeOiB95dU_wndg" displayLabel="attribute18" base_NamedElement="_5xklwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute18?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_66qUwAskEeOiB95dU_wndg" displayLabel="attribute19" base_NamedElement="_66n4gAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute19?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7H6GkAskEeOiB95dU_wndg" displayLabel="attribute20" base_NamedElement="_7H4RYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute20?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7TPz4AskEeOiB95dU_wndg" displayLabel="attribute21" base_NamedElement="_7TNXoAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute21?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7d3vgAskEeOiB95dU_wndg" displayLabel="attribute22" base_NamedElement="_7d1TQAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute22?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7oGpkAskEeOiB95dU_wndg" displayLabel="attribute23" base_NamedElement="_7oE0YAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute23?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7zkSsAskEeOiB95dU_wndg" displayLabel="attribute24" base_NamedElement="_7zjEkAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute24?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7-OqkAskEeOiB95dU_wndg" displayLabel="attribute25" base_NamedElement="_7-NccAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute25?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_8NHbIAskEeOiB95dU_wndg" displayLabel="attribute26" base_NamedElement="_8NFl8AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute26?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_8aehsAskEeOiB95dU_wndg" displayLabel="attribute27" base_NamedElement="_8acFcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute27?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_8lF2QAskEeOiB95dU_wndg" displayLabel="attribute28" base_NamedElement="_8lEoIAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute28?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_8vSUEAskEeOiB95dU_wndg" displayLabel="attribute29" base_NamedElement="_8vP30AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute29?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_869YkAskEeOiB95dU_wndg" displayLabel="attribute30" base_NamedElement="_8668UAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute30?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9F75gAskEeOiB95dU_wndg" displayLabel="attribute31" base_NamedElement="_9F6EUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute31?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9TnJIAskEeOiB95dU_wndg" displayLabel="attribute32" base_NamedElement="_9Tks4AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute32?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9h6q4AskEeOiB95dU_wndg" displayLabel="attribute33" base_NamedElement="_9h5cwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute33?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-FHekAskEeOiB95dU_wndg" displayLabel="attribute34" base_NamedElement="_-FFpYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute34?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-TbAUAskEeOiB95dU_wndg" displayLabel="attribute35" base_NamedElement="_-TYkEAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute35?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-fXxoAskEeOiB95dU_wndg" displayLabel="attribute36" base_NamedElement="_-fVVYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute36?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-quGAAskEeOiB95dU_wndg" displayLabel="attribute37" base_NamedElement="_-qsQ0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute37?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-1oVgAskEeOiB95dU_wndg" displayLabel="attribute38" base_NamedElement="_-1mgUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute38?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="__KdWAAskEeOiB95dU_wndg" displayLabel="attribute39" base_NamedElement="__Kbg0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute39?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="__VdFEAskEeOiB95dU_wndg" displayLabel="attribute40" base_NamedElement="__Vao0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute40?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h5f7wIgHEeOPT9dCEzTUbA" textLength="20" base_Property="_7TNXoAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute21?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_idYE4IgHEeOPT9dCEzTUbA" textLength="20" base_Property="_7d1TQAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute22?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_jTmiQIgHEeOPT9dCEzTUbA" textLength="20" base_Property="_7oE0YAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute23?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_j2oW0IgHEeOPT9dCEzTUbA" textLength="20" base_Property="_7zjEkAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute24?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_kVD_QIgHEeOPT9dCEzTUbA" textLength="20" base_Property="_7-NccAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute25?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_lQCZwIgHEeOPT9dCEzTUbA" textLength="20" base_Property="_8NFl8AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute26?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oXB_4IgHEeOPT9dCEzTUbA" textLength="64" base_Property="_8acFcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute27?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oroW4IgHEeOPT9dCEzTUbA" textLength="64" base_Property="_8lEoIAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute28?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_pDqcYIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_8vP30AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute29?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_p51PYIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_8668UAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute30?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_qOvIYIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_9F6EUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute31?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_qmsVYIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_9Tks4AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute32?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_rAG68IgHEeOPT9dCEzTUbA" textLength="64" base_Property="_9h5cwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute33?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_rUpAgIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_-FFpYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute34?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_rsNzAIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_-TYkEAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute35?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_sBuwAIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_-fVVYAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute36?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_sYY8gIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_-qsQ0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute37?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_s37_QIgHEeOPT9dCEzTUbA" textLength="64" base_Property="_-1mgUAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute38?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_uhpvEIgHEeOPT9dCEzTUbA" textLength="255" base_Property="__Kbg0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute39?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_vHfnEIgHEeOPT9dCEzTUbA" textLength="255" base_Property="__Vao0AskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute40?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_l3RKIIgNEeOPT9dCEzTUbA" decimalLength="38" decimalPlaces="10" decimalSubType="fixedPoint" base_Property="_vi0SwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute16?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_mzx1sIgNEeOPT9dCEzTUbA" decimalLength="38" decimalPlaces="10" decimalSubType="fixedPoint" base_Property="_5hzrcAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute17?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_noeCAIgNEeOPT9dCEzTUbA" decimalLength="38" decimalPlaces="10" decimalSubType="fixedPoint" base_Property="_5xklwAskEeOiB95dU_wndg?com.tibco.n2.brm.script%3a%3aWorkItemAttributes%3a%3aattribute18?"/>
+</xmi:XMI>
