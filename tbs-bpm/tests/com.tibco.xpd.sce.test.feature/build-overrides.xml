@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com.tibco.xpd.bom.test.feature Overrides">
+<project name="com.tibco.xpd.n2.daa.test.feature Overrides">
 
     <property name="autobuild.obfuscator.style" value="none" />
     <property name="autobuild.version.eclipse" value="4.7"/>
     <property name="autobuild.version.eclipse-host" value="4.7"/>
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
-    <property name="release-unit" value="com.tibco.xpd.wm.test.feature" />
-    <property name="feature" value="com.tibco.xpd.wm.test.feature" />
+    <property name="release-unit" value="com.tibco.xpd.sce.test.feature" />
+    <property name="feature" value="com.tibco.xpd.sce.test.feature" />
 
     <!-- allows for cycles in the binary dependencies -->
     <property name="allow.binary.cycles" value="true" />
@@ -32,14 +32,14 @@
     <!-- property name="autobuild.version.eclipse" value="3.3" /-->
 
     <!-- for additional information on properties commonly overridden by release units, see:
-         http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->
+         http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->  
 
+   <!-- suggested by Scott -->
    <updatesites id="autobuild.workspace.update-sites.list">
         <updatesite url="http://spin.tibco.com/milestones/release/site.xml"/>
         <updatesite url="http://spin.tibco.com/milestones/thirdparty/site.xml"/>
-        <updatesite url="http://studiobuild.emea.tibco.com/view/All/job/LocalUpdateSite/ws/org.mockito.site/site.xml"/>
         <updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>
+        <updatesite url="http://studiobuild.emea.tibco.com/view/All/job/LocalUpdateSite/ws/org.mockito.site/site.xml"/>
         <updatesite url="http://studiobuild/userContent/eclipse-test-framework-4.7.2/site.xml"/>
    </updatesites>
-
 </project>

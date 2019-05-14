@@ -30,6 +30,14 @@ import com.tibco.xpd.core.test.util.TestResourceInfo;
 @SuppressWarnings("nls")
 public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
 
+    /*
+     * This needs to be a copy of GenerateRasctTask.DEFAULT_DEST_DIR as: From
+     * Eclipse Help: "The task or type can reference any class available for the
+     * plug-in but plug-in classes MUST NOT access the tasks or types."
+     */
+    private static final String DEFAULT_DEST_DIR =
+            "Exports/Deployment Artifacts";
+
     private TestResourceInfo[] orgmodelResourceInfo = {
             new TestResourceInfo("resources/AntRascTest",
                     "AntProject/project/build.xml"),
@@ -149,15 +157,14 @@ public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
         assertNotNull(workspaceRoot.getProject("AntProject"));
 
         // test that the rasc file does not yet exist
-        assertFalse(workspaceRoot.getProject("RASC")
-                .getFolder(GenerateRascTask.DEFAULT_DEST_DIR)
+        assertFalse(workspaceRoot.getProject("RASC").getFolder(DEFAULT_DEST_DIR)
                 .getFile("RASC.rasc").exists());
 
         runLaunch("AntProject", "project/build-no-destdir.xml");
 
         // uses default dir within project's root
         IProject project = workspaceRoot.getProject("RASC");
-        IFolder folder = project.getFolder(GenerateRascTask.DEFAULT_DEST_DIR);
+        IFolder folder = project.getFolder(DEFAULT_DEST_DIR);
         folder.refreshLocal(2, null);
 
         // wait for refresh to complete - can't see how else to do this
