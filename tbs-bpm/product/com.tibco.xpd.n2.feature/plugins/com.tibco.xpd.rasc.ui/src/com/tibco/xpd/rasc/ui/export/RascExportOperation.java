@@ -116,6 +116,7 @@ public class RascExportOperation implements IRunnableWithProgress {
         // Fix the main task name after build synchronizer.
         monitor.setTaskName(Messages.RascExportOperation_ProgressTitle);
 
+        // Check that the selected projects are valid for export
         for (IProject project : projects) {
             listener.setStatus(project,
                     ExportStatus.RUNNING,
@@ -145,36 +146,43 @@ public class RascExportOperation implements IRunnableWithProgress {
         }
 
         if (valid) {
+            // Generate the content for each projevct
             for (IProject project : projects) {
-                listener.setStatus(project,
-                        ExportStatus.RUNNING,
-                        Messages.RascExportOperation_ExportingStatus);
-                try {
-                    if (isProjectRelative) {
-                        generateRelativePath(project, monitor);
+                if (controller.hasContributionsFor(project)) {
+                    listener.setStatus(project,
+                            ExportStatus.RUNNING,
+                            Messages.RascExportOperation_ExportingStatus);
+                    try {
+                        if (isProjectRelative) {
+                            generateRelativePath(project, monitor);
 
-                    } else {
-                        generateSystemPath(project, monitor);
+                        } else {
+                            generateSystemPath(project, monitor);
+                        }
+                        listener.setStatus(project,
+                                ExportStatus.COMPLETE,
+                                Messages.RascExportOperation_CompleteStatus);
+                    } catch (RascGenerationException e) {
+                        listener.setStatus(project,
+                                ExportStatus.FAILED_EXPORT,
+                                Messages.RascExportOperation_ErrorStatus);
+                        RascUiActivator.getLogger().error(e);
+                    } catch (CoreException e) {
+                        listener.setStatus(project,
+                                ExportStatus.FAILED_EXPORT,
+                                Messages.RascExportOperation_FolderErrorStatus);
+                        RascUiActivator.getLogger().error(e);
+                    } catch (OverwriteException e) {
+                        listener.setStatus(project,
+                                ExportStatus.FAILED_EXPORT,
+                                e.getMessage());
                     }
+                } else {
+                    // No contribution for this project, show an info message
                     listener.setStatus(project,
-                            ExportStatus.COMPLETE,
-                            Messages.RascExportOperation_CompleteStatus);
-                } catch (RascGenerationException e) {
-                    listener.setStatus(project,
-                            ExportStatus.FAILED_EXPORT,
-                            Messages.RascExportOperation_ErrorStatus);
-                    RascUiActivator.getLogger().error(e);
-                } catch (CoreException e) {
-                    listener.setStatus(project,
-                            ExportStatus.FAILED_EXPORT,
-                            Messages.RascExportOperation_FolderErrorStatus);
-                    RascUiActivator.getLogger().error(e);
-                } catch (OverwriteException e) {
-                    listener.setStatus(project,
-                            ExportStatus.FAILED_EXPORT,
-                            e.getMessage());
+                            ExportStatus.NO_CONTENT,
+                            Messages.RascExportOperation_NoContentStatus);
                 }
-
             }
         }
         monitor.subTask(""); //$NON-NLS-1$

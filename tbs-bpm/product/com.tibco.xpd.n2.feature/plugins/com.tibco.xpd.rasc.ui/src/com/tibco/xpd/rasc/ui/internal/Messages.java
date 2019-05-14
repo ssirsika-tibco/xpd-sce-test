@@ -52,6 +52,8 @@ public class Messages extends NLS {
 
     public static String RascExportOperation_FolderErrorStatus;
 
+    public static String RascExportOperation_NoContentStatus;
+
     public static String RascExportOperation_OverwriteDialogTitle;
 
     public static String RascExportOperation_ProgressTitle;
