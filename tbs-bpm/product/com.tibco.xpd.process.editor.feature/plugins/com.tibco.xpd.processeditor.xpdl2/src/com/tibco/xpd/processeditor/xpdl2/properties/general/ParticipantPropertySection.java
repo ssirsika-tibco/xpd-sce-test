@@ -110,56 +110,74 @@ public abstract class ParticipantPropertySection extends
                 return null;
             }
 
-            ParticipantTypeElem typeElem =
-                    Xpdl2Factory.eINSTANCE.createParticipantTypeElem();
-            typeElem.setType(participantType);
+            /*
+             * Sid ACE-1197 Refactored set type command for re-use by sub-class
+             */
+            return getSetBaseParticipantTypeCommand(participant,
+                    participantType);
+        }
 
-            CompoundCommand compCmd = new CompoundCommand();
-            compCmd.setLabel(Messages.ParticipantPropertySection_SetType_menu);
+        return null;
+    }
 
-            compCmd.append(SetCommand.create(getEditingDomain(),
-                    participant,
-                    Xpdl2Package.eINSTANCE.getParticipant_ParticipantType(),
-                    typeElem));
-            ParticipantTypeElem existingParticipantTypeElem =
-                    participant.getParticipantType();
+    /**
+     * Create the command for setting participant to a Basic type (does not
+     * cover external reference)
+     * 
+     * @param participant
+     * @param participantType
+     * 
+     * @return The command for setting participant to a Basic type
+     */
+    protected Command getSetBaseParticipantTypeCommand(Participant participant,
+            ParticipantType participantType) {
+        ParticipantTypeElem typeElem =
+                Xpdl2Factory.eINSTANCE.createParticipantTypeElem();
+        typeElem.setType(participantType);
 
-            if (!(ParticipantType.RESOURCE_SET_LITERAL
-                    .equals(existingParticipantTypeElem.getType()))
-                    && ParticipantType.RESOURCE_SET_LITERAL
-                            .equals(participantType)) {
-                Expression participantQuery =
-                        Xpdl2Factory.eINSTANCE.createExpression();
-                participantQuery.setScriptGrammar("RQL"); //$NON-NLS-1$
+        CompoundCommand compCmd = new CompoundCommand();
+        compCmd.setLabel(Messages.ParticipantPropertySection_SetType_menu);
 
-                Command setParticipantQueryCmd =
-                        Xpdl2ModelUtil
-                                .getSetOtherElementCommand(getEditingDomain(),
-                                        typeElem,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_ParticipantQuery(),
-                                        participantQuery);
+        compCmd.append(SetCommand.create(getEditingDomain(),
+                participant,
+                Xpdl2Package.eINSTANCE.getParticipant_ParticipantType(),
+                typeElem));
+        ParticipantTypeElem existingParticipantTypeElem =
+                participant.getParticipantType();
 
-                compCmd.append(setParticipantQueryCmd);
-            } else if (!ParticipantType.RESOURCE_SET_LITERAL
-                    .equals(participantType)) {
-                Object objParticipantQ =
-                        Xpdl2ModelUtil.getOtherElement(typeElem,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_ParticipantQuery());
-                if (objParticipantQ instanceof Expression) {
-                    compCmd.append(Xpdl2ModelUtil
+        if (!(ParticipantType.RESOURCE_SET_LITERAL
+                .equals(existingParticipantTypeElem.getType()))
+                && ParticipantType.RESOURCE_SET_LITERAL
+                        .equals(participantType)) {
+            Expression participantQuery =
+                    Xpdl2Factory.eINSTANCE.createExpression();
+            participantQuery.setScriptGrammar("RQL"); //$NON-NLS-1$
+
+            Command setParticipantQueryCmd =
+                    Xpdl2ModelUtil
                             .getSetOtherElementCommand(getEditingDomain(),
                                     typeElem,
                                     XpdExtensionPackage.eINSTANCE
                                             .getDocumentRoot_ParticipantQuery(),
-                                    null));
-                }
-            }
-            return compCmd;
-        }
+                                    participantQuery);
 
-        return null;
+            compCmd.append(setParticipantQueryCmd);
+        } else if (!ParticipantType.RESOURCE_SET_LITERAL
+                .equals(participantType)) {
+            Object objParticipantQ =
+                    Xpdl2ModelUtil.getOtherElement(typeElem,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getDocumentRoot_ParticipantQuery());
+            if (objParticipantQ instanceof Expression) {
+                compCmd.append(Xpdl2ModelUtil
+                        .getSetOtherElementCommand(getEditingDomain(),
+                                typeElem,
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_ParticipantQuery(),
+                                null));
+            }
+        }
+        return compCmd;
     }
 
     /*

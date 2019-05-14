@@ -6,6 +6,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.AbstractSpecialFolderFileSelectionPage;
 import com.tibco.xpd.analyst.resources.xpdl2.wizards.pages.PackageOrProcessSelectionPage;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
+import com.tibco.xpd.xpdl2.Expression;
 import com.tibco.xpd.xpdl2.Participant;
 import com.tibco.xpd.xpdl2.ParticipantType;
 import com.tibco.xpd.xpdl2.ParticipantTypeElem;
@@ -68,6 +69,18 @@ public class NewBPMParticipantWizard extends AbstractNewParticipantWizard {
         input.setParticipantType(typeElem);
 
         /*
+         * Sid ACE-1197 When we create Org Model Query participant we should set
+         * the script grammar to RQL
+         */
+        Expression participantQuery = Xpdl2Factory.eINSTANCE.createExpression();
+        participantQuery.setScriptGrammar("RQL"); //$NON-NLS-1$
+
+        Xpdl2ModelUtil.setOtherElement(typeElem,
+                XpdExtensionPackage.eINSTANCE
+                        .getDocumentRoot_ParticipantQuery(),
+                participantQuery);
+
+        /*
          * PropertySection contribution filter needs to be able to distinguish
          * between new participant for decision flow file and new participant
          * for normal xpdl.
@@ -78,7 +91,7 @@ public class NewBPMParticipantWizard extends AbstractNewParticipantWizard {
          * So we set a known predefined ID on the participant here so that the
          * filter can detect that and filter in participants with this ID..
          * 
-         * Then just before we create the comman dwe will set it to something
+         * Then just before we create the command we will set it to something
          * unique again.
          */
 

@@ -287,31 +287,32 @@ public class BPMParticipantPropertySection extends ParticipantPropertySection {
             if (btn.equals(btnTypes[LOCAL])
                     && participant.getExternalReference() != null) {
                 // Set the new selection
-                Command cmd =
-                        SetCommand.create(getEditingDomain(),
-                                getInput(),
-                                Xpdl2Package.eINSTANCE
-                                        .getParticipant_ExternalReference(),
-                                null);
 
+                /*
+                 * Sid ACE-1197 - should use base method to set the base type
+                 * and then append any ext-ref specific stuff to that.
+                 */
                 CompoundCommand compCmd = new CompoundCommand();
-                compCmd.setLabel(Messages.ParticipantPropertySection_SetType_menu);
-                compCmd.append(cmd);
+                compCmd.setLabel(
+                        Messages.ParticipantPropertySection_SetType_menu);
 
-                // When setting back to basic type, set role as default.
                 /*
                  * Sid ACE-484 Default to Org Model Query instead of Role type
                  * (as the latter isn't supported in ACE).
                  */
-                ParticipantTypeElem typeElem =
-                        Xpdl2Factory.eINSTANCE.createParticipantTypeElem();
-                typeElem.setType(ParticipantType.RESOURCE_SET_LITERAL);
-                compCmd.append(SetCommand
-                        .create(getEditingDomain(),
-                                participant,
-                                Xpdl2Package.eINSTANCE
-                                        .getParticipant_ParticipantType(),
-                                typeElem));
+                Command baseCmd = getSetBaseParticipantTypeCommand(participant,
+                        ParticipantType.RESOURCE_SET_LITERAL);
+                if (baseCmd != null) {
+                    compCmd.append(baseCmd);
+                }
+
+                Command cmd = SetCommand.create(getEditingDomain(),
+                        getInput(),
+                        Xpdl2Package.eINSTANCE
+                                .getParticipant_ExternalReference(),
+                        null);
+
+                compCmd.append(cmd);
 
                 book.showPage(new Integer(LOCAL));
                 return compCmd;

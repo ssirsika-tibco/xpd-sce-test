@@ -46,6 +46,7 @@ import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
 import com.tibco.xpd.ui.util.CapabilityUtil;
 import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
+import com.tibco.xpd.xpdl2.Expression;
 import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
@@ -255,6 +256,20 @@ public class ParticipantTable extends AbstractProcessRelevantDataTable {
                         .setType(ParticipantType.RESOURCE_SET_LITERAL);
 
                 input.setParticipantType(participantTypeElem);
+
+                /*
+                 * Sid ACE-1197 When we create Org Model Query participant we
+                 * should set the script grammar to RQL
+                 */
+                Expression participantQuery =
+                        Xpdl2Factory.eINSTANCE.createExpression();
+                participantQuery.setScriptGrammar("RQL"); //$NON-NLS-1$
+
+                Xpdl2ModelUtil.setOtherElement(participantTypeElem,
+                        XpdExtensionPackage.eINSTANCE
+                                .getDocumentRoot_ParticipantQuery(),
+                        participantQuery);
+
                 return input;
             }
 
