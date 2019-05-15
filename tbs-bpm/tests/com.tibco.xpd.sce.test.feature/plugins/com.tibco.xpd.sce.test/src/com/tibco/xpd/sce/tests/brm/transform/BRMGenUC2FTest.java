@@ -130,6 +130,6 @@ public class BRMGenUC2FTest extends TestCase {
 
     @Override
     protected void tearDown() throws Exception {
-        // assertTrue(projectImporter.performDelete());
+        assertTrue(projectImporter.performDelete());
     }
 }

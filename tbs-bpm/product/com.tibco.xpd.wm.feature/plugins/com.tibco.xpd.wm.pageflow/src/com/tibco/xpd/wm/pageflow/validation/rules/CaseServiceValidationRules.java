@@ -19,6 +19,8 @@ import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule;
 import com.tibco.xpd.xpdExtension.CaseService;
@@ -46,218 +48,261 @@ public class CaseServiceValidationRules extends ProcessValidationRule {
     private static final String INPUT_CASE_REF_CANNOT_BE_AN_ARRAY =
             "wm.caseservice.InputCaseRefCannotBeAnArray"; //$NON-NLS-1$
 
-    private String NO_CASE_CLASS_TYPE_SELECTED =
+    private static final String NO_CASE_CLASS_TYPE_SELECTED =
             "wm.caseservice.NoCaseClassSelectedForCaseService"; //$NON-NLS-1$
 
-    private String SINGLE_PARAM_IN_CASE_SERVICE_REQUIRED_ISSUE_ID =
+    private static final String SINGLE_PARAM_IN_CASE_SERVICE_REQUIRED_ISSUE_ID =
             "wm.caseservice.SingleParamInCaseServiceRequired"; //$NON-NLS-1$
 
-    private String MULTIPLE_PARAMS_IN_CASE_SERVICE_NOT_ALLOWED_ISSUE_ID =
+    private static final String MULTIPLE_PARAMS_IN_CASE_SERVICE_NOT_ALLOWED_ISSUE_ID =
             "wm.caseservice.MultipleParamsNotAllowedInCaseService"; //$NON-NLS-1$
 
-    private String PARAM_IN_CASE_SERVICE_MUST_BE_CASE_CLASS_CASE_REF_TYPE_ISSUE_ID =
+    private static final String PARAM_IN_CASE_SERVICE_MUST_BE_CASE_CLASS_CASE_REF_TYPE_ISSUE_ID =
             "wm.caseservice.paramInCaseServiceMustBeCaseClassCaseRefType"; //$NON-NLS-1$
 
-    private String PARAM_IN_CASE_SERVICE_MUST_BE_INPUT_ISSUE_ID =
+    private static final String PARAM_IN_CASE_SERVICE_MUST_BE_INPUT_ISSUE_ID =
             "wm.caseservice.paramInCaseServiceMustBeInput"; //$NON-NLS-1$
 
-    private String CASE_CLASS_CASE_STATE_ATTRIBUTE_NOT_FOUND =
+    private static final String CASE_CLASS_CASE_STATE_ATTRIBUTE_NOT_FOUND =
             "wm.caseservice.CaseClassCaseStateAttributeNotFound"; //$NON-NLS-1$
 
-    private String INVALID_CASE_STATE_ATTRIBUTE_FOUND_IN_CASE_SERVICE =
+    private static final String INVALID_CASE_STATE_ATTRIBUTE_FOUND_IN_CASE_SERVICE =
             "wm.caseservice.InvalidCaseStateAttributeFoundInCaseService"; //$NON-NLS-1$
 
-    private String NO_SPECIFIC_CASE_STATE_SELECTED_ISSUE_ID =
+    private static final String TERMINAL_CASE_STATE_NOT_ALLOWED =
+            "ace.wm.caseservice.TerminalCaseStateNotAllowed"; //$NON-NLS-1$
+
+    private static final String NO_SPECIFIC_CASE_STATE_SELECTED_ISSUE_ID =
             "wm.caseservice.NoSpecificCaseStateIsSelected"; //$NON-NLS-1$
 
     public static final String PARAM_TYPE_ADDITIONAL_INFO_KEY = "paramType"; //$NON-NLS-1$
 
     public static final String PARAM_LABEL_ADDITIONAL_INFO_KEY = "paramLabel"; //$NON-NLS-1$
 
+    private static final TerminalStateProperties terminalStateUtil =
+            new TerminalStateProperties();
+
     @Override
     protected void validateFlowContainer(Process process,
             EList<Activity> activities, EList<Transition> transitions) {
 
-        if (Xpdl2ModelUtil.isCaseService(process)) {
+        if (!Xpdl2ModelUtil.isCaseService(process)) {
+            return;
+        }
 
-            CaseService caseService = getCaseService(process);
-            if (caseService == null || caseService.getCaseClassType() == null) {
-                addIssue(NO_CASE_CLASS_TYPE_SELECTED, process);
-                return;
+        CaseService caseService = getCaseService(process);
+        if (caseService == null || caseService.getCaseClassType() == null) {
+            addIssue(NO_CASE_CLASS_TYPE_SELECTED, process);
+            return;
+        }
+
+        ExternalReference caseClassExtRef = caseService.getCaseClassType();
+
+        EObject eo = ProcessUIUtil.getReferencedClassifier(caseClassExtRef,
+                WorkingCopyUtil.getProjectFor(process));
+        Class caseClass = null;
+        String caseClassQualifiesName = ""; //$NON-NLS-1$
+        if (eo instanceof Class) {
+            caseClass = (Class) eo;
+            caseClassQualifiesName = caseClass.getQualifiedName();
+        }
+
+        /*
+         * If case service has no param or has a param that is not of mode IN or
+         * has multiple params then raise the issue
+         */
+        List<FormalParameter> caseServiceParams =
+                ProcessInterfaceUtil.getAllFormalParameters(process);
+
+        // if no parameters specified
+        if (caseServiceParams.isEmpty()) {
+            addIssue(SINGLE_PARAM_IN_CASE_SERVICE_REQUIRED_ISSUE_ID,
+                    process,
+                    Collections.singletonList(caseClassQualifiesName));
+
+        } else {
+            // retrieve and validate the input parameter
+            FormalParameter inputParam =
+                    getParameter(process, caseServiceParams);
+
+            if (inputParam == null) {
+                addIssue(MULTIPLE_PARAMS_IN_CASE_SERVICE_NOT_ALLOWED_ISSUE_ID,
+                        process,
+                        Collections.singletonList(caseClassQualifiesName));
+            } else {
+                validateInputParameter(inputParam,
+                        caseClassExtRef,
+                        caseClassQualifiesName);
             }
+        }
 
-            ExternalReference caseClassExtRef = caseService.getCaseClassType();
+        Property caseClassCaseStateAttrib =
+                ProcessUIUtil.getCaseClassCaseState(caseClass);
 
-            String caseClassQualifiesName = ""; //$NON-NLS-1$
-            EObject eo =
-                    ProcessUIUtil.getReferencedClassifier(caseClassExtRef,
-                            WorkingCopyUtil.getProjectFor(process));
-            Class caseClass = null;
-            if (eo instanceof Class) {
-                caseClass = (Class) eo;
-                caseClassQualifiesName = caseClass.getQualifiedName();
-            }
-
+        if (caseClassCaseStateAttrib == null || !(caseClassCaseStateAttrib
+                .getType() instanceof Enumeration)) {
             /*
-             * If case service has no param or has a param that is not of mode
-             * IN or has multiple params then raise the issue
+             * Raise issue if case class doesn't have a case state attribute
              */
-            List<FormalParameter> caseServiceParams =
-                    ProcessInterfaceUtil.getAllFormalParameters(process);
+            addIssue(CASE_CLASS_CASE_STATE_ATTRIBUTE_NOT_FOUND,
+                    process,
+                    Collections.singletonList(caseClassQualifiesName));
+        } else {
+            validateSelectedStates(process,
+                    caseService,
+                    caseClassCaseStateAttrib);
+        }
+    }
 
-            Map<String, String> addInfo = new HashMap<String, String>();
-            if (caseServiceParams.isEmpty()) {
+    /**
+     * Returns the input parameter to the case-action and returns that input
+     * parameter. If only one parameter is specified, it will be returned
+     * whether it's an input or output (validate will catch it). Otherwise, if
+     * multiple, or no, input parameters are specified the return value will be
+     * null.
+     * 
+     * @param aProcess
+     * @param aCaseServiceParams
+     * @return the case-action's parameter
+     */
+    private FormalParameter getParameter(Process aProcess,
+            List<FormalParameter> aCaseServiceParams) {
 
-                addIssue(SINGLE_PARAM_IN_CASE_SERVICE_REQUIRED_ISSUE_ID,
-                        process,
-                        Collections.singletonList(caseClassQualifiesName));
+        // if only one parameter specified
+        if (aCaseServiceParams.size() == 1) {
+            // return regardless of direction - validate later
+            return aCaseServiceParams.get(0);
+        }
 
-            } else {
-                FormalParameter theInputParam = null;
-                if (caseServiceParams.size() > 1) {
-                    /*
-                     * XPD-8082: Saket: Only restrict INPUT parameters.
-                     */
-                    int numberOfInParams = 0;
-
-                    for (FormalParameter eachCaseServiceParam : caseServiceParams) {
-
-                        if (ModeType.IN_LITERAL.equals(eachCaseServiceParam
-                                .getMode())) {
-                            if (++numberOfInParams > 1) {
-                                break;
-                            }
-                            theInputParam = eachCaseServiceParam;
-                        }
-
-                        if (ModeType.INOUT_LITERAL.equals(eachCaseServiceParam
-                                .getMode())) {
-                            if (++numberOfInParams > 1) {
-                                break;
-                            }
-                        }
-                    }
-
-                    if (numberOfInParams > 1 || theInputParam == null) {
-                        addIssue(MULTIPLE_PARAMS_IN_CASE_SERVICE_NOT_ALLOWED_ISSUE_ID,
-                                process,
-                                Collections
-                                        .singletonList(caseClassQualifiesName));
-                    }
-                } else {
-                    theInputParam = caseServiceParams.get(0);
-                }
-
-                if (theInputParam != null) {
-                    addInfo.put(PARAM_LABEL_ADDITIONAL_INFO_KEY,
-                            theInputParam.getName());
-                    addInfo.put(PARAM_TYPE_ADDITIONAL_INFO_KEY,
-                            caseClassQualifiesName);
-
-                    /*
-                     * check if the type of param is a reference to the same
-                     * case class as that of the case service case class
-                     */
-                    boolean invalidFormalParamType = true;
-                    DataType type = theInputParam.getDataType();
-                    if (type instanceof RecordType) {
-                        RecordType recordType = (RecordType) type;
-                        ExternalReference paramTypeExtRef =
-                                recordType.getMember().get(0)
-                                        .getExternalReference();
-                        if (EcoreUtil.equals(caseClassExtRef, paramTypeExtRef)) {
-                            invalidFormalParamType = false;
-                        }
-                    }
-                    if (invalidFormalParamType) {
-                        addIssue(PARAM_IN_CASE_SERVICE_MUST_BE_CASE_CLASS_CASE_REF_TYPE_ISSUE_ID,
-                                theInputParam,
-                                Collections
-                                        .singletonList(caseClassQualifiesName),
-                                addInfo);
-
-                    } else if (ModeType.IN != theInputParam.getMode()
-                            .getValue()) {
-
-                        addIssue(PARAM_IN_CASE_SERVICE_MUST_BE_INPUT_ISSUE_ID,
-                                theInputParam,
-                                Collections
-                                        .singletonList(caseClassQualifiesName),
-                                addInfo);
-
-                    }
-
-                    /* XPD-6827: Case Actions *CaseRef array* support */
-                    if (theInputParam.isIsArray()) {
-                        addIssue(INPUT_CASE_REF_CANNOT_BE_AN_ARRAY,
-                                theInputParam,
-                                Collections
-                                        .singletonList(caseClassQualifiesName),
-                                addInfo);
-                    }
-                }
+        // multiple parameters - only one can be an input
+        FormalParameter result = null;
+        int numberOfInParams = 0;
+        for (FormalParameter parameter : aCaseServiceParams) {
+            if (ModeType.IN_LITERAL.equals(parameter.getMode())) {
+                numberOfInParams++;
+                result = parameter;
             }
 
-            /* Raise issue if case class doesn't have a case state attribute */
+            if (ModeType.INOUT_LITERAL.equals(parameter.getMode())) {
+                numberOfInParams++;
+            }
 
-            Property caseClassCaseStateAttrib =
-                    ProcessUIUtil.getCaseClassCaseState(caseClass);
+            if (numberOfInParams > 1) {
+                return null;
+            }
+        }
 
-            if (caseClassCaseStateAttrib == null
-                    || !(caseClassCaseStateAttrib.getType() instanceof Enumeration)) {
-                addIssue(CASE_CLASS_CASE_STATE_ATTRIBUTE_NOT_FOUND,
-                        process,
-                        Collections.singletonList(caseClassQualifiesName));
+        return result;
+    }
 
-            } else {
-                /* Raise issue if case state attribute selected doesn't exist */
-                VisibleForCaseStates caseServiceCaseStates =
-                        caseService.getVisibleForCaseStates();
+    /**
+     * Validates the case-action's input parameter.
+     * 
+     * @param aInputParam
+     * @param aCaseClassExtRef
+     * @param aCaseClassQualifiesName
+     */
+    private void validateInputParameter(FormalParameter aInputParam,
+            ExternalReference aCaseClassExtRef,
+            String aCaseClassQualifiesName) {
+        Map<String, String> addInfo = new HashMap<String, String>();
+        addInfo.put(PARAM_LABEL_ADDITIONAL_INFO_KEY, aInputParam.getName());
+        addInfo.put(PARAM_TYPE_ADDITIONAL_INFO_KEY, aCaseClassQualifiesName);
 
-                Enumeration caseStateEnum =
-                        (Enumeration) caseClassCaseStateAttrib.getType();
-                EList<EnumerationLiteral> caseClassCaseStatesList =
-                        caseStateEnum.getOwnedLiterals();
+        /*
+         * check if the type of param is a reference to the same case class as
+         * that of the case service case class
+         */
+        boolean invalidFormalParamType = true;
+        DataType type = aInputParam.getDataType();
+        if (type instanceof RecordType) {
+            RecordType recordType = (RecordType) type;
+            ExternalReference paramTypeExtRef =
+                    recordType.getMember().get(0).getExternalReference();
+            if (EcoreUtil.equals(aCaseClassExtRef, paramTypeExtRef)) {
+                invalidFormalParamType = false;
+            }
+        }
 
-                if (caseServiceCaseStates != null) {
+        if (invalidFormalParamType) {
+            addIssue(
+                    PARAM_IN_CASE_SERVICE_MUST_BE_CASE_CLASS_CASE_REF_TYPE_ISSUE_ID,
+                    aInputParam,
+                    Collections.singletonList(aCaseClassQualifiesName),
+                    addInfo);
 
-                    /*
-                     * If 'Specific States' is selected but none of the case
-                     * states is selected, then raise issue
-                     */
-                    if (!caseServiceCaseStates.isVisibleForUnsetCaseState()
-                            && caseServiceCaseStates.getCaseState().isEmpty()) {
+        } else if (ModeType.IN != aInputParam.getMode().getValue()) {
+            addIssue(PARAM_IN_CASE_SERVICE_MUST_BE_INPUT_ISSUE_ID,
+                    aInputParam,
+                    Collections.singletonList(aCaseClassQualifiesName),
+                    addInfo);
 
-                        addIssue(NO_SPECIFIC_CASE_STATE_SELECTED_ISSUE_ID,
-                                process);
-                    } else {
+        }
 
-                        for (ExternalReference state : caseServiceCaseStates
-                                .getCaseState()) {
+        /* XPD-6827: Case Actions *CaseRef array* support */
+        if (aInputParam.isIsArray()) {
+            addIssue(INPUT_CASE_REF_CANNOT_BE_AN_ARRAY,
+                    aInputParam,
+                    Collections.singletonList(aCaseClassQualifiesName),
+                    addInfo);
+        }
+    }
 
-                            /*
-                             * Check if the state is one of the enums in the
-                             * case class
-                             */
-                            boolean found = false;
-                            for (EnumerationLiteral caseClassEnumLit : caseClassCaseStatesList) {
-                                ExternalReference ref =
-                                        ProcessUIUtil
-                                                .getExternalRefForEnumLit(caseService,
-                                                        caseClassEnumLit);
-                                if (EcoreUtil.equals(ref, state)) {
-                                    found = true;
-                                    break;
-                                }
-                            }
-                            if (!found) {
-                                addIssue(INVALID_CASE_STATE_ATTRIBUTE_FOUND_IN_CASE_SERVICE,
-                                        process);
-                                break;
-                            }
-                        }
+    /**
+     * Validates the case states that have been selected as those in which the
+     * case-action will be visible/available.
+     * 
+     * @param aProcess
+     * @param aCaseService
+     * @param aCaseStateAttr
+     */
+    private void validateSelectedStates(Process aProcess,
+            CaseService aCaseService, Property aCaseStateAttr) {
+        VisibleForCaseStates visibleStates =
+                aCaseService.getVisibleForCaseStates();
+        if (visibleStates == null) {
+            // null means "all suitable states"
+            return;
+        }
+
+        if (!visibleStates.isVisibleForUnsetCaseState()
+                && visibleStates.getCaseState().isEmpty()) {
+            addIssue(NO_SPECIFIC_CASE_STATE_SELECTED_ISSUE_ID, aProcess);
+            return;
+        }
+
+        // get the enumeration and its possible values
+        Enumeration caseStateEnum = (Enumeration) aCaseStateAttr.getType();
+        EList<EnumerationLiteral> caseStateValues =
+                caseStateEnum.getOwnedLiterals();
+
+        // get the list of terminal state values
+        EList<EnumerationLiteral> terminalStates =
+                terminalStateUtil.getTerminalStates(aCaseStateAttr);
+
+        // test all selected case-state values
+        for (ExternalReference selectedState : visibleStates.getCaseState()) {
+            // Check if the state is one of the enums in the case class
+            boolean found = false;
+            for (EnumerationLiteral caseStateValue : caseStateValues) {
+                ExternalReference ref = ProcessUIUtil
+                        .getExternalRefForEnumLit(aCaseService, caseStateValue);
+                if (EcoreUtil.equals(ref, selectedState)) {
+                    // we found it - is it one of the terminal states
+                    if (terminalStates.contains(caseStateValue)) {
+                        addIssue(TERMINAL_CASE_STATE_NOT_ALLOWED,
+                                aProcess,
+                                Collections.singletonList(PrimitivesUtil
+                                        .getDisplayLabel(caseStateValue)));
                     }
+
+                    found = true;
+                    break;
                 }
+            }
+            if (!found) {
+                addIssue(INVALID_CASE_STATE_ATTRIBUTE_FOUND_IN_CASE_SERVICE,
+                        aProcess);
             }
         }
     }
@@ -269,10 +314,9 @@ public class CaseServiceValidationRules extends ProcessValidationRule {
     public static CaseService getCaseService(Process process) {
 
         if (process != null) {
-            Object caseService =
-                    Xpdl2ModelUtil.getOtherElement(process,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_CaseService());
+            Object caseService = Xpdl2ModelUtil.getOtherElement(process,
+                    XpdExtensionPackage.eINSTANCE
+                            .getDocumentRoot_CaseService());
             if (caseService instanceof CaseService) {
                 return (CaseService) caseService;
             }

@@ -21,6 +21,7 @@ import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
 import com.tibco.xpd.validation.resolutions.ResolutionException;
@@ -37,8 +38,11 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author Ali
  * @since 13 Aug 2014
  */
-public class RemoveInvalidCaseServiceCaseSetRefsResolution extends
-        AbstractWorkingCopyResolution {
+public class RemoveInvalidCaseServiceCaseSetRefsResolution
+        extends AbstractWorkingCopyResolution {
+
+    private static final TerminalStateProperties terminalStateUtil =
+            new TerminalStateProperties();
 
     /**
      * @see com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution#getResolutionCommand(org.eclipse.emf.edit.domain.EditingDomain,
@@ -54,84 +58,80 @@ public class RemoveInvalidCaseServiceCaseSetRefsResolution extends
     protected Command getResolutionCommand(EditingDomain editingDomain,
             EObject target, IMarker marker) throws ResolutionException {
 
-        if (target instanceof Process) {
+        if (!(target instanceof Process)) {
+            return null;
+        }
 
-            Process process = (Process) target;
+        CaseService caseService = getCaseService((Process) target);
+        if (caseService == null) {
+            return null;
+        }
 
-            CaseService caseService = getCaseService(process);
+        ExternalReference caseClassRef = caseService.getCaseClassType();
+        if (caseClassRef == null) {
+            return null;
+        }
 
-            if (caseService != null) {
+        EObject eo = ProcessUIUtil.getReferencedClassifier(caseClassRef,
+                WorkingCopyUtil.getProjectFor(target));
+        if (!(eo instanceof Class)) {
+            return null;
+        }
 
-                ExternalReference caseClassRef = caseService.getCaseClassType();
+        Property caseClassCaseStateAttrib =
+                ProcessUIUtil.getCaseClassCaseState((Class) eo);
+        if (caseClassCaseStateAttrib == null) {
+            return null;
+        }
 
-                if (caseClassRef != null) {
+        VisibleForCaseStates caseServiceCaseStates =
+                caseService.getVisibleForCaseStates();
+        if (caseServiceCaseStates == null) {
+            return null;
+        }
 
-                    EObject eo =
-                            ProcessUIUtil.getReferencedClassifier(caseClassRef,
+        // get the list of terminal state values
+        EList<EnumerationLiteral> terminalStates =
+                terminalStateUtil.getTerminalStates(caseClassCaseStateAttrib);
 
-                            WorkingCopyUtil.getProjectFor(process));
-                    Class caseClass = null;
-                    if (eo instanceof Class) {
+        // get all possible case state values
+        Enumeration caseStateEnum =
+                (Enumeration) caseClassCaseStateAttrib.getType();
+        EList<EnumerationLiteral> caseStateValues =
+                caseStateEnum.getOwnedLiterals();
 
-                        caseClass = (Class) eo;
-
-                        Property caseClassCaseStateAttrib =
-                                ProcessUIUtil.getCaseClassCaseState(caseClass);
-
-                        if (caseClassCaseStateAttrib != null) {
-                            VisibleForCaseStates caseServiceCaseStates =
-                                    caseService.getVisibleForCaseStates();
-
-                            Enumeration caseStateEnum =
-                                    (Enumeration) caseClassCaseStateAttrib
-                                            .getType();
-                            EList<EnumerationLiteral> caseClassCaseStatesList =
-                                    caseStateEnum.getOwnedLiterals();
-
-                            List<ExternalReference> refsToRemove =
-                                    new ArrayList<ExternalReference>();
-                            if (caseServiceCaseStates != null) {
-
-                                for (ExternalReference state : caseServiceCaseStates
-                                        .getCaseState()) {
-
-                                    /*
-                                     * Check if the case state attrib exists in
-                                     * the case class, if it doesn't then remove
-                                     * it from the case service
-                                     */
-                                    boolean found = false;
-                                    for (EnumerationLiteral caseClassEnumLit : caseClassCaseStatesList) {
-                                        ExternalReference ref =
-                                                ProcessUIUtil
-                                                        .getExternalRefForEnumLit(caseService,
-                                                                caseClassEnumLit);
-                                        if (EcoreUtil.equals(ref, state)) {
-                                            found = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!found) {
-                                        refsToRemove.add(state);
-                                    }
-
-                                }
-
-                                CompoundCommand cmpCmd = new CompoundCommand();
-                                for (ExternalReference ref : refsToRemove) {
-
-                                    cmpCmd.append(RemoveCommand
-                                            .create(editingDomain, ref));
-                                }
-
-                                return cmpCmd;
-                            }
-                        }
+        List<ExternalReference> refsToRemove =
+                new ArrayList<ExternalReference>();
+        for (ExternalReference state : caseServiceCaseStates.getCaseState()) {
+            /*
+             * Check if the case state attrib exists in the case class, if it
+             * doesn't then remove it from the case service
+             */
+            boolean found = false;
+            for (EnumerationLiteral caseStateValue : caseStateValues) {
+                ExternalReference ref = ProcessUIUtil
+                        .getExternalRefForEnumLit(caseService, caseStateValue);
+                if (EcoreUtil.equals(ref, state)) {
+                    // we found it - is it one of the terminal states
+                    if (terminalStates.contains(caseStateValue)) {
+                        refsToRemove.add(state);
                     }
+
+                    found = true;
+                    break;
                 }
             }
+            if (!found) {
+                refsToRemove.add(state);
+            }
         }
-        return null;
+
+        CompoundCommand cmpCmd = new CompoundCommand();
+        for (ExternalReference ref : refsToRemove) {
+            cmpCmd.append(RemoveCommand.create(editingDomain, ref));
+        }
+
+        return cmpCmd;
     }
 
     /**
@@ -141,10 +141,9 @@ public class RemoveInvalidCaseServiceCaseSetRefsResolution extends
     public static CaseService getCaseService(Process process) {
 
         if (process != null) {
-            Object caseService =
-                    Xpdl2ModelUtil.getOtherElement(process,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_CaseService());
+            Object caseService = Xpdl2ModelUtil.getOtherElement(process,
+                    XpdExtensionPackage.eINSTANCE
+                            .getDocumentRoot_CaseService());
             if (caseService instanceof CaseService) {
                 return (CaseService) caseService;
             }
