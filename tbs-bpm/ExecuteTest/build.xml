@@ -45,7 +45,7 @@
 	<target name="prepareTestEnvironment" depends="_init,_downLoadEclipse,_unzipEclipse,_copyJunitXslToDropInsFolder"/>
 	
 	<!-- this will set up test envirnoment on slave and also downsload the latest TP required for running tests  -->
-	<target name="prepareTestEnvironmentOnSlave" depends="prepareTestEnvironment, setTestTp"/>
+	<target name="prepareTestEnvironmentOnSlave" depends="prepareTestEnvironment"/>
 		
 	<target name="_init">
 		<!-- delete old destination directory-->
@@ -115,23 +115,5 @@
 		<!--TODO; Jan: Remove. I don't think it's needed. -->
 		<!--<copy file="${junit-xsl}" todir="${eclipse-home}/dropins/eclipse/plugins/org.eclipse.test"/>-->
 	</target>
-	
-	<!-- Set up the TP. -->    	
-	<target name="setTestTp">   
-		<!-- delete existing tp dir and create new-->
-		<delete dir="${tp.dir}"/>
-		<mkdir dir="${tp.dir}" />
 		
-		<echo>Downloading exec TP: '${execTp.file.location}/${execTp.zip.filename}' to: '${tp.dir}/${execTp.zip.filename}'</echo>
-		<get src="${execTp.file.location}/${execTp.zip.filename}" dest="${tp.dir}/${execTp.zip.filename}" />
-		
-		<echo>Unzip downloaded exec TP</echo>
-		<unzip src="${tp.dir}/${execTp.zip.filename}" dest="${tp.dir}/${execTp.filename}">
-		</unzip>
-		<!-- Updating tp definition file.-->
-		<echo>Updating tp definition file</echo>
-		<get src="${execTp.file.location}/devTargetPlatform.target.template" dest="${tp.dir}/devTargetPlatform.target" />
-		<replace file="${tp.dir}/devTargetPlatform.target" token="%%TP_BASE_LOCATION%%" value="${tp.dir}/${execTp.filename}"/>		
-    </target>
-	
 </project>
