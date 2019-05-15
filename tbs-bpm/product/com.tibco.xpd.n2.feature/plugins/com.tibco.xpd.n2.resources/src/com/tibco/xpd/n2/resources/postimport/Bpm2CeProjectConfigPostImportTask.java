@@ -25,11 +25,18 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.n2.resources.BundleActivator;
 import com.tibco.xpd.n2.resources.internal.Messages;
+import com.tibco.xpd.presentation.channels.Channel;
+import com.tibco.xpd.presentation.channels.Channels;
+import com.tibco.xpd.presentation.channels.TypeAssociation;
+import com.tibco.xpd.presentation.channeltypes.ChannelType;
+import com.tibco.xpd.presentation.resources.ui.internal.util.PresentationManager;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.Destination;
@@ -115,6 +122,8 @@ public class Bpm2CeProjectConfigPostImportTask
                                 (ProjectConfigWorkingCopy) WorkingCopyUtil
                                         .getWorkingCopyFor(projectConfig);
                         wc.setDetails(projectDetails);
+
+                        removeUnsupportedPresentationChannels(project);
                     }
                 }
             }
@@ -528,7 +537,6 @@ public class Bpm2CeProjectConfigPostImportTask
                     iterator.remove();
                 }
 
-
             }
 
             /* Reset nature list. */
@@ -695,6 +703,57 @@ public class Bpm2CeProjectConfigPostImportTask
         }
 
         return false;
+    }
+
+    /**
+     * Remove Workspace general interface, Workspace GWT and Workspace Email
+     * channels from project specific configuration.
+     * 
+     * @param project
+     * @throws CoreException
+     */
+    private void removeUnsupportedPresentationChannels(IProject project)
+            throws CoreException {
+        PresentationManager pm = PresentationManager.getInstance();
+
+        Channels channelContainer = pm.getChannels(project);
+
+        /*
+         * Only care about channels store in project.
+         */
+        if (channelContainer != null
+                && pm.isProjectChannels(channelContainer, project)) {
+            
+            TransactionalEditingDomain ed =
+                    XpdResourcesPlugin.getDefault().getEditingDomain();
+
+            ed.getCommandStack().execute(new RecordingCommand(ed) {
+                @Override
+                protected void doExecute() {
+                    for (Channel channel : channelContainer.getChannels()) {
+        
+                        for (Iterator iterator =
+                                channel.getTypeAssociations().iterator(); iterator
+                                        .hasNext();) {
+                            TypeAssociation typeAssociation =
+                                    (TypeAssociation) iterator.next();
+        
+                            ChannelType channelType = typeAssociation.getChannelType();
+        
+                            if (channelType != null) {
+                                if (!PresentationManager.getInstance()
+                                        .isAceSupportedChannelType(
+                                                channelType.getId())) {
+                                    iterator.remove();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            PresentationManager.saveChannels(channelContainer);
+        }
     }
 
 }

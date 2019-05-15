@@ -26,19 +26,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class PresentationChannelsDefaultChannelValidator implements
         WorkspaceResourceValidator {
 
-    private static final String INVALID_ISSUE_ID =
-            "bx.workspaceGICannotExistInDefaultChannel"; //$NON-NLS-1$
-
-    private static final String ISSUE_DEFAULT_CONTAINS_WORKSPACE_GI_EMAIL =
-            "bx.workspaceEmailGICannotExistInDefaultChannel"; //$NON-NLS-1$
-
     // XPD-4789:Raise warning message for GI channels to Error level.
 
-    private static final String ISSUE_WORKSPACE_GI_NOT_SUPPORTED =
-            "bx.workspaceGIIsDeprecated"; //$NON-NLS-1$
-
-    private static final String ISSUE_WORKSPACE_GI_EMAIL_NOT_SUPPORTED =
-            "bx.workspaceEmailIsDeprecated"; //$NON-NLS-1$
 
     private static final String ISSUE_CONTAINS_INVALID_CHANNEL =
             "bx.InvalidChannel"; //$NON-NLS-1$
@@ -48,6 +37,7 @@ public class PresentationChannelsDefaultChannelValidator implements
      * 
      * @param project
      */
+    @Override
     public void setProject(IProject project) {
     }
 
@@ -58,6 +48,7 @@ public class PresentationChannelsDefaultChannelValidator implements
      * @param scope
      * @param resource
      */
+    @Override
     public void validate(IValidationScope scope, IResource resource) {
         if (resource instanceof IProject && resource.isAccessible()) {
 
@@ -88,29 +79,18 @@ public class PresentationChannelsDefaultChannelValidator implements
 
                         String channelName = null;
                         String issueId = null;
-                        if (PresentationManager.GI_GI_PULL.equals(ta
-                                .getChannelType().getId())) {
-                            // XPD-4789: Change level to Error, as GI channel
-                            // support is removed
-                            issueId = ISSUE_WORKSPACE_GI_NOT_SUPPORTED;
-                            channelName = ta.getChannelType().getDisplayName();
 
-                        } else if (PresentationManager.EMAIL_GI_PUSH.equals(ta
-                                .getChannelType().getId())) {
-                            /*
-                             * Workspace GI Email not supported[ERROR]
-                             */// XPD-5309 Show different message for Default
-                               // and User Defined channels
-                            if (channel.isDefault()) {
-                                issueId =
-                                        ISSUE_DEFAULT_CONTAINS_WORKSPACE_GI_EMAIL;
-                            } else {
-                                issueId =
-                                        ISSUE_WORKSPACE_GI_EMAIL_NOT_SUPPORTED;
+                        /*
+                         * Sid ACE-1132 Various validation
+                         * rules/issues/resolutions removed as unsupported
+                         * channels are now removed on import of AMX BPM
+                         * projects into ACE.
+                         * 
+                         * Workspace Email and Workspace general interface in
+                         * this case.
+                         */
 
-                            }
-                            channelName = ta.getChannelType().getDisplayName();
-                        } else if (ta.getChannelType().getId() == null) {
+                        if (ta.getChannelType().getId() == null) {
                             // XPD-4003: channel id will be null for Invalid
                             // channel
                             // Workspace Email GWT Channel for which the
@@ -123,6 +103,7 @@ public class PresentationChannelsDefaultChannelValidator implements
                             channelName = ta.getChannelType().getDisplayName();
 
                         }
+
                         if (issueId != null) {
                             if (channelName == null) {
                                 scope.createIssue(issueId,

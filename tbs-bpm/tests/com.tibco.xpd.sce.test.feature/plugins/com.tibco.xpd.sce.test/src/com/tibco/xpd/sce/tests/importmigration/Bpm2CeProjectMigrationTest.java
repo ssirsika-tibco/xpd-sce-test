@@ -36,6 +36,11 @@ import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
+import com.tibco.xpd.presentation.channels.Channel;
+import com.tibco.xpd.presentation.channels.Channels;
+import com.tibco.xpd.presentation.channels.TypeAssociation;
+import com.tibco.xpd.presentation.channeltypes.ChannelType;
+import com.tibco.xpd.presentation.resources.ui.internal.util.PresentationManager;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
@@ -92,16 +97,15 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     // @Test
     public void testLocalBOMDataProjectMigration() {
         String projectName = "ProjectMigrationTest_LocalBOM"; //$NON-NLS-1$
-        ProjectImporter projectImporter =
-                doTestProject(projectName);
-        
+        ProjectImporter projectImporter = doTestProject(projectName);
+
         assertTrue(projectName
                 + " project should have problem marker 'Business Object assets must be in a Business Data project.'", //$NON-NLS-1$
                 hasProblemMarker(
                         ResourcesPlugin.getWorkspace().getRoot()
                                 .getProject(projectName),
                         "ace.bom.asset.must.be.in.biz.data")); //$NON-NLS-1$
-        
+
         projectImporter.performDelete();
     }
 
@@ -580,8 +584,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     public void testMaaProjectMigration() {
         String projectName = "ProjectMigrationTest_maa"; //$NON-NLS-1$
 
-        ProjectImporter projectImporter =
-                doTestProject(projectName); // $NON-NLS-1$
+        ProjectImporter projectImporter = doTestProject(projectName); // $NON-NLS-1$
 
         assertTrue(projectName
                 + " project should have problem marker 'Organisation assets must be in their own project (not mixed with other asset types such as Process and Business Object etc).'", //$NON-NLS-1$
@@ -708,6 +711,49 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         assertTrue(
                 "User defined 'Business Objects' folder is not configured as a Special Folder", //$NON-NLS-1$
                 found);
+
+        projectImporter.performDelete();
+
+    }
+
+    @Test
+    public void testPresentationChannelMigration() {
+        String projectName = "ProjectMigrationTest_ChannelConfig"; //$NON-NLS-1$
+
+        ProjectImporter projectImporter = doTestProject(projectName);
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+
+        PresentationManager pm = PresentationManager.getInstance();
+
+        Channels channelContainer = pm.getChannels(project);
+        if (channelContainer != null
+                && pm.isProjectChannels(channelContainer, project)) {
+
+            for (Channel channel : channelContainer.getChannels()) {
+
+                for (TypeAssociation typeAssociation : channel
+                        .getTypeAssociations()) {
+
+                    ChannelType channelType = typeAssociation.getChannelType();
+                    if (channelType != null) {
+                        assertFalse(projectName
+                                + " should have had 'Workspace General Interface' channel removed", //$NON-NLS-1$
+                                PresentationManager.GI_GI_PULL
+                                        .equals(channelType.getId()));
+                        assertFalse(projectName
+                                + " should have had 'Workspace Google Web Toolkit' channel removed", //$NON-NLS-1$
+                                PresentationManager.GI_GWT_PULL
+                                        .equals(channelType.getId()));
+                        assertFalse(projectName
+                                + " should have had 'Workspace Email' channel removed", //$NON-NLS-1$
+                                PresentationManager.EMAIL_GI_PUSH
+                                        .equals(channelType.getId()));
+                    }
+                }
+            }
+        }
 
         projectImporter.performDelete();
 
@@ -1015,13 +1061,18 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                     assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
                             + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
                             + " - REST/WEB/JDBC system participant should have had xpdExt:ParticipantSharedResource removed", //$NON-NLS-1$
-                           psr.getWebService() == null
+                            psr.getWebService() == null
                                     && psr.getJdbc() == null);
-                    
-                    /* Sid ACE-479 We now only remove the content of xpdExt:RestService not the whole element so that we preserve it's type but not it's config */
+
+                    /*
+                     * Sid ACE-479 We now only remove the content of
+                     * xpdExt:RestService not the whole element so that we
+                     * preserve it's type but not it's config
+                     */
                     if (psr.getRestService() != null) {
                         assertTrue(xpdlFile.getName() + "::" //$NON-NLS-1$
-                                + Xpdl2ModelUtil.getDisplayName(participant) + ":" //$NON-NLS-1$
+                                + Xpdl2ModelUtil.getDisplayName(participant)
+                                + ":" //$NON-NLS-1$
                                 + " - REST system participant should have had all content from xpdExt:ParticipantSharedResource/xpdExt:RestService removed", //$NON-NLS-1$
                                 psr.getRestService()
                                         .getHttpClientInstanceName() == null

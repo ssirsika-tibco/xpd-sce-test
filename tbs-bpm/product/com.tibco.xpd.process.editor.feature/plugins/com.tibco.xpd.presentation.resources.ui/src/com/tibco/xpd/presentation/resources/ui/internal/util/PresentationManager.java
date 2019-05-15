@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -53,15 +54,18 @@ public class PresentationManager {
     public static final String IMPLEMANTATION_PUSH = "Push"; //$NON-NLS-1$
 
     /** Workspace GI channel. */
+    @Deprecated // Sid ACE-1132 no longer supported in ACE
     public static final String GI_GI_PULL = "GIGIPull"; //$NON-NLS-1$
 
     /** Workspace GWT channel. */
+    @Deprecated // Sid ACE-1132 no longer supported in ACE
     public static final String GI_GWT_PULL = "GIGWTPull"; //$NON-NLS-1$
 
     /** Mobile GWT channel. */
     public static final String MOBILE_GWT_PULL = "MobileGWTPull"; //$NON-NLS-1$
 
     /** Email GI (push) channel. */
+    @Deprecated // Sid ACE-1132 no longer supported in ACE
     public static final String EMAIL_GI_PUSH = "EmailGIPush"; //$NON-NLS-1$
 
     /** Openspace GWT channel. */
@@ -76,8 +80,13 @@ public class PresentationManager {
     public static final String WORKSPACE_EMAIL_PUSH = "workspaceEmailPush"; //$NON-NLS-1$
 
     /** Default channel types. */
+    /*
+     * Sid ACE-1132 WOrkspace GWT and Workspace Email aren't supported in ACE so
+     * remove them.
+     */
+
     private static final String[] DEFAULT_CHANNEL_TYPES = new String[] {
-            GI_GWT_PULL, OPENSPACE_GWT_PULL, OPENSPACE_EMAIL_PUSH };
+            OPENSPACE_GWT_PULL, OPENSPACE_EMAIL_PUSH };
 
     private static final String DEFAULT_PREFERENCES_DIRNAME = ".settings"; //$NON-NLS-1$
 
@@ -124,6 +133,48 @@ public class PresentationManager {
                 .getResourceSet()
                 .getResource(URI.createURI(CHANNEL_TYPES_URI), true);
         return (ChannelTypes) resource.getContents().get(0);
+    }
+
+    /**
+     * Sid ACE-1132 filter out unsupported channel types (Workspace general
+     * interface, Workspace Google Web Toolkit, Workspace Email)
+     * 
+     * In theory we *should* have been able to simply remove the contributions
+     * from com.tibco.xpd.presentation.resources.ui extensions. *However* this
+     * caused BOM forms-GWT builder issues (throws up errors when building
+     * projects with user tasks).
+     * 
+     * So instead, we simply filter them out of the UI for now.
+     * 
+     * @return The list of channel types with unsupported types removed.
+     */
+    public List<ChannelType> getAceAvailableChannelTypes() {
+        EList<ChannelType> channelTypes =
+                PresentationManager.getInstance().getChannelTypes()
+                        .getChannelTypes(new BasicEList<ChannelDestination>(
+                                PresentationManager.getChannelDestinations()));
+
+        List<ChannelType> filtered = new ArrayList<>();
+
+        for (ChannelType channelType : channelTypes) {
+            if (isAceSupportedChannelType(channelType.getId())) {
+                filtered.add(channelType);
+            }
+        }
+        return filtered;
+    }
+
+    /**
+     * @param channelTypeId
+     * @return <code>true</code> if channel type is supported in ACE.
+     */
+    public boolean isAceSupportedChannelType(String channelTypeId) {
+        if (PresentationManager.GI_GI_PULL.equals(channelTypeId)
+                || PresentationManager.GI_GWT_PULL.equals(channelTypeId)
+                || PresentationManager.EMAIL_GI_PUSH.equals(channelTypeId)) {
+            return false;
+        }
+        return true;
     }
 
     /**

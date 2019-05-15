@@ -125,11 +125,6 @@ public class WpModelRascContributorTest extends TestCase {
                             && wpModelArtifact.getContent().size() > 0);
 
             assertTrue(mainTestProjectName
-                    + " project should have a contributed GIGWTPull_DefaultChannel/GIGWTPull_DefaultChannel.properties artifact",
-                    gwtChannelProperties != null
-                            && gwtChannelProperties.getContent().size() > 0);
-
-            assertTrue(mainTestProjectName
                     + " project should have a contributed openspaceEmailPush_DefaultChannel/openspaceEmailPush_DefaultChannel.properties artifact",
                     emailChannelProperties != null
                             && emailChannelProperties.getContent().size() > 0);
@@ -139,11 +134,6 @@ public class WpModelRascContributorTest extends TestCase {
                     + " project wp/wpModel.wp artifact should be targeted to the Work-manager micro-service",
                     new MicroService[] { MicroService.WP },
                     wpModelArtifact.getServices());
-
-            assertArrayEquals(mainTestProjectName
-                    + " project GIGWTPull_DefaultChannel/GIGWTPull_DefaultChannel.properties artifact should be targeted to the Work-manager micro-service",
-                    new MicroService[] { MicroService.WP },
-                    gwtChannelProperties.getServices());
 
             assertArrayEquals(mainTestProjectName
                     + " project openspaceEmailPush_DefaultChannel/openspaceEmailPush_DefaultChannel.properties artifact should be targeted to the Work-manager micro-service",

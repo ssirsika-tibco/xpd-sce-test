@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RunnableWithResult;
@@ -34,7 +33,6 @@ import com.tibco.xpd.presentation.channels.Channel;
 import com.tibco.xpd.presentation.channels.Channels;
 import com.tibco.xpd.presentation.channels.ChannelsFactory;
 import com.tibco.xpd.presentation.channels.TypeAssociation;
-import com.tibco.xpd.presentation.channeltypes.ChannelDestination;
 import com.tibco.xpd.presentation.channeltypes.ChannelType;
 import com.tibco.xpd.presentation.channeltypes.Implementation;
 import com.tibco.xpd.presentation.channeltypes.Presentation;
@@ -340,11 +338,8 @@ public class NewChannelWizard extends Wizard {
                                         .getEditingDomain(), XpdResourcesPlugin
                                         .getDefault().getAdapterFactory()));
                 // XPD-4427: Filter the ChannelTypes for available destinations.
-                channelTypeViewer.setInput(PresentationManager
-                        .getInstance()
-                        .getChannelTypes()
-                        .getChannelTypes(new BasicEList<ChannelDestination>(
-                                PresentationManager.getChannelDestinations())));
+                channelTypeViewer.setInput(PresentationManager.getInstance()
+                        .getAceAvailableChannelTypes());
                 if (selectedChannel != null) {
                     for (TypeAssociation typeAssociation : selectedChannel
                             .getTypeAssociations()) {

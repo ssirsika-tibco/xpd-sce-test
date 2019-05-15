@@ -44,32 +44,8 @@
                message="%bx.referencedResourceDoesntExist"
                severity="ERROR">
          </issue>
-        
-         <issue
-               id="bx.workspaceGIIsDeprecated"
-               message="%bx.channel.not.supported.error"
-               severity="ERROR">
-         </issue>
-         <issue
-               id="bx.workspaceEmailGICannotExistInDefaultChannel"
-               message="%bx.workspaceEmailGICannotExistInDefaultChannel.error"
-               severity="ERROR">
-            <resolution
-                  canApplyToMultiple="true"
-                  id="bx.replaceWsEmailWithOsEmailInAllChnels">
-            </resolution>
-         </issue>  
-              <issue
-               id="bx.workspaceEmailIsDeprecated"
-               message="%bx.channel.deprecated.warning" 
-               preferenceDescription="%bx.workspaceEmail.channel.deprecated.warning"
-               preferenceGroupId="com.tibco.bx.validation.resources"
-               severity="ERROR">
-                 <resolution
-                       canApplyToMultiple="true"
-                       id="bx.replaceWsEmailWithOsEmailInAllChnels">
-                 </resolution>
-         </issue>         
+
+
          <issue
                id="bx.InvalidChannel"
                message="%bx.InvalidChannel"
@@ -79,27 +55,8 @@
    </extension>
    <extension
          point="com.tibco.xpd.validation.resolution">
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.n2.wp.resolution.SetDefaultChannelsResolution"
-            description="%bx.workspaceGICannotExistInDefaultChannel.resolution.desc"
-            id="bx.workspaceGICannotExistInDefaultChannel"
-            label="%bx.workspaceGICannotExistInDefaultChannel.resolution.label">
-      </resolution>
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.n2.wp.resolution.SwitchWsToOsEmailDefaultChannelResolution"
-            description="%bx.switchDefaultWorkspaceEmailToOpenspaceEmailGWTChannel.resolution.desc"
-            id="bx.workspaceEmailGICannotExistInDefaultChannel"
-            label="%bx.switchDefaultWorkspaceEmailToOpenspaceEmailGWTChannel.resolution.label">
-      </resolution>
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.n2.wp.resolution.SwitchWorkspaceGIToGWTChannelResolution"
-            description="%bx.switchWorkspaceGIToWorkspaceGWTChannel.resolution.desc"
-            id="bx.workspaceGIIsDeprecated"
-            label="%bx.switchWorkspaceGIToWorkspaceGWTChannel.resolution.label">
-      </resolution>
+
+
        <resolution
             canApplyToMultiple="true"
             class="com.tibco.xpd.n2.wp.resolution.RemoveInvalidChannelResolution"
@@ -142,15 +99,7 @@
     </channelDestinationBinding>
     
  </extension>
- <extension
-      point="com.tibco.xpd.validation.reusableResolutions">
-   <resolution
-        id="bx.replaceWsEmailWithOsEmailInAllChnels"
-        class="com.tibco.xpd.n2.wp.resolution.SwitchWorkspaceToOpenspaceEmailResolution"
-        label="%bx.switchWorkspaceEmailToOpenspaceEmailGWTChannel.resolution.label.1"
-        description="%bx.switchWorkspaceEmailToOpenspaceEmailGWTChannel.resolution.desc.1">
-   </resolution>
- </extension>
+
  
     <extension
          point="com.tibco.xpd.rasc.core.rascContributors">
