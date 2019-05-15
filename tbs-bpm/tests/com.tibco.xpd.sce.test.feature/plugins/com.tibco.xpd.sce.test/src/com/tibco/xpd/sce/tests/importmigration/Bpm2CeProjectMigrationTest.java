@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Model;
@@ -30,6 +31,7 @@ import org.junit.Test;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -630,30 +632,41 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
          * location.
          */
         assertTrue(
-                "BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                "Generated BOM 'Generated Business Objects/org.example.NewWSDLFile.bom' should not be in generated BOM folder", //$NON-NLS-1$
                 !project.getFile(
                         "Generated Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
                         .exists());
 
         assertTrue(
-                "BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                "Generated BOM 'Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should not be in generated BOM folder", //$NON-NLS-1$
                 !project.getFile(
                         "Generated Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
                         .exists());
 
+        IFile newWSDLFilebom =
+                project.getFile("Business Objects/org.example.NewWSDLFile.bom"); //$NON-NLS-1$
         assertTrue(
-                "BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                project.getFile("Business Objects/org.example.NewWSDLFile.bom") //$NON-NLS-1$
-                        .exists());
+                "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                newWSDLFilebom.exists());
+
+        IFile subNewWsdlFile1bom = project.getFile(
+                "Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom"); //$NON-NLS-1$
+        assertTrue(
+                "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                subNewWsdlFile1bom.exists());
+
+        /*
+         * Check that moved boms have had the 'global data capability' added
+         */
+        assertTrue(
+                "Generated BOM 'Business Objects/org.example.NewWSDLFile.bom' should have had global data capability added", //$NON-NLS-1$
+                BOMGlobalDataUtils.isGlobalDataBOM(newWSDLFilebom));
 
         assertTrue(
-                "BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                project.getFile(
-                        "Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom") //$NON-NLS-1$
-                        .exists());
+                "Generated BOM 'Business Objects/sub/sub sub/org.example.NewWSDLFile1.bom' should have had global data capability added", //$NON-NLS-1$
+                BOMGlobalDataUtils.isGlobalDataBOM(subNewWsdlFile1bom));
 
         projectImporter.performDelete();
-
     }
 
     @Test
@@ -668,28 +681,41 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
          * location.
          */
         assertTrue(
-                "BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                "Generated BOM 'Generated Business Objectsorg.example.ShouldMigrateToUserDefWSDL.bom' should not be in generated BOM folder", //$NON-NLS-1$
                 !project.getFile(
                         "Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
                         .exists());
 
         assertTrue(
-                "BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
+                "Generated BOM 'Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should not be in generated BOM folder", //$NON-NLS-1$
                 !project.getFile(
                         "Generated Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
                         .exists());
 
+        IFile shouldMigrateToUserdDefWSDLbom = project.getFile(
+                "Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom"); //$NON-NLS-1$
         assertTrue(
-                "BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                project.getFile(
-                        "Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom") //$NON-NLS-1$
-                        .exists());
+                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                shouldMigrateToUserdDefWSDLbom.exists());
+
+        IFile shouldMigrateToUserDefWSDL2bom = project.getFile(
+                "Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom"); //$NON-NLS-1$
+        assertTrue(
+                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
+                shouldMigrateToUserDefWSDL2bom.exists());
+
+        /*
+         * Check that moved boms have had the 'global data capability' added
+         */
+        assertTrue(
+                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
+                BOMGlobalDataUtils
+                        .isGlobalDataBOM(shouldMigrateToUserdDefWSDLbom));
 
         assertTrue(
-                "BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom' should have been moved to user defined BOM folder", //$NON-NLS-1$
-                project.getFile(
-                        "Business Objects/org.example.ShouldMigrateToUserDefWSDL2.bom") //$NON-NLS-1$
-                        .exists());
+                "Generated BOM 'Business Objects/org.example.ShouldMigrateToUserDefWSDL.bom' should have had global data capability added", //$NON-NLS-1$
+                BOMGlobalDataUtils
+                        .isGlobalDataBOM(shouldMigrateToUserDefWSDL2bom));
 
         /* Check that special folder has been added. */
         ProjectConfig projectConfig =
@@ -1202,7 +1228,11 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
             Model model = (Model) wc.getRootElement();
 
-            /* Ensure that there are no Integer type properties/primitives */
+            /*
+             * Ensure that there are no Integer type properties/primitives
+             * 
+             * Ensure that operations have been removed from classes.
+             */
             EList<Element> allOwnedElements = model.allOwnedElements();
 
             for (Element element : allOwnedElements) {
@@ -1223,6 +1253,14 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                                 + "' should have been converted from Integer to Decimal, FixedPoint with Zero decimals", //$NON-NLS-1$
                                 !(integerType.equals(general)));
                     }
+                    
+                } else if (element instanceof Class) {
+                    Class clazz = (Class) element;
+
+                    assertTrue("Class '" + model.getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+                            + clazz.getName()
+                            + "' should have had all operations removed", //$NON-NLS-1$
+                            clazz.getOwnedOperations().isEmpty());
                 }
             }
         }

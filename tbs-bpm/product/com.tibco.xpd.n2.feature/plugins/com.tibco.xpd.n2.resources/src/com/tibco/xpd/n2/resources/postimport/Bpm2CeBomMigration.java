@@ -16,6 +16,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.resources.migration.IBOMMigration;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -54,6 +55,25 @@ public class Bpm2CeBomMigration implements IBOMMigration {
          * Switch integer attributes to Decimals with 0 max decimals.
          */
         c = refactorNumberAttributes(domain, model);
+        if (c != null) {
+            cmd.append(c);
+        }
+
+        /*
+         * Add the global data profile - all BOMs in ACE should be in Biz Data
+         * projects and hence should have global data profile set (even if
+         * they're not currently in biz data projects they'll have to be moved
+         * there).
+         */
+        c = addGlobalDataProfile(domain, model);
+        if (c != null) {
+            cmd.append(c);
+        }
+
+        /*
+         * Remove class operations.
+         */
+        c = removeClassOperations(domain, model);
         if (c != null) {
             cmd.append(c);
         }
@@ -297,6 +317,59 @@ public class Bpm2CeBomMigration implements IBOMMigration {
         }
 
         return !cmd.isEmpty() ? cmd : null;
+    }
+
+    /**
+     * Add the global data profile - all BOMs in ACE should be in Biz Data
+     * projects and hence should have global data profile set (even if they're
+     * not currently in biz data projects they'll have to be moved there).
+     * 
+     * @param domain
+     * @param model
+     * 
+     * @return Command to add the global data profile or null if already set
+     */
+    private Command addGlobalDataProfile(TransactionalEditingDomain domain,
+            Model model) {
+        if (!GlobalDataProfileManager.getInstance().isGlobalDataBOM(model)) {
+            return new RecordingCommand(domain) {
+
+                @Override
+                protected void doExecute() {
+                    GlobalDataProfileManager.getInstance()
+                            .applyGlobalDataProfile(model);
+                }
+            };
+        }
+        return null;
+    }
+
+    /**
+     * Remove all operations from (usually ex-generated) BOM classes
+     * 
+     * @param domain
+     * @param model
+     * 
+     * @return Command to remove the operations from classes in the model
+     */
+    private Command removeClassOperations(TransactionalEditingDomain domain,
+            Model model) {
+        return new RecordingCommand(domain) {
+
+            @Override
+            protected void doExecute() {
+                EList<Element> allOwnedElements = model.allOwnedElements();
+
+                for (Element element : allOwnedElements) {
+                    if (element instanceof org.eclipse.uml2.uml.Class) {
+                        org.eclipse.uml2.uml.Class clazz =
+                                (org.eclipse.uml2.uml.Class) element;
+                        
+                        clazz.getOwnedOperations().clear();
+                    }
+                }
+            }
+        };
     }
 
 }
