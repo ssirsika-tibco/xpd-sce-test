@@ -26,75 +26,87 @@ public class AttributeDefaultValueRule implements IValidationRule {
 
     @Override
     public void validate(IValidationScope scope, Object o) {
+        if (!(o instanceof Property)) {
+            return;
+        }
 
-        if (o instanceof Property) {
-            Property p = (Property) o;
+        Property property = (Property) o;
+        Type type = property.getType();
+        if (!(type instanceof PrimitiveType)) {
+            return;
+        }
 
-            boolean isImportedRestriction = false;
+        PrimitiveType pt = (PrimitiveType) type;
+        PrimitiveType basePrimitiveType =
+                PrimitivesUtil.getBasePrimitiveType(pt);
 
-            /*
-             * Sid ACE-122 - we don't do XSD generation anymore so removed code
-             * related to XSD stereotype.
-             */
+        String name =
+                PrimitivesUtil.getFacetNameForDefaultValue(basePrimitiveType);
+        if (name == null) {
+            return;
+        }
 
-            Type type = p.getType();
+        Object defVal =
+                PrimitivesUtil.getFacetPropertyValue(pt, name, property, false);
 
-            if (type instanceof PrimitiveType) {
-                PrimitiveType pt = (PrimitiveType) type;
+        boolean checkedType = false;
+        if (isEmpty(defVal)) {
+            // No default defined on the property itself,
+            // so see if it inherits one from its type.
+            defVal = PrimitivesUtil
+                    .getFacetPropertyValue(pt, name, property, true);
+            checkedType = true;
+        }
 
-                PrimitiveType basePrimitiveType =
-                        PrimitivesUtil.getBasePrimitiveType(pt);
+        if (isEmpty(defVal)) {
+            return;
+        }
 
-                String name = PrimitivesUtil
-                        .getFacetNameForDefaultValue(basePrimitiveType);
-
-                if (name != null) {
-                    Object defVal = PrimitivesUtil
-                            .getFacetPropertyValue(pt, name, p, false);
-                    boolean checkedType = false;
-                    if (defVal == null || defVal.equals("")) {
-                        // No default defined on the property itself,
-                        // so see if it inherits one from its type.
-                        defVal = PrimitivesUtil
-                                .getFacetPropertyValue(pt, name, p, true);
-                        checkedType = true;
-                    }
-                    if (defVal != null && !defVal.equals("")) {
-                        // It has a default value
-                        // First deal with the case where it is an imported
-                        // restriction we only want the errors on imports in
-                        // this instance
-                        if (isImportedRestriction) {
-                            if ((p.getLower() == 1) && (p.getUpper() == 1)) {
-                                scope.createIssue(
-                                        CDSIssueIds.RESTRICTION_VALUE_ATTRIBUTE_DEFAULT,
-                                        BOMValidationUtil.getLocation(p),
-                                        p.eResource().getURIFragment(p));
-                            }
-                        }
-                        // If the attribute can take multiple values, a default
-                        // makes no sense.
-                        else if (p.getUpper() != 1) {
-                            scope.createIssue(checkedType
-                                    ? CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT_FROM_TYPE
-                                    : CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT,
-                                    BOMValidationUtil.getLocation(p),
-                                    p.eResource().getURIFragment(p));
-
-                        } else if (p.getLower() == 0) {
-                            // If the attribute is optional, a default makes no
-                            // sense, as it will _always_ apply, thus making it
-                            // impossible to not specify the attribute.
-                            scope.createIssue(checkedType
-                                    ? CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT_FROM_TYPE
-                                    : CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT,
-                                    BOMValidationUtil.getLocation(p),
-                                    p.eResource().getURIFragment(p));
-                        }
-                    }
-                }
+        // It has a default value
+        // First deal with the case where it is an imported
+        // restriction we only want the errors on imports in
+        // this instance
+        boolean isImportedRestriction = false;
+        if ((property.getLower() == 1) && (property.getUpper() == 1)) {
+            if (isImportedRestriction) {
+                scope.createIssue(
+                        CDSIssueIds.RESTRICTION_VALUE_ATTRIBUTE_DEFAULT,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
             }
+        }
+
+        // If the attribute can take multiple values, a default
+        // makes no sense.
+        else if (property.isMultivalued()) {
+            scope.createIssue(checkedType
+                    ? CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT_FROM_TYPE
+                    : CDSIssueIds.MULTIPLE_VALUE_ATTRIBUTE_DEFAULT,
+                    BOMValidationUtil.getLocation(property),
+                    property.eResource().getURIFragment(property));
+
+        } else if (property.getLower() == 0) {
+            // If the attribute is optional, a default makes no
+            // sense, as it will _always_ apply, thus making it
+            // impossible to not specify the attribute.
+            scope.createIssue(
+                    checkedType
+                            ? CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT_FROM_TYPE
+                            : CDSIssueIds.OPTIONAL_ATTRIBUTE_DEFAULT,
+                    BOMValidationUtil.getLocation(property),
+                    property.eResource().getURIFragment(property));
         }
     }
 
+    /**
+     * Tests the given object to determine if it is an "empty" value. That is, a
+     * null or empty string.
+     * 
+     * @param aValue
+     *            the value to be tested.
+     * @return <code>true</code> if the given value is "empty".
+     */
+    private boolean isEmpty(Object aValue) {
+        return (aValue == null) || (aValue.equals("")); //$NON-NLS-1$
+    }
 }

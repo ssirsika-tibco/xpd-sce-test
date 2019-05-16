@@ -5,15 +5,10 @@
          id="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
          name="%cds.cdsValidation"
          point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <super
-            type="com.tibco.xpd.validation.ValidationMarker">
-      </super>
+      <persistent value="true"/>
+      <super type="com.tibco.xpd.validation.ValidationMarker"/>
    </extension>
-   <extension
-         point="com.tibco.xpd.validation.provider">
+   <extension point="com.tibco.xpd.validation.provider">
       <provider
             id="com.tibco.xpd.n2.cds.validator"
             markerType="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
@@ -25,39 +20,26 @@
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Package"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Enumeration"/>
          <rule class="com.tibco.bds.designtime.validator.rules.DuplicateModelNameRule"/>
-         <rule
-               class="com.tibco.bds.designtime.validator.rules.ModelNameEqualToProjectLifecycleIdRule">
-         </rule>
+         <rule class="com.tibco.bds.designtime.validator.rules.ModelNameEqualToProjectLifecycleIdRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.EmptyEnumerationRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.CDSEntityNameRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.NameClashCaseMismatchRule"/>
          
          <!-- Sid ACE-470 "The Attachment type is not supported " superseded by AceSupportedBomTypesRule. -->
-         
-         <rule
-               class="com.tibco.bds.designtime.validator.rules.EnumerationValidationRule">
-         </rule>
+
+         <rule class="com.tibco.bds.designtime.validator.rules.EnumerationValidationRule"/>
          <rule class="com.tibco.bds.designtime.validator.rules.GetterNounClashRule: Classifier"/>
          <rule class="com.tibco.bds.designtime.validator.rules.GetterNounClashRule: Property"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeGlobalDataRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.AssociationGlobalDataRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.SubPackageRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.MandatorySelfContainmentRule"/>
-     <rule
-           class="com.tibco.bds.designtime.validator.ace.rules.AceSupportedBomTypesRule">
-     </rule>
-     <rule
-           class="com.tibco.bds.designtime.validator.ace.rules.AceConstraintConfigurationRules">
-     </rule>
-     <rule
-           class="com.tibco.bds.designtime.validator.ace.rules.AceEnumerationRules">
-     </rule>
-     <rule
-           class="com.tibco.bds.designtime.validator.ace.rules.AceBomClassRules">
-     </rule>
-     <rule
-           class="com.tibco.bds.designtime.validator.ace.rules.AceCaseClassRules">
-     </rule>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceSupportedBomTypesRule"/>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceConstraintConfigurationRules"/>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceEnumerationRules"/>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceBomClassRules"/>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceCaseClassRules"/>
+	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceTemporalDefaultValueRule"/>
       </provider>
       <issue 
       		id="bom.cds.name.clash.getternoun.class.issue"
@@ -528,6 +510,24 @@
              id="ace.bom.caseid.mindigits.max.15"
              message="%ace.bom.caseid.mindigits.max.15"
              severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.temporal.default.value"
+             message="%ace.bom.temporal.default.value"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.removedefaultvalueresolution">
+          </resolution>
+       </issue>
+       <issue
+             id="ace.bom.temporal.inherited.default.value"
+             message="%ace.bom.temporal.inherited.default.value"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.removedefaultvalueresolution">
+          </resolution>
        </issue>
    </extension>
    

@@ -12,7 +12,7 @@ public interface CDSIssueIds {
             "bom.cds.multiple.value.attribute.default.issue"; //$NON-NLS-1$
 
     public static final String MULTIPLE_VALUE_ATTRIBUTE_DEFAULT_FROM_TYPE =
-            "bom.cds.multiple.value.attribute.default.from.type.issue";
+            "bom.cds.multiple.value.attribute.default.from.type.issue"; //$NON-NLS-1$
 
     public static final String OPTIONAL_ATTRIBUTE_DEFAULT =
             "bom.cds.attribute.optional.default.issue"; //$NON-NLS-1$
