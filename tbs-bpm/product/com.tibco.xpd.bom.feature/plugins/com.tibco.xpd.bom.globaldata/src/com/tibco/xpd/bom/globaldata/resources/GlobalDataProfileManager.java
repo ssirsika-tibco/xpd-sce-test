@@ -84,7 +84,6 @@ public class GlobalDataProfileManager {
         GLOBAL("Global"), //$NON-NLS-1$ 
         CID("CaseIdentifier"), //$NON-NLS-1$ 
         SEARCHABLE("Searchable"), //$NON-NLS-1$
-        SUMMARY("Summary"), //$NON-NLS-1$
         TAG("Tag"), //$NON-NLS-1$
         AUTO_CASE_IDENTIFIER("AutoCaseIdentifier"), //$NON-NLS-1$
         COMPOSITE_CASE_IDENTIFIER("CompositeCaseIdentifier"), //$NON-NLS-1$
