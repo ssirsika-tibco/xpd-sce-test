@@ -1,6 +1,10 @@
 package com.tibco.xpd.bom.modeler.custom.internal.propertysection.general;
 
+import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -9,14 +13,17 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
+import com.tibco.xpd.bom.globaldata.resources.SummaryInfoUtils;
 import com.tibco.xpd.bom.modeler.custom.internal.Messages;
 import com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
@@ -32,6 +39,8 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 
     private Button searchCheck = null;
 
+    private Button summaryCheck = null;
+
     @Override
     protected boolean shouldDisplay(EObject eo) {
 
@@ -39,7 +48,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         // related class
         if (eo instanceof Property) {
             Property prop = (Property) eo;
-            // Hide for caseId or caseState properties.
+            // Hide for ANY caseId or caseState properties.
             if (BOMGlobalDataUtils.isCID(prop)
                     || BOMGlobalDataUtils.isCaseState(prop)) {
                 return false;
@@ -48,9 +57,8 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             // multiplicity) on associations
             if (prop.getAssociation() == null) {
                 Class class_ = prop.getClass_();
-                if ((class_ != null)
-                        && (BOMGlobalDataUtils.isCaseClass(class_)
-                                || BOMGlobalDataUtils.isGlobalClass(class_))) {
+                if ((class_ != null) && (BOMGlobalDataUtils.isCaseClass(class_)
+                        || BOMGlobalDataUtils.isGlobalClass(class_))) {
                     return true;
                 }
             }
@@ -60,72 +68,84 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 
     @Override
     protected Command doGetCommand(Object obj) {
-        // Global data : Search-able tick-box attribute for attribute
-        if (obj != searchCheck) {
-            return null;
-        }
-
         final Property prop = getSemanticInput();
         if (prop == null) {
             return null;
         }
+        // Global data : Search-able tick-box attribute for attribute
+        if (obj == searchCheck) {
+            // Get Stereotype for Search-able
+            boolean existingValue = false;
+            final Stereotype stereotype = GlobalDataProfileManager.getInstance()
+                    .getStereotype(StereotypeKind.SEARCHABLE);
 
-        // Get Stereotype for Search-able
-        boolean existingValue = false;
-        final Stereotype stereotype =
-                GlobalDataProfileManager.getInstance()
-                        .getStereotype(StereotypeKind.SEARCHABLE);
-        // return if Stereotype is not found
-        if (stereotype == null) {
-            return null;
-        }
+            // Check if the stereotype is already applied
+            Object value = getPropertyTaggedValue(prop,
+                    StereotypeKind.SEARCHABLE,
+                    BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable);
+            existingValue = (value instanceof Boolean)
+                    ? ((Boolean) value).booleanValue()
+                    : false;
 
-        // Check if the stereotype is already applied
-        Stereotype appliedStereo =
-                prop.getAppliedStereotype(stereotype.getQualifiedName());
-        if (appliedStereo != null) {
-            // Get the existing value, only want to do things on a change
-            Object value =
-                    prop.getValue(stereotype,
-                            BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable);
-            // Existing value
-            existingValue =
-                    (value instanceof Boolean) ? ((Boolean) value)
-                            .booleanValue() : false;
-        }
-
-        // Check if the value has changed
-        if ((searchCheck != null)
-                && (searchCheck.getSelection() != existingValue)) {
-            return new RecordingCommand(
-                    (TransactionalEditingDomain) getEditingDomain()) {
-                @Override
-                protected void doExecute() {
-                    // If ticked then enable the stereotype
-                    if (searchCheck.getSelection()) {
-                        prop.applyStereotype(stereotype);
-                        prop.setValue(stereotype,
-                                BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable,
-                                true);
-                    } else {
-                        // Remove the stereotype if not enabled
-                        prop.unapplyStereotype(stereotype);
+            // Check if the value has changed
+            if (searchCheck != null
+                    && searchCheck.getSelection() != existingValue) {
+                return new RecordingCommand(
+                        (TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        // If ticked then enable the stereotype
+                        if (searchCheck.getSelection()) {
+                            prop.applyStereotype(stereotype);
+                            prop.setValue(stereotype,
+                                    BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable,
+                                    true);
+                        } else {
+                            // Remove the stereotype if not enabled
+                            prop.unapplyStereotype(stereotype);
+                        }
                     }
-                }
-            };
+                };
+            }
+        }
+        // Global data : Summary tick-box property
+        if (obj == summaryCheck) {
+            boolean existingValue = SummaryInfoUtils.isSummary(prop);
+            // Check if the value has changed
+            if (summaryCheck != null
+                    && summaryCheck.getSelection() != existingValue) {
+                return new RecordingCommand(
+                        (TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        SummaryInfoUtils.setSummary(prop,
+                                summaryCheck.getSelection());
+                    }
+                };
+            }
         }
         return null;
     }
 
     @Override
-    protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
         createLabel(root, toolkit, Messages.Searchable_label);
-        searchCheck = toolkit.createButton(root, "", SWT.CHECK); //$NON-NLS-1$
+        searchCheck = toolkit.createButton(root, /* label */null, SWT.CHECK); // $NON-NLS-1$
         searchCheck.setToolTipText(Messages.Searchable_tooltip);
         setLayoutData(searchCheck);
         manageControl(searchCheck);
+
+        createLabel(root,
+                toolkit,
+                Messages.SearchableAttributeSection_Summary_label);
+        summaryCheck = toolkit.createButton(root, /* label */null, SWT.CHECK); // $NON-NLS-1$
+        summaryCheck.setToolTipText(
+                Messages.SearchableAttributeSection_Summary_tooltip);
+        setLayoutData(summaryCheck);
+        manageControl(summaryCheck);
         return root;
     }
 
@@ -140,31 +160,21 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         if (searchCheck != null && !searchCheck.isDisposed()) {
             // If this is a case Identifier or a case state, then it should be
             // set by default and not edit-able
-            if (GlobalDataProfileManager.getInstance().isCID(prop)
-                    || GlobalDataProfileManager.getInstance()
-                            .isAutoCaseIdentifier(prop)
-                    || GlobalDataProfileManager.getInstance()
-                            .isCompositeCaseIdentifier(prop)
-                    || GlobalDataProfileManager.getInstance().isCaseState(prop)) {
+            if (BOMGlobalDataUtils.isCID(prop)
+                    || BOMGlobalDataUtils.isCaseState(prop)) {
                 searchCheck.setSelection(true);
                 searchCheck.setEnabled(false);
                 return;
             }
 
-            final Stereotype stereo =
-                    GlobalDataProfileManager.getInstance()
-                            .getStereotype(StereotypeKind.SEARCHABLE);
             // Make sure it is enabled
             searchCheck.setEnabled(true);
-            if (stereo != null && prop.getAppliedStereotypes().contains(stereo)) {
-                Object value =
-                        prop.getValue(stereo,
-                                BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable);
-                if (value instanceof Boolean) {
-                    searchCheck.setSelection((Boolean) value);
-                }
+            Object value = getPropertyTaggedValue(prop,
+                    StereotypeKind.SEARCHABLE,
+                    BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable);
+            if (value instanceof Boolean) {
+                searchCheck.setSelection((Boolean) value);
             } else {
-                // Reset search-able to false
                 searchCheck.setSelection(false);
             }
 
@@ -173,6 +183,27 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             if (!isSearchSupported(prop)) {
                 searchCheck.setSelection(false);
                 searchCheck.setEnabled(false);
+            }
+        }
+
+        // Make sure the tick box is initialised before we do anything
+        if (summaryCheck != null && !summaryCheck.isDisposed()) {
+            // If this is a case Identifier or a case state, then it should be
+            // set by default and not edit-able
+            if (BOMGlobalDataUtils.isCID(prop)
+                    || BOMGlobalDataUtils.isCaseState(prop)) {
+                summaryCheck.setSelection(true);
+                summaryCheck.setEnabled(false);
+                return;
+            }
+
+            // Make sure it is enabled
+            summaryCheck.setEnabled(true);
+            summaryCheck.setSelection(SummaryInfoUtils.isSummary(prop));
+
+            if (!isSummarySupported(prop)) {
+                summaryCheck.setSelection(false);
+                summaryCheck.setEnabled(false);
             }
         }
     }
@@ -191,7 +222,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
     }
 
     /**
-     * Check if searching is supported for this property
+     * Check if searching is supported for this property.
      * 
      * @param prop
      *            Property to check
@@ -208,12 +239,95 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                     PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
 
             // Reject durations
-            if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME.equals(primType
-                    .getName())) {
+            if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME
+                    .equals(primType.getName())) {
                 return false;
             }
         }
-
         return true;
+    }
+
+    /**
+     * Check if summary is supported for this property.
+     * 
+     * @param prop
+     *            Property to check
+     * @return <code>true</code> if summary is supported.
+     */
+    private boolean isSummarySupported(Property prop) {
+        // Check to see if this is a Duration type, we do not allow
+        // searchable for a Duration Primitive type
+        Type type = prop.getType();
+        if (type instanceof PrimitiveType) {
+            // Get the base type in case this is a BOM primitive type defined by
+            // the user, we want to get the type of that for checking
+            PrimitiveType primType =
+                    PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+
+            // Reject durations
+            if (PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME
+                    .equals(primType.getName())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Gets the tagged value for the applied stereotype on the property.
+     * 
+     * @param prop
+     *            context property.
+     * @param kind
+     *            the stereotype kind.
+     * @param stereoAttrName
+     *            the name of the stereotype property that holds the required
+     *            value.
+     * @return the tagged value of the stereotype property or <code>null</code>.
+     */
+    private Object getPropertyTaggedValue(Property prop, StereotypeKind kind,
+            String stereoAttrName) {
+        final Stereotype stereo =
+                GlobalDataProfileManager.getInstance().getStereotype(kind);
+        if (stereo != null && prop.getAppliedStereotypes().contains(stereo)) {
+            return prop.getValue(stereo, stereoAttrName);
+        }
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection#shouldRefresh(java.util.List)
+     */
+    @Override
+    protected boolean shouldRefresh(List<Notification> notifications) {
+        if (super.shouldRefresh(notifications)) {
+            return true;
+        }
+        if (notifications != null) {
+            for (Notification notification : notifications) {
+                if (notification != null && !notification.isTouch()) {
+                    Object notifier = notification.getNotifier();
+                    if (notifier instanceof EObject) {
+                        EObject eo = (EObject) notifier;
+                        Element base = UMLUtil.getBaseElement(eo);
+                        Object feature = notification.getFeature();
+                        if (base instanceof Class
+                                && feature instanceof EAttribute) {
+                            Class aClass = (Class) base;
+                            String featureName =
+                                    ((EAttribute) feature).getName();
+                            boolean isSummaryAttributes =
+                                    BOMResourcesPlugin.ModelGlobalDataProfile_CaseClass_Summary
+                                            .equals(featureName);
+                            if (BOMGlobalDataUtils.isCaseClass(aClass)
+                                    && isSummaryAttributes) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

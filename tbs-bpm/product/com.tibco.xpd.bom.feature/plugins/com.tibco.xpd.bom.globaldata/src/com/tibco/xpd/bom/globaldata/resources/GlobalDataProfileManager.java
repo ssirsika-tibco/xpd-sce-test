@@ -5,6 +5,7 @@
 package com.tibco.xpd.bom.globaldata.resources;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -83,6 +84,7 @@ public class GlobalDataProfileManager {
         GLOBAL("Global"), //$NON-NLS-1$ 
         CID("CaseIdentifier"), //$NON-NLS-1$ 
         SEARCHABLE("Searchable"), //$NON-NLS-1$
+        SUMMARY("Summary"), //$NON-NLS-1$
         TAG("Tag"), //$NON-NLS-1$
         AUTO_CASE_IDENTIFIER("AutoCaseIdentifier"), //$NON-NLS-1$
         COMPOSITE_CASE_IDENTIFIER("CompositeCaseIdentifier"), //$NON-NLS-1$
@@ -345,13 +347,26 @@ public class GlobalDataProfileManager {
 
     /**
      * Returns true if the supplied Property has the Global Data stereotype
-     * "CaseIdentifier" applied.
+     * "CaseIdentifier" applied (manual, aka. custom case identifier type).
      * 
      * @param clazz
      * @return boolean
      */
     public boolean isCID(Property prop) {
         return checkForStereotype(prop, StereotypeKind.CID);
+    }
+
+    /**
+     * Returns true if the supplied Property is any type of case identifier.
+     * 
+     * @param prop
+     *            the property
+     * @return boolean <code>true</code> if the supplied Property is any type of
+     *         Case Identifier.
+     */
+    public boolean isAnyCID(Property prop) {
+        return isAutoCaseIdentifier(prop) || isCID(prop)
+                || isCompositeCaseIdentifier(prop);
     }
 
     /**
@@ -367,7 +382,7 @@ public class GlobalDataProfileManager {
 
     /**
      * Returns true if the supplied Property has the Global Data stereotype
-     * "AutoCaseIdentifier" applied.
+     * "CaseState" applied.
      * 
      * @param clazz
      * @return boolean
@@ -396,36 +411,8 @@ public class GlobalDataProfileManager {
      * @return boolean
      */
     public boolean isSearchable(Property prop) {
-
-        boolean isApplied = false;
-
-        EList<Stereotype> appliedStereotypes = prop.getAppliedStereotypes();
-
-        Stereotype st = getStereotype(StereotypeKind.SEARCHABLE);
-
-        for (Stereotype stereotype : appliedStereotypes) {
-            if (st == stereotype) {
-                isApplied = true;
-                break;
-            }
-            if (stereotype == getStereotype(StereotypeKind.CID)) {
-                EList<Generalization> generalizations =
-                        stereotype.getGeneralizations();
-
-                if (!generalizations.isEmpty()) {
-                    Generalization gen = generalizations.get(0);
-
-                    if (gen.getGeneral() == st) {
-                        isApplied = true;
-                        break;
-                    }
-
-                }
-            }
-        }
-
-        return isApplied;
-
+        return checkForStereotype(prop, StereotypeKind.SEARCHABLE)
+                || isAnyCID(prop);
     }
 
     /**

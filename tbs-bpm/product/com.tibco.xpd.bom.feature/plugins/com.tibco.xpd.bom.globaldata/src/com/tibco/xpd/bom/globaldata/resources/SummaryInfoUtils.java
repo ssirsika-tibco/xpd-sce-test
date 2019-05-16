@@ -246,4 +246,46 @@ public class SummaryInfoUtils {
 
         setSummaryValue(caseClass, summaryValues);
     }
+
+    /**
+     * Checks if the property is a summary attribute.
+     * 
+     * @param property
+     *            the property to check.
+     * @return <code>true</code> if the property is summary.
+     */
+    public static boolean isSummary(Property property) {
+        // Get the current summary values
+        Class ownerClass = (Class) property.getOwner();
+        List<String> summaryValues = getSummaryArray(ownerClass);
+        return summaryValues.contains(property.getName());
+    }
+
+    /**
+     * Sets the property to be a summary property.
+     * 
+     * @param property
+     *            the property to set summary.
+     * @param isSummary
+     *            the value of summary.
+     */
+    public static void setSummary(Property property, boolean isSummary) {
+        // Get the current summary
+        Class ownerClass = (Class) property.getOwner();
+        String propertyName = property.getName();
+        List<String> summaryValues = getSummaryArray(ownerClass);
+
+        // Check that the value is not already in the list and we want to set
+        // it or is not in the list and we want to unset it.
+        if (isSummary && !summaryValues.contains(propertyName)) {
+            // Add the name if not already in the list.
+            summaryValues.add(propertyName);
+            setSummaryValue(ownerClass, summaryValues);
+        } else if (!isSummary && summaryValues.contains(propertyName)) {
+            // Remove the name if in the list.
+            summaryValues.remove(propertyName);
+            setSummaryValue(ownerClass, summaryValues);
+        }
+
+    }
 }

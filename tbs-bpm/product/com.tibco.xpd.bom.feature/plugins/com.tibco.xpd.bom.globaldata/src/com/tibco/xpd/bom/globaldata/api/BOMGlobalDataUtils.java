@@ -30,6 +30,7 @@ import org.eclipse.uml2.uml.Stereotype;
 
 import com.tibco.xpd.bom.globaldata.GlobalDataActivator;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.globaldata.resources.SummaryInfoUtils;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -360,20 +361,35 @@ public class BOMGlobalDataUtils {
     }
 
     /**
+     * Test if property is any type of case identifier.
+     * 
      * @param property
      * @return
      */
     public static boolean isCID(Property property) {
-        return isCustomCID(property) || isAutoCID(property)
-                || isCompositeCID(property);
+        return GD_PROFILE_MANAGER.isAnyCID(property);
     }
 
     /**
+     * Test if property is set as searchable.
+     * 
      * @param property
-     * @return
+     *            the property to test.
+     * @return <code>true</code> if property is searchable.
      */
     public static boolean isSearchable(Property property) {
         return GD_PROFILE_MANAGER.isSearchable(property);
+    }
+
+    /**
+     * Test if property is set as a summary field.
+     * 
+     * @param property
+     *            the property to test.
+     * @return <code>true</code> if property is a summary field.
+     */
+    public static boolean isSummary(Property property) {
+        return SummaryInfoUtils.isSummary(property);
     }
 
     /**

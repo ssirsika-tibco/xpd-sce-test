@@ -383,6 +383,10 @@ public class Messages extends NLS {
 
     public static String Searchable_tooltip;
 
+    public static String SearchableAttributeSection_Summary_label;
+
+    public static String SearchableAttributeSection_Summary_tooltip;
+
     public static String SelectBOMElementsWizardPage_deselectAll_button;
 
     public static String SelectBOMElementsWizardPage_diagramdefault_name;

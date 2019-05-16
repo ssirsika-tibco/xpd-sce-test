@@ -1,6 +1,7 @@
 package com.tibco.xpd.bom.modeler.custom.internal.propertysection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +21,9 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Property;
 
@@ -34,6 +38,7 @@ import com.tibco.xpd.resources.ui.components.actions.TableMoveDownAction;
 import com.tibco.xpd.resources.ui.components.actions.TableMoveUpAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerMoveDownAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerMoveUpAction;
+import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.ui.util.CapabilityUtil;
 
 /**
@@ -70,6 +75,7 @@ public class SummaryTabSection extends AbstractTableSection {
      * 
      * @return
      */
+    @Override
     protected IContentProvider getContentProvider() {
         // Create a content provider that returns all of the attributes that
         // should be displayed in the summary section and in the correct order
@@ -147,7 +153,7 @@ public class SummaryTabSection extends AbstractTableSection {
                                             IAdaptable info)
                                             throws ExecutionException {
                                         SummaryInfoUtils.moveUp(caseClass,
-                                                ((Property) prop).getName());
+                                                prop.getName());
                                         return CommandResult
                                                 .newOKCommandResult();
                                     }
@@ -198,7 +204,7 @@ public class SummaryTabSection extends AbstractTableSection {
                                             IAdaptable info)
                                             throws ExecutionException {
                                         SummaryInfoUtils.moveDown(caseClass,
-                                                ((Property) prop).getName());
+                                                prop.getName());
                                         return CommandResult
                                                 .newOKCommandResult();
                                     }
@@ -378,6 +384,7 @@ public class SummaryTabSection extends AbstractTableSection {
      * @param toTest
      * @return
      */
+    @Override
     public boolean select(Object toTest) {
         // This method will return true if the tab is to be displayed,
         // False if it should not be displayed
@@ -408,4 +415,58 @@ public class SummaryTabSection extends AbstractTableSection {
         }
         return super.shouldRefresh(notifications);
     }
+
+    /**
+     * @see com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractTableSection#canMove()
+     */
+    @Override
+    protected boolean canMove() {
+        // The elements are not supposed to be moved by the user. They will
+        // automatically be sorted according to the attributes order in the
+        // class. See: {@link SummaryTabSection#doCreateControls(Composite,
+        // XpdFormToolkit)}
+        return false;
+    }
+
+    /**
+     * @see com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractTableSection#doCreateControls(org.eclipse.swt.widgets.Composite,
+     *      com.tibco.xpd.ui.properties.XpdFormToolkit)
+     */
+    @Override
+    protected Control doCreateControls(Composite parent,
+            XpdFormToolkit toolkit) {
+        Control aControl = super.doCreateControls(parent, toolkit);
+        // Sort attributes according to their order in its class.
+        getTable().getViewer().setComparator(new ViewerComparator() {
+            @Override
+            public void sort(Viewer viewer, Object[] elements) {
+                sortByInClassOrder(elements);
+            }
+
+        });
+        return aControl;
+
+    }
+
+    /**
+     * Sort in place the array of properties according to ther order in the
+     * owning class.
+     * 
+     * @param elements
+     *            the array to sort.
+     */
+    private void sortByInClassOrder(Object[] elements) {
+        if (elements.length > 0 && elements[0] instanceof Property) {
+            List<?> current = new ArrayList<>(Arrays.asList(elements));
+            Class ownerClass = (Class) ((Property) elements[0]).getOwner();
+            int i = 0;
+            for (Property prop : ownerClass.getAllAttributes()) {
+                if (current.contains(prop)) {
+                    elements[i] = prop;
+                    i++;
+                }
+            }
+        }
+    }
+
 }
