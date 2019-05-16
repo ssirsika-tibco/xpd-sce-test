@@ -66,6 +66,9 @@ public class AceCaseClassRules implements IValidationRule {
     private static final String ISSUE_ACE_MAX_5_SEARCHABLE =
             "ace.bom.max.5.searchable"; //$NON-NLS-1$
 
+    private static final String ISSUE_ACE_MAX_5_SUMMARY =
+            "ace.bom.max.5.summary"; //$NON-NLS-1$
+
     private static final String ISSUE_ACE_SEARCHABLE_IN_CASE_ONLY =
             "ace.bom.searchable.in.case.only"; //$NON-NLS-1$
 
@@ -139,6 +142,7 @@ public class AceCaseClassRules implements IValidationRule {
         Property caseStateProperty = null;
         List<Property> caseIdProperties = new ArrayList<>();
         List<Property> searchProperties = new ArrayList<>();
+        List<Property> summaryProperties = new ArrayList<>();
 
         EList<Property> ownedAttributes = clazz.getOwnedAttributes();
 
@@ -149,8 +153,13 @@ public class AceCaseClassRules implements IValidationRule {
             } else if (BOMGlobalDataUtils.isCID(property)) {
                 caseIdProperties.add(property);
 
-            } else if (BOMGlobalDataUtils.isSearchable(property)) {
-                searchProperties.add(property);
+            } else {
+                if (BOMGlobalDataUtils.isSearchable(property)) {
+                    searchProperties.add(property);
+                }
+                if (BOMGlobalDataUtils.isSummary(property)) {
+                    summaryProperties.add(property);
+                }
             }
 
         }
@@ -218,6 +227,14 @@ public class AceCaseClassRules implements IValidationRule {
         // There can only be 5 searchable properties.
         if (searchProperties.size() > 5) {
             scope.createIssue(ISSUE_ACE_MAX_5_SEARCHABLE,
+                    BOMValidationUtil.getLocation(clazz),
+                    clazz.eResource().getURIFragment(clazz));
+
+        }
+
+        // There can only be 5 searchable properties.
+        if (summaryProperties.size() > 5) {
+            scope.createIssue(ISSUE_ACE_MAX_5_SUMMARY,
                     BOMValidationUtil.getLocation(clazz),
                     clazz.eResource().getURIFragment(clazz));
 

@@ -79,6 +79,13 @@ public class AceCaseAttributesValidationTest
                                 "BPM  : Auto case identifier minimum digits must not be greater than 15 (autoCaseIdentifier1 (com.example.caseattributesvalidationtest))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
+                        new ValidationsTestProblemMarkerInfo(
+                                "CaseAttributesValidationTest/Business Objects/SummaryAttrs.bom", //$NON-NLS-1$
+                                "ace.bom.max.5.summary", //$NON-NLS-1$
+                                "_LRLZUINMEeOcadlsg2IG1w", //$NON-NLS-1$
+                                "BPM  : Case classes cannot have more than 5 summary attributes (LoginDetails (com.example.businessdataproject))", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
                 };
         return markerInfos;
     }
@@ -98,6 +105,8 @@ public class AceCaseAttributesValidationTest
         TestResourceInfo[] testResources = new TestResourceInfo[] {
                 new TestResourceInfo("resources/CaseAttributesValidationTest", //$NON-NLS-1$
                         "CaseAttributesValidationTest/Business Objects{bom}/CaseAttributesValidationTest.bom"), //$NON-NLS-1$
+                new TestResourceInfo("resources/CaseAttributesValidationTest", //$NON-NLS-1$
+                        "CaseAttributesValidationTest/Business Objects{bom}/SummaryAttrs.bom") //$NON-NLS-1$
         };
 
         return testResources;
