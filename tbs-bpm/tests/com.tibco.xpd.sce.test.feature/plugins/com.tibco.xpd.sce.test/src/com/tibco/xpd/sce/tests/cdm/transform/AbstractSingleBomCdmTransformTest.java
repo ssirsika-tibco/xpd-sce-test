@@ -178,6 +178,32 @@ public abstract class AbstractSingleBomCdmTransformTest
     }
 
     /**
+     * Asserts attribute has provided collection of constraints (with expected
+     * values) and also doesn't have not expected constraints.
+     * 
+     * @param attribute
+     *            attribute to assert.
+     * @param expectedConstaints
+     *            collection of expected constraints.
+     * @param notExpectedConstraintNames
+     *            collection of not expected constraint names.
+     */
+    protected void assertConstraints(Attribute attribute,
+            Collection<NameValuePair> expectedConstaints,
+            Collection<String> notExpectedConstraintNames) {
+        assertConstraints(attribute, expectedConstaints);
+        Function<String, String> msg = constraintName -> String.format(
+                "Type '%s' attr: '%s' constraint: %s was NOT expected.",
+                attribute.getParent().getName(),
+                attribute.getName(),
+                constraintName);
+        for (String constraintName : notExpectedConstraintNames) {
+            String message = msg.apply(constraintName);
+            assertNull(message, attribute.getConstraint(constraintName));
+        }
+    }
+
+    /**
      * Asserts attribute has provided collection of allowedValues.
      * 
      * @param attribute

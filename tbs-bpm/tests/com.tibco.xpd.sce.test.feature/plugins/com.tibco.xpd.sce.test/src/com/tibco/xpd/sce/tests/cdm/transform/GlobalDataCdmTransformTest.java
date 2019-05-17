@@ -6,6 +6,7 @@ package com.tibco.xpd.sce.tests.cdm.transform;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Function;
 
 import org.eclipse.uml2.uml.Model;
@@ -22,8 +23,8 @@ import com.tibco.xpd.n2.cdm.transform.BomConstraintTransformer.NameValuePair;
 /**
  * Case and Global classes and properties transformation test.
  * 
- * Package with case class (LoginDetails) containing properties of various types
- * with global data features.
+ * Package with case classes (LoginDetails and Order) containing properties of
+ * various types with global data features.
  * <p>
  * Testing:
  * <li>Case class</li>
@@ -32,6 +33,7 @@ import com.tibco.xpd.n2.cdm.transform.BomConstraintTransformer.NameValuePair;
  * <li>Case state attribute</li>
  * <li>Case States</li>
  * <li>Searchable attributes</li>
+ * <li>Summary attributes</li>
  * </p>
  *
  * @author jarciuch
@@ -117,7 +119,8 @@ public class GlobalDataCdmTransformTest
                 mandatory,
                 !array);
         assertConstraints(orderNoAttr,
-                Arrays.asList(new NameValuePair("length", "50")));
+                /* expected */ Collections.emptyList(),
+                /* not expected */Arrays.asList("length"));
         assertDefaultValue(orderNoAttr, null);
 
         Function<String, String> orderIdMessage =

@@ -17,6 +17,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
 import com.tibco.bpm.da.dm.api.Constraint;
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 
 /**
@@ -218,7 +219,11 @@ public class BomConstraintTransformer {
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
         // -1 means unbounded (not-set in UI).
-        if (length instanceof Integer && ((Integer) length).intValue() != -1) {
+
+        // Do not add length constraint for autoCaseId (see: ACE-1194).
+        boolean isAutoCaseId = BOMGlobalDataUtils.isAutoCID(bomProperty);
+        if (length instanceof Integer && ((Integer) length).intValue() != -1
+                && !isAutoCaseId) {
             constraints.add(new NameValuePair(Constraint.NAME_LENGTH,
                     length.toString()));
         }
