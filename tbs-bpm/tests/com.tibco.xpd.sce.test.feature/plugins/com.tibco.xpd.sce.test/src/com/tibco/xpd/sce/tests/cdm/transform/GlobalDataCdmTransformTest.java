@@ -134,9 +134,6 @@ public class GlobalDataCdmTransformTest
         assertEquals(orderIdMessage.apply("isSearchable"),
                 /* expected */ true,
                 /* actual */ orderNoAttr.getIsSearchable());
-        assertEquals(orderIdMessage.apply("isSearchable"),
-                /* expected */ true,
-                /* actual */ orderNoAttr.getIsSearchable());
         IdentifierInitialisationInfo autoCidInfo =
                 orderClass.getIdentifierInitialisationInfo();
         assertEquals(orderIdMessage.apply("minDigits"),
@@ -172,7 +169,7 @@ public class GlobalDataCdmTransformTest
                 /* expected */ true,
                 /* actual */ caseState.getIsSearchable());
 
-        ///////// Searchable Name ////////////////
+        ///////// Searchable and Summary Name ////////////////
         Attribute searchableName = assertAttribute(classLoginDetails,
                 "name",
                 "base:Text",
@@ -194,11 +191,39 @@ public class GlobalDataCdmTransformTest
                 /* expected */ false,
                 /* actual */ searchableName.getIsState());
         assertEquals(searchableNameMsg.apply("isSummary"),
-                /* expected */ false,
+                /* expected */ true,
                 /* actual */ searchableName.getIsSummary());
         assertEquals(searchableNameMsg.apply("isSearchable"),
                 /* expected */ true,
                 /* actual */ searchableName.getIsSearchable());
+
+        ///////// Summary (but not searchable) desc attr. ////////////////
+        Attribute summaryDesc = assertAttribute(classLoginDetails,
+                "desc",
+                "base:Text",
+                !mandatory,
+                !array);
+        assertConstraints(summaryDesc,
+                Arrays.asList(new NameValuePair("length", "50")));
+        assertDefaultValue(summaryDesc, null);
+
+        Function<String, String> summaryDescMsg =
+                facet -> String.format("Class: '%s' Attr: '%s', facet: '%s'",
+                        classLoginDetails.getName(),
+                        summaryDesc.getName(),
+                        facet);
+        assertEquals(summaryDescMsg.apply("isIdentifier"),
+                /* expected */ false,
+                /* actual */ summaryDesc.getIsIdentifier());
+        assertEquals(summaryDescMsg.apply("isState"),
+                /* expected */ false,
+                /* actual */ summaryDesc.getIsState());
+        assertEquals(summaryDescMsg.apply("isSummary"),
+                /* expected */ true,
+                /* actual */ summaryDesc.getIsSummary());
+        assertEquals(summaryDescMsg.apply("isSearchable"),
+                /* expected */ false,
+                /* actual */ summaryDesc.getIsSearchable());
 
         ///////// Global containment attribute ////////////////
         Attribute address = assertAttribute(classLoginDetails,

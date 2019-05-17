@@ -218,7 +218,6 @@ public class BomTransformer {
                 if (suffix instanceof String) {
                     idInfo.setSuffix((String) suffix);
                 }
-
             }
         } else if (isStateAttribute) {
             // Case State
@@ -248,8 +247,8 @@ public class BomTransformer {
             // Searchable and Summary attribute facets.
             cdmAttribute.setIsSearchable(
                     BOMGlobalDataUtils.isSearchable(bomAttribute));
-            // TODO Add when the isSummary is available in BOM.
-            // cdmAttribute.setIsSummary(isSummary);
+            cdmAttribute
+                    .setIsSummary(BOMGlobalDataUtils.isSummary(bomAttribute));
         }
 
         return cdmAttribute;

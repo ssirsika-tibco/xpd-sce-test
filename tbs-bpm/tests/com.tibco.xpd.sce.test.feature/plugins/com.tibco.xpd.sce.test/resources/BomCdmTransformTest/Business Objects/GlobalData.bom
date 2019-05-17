@@ -7,6 +7,11 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Kb9olINMEeOcadlsg2IG1w" key="version" value="6"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Class" xmi:id="_LRLZUINMEeOcadlsg2IG1w" name="LoginDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uyaCIHipEemhu57Zeu0UVQ" name="desc" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uyrH4HipEemhu57Zeu0UVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uysWAHipEemhu57Zeu0UVQ" value="1"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_MuedwINMEeOcadlsg2IG1w" name="loginId" aggregation="composite">
         <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MuiIIINMEeOcadlsg2IG1w" value="1"/>
@@ -17,6 +22,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qq7FMYNMEeOcadlsg2IG1w"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qq7FMoNMEeOcadlsg2IG1w" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_W5FI0FuaEemxHqvvU6KHmg" name="name" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W5Fv4VuaEemxHqvvU6KHmg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W5Fv4luaEemxHqvvU6KHmg" value="1"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_gzXvc4NMEeOcadlsg2IG1w" name="address" type="_TRdCkINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aAddress?" aggregation="composite" association="_gzWhUINMEeOcadlsg2IG1w">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gzXvdINMEeOcadlsg2IG1w" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gzXvdYNMEeOcadlsg2IG1w" value="1"/>
@@ -24,11 +34,6 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_420PEFuZEemxHqvvU6KHmg" name="caseState1" type="_IgItUFuaEemxHqvvU6KHmg?com.example.globaldata%3a%3aStates?" aggregation="composite">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4268wVuZEemxHqvvU6KHmg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_427j0FuZEemxHqvvU6KHmg" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_W5FI0FuaEemxHqvvU6KHmg" name="name" aggregation="composite">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W5Fv4VuaEemxHqvvU6KHmg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W5Fv4luaEemxHqvvU6KHmg" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_TRdCkINMEeOcadlsg2IG1w" name="Address">
@@ -122,17 +127,20 @@
       <children xmi:type="notation:Node" xmi:id="_LR3V0INMEeOcadlsg2IG1w" type="4004"/>
       <children xmi:type="notation:Node" xmi:id="_LR3V0YNMEeOcadlsg2IG1w" type="4005"/>
       <children xmi:type="notation:Node" xmi:id="_LR384INMEeOcadlsg2IG1w" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_u0iwIHipEemhu57Zeu0UVQ" type="2001" element="_uyaCIHipEemhu57Zeu0UVQ?com.example.globaldata%3a%3aLoginDetails%3a%3adesc?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_u0iwIXipEemhu57Zeu0UVQ"/>
+        </children>
         <children xmi:type="notation:Node" xmi:id="_MukkYINMEeOcadlsg2IG1w" type="2001" element="_MuedwINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails%3a%3aloginId?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_MukkYYNMEeOcadlsg2IG1w"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Qq9hcINMEeOcadlsg2IG1w" type="2001" element="_Qq6eIINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails%3a%3apassword?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_Qq9hcYNMEeOcadlsg2IG1w"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_43EtwFuZEemxHqvvU6KHmg" type="2001" element="_420PEFuZEemxHqvvU6KHmg?com.example.globaldata%3a%3aLoginDetails%3a%3acaseState1?">
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_43EtwVuZEemxHqvvU6KHmg"/>
-        </children>
         <children xmi:type="notation:Node" xmi:id="_W5MdkFuaEemxHqvvU6KHmg" type="2001" element="_W5FI0FuaEemxHqvvU6KHmg?com.example.globaldata%3a%3aLoginDetails%3a%3aname?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_W5MdkVuaEemxHqvvU6KHmg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_43EtwFuZEemxHqvvU6KHmg" type="2001" element="_420PEFuZEemxHqvvU6KHmg?com.example.globaldata%3a%3aLoginDetails%3a%3acaseState1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_43EtwVuZEemxHqvvU6KHmg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_LR384YNMEeOcadlsg2IG1w"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_LR384oNMEeOcadlsg2IG1w"/>
@@ -218,7 +226,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_DmHW8XVPEemVWN7t04t45w" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_DmHW8nVPEemVWN7t04t45w" gradStartColor="16096809" gradEndColor="16777215"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DmHW83VPEemVWN7t04t45w" x="148" y="359" width="222" height="84"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DmHW83VPEemVWN7t04t45w" x="150" y="320" width="222" height="84"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_KcAE0YNMEeOcadlsg2IG1w"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_KcAE0oNMEeOcadlsg2IG1w"/>
@@ -245,7 +253,7 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_g0TjkYNMEeOcadlsg2IG1w" id="(0.09473684210526316,0.6373056994818653)"/>
     </edges>
   </notation:Diagram>
-  <BOMGlobalDataProfile:Case xmi:id="_LRMAYINMEeOcadlsg2IG1w" base_Class="_LRLZUINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails?"/>
+  <BOMGlobalDataProfile:Case xmi:id="_LRMAYINMEeOcadlsg2IG1w" base_Class="_LRLZUINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails?" summaryAttributes="loginId caseState1 desc name"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_LRQR0INMEeOcadlsg2IG1w" displayLabel="LoginDetails" base_NamedElement="_LRLZUINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_Mug6AINMEeOcadlsg2IG1w" displayLabel="loginId" base_NamedElement="_MuedwINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails%3a%3aloginId?"/>
   <PrimitiveTypeFacets:RestrictedType xmi:id="_MuhhEINMEeOcadlsg2IG1w" integerLength="19" integerSubType="fixedLength" base_Property="_MuedwINMEeOcadlsg2IG1w?com.example.globaldata%3a%3aLoginDetails%3a%3aloginId?"/>
@@ -272,4 +280,5 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_IFjWsHVPEemVWN7t04t45w" displayLabel="orderNo" base_NamedElement="_IDXlYHVPEemVWN7t04t45w?com.example.globaldata%3a%3aOrder%3a%3aorderNo?"/>
   <BOMGlobalDataProfile:CaseState xmi:id="_eqHocHVSEemVWN7t04t45w" base_Property="_eqGaUHVSEemVWN7t04t45w?com.example.globaldata%3a%3aOrder%3a%3acaseState1?" terminalStates="_LiS2wFuaEemxHqvvU6KHmg?com.example.globaldata%3a%3aStates%3a%3aS2?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_eqIPgHVSEemVWN7t04t45w" displayLabel="caseState1" base_NamedElement="_eqGaUHVSEemVWN7t04t45w?com.example.globaldata%3a%3aOrder%3a%3acaseState1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_uypSsHipEemhu57Zeu0UVQ" displayLabel="desc" base_NamedElement="_uyaCIHipEemhu57Zeu0UVQ?com.example.globaldata%3a%3aLoginDetails%3a%3adesc?"/>
 </xmi:XMI>
