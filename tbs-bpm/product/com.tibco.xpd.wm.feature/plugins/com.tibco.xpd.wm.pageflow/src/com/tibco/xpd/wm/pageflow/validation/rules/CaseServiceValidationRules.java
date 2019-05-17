@@ -155,11 +155,10 @@ public class CaseServiceValidationRules extends ProcessValidationRule {
     }
 
     /**
-     * Returns the input parameter to the case-action and returns that input
-     * parameter. If only one parameter is specified, it will be returned
-     * whether it's an input or output (validate will catch it). Otherwise, if
-     * multiple, or no, input parameters are specified the return value will be
-     * null.
+     * Returns the input parameter to the case-action. If only one parameter is
+     * specified, it will be returned whether it's an input or output (validate
+     * will catch it). Otherwise, if multiple, or no, input parameters are
+     * specified the return value will be null.
      * 
      * @param aProcess
      * @param aCaseServiceParams
