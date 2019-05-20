@@ -172,16 +172,14 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
             Object value = getPropertyTaggedValue(prop,
                     StereotypeKind.SEARCHABLE,
                     BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable);
-            if (value instanceof Boolean) {
-                searchCheck.setSelection((Boolean) value);
-            } else {
-                searchCheck.setSelection(false);
-            }
+            boolean isSearchable = (value instanceof Boolean)
+                    ? ((Boolean) value).booleanValue()
+                    : false;
+            searchCheck.setSelection(isSearchable);
 
-            // If it is not searchable make sure it is not enabled, and is
-            // unticked
-            if (!isSearchSupported(prop)) {
-                searchCheck.setSelection(false);
+            // Prevent setting searchable for unsupported properties (unless
+            // it's already set).
+            if (!isSearchSupported(prop) && !isSearchable) {
                 searchCheck.setEnabled(false);
             }
         }
@@ -199,10 +197,12 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
 
             // Make sure it is enabled
             summaryCheck.setEnabled(true);
-            summaryCheck.setSelection(SummaryInfoUtils.isSummary(prop));
+            boolean isSummary = SummaryInfoUtils.isSummary(prop);
+            summaryCheck.setSelection(isSummary);
 
-            if (!isSummarySupported(prop)) {
-                summaryCheck.setSelection(false);
+            // Prevent setting summary for unsupported properties (unless it's
+            // already set).
+            if (!isSummarySupported(prop) && !isSummary) {
                 summaryCheck.setEnabled(false);
             }
         }
