@@ -14,7 +14,7 @@ public final class ValidationConsts {
     /**
      * Required Java version
      */
-    public static final String REQUIRED_JAVA_RUNTIME_VERSION = "1.6";
+    public static final String REQUIRED_JAVA_RUNTIME_VERSION = "1.8";
 
     /**
      * The default perspective that the user will be asked to set if a

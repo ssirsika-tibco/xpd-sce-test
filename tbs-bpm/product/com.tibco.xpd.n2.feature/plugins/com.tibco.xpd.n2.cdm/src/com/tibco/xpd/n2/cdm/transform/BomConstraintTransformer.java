@@ -218,10 +218,10 @@ public class BomConstraintTransformer {
                 PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_LENGTH,
                 bomProperty,
                 FALLBACK_TO_BASE_TYPE);
-        // -1 means unbounded (not-set in UI).
 
         // Do not add length constraint for autoCaseId (see: ACE-1194).
         boolean isAutoCaseId = BOMGlobalDataUtils.isAutoCID(bomProperty);
+        // -1 means unbounded (not-set in UI).
         if (length instanceof Integer && ((Integer) length).intValue() != -1
                 && !isAutoCaseId) {
             constraints.add(new NameValuePair(Constraint.NAME_LENGTH,
@@ -327,7 +327,6 @@ public class BomConstraintTransformer {
          * Decimals (length property at least defaults to 10 but CDM says you
          * should not have a length spec'd for Floating point).
          */
-
         if (BomTransformer.isFixedPointDecimal(bomProperty)) {
 
             Object length =

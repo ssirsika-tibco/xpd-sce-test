@@ -85,22 +85,23 @@ public final class SystemCheckRules {
             throw new OperationCanceledException();
         }
 
-        // XPD-4935 In help->validate & On export DAA we should ensure that the
-        // correct target platform is set in Studio.
-        status = TargetPlatformValidationUtils.validateTargetPlatform();
-        if (status != null
-                && SystemValidationPreferences
-                        .validateDefaultTargetPlatformPath()) {
-            reportResult(status);
-            // Log the status
-            if (!status.isOK()) {
-                Activator.getDefault().getLogger().log(status);
-            }
-        }
+        /* ACE-841: Target platform validation was removed in Studio ACE. */
+        
+        // status = TargetPlatformValidationUtils.validateTargetPlatform();
+        // if (status != null
+        // && SystemValidationPreferences
+        // .validateDefaultTargetPlatformPath()) {
+        // reportResult(status);
+        // // Log the status
+        // if (!status.isOK()) {
+        // Activator.getDefault().getLogger().log(status);
+        // }
+        // }
+        //
+        // if (monitor.isCanceled()) {
+        // throw new OperationCanceledException();
+        // }
 
-        if (monitor.isCanceled()) {
-            throw new OperationCanceledException();
-        }
         /*
          * Check perspective. If a Studio perspective is not active an hyperlink
          * will be added that will allow the user to activate the correct
