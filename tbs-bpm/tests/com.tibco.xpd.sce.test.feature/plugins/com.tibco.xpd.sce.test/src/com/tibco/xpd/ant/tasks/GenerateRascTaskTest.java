@@ -14,12 +14,14 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 
 import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
+import com.tibco.xpd.presentation.resources.ui.internal.util.PresentationManager;
 
 /**
  *
@@ -70,8 +72,24 @@ public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
         return "com.tibco.xpd.sce.test";
     }
 
+    /**
+     * @see com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest#setUp()
+     *
+     * @throws Exception
+     */
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+
+        // pre-populate the workspace channels / resources
+        // this prevents deadlock between unit test UI updates and RASC
+        // generator UI updates
+        PresentationManager.getInstance().getChannelTypes();
+    }
+
     private void runLaunch(String aProject, String aBuildXml)
             throws CoreException {
+
         ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
 
         ILaunchConfigurationType type = manager.getLaunchConfigurationType(
@@ -105,7 +123,20 @@ public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
         workingCopy.setAttribute("org.eclipse.debug.core.MAPPED_RESOURCE_TYPES",
                 Arrays.asList("1"));
 
-        workingCopy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+        ILaunch launch = workingCopy.launch(ILaunchManager.RUN_MODE,
+                new NullProgressMonitor());
+
+        // wait for launch to complete - within 5 minutes
+        int count = 0;
+        while ((++count < 1000) && (!launch.isTerminated())) {
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+            }
+        }
+
+        // fail if it failed to complete
+        assertTrue("Launch failed to complete.", launch.isTerminated());
     }
 
     public void testExecuteTask() throws Exception {
@@ -128,12 +159,6 @@ public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
         IProject project = workspaceRoot.getProject("AntProject");
         IFolder folder = project.getFolder("project").getFolder("RascOut");
         folder.refreshLocal(2, null);
-
-        // wait for refresh to complete - can't see how else to do this
-        Object lock = new Object();
-        synchronized (lock) {
-            lock.wait(2000);
-        }
 
         IFile rascFile = folder.getFile("RASC.rasc");
         assertTrue(rascFile.exists());
@@ -166,12 +191,6 @@ public class GenerateRascTaskTest extends AbstractBuildingBaseResourceTest {
         IProject project = workspaceRoot.getProject("RASC");
         IFolder folder = project.getFolder(DEFAULT_DEST_DIR);
         folder.refreshLocal(2, null);
-
-        // wait for refresh to complete - can't see how else to do this
-        Object lock = new Object();
-        synchronized (lock) {
-            lock.wait(3000);
-        }
 
         IFile rascFile = folder.getFile("RASC.rasc");
         assertTrue(rascFile.exists());
