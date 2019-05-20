@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
-echo ./ant-runner -f ./build.xml -data $WORKSPACE_DIR -Dworkspace.dir=$WORKSPACE_DIR -Dproject.dir=$PROJECT_DIR -Dexport.dir=$EXPORT_DIR
-exec ./ant-runner -f ./build.xml -data $WORKSPACE_DIR -Dworkspace.dir=$WORKSPACE_DIR -Dproject.dir=$PROJECT_DIR -Dexport.dir=$EXPORT_DIR
+
+# if the argument "export" is passed on the command-line
+if [[ -n "$1" ]] && [[ "$1" = "export" ]]; then
+  # run the export ant task
+  exec ./ant-runner -f ./build.xml -data $WORKSPACE_DIR -Dworkspace.dir=$WORKSPACE_DIR -Dproject.dir=$PROJECT_DIR -Dexport.dir=$EXPORT_DIR
+
+# otherwise
+elif [[ -z "$1" ]] || [[ "$1" != "export" ]]; then
+  # start a studio session
+  exec ./TIBCOBusinessStudio -data $WORKSPACE_DIR
+fi
