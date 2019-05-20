@@ -243,8 +243,9 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                     .equals(primType.getName())) {
                 return false;
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -269,8 +270,9 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                     .equals(primType.getName())) {
                 return false;
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
