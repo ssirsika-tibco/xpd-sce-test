@@ -65,25 +65,24 @@ public class N2ProcessDataMappingCompatibilityUtil {
 
         if (srcDataType != null && targetDataType != null) {
 
-            Object targetType =
-                    BasicTypeConverterFactory.INSTANCE
-                            .getBaseType(targetDataType.getItem(), true);
+            Object targetType = BasicTypeConverterFactory.INSTANCE
+                    .getBaseType(targetDataType.getItem(), true);
 
             if (JScriptUtils.isDynamicComplexType(srcDataType)) {
-                match =
-                        handleSourceComplexType(srcDataType,
-                                targetDataType,
-                                match,
-                                targetType);
-            } else if (JsConsts.LIST.equals(getSrcDataTypeStr(srcDataType))) {
+                match = handleSourceComplexType(srcDataType,
+                        targetDataType,
+                        match,
+                        targetType);
+            } else if (JsConsts.ARRAY.equals(getSrcDataTypeStr(srcDataType))) {
                 // XPD-7352: If source is a List we can't check types.
                 match = MappingTypeCompatibility.OK;
             } else if (targetType instanceof Enumeration) {
 
-                /* XPD-7014: Allow Script Enumerations assignments Enum<-> Enum */
-                Classifier sourceType =
-                        BaseScriptToConceptPathMappingsHelper
-                                .getSourceScriptTypeClassifier(srcDataType);
+                /*
+                 * XPD-7014: Allow Script Enumerations assignments Enum<-> Enum
+                 */
+                Classifier sourceType = BaseScriptToConceptPathMappingsHelper
+                        .getSourceScriptTypeClassifier(srcDataType);
 
                 if (targetType.equals(sourceType)) {
                     /* Same Enum */
@@ -100,13 +99,12 @@ public class N2ProcessDataMappingCompatibilityUtil {
                  * type.Hence to check the target Enumeration type match,
                  * following qualified name match is used.
                  */
-                String targetQualifiedName =
-                        ProcessDataUtil
-                                .getQualifiedNameForTypeCompatibilityCheck((Enumeration) targetType);
+                String targetQualifiedName = ProcessDataUtil
+                        .getQualifiedNameForTypeCompatibilityCheck(
+                                (Enumeration) targetType);
 
-                String sourceTypeStr =
-                        BaseScriptToConceptPathMappingsHelper
-                                .getSourceTypeStr(srcDataType, sourceType);
+                String sourceTypeStr = BaseScriptToConceptPathMappingsHelper
+                        .getSourceTypeStr(srcDataType, sourceType);
 
                 if (targetQualifiedName.equals(sourceTypeStr)) {
 
@@ -114,11 +112,10 @@ public class N2ProcessDataMappingCompatibilityUtil {
                 }
 
             } else {
-                match =
-                        handleSourceBasicType(srcDataType,
-                                targetDataType,
-                                match,
-                                targetType);
+                match = handleSourceBasicType(srcDataType,
+                        targetDataType,
+                        match,
+                        targetType);
             }
         }
         return match;
@@ -153,8 +150,8 @@ public class N2ProcessDataMappingCompatibilityUtil {
                 if (srcItemType instanceof BasicType) {
 
                     BasicType srcItemBasicType = (BasicType) srcItemType;
-                    if (BasicTypeType.INTEGER_LITERAL.equals(srcItemBasicType
-                            .getType())
+                    if (BasicTypeType.INTEGER_LITERAL
+                            .equals(srcItemBasicType.getType())
                             && srcItemBasicType.getPrecision() != null) {
                         srcIntLength =
                                 srcItemBasicType.getPrecision().getValue();
@@ -172,9 +169,8 @@ public class N2ProcessDataMappingCompatibilityUtil {
                         PrimitiveType basePType =
                                 PrimitivesUtil.getBasePrimitiveType(pt);
 
-                        ResourceSet rSet =
-                                XpdResourcesPlugin.getDefault()
-                                        .getEditingDomain().getResourceSet();
+                        ResourceSet rSet = XpdResourcesPlugin.getDefault()
+                                .getEditingDomain().getResourceSet();
 
                         if (basePType == PrimitivesUtil
                                 .getStandardPrimitiveTypeByName(rSet,
@@ -182,9 +178,8 @@ public class N2ProcessDataMappingCompatibilityUtil {
 
                             // Check Integer Length
                             Object facetPropertyValue =
-                                    PrimitivesUtil
-                                            .getFacetPropertyValue(pt,
-                                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH);
+                                    PrimitivesUtil.getFacetPropertyValue(pt,
+                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH);
 
                             if (facetPropertyValue instanceof Integer) {
                                 Integer maxIntLen =
@@ -217,17 +212,15 @@ public class N2ProcessDataMappingCompatibilityUtil {
         String srcDataTypeStr = getSrcDataTypeStr(srcDataType);
 
         if (targetType instanceof BasicType) {
-            match =
-                    handleTargetBasicType(srcDataType,
-                            match,
-                            targetType,
-                            srcDataTypeStr);
+            match = handleTargetBasicType(srcDataType,
+                    match,
+                    targetType,
+                    srcDataTypeStr);
         } else {
-            match =
-                    BOMXSDTypesHandler.handleXSDTypes(srcDataType,
-                            targetDataType,
-                            srcDataType,
-                            match);
+            match = BOMXSDTypesHandler.handleXSDTypes(srcDataType,
+                    targetDataType,
+                    srcDataType,
+                    match);
         }
         return match;
     }
@@ -275,19 +268,19 @@ public class N2ProcessDataMappingCompatibilityUtil {
                 N2JScriptDataTypeMapper.getInstance()
                         .getProcessTypeToJavaScriptConversionMap();
 
-        /* XPD-7873: Add the check for compatible assignment types in mappings */
+        /*
+         * XPD-7873: Add the check for compatible assignment types in mappings
+         */
         Map<String, Set<String>> compatibleAssignmentOperatorTypesMap =
                 N2JScriptDataTypeMapper.getInstance()
                         .getCompatibleAssignmentTypesMap();
-        compatibleAssignmentOperatorTypesMap =
-                N2JScriptDataTypeMapper
-                        .getInstance()
-                        .convertSpecificMapToGeneric(compatibleAssignmentOperatorTypesMap);
+        compatibleAssignmentOperatorTypesMap = N2JScriptDataTypeMapper
+                .getInstance().convertSpecificMapToGeneric(
+                        compatibleAssignmentOperatorTypesMap);
 
         if (processTypeToJavaScriptConversionMap != null) {
-            String targetTypeStr =
-                    processTypeToJavaScriptConversionMap
-                            .get(((BasicType) targetType).getType());
+            String targetTypeStr = processTypeToJavaScriptConversionMap
+                    .get(((BasicType) targetType).getType());
             if (specificToGenericTypeConversionMap != null) {
                 String genericType =
                         specificToGenericTypeConversionMap.get(targetTypeStr);
@@ -375,9 +368,8 @@ public class N2ProcessDataMappingCompatibilityUtil {
                     if (JScriptUtils.isDynamicComplexType(umlClass)
                             && JScriptUtils
                                     .isDynamicComplexType((Class) targetType)) {
-                        boolean isLHSSubType =
-                                JScriptUtils.isSubType(umlClass,
-                                        (Class) targetType);
+                        boolean isLHSSubType = JScriptUtils.isSubType(umlClass,
+                                (Class) targetType);
                         if (isLHSSubType) {
                             match = MappingTypeCompatibility.OK;
                         }
@@ -389,11 +381,10 @@ public class N2ProcessDataMappingCompatibilityUtil {
                      * dont match. get the bom object sub type and allow the
                      * mappings
                      */
-                    match =
-                            BOMXSDTypesHandler.handleXSDTypes(srcDataType,
-                                    targetDataType,
-                                    umlClass,
-                                    match);
+                    match = BOMXSDTypesHandler.handleXSDTypes(srcDataType,
+                            targetDataType,
+                            umlClass,
+                            match);
                 }
             }
         }
@@ -421,42 +412,37 @@ public class N2ProcessDataMappingCompatibilityUtil {
                 IScriptRelevantData srcDataType, ConceptPath targetData,
                 Object sourceType, MappingTypeCompatibility match) {
 
-            String targetObjectSubType =
-                    ConceptUtil.getObjectSubType(targetData,
-                            targetData.getType());
+            String targetObjectSubType = ConceptUtil
+                    .getObjectSubType(targetData, targetData.getType());
 
             if (targetObjectSubType.length() > 0) {
                 if (PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY
                         .equalsIgnoreCase(targetObjectSubType)) {
-                    match =
-                            handleXSDAny(srcDataType,
-                                    targetData,
-                                    sourceType,
-                                    match);
+                    match = handleXSDAny(srcDataType,
+                            targetData,
+                            sourceType,
+                            match);
 
                 } else if (PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE
                         .equalsIgnoreCase(targetObjectSubType)) {
-                    match =
-                            handleXSDAnyAttribute(srcDataType,
-                                    targetData,
-                                    sourceType,
-                                    match);
+                    match = handleXSDAnyAttribute(srcDataType,
+                            targetData,
+                            sourceType,
+                            match);
 
                 } else if (PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE
                         .equalsIgnoreCase(targetObjectSubType)) {
-                    match =
-                            handleXSDAnySimpleType(srcDataType,
-                                    targetData,
-                                    sourceType,
-                                    match);
+                    match = handleXSDAnySimpleType(srcDataType,
+                            targetData,
+                            sourceType,
+                            match);
 
                 } else if (PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE
                         .equalsIgnoreCase(targetObjectSubType)) {
-                    match =
-                            handleXSDAnyType(srcDataType,
-                                    targetData,
-                                    sourceType,
-                                    match);
+                    match = handleXSDAnyType(srcDataType,
+                            targetData,
+                            sourceType,
+                            match);
                 }
             }
             return match;
@@ -507,21 +493,21 @@ public class N2ProcessDataMappingCompatibilityUtil {
                                 if (PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME
                                         .equals(srcScriptType.getName())) {
 
-                                    String sourceObjectSubType =
-                                            ConceptUtil
-                                                    .getObjectSubType(property);
+                                    String sourceObjectSubType = ConceptUtil
+                                            .getObjectSubType(property);
                                     String targetObjectSubType =
-                                            ConceptUtil
-                                                    .getObjectSubType(target,
-                                                            target.getType());
+                                            ConceptUtil.getObjectSubType(target,
+                                                    target.getType());
 
                                     if (sourceObjectSubType.length() > 0
-                                            && targetObjectSubType.length() > 0) {
+                                            && targetObjectSubType
+                                                    .length() > 0) {
 
                                         if (JSTypesCompatabilityUtil
                                                 .getCompatibleBOMObjectSubTypesMap()
                                                 .get(sourceObjectSubType)
-                                                .contains(targetObjectSubType)) {
+                                                .contains(
+                                                        targetObjectSubType)) {
                                             match = MappingTypeCompatibility.OK;
                                         }
 

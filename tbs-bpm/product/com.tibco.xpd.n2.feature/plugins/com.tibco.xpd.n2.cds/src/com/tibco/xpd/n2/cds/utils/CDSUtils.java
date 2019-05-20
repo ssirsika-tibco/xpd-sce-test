@@ -123,8 +123,6 @@ public class CDSUtils {
 
     private static Class defaultMultipleClass = null;
 
-    private static Class defaultPaginatedMultipleClass = null;
-
     public static IFolder getCDSOutDestFolder(IProject project) {
         if (project != null) {
             return getCDSDestFolder(project, "");//$NON-NLS-1$
@@ -143,7 +141,6 @@ public class CDSUtils {
         }
         return null;
     }
-
 
     public static Set<Package> getReferencedBomPackages(Process process) {
         if (process != null) {
@@ -298,22 +295,11 @@ public class CDSUtils {
     }
 
     /**
-     * 
-     * @return the default paginated list class.
-     */
-    public static Class getDefaultCDSPaginatedMultipleClass() {
-        initDefaultListClasses();
-
-        return defaultPaginatedMultipleClass;
-    }
-
-    /**
      * Initialise the defaultMultipleClass and defaultPaginatedMultipleClass
      * class fields IF they are not initialised yet.
      */
     protected static void initDefaultListClasses() {
-        if (defaultMultipleClass == null
-                || defaultPaginatedMultipleClass == null) {
+        if (defaultMultipleClass == null) {
             URL entry = CDSActivator.getDefault().getBundle()
                     .getEntry(CdsConsts.CDS_MODEL_FILE_NAME);
             if (entry != null) {
@@ -342,19 +328,14 @@ public class CDSUtils {
                                 Class umlClass = (Class) element;
 
                                 if (umlClass.getName() != null) {
-                                    if (JsConsts.LIST
+                                    if (JsConsts.ARRAY
                                             .equals(umlClass.getName())) {
                                         defaultMultipleClass = umlClass;
-                                    } else if (JsConsts.PAGINATEDLIST
-                                            .equals(umlClass.getName())) {
-                                        defaultPaginatedMultipleClass =
-                                                umlClass;
                                     }
                                 }
                             }
 
-                            if (defaultMultipleClass != null
-                                    && defaultPaginatedMultipleClass != null) {
+                            if (defaultMultipleClass != null) {
                                 break;
                             }
                         }
@@ -422,7 +403,6 @@ public class CDSUtils {
         return toReturn;
     }
 
-
     /**
      * return file name without extension
      * 
@@ -437,10 +417,6 @@ public class CDSUtils {
         }
         return name;
     }
-
-
-
-
 
     public static CdsContentAssistIconProvider getCdsContentAssistIconProvider() {
         if (cdsContentAssistIconProvider == null) {
@@ -821,7 +797,6 @@ public class CDSUtils {
         }
         return false;
     }
-
 
     // XPD-3129 Global Data - moved from
     // CdsfactoriesJavaScriptRelevantDataProvider

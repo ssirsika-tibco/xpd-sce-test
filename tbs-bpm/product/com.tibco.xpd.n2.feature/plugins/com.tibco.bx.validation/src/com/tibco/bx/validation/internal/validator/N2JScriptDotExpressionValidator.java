@@ -1157,24 +1157,6 @@ public class N2JScriptDotExpressionValidator
                         }
                     }
 
-                    /* Check if it is a paginated list. */
-                    Class defaultCDSPaginatedMultipleClass =
-                            CDSUtils.getDefaultCDSPaginatedMultipleClass();
-
-                    if (defaultCDSPaginatedMultipleClass != null
-                            && defaultCDSPaginatedMultipleClass
-                                    .getPackage() != null) {
-
-                        if (defaultCDSPaginatedMultipleClass.getName()
-                                .equals(paramClass.getName())
-                                && defaultCDSPaginatedMultipleClass.getPackage()
-                                        .getName().equals(paramClass
-                                                .getPackage().getName())) {
-
-                            return true;
-                        }
-                    }
-
                 }
 
             }

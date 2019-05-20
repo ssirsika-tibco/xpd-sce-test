@@ -31,17 +31,13 @@ public class ApiClassTestJavaClassGenerator
   protected final String TEXT_14 = " " + NL + "            \"";
   protected final String TEXT_15 = "\", //$NON-NLS-1$";
   protected final String TEXT_16 = NL + "                };" + NL + "        checkApiConstructors(clazz, constructorControlSample);" + NL + "" + NL + "        String[] fieldControlSample = new String[] {";
-  protected final String TEXT_17 = " " + NL + "            \"";
-  protected final String TEXT_18 = "\",  //$NON-NLS-1$ ";
-  protected final String TEXT_19 = NL + "                };" + NL + "        checkApiFields(clazz, fieldControlSample);" + NL + "" + NL + "        String[] methodControlSample = new String[] {";
-  protected final String TEXT_20 = " " + NL + "            \"";
-  protected final String TEXT_21 = "\", //$NON-NLS-1$";
-  protected final String TEXT_22 = NL + "                };" + NL + "        checkApiMethods(clazz, methodControlSample);" + NL + "" + NL + "        String[] nestedClassControlSample = new String[] {";
-  protected final String TEXT_23 = " " + NL + "            \"";
-  protected final String TEXT_24 = "\",  //$NON-NLS-1$";
-  protected final String TEXT_25 = NL + "                };" + NL + "        checkApiNestedClasses(clazz, nestedClassControlSample);" + NL + "" + NL + "        if (isStrict) {" + NL + "            checkUntestedApi(clazz);" + NL + "        }" + NL + "" + NL + "    }" + NL + "    ";
-  protected final String TEXT_26 = NL + NL + "    " + NL + "}" + NL;
-  protected final String TEXT_27 = NL;
+  protected final String TEXT_17 = "\",  //$NON-NLS-1$ ";
+  protected final String TEXT_18 = NL + "                };" + NL + "        checkApiFields(clazz, fieldControlSample);" + NL + "" + NL + "        String[] methodControlSample = new String[] {";
+  protected final String TEXT_19 = NL + "                };" + NL + "        checkApiMethods(clazz, methodControlSample);" + NL + "" + NL + "        String[] nestedClassControlSample = new String[] {";
+  protected final String TEXT_20 = "\",  //$NON-NLS-1$";
+  protected final String TEXT_21 = NL + "                };" + NL + "        checkApiNestedClasses(clazz, nestedClassControlSample);" + NL + "" + NL + "        if (isStrict) {" + NL + "            checkUntestedApi(clazz);" + NL + "        }" + NL + "" + NL + "    }" + NL + "    ";
+  protected final String TEXT_22 = NL + NL + "    " + NL + "}" + NL;
+  protected final String TEXT_23 = NL;
 
   public String generate(Object argument)
   {
@@ -78,26 +74,26 @@ public class ApiClassTestJavaClassGenerator
      } 
     stringBuffer.append(TEXT_16);
      for (String desc : AbstractApiClassTest.getApiFields(apiClass)) { 
-    stringBuffer.append(TEXT_17);
+    stringBuffer.append(TEXT_14);
     stringBuffer.append(desc);
+    stringBuffer.append(TEXT_17);
+     } 
     stringBuffer.append(TEXT_18);
+     for (String desc : AbstractApiClassTest.getApiMethods(apiClass)) { 
+    stringBuffer.append(TEXT_14);
+    stringBuffer.append(desc);
+    stringBuffer.append(TEXT_15);
      } 
     stringBuffer.append(TEXT_19);
-     for (String desc : AbstractApiClassTest.getApiMethods(apiClass)) { 
-    stringBuffer.append(TEXT_20);
+     for (String desc : AbstractApiClassTest.getApiNestedClassDescriptions(apiClass)) { 
+    stringBuffer.append(TEXT_14);
     stringBuffer.append(desc);
+    stringBuffer.append(TEXT_20);
+     } 
     stringBuffer.append(TEXT_21);
      } 
     stringBuffer.append(TEXT_22);
-     for (String desc : AbstractApiClassTest.getApiNestedClassDescriptions(apiClass)) { 
     stringBuffer.append(TEXT_23);
-    stringBuffer.append(desc);
-    stringBuffer.append(TEXT_24);
-     } 
-    stringBuffer.append(TEXT_25);
-     } 
-    stringBuffer.append(TEXT_26);
-    stringBuffer.append(TEXT_27);
     return stringBuffer.toString();
   }
 }

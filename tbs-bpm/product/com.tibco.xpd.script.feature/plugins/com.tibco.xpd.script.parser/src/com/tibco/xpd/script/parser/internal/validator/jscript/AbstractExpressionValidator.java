@@ -2570,8 +2570,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                      * specific type of the sub list. for eg.
                      * cust2.items.addAll(cust1.items.subList(1, 5));
                      */
-                    if (JsConsts.LIST.equals(specificTypeStr)
-                            || JsConsts.PAGINATEDLIST.equals(specificTypeStr)) {
+                    if (JsConsts.ARRAY.equals(specificTypeStr)) {
 
                         if (defaultUMLScriptRelevantData instanceof DefaultUMLScriptRelevantData) {
                             DefaultUMLScriptRelevantData defaultUMLScriptRelevantData2 =

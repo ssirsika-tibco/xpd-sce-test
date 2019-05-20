@@ -26,22 +26,18 @@ import com.tibco.xpd.script.ui.internal.IProcessJsDefinitionReader;
 public class CdsExtendedJScriptProcessDefinitionReader extends
         DefaultJsClassDefinitionReader implements IProcessJsDefinitionReader {
 
-    private static final String DEFAULT_MULTIPLE_CLASS_NAME = "List";//$NON-NLS-1$
-
     private ITypeResolver typeResolver = null;
 
     @Override
     protected URI getURI() {
-        URL entry =
-                CDSActivator.getDefault().getBundle()
-                        .getEntry(CdsConsts.CDS_MODEL_FILE_NAME);
+        URL entry = CDSActivator.getDefault().getBundle()
+                .getEntry(CdsConsts.CDS_MODEL_FILE_NAME);
         return URI.createURI(entry.toExternalForm());
     }
 
     public Image getIcon() {
-        Image image =
-                CDSActivator.getDefault().getImageRegistry()
-                        .get(CdsConsts.CDS_CLASS);
+        Image image = CDSActivator.getDefault().getImageRegistry()
+                .get(CdsConsts.CDS_CLASS);
         return image;
     }
 
@@ -50,10 +46,7 @@ public class CdsExtendedJScriptProcessDefinitionReader extends
         // All classes will have the list
         for (Class classCandidate : allUmlClasses) {
             if (classCandidate != null && classCandidate.getName() != null) {
-                if (DEFAULT_MULTIPLE_CLASS_NAME
-                        .equals(classCandidate.getName())
-                        || JsConsts.PAGINATEDLIST.equals(classCandidate
-                                .getName())) {
+                if (JsConsts.ARRAY.equals(classCandidate.getName())) {
                     return classCandidate;
                 }
             }

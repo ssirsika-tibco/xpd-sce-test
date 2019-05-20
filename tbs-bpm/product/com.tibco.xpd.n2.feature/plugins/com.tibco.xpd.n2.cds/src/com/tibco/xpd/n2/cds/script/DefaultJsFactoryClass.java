@@ -134,8 +134,8 @@ public class DefaultJsFactoryClass implements JsClass, Cloneable {
     public JsAttribute getAttribute(String name) {
         List<JsAttribute> attributeList = getAttributeList();
         if (attributeList != null) {
-            for (Iterator<JsAttribute> iterator = attributeList.iterator(); iterator
-                    .hasNext();) {
+            for (Iterator<JsAttribute> iterator =
+                    attributeList.iterator(); iterator.hasNext();) {
                 JsAttribute jsAttribute = iterator.next();
                 if (jsAttribute != null && jsAttribute.getName().equals(name)) {
                     return jsAttribute;
@@ -163,8 +163,8 @@ public class DefaultJsFactoryClass implements JsClass, Cloneable {
         List<JsReference> referenceList = new ArrayList<JsReference>();
         referenceList.addAll(getReferenceList());
         if (referenceList != null) {
-            for (Iterator<JsReference> iterator = referenceList.iterator(); iterator
-                    .hasNext();) {
+            for (Iterator<JsReference> iterator =
+                    referenceList.iterator(); iterator.hasNext();) {
                 JsReference jsReference = iterator.next();
                 if (jsReference != null && jsReference.getName().equals(name)) {
                     return jsReference;
@@ -189,14 +189,14 @@ public class DefaultJsFactoryClass implements JsClass, Cloneable {
                         if (getMethod(nextJsExpression.getName()) != null) {
                             JsMethod method =
                                     getMethod(nextJsExpression.getName());
-                            dataType =
-                                    method.getDataTypeForJSExpression(nextJsExpression,
-                                            supportedJsClasses);
+                            dataType = method.getDataTypeForJSExpression(
+                                    nextJsExpression,
+                                    supportedJsClasses);
                         } else {
-                            if (getName() != null
-                                    && !getName()
-                                            .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
-                                dataType.setUndefinedCause(JsConsts.UNKNOWN_METHOD_DATA_TYPE_CAUSE);
+                            if (getName() != null && !getName()
+                                    .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
+                                dataType.setUndefinedCause(
+                                        JsConsts.UNKNOWN_METHOD_DATA_TYPE_CAUSE);
                             }
                         }
                     } else {
@@ -204,40 +204,37 @@ public class DefaultJsFactoryClass implements JsClass, Cloneable {
                         if (getAttribute(nextJsExpression.getName()) != null) {
                             JsAttribute attribute =
                                     getAttribute(nextJsExpression.getName());
-                            dataType =
-                                    attribute
-                                            .getDataTypeForJSExpression(nextJsExpression,
-                                                    supportedJsClasses);
-                        } else if (getReference(nextJsExpression.getName()) != null) {
+                            dataType = attribute.getDataTypeForJSExpression(
+                                    nextJsExpression,
+                                    supportedJsClasses);
+                        } else if (getReference(
+                                nextJsExpression.getName()) != null) {
                             JsReference reference =
                                     getReference(nextJsExpression.getName());
-                            dataType =
-                                    reference
-                                            .getDataTypeForJSExpression(nextJsExpression,
-                                                    supportedJsClasses);
+                            dataType = reference.getDataTypeForJSExpression(
+                                    nextJsExpression,
+                                    supportedJsClasses);
                         } else {
-                            if (getName() != null
-                                    && !getName()
-                                            .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
-                                dataType.setUndefinedCause(JsConsts.UNKNOWN_PROPERTY_DATA_TYPE_CAUSE);
+                            if (getName() != null && !getName()
+                                    .equals(JsConsts.UNDEFINED_DATA_TYPE)) {
+                                dataType.setUndefinedCause(
+                                        JsConsts.UNKNOWN_PROPERTY_DATA_TYPE_CAUSE);
                             }
                         }
                     }
                 }
             } else {
-                if (JsConsts.LIST.equals(this.getName())
-                        || JsConsts.PAGINATEDLIST.equals(this.getName())) {
+                if (JsConsts.ARRAY.equals(this.getName())) {
                     boolean isObjectMultiple = false;
                     if (!JScriptUtils.isJsExpressionMultiple(jsExpression)) {
                         isObjectMultiple = true;
                     }
                     IScriptRelevantData objectType =
-                            JScriptUtils
-                                    .resolveJavaScriptNotMultipleArrayType(this
-                                            .getName(),
-                                            isObjectMultiple,
-                                            supportedJsClasses,
-                                            CDSUtils.getDefaultCDSMultipleClass());
+                            JScriptUtils.resolveJavaScriptNotMultipleArrayType(
+                                    this.getName(),
+                                    isObjectMultiple,
+                                    supportedJsClasses,
+                                    CDSUtils.getDefaultCDSMultipleClass());
                     dataType.setType(objectType);
                     return dataType;
                 } else {
@@ -246,10 +243,8 @@ public class DefaultJsFactoryClass implements JsClass, Cloneable {
                      * DefaultUMLScriptRelevantData( this.getName(),
                      * this.getName(), false, this);
                      */
-                    IScriptRelevantData scriptRelevantData =
-                            JScriptUtils.getScriptRelevantData(this,
-                                    this.getName(),
-                                    false);
+                    IScriptRelevantData scriptRelevantData = JScriptUtils
+                            .getScriptRelevantData(this, this.getName(), false);
                     dataType.setType(scriptRelevantData);
                     return dataType;
                 }

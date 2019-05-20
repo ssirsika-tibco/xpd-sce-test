@@ -30,7 +30,7 @@ public class JsConsts {
 
     public static final String PARAM_PASS_BY_REFERENCE = "isPassByReference"; //$NON-NLS-1$
 
-    public static final String PARAM_PASS_BY_LITERAL = "isPassByLiteral"; //$NON-NLS-1$														
+    public static final String PARAM_PASS_BY_LITERAL = "isPassByLiteral"; //$NON-NLS-1$
 
     public static final String JS_CLASS = "icons/full/obj16/javascript.gif"; //$NON-NLS-1$
 
@@ -48,17 +48,15 @@ public class JsConsts {
     public static final String CDS_FACTORY_ARRAY =
             "icons/full/obj16/DataFieldExtRefArray.png"; //$NON-NLS-1$
 
-    public static final String[] IMAGES = new String[] { JS_CLASS,
-            XPATH_IMG_CLASS, ICON_JSATTRIBUTE, CASE_REF_TYPE,
-            CASE_REF_TYPE_ARRAY, CDS_FACTORY_ARRAY };
+    public static final String[] IMAGES =
+            new String[] { JS_CLASS, XPATH_IMG_CLASS, ICON_JSATTRIBUTE,
+                    CASE_REF_TYPE, CASE_REF_TYPE_ARRAY, CDS_FACTORY_ARRAY };
 
     public static final String VAR_TYPE = "VarType"; //$NON-NLS-1$
 
     public static final String LENGTH = "length"; //$NON-NLS-1$
 
     public static final String ARRAY = "Array"; //$NON-NLS-1$
-
-    //	public static final String ARRAY_CONTENT_ASSIST_SUFFIX = "[Integer]"; //$NON-NLS-1$
 
     public static final String NUMBER = "Number"; //$NON-NLS-1$
 
@@ -69,10 +67,6 @@ public class JsConsts {
     public static final String E = "E"; //$NON-NLS-1$
 
     public static final String BOM_CLASS = "bom.Class"; //$NON-NLS-1$
-
-    public static final String LIST = "List"; //$NON-NLS-1$
-
-    public static final String PAGINATEDLIST = "PaginatedList"; //$NON-NLS-1$
 
     public static final int OBJECT_AST = 999;
 
@@ -118,9 +112,9 @@ public class JsConsts {
 
     public static final String CHAR = "char"; //$NON-NLS-1$
 
-    public static final String DATE = "Date"; //$NON-NLS-1$   
+    public static final String DATE = "Date"; //$NON-NLS-1$
 
-    public static final String NULL = "null"; //$NON-NLS-1$   
+    public static final String NULL = "null"; //$NON-NLS-1$
 
     public static final String STRING_LITERAL = "STRING_LITERAL"; //$NON-NLS-1$
 
@@ -187,7 +181,7 @@ public class JsConsts {
 
     public static final String JAVA_UTIL_DATE = "java.util.Date"; //$NON-NLS-1$
 
-    public static final String CRITERIA = "Criteria"; //$NON-NLS-1$  
+    public static final String CRITERIA = "Criteria"; //$NON-NLS-1$
 
     public static final String DQL_STRING = "DQLString"; //$NON-NLS-1$
 

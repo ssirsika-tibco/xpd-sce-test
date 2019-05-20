@@ -23,8 +23,6 @@ import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
-import com.tibco.xpd.script.model.client.globaldata.CaseRefPaginatedListJsClass;
-import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.DefaultJsEnumeration;
 import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
 import com.tibco.xpd.script.model.internal.client.IUMLElement;
@@ -69,10 +67,11 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
                     jsEnumeration
                             .setContentAssistIconProvider(jsEnumerationLiteral
                                     .getContentAssistIconProvider());
-                    return Collections
-                            .singletonList((IScriptRelevantData) new DefaultUMLScriptRelevantData(
-                                    jsEnumeration.getName(), jsEnumeration
-                                            .getName(), false, jsEnumeration));
+                    return Collections.singletonList(
+                            (IScriptRelevantData) new DefaultUMLScriptRelevantData(
+                                    jsEnumeration.getName(),
+                                    jsEnumeration.getName(), false,
+                                    jsEnumeration));
                 }
             } else {
                 dataType = getAttributeDataType(jsAttribute);
@@ -94,9 +93,8 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
                         boolean isRestrictionOverride =
                                 JScriptUtils.isRestrictionOverride(class1);
                         if (isRestrictionOverride) {
-                            isMultiple =
-                                    JScriptUtils
-                                            .isMultiple(jsAttribute, class1);
+                            isMultiple = JScriptUtils.isMultiple(jsAttribute,
+                                    class1);
                             isAttributeMultiple = isMultiple;
                         }
 
@@ -117,9 +115,8 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
                 resolveJavaScriptStringType =
                         resolveGenericContext(genericContext);
             } else {
-                resolveJavaScriptStringType =
-                        JScriptUtils.resolveJavaScriptStringType(jsAttribute
-                                .getName(),
+                resolveJavaScriptStringType = JScriptUtils
+                        .resolveJavaScriptStringType(jsAttribute.getName(),
                                 dataType,
                                 isAttributeMultiple,
                                 getSupportedJsClasses(),
@@ -137,24 +134,22 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
         String dataType = null;
         if (jsAttribute != null) {
             dataType = JScriptUtils.getJsAttributeBaseDataType(jsAttribute);
-            if (dataType != null
-                    && (dataType.equals(JsConsts.INTEGER) || dataType
-                            .equals(JsConsts.DECIMAL))) {
+            if (dataType != null && (dataType.equals(JsConsts.INTEGER)
+                    || dataType.equals(JsConsts.DECIMAL))) {
                 if (jsAttribute instanceof IUMLElement) {
                     Element element = ((IUMLElement) jsAttribute).getElement();
                     if (element instanceof Property) {
                         Property property = (Property) element;
                         if (property.getType() instanceof PrimitiveType) {
                             PrimitiveType basePrimitiveType =
-                                    PrimitivesUtil
-                                            .getBasePrimitiveType((PrimitiveType) property
-                                                    .getType());
+                                    PrimitivesUtil.getBasePrimitiveType(
+                                            (PrimitiveType) property.getType());
                             if (dataType.equals(JsConsts.INTEGER)) {
                                 Object facetPropertyValue =
-                                        PrimitivesUtil
-                                                .getFacetPropertyValue(basePrimitiveType,
-                                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                                        property);
+                                        PrimitivesUtil.getFacetPropertyValue(
+                                                basePrimitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
+                                                property);
                                 if (facetPropertyValue instanceof EnumerationLiteral
                                         && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
                                                 .equals((((EnumerationLiteral) facetPropertyValue)
@@ -163,10 +158,10 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
                                 }
                             } else if (dataType.equals(JsConsts.DECIMAL)) {
                                 Object facetPropertyValue =
-                                        PrimitivesUtil
-                                                .getFacetPropertyValue(basePrimitiveType,
-                                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                                        property);
+                                        PrimitivesUtil.getFacetPropertyValue(
+                                                basePrimitiveType,
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                                property);
                                 if (facetPropertyValue instanceof EnumerationLiteral
                                         && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
                                                 .equals((((EnumerationLiteral) facetPropertyValue)
@@ -180,45 +175,6 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
             }
         }
         return dataType;
-    }
-
-    /**
-     * @see com.tibco.xpd.script.model.jscript.JScriptTypeResolver#resolveFromScriptRelevantData(com.tibco.xpd.script.model.client.IScriptRelevantData,
-     *      boolean, com.tibco.xpd.script.model.client.IScriptRelevantData)
-     * 
-     * @param scriptRelevantData
-     * @param isMultiple
-     * @param genericContext
-     * @return
-     */
-    @Override
-    protected List<IScriptRelevantData> resolveFromScriptRelevantData(
-            IScriptRelevantData scriptRelevantData, boolean isMultiple,
-            IScriptRelevantData genericContext) {
-
-        if (scriptRelevantData instanceof CaseUMLScriptRelevantData) {
-
-            CaseUMLScriptRelevantData caseUMLScriptRelevantData =
-                    (CaseUMLScriptRelevantData) scriptRelevantData;
-
-            JsClass jsClass = caseUMLScriptRelevantData.getJsClass();
-            if (jsClass instanceof CaseRefPaginatedListJsClass) {
-
-                if (scriptRelevantData.isArray()) {
-
-                    IScriptRelevantData resolvePaginatedMultipleType =
-                            resolvePaginatedMultipleType(scriptRelevantData.getName(),
-                                    getSupportedJsClasses(),
-                                    null,
-                                    getTypeMap());
-                    return Collections
-                            .singletonList(resolvePaginatedMultipleType);
-                }
-            }
-        }
-        return super.resolveFromScriptRelevantData(scriptRelevantData,
-                isMultiple,
-                genericContext);
     }
 
     /**
@@ -239,31 +195,11 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
             Map<String, String> typeMap) {
 
         return JScriptUtils.resolveJavaScriptStringType(name,
-                JsConsts.LIST,
+                JsConsts.ARRAY,
                 false,
                 getSupportedJsClasses(),
                 null,
                 getTypeMap());
     }
 
-    /**
-     * resolve to a paginated list type
-     * 
-     * @param name
-     * @param jsClasses
-     * @param multipleClass
-     * @param typeMap
-     * @return IScriptRelevantData
-     */
-    protected IScriptRelevantData resolvePaginatedMultipleType(String name,
-            List<JsClass> jsClasses, Class multipleClass,
-            Map<String, String> typeMap) {
-
-        return JScriptUtils.resolveJavaScriptStringType(name,
-                JsConsts.PAGINATEDLIST,
-                false,
-                getSupportedJsClasses(),
-                null,
-                getTypeMap());
-    }
 }

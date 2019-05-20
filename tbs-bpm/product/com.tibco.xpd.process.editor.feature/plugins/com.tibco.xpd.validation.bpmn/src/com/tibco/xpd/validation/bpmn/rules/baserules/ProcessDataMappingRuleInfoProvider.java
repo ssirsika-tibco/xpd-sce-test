@@ -32,8 +32,8 @@ import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
  * @author aallway
  * @since 3.3 (16 Jun 2010)
  */
-public class ProcessDataMappingRuleInfoProvider extends
-        MappingRuleContentInfoProvider {
+public class ProcessDataMappingRuleInfoProvider
+        extends MappingRuleContentInfoProvider {
 
     /**
      * @param contentProvider
@@ -47,9 +47,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #getObjectPath(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #getObjectPath(java.lang.Object)
      */
     @Override
     public String getObjectPath(Object objectFromMappingOrContent) {
@@ -60,9 +59,8 @@ public class ProcessDataMappingRuleInfoProvider extends
                 path = ((ConceptPath) objectFromMappingOrContent).getPath();
 
             } else if (objectFromMappingOrContent instanceof ScriptInformation) {
-                path =
-                        ((ScriptInformation) objectFromMappingOrContent)
-                                .getName();
+                path = ((ScriptInformation) objectFromMappingOrContent)
+                        .getName();
             } else if (!(objectFromMappingOrContent instanceof CorrelationDataFolder)
                     && !(objectFromMappingOrContent instanceof InitialValue)) {
                 log("Unexpected content type: " //$NON-NLS-1$
@@ -76,8 +74,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider
      * #getObjectPathDescription(java.lang.Object)
      */
     @Override
@@ -88,9 +86,8 @@ public class ProcessDataMappingRuleInfoProvider extends
             if (objectFromMappingOrContent instanceof ConceptPath) {
                 path = ((ConceptPath) objectFromMappingOrContent).toString();
             } else if (objectFromMappingOrContent instanceof ScriptInformation) {
-                path =
-                        ((ScriptInformation) objectFromMappingOrContent)
-                                .getName();
+                path = ((ScriptInformation) objectFromMappingOrContent)
+                        .getName();
             } else if (!(objectFromMappingOrContent instanceof CorrelationDataFolder)
                     && !(objectFromMappingOrContent instanceof InitialValue)) {
                 log("Unexpected content type: " //$NON-NLS-1$
@@ -103,9 +100,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #isReadOnly(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #isReadOnly(java.lang.Object)
      */
     @Override
     public boolean isReadOnlyTarget(Object objectInTree) {
@@ -161,8 +157,8 @@ public class ProcessDataMappingRuleInfoProvider extends
                 }
 
             } else if (objectInTree instanceof CorrelationDataFolder) {
-               return true;
-               
+                return true;
+
             } else if (!(objectInTree instanceof ScriptInformation)
                     && !(objectInTree instanceof CorrelationDataFolder)
                     && !(objectInTree instanceof InitialValue)) {
@@ -198,8 +194,6 @@ public class ProcessDataMappingRuleInfoProvider extends
         return isCorrelationTargetInRequestActivity(data)
                 || isInputParameterTargetInSubProcess(data);
     }
-
-
 
     /**
      * Check whether the data is correlation data field AND whether the current
@@ -237,9 +231,11 @@ public class ProcessDataMappingRuleInfoProvider extends
      * @return <code>true</code> if the data is input parameter AND the current
      *         activity being validated is a Reusable Sub Process.
      */
-    private boolean isInputParameterTargetInSubProcess(ProcessRelevantData data) {
+    private boolean isInputParameterTargetInSubProcess(
+            ProcessRelevantData data) {
         if (data instanceof FormalParameter) {
-            if (ModeType.IN_LITERAL.equals(((FormalParameter) data).getMode())) {
+            if (ModeType.IN_LITERAL
+                    .equals(((FormalParameter) data).getMode())) {
                 Activity contextActivity = getContextActivity();
                 if (contextActivity != null) {
                     if (SubProcUtil.isSubProcessActivity(contextActivity)) {
@@ -255,9 +251,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #isMultiInstance(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #isMultiInstance(java.lang.Object)
      */
     @Override
     public boolean isMultiInstance(Object objectInTree) {
@@ -275,7 +270,7 @@ public class ProcessDataMappingRuleInfoProvider extends
                 // array.
                 IScriptRelevantData srd = (IScriptRelevantData) objectInTree;
                 String type = srd.getName();
-                if (JsConsts.LIST.equals(type)) {
+                if (JsConsts.ARRAY.equals(type)) {
                     return true;
                 }
                 return ((IScriptRelevantData) objectInTree).isArray();
@@ -303,9 +298,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #getMinimumInstances(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #getMinimumInstances(java.lang.Object)
      */
     @Override
     public int getMinimumInstances(Object objectInTree) {
@@ -325,7 +319,8 @@ public class ProcessDataMappingRuleInfoProvider extends
                      * then it is always required.
                      */
                     if (areProcessRelevantDataItemsMandatory()
-                            || isCorrelationTargetInRequestActivity((ProcessRelevantData) item)) {
+                            || isCorrelationTargetInRequestActivity(
+                                    (ProcessRelevantData) item)) {
                         return 1;
                     }
 
@@ -368,9 +363,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #getMaximumInstances(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #getMaximumInstances(java.lang.Object)
      */
     @Override
     public int getMaximumInstances(Object objectInTree) {
@@ -415,9 +409,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #getInstanceIndex(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #getInstanceIndex(java.lang.Object)
      */
     @Override
     public int getInstanceIndex(Object objectInTree) {
@@ -444,10 +437,9 @@ public class ProcessDataMappingRuleInfoProvider extends
      * <p>
      * This is because, generally, the process data info provider will be used
      * for source content (which is never asked whether it is mandatory anyway)
-     * OR used for target content on
-     * "return data to process from some invoked application" in which case the
-     * top level data is never required because it's up to the user whether to
-     * ignore the output data from app or not.
+     * OR used for target content on "return data to process from some invoked
+     * application" in which case the top level data is never required because
+     * it's up to the user whether to ignore the output data from app or not.
      * 
      * @return <code>true</code> if data fields/ params should be considered to
      *         be required.
@@ -459,9 +451,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #isSimpleTypeContent(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #isSimpleTypeContent(java.lang.Object)
      */
     @Override
     public boolean isSimpleTypeContent(Object objectInTree) {
@@ -475,9 +466,8 @@ public class ProcessDataMappingRuleInfoProvider extends
                      * content) any descendant that can be converted to process
                      * data basic type should be counted as simple content.
                      */
-                    BasicType basicType =
-                            BasicTypeConverterFactory.INSTANCE.getBasicType(cp
-                                    .getItem());
+                    BasicType basicType = BasicTypeConverterFactory.INSTANCE
+                            .getBasicType(cp.getItem());
                     if (basicType != null) {
                         return true;
                     }
@@ -507,9 +497,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #isArtificialObject(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #isArtificialObject(java.lang.Object)
      */
     @Override
     public boolean isArtificialObject(Object objectInTree) {
@@ -538,9 +527,8 @@ public class ProcessDataMappingRuleInfoProvider extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProvider
-     * #isChoiceObject(java.lang.Object)
+     * @see com.tibco.xpd.validation.bpmn.rules.baserules.
+     * MappingRuleContentInfoProvider #isChoiceObject(java.lang.Object)
      */
     @Override
     public boolean isChoiceObject(Object objectFromMappingOrContent) {

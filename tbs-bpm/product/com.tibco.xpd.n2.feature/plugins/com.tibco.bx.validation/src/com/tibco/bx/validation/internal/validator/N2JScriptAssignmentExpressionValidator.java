@@ -642,12 +642,9 @@ public class N2JScriptAssignmentExpressionValidator
          * "Assignment of PaginatedList<com.example.xpd5365.OrderRef> from PaginatedList<com.example.xpd5365.CustomerRef> is not supported"
          */
         String collectionType = null;
-        if (isPaginated(scriptRelevantData)) {
+        if (scriptRelevantData.isArray()) {
 
-            collectionType = JsConsts.PAGINATEDLIST;
-        } else if (scriptRelevantData.isArray()) {
-
-            collectionType = JsConsts.LIST;
+            collectionType = JsConsts.ARRAY;
         }
 
         if (collectionType != null) {

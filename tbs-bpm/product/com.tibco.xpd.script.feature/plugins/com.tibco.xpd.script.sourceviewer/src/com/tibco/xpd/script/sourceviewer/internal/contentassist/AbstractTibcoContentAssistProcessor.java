@@ -67,8 +67,8 @@ import com.tibco.xpd.script.sourceviewer.internal.client.IDisposable;
 import com.tibco.xpd.script.sourceviewer.internal.preferences.AbstractScriptCommonUIPreferenceNames;
 import com.tibco.xpd.script.sourceviewer.internal.util.PreferenceUtils;
 
-public abstract class AbstractTibcoContentAssistProcessor extends
-        TemplateCompletionProcessor implements IContentAssistProcessor,
+public abstract class AbstractTibcoContentAssistProcessor
+        extends TemplateCompletionProcessor implements IContentAssistProcessor,
         IPropertyChangeListener, IDisposable {
 
     protected static final String START_CLASS = "MyStartClass"; //$NON-NLS-1$
@@ -91,7 +91,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
     }
 
     protected ICompletionProposal[] getProposalForConfiguredClasses(
-            ITextViewer viewer, String text, String prefix, int documentOffset) {
+            ITextViewer viewer, String text, String prefix,
+            int documentOffset) {
         ICompletionProposal[] proposals =
                 computeCompletionProposals(viewer, prefix, documentOffset);
         return proposals;
@@ -149,10 +150,9 @@ public abstract class AbstractTibcoContentAssistProcessor extends
         }
         sb.append(newPattern.charAt(i));
         newPattern = sb.toString();
-        Template t =
-                new Template(template.getName(), template.getDescription(),
-                        template.getContextTypeId(), newPattern,
-                        template.isAutoInsertable());
+        Template t = new Template(template.getName(), template.getDescription(),
+                template.getContextTypeId(), newPattern,
+                template.isAutoInsertable());
         return t;
     }
 
@@ -171,9 +171,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 if (ch != ' ' && ch != '\t')
                     break;
             }
-            if (i > 0
-                    && (document.getChar(i - 1) == '\n' || document
-                            .getChar(i - 1) == '\r')) {
+            if (i > 0 && (document.getChar(i - 1) == '\n'
+                    || document.getChar(i - 1) == '\r')) {
                 return document.get(i, offset - i);
             } else {
                 return ""; //$NON-NLS-1$
@@ -295,9 +294,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 autoProposeCodeKey =
                         commonUIPreferenceNames.getAutoProposeCodeKey();
             }
-            completionProposalAutoActivationCharacters =
-                    getPreferenceStore().getString(autoProposeCodeKey)
-                            .toCharArray();
+            completionProposalAutoActivationCharacters = getPreferenceStore()
+                    .getString(autoProposeCodeKey).toCharArray();
         } else {
             completionProposalAutoActivationCharacters = null;
         }
@@ -327,14 +325,12 @@ public abstract class AbstractTibcoContentAssistProcessor extends
         List<ITypeResolver> typeResolvers = new ArrayList<ITypeResolver>();
         if (getClassDefinitionReaders() != null
                 && !getClassDefinitionReaders().isEmpty()) {
-            Set<ITypeResolverProvider> typeResolverProviders =
-                    JScriptUtils
-                            .getTypeResolverProviders(getClassDefinitionReaders());
+            Set<ITypeResolverProvider> typeResolverProviders = JScriptUtils
+                    .getTypeResolverProviders(getClassDefinitionReaders());
             if (typeResolverProviders != null
                     && !typeResolverProviders.isEmpty()) {
-                typeResolvers
-                        .addAll(JScriptUtils.getTypeResolvers(new ArrayList(
-                                typeResolverProviders)));
+                typeResolvers.addAll(JScriptUtils.getTypeResolvers(
+                        new ArrayList(typeResolverProviders)));
             }
         }
         return typeResolvers;
@@ -373,8 +369,10 @@ public abstract class AbstractTibcoContentAssistProcessor extends
             return null;
         }
         Vector props = new Vector();
-        props =
-                getProposalVector(viewer, prefix, documentPosition, indexedNode);
+        props = getProposalVector(viewer,
+                prefix,
+                documentPosition,
+                indexedNode);
         java.util.Enumeration elements = props.elements();
         ICompletionProposal[] result = null;
         java.util.SortedMap tm = new java.util.TreeMap();
@@ -400,20 +398,18 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 new ArrayList<IScriptRelevantData>();
         if (propertyName != null && dataType != null) {
             // Script Editor enhancements for TIBCO Forms
-            IScriptRelevantData scriptRelevantData =
-                    jsAttribute == null ? null : jsAttribute
-                            .getScriptRelevantData();
+            IScriptRelevantData scriptRelevantData = jsAttribute == null ? null
+                    : jsAttribute.getScriptRelevantData();
 
             if (scriptRelevantData != null) {
                 resolvedTypes.add(scriptRelevantData);
             }
             if ((jsAttribute == null) || (scriptRelevantData == null)) {
 
-                resolvedTypes =
-                        JScriptUtils.resolveType(jsAttribute,
-                                getTypeResolvers(),
-                                isArray,
-                                null);
+                resolvedTypes = JScriptUtils.resolveType(jsAttribute,
+                        getTypeResolvers(),
+                        isArray,
+                        null);
             }
             toReturn = addCompletionStringNodes(resolvedTypes, toReturn);
             if (toReturn != null) {
@@ -429,11 +425,10 @@ public abstract class AbstractTibcoContentAssistProcessor extends
         MyFollowClass toReturn = null;
         if (jsAttribute != null) {
             // Script Editor enhancements for TIBCO Forms
-            toReturn =
-                    getMyFollowPropertyClass(jsAttribute,
-                            jsAttribute.getName(),
-                            jsAttribute.getDataType(),
-                            jsAttribute.isMultiple());
+            toReturn = getMyFollowPropertyClass(jsAttribute,
+                    jsAttribute.getName(),
+                    jsAttribute.getDataType(),
+                    jsAttribute.isMultiple());
         }
         return toReturn;
     }
@@ -465,11 +460,10 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                         IScriptRelevantData scriptRelevantData =
                                 parameter.getScriptRelevantData();
                         if (scriptRelevantData == null) {
-                            resolvedTypes =
-                                    JScriptUtils.resolveType(jsMethod,
-                                            getTypeResolvers(),
-                                            isArray,
-                                            genericContext);
+                            resolvedTypes = JScriptUtils.resolveType(jsMethod,
+                                    getTypeResolvers(),
+                                    isArray,
+                                    genericContext);
                             if (isArray) {
                                 List<IScriptRelevantData> resolveContext =
                                         JScriptUtils.resolveType(jsMethod,
@@ -478,36 +472,32 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                                                 genericContext);
                                 if (resolveContext != null
                                         && !resolveContext.isEmpty()) {
-                                    genericContext =
-                                            resolveContext.listIterator()
-                                                    .next();
+                                    genericContext = resolveContext
+                                            .listIterator().next();
                                 }
                             }
                         } else {
                             resolvedTypes =
-                                    JScriptUtils
-                                            .resolveType(scriptRelevantData,
-                                                    getTypeResolvers(),
-                                                    isArray,
-                                                    genericContext);
+                                    JScriptUtils.resolveType(scriptRelevantData,
+                                            getTypeResolvers(),
+                                            isArray,
+                                            genericContext);
                             if (isArray) {
                                 List<IScriptRelevantData> resolveContext =
-                                        JScriptUtils
-                                                .resolveType(scriptRelevantData,
-                                                        getTypeResolvers(),
-                                                        false,
-                                                        genericContext);
+                                        JScriptUtils.resolveType(
+                                                scriptRelevantData,
+                                                getTypeResolvers(),
+                                                false,
+                                                genericContext);
                                 if (resolveContext != null
                                         && !resolveContext.isEmpty()) {
-                                    genericContext =
-                                            resolveContext.listIterator()
-                                                    .next();
+                                    genericContext = resolveContext
+                                            .listIterator().next();
                                 }
                             }
                         }
-                        toReturn =
-                                addCompletionStringNodes(resolvedTypes,
-                                        toReturn);
+                        toReturn = addCompletionStringNodes(resolvedTypes,
+                                toReturn);
                         if (JScriptUtils.getReturnedClass(parameter) != null) {
                             Class umlClass =
                                     JScriptUtils.getReturnedClass(parameter);
@@ -517,7 +507,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                                             .isContextlessClass(umlClass)) {
                                 genericContext =
                                         new DefaultScriptRelevantDataFactory()
-                                                .createUMLScriptRelevantData(dataType,
+                                                .createUMLScriptRelevantData(
+                                                        dataType,
                                                         false,
                                                         umlClass,
                                                         null,
@@ -529,20 +520,18 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 } else if (jsMethod instanceof AbstractJsMethod) {
                     List<IScriptRelevantData> resolvedTypes =
                             new ArrayList<IScriptRelevantData>();
-                    resolvedTypes =
-                            JScriptUtils.resolveType(jsMethod,
-                                    getTypeResolvers(),
-                                    isArray,
-                                    genericContext);
+                    resolvedTypes = JScriptUtils.resolveType(jsMethod,
+                            getTypeResolvers(),
+                            isArray,
+                            genericContext);
                     toReturn =
                             addCompletionStringNodes(resolvedTypes, toReturn);
                 } else {
                     // Script Editor enhancements for TIBCO Forms
-                    toReturn =
-                            getMyFollowPropertyClass(null,
-                                    jsMethod.getName(),
-                                    parameter.getType(),
-                                    jsMethod.isMultiple());
+                    toReturn = getMyFollowPropertyClass(null,
+                            jsMethod.getName(),
+                            parameter.getType(),
+                            jsMethod.isMultiple());
                 }
             }
         }
@@ -586,10 +575,9 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                     if (umlScriptRelevantData != null) {
                         JsClass jsClass = umlScriptRelevantData.getJsClass();
                         if (jsClass != null) {
-                            toReturn =
-                                    addMyCompletionStringNodes(jsClass,
-                                            toReturn,
-                                            false);
+                            toReturn = addMyCompletionStringNodes(jsClass,
+                                    toReturn,
+                                    false);
                         }
                     }
                 }
@@ -660,14 +648,16 @@ public abstract class AbstractTibcoContentAssistProcessor extends
         List<MyCompletionStringNode> completionNodes =
                 startMyFollowClass.getCompletionNodes();
         for (MyCompletionStringNode myCompletionStringNode : completionNodes) {
-            if (className.equals(myCompletionStringNode.getCompletionString())) {
+            if (className
+                    .equals(myCompletionStringNode.getCompletionString())) {
                 JsClass jsClass = myCompletionStringNode.getJsClass();
                 if (jsClass != null) {
                     toReturn =
                             addMyCompletionStringNodes(jsClass, toReturn, true);
                 } else {
                     IUMLScriptRelevantData registeredScriptRelevantData =
-                            getRegisteredScriptRelevantDataForClassName(className);
+                            getRegisteredScriptRelevantDataForClassName(
+                                    className);
                     toReturn = new MyFollowClass(className);
                     if (registeredScriptRelevantData != null) {
                         boolean isArray =
@@ -675,20 +665,18 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                         if (isArray && isExpressionArray) {
                             isArray = false;
                         }
-                        List<IScriptRelevantData> resolvedTypes =
-                                JScriptUtils
-                                        .resolveType(registeredScriptRelevantData,
-                                                getTypeResolvers(),
-                                                isArray,
-                                                genericContext);
-                        toReturn =
-                                addCompletionStringNodes(resolvedTypes,
-                                        toReturn);
+                        List<IScriptRelevantData> resolvedTypes = JScriptUtils
+                                .resolveType(registeredScriptRelevantData,
+                                        getTypeResolvers(),
+                                        isArray,
+                                        genericContext);
+                        toReturn = addCompletionStringNodes(resolvedTypes,
+                                toReturn);
                         IScriptRelevantData newGenericContext = null;
                         if (isLocalUMLScriptRelevantClass(className)) {
                             newGenericContext =
-                                    JScriptUtils
-                                            .getCurrentGenericContext(registeredScriptRelevantData);
+                                    JScriptUtils.getCurrentGenericContext(
+                                            registeredScriptRelevantData);
                         } else {
                             newGenericContext = registeredScriptRelevantData;
                         }
@@ -705,7 +693,9 @@ public abstract class AbstractTibcoContentAssistProcessor extends
             MyFollowClass toReturn, boolean isStaticReference) {
         if (jsClass != null) {
             // if is static reference only should show static properties
-            toReturn = new MyFollowClass(jsClass.getName());
+            if (toReturn == null) {
+                toReturn = new MyFollowClass(jsClass.getName());
+            }
             List<JsAttribute> attributeList = jsClass.getAttributeList();
             for (JsAttribute attribute : attributeList) {
                 boolean isAttributeStatic = false;
@@ -715,12 +705,12 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 if (isStaticReference) {
                     // Only show static properties
                     if (isAttributeStatic) {
-                        toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                                attribute));
+                        toReturn.addMyCompletionStringNode(
+                                new MyCompletionStringNode(attribute));
                     }
                 } else {
-                    toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                            attribute));
+                    toReturn.addMyCompletionStringNode(
+                            new MyCompletionStringNode(attribute));
                 }
             }
             List<JsReference> referenceList = jsClass.getReferenceList();
@@ -732,12 +722,12 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 if (isStaticReference) {
                     // Only show static properties
                     if (isAttributeStatic) {
-                        toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                                reference));
+                        toReturn.addMyCompletionStringNode(
+                                new MyCompletionStringNode(reference));
                     }
                 } else {
-                    toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                            reference));
+                    toReturn.addMyCompletionStringNode(
+                            new MyCompletionStringNode(reference));
                 }
             }
             Collection<JsMethod> methodList = jsClass.getMethodList();
@@ -749,12 +739,12 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                 if (isStaticReference) {
                     // Only show static properties
                     if (isAttributeStatic) {
-                        toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                                method));
+                        toReturn.addMyCompletionStringNode(
+                                new MyCompletionStringNode(method));
                     }
                 } else {
-                    toReturn.addMyCompletionStringNode(new MyCompletionStringNode(
-                            method));
+                    toReturn.addMyCompletionStringNode(
+                            new MyCompletionStringNode(method));
                 }
             }
         }
@@ -922,7 +912,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
      * @param ch2
      *            one of the characters to search for
      */
-    protected static int strNextPos(String estring, int sidx, char ch1, char ch2) {
+    protected static int strNextPos(String estring, int sidx, char ch1,
+            char ch2) {
         int idx1;
         int idx11 = estring.indexOf(ch1, sidx);
         int idx12 = estring.indexOf(ch2, sidx);
@@ -949,7 +940,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
      * @param ch2
      *            one of the characters to search for
      */
-    protected static int strLastPos(String estring, int sidx, char ch1, char ch2) {
+    protected static int strLastPos(String estring, int sidx, char ch1,
+            char ch2) {
         int idx1;
         int idx11 = estring.lastIndexOf(ch1, sidx);
         int idx12 = estring.lastIndexOf(ch2, sidx);
@@ -1029,8 +1021,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                     IUMLScriptRelevantData uScriptRelevantData =
                             (IUMLScriptRelevantData) scriptRelevantData;
                     if (uScriptRelevantData.getJsClass() != null) {
-                        allSupportedClasses.add(uScriptRelevantData
-                                .getJsClass());
+                        allSupportedClasses
+                                .add(uScriptRelevantData.getJsClass());
                     }
                 }
             }
@@ -1226,8 +1218,8 @@ public abstract class AbstractTibcoContentAssistProcessor extends
                         Document documentRoot =
                                 (Document) complexScriptRelevantData;
                         Node childNode = documentRoot.getFirstChild();
-                        iComplexScriptRelevantDataMap.put(childNode
-                                .getNodeName(), documentRoot);
+                        iComplexScriptRelevantDataMap
+                                .put(childNode.getNodeName(), documentRoot);
                     }
                 }
             }

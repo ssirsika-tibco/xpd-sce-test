@@ -97,8 +97,8 @@ public class JScriptUtils {
     private static JsContentAssistIconProvider jsContentAssistIconProvider =
             null;
 
-    private static String[] ClassNamesCollision = new String[] {
-            "Object", "Date" };//$NON-NLS-1$//$NON-NLS-2$
+    private static String[] ClassNamesCollision =
+            new String[] { "Object", "Date" };//$NON-NLS-1$//$NON-NLS-2$
 
     private static Map<String, String> fqnPackageMapping = null;
 
@@ -164,7 +164,8 @@ public class JScriptUtils {
                 && jsMethodParam.getUMLParameter().getType() instanceof Class) {
             return (Class) jsMethodParam.getUMLParameter().getType();
         } else if (jsMethodParam instanceof IUMLElement
-                && ((IUMLElement) jsMethodParam).getElement() instanceof Class) {
+                && ((IUMLElement) jsMethodParam)
+                        .getElement() instanceof Class) {
             return (Class) ((IUMLElement) jsMethodParam).getElement();
         } else if (jsMethodParam instanceof CaseJsMethodParam) {
             return ((CaseJsMethodParam) jsMethodParam).getUmlClass();
@@ -175,8 +176,8 @@ public class JScriptUtils {
     public static JsAttribute getJsAttribute(String name,
             List<JsAttribute> jsAttributeList) {
         if (name != null && jsAttributeList != null) {
-            for (Iterator<JsAttribute> iterator = jsAttributeList.iterator(); iterator
-                    .hasNext();) {
+            for (Iterator<JsAttribute> iterator =
+                    jsAttributeList.iterator(); iterator.hasNext();) {
                 JsAttribute theJsAttribute = iterator.next();
                 if (theJsAttribute != null && theJsAttribute.getName() != null
                         && theJsAttribute.getName().equals(name)) {
@@ -238,9 +239,8 @@ public class JScriptUtils {
             if (JScriptUtils.isASupportedClass(identifierName,
                     supportedJsClasses)) {
                 // Is a supported class
-                JsClass jsClass =
-                        JScriptUtils.getJsClass(identifierName,
-                                supportedJsClasses);
+                JsClass jsClass = JScriptUtils.getJsClass(identifierName,
+                        supportedJsClasses);
                 // Check not needed but just to be on the safe side
                 if (jsClass != null) {
                     boolean readOnly = false;
@@ -274,18 +274,17 @@ public class JScriptUtils {
                         JScriptUtils.getJsAttribute(identifierName,
                                 supportedGlobalProperties);
                 if (jsAttribute != null) {
-                    String dataType =
-                            JScriptUtils
-                                    .getJsAttributeBaseDataType(jsAttribute);
+                    String dataType = JScriptUtils
+                            .getJsAttributeBaseDataType(jsAttribute);
                     boolean isReadOnly =
                             JScriptUtils.isJsAttributeReadOnly(jsAttribute);
-                    return scriptRelevantDataFactory
-                            .createScriptRelevantData(jsAttribute.getName(),
-                                    dataType,
-                                    false,
-                                    genericContext,
-                                    isReadOnly,
-                                    jsAttribute);
+                    return scriptRelevantDataFactory.createScriptRelevantData(
+                            jsAttribute.getName(),
+                            dataType,
+                            false,
+                            genericContext,
+                            isReadOnly,
+                            jsAttribute);
                 }
             }
         }
@@ -325,74 +324,67 @@ public class JScriptUtils {
                         JScriptUtils.getJsClass(name, supportedJsClasses);
                 // Check not needed but just to be on the safe side
                 if (jsClass != null) {
-                    dataType =
-                            jsClass.getDataTypeForJSExpression(jsExpression,
-                                    supportedJsClasses);
+                    dataType = jsClass.getDataTypeForJSExpression(jsExpression,
+                            supportedJsClasses);
                 }
             } else if (JScriptUtils.isAScriptRelevantData(name,
                     scriptRelevantDataMap)) {
                 // Is a scriptRelevantData class
                 IScriptRelevantData scriptRelevantData =
                         scriptRelevantDataMap.get(name);
-                dataType =
-                        JScriptUtils.getDataType(scriptRelevantData,
-                                jsExpression,
-                                supportedJsClasses);
+                dataType = JScriptUtils.getDataType(scriptRelevantData,
+                        jsExpression,
+                        supportedJsClasses);
             } else if (JScriptUtils.isALocalVariable(name, localVariablesMap)) {
                 // Is a local variable
                 IScriptRelevantData localVariable = localVariablesMap.get(name);
-                dataType =
-                        JScriptUtils.getDataType(localVariable,
-                                jsExpression,
-                                supportedJsClasses);
+                dataType = JScriptUtils.getDataType(localVariable,
+                        jsExpression,
+                        supportedJsClasses);
             } else {
                 // Treat Special cases like "blahblah".substring(0,4);
                 if (isLiteralString(jsExpression.getName())) {
                     // Change the literal name for String
                     jsExpression.setName(JsConsts.STRING);
-                    dataType =
-                            getScriptRelevantDataType(jsExpression,
-                                    supportedJsClasses,
-                                    scriptRelevantDataMap,
-                                    localVariablesMap,
-                                    localMethodsMap);
+                    dataType = getScriptRelevantDataType(jsExpression,
+                            supportedJsClasses,
+                            scriptRelevantDataMap,
+                            localVariablesMap,
+                            localMethodsMap);
                 } else if (isLiteralBoolean(jsExpression.getName())) {
                     // Change the literal name for boolean
                     jsExpression.setName(JsConsts.BOOLEAN);
-                    dataType =
-                            getScriptRelevantDataType(jsExpression,
-                                    supportedJsClasses,
-                                    scriptRelevantDataMap,
-                                    localVariablesMap,
-                                    localMethodsMap);
+                    dataType = getScriptRelevantDataType(jsExpression,
+                            supportedJsClasses,
+                            scriptRelevantDataMap,
+                            localVariablesMap,
+                            localMethodsMap);
                 } else if (isNumber(jsExpression.getName())) {
                     jsExpression.setName(JsConsts.NUMBER);
                     // Change the literal name for number
-                    dataType =
-                            getScriptRelevantDataType(jsExpression,
+                    dataType = getScriptRelevantDataType(jsExpression,
+                            supportedJsClasses,
+                            scriptRelevantDataMap,
+                            localVariablesMap,
+                            localMethodsMap);
+                } else {
+                    if (localMethodsMap != null && localMethodsMap
+                            .containsKey(jsExpression.getName())) {
+                        IScriptRelevantData methodType =
+                                localMethodsMap.get(jsExpression.getName());
+                        if (methodType != null) {
+                            jsExpression.setName(
+                                    JScriptUtils.resolveJavaScriptDataType(
+                                            methodType.getType()));
+                            dataType = getScriptRelevantDataType(jsExpression,
                                     supportedJsClasses,
                                     scriptRelevantDataMap,
                                     localVariablesMap,
                                     localMethodsMap);
-                } else {
-                    if (localMethodsMap != null
-                            && localMethodsMap.containsKey(jsExpression
-                                    .getName())) {
-                        IScriptRelevantData methodType =
-                                localMethodsMap.get(jsExpression.getName());
-                        if (methodType != null) {
-                            jsExpression.setName(JScriptUtils
-                                    .resolveJavaScriptDataType(methodType
-                                            .getType()));
-                            dataType =
-                                    getScriptRelevantDataType(jsExpression,
-                                            supportedJsClasses,
-                                            scriptRelevantDataMap,
-                                            localVariablesMap,
-                                            localMethodsMap);
                         }
                     } else
-                        dataType.setUndefinedCause(JsConsts.UNDEFINED_VARIABLE_DATA_TYPE_CAUSE);
+                        dataType.setUndefinedCause(
+                                JsConsts.UNDEFINED_VARIABLE_DATA_TYPE_CAUSE);
                 }
             }
 
@@ -435,9 +427,8 @@ public class JScriptUtils {
                 // get the first character
                 String first = expression.substring(0, 1);
                 // get the last character
-                String last =
-                        expression.substring(expression.length() - 1,
-                                expression.length());
+                String last = expression.substring(expression.length() - 1,
+                        expression.length());
                 if (first != null && last != null
                         && (first.equals("\"") || first.equals("'")) //$NON-NLS-1$ //$NON-NLS-2$
                         && (last.equals("\"") || last.equals("'"))) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -447,8 +438,8 @@ public class JScriptUtils {
                         stringContent = stringContent.replaceAll("\\\"", ""); //$NON-NLS-1$ //$NON-NLS-2$
                         stringContent = stringContent.replaceAll("'", ""); //$NON-NLS-1$ //$NON-NLS-2$
                         if (stringContent != null
-                                && (stringContent.contains("\"") || stringContent //$NON-NLS-1$
-                                        .contains("'"))) { //$NON-NLS-1$
+                                && (stringContent.contains("\"") //$NON-NLS-1$
+                                        || stringContent.contains("'"))) { //$NON-NLS-1$
                             return false;
                         } else {
                             return true;
@@ -481,7 +472,8 @@ public class JScriptUtils {
                         Class existingMultipleClass =
                                 multipleJsClassResolver.getMultipleClass();
                         if (existingMultipleClass == null
-                                || !existingMultipleClass.equals(multipleClass)) {
+                                || !existingMultipleClass
+                                        .equals(multipleClass)) {
                             try {
                                 Object copy = multipleJsClassResolver.clone();
                                 if (copy instanceof IMultipleJsClassResolver) {
@@ -491,7 +483,8 @@ public class JScriptUtils {
                                             .setMultipleClass(multipleClass);
                                     if (copy instanceof JsClass) {
                                         IUMLScriptRelevantData umlScriptRelevantData =
-                                                (IUMLScriptRelevantData) getScriptRelevantData((JsClass) copy,
+                                                (IUMLScriptRelevantData) getScriptRelevantData(
+                                                        (JsClass) copy,
                                                         name,
                                                         isArray);
                                         return umlScriptRelevantData;
@@ -505,7 +498,8 @@ public class JScriptUtils {
                     }
 
                     IUMLScriptRelevantData umlScriptRelevantData =
-                            (IUMLScriptRelevantData) getScriptRelevantData(jsClass,
+                            (IUMLScriptRelevantData) getScriptRelevantData(
+                                    jsClass,
                                     name,
                                     isArray);
                     return umlScriptRelevantData;
@@ -591,9 +585,8 @@ public class JScriptUtils {
         return toReturn;
     }
 
-    public static JsDataType getDataType(
-            IScriptRelevantData scriptRelevantData, JsExpression jsExpression,
-            List<JsClass> supportedJsClasses) {
+    public static JsDataType getDataType(IScriptRelevantData scriptRelevantData,
+            JsExpression jsExpression, List<JsClass> supportedJsClasses) {
         JsDataType dataType = new JsDataType();
         dataType.setJsExpression(jsExpression);
         if (scriptRelevantData != null) {
@@ -611,7 +604,7 @@ public class JScriptUtils {
                                 && (jsExpression.getArrayExpression() != null ||
                                 // this check is for the studio scripts to work
                                 // as before
-                                (umlScriptRelevantData instanceof DefaultUMLScriptRelevantData))) {
+                                        (umlScriptRelevantData instanceof DefaultUMLScriptRelevantData))) {
                             if (umlScriptRelevantData.isArray()) {
                                 String arrayClassName = JsConsts.ARRAY;
                                 Class multipleClass = null;
@@ -623,24 +616,20 @@ public class JScriptUtils {
                                             && multipleClassResolver
                                                     .getMultipleJsClass()
                                                     .getName() != null) {
-                                        arrayClassName =
-                                                multipleClassResolver
-                                                        .getMultipleJsClass()
-                                                        .getName();
-                                        multipleClass =
-                                                multipleClassResolver
-                                                        .getMultipleClass();
+                                        arrayClassName = multipleClassResolver
+                                                .getMultipleJsClass().getName();
+                                        multipleClass = multipleClassResolver
+                                                .getMultipleClass();
                                     }
                                 }
-                                scriptRelevantData =
-                                        JScriptUtils
-                                                .resolveJavaScriptStringType(scriptRelevantData
-                                                        .getName(),
-                                                        arrayClassName,
-                                                        true,
-                                                        supportedJsClasses,
-                                                        multipleClass,
-                                                        null);
+                                scriptRelevantData = JScriptUtils
+                                        .resolveJavaScriptStringType(
+                                                scriptRelevantData.getName(),
+                                                arrayClassName,
+                                                true,
+                                                supportedJsClasses,
+                                                multipleClass,
+                                                null);
                                 if (scriptRelevantData != null
                                         && scriptRelevantData instanceof IUMLScriptRelevantData) {
                                     IUMLScriptRelevantData umlRelevantData =
@@ -648,7 +637,8 @@ public class JScriptUtils {
                                     jsClass = umlRelevantData.getJsClass();
                                 }
                             } else {
-                                dataType.setUndefinedCause(JsConsts.ARRAY_NOT_EXPECTED_DATA_TYPE_CAUSE);
+                                dataType.setUndefinedCause(
+                                        JsConsts.ARRAY_NOT_EXPECTED_DATA_TYPE_CAUSE);
                                 return dataType;
                             }
                         }
@@ -660,7 +650,8 @@ public class JScriptUtils {
             } else {
                 String type = scriptRelevantData.getType();
                 if (type != null && type.equals(JsConsts.UNDEFINED_DATA_TYPE)) {
-                    dataType.setUndefinedCause(JsConsts.UNDEFINED_DATA_TYPE_CAUSE);
+                    dataType.setUndefinedCause(
+                            JsConsts.UNDEFINED_DATA_TYPE_CAUSE);
                 } else {
                     if (!JScriptUtils.hasMoreJSChildren(jsExpression)) {
                         if (scriptRelevantData.getType() != null) {
@@ -671,15 +662,18 @@ public class JScriptUtils {
                                 jsExpression.getNextExpression();
                         dataType.setJsExpression(nextExpression);
                         if (nextExpression instanceof JsExpressionMethod) {
-                            dataType.setUndefinedCause(JsConsts.UNKNOWN_METHOD_DATA_TYPE_CAUSE);
+                            dataType.setUndefinedCause(
+                                    JsConsts.UNKNOWN_METHOD_DATA_TYPE_CAUSE);
                         } else {
-                            dataType.setUndefinedCause(JsConsts.UNKNOWN_PROPERTY_DATA_TYPE_CAUSE);
+                            dataType.setUndefinedCause(
+                                    JsConsts.UNKNOWN_PROPERTY_DATA_TYPE_CAUSE);
                         }
                     }
                 }
             }
         } else {
-            dataType.setUndefinedCause(JsConsts.UNDEFINED_VARIABLE_DATA_TYPE_CAUSE);
+            dataType.setUndefinedCause(
+                    JsConsts.UNDEFINED_VARIABLE_DATA_TYPE_CAUSE);
         }
         return dataType;
     }
@@ -689,7 +683,8 @@ public class JScriptUtils {
      * @param jsClasses
      * @return true if the given name is a contributed static class.
      */
-    public static boolean isASupportedClass(String name, List<JsClass> jsClasses) {
+    public static boolean isASupportedClass(String name,
+            List<JsClass> jsClasses) {
         if (jsClasses != null) {
             JsClass jsClass = JScriptUtils.getJsClass(name, jsClasses);
             if (jsClass != null) {
@@ -721,7 +716,8 @@ public class JScriptUtils {
         } else if (type instanceof DefaultScriptRelevantData) {
             DefaultScriptRelevantData defaultScriptRelevantData =
                     (DefaultScriptRelevantData) type;
-            if (defaultScriptRelevantData.getGenericContextType() instanceof IUMLScriptRelevantData) {
+            if (defaultScriptRelevantData
+                    .getGenericContextType() instanceof IUMLScriptRelevantData) {
                 umlScriptRelevantData =
                         (IUMLScriptRelevantData) defaultScriptRelevantData
                                 .getGenericContextType();
@@ -731,15 +727,13 @@ public class JScriptUtils {
         if (null != umlScriptRelevantData) {
             JsClass jsClass = umlScriptRelevantData.getJsClass();
             if (jsClass != null && jsClass.getUmlClass() != null) {
-                Iterator<Stereotype> stereoTypeIter =
-                        jsClass.getUmlClass().getAppliedStereotypes()
-                                .iterator();
+                Iterator<Stereotype> stereoTypeIter = jsClass.getUmlClass()
+                        .getAppliedStereotypes().iterator();
                 while (stereoTypeIter.hasNext()) {
                     Stereotype stereotype = stereoTypeIter.next();
                     if (stereotype.getName().equals(XSD_BASED_CLASS)) {
-                        Object value =
-                                jsClass.getUmlClass().getValue(stereotype,
-                                        XSD_ANON_TYPE);
+                        Object value = jsClass.getUmlClass()
+                                .getValue(stereotype, XSD_ANON_TYPE);
                         if (value != null) {
                             return Boolean.valueOf(value.toString());
                         }
@@ -770,8 +764,8 @@ public class JScriptUtils {
      *         class from the BOM model <code>false</code> otherwise.
      */
     public static boolean isDynamicComplexType(IScriptRelevantData type) {
-        return JScriptUtils
-                .isDynamicComplexType(type, new ArrayList<JsClass>());
+        return JScriptUtils.isDynamicComplexType(type,
+                new ArrayList<JsClass>());
     }
 
     /**
@@ -788,9 +782,8 @@ public class JScriptUtils {
                     (IUMLScriptRelevantData) type;
             JsClass jsClass = umlScriptRelevantData.getJsClass();
             if (jsClass != null && jsClass.getUmlClass() != null) {
-                WorkingCopy wc =
-                        WorkingCopyUtil
-                                .getWorkingCopyFor(jsClass.getUmlClass());
+                WorkingCopy wc = WorkingCopyUtil
+                        .getWorkingCopyFor(jsClass.getUmlClass());
                 if (wc != null) {
                     return true;
                 }
@@ -822,19 +815,20 @@ public class JScriptUtils {
                 IScriptRelevantData scriptRelevantData = type;
                 if (scriptRelevantData instanceof DefaultScriptRelevantData) {
                     if (null != scriptRelevantData.getName()
-                            && (JsConsts.BIGDECIMAL.equals(scriptRelevantData
-                                    .getName()) || JsConsts.BIGINTEGER
-                                    .equals(scriptRelevantData.getName()))) {
+                            && (JsConsts.BIGDECIMAL
+                                    .equals(scriptRelevantData.getName())
+                                    || JsConsts.BIGINTEGER.equals(
+                                            scriptRelevantData.getName()))) {
                         return scriptRelevantData.getName();
                     }
                     /*
                      * TODO: remove this code if all types that a text list can
                      * have is to be allowed (to be added) to ID/URI list
                      */
-                    if (JsConsts.ID.equalsIgnoreCase(scriptRelevantData
-                            .getName())
-                            || JsConsts.URI.equalsIgnoreCase(scriptRelevantData
-                                    .getName())) {
+                    if (JsConsts.ID
+                            .equalsIgnoreCase(scriptRelevantData.getName())
+                            || JsConsts.URI.equalsIgnoreCase(
+                                    scriptRelevantData.getName())) {
                         Object extendedInfo =
                                 ((DefaultScriptRelevantData) scriptRelevantData)
                                         .getExtendedInfo();
@@ -845,8 +839,8 @@ public class JScriptUtils {
                             if (element instanceof Property) {
                                 Property property = (Property) element;
                                 if (!scriptRelevantData.getName()
-                                        .equalsIgnoreCase(property.getType()
-                                                .getName())) {
+                                        .equalsIgnoreCase(
+                                                property.getType().getName())) {
                                     return scriptRelevantData.getName();
                                 }
                                 return property.getType().getName();
@@ -872,14 +866,15 @@ public class JScriptUtils {
                     if (jsClass instanceof CaseRefJsClass) {
 
                         return ((CaseRefJsClass) jsClass).getType();
-                    } else if (jsClass != null && jsClass.getUmlClass() != null) {
+                    } else if (jsClass != null
+                            && jsClass.getUmlClass() != null) {
 
                         return JScriptUtils.getFQType(jsClass.getUmlClass());
                     } else if (jsClass instanceof IJsDataType
                             && ((IJsDataType) jsClass).getDataType() != null) {
 
-                        return JScriptUtils.getFQType(((IJsDataType) jsClass)
-                                .getDataType());
+                        return JScriptUtils.getFQType(
+                                ((IJsDataType) jsClass).getDataType());
                     }
                 }
             }
@@ -923,9 +918,8 @@ public class JScriptUtils {
             Package parentPackage = (Package) bomPackage.eContainer();
             qualifier = parentPackage.getName() + "." + qualifier; //$NON-NLS-1$
             if (parentPackage.eContainer() instanceof Package) {
-                String parent =
-                        getPackageQualifier((Package) parentPackage
-                                .eContainer());
+                String parent = getPackageQualifier(
+                        (Package) parentPackage.eContainer());
 
                 if (parent.length() > 0) {
                     qualifier = parent + "." + qualifier; //$NON-NLS-1$
@@ -998,11 +992,10 @@ public class JScriptUtils {
             int indxNextOpen = aString.indexOf(openBracket, startIndx);
             int indxNextClose = aString.indexOf(closeBracket, startIndx);
             if (indxNextOpen != -1 && indxNextClose > indxNextOpen) {
-                indxCloseBracketsPos =
-                        findCloseBracketsPos(aString,
-                                indxNextClose + 1,
-                                openBracket,
-                                closeBracket);
+                indxCloseBracketsPos = findCloseBracketsPos(aString,
+                        indxNextClose + 1,
+                        openBracket,
+                        closeBracket);
             } else {
                 indxCloseBracketsPos = indxNextClose;
             }
@@ -1030,9 +1023,8 @@ public class JScriptUtils {
             Map<String, IScriptRelevantData> localVariablesMap,
             Map<String, IScriptRelevantData> scriptRelevantDataMap,
             String varName) {
-        IScriptRelevantData variableType =
-                new DefaultScriptRelevantData(varName,
-                        JsConsts.UNDEFINED_DATA_TYPE, false);
+        IScriptRelevantData variableType = new DefaultScriptRelevantData(
+                varName, JsConsts.UNDEFINED_DATA_TYPE, false);
         if (varName != null) {
             if (isALocalVariable(varName, localVariablesMap)) {
                 variableType = localVariablesMap.get(varName);
@@ -1044,9 +1036,9 @@ public class JScriptUtils {
     }
 
     public static boolean needsQuotes(String name) {
-        if (name != null
-                && name.length() > 0
-                && (Character.isDigit(name.charAt(0)) || (name.indexOf(' ') >= 0))) {
+        if (name != null && name.length() > 0
+                && (Character.isDigit(name.charAt(0))
+                        || (name.indexOf(' ') >= 0))) {
             return true;
         }
         return false;
@@ -1059,9 +1051,8 @@ public class JScriptUtils {
                 jsClass.getScriptRelevantData(variableName, isArray);
         if (isrd == null) {
 
-            isrd =
-                    new DefaultUMLScriptRelevantData(variableName,
-                            jsClass.getName(), isArray, jsClass);
+            isrd = new DefaultUMLScriptRelevantData(variableName,
+                    jsClass.getName(), isArray, jsClass);
         }
         return isrd;
     }
@@ -1093,8 +1084,8 @@ public class JScriptUtils {
         }
         // checking it in supported classes
         JsClass foundJsClass = null;
-        for (Iterator<JsClass> iterator = supportedJsClasses.iterator(); iterator
-                .hasNext();) {
+        for (Iterator<JsClass> iterator =
+                supportedJsClasses.iterator(); iterator.hasNext();) {
             JsClass jsClass = iterator.next();
             if (jsClass != null && jsClass.getName() != null
                     && jsClass.getName().equals(className)) {
@@ -1145,9 +1136,8 @@ public class JScriptUtils {
             if (umlClassIcon != null) {
                 tempJsClass.setIcon(umlClassIcon);
             }
-            scriptRelevantData =
-                    new DefaultUMLScriptRelevantData(variableName,
-                            tempJsClass.getName(), isArray, tempJsClass);
+            scriptRelevantData = new DefaultUMLScriptRelevantData(variableName,
+                    tempJsClass.getName(), isArray, tempJsClass);
             return scriptRelevantData;
         }
         scriptRelevantData =
@@ -1204,8 +1194,8 @@ public class JScriptUtils {
         // checking it in supported classes
         JsClass foundJsClass = null;
         Image defaultJscriptIcon = null;
-        for (Iterator<JsClass> iterator = supportedJsClasses.iterator(); iterator
-                .hasNext();) {
+        for (Iterator<JsClass> iterator =
+                supportedJsClasses.iterator(); iterator.hasNext();) {
             JsClass jsClass = iterator.next();
             if (jsClass != null && jsClass.getName() != null
                     && jsClass.getName().equals(className)) {
@@ -1231,7 +1221,8 @@ public class JScriptUtils {
             if (ownedElements != null) {
                 for (Object ownedElement : ownedElements) {
                     if (ownedElement instanceof Class) {
-                        if (((Class) ownedElement).getName().equals(className)) {
+                        if (((Class) ownedElement).getName()
+                                .equals(className)) {
                             referredClass = (Class) ownedElement;
                             break;
                         }
@@ -1243,9 +1234,8 @@ public class JScriptUtils {
             DefaultJsClass tempJsClass =
                     new DefaultJsClass(referredClass, multipleClass);
             tempJsClass.setIcon(JScriptUtils.getDefaultJavascriptIcon());
-            scriptRelevantData =
-                    new DefaultUMLScriptRelevantData(variableName,
-                            tempJsClass.getName(), isArray, tempJsClass);
+            scriptRelevantData = new DefaultUMLScriptRelevantData(variableName,
+                    tempJsClass.getName(), isArray, tempJsClass);
             return scriptRelevantData;
         }
         scriptRelevantData =
@@ -1363,35 +1353,31 @@ public class JScriptUtils {
 
     public static Image getDefaultJavascriptIcon() {
         if (defaultJavascriptIcon == null) {
-            defaultJavascriptIcon =
-                    Activator.getDefault().getImageRegistry()
-                            .get(JsConsts.JS_CLASS);
+            defaultJavascriptIcon = Activator.getDefault().getImageRegistry()
+                    .get(JsConsts.JS_CLASS);
         }
         return defaultJavascriptIcon;
     }
 
     public static Class getDefaultMultipleClass() {
         if (defaultMultipleClass == null) {
-            URL entry =
-                    Activator.getDefault().getBundle()
-                            .getEntry(JsConsts.JAVASCRIPT_MODEL_FILE_NAME);
+            URL entry = Activator.getDefault().getBundle()
+                    .getEntry(JsConsts.JAVASCRIPT_MODEL_FILE_NAME);
             if (entry != null) {
                 URI uri = URI.createURI(entry.toExternalForm());
                 ResourceSetImpl resourceSet = new ResourceSetImpl();
                 resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI,
                         UMLPackage.eINSTANCE);
-                resourceSet
-                        .getResourceFactoryRegistry()
+                resourceSet.getResourceFactoryRegistry()
                         .getExtensionToFactoryMap()
                         .put(UMLResource.FILE_EXTENSION,
                                 UMLResource.Factory.INSTANCE);
                 try {
                     Resource resource = resourceSet.createResource(uri);
                     resource.load(Collections.EMPTY_MAP);
-                    Package umlPackage =
-                            (Package) EcoreUtil
-                                    .getObjectByType(resource.getContents(),
-                                            UMLPackage.Literals.PACKAGE);
+                    Package umlPackage = (Package) EcoreUtil.getObjectByType(
+                            resource.getContents(),
+                            UMLPackage.Literals.PACKAGE);
                     List<PackageableElement> packagedElements =
                             umlPackage.getPackagedElements();
                     if (packagedElements == null) {
@@ -1400,9 +1386,8 @@ public class JScriptUtils {
                     for (PackageableElement element : packagedElements) {
                         if (element instanceof Class) {
                             Class umlClass = (Class) element;
-                            if (umlClass.getName() != null
-                                    && umlClass.getName()
-                                            .equals(JsConsts.ARRAY)) {
+                            if (umlClass.getName() != null && umlClass.getName()
+                                    .equals(JsConsts.ARRAY)) {
                                 defaultMultipleClass = umlClass;
                                 break;
                             }
@@ -1436,19 +1421,17 @@ public class JScriptUtils {
                     JScriptUtils.getBasePrimitiveType(pt);
 
             if (basePrimitiveType != null) {
-                ResourceSet rSet =
-                        XpdResourcesPlugin.getDefault().getEditingDomain()
-                                .getResourceSet();
+                ResourceSet rSet = XpdResourcesPlugin.getDefault()
+                        .getEditingDomain().getResourceSet();
 
                 // Confirm that the base type is Object
                 if (basePrimitiveType == JScriptUtils
-                        .getStandardPrimitiveTypeByName(rSet, JsConsts.OBJECT)) {
+                        .getStandardPrimitiveTypeByName(rSet,
+                                JsConsts.OBJECT)) {
 
-                    Object value =
-                            JScriptUtils
-                                    .getFacetPropertyValue(pt,
-                                            JScriptUtils.BOM_PRIMITIVE_FACET_OBJECT_SUBTYPE,
-                                            prop);
+                    Object value = JScriptUtils.getFacetPropertyValue(pt,
+                            JScriptUtils.BOM_PRIMITIVE_FACET_OBJECT_SUBTYPE,
+                            prop);
 
                     if (value != null && value instanceof EnumerationLiteral) {
                         String litName = ((EnumerationLiteral) value).getName();
@@ -1479,31 +1462,29 @@ public class JScriptUtils {
                     JScriptUtils.getBasePrimitiveType(pt);
 
             if (basePrimitiveType != null) {
-                ResourceSet rSet =
-                        XpdResourcesPlugin.getDefault().getEditingDomain()
-                                .getResourceSet();
+                ResourceSet rSet = XpdResourcesPlugin.getDefault()
+                        .getEditingDomain().getResourceSet();
 
                 // Confirm that the base type is Object
                 if (basePrimitiveType == JScriptUtils
-                        .getStandardPrimitiveTypeByName(rSet, JsConsts.OBJECT)) {
+                        .getStandardPrimitiveTypeByName(rSet,
+                                JsConsts.OBJECT)) {
 
-                    Object value =
-                            JScriptUtils
-                                    .getFacetPropertyValue(pt,
-                                            JScriptUtils.BOM_PRIMITIVE_FACET_OBJECT_SUBTYPE,
-                                            property);
+                    Object value = JScriptUtils.getFacetPropertyValue(pt,
+                            JScriptUtils.BOM_PRIMITIVE_FACET_OBJECT_SUBTYPE,
+                            property);
 
                     if (value != null && value instanceof EnumerationLiteral) {
                         String litName = ((EnumerationLiteral) value).getName();
 
-                        if (litName
-                                .equals(JScriptUtils.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE)
-                                || litName
-                                        .equals(JScriptUtils.OBJECT_SUBTYPE_XSD_ANY)
-                                || litName
-                                        .equals(JScriptUtils.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE)
-                                || litName
-                                        .equals(JScriptUtils.OBJECT_SUBTYPE_XSD_ANYTYPE)) {
+                        if (litName.equals(
+                                JScriptUtils.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE)
+                                || litName.equals(
+                                        JScriptUtils.OBJECT_SUBTYPE_XSD_ANY)
+                                || litName.equals(
+                                        JScriptUtils.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE)
+                                || litName.equals(
+                                        JScriptUtils.OBJECT_SUBTYPE_XSD_ANYTYPE)) {
                             subType = litName;
                         }
                     }
@@ -1657,7 +1638,8 @@ public class JScriptUtils {
 
     public static List<JsClass> getAllSupportedJsClasses(
             List<JsClassDefinitionReader> classDefinitionReaders) {
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             List<JsClass> allSupportedClasses = new ArrayList<JsClass>();
             for (JsClassDefinitionReader jsClassDefinitionReader : classDefinitionReaders) {
                 List<JsClass> supportedClasses =
@@ -1680,18 +1662,18 @@ public class JScriptUtils {
                 genericContext);
     }
 
-    public static List<IScriptRelevantData> resolveType(
-            JsAttribute jsAttribute, List<ITypeResolver> typeResolvers,
-            boolean isMultiple, IScriptRelevantData genericContext) {
+    public static List<IScriptRelevantData> resolveType(JsAttribute jsAttribute,
+            List<ITypeResolver> typeResolvers, boolean isMultiple,
+            IScriptRelevantData genericContext) {
         return JScriptUtils.resolveTypeForContext(jsAttribute,
                 typeResolvers,
                 isMultiple,
                 genericContext);
     }
 
-    public static List<IScriptRelevantData> resolveType(
-            JsReference jsReference, List<ITypeResolver> typeResolvers,
-            boolean isMultiple, IScriptRelevantData genericContext) {
+    public static List<IScriptRelevantData> resolveType(JsReference jsReference,
+            List<ITypeResolver> typeResolvers, boolean isMultiple,
+            IScriptRelevantData genericContext) {
         return JScriptUtils.resolveTypeForContext(jsReference,
                 typeResolvers,
                 isMultiple,
@@ -1716,10 +1698,8 @@ public class JScriptUtils {
             List<IScriptRelevantData> types =
                     new ArrayList<IScriptRelevantData>();
             for (ITypeResolver typeResolver : typeResolvers) {
-                List<IScriptRelevantData> resolvedTypes =
-                        typeResolver.resolveType(context,
-                                isMultiple,
-                                genericContext);
+                List<IScriptRelevantData> resolvedTypes = typeResolver
+                        .resolveType(context, isMultiple, genericContext);
                 if (resolvedTypes != null && !resolvedTypes.isEmpty()) {
                     types.addAll(resolvedTypes);
                 }
@@ -1731,7 +1711,8 @@ public class JScriptUtils {
 
     public static Set<ITypeResolverProvider> getTypeResolverProviders(
             List<JsClassDefinitionReader> classDefinitionReaders) {
-        if (classDefinitionReaders != null && !classDefinitionReaders.isEmpty()) {
+        if (classDefinitionReaders != null
+                && !classDefinitionReaders.isEmpty()) {
             Set<ITypeResolverProvider> typeResolverProviders =
                     new HashSet<ITypeResolverProvider>();
             for (JsClassDefinitionReader classDefinitionReader : classDefinitionReaders) {
@@ -1797,7 +1778,7 @@ public class JScriptUtils {
 
     public static boolean isMultipleClass(String className) {
         if (className != null) {
-            if (className.equals("List") || className.equals("Array")) { //$NON-NLS-1$//$NON-NLS-2$
+            if (className.equals("Array")) { //$NON-NLS-1$ //$NON-NLS-2$
                 return true;
             }
         }
@@ -2143,10 +2124,9 @@ public class JScriptUtils {
 
             if (operation.getQualifiedName() != null
                     && !operation.getOwnedParameters().isEmpty()) {
-                String msgKey =
-                        "_label_" + //$NON-NLS-1$
-                                MyUML2Util.getValidJavaIdentifier(operation
-                                        .getQualifiedName().replace(':', '_'));
+                String msgKey = "_label_" + //$NON-NLS-1$
+                        MyUML2Util.getValidJavaIdentifier(
+                                operation.getQualifiedName().replace(':', '_'));
 
                 /*
                  * Tag on each parameter type name in turn (including return
@@ -2233,7 +2213,8 @@ public class JScriptUtils {
             JsClass typeJsClass =
                     ((IUMLScriptRelevantData) resolvedType).getJsClass();
             if (subTypeJsClass != null && subTypeJsClass.getUmlClass() != null
-                    && typeJsClass != null && typeJsClass.getUmlClass() != null) {
+                    && typeJsClass != null
+                    && typeJsClass.getUmlClass() != null) {
                 Class subTypeUmlClass = subTypeJsClass.getUmlClass();
                 Class typeUmlClass = typeJsClass.getUmlClass();
                 return JScriptUtils.isSubType(subTypeUmlClass, typeUmlClass);
@@ -2283,9 +2264,8 @@ public class JScriptUtils {
                 IScriptRelevantData genericContextType =
                         ((ITypeResolution) dataType).getGenericContextType();
                 if (genericContextType != null) {
-                    if (!genericContextType.isArray()
-                            && JScriptUtils
-                                    .isDynamicComplexType(genericContextType)) {
+                    if (!genericContextType.isArray() && JScriptUtils
+                            .isDynamicComplexType(genericContextType)) {
                         return genericContextType;
                     }
                 }
@@ -2294,7 +2274,8 @@ public class JScriptUtils {
         return dataType;
     }
 
-    public static Object getExtendedInfo(IScriptRelevantData scriptRelevantData) {
+    public static Object getExtendedInfo(
+            IScriptRelevantData scriptRelevantData) {
         if (scriptRelevantData instanceof ITypeResolution) {
             return ((ITypeResolution) scriptRelevantData).getExtendedInfo();
         }
@@ -2346,8 +2327,8 @@ public class JScriptUtils {
         TransactionalEditingDomain ed =
                 XpdResourcesPlugin.getDefault().getEditingDomain();
 
-        Resource res =
-                ed.loadResource("pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml"); //$NON-NLS-1$
+        Resource res = ed.loadResource(
+                "pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml"); //$NON-NLS-1$
         Profile conceptProfile = null;
 
         if (res != null) {
@@ -2433,17 +2414,16 @@ public class JScriptUtils {
     }
 
     /**
-     * XPD-8147 Checks the supplied Property for the isXsdAttribute stereotype which
-     * signifies whether the property was originally an XSD Attribute (rather
-     * than XSD Element)
+     * XPD-8147 Checks the supplied Property for the isXsdAttribute stereotype
+     * which signifies whether the property was originally an XSD Attribute
+     * (rather than XSD Element)
      * 
      * @param prop
      * @return boolean
      */
     public static boolean isPropertyXsdAttribute(Property prop) {
-        Stereotype appliedStereotype =
-                prop.getAppliedStereotype("XsdNotationProfile" + "::"
-                        + "XsdBasedProperty");
+        Stereotype appliedStereotype = prop.getAppliedStereotype(
+                "XsdNotationProfile" + "::" + "XsdBasedProperty");
 
         if (appliedStereotype != null
                 && JScriptUtils.isXSDProfileApplied(prop.getModel())) {
@@ -2514,7 +2494,8 @@ public class JScriptUtils {
      * @param childClass
      * @return
      */
-    public static boolean isMultiple(JsAttribute jsAttribute, Class childClass) {
+    public static boolean isMultiple(JsAttribute jsAttribute,
+            Class childClass) {
         boolean isMultiple = false;
         Property property = JScriptUtils.getJsAttributeProperty(jsAttribute);
 
@@ -2568,8 +2549,8 @@ public class JScriptUtils {
                             ((CaseRefJsClass) jsClass).getType());
             // caseUMLScriptRelevantData.setIcon(icon);
             caseUMLScriptRelevantData.addClass(umlClass, null);
-            caseUMLScriptRelevantData.setAdditionalInfo(JScriptUtils
-                    .getUmlElementComment(umlClass));
+            caseUMLScriptRelevantData.setAdditionalInfo(
+                    JScriptUtils.getUmlElementComment(umlClass));
             /*
              * We don't need to load the model, since we are passing the class
              * to be loaded
@@ -2607,7 +2588,8 @@ public class JScriptUtils {
     }
 
     public static IUMLScriptRelevantData convertToUMLScriptRelevantData(
-            Class umlClass, boolean isArray, final ILabelProvider labelProvider) {
+            Class umlClass, boolean isArray,
+            final ILabelProvider labelProvider) {
 
         DefaultJsClass jsClass = new DefaultJsClass(umlClass) {
 
@@ -2619,8 +2601,8 @@ public class JScriptUtils {
                 return jsAttribute;
             }
         };
-        jsClass.setContentAssistIconProvider(JScriptUtils
-                .getJsContentAssistIconProvider());
+        jsClass.setContentAssistIconProvider(
+                JScriptUtils.getJsContentAssistIconProvider());
         DefaultUMLScriptRelevantData umlScriptRelevantData =
                 new DefaultUMLScriptRelevantData(umlClass.getName(),
                         jsClass.getName(), isArray, jsClass);
@@ -2652,8 +2634,8 @@ public class JScriptUtils {
     private static final String TYPES_PATHMAP = "pathmap://BOM_TYPES/"; //$NON-NLS-1$
 
     private static final String BOM_PRIMITIVE_TYPES_FACETS_PROFILE_URI =
-            TYPES_PATHMAP
-                    + "PrimitiveTypeFacets." + UMLResource.PROFILE_FILE_EXTENSION; //$NON-NLS-1$;
+            TYPES_PATHMAP + "PrimitiveTypeFacets." //$NON-NLS-1$
+                    + UMLResource.PROFILE_FILE_EXTENSION; // ;
 
     /** Name of the restricted */
     private static final String RESTRICTED_TYPE_STEREOTYPE_NAME =
@@ -2710,7 +2692,8 @@ public class JScriptUtils {
                 // System.out
                 // .println(PrimitivesUtil.class.getName()
                 // +
-                // ".getResource(): Caught ConcurrentModificationException getting resource; waiting 0.5 seconds before retry.");
+                // ".getResource(): Caught ConcurrentModificationException
+                // getting resource; waiting 0.5 seconds before retry.");
                 try {
                     Thread.currentThread().sleep(500);
                 } catch (InterruptedException e) {
@@ -2758,10 +2741,9 @@ public class JScriptUtils {
      */
     private static PrimitiveType getStandardPrimitiveTypeByName(ResourceSet rs,
             String name) {
-        Resource res =
-                getResource(rs,
-                        URI.createURI(BOM_PRIMITIVE_TYPES_LIBRARY_URI),
-                        true);
+        Resource res = getResource(rs,
+                URI.createURI(BOM_PRIMITIVE_TYPES_LIBRARY_URI),
+                true);
         if (res != null) {
             EList<EObject> contents = res.getContents();
             for (EObject root : contents) {
@@ -2793,8 +2775,8 @@ public class JScriptUtils {
     private static Object getFacetPropertyValue(PrimitiveType type,
             String propertyName, Property context) {
         if (context != null) {
-            Stereotype stereotype =
-                    getFacetsStereotype(getPackageResourceSet(type.getPackage()));
+            Stereotype stereotype = getFacetsStereotype(
+                    getPackageResourceSet(type.getPackage()));
             EObject stereotypeApplication =
                     context.getStereotypeApplication(stereotype);
             // Get the value if it is actually set, otherwise get the value from
@@ -2833,9 +2815,8 @@ public class JScriptUtils {
      * @return
      */
     private static Stereotype getFacetsStereotype(ResourceSet rs) {
-        Profile facetProfile =
-                (Profile) loadUmlResource(rs,
-                        BOM_PRIMITIVE_TYPES_FACETS_PROFILE_URI);
+        Profile facetProfile = (Profile) loadUmlResource(rs,
+                BOM_PRIMITIVE_TYPES_FACETS_PROFILE_URI);
         return facetProfile.getOwnedStereotype(RESTRICTED_TYPE_STEREOTYPE_NAME);
     }
 
@@ -2866,9 +2847,8 @@ public class JScriptUtils {
     private static boolean isValueSet(EObject stereotypeApplication,
             String property) {
         if (stereotypeApplication != null) {
-            EStructuralFeature feature =
-                    stereotypeApplication.eClass()
-                            .getEStructuralFeature(property);
+            EStructuralFeature feature = stereotypeApplication.eClass()
+                    .getEStructuralFeature(property);
             if (feature != null) {
                 return stereotypeApplication.eIsSet(feature);
             }
@@ -2903,7 +2883,8 @@ public class JScriptUtils {
             // Get the super class, if any
             Classifier superClass = getSuper(base);
             PrimitiveType superPType =
-                    (PrimitiveType) (superClass instanceof PrimitiveType ? superClass
+                    (PrimitiveType) (superClass instanceof PrimitiveType
+                            ? superClass
                             : null);
 
             Package umlPackage = base.getPackage();
