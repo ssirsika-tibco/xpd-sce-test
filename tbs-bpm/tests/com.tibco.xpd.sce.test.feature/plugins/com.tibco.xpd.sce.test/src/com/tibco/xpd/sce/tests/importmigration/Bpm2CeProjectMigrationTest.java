@@ -820,9 +820,10 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
         /*
          * Check version has been reset to 1.0.0.qualifier
          */
-        assertTrue(projectName
+        assertEquals(projectName
                 + " project has not had its version set to 1.0.0.qualifier", //$NON-NLS-1$
-                "1.0.0.qualifier".equals(projectDetails.getVersion())); //$NON-NLS-1$
+                "1.0.0.qualifier", //$NON-NLS-1$
+                projectDetails.getVersion());
 
         /*
          * Check the project has only the CE destination set.
