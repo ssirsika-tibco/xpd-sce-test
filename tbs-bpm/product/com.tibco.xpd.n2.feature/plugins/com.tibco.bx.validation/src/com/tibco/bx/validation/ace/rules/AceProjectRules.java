@@ -3,9 +3,11 @@ package com.tibco.bx.validation.ace.rules;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 
+import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
+import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.validation.engine.WorkspaceResourceValidator;
 import com.tibco.xpd.validation.provider.IValidationScope;
 
@@ -29,7 +31,6 @@ import com.tibco.xpd.validation.provider.IValidationScope;
 public class AceProjectRules implements
         WorkspaceResourceValidator {
 
-
     private static final String ACE_ISSUE_ORG_ASSET_MUST_BE_ALONE =
             "ace.org.asset.must.be.alone"; //$NON-NLS-1$
     
@@ -52,7 +53,11 @@ public class AceProjectRules implements
              * Organisation assets must be in their own project
              */
             boolean hasOrgAsset =
-                    hasAssetType(projectConfig, "com.tibco.xpd.asset.om"); //$NON-NLS-1$
+                    hasAssetTypeAndFiles(project,
+                            projectConfig,
+                            "com.tibco.xpd.asset.om", //$NON-NLS-1$
+                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                            BOMResourcesPlugin.BOM_FILE_EXTENSION);
 
             if (hasOrgAsset) {
                 if (projectConfig.getAssetTypes().size() != 1) {
@@ -67,7 +72,11 @@ public class AceProjectRules implements
              * be a business data project
              */
             boolean hasBomAsset =
-                    hasAssetType(projectConfig, "com.tibco.xpd.asset.bom"); //$NON-NLS-1$
+                    hasAssetTypeAndFiles(project,
+                            projectConfig,
+                            "com.tibco.xpd.asset.bom", //$NON-NLS-1$
+                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                            BOMResourcesPlugin.BOM_FILE_EXTENSION);
 
             if (hasBomAsset) {
                 /* Must be in a business data project. */
@@ -100,6 +109,51 @@ public class AceProjectRules implements
         for (AssetType asset : projectConfig.getAssetTypes()) {
             if (assetId.equals(asset.getId())) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @param project
+     * @param projectConfig
+     * @param assetId
+     * @param fileExtension
+     * @param specialFolderKind
+     * 
+     * @return <code>true</code> if project has given asset type AND files of
+     *         the given kind.
+     */
+    private boolean hasAssetTypeAndFiles(IProject project, ProjectConfig projectConfig,
+            String assetId, String specialFolderKind, String fileExtension) {
+        for (AssetType asset : projectConfig.getAssetTypes()) {
+            if (assetId.equals(asset.getId())) {
+                /*
+                 * Sid ACE-999: When initially implemented, the problem markers
+                 * would be raised if the project configuration indicated that
+                 * the org / bom asset id config was present alongside others
+                 * regardless of whether there were actually any Org / BOM files
+                 * present.
+                 * 
+                 * This could cause usability problems as it is possible to have
+                 * projects that have the asset configured but all of the
+                 * related files deleted or moved but you would still see the
+                 * issue.
+                 * 
+                 * As part of this enhancement therefore we will slacken the
+                 * rule so that there also needs to be Org/BOM files actually
+                 * present as well as the asset id in the project configuration
+                 * alongside other assets.
+                 */
+                if (!SpecialFolderUtil
+                        .getAllDeepResourcesInSpecialFolderOfKind(project,
+                                specialFolderKind,
+                                fileExtension,
+                                false)
+                        .isEmpty()) {
+                    return true;
+                }
             }
         }
         return false;
