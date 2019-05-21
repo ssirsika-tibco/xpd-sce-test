@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
@@ -22,7 +21,6 @@ import com.tibco.xpd.validation.rules.IValidationRule;
  *
  * <li>Composite case identifier attributes are not supported</li>
  * <li>Case classes must have a case state attribute</li>
- * <li>Case state attribute must have an enumeration type set</li>
  * <li>Case state attribute must be mandatory and non-array (multiplicity must
  * be 1)</li>
  * <li>Case identifier attribute is mandatory and non-array (multiplicity must
@@ -48,8 +46,6 @@ public class AceCaseClassRules implements IValidationRule {
     private static final String ISSUE_ACE_CASE_MUST_HAVE_CASESTATE =
             "ace.bom.case.must.have.casestate"; //$NON-NLS-1$
 
-    private static final String ISSUE_ACE_CASESTATE_MUST_HAVE_ENUM =
-            "ace.bom.casestate.must.have.enum"; //$NON-NLS-1$
 
     private static final String ISSUE_ACE_CASESTATE_MUST_BE_MANDATORY_NONARRAY =
             "ace.bom.casestate.must.be.mandatory.nonarray"; //$NON-NLS-1$
@@ -171,13 +167,10 @@ public class AceCaseClassRules implements IValidationRule {
                     clazz.eResource().getURIFragment(clazz));
 
         } else {
-            // Case state must have an enum set.
-            if (!(caseStateProperty.getType() instanceof Enumeration)) {
-                scope.createIssue(ISSUE_ACE_CASESTATE_MUST_HAVE_ENUM,
-                        BOMValidationUtil.getLocation(caseStateProperty),
-                        caseStateProperty.eResource()
-                                .getURIFragment(caseStateProperty));
-            }
+            /*
+             * Sid ACE-1326: Removed "must have enumeration set" issue here as
+             * it duplicates existing one in CaseStateValidationRule.
+             */
 
             // Case state must be mandatory non-array
             if (caseStateProperty.getLower() <= 0
