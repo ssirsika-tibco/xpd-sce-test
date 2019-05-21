@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
+import com.tibco.xpd.bom.resources.ui.Activator;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -40,6 +41,7 @@ public class AceProjectRules implements
     private static final String ACE_ISSUE_BOM_ASSET_MUST_BE_BIZDATA =
             "ace.bom.asset.must.be.in.biz.data"; //$NON-NLS-1$
 
+    @Override
     public void validate(IValidationScope scope, IResource resource) {
 
         if (resource instanceof IProject && resource.isAccessible()) {
@@ -74,7 +76,7 @@ public class AceProjectRules implements
             boolean hasBomAsset =
                     hasAssetTypeAndFiles(project,
                             projectConfig,
-                            "com.tibco.xpd.asset.bom", //$NON-NLS-1$
+                            Activator.BOM_ASSET_ID,
                             BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
                             BOMResourcesPlugin.BOM_FILE_EXTENSION);
 
@@ -159,6 +161,7 @@ public class AceProjectRules implements
         return false;
     }
 
+    @Override
     public void setProject(IProject project) {
         // do nothing
     }

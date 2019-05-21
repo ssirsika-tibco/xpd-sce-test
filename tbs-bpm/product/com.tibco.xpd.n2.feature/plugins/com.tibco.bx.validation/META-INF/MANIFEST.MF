@@ -44,7 +44,8 @@ Require-Bundle: com.tibco.xpd.validation,
  com.tibco.xpd.rest.datamapper,
  com.tibco.xpd.subprocess.datamapper,
  com.tibco.xpd.om.core,
- com.tibco.xpd.bom.modeler.custom
+ com.tibco.xpd.bom.modeler.custom,
+ org.eclipse.ui.workbench
 Export-Package: com.tibco.bx.validation.resolutions,
  com.tibco.bx.validation.rules.activity,
  com.tibco.bx.validation.rules.mapping,
@@ -53,5 +54,6 @@ Export-Package: com.tibco.bx.validation.resolutions,
  com.tibco.bx.validation.validator
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.tibco.bx.validation.BxValidationPlugin
-Import-Package: com.tibco.xpd.implementer.nativeservices.emailservice.email,
+Import-Package: com.tibco.xpd.bom.resources.ui,
+ com.tibco.xpd.implementer.nativeservices.emailservice.email,
  org.eclipse.emf.workspace.util

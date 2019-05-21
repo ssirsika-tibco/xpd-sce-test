@@ -719,12 +719,7 @@
                id="com.tibco.xpd.bom.validation.businessDataMustHaveGlobalDataProfile"
                validateType="FILE">
          </validator>
-         <validator
-               class="com.tibco.xpd.bom.validator.rules.GlobalBOMsInOtherProjectsRule"
-               filter=".*[\\.]bom"
-               id="com.tibco.xpd.bom.validation.caseAndGlobalInOtherProjects"
-               validateType="FILE">
-         </validator>
+
       </provider>
       <issues>
          <issue
@@ -737,20 +732,7 @@
             </resolution>
          </issue>
 
-         <issue
-               id="businessdata.otherProjectCantHaveGlobalBOM"
-               message="%businessdata.otherProjectCantHaveGlobalBOM"
-               severity="ERROR">
-         </issue>
-         <issue
-               id="businessdata.otherProjectCantHaveGlobalDataProfile"
-               message="%businessdata.otherProjectCantHaveGlobalDataProfile"
-               severity="ERROR">
-            <resolution
-                  canApplyToMultiple="true"
-                  id="businessdata.removeGDProfile">
-            </resolution>
-         </issue>
+
       </issues>
    </extension>
    <extension

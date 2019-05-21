@@ -300,6 +300,22 @@ public class Messages extends NLS {
 
     public static String MapFromErrorPrefix_label;
 
+    public static String MoveBomsToBizDataProjectResolution_ErrorMovingBOMS_message;
+
+    public static String MoveBomsToBizDataProjectResolution_NoBizDataProjects_message;
+
+    public static String MoveBomsToBizDataProjectResolution_SelectBizDataProject_title;
+
+    public static String MoveBomsToBizDataProjectResolution_Success_message;
+
+    public static String MoveOrgsToOrgProjectResolution2_ErrorMovingOrgs_message;
+
+    public static String MoveOrgsToOrgProjectResolution2_NoOrgProjects_message;
+
+    public static String MoveOrgsToOrgProjectResolution2_SelectOrgProject_title;
+
+    public static String MoveOrgsToOrgProjectResolution2_Success_message;
+
     public static String ProcessDataToRestServiceJsRule_Mapping_desc;
 
     public static String ProcessDataToSubProcessJsRule_Mapping_desc;

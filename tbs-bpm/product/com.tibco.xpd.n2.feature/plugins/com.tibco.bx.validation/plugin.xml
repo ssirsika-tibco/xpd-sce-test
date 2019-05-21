@@ -3589,6 +3589,16 @@ s         <scriptContribution
              id="bx.ignoreMappingCountResolution"
              label="%bx.ignoreMappingCountResolution">
        </resolution>
+       <resolution
+             class="com.tibco.bx.validation.resolutions.MoveBomsToBizDataProjectResolution"
+             id="resolution.ace.move.bom.to.bizdata.project"
+             label="%resolution.ace.move.bom.to.bizdata.project">
+       </resolution>
+       <resolution
+             class="com.tibco.bx.validation.resolutions.MoveOrgsToOrgProjectResolution"
+             id="resolution.ace.move.org.to.org.project"
+             label="%resolution.ace.move.org.to.org.project">
+       </resolution>
    </extension>
    <extension
          point="com.tibco.xpd.validation.workspaceResourceValidationProvider">
@@ -3702,16 +3712,28 @@ s         <scriptContribution
                id="ace.org.asset.must.be.alone"
                message="%ace.org.asset.must.be.alone"
                severity="ERROR">
+             <resolution
+                  canApplyToMultiple="false"
+                  id="resolution.ace.move.org.to.org.project">
+            </resolution>              
          </issue>
          <issue
                id="ace.bom.asset.must.be.alone"
                message="%ace.bom.asset.must.be.alone"
                severity="ERROR">
+            <resolution
+                  canApplyToMultiple="false"
+                  id="resolution.ace.move.bom.to.bizdata.project">
+            </resolution>
          </issue>
          <issue
                id="ace.bom.asset.must.be.in.biz.data"
                message="%ace.bom.asset.must.be.in.biz.data"
                severity="ERROR">
+            <resolution
+                  canApplyToMultiple="false"
+                  id="resolution.ace.move.bom.to.bizdata.project">
+            </resolution>
          </issue>
       </issues>
    </extension>
