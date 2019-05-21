@@ -4,7 +4,6 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.uml2.uml.Type;
 import org.osgi.framework.BundleContext;
 
-import com.tibco.xpd.bom.resources.internal.Messages;
 import com.tibco.xpd.bom.resources.utils.BOMIndexerService;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.logger.LoggerFactory;
@@ -50,9 +49,6 @@ public class BOMResourcesPlugin extends AbstractUIPlugin {
 
     public static final String REQ_FRAGMENT_DRAG = "fragmentsDrag"; //$NON-NLS-1$
 
-    /** Default name of the generated BOM folder. */
-    public static final String GENERATED_BOM_SF_NAME =
-            Messages.BOMResourcesPlugin_GeneratedBomSFName_label;
 
     public static String ModelEannotationMetaSource = "model.metadata"; //$NON-NLS-1$
 
@@ -104,6 +100,12 @@ public class BOMResourcesPlugin extends AbstractUIPlugin {
 
     public static final String P_KEEP_NAMESPACE_FILE_EXTENSION_BOM_GENERATION =
             "keepNamespaceFileExtension"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-1324 - The value for the generated attribute for the generated
+     * BOM special folder.
+     */
+    public static final String GENERATED_BOM_FOLDER_TYPE = "bpm.wsdl2bom"; //$NON-NLS-1$
 
     /**
      * Parameter key that can be used to set the default values of an element

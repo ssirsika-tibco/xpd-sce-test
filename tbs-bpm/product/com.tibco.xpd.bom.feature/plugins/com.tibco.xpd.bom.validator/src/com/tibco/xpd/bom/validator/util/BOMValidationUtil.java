@@ -35,7 +35,8 @@ public class BOMValidationUtil {
      * The value for the generated attribute for the generated BOM special
      * folder.
      */
-    public static final String GENERATED_BOM_FOLDER_TYPE = "bpm.wsdl2bom"; //$NON-NLS-1$
+    public static final String GENERATED_BOM_FOLDER_TYPE =
+            BOMResourcesPlugin.GENERATED_BOM_FOLDER_TYPE;
 
     /**
      * Create a location for given NamedElement

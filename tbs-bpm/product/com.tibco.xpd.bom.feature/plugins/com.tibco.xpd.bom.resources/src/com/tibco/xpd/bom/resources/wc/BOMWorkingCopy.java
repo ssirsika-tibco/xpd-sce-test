@@ -234,8 +234,13 @@ public class BOMWorkingCopy extends AbstractGMFWorkingCopy {
                 .getMigrationCommands(ed, model, version);
     }
 
-    protected static boolean inSpecialFolderOfKind(IResource r, String kind,
-            String matchingName) {
+    /**
+     * 
+     * @param r
+     * @param kind
+     * @return <code>true</code> if the BOM is in generated BOMs folder.
+     */
+    protected static boolean inGeneratedBOMFolder(IResource r, String kind) {
         List<SpecialFolder> genSFs =
                 SpecialFolderUtil.getAllSpecialFoldersOfKind(r.getProject(),
                         kind);
@@ -244,8 +249,15 @@ public class BOMWorkingCopy extends AbstractGMFWorkingCopy {
             for (SpecialFolder sf : genSFs) {
                 IFolder folder = sf.getFolder();
                 if (folder != null) {
+                    /*
+                     * Sid ACE-1327 the check for is generated should be based
+                     * on the generated type configuration NOT the generated
+                     * business objects folder name because that is
+                     * localisable!!
+                     */
                     if (folder.getFullPath().isPrefixOf(r.getFullPath())
-                            && folder.getName().equals(matchingName)) {
+                            && BOMResourcesPlugin.GENERATED_BOM_FOLDER_TYPE
+                                    .equals(sf.getGenerated())) {
                         return true;
                     }
                 }
@@ -270,9 +282,8 @@ public class BOMWorkingCopy extends AbstractGMFWorkingCopy {
                         throws CoreException {
 
                     IResource res = getEclipseResources().get(0);
-                    if (inSpecialFolderOfKind(res,
-                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
-                            BOMResourcesPlugin.GENERATED_BOM_SF_NAME)) {
+                    if (inGeneratedBOMFolder(res,
+                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND)) {
                         String title = Messages.BOMWorkingCopy_BOMMessage_title;
                         String message =
                                 String.format(Messages.BOMWorkingCopy_ModelGeneratedModelChange_message,
