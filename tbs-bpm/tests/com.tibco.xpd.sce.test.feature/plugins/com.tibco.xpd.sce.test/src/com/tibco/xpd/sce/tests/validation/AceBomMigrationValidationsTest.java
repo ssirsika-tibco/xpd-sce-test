@@ -346,6 +346,13 @@ public class AceBomMigrationValidationsTest
                                 "BPM  : Super-classing is not supported for enumeration types (Invalid Enum Generalisation (com.example.unsupportedconstructs))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
+                                "attributeTypeNotSet.issue", //$NON-NLS-1$
+                                "_AmmKUHu8EemmA9mKLpVYNw", //$NON-NLS-1$
+                                "BPM  : Attribute must has a type selected (undefinedTypeAttr (com.example.unsupportedattribtypes))", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
                 };
         return markerInfos;
     }

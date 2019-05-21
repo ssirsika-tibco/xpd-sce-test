@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
+import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.validator.GenericIssueIds;
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
@@ -69,10 +69,27 @@ public class PropertyRules implements IValidationRule {
                             scope.createIssue(GenericIssueIds.MAXTEXTLENGTH_ZERO,
                                     BOMValidationUtil.getLocation(prop),
                                     prop.eResource()
-                                            .getURIFragment((NamedElement) prop));
+                                            .getURIFragment(prop));
                         }
                     }
                 }
+            }
+
+            /*
+             * Sid ACE-1327 We really should validate against having no type
+             * selected for a property (actually this used to be done in th XSD
+             * conversion related rules, but really it's a generic thing so we
+             * deal with it here now.
+             * 
+             * We don't complain about case state and case identifier though
+             * because they have their own dedicated rules about allowed types
+             * in ACE>
+             */
+            if (type == null && !BOMGlobalDataUtils.isCID(prop)
+                    && !BOMGlobalDataUtils.isCaseState(prop)) {
+                scope.createIssue(GenericIssueIds.ATTRIBUTE_TYPE_NOT_SET,
+                        BOMValidationUtil.getLocation(prop),
+                        prop.eResource().getURIFragment(prop));
             }
         }
     }
@@ -115,7 +132,7 @@ public class PropertyRules implements IValidationRule {
                     scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                             BOMValidationUtil.getLocation(prop),
                             prop.eResource()
-                                    .getURIFragment((NamedElement) prop));
+                                    .getURIFragment(prop));
                 }
             }
         } else if (basePType == PrimitivesUtil
@@ -141,7 +158,7 @@ public class PropertyRules implements IValidationRule {
                     scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                             BOMValidationUtil.getLocation(prop),
                             prop.eResource()
-                                    .getURIFragment((NamedElement) prop));
+                                    .getURIFragment(prop));
                 }
             }
 
@@ -164,7 +181,7 @@ public class PropertyRules implements IValidationRule {
                     scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                             BOMValidationUtil.getLocation(prop),
                             prop.eResource()
-                                    .getURIFragment((NamedElement) prop));
+                                    .getURIFragment(prop));
                 }
             }
 
@@ -195,7 +212,7 @@ public class PropertyRules implements IValidationRule {
                         scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                                 BOMValidationUtil.getLocation(prop),
                                 prop.eResource()
-                                        .getURIFragment((NamedElement) prop));
+                                        .getURIFragment(prop));
                     }
                 }
 
@@ -217,7 +234,7 @@ public class PropertyRules implements IValidationRule {
                         scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                                 BOMValidationUtil.getLocation(prop),
                                 prop.eResource()
-                                        .getURIFragment((NamedElement) prop));
+                                        .getURIFragment(prop));
                     }
                 }
             }
@@ -244,7 +261,7 @@ public class PropertyRules implements IValidationRule {
                     scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                             BOMValidationUtil.getLocation(prop),
                             prop.eResource()
-                                    .getURIFragment((NamedElement) prop));
+                                    .getURIFragment(prop));
                 }
             }
 
@@ -267,7 +284,7 @@ public class PropertyRules implements IValidationRule {
                     scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                             BOMValidationUtil.getLocation(prop),
                             prop.eResource()
-                                    .getURIFragment((NamedElement) prop));
+                                    .getURIFragment(prop));
                 }
             }
 
@@ -298,7 +315,7 @@ public class PropertyRules implements IValidationRule {
                         scope.createIssue(GenericIssueIds.PRIMITIVE_TYPE_RESTRICTION_BROKEN,
                                 BOMValidationUtil.getLocation(prop),
                                 prop.eResource()
-                                        .getURIFragment((NamedElement) prop));
+                                        .getURIFragment(prop));
                     }
                 }
             }

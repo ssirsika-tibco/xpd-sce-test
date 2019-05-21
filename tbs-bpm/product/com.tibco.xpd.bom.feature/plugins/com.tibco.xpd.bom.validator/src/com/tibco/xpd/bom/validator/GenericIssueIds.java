@@ -50,4 +50,7 @@ public final class GenericIssueIds {
 
     public static final String PRIMITIVE_TYPE_RESTRICTION_BROKEN =
             "primitiveTypeRestrictionMissmatch.issue"; //$NON-NLS-1$
+
+    public static final String ATTRIBUTE_TYPE_NOT_SET =
+            "attributeTypeNotSet.issue"; //$NON-NLS-1$
 }

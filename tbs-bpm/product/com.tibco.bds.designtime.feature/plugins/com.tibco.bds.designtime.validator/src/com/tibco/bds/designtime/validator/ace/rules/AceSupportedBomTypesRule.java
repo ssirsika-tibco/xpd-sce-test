@@ -109,7 +109,14 @@ public class AceSupportedBomTypesRule implements IValidationRule {
      * @param property
      */
     protected void validateProperty(IValidationScope scope, Property property) {
-        if (property.getType() == null || !isValidType(property.getType())) {
+        /*
+         * Sid ACE-1327 "Must be Text, Number etc" problem should not be raised
+         * for attributes that haven't had a type selected.
+         * 
+         * We should raise a separate issue instead (a generic one in bas BOM
+         * validation
+         */
+        if (property.getType() != null && !isValidType(property.getType())) {
             scope.createIssue(ISSUE_ACE_ILLEGAL_PROPERTY_TYPE,
                     BOMValidationUtil.getLocation(property),
                     property.eResource().getURIFragment(property));
