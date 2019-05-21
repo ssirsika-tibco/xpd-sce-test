@@ -623,20 +623,23 @@ public class Bpm2CeProjectConfigPostImportTask
     private SpecialFolder findOrCreateUserBomFolder(ProjectConfig projectConfig,
             SpecialFolders specialFolders) throws CoreException {
         SpecialFolder userBomSpecialFolder = null;
-        IFolder userBomFolder = null;
+
 
         for (SpecialFolder specialFolder : specialFolders.getFolders()) {
             if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND
                     .equals(specialFolder.getKind())
                     && !BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
-                            .equals(specialFolder.getGenerated())) {
+                            .equals(specialFolder.getGenerated())
+                    /* Only 'find' the folder if it actuall exists... */
+                    && specialFolder.getFolder() != null
+                    && specialFolder.getFolder().exists()) {
                 userBomSpecialFolder = specialFolder;
                 break;
             }
         }
 
         if (userBomSpecialFolder == null) {
-            userBomFolder = projectConfig.getProject().getFolder(
+            IFolder userBomFolder = projectConfig.getProject().getFolder(
                     Messages.Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label);
 
             if (!userBomFolder.exists()) {
@@ -646,14 +649,7 @@ public class Bpm2CeProjectConfigPostImportTask
             userBomSpecialFolder = specialFolders.addFolder(userBomFolder,
                     BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND);
 
-        } else {
-            userBomFolder = userBomSpecialFolder.getFolder();
-
-            if (!userBomFolder.exists()) {
-                createFolder(userBomFolder);
-            }
         }
-
         return userBomSpecialFolder;
     }
 
