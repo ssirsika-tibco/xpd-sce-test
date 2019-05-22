@@ -300,6 +300,10 @@ public class Messages extends NLS {
 
     public static String BusinessProcessAssetWizardPage_WindowDesc_shortdesc;
 
+    public static String CaseServicePropertySection_availableInAllStates;
+
+    public static String CaseServicePropertySection_availableInSelectedStates;
+
     public static String CaseServicePropertySection_caseClassSelectionLabel;
 
     public static String CaseServicePropertySection_caseStateSelectionCmdLabel;

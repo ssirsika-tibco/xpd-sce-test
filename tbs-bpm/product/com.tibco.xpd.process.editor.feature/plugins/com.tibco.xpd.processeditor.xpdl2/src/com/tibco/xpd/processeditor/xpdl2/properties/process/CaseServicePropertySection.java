@@ -5,11 +5,14 @@
 package com.tibco.xpd.processeditor.xpdl2.properties.process;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -22,6 +25,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -42,6 +46,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.groups.ProcessInter
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.CaseClassPicker;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.modeler.custom.terminalstates.TerminalStateProperties;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
@@ -75,6 +80,9 @@ public class CaseServicePropertySection extends ProcessPropertySection {
 
     private static final String NO_CASE_STATE_SET_ITEM =
             "_NO_CASE_STATE_SET_ITEM_"; //$NON-NLS-1$
+
+    private static final TerminalStateProperties terminalStateUtil =
+            new TerminalStateProperties();
 
     private CaseActionPrivilegeConfigSection privilegesConfigurationSection;
 
@@ -124,12 +132,12 @@ public class CaseServicePropertySection extends ProcessPropertySection {
              * @return
              */
             @Override
-            protected List getApplicableInterfaces(
+            protected List<Object> getApplicableInterfaces(
                     ProcessInterfaceGroup interfaceGroup) {
 
                 List<Object> processInterfaces = new ArrayList<Object>();
 
-                List children = interfaceGroup.getChildren();
+                List<?> children = interfaceGroup.getChildren();
                 /*
                  * XPD-7298: New Case Service creation wizard should only list
                  * process interface templates.
@@ -138,8 +146,8 @@ public class CaseServicePropertySection extends ProcessPropertySection {
 
                     if (object instanceof ProcessInterface) {
 
-                        if (Xpdl2ModelUtil
-                                .isProcessInterface((ProcessInterface) object)) {
+                        if (Xpdl2ModelUtil.isProcessInterface(
+                                (ProcessInterface) object)) {
                             processInterfaces.add(object);
                         }
                     }
@@ -282,14 +290,27 @@ public class CaseServicePropertySection extends ProcessPropertySection {
         if (caseStateList == null || caseStateList.isEmpty()) {
             disableCaseStateSectionControls();
             return;
-
         }
-        createCaseStatesTableItems(caseService, caseStateList);
 
-        // enable/disable appropriate controls
+        List<ExternalReference> terminalStates =
+                getTerminalStates(caseService, caseClass);
+
         VisibleForCaseStates visForCaseStates =
                 caseService.getVisibleForCaseStates();
-        if (visForCaseStates == null) {
+
+        boolean allStatesApply = (visForCaseStates == null);
+        List<ExternalReference> selectedStates =
+                (visForCaseStates == null) ? Collections.emptyList()
+                        : visForCaseStates.getCaseState();
+
+        createCaseStatesTableItems(caseService,
+                allStatesApply,
+                caseStateList,
+                terminalStates,
+                selectedStates);
+
+        // enable/disable appropriate controls
+        if (allStatesApply) {
 
             btnAllStates.setSelection(true);
             btnAllStates.setEnabled(true);
@@ -305,18 +326,6 @@ public class CaseServicePropertySection extends ProcessPropertySection {
             btnSpecificStates.setEnabled(true);
             caseStatesControl.setEnabled(true);
 
-            // select states that are in the model
-            for (ExternalReference stateRef : visForCaseStates.getCaseState()) {
-                for (TableItem item : caseStatesControl.getItems()) {
-                    if (item.getData() instanceof ExternalReference) {
-                        if (EcoreUtil.equals(stateRef,
-                                (ExternalReference) item.getData())) {
-                            item.setChecked(true);
-                            break;
-                        }
-                    }
-                }
-            }
             /*
              * if visibleForUnsetCaseState is set in the model, then
              * check/uncheck the first table item accordingly
@@ -434,31 +443,33 @@ public class CaseServicePropertySection extends ProcessPropertySection {
     private void createControlsForCaseStateSelection(final Composite parent,
             XpdFormToolkit toolkit) {
 
-        Label caseStateSelectionMessage =
-                toolkit.createLabel(parent,
-                        Messages.CaseServicePropertySection_caseStateSelectionLabel2);
-        caseStateSelectionMessage.setLayoutData(new GridData(SWT.LEFT, SWT.TOP,
-                false, false));
+        Label caseStateSelectionMessage = toolkit.createLabel(parent,
+                Messages.CaseServicePropertySection_caseStateSelectionLabel2);
+        caseStateSelectionMessage
+                .setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false));
 
         Composite caseStatesControlsComposite = toolkit.createComposite(parent);
         GridLayout gl = new GridLayout(2, false);
         caseStatesControlsComposite.setLayout(gl);
-        caseStatesControlsComposite.setLayoutData(new GridData(SWT.LEFT,
-                SWT.TOP, true, false));
+        caseStatesControlsComposite
+                .setLayoutData(new GridData(SWT.LEFT, SWT.TOP, true, false));
         GridDataFactory.fillDefaults().grab(true, false)
                 .applyTo(caseStatesControlsComposite);
 
         // create radio buttons for 'All States' and 'Specific States'
-        btnAllStates =
-                toolkit.createButton(caseStatesControlsComposite,
-                        Messages.CaseServicePropertySection_labelAllStates,
-                        SWT.RADIO);
+        btnAllStates = toolkit.createButton(caseStatesControlsComposite,
+                Messages.CaseServicePropertySection_labelAllStates,
+                SWT.RADIO);
         btnAllStates.setSelection(true);
+        btnAllStates.setToolTipText(
+                Messages.CaseServicePropertySection_availableInAllStates);
 
-        btnSpecificStates =
-                toolkit.createButton(caseStatesControlsComposite,
-                        Messages.CaseServicePropertySection_labelSpecificStates,
-                        SWT.RADIO);
+        btnSpecificStates = toolkit.createButton(caseStatesControlsComposite,
+                Messages.CaseServicePropertySection_labelSpecificStates,
+                SWT.RADIO);
+        btnSpecificStates.setToolTipText(
+                Messages.CaseServicePropertySection_availableInSelectedStates);
+
         manageControl(btnAllStates);
         manageControl(btnSpecificStates);
 
@@ -470,10 +481,9 @@ public class CaseServicePropertySection extends ProcessPropertySection {
         gl2.marginLeft = 3;
         c.setLayout(gl2);
 
-        caseStatesControl =
-                toolkit.createTable(c,
-                        SWT.FULL_SELECTION | SWT.CHECK,
-                        "caseStatesSelectionTable"); //$NON-NLS-1$
+        caseStatesControl = toolkit.createTable(c,
+                SWT.FULL_SELECTION | SWT.CHECK,
+                "caseStatesSelectionTable"); //$NON-NLS-1$
         GridData gd = new GridData(GridData.FILL_BOTH);
         gd.minimumHeight = 75;
         caseStatesControl.setLayoutData(gd);
@@ -495,32 +505,108 @@ public class CaseServicePropertySection extends ProcessPropertySection {
      * @param caseStateList
      */
     private void createCaseStatesTableItems(CaseService caseService,
-            List<EnumerationLiteral> caseStateList) {
+            boolean allStatesApply, List<EnumerationLiteral> caseStateList,
+            List<ExternalReference> terminalStates,
+            List<ExternalReference> selectedStates) {
 
         if (caseService != null) {
-
+            // get the list of terminal state values
             caseStatesControl.removeAll();
 
             // Add first item for selecting 'no case state set' option
             TableItem item = new TableItem(caseStatesControl, SWT.NONE);
-
             item.setData(NO_CASE_STATE_SET_ITEM);
-            item.setText(Messages.CaseServicePropertySection_NoCaseStateSetLabel);
-            item.setImage(Xpdl2ProcessEditorPlugin.getDefault()
-                    .getImageRegistry()
-                    .get(ProcessEditorConstants.ICON_ENUMLIT_GREY));
+            item.setText(
+                    Messages.CaseServicePropertySection_NoCaseStateSetLabel);
+            item.setImage(
+                    Xpdl2ProcessEditorPlugin.getDefault().getImageRegistry()
+                            .get(ProcessEditorConstants.ICON_ENUMLIT_GREY));
+
+            // the image to be assigned to state value check-boxes
+            final Image image =
+                    Xpdl2ProcessEditorPlugin.getDefault().getImageRegistry()
+                            .get(ProcessEditorConstants.ICON_ENUMLIT);
 
             // Create table items for case states
             for (EnumerationLiteral caseState : caseStateList) {
+                ExternalReference stateRef = ProcessUIUtil
+                        .getExternalRefForEnumLit(caseService, caseState);
+
+                boolean isTerminal = isContainedIn(stateRef, terminalStates);
+                boolean isSelected = isContainedIn(stateRef, selectedStates);
+
+                if (isTerminal) {
+                    // when "all states" selected - don't show terminal states
+                    if (allStatesApply) {
+                        continue;
+                    }
+
+                    // when "selected states" selected - don't show terminal
+                    // states unless selected - to allow de-selection
+                    else if (!isSelected) {
+                        continue;
+                    }
+                }
+
                 item = new TableItem(caseStatesControl, SWT.NONE);
-                item.setData(ProcessUIUtil
-                        .getExternalRefForEnumLit(caseService, caseState));
                 item.setText(PrimitivesUtil.getDisplayLabel(caseState));
-                item.setImage(Xpdl2ProcessEditorPlugin.getDefault()
-                        .getImageRegistry()
-                        .get(ProcessEditorConstants.ICON_ENUMLIT));
+                item.setImage(image);
+                item.setData(stateRef);
+                item.setChecked(isSelected);
             }
         }
+    }
+
+    /**
+     * Returns the collection terminal state values for the given Case class. If
+     * no terminal states are defined, the return value will be an empty List.
+     * <p>
+     * The state values are returned as references for convenience when later
+     * comparing them with the references held by the check-box items.
+     * 
+     * @param aCaseService
+     *            the case service from which enum literal references can be
+     *            obtained.
+     * @param aCaseClass
+     *            the Case class definition in which the case state property is
+     *            contained.
+     * @return the collection of terminal states.
+     */
+    private List<ExternalReference> getTerminalStates(CaseService aCaseService,
+            Class aCaseClass) {
+        EList<EnumerationLiteral> terminalStates =
+                terminalStateUtil.getTerminalStates(getCaseState(aCaseClass));
+        if ((terminalStates == null) || (terminalStates.isEmpty())) {
+            return Collections.emptyList();
+        }
+
+        List<ExternalReference> result = new ArrayList<>();
+        for (EnumerationLiteral state : terminalStates) {
+            result.add(ProcessUIUtil.getExternalRefForEnumLit(aCaseService,
+                    state));
+        }
+        return result;
+    }
+
+    /**
+     * Tests whether the given case state value ref is contained within the
+     * given collection of state value refs.
+     * 
+     * @param aState
+     *            the case state value to be tested.
+     * @param aStateList
+     *            the collection of states to search.
+     * @return <code>true</code> if the given state is contained in the given
+     *         collection.
+     */
+    private boolean isContainedIn(ExternalReference aState,
+            Collection<ExternalReference> aStateList) {
+        for (ExternalReference terminal : aStateList) {
+            if (EcoreUtil.equals(terminal, aState)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -532,105 +618,100 @@ public class CaseServicePropertySection extends ProcessPropertySection {
     private void createCaseServiceCompositeControls(final Composite parent,
             XpdFormToolkit toolkit) {
 
-        Label lblMsg =
-                toolkit.createLabel(parent,
-                        Messages.CaseServicePropertySection_caseClassSelectionLabel);
+        Label lblMsg = toolkit.createLabel(parent,
+                Messages.CaseServicePropertySection_caseClassSelectionLabel);
         GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 2;
         lblMsg.setLayoutData(gridData);
 
-        final CLabel labelCaseRefType =
-                toolkit.createCLabel(parent,
-                        Messages.CaseServicePropertySection_labelCaseClass);
+        final CLabel labelCaseRefType = toolkit.createCLabel(parent,
+                Messages.CaseServicePropertySection_labelCaseClass);
         GridData gd = new GridData();
         gd.horizontalAlignment = SWT.LEFT;
         gd.verticalAlignment = SWT.CENTER;
         labelCaseRefType.setLayoutData(gd);
-        caseClassPickerCtrl =
-                new CaseClassPicker(parent, SWT.NONE, toolkit,
-                        getEditingDomain(), getSectionContainerType()) {
+        caseClassPickerCtrl = new CaseClassPicker(parent, SWT.NONE, toolkit,
+                getEditingDomain(), getSectionContainerType()) {
 
-                    /**
-                     * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#getProject()
-                     * 
-                     * @return
-                     */
-                    @Override
-                    protected IProject getProject() {
-                        return CaseServicePropertySection.this.getProject();
-                    }
+            /**
+             * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#getProject()
+             * 
+             * @return
+             */
+            @Override
+            protected IProject getProject() {
+                return CaseServicePropertySection.this.getProject();
+            }
 
-                    /**
-                     * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#clearErrorTooltip()
-                     * 
-                     */
-                    @Override
-                    protected void clearErrorTooltip() {
-                        labelCaseRefType.setImage(null);
-                        labelCaseRefType.setToolTipText(null);
-                    }
+            /**
+             * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#clearErrorTooltip()
+             * 
+             */
+            @Override
+            protected void clearErrorTooltip() {
+                labelCaseRefType.setImage(null);
+                labelCaseRefType.setToolTipText(null);
+            }
 
-                    /**
-                     * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#setErrorTooltip(java.lang.String)
-                     * 
-                     * @param tooltip
-                     */
-                    @Override
-                    protected void setErrorTooltip(String tooltip) {
-                        if (getSectionContainerType() == ContainerType.PROPERTYVIEW) {
-                            labelCaseRefType.setImage(errIcon);
-                            labelCaseRefType
-                                    .setToolTipText(Messages.CaseServicePropertySection_noCaseClassSelectedMessage);
-                        }
-                    }
+            /**
+             * @see com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection.BOMTypePicker#setErrorTooltip(java.lang.String)
+             * 
+             * @param tooltip
+             */
+            @Override
+            protected void setErrorTooltip(String tooltip) {
+                if (getSectionContainerType() == ContainerType.PROPERTYVIEW) {
+                    labelCaseRefType.setImage(errIcon);
+                    labelCaseRefType.setToolTipText(
+                            Messages.CaseServicePropertySection_noCaseClassSelectedMessage);
+                }
+            }
 
-                    @Override
-                    protected Command setCaseRefTypeCmd(RecordType recordType) {
-                        return CaseServicePropertySection.this
-                                .setCaseClassCmd(recordType);
-                    }
+            @Override
+            protected Command setCaseRefTypeCmd(RecordType recordType) {
+                return CaseServicePropertySection.this
+                        .setCaseClassCmd(recordType);
+            }
 
-                    /**
-                     * @see com.tibco.xpd.ui.properties.components.AbstractPickerControl#createHyperlink(com.tibco.xpd.ui.properties.XpdFormToolkit,
-                     *      org.eclipse.swt.widgets.Composite)
-                     * 
-                     * @param toolkit
-                     * @param root
-                     * @return
-                     * 
-                     *         Note: Overriding this to set the width of the
-                     *         link, which grows bigger than the width of the
-                     *         parent section if the text is long.
-                     */
-                    @Override
-                    protected ImageHyperlink createHyperlink(
-                            XpdFormToolkit toolkit, Composite root) {
+            /**
+             * @see com.tibco.xpd.ui.properties.components.AbstractPickerControl#createHyperlink(com.tibco.xpd.ui.properties.XpdFormToolkit,
+             *      org.eclipse.swt.widgets.Composite)
+             * 
+             * @param aToolKit
+             * @param root
+             * @return
+             * 
+             *         Note: Overriding this to set the width of the link, which
+             *         grows bigger than the width of the parent section if the
+             *         text is long.
+             */
+            @Override
+            protected ImageHyperlink createHyperlink(XpdFormToolkit aToolKit,
+                    Composite root) {
 
-                        ImageHyperlink link =
-                                toolkit.createImageHyperlink(root,
-                                        SWT.NONE,
-                                        "type-name-hyperlink"); //$NON-NLS-1$
+                ImageHyperlink link = aToolKit.createImageHyperlink(root,
+                        SWT.NONE,
+                        "type-name-hyperlink"); //$NON-NLS-1$
 
-                        /*
-                         * Make sure we set some text in hyperlink before
-                         * initial layour otherwise hyperlink doiesn't size text
-                         * space vertically big enough
-                         */
-                        link.setText(""); //$NON-NLS-1$
+                /*
+                 * Make sure we set some text in hyperlink before initial layour
+                 * otherwise hyperlink doiesn't size text space vertically big
+                 * enough
+                 */
+                link.setText(""); //$NON-NLS-1$
 
-                        GridData data =
-                                new GridData(SWT.LEFT, SWT.CENTER, true, false);
-                        data.minimumWidth = 90;
-                        /*
-                         * Need to set widthHint otherwise the link becomes too
-                         * big if the class name is long
-                         */
-                        data.widthHint = 200;
-                        link.setLayoutData(data);
+                GridData data = new GridData(SWT.LEFT, SWT.CENTER, true, false);
+                data.minimumWidth = 90;
+                /*
+                 * Need to set widthHint otherwise the link becomes too big if
+                 * the class name is long
+                 */
+                data.widthHint = 200;
+                link.setLayoutData(data);
 
-                        return link;
-                    }
-                };
+                return link;
+            }
+        };
 
         GridDataFactory.fillDefaults().grab(true, false)
                 .applyTo(caseClassPickerCtrl);
@@ -645,25 +726,21 @@ public class CaseServicePropertySection extends ProcessPropertySection {
 
         Process proc = (Process) getInput();
 
-        ExternalReference externalRef =
-                EcoreUtil.copy(caseRefType.getMember().get(0)
-                        .getExternalReference());
+        ExternalReference externalRef = EcoreUtil
+                .copy(caseRefType.getMember().get(0).getExternalReference());
 
-        Object existingCaseService =
-                Xpdl2ModelUtil.getOtherElement(proc,
-                        XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_CaseService());
+        Object existingCaseService = Xpdl2ModelUtil.getOtherElement(proc,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_CaseService());
 
         if (existingCaseService instanceof CaseService) {
 
             CaseService cs = (CaseService) existingCaseService;
             // remove existing case service
-            cmpCommand.append(Xpdl2ModelUtil
-                    .getRemoveOtherElementCommand(getEditingDomain(),
-                            proc,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_CaseService(),
-                            cs));
+            cmpCommand.append(Xpdl2ModelUtil.getRemoveOtherElementCommand(
+                    getEditingDomain(),
+                    proc,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_CaseService(),
+                    cs));
 
         }
 
@@ -672,15 +749,15 @@ public class CaseServicePropertySection extends ProcessPropertySection {
         CaseService caseService =
                 XpdExtensionFactory.eINSTANCE.createCaseService();
         caseService.setCaseClassType(externalRef);
-        cmpCommand.append(Xpdl2ModelUtil
-                .getSetOtherElementCommand(getEditingDomain(),
+        cmpCommand.append(
+                Xpdl2ModelUtil.getSetOtherElementCommand(getEditingDomain(),
                         proc,
                         XpdExtensionPackage.eINSTANCE
                                 .getDocumentRoot_CaseService(),
                         caseService));
 
-        cmpCommand
-                .setLabel(Messages.CaseServicePropertySection_setCaseClassCmdLabel);
+        cmpCommand.setLabel(
+                Messages.CaseServicePropertySection_setCaseClassCmdLabel);
         return cmpCommand;
     }
 
@@ -727,7 +804,8 @@ public class CaseServicePropertySection extends ProcessPropertySection {
                             XpdExtensionPackage.eINSTANCE
                                     .getCaseService_VisibleForCaseStates(),
                             null));
-                    cmpCmd.setLabel(Messages.CaseServicePropertySection_selectAllStatesCmdLabel);
+                    cmpCmd.setLabel(
+                            Messages.CaseServicePropertySection_selectAllStatesCmdLabel);
 
                 } else if (btn == btnSpecificStates
                         && caseService.getVisibleForCaseStates() == null) {
@@ -744,7 +822,8 @@ public class CaseServicePropertySection extends ProcessPropertySection {
                             XpdExtensionPackage.eINSTANCE
                                     .getCaseService_VisibleForCaseStates(),
                             visibleForCaseStates));
-                    cmpCmd.setLabel(Messages.CaseServicePropertySection_selectSpecificStatesCmdLabel);
+                    cmpCmd.setLabel(
+                            Messages.CaseServicePropertySection_selectSpecificStatesCmdLabel);
                 }
 
             }
@@ -755,7 +834,8 @@ public class CaseServicePropertySection extends ProcessPropertySection {
                         caseService.getVisibleForCaseStates();
 
                 TableItem tblItem = (TableItem) obj;
-                cmpCmd.setLabel(Messages.CaseServicePropertySection_caseStateSelectionCmdLabel);
+                cmpCmd.setLabel(
+                        Messages.CaseServicePropertySection_caseStateSelectionCmdLabel);
 
                 /*
                  * if its a 'No Case State Set' item, then set the boolean flag
@@ -764,12 +844,11 @@ public class CaseServicePropertySection extends ProcessPropertySection {
                 if (NO_CASE_STATE_SET_ITEM.equals(tblItem.getData())) {
 
                     boolean checked = tblItem.getChecked();
-                    cmpCmd.append(SetCommand
-                            .create(getEditingDomain(),
-                                    visibleForCaseStates,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getVisibleForCaseStates_VisibleForUnsetCaseState(),
-                                    checked));
+                    cmpCmd.append(SetCommand.create(getEditingDomain(),
+                            visibleForCaseStates,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getVisibleForCaseStates_VisibleForUnsetCaseState(),
+                            Boolean.valueOf(checked)));
 
                 } else {
 
@@ -805,8 +884,9 @@ public class CaseServicePropertySection extends ProcessPropertySection {
                         }
 
                         if (extRefToRemove != null) {
-                            cmpCmd.append(RemoveCommand
-                                    .create(getEditingDomain(), extRefToRemove));
+                            cmpCmd.append(
+                                    RemoveCommand.create(getEditingDomain(),
+                                            extRefToRemove));
                         }
                     }
 
@@ -828,10 +908,9 @@ public class CaseServicePropertySection extends ProcessPropertySection {
     public static CaseService getCaseService(Process process) {
 
         if (process != null) {
-            Object caseService =
-                    Xpdl2ModelUtil.getOtherElement(process,
-                            XpdExtensionPackage.eINSTANCE
-                                    .getDocumentRoot_CaseService());
+            Object caseService = Xpdl2ModelUtil.getOtherElement(process,
+                    XpdExtensionPackage.eINSTANCE
+                            .getDocumentRoot_CaseService());
             if (caseService instanceof CaseService) {
                 return (CaseService) caseService;
             }
