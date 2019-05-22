@@ -527,15 +527,22 @@ public class EventEditPart extends BaseFlowNodeEditPart implements
                         getEditingDomain(), processWidget
                                 .getEditPolicyEnablementProvider()));
 
-        installEditPolicy(ClickOrDragReplyActivityPolicy.EDIT_POLICY_ID,
-                new ClickOrDragReplyActivityPolicy(getAdapterFactory(),
-                        getEditingDomain(), processWidget
-                                .getEditPolicyEnablementProvider()));
 
-        installEditPolicy(ClickOrDragThrowFaultEventPolicy.EDIT_POLICY_ID,
-                new ClickOrDragThrowFaultEventPolicy(getAdapterFactory(),
-                        getEditingDomain(), processWidget
-                                .getEditPolicyEnablementProvider()));
+        /*
+         * Sid ACE-1350 we don't do incoming request/reply activity anymore for
+         * ACE so hide the gadget enablement options we no longer support
+         */
+        if (false) {
+            installEditPolicy(ClickOrDragReplyActivityPolicy.EDIT_POLICY_ID,
+                    new ClickOrDragReplyActivityPolicy(getAdapterFactory(),
+                            getEditingDomain(),
+                            processWidget.getEditPolicyEnablementProvider()));
+
+            installEditPolicy(ClickOrDragThrowFaultEventPolicy.EDIT_POLICY_ID,
+                    new ClickOrDragThrowFaultEventPolicy(getAdapterFactory(),
+                            getEditingDomain(),
+                            processWidget.getEditPolicyEnablementProvider()));
+        }
         return;
     }
 

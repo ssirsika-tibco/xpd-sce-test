@@ -360,19 +360,25 @@ public abstract class AbstractProcessDiagramEditorContributor
             gadgetMenu.add(action);
         }
 
-        action = createEnableReplyActivityGadgetAction();
-        if (action != null) {
-            gadgetMenu.add(action);
-        }
+        /*
+         * Sid ACE-1350 we don't do incoming request/reply activity anymore for
+         * ACE so hide the gadget options we no longer support
+         */
+        if (false) {
+            action = createEnableReplyActivityGadgetAction();
+            if (action != null) {
+                gadgetMenu.add(action);
+            }
 
-        action = createEnableThrowErrorActivityGadgetAction();
-        if (action != null) {
-            gadgetMenu.add(action);
-        }
+            action = createEnableThrowErrorActivityGadgetAction();
+            if (action != null) {
+                gadgetMenu.add(action);
+            }
 
-        action = createEnableTaskRefGadgetAction();
-        if (action != null) {
-            gadgetMenu.add(action);
+            action = createEnableTaskRefGadgetAction();
+            if (action != null) {
+                gadgetMenu.add(action);
+            }
         }
         return gadgetMenu;
     }

@@ -1108,15 +1108,24 @@ public class TaskEditPart extends BaseFlowNodeEditPart implements
         // There should be no reply activity selection for Task Libraries
         // (because there are no receive tasks.
         if (!ProcessWidgetType.TASK_LIBRARY.equals(getProcessWidgetType())) {
-            installEditPolicy(ClickOrDragReplyActivityPolicy.EDIT_POLICY_ID,
-                    new ClickOrDragReplyActivityPolicy(getAdapterFactory(),
-                            getEditingDomain(), processWidget
-                                    .getEditPolicyEnablementProvider()));
 
-            installEditPolicy(ClickOrDragThrowFaultEventPolicy.EDIT_POLICY_ID,
-                    new ClickOrDragThrowFaultEventPolicy(getAdapterFactory(),
-                            getEditingDomain(), processWidget
-                                    .getEditPolicyEnablementProvider()));
+            /*
+             * Sid ACE-1350 we don't do incoming request/reply activity anymore
+             * for ACE so hide the gadget options we no longer support
+             */
+            if (false) {
+                installEditPolicy(ClickOrDragReplyActivityPolicy.EDIT_POLICY_ID,
+                        new ClickOrDragReplyActivityPolicy(getAdapterFactory(),
+                                getEditingDomain(), processWidget
+                                        .getEditPolicyEnablementProvider()));
+
+                installEditPolicy(
+                        ClickOrDragThrowFaultEventPolicy.EDIT_POLICY_ID,
+                        new ClickOrDragThrowFaultEventPolicy(
+                                getAdapterFactory(), getEditingDomain(),
+                                processWidget
+                                        .getEditPolicyEnablementProvider()));
+            }
         }
 
         return;
