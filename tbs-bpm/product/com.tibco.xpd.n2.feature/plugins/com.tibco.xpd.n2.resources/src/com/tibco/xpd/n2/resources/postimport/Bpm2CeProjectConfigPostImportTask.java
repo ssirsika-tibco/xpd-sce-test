@@ -629,27 +629,42 @@ public class Bpm2CeProjectConfigPostImportTask
             if (BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND
                     .equals(specialFolder.getKind())
                     && !BOMValidationUtil.GENERATED_BOM_FOLDER_TYPE
-                            .equals(specialFolder.getGenerated())
-                    /* Only 'find' the folder if it actuall exists... */
-                    && specialFolder.getFolder() != null
-                    && specialFolder.getFolder().exists()) {
+                            .equals(specialFolder.getGenerated())) {
                 userBomSpecialFolder = specialFolder;
                 break;
             }
         }
 
-        if (userBomSpecialFolder == null) {
-            IFolder userBomFolder = projectConfig.getProject().getFolder(
-                    Messages.Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label);
+        IFolder userBomFolder = null;
 
-            if (!userBomFolder.exists()) {
-                createFolder(userBomFolder);
-            }
+        if (userBomSpecialFolder == null) {
+            /* There is no user defined BOM folder. */
+            userBomFolder = projectConfig.getProject().getFolder(
+                    Messages.Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label);
 
             userBomSpecialFolder = specialFolders.addFolder(userBomFolder,
                     BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND);
 
+        } else if (userBomSpecialFolder.getFolder() != null) {
+            /*
+             * There is a special folder, use the folder (create below if not
+             * exists).
+             */
+            userBomFolder = userBomSpecialFolder.getFolder();
+
+        } else {
+            /*
+             * There is a special folder config BUT the actual folder is
+             * missing.
+             */
+            userBomFolder = projectConfig.getProject()
+                    .getFolder(userBomSpecialFolder.getLocation());
         }
+
+        if (!userBomFolder.exists()) {
+            createFolder(userBomFolder);
+        }
+
         return userBomSpecialFolder;
     }
 
