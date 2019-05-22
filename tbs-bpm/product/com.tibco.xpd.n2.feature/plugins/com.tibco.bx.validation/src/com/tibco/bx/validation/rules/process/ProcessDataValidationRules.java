@@ -170,16 +170,23 @@ public class ProcessDataValidationRules extends PackageValidationRule {
                 }
 
             } else {
-                Precision precision = basicType.getPrecision();
-                if (precision != null) {
-                    addIssue(ISSUE_WARN_NUMBER_FORMAT_NOT_ENFORCED,
-                            dataOrTypeDeclaration);
-
-                } else {
-                    Scale scale = basicType.getScale();
-                    if (scale != null) {
+                /*
+                 * Sid ACE-1355: Remove the following warning as I believe that
+                 * Joshy Augustine and the data are applying restrictions etc
+                 * (for rounding) to fixed point numbers.
+                 */
+                if (false) {
+                    Precision precision = basicType.getPrecision();
+                    if (precision != null) {
                         addIssue(ISSUE_WARN_NUMBER_FORMAT_NOT_ENFORCED,
                                 dataOrTypeDeclaration);
+
+                    } else {
+                        Scale scale = basicType.getScale();
+                        if (scale != null) {
+                            addIssue(ISSUE_WARN_NUMBER_FORMAT_NOT_ENFORCED,
+                                    dataOrTypeDeclaration);
+                        }
                     }
                 }
             }

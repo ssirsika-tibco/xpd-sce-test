@@ -46,6 +46,9 @@ public class BasicTypeLengthRule extends PackageValidationRule {
 
     private static final String INVALID_SCALE = "bpmn.scaleNotCorrect"; //$NON-NLS-1$
 
+    private static final String ISSUE_NOSCALE_MUST_HAVE_NOLENGTH =
+            "bpmn.noScaleMustHaveNoLength"; //$NON-NLS-1$
+
     @Override
     public void validate(Package pckg) {
         if (null != pckg) {
@@ -140,18 +143,45 @@ public class BasicTypeLengthRule extends PackageValidationRule {
                 if (basicType.getScale() != null) {
                     scale = basicType.getScale().getValue();
                 }
-                if (basicType.getScale() == null) {
-                    addIssue(INVALID_SCALE, namedElement);
+
+                /*
+                 * Sid ACE-1355 Numbers are now allowed to have no decimal
+                 * places defined (this means 'floating point number' rather
+                 * than fixed point number.
+                 */
+                // if (basicType.getScale() == null) {
+                // addIssue(INVALID_SCALE, namedElement);
+                // }
+
+                /*
+                 * Sid ACE-1355 Length is allowed to be null if
+                 * the scale is (as it means it's a floating point number then
+                 * there can't be specific precision).
+                 */
+                if (basicType.getScale() != null) {
+                    if (!Pattern.matches(lengthPattern, precision.toString())) {
+                        addIssue(INVALID_LENGTH, namedElement);
+                    }
+                    if (!Pattern.matches(scalePattern, scale.toString())) {
+                        addIssue(INVALID_SCALE, namedElement);
+                    }
+                    if (basicType.getPrecision() != null
+                            && scale >= precision) {
+                        addIssue(INVALID_SCALE, namedElement);
+                    }
+
+                } else {
+                    /*
+                     * Sid ACE-1355 - If scale is not set then length must not
+                     * be set.
+                     */
+                    if (basicType.getPrecision() != null) {
+                        addIssue(ISSUE_NOSCALE_MUST_HAVE_NOLENGTH,
+                                namedElement);
+                    }
+
                 }
-                if (!Pattern.matches(lengthPattern, precision.toString())) {
-                    addIssue(INVALID_LENGTH, namedElement);
-                }
-                if (!Pattern.matches(scalePattern, scale.toString())) {
-                    addIssue(INVALID_SCALE, namedElement);
-                }
-                if (scale >= precision) {
-                    addIssue(INVALID_SCALE, namedElement);
-                }
+
             }
         }
     }
