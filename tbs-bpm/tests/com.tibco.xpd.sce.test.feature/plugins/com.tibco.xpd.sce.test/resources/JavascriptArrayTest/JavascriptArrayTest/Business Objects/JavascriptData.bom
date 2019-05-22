@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BOMGlobalDataProfile="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:elx="http://www.tibco.com/EnumLiteralExt" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0 pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_bsqv0HuoEemYFaNtZBbPtA" name="com.example.javascriptdata">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bsqv0XuoEemYFaNtZBbPtA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bsqv0nuoEemYFaNtZBbPtA" key="author" value="nwilson"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bsqv03uoEemYFaNtZBbPtA" key="created" value="1558433495501"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bsqv1HuoEemYFaNtZBbPtA" key="version" value="6"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_dDXdAHuoEemYFaNtZBbPtA" name="Case">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VgzOAHupEemYFaNtZBbPtA" name="cid" isReadOnly="true" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Vg-NIHupEemYFaNtZBbPtA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vg-NIXupEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XScKwHupEemYFaNtZBbPtA" name="state" type="_Yk2N0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XSenAXupEemYFaNtZBbPtA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XSfOEHupEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gtyq4HupEemYFaNtZBbPtA" name="tags" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gt0gEXupEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gt0gEnupEemYFaNtZBbPtA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oCHNEHupEemYFaNtZBbPtA" name="details" type="_vgWgQHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oCJCQHupEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oCJCQXupEemYFaNtZBbPtA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zH_8YHupEemYFaNtZBbPtA" name="ids" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zIBKgXupEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zIBKgnupEemYFaNtZBbPtA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qXtjwHuvEemYFaNtZBbPtA" name="txt" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qXwAAHuvEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qXwAAXuvEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sGTzkHuvEemYFaNtZBbPtA" name="num" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sGUaoXuvEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sGUaonuvEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_tsa1wHuvEemYFaNtZBbPtA" name="bool" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tscD4HuvEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tscD4XuvEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Yk2N0HupEemYFaNtZBbPtA" name="States">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_bHDE0HupEemYFaNtZBbPtA" name="CREATED" classifier="_Yk2N0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bHDE0XupEemYFaNtZBbPtA" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_bHDE0nupEemYFaNtZBbPtA" value="CREATED"/>
+        </eAnnotations>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_cCQI0HupEemYFaNtZBbPtA" name="FINISHED" classifier="_Yk2N0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cCQv4HupEemYFaNtZBbPtA" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_cCQv4XupEemYFaNtZBbPtA" value="FINISHED"/>
+        </eAnnotations>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vgWgQHupEemYFaNtZBbPtA" name="Details">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xlRlYHupEemYFaNtZBbPtA" name="name" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xlTakHupEemYFaNtZBbPtA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xlTakXupEemYFaNtZBbPtA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_cG84EHuoEemYFaNtZBbPtA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cHAicHuoEemYFaNtZBbPtA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_20kHsWs1EeC_hvle0zpSaA?BOM%20Global%20Data%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dDcVgHuoEemYFaNtZBbPtA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dDcVgXuoEemYFaNtZBbPtA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_btbk0HuoEemYFaNtZBbPtA" type="Business Object Model" element="_bsqv0HuoEemYFaNtZBbPtA?com.example.javascriptdata?" name="JavascriptData.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_b9D8QHuoEemYFaNtZBbPtA" type="1007" element="_bsqv0HuoEemYFaNtZBbPtA?com.example.javascriptdata?">
+      <children xmi:type="notation:Node" xmi:id="_b9G_kHuoEemYFaNtZBbPtA" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_b9G_kXuoEemYFaNtZBbPtA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_b9I0wHuoEemYFaNtZBbPtA" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_b9KC4HuoEemYFaNtZBbPtA" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_b9LRAHuoEemYFaNtZBbPtA" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_b9MfIHuoEemYFaNtZBbPtA" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_b9NtQHuoEemYFaNtZBbPtA" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_b9O7YHuoEemYFaNtZBbPtA" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_b9QJgHuoEemYFaNtZBbPtA" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_b9RXoHuoEemYFaNtZBbPtA" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_b9RXoXuoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_b9RXonuoEemYFaNtZBbPtA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_b9RXo3uoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_b9RXpHuoEemYFaNtZBbPtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_b9D8QXuoEemYFaNtZBbPtA" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_b9D8QnuoEemYFaNtZBbPtA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b9D8Q3uoEemYFaNtZBbPtA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_dD3MQHuoEemYFaNtZBbPtA" type="1002" element="_dDXdAHuoEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase?">
+      <children xmi:type="notation:Node" xmi:id="_dD6PkHuoEemYFaNtZBbPtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_dD7dsHuoEemYFaNtZBbPtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_dD8r0HuoEemYFaNtZBbPtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_dD-hAHuoEemYFaNtZBbPtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_VhE60HupEemYFaNtZBbPtA" type="2001" element="_VgzOAHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3acid?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_VhE60XupEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_XSlUsHupEemYFaNtZBbPtA" type="2001" element="_XScKwHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3astate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_XSlUsXupEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gt700HupEemYFaNtZBbPtA" type="2001" element="_gtyq4HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3atags?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_gt700XupEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_oCNTsHupEemYFaNtZBbPtA" type="2001" element="_oCHNEHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3adetails?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_oCNTsXupEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_zIGDAHupEemYFaNtZBbPtA" type="2001" element="_zH_8YHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3aids?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zIGDAXupEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qX0RcHuvEemYFaNtZBbPtA" type="2001" element="_qXtjwHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3atxt?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_qX0RcXuvEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_sGYFAHuvEemYFaNtZBbPtA" type="2001" element="_sGTzkHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3anum?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_sGYFAXuvEemYFaNtZBbPtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tsfHMHuvEemYFaNtZBbPtA" type="2001" element="_tsa1wHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3abool?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_tsfHMXuvEemYFaNtZBbPtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_dD-hAXuoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_dD-hAnuoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_dD-hA3uoEemYFaNtZBbPtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_dEAWMHuoEemYFaNtZBbPtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_dEAWMXuoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_dEAWMnuoEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_dEAWM3uoEemYFaNtZBbPtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_dD3MQXuoEemYFaNtZBbPtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_dD3zUHuoEemYFaNtZBbPtA" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dD3zUXuoEemYFaNtZBbPtA" x="410" y="114" height="212"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_YlIhsHupEemYFaNtZBbPtA" type="1004" element="_Yk2N0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates?">
+      <children xmi:type="notation:Node" xmi:id="_YlK98HupEemYFaNtZBbPtA" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_YlMMEHupEemYFaNtZBbPtA" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_YlNaMHupEemYFaNtZBbPtA" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_YlPPYHupEemYFaNtZBbPtA" type="5004">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_YlPPYXupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_YlPPYnupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_YlPPY3upEemYFaNtZBbPtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_YlIhsXupEemYFaNtZBbPtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_YlIhsnupEemYFaNtZBbPtA" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YlIhs3upEemYFaNtZBbPtA" x="627" y="242"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_vgr3cHupEemYFaNtZBbPtA" type="1002" element="_vgWgQHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails?">
+      <children xmi:type="notation:Node" xmi:id="_vgtFkHupEemYFaNtZBbPtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_vgtFkXupEemYFaNtZBbPtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_vgtFknupEemYFaNtZBbPtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_vgtFk3upEemYFaNtZBbPtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_xlWd4HupEemYFaNtZBbPtA" type="2001" element="_xlRlYHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails%3a%3aname?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_xlWd4XupEemYFaNtZBbPtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_vgtFlHupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_vgtFlXupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_vgtFlnupEemYFaNtZBbPtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vgtFl3upEemYFaNtZBbPtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_vgtFmHupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_vgtFmXupEemYFaNtZBbPtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_vgtFmnupEemYFaNtZBbPtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_vgr3cXupEemYFaNtZBbPtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_vgr3cnupEemYFaNtZBbPtA" gradStartColor="16706255" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vgr3c3upEemYFaNtZBbPtA" x="908" y="206"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_btbk0XuoEemYFaNtZBbPtA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_btbk0nuoEemYFaNtZBbPtA"/>
+  </notation:Diagram>
+  <BOMGlobalDataProfile:Case xmi:id="_dDYrIHuoEemYFaNtZBbPtA" base_Class="_dDXdAHuoEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dDdjoHuoEemYFaNtZBbPtA" displayLabel="Case" base_NamedElement="_dDXdAHuoEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase?"/>
+  <BOMGlobalDataProfile:AutoCaseIdentifier xmi:id="_Vg8X8HupEemYFaNtZBbPtA" base_Property="_VgzOAHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3acid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Vg9mEHupEemYFaNtZBbPtA" displayLabel="cid" base_NamedElement="_VgzOAHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3acid?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_XSdY4HupEemYFaNtZBbPtA" base_Property="_XScKwHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3astate?" terminalStates="_cCQI0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates%3a%3aFINISHED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_XSenAHupEemYFaNtZBbPtA" displayLabel="state" base_NamedElement="_XScKwHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Yk3b8HupEemYFaNtZBbPtA" displayLabel="States" base_NamedElement="_Yk2N0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_aMgvMHupEemYFaNtZBbPtA" displayLabel="Creates"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_baT_EHupEemYFaNtZBbPtA" displayLabel="Created" base_NamedElement="_bHDE0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates%3a%3aCREATED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_cWc3MHupEemYFaNtZBbPtA" displayLabel="Finished" base_NamedElement="_cCQI0HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aStates%3a%3aFINISHED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gt0gEHupEemYFaNtZBbPtA" displayLabel="tags" base_NamedElement="_gtyq4HupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3atags?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oCIbMHupEemYFaNtZBbPtA" displayLabel="details" base_NamedElement="_oCHNEHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3adetails?"/>
+  <BOMGlobalDataProfile:Global xmi:id="_vgWgQXupEemYFaNtZBbPtA" base_Class="_vgWgQHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vgXHUHupEemYFaNtZBbPtA" displayLabel="Details" base_NamedElement="_vgWgQHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_xlSzgHupEemYFaNtZBbPtA" displayLabel="name" base_NamedElement="_xlRlYHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aDetails%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_zIBKgHupEemYFaNtZBbPtA" displayLabel="ids" base_NamedElement="_zH_8YHupEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3aids?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_qXvY8HuvEemYFaNtZBbPtA" displayLabel="txt" base_NamedElement="_qXtjwHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3atxt?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sGUaoHuvEemYFaNtZBbPtA" displayLabel="num" base_NamedElement="_sGTzkHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3anum?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tsbc0HuvEemYFaNtZBbPtA" displayLabel="bool" base_NamedElement="_tsa1wHuvEemYFaNtZBbPtA?com.example.javascriptdata%3a%3aCase%3a%3abool?"/>
+</xmi:XMI>
