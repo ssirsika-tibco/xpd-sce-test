@@ -81,69 +81,73 @@ public class CaseStateValidationRule implements IValidationRule {
                 }
                 // Make sure the type is an enumeration, if there is no type set
                 // for the property, there will already be a validation marker
+                
+                /*
+                 * Sid ACE-1326 we no longer raise a 'no type set' for case
+                 * state attrs so need to raise it here.
+                 */
                 Type propType = prop.getType();
-                if (propType != null) {
-                    if (propType instanceof Enumeration) {
-                        Enumeration enumProp = (Enumeration) propType;
-                        for (Classifier baseType : enumProp.getGenerals()) {
-                            if (baseType instanceof PrimitiveType) {
-                                PrimitiveType primType =
-                                        PrimitivesUtil.getBasePrimitiveType(
-                                                (PrimitiveType) baseType);
-                                // Make sure it is a text enumeration
-                                if (!PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
-                                        .equals(primType.getName())) {
-                                    additionalMessages.add(prop.getName());
-                                    scope.createIssue(
-                                            ISSUE_CASESTATE_TYPE_INVALID,
-                                            BOMValidationUtil.getLocation(prop),
-                                            prop.eResource()
-                                                    .getURIFragment(prop),
-                                            additionalMessages);
-                                }
-                            }
-                        }
 
-                        // ACE-533 There must be at least 2 states defined
-                        // This is checked before validating terminal states
-                        int stateCount = enumProp.getOwnedLiterals().size();
-                        if (stateCount < 2) {
-                            scope.createIssue(ISSUE_CASESTATE_NOT_ENOUGH_STATES,
-                                    BOMValidationUtil.getLocation(prop),
-                                    prop.eResource().getURIFragment(prop),
-                                    additionalMessages);
-                        } else {
-
-                            TerminalStateProperties tsp =
-                                    new TerminalStateProperties();
-                            EList<EnumerationLiteral> states =
-                                    tsp.getTerminalStates(prop);
-                            if (states == null || states.isEmpty()) {
-                                // ACE-533 There must be at least 1 terminal
-                                // state defined
+                if (propType instanceof Enumeration) {
+                    Enumeration enumProp = (Enumeration) propType;
+                    for (Classifier baseType : enumProp.getGenerals()) {
+                        if (baseType instanceof PrimitiveType) {
+                            PrimitiveType primType =
+                                    PrimitivesUtil.getBasePrimitiveType(
+                                            (PrimitiveType) baseType);
+                            // Make sure it is a text enumeration
+                            if (!PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
+                                    .equals(primType.getName())) {
+                                additionalMessages.add(prop.getName());
                                 scope.createIssue(
-                                        ISSUE_CASESTATE_NO_TERMINAL_STATES,
-                                        BOMValidationUtil.getLocation(prop),
-                                        prop.eResource().getURIFragment(prop),
-                                        additionalMessages);
-                            } else if (states.size() == stateCount) {
-                                // ACE-533 There must be at least 1 non-terminal
-                                // state defined
-                                scope.createIssue(
-                                        ISSUE_CASESTATE_NO_NON_TERMINAL_STATES,
+                                        ISSUE_CASESTATE_TYPE_INVALID,
                                         BOMValidationUtil.getLocation(prop),
                                         prop.eResource().getURIFragment(prop),
                                         additionalMessages);
                             }
                         }
-                    } else {
-                        additionalMessages.add(prop.getName());
-                        scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
+                    }
+
+                    // ACE-533 There must be at least 2 states defined
+                    // This is checked before validating terminal states
+                    int stateCount = enumProp.getOwnedLiterals().size();
+                    if (stateCount < 2) {
+                        scope.createIssue(ISSUE_CASESTATE_NOT_ENOUGH_STATES,
                                 BOMValidationUtil.getLocation(prop),
                                 prop.eResource().getURIFragment(prop),
                                 additionalMessages);
+                    } else {
+
+                        TerminalStateProperties tsp =
+                                new TerminalStateProperties();
+                        EList<EnumerationLiteral> states =
+                                tsp.getTerminalStates(prop);
+                        if (states == null || states.isEmpty()) {
+                            // ACE-533 There must be at least 1 terminal
+                            // state defined
+                            scope.createIssue(
+                                    ISSUE_CASESTATE_NO_TERMINAL_STATES,
+                                    BOMValidationUtil.getLocation(prop),
+                                    prop.eResource().getURIFragment(prop),
+                                    additionalMessages);
+                        } else if (states.size() == stateCount) {
+                            // ACE-533 There must be at least 1 non-terminal
+                            // state defined
+                            scope.createIssue(
+                                    ISSUE_CASESTATE_NO_NON_TERMINAL_STATES,
+                                    BOMValidationUtil.getLocation(prop),
+                                    prop.eResource().getURIFragment(prop),
+                                    additionalMessages);
+                        }
                     }
+                } else {
+                    additionalMessages.add(prop.getName());
+                    scope.createIssue(ISSUE_CASESTATE_TYPE_INVALID,
+                            BOMValidationUtil.getLocation(prop),
+                            prop.eResource().getURIFragment(prop),
+                            additionalMessages);
                 }
+
 
                 org.eclipse.uml2.uml.Class clazz = prop.getClass_();
 
