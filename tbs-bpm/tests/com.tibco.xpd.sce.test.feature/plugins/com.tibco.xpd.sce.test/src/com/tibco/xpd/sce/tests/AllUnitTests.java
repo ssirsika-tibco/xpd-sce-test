@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.sce.tests;
 
+import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
@@ -17,11 +18,16 @@ import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
+import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
+import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
+import com.tibco.xpd.sce.tests.validation.AceProcessTemporalDefaultValueRuleTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessValidDataRulesTest;
+import com.tibco.xpd.sce.tests.validation.AceTemporalDefaultValueRuleTest;
+import com.tibco.xpd.sce.tests.validation.TerminalStateValidationTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -65,11 +71,17 @@ public class AllUnitTests {
         /*
          * Validations
          */
+        suite.addTestSuite(
+                AceAllowCrossClassTypeAndCrosssProjectReferenceTest.class);
         suite.addTestSuite(AceBomMigrationValidationsTest.class);
+        suite.addTestSuite(AceCaseAttributesValidationTest.class);
+        suite.addTestSuite(AceCaseServiceValidationRulesTest.class);
         suite.addTestSuite(AceMigratedProcessValidationsTest.class);
         suite.addTestSuite(AceProcessInvalidDataRulesTest.class);
+        suite.addTestSuite(AceProcessTemporalDefaultValueRuleTest.class);
         suite.addTestSuite(AceProcessValidDataRulesTest.class);
-        suite.addTestSuite(AceCaseAttributesValidationTest.class);
+        suite.addTestSuite(AceTemporalDefaultValueRuleTest.class);
+        suite.addTestSuite(TerminalStateValidationTest.class);
 
         /*
          * Miscellaneous
@@ -78,6 +90,7 @@ public class AllUnitTests {
         suite.addTestSuite(BpmProjectMustBeCeTest.class);
 
         suite.addTestSuite(BRMGenUC2FTest.class);
+        suite.addTestSuite(GenerateRascTaskTest.class);
 
         /*
          * Related Legacy Studio tests moved to SCE once proved work
