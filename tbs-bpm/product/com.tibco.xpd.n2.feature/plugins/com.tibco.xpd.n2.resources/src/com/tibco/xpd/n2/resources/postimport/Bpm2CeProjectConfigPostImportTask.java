@@ -642,6 +642,10 @@ public class Bpm2CeProjectConfigPostImportTask
             userBomFolder = projectConfig.getProject().getFolder(
                     Messages.Bpm2CeProjectConfigPostImportTask_BusinessObjectsFolderName_label);
 
+            if (!userBomFolder.exists()) {
+                userBomFolder.create(true, true, null);
+            }
+
             userBomSpecialFolder = specialFolders.addFolder(userBomFolder,
                     BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND);
 
