@@ -50,15 +50,6 @@ public class WpModelsRascContributor implements RascContributor {
      */
     @Override
     public boolean hasContributionsFor(IProject aProject) {
-
-        /*
-         * TODO ACE-1031 - prevent WP RASC content by default - remove this when
-         * there is a real Work-Presentation service.
-         */
-        if (!"true".equalsIgnoreCase(System.getProperty("tibco.forms.rasc"))) {
-            return false;
-        }
-
         return TRANSFORMER.projectHasRelevantContent(aProject);
     }
 
