@@ -132,10 +132,10 @@ public class CaseServicePropertySection extends ProcessPropertySection {
              * @return
              */
             @Override
-            protected List<Object> getApplicableInterfaces(
+            protected List<ProcessInterface> getApplicableInterfaces(
                     ProcessInterfaceGroup interfaceGroup) {
 
-                List<Object> processInterfaces = new ArrayList<Object>();
+                List<ProcessInterface> processInterfaces = new ArrayList<>();
 
                 List<?> children = interfaceGroup.getChildren();
                 /*
@@ -148,7 +148,7 @@ public class CaseServicePropertySection extends ProcessPropertySection {
 
                         if (Xpdl2ModelUtil.isProcessInterface(
                                 (ProcessInterface) object)) {
-                            processInterfaces.add(object);
+                            processInterfaces.add((ProcessInterface) object);
                         }
                     }
                 }
