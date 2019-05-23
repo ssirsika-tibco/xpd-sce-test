@@ -82,12 +82,10 @@
          <!--Global Data-->
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.ModelTagValidationRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.CaseIdentifierValidationRule"/>
-         <rule class="com.tibco.xpd.bom.validator.rules.globaldata.GeneralizationEndsRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.AggregationEndsRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.AssociationEndsRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.AssociationEndsRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.CompositionEndsRule"/>
-         <rule class="com.tibco.xpd.bom.validator.rules.globaldata.AttributeClassTypeReferenceRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.CaseIdTypeRestrictionRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.CaseIdAttributeRequiredRule"/>
          <rule class="com.tibco.xpd.bom.validator.rules.globaldata.CaseIdAttributeRestrictionRule"/>
@@ -233,24 +231,8 @@
                id="bom.globaldata.aggregation.remove.resolution">
          </resolution>
       </issue>
-      <issue
-            id="bom.globaldata.generalization.intrabom.issue"
-            message="%globaldataBOM.generalizationtypes.intrabom.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.generalization.remove.resolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bom.globaldata.generalization.intrabom.mutable.issue"
-            message="%globaldataBOM.generalizationtypes.intrabom.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.generalization.remove.resolution">
-         </resolution>
-      </issue>
+
+
       <issue
             id="bom.globaldata.generalization.interbom.issue"
             message="%globaldataBOM.generalizationtypes.interbom.issue.message"
@@ -260,15 +242,7 @@
                id="bom.globaldata.generalization.remove.resolution">
          </resolution>
       </issue>
-      <issue
-            id="bom.globaldata.generalization.interbom.bdpnonbdp.issue"
-            message="%globaldataBOM.generalizationtypes.interbom.bdpnonbdp.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.generalization.remove.resolution">
-         </resolution>
-      </issue>
+
       <issue
             id="bom.globaldata.generalization.interbom.mutable.extraneous.issue"
             message="%globaldataBOM.generalizationtypes.interbom.issue.message"
@@ -296,6 +270,7 @@
                id="bom.globaldata.aggregation.remove.resolution">
          </resolution>
       </issue>
+
       <issue
             id="bom.globaldata.composition.bidirectional.unsupported.issue"
             message="%globaldataBOM.composition.bidirectional.issue.message"
@@ -346,63 +321,7 @@
                id="bom.globaldata.aggregation.remove.resolution">
          </resolution>
       </issue>     
-      <issue
-            id="bom.globaldata.composition.unidirectional.intrabom.issue"
-            message="%globaldataBOM.composition.unidirectional.intrabom.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.composition.remove.resolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bom.globaldata.composition.unidirectional.intrabom.mutable.issue"
-            message="%globaldataBOM.composition.unidirectional.intrabom.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.composition.remove.resolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bom.globaldata.composition.unidirectional.interbom.issue"
-            message="%globaldataBOM.composition.unidirectional.interbom.issue.message"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="false"
-               id="bom.globaldata.attribute.composition.remove.resolution">
-         </resolution>
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.unidirectional.interbom.issue"
-            message="%globaldataBOM.attribute.composition.unidirectional.interbom.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.unidirectional.interbom.bdpnonbdp.issue"
-            message="%globaldataBOM.attribute.composition.unidirectional.interbom.bdpnonbdp.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.unidirectional.intrabom.issue"
-            message="%globaldataBOM.attribute.composition.unidirectional.intrabom.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.enumeration.interbom.issue"
-            message="%globaldataBOM.attribute.composition.enumeration.interbom.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.enumeration.interbom.bdpnonbdp.issue"
-            message="%globaldataBOM.attribute.composition.enumeration.interbom.bdpnonbdp.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bom.globaldata.attribute.composition.primitivetype.interbom.issue"
-            message="%globaldataBOM.attribute.composition.primitivetype.interbom.issue.message"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="bom.globaldata.attribute.composition.primitivetype.interbom.bdpnonbdp.issue"
             message="%globaldataBOM.attribute.composition.primitivetype.interbom.bdpnonbdp.issue.message"
