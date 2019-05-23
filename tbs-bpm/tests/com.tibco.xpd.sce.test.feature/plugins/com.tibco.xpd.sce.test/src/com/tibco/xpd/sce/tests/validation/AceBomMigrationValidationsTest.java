@@ -350,7 +350,7 @@ public class AceBomMigrationValidationsTest
                                 "/BPMProjectMigration_BOMValidations/Business Objects/UnsupportedAttribTypes.bom", //$NON-NLS-1$
                                 "attributeTypeNotSet.issue", //$NON-NLS-1$
                                 "_AmmKUHu8EemmA9mKLpVYNw", //$NON-NLS-1$
-                                "BPM  : Attribute must has a type selected (undefinedTypeAttr (com.example.unsupportedattribtypes))", //$NON-NLS-1$
+                                "BPM  : Attribute must have a type selected (undefinedTypeAttr (com.example.unsupportedattribtypes))", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
                 };
