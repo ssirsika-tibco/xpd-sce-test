@@ -1,17 +1,17 @@
 package com.tibco.bx.validation.validator;
 
-import antlr.Token;
-import antlr.collections.AST;
-
-import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 public class N2NewExpressionValidator extends N2ExpressionValidator {
 
+    @Override
     public void validate(AST newExpressionAST, Token token) {
         delegateEvaluateExpression(newExpressionAST, token);
     }
@@ -22,7 +22,8 @@ public class N2NewExpressionValidator extends N2ExpressionValidator {
                 createScriptRelevantData(JsConsts.UNDEFINED_DATA_TYPE,
                         JsConsts.UNDEFINED_DATA_TYPE,
                         false,
-                        null, null);
+                        null,
+                        null);
         if (expression != null) {
             Object expr = expression.getExpr();
             Object token = expression.getToken();
@@ -30,9 +31,6 @@ public class N2NewExpressionValidator extends N2ExpressionValidator {
                 AST newExpressionAST = (AST) expr;
                 switch (newExpressionAST.getType()) {
                 case JScriptTokenTypes.LITERAL_new:
-                    String errorMessage =
-                            Messages.N2ExpressionValidator_NewExpressionsAreNotAllowedWhenDestinationIs;
-                    addErrorMessage((Token) token, errorMessage);
                     AST astFirsChild = newExpressionAST.getFirstChild();
                     if (astFirsChild != null) {
                         IValidateResult delegateEvaluateExpression =
@@ -52,10 +50,10 @@ public class N2NewExpressionValidator extends N2ExpressionValidator {
                 }
             }
         }
-        IValidateResult result =
-                updateResult(expression,
-                        returnDataType,
-                        createGenericContext(returnDataType, isGenericContextArray(returnDataType, returnDataType)));
+        IValidateResult result = updateResult(expression,
+                returnDataType,
+                createGenericContext(returnDataType,
+                        isGenericContextArray(returnDataType, returnDataType)));
         return result;
     }
 

@@ -2233,9 +2233,6 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                     isReadOnly,
                     extendedInfo);
         }
-        if (matchingProperty != null && matchingProperty.isArray()) {
-            isReadOnly = true;
-        }
         if (matchingProperty instanceof ITypeResolution) {
             if (isContextReadOnly) {
                 isReadOnly = isContextReadOnly;

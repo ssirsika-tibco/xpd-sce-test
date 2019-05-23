@@ -86,8 +86,6 @@ public class Messages extends NLS {
 
     public static String SynchronizeThrowSignalPayloadsResolution_UnnamedTag_label;
 
-    public static String N2ExpressionValidator_NewExpressionsAreNotAllowedWhenDestinationIs;
-
     public static String N2ExpressionValidator_WrongParameterNumber_Passed;
 
     public static String N2ExpressionValidator_ExpectedParameterOnIndex;
@@ -195,8 +193,6 @@ public class Messages extends NLS {
     public static String RetriesManagementRule_RetryPeriodIncrement;
 
     public static String N2ConditionalExprValidator_Unable_to_validateConditionalExpression;
-
-    public static String N2ExpressionValidator_ArrayIndexNotSupported;
 
     public static String N2FunctionStatementValidator_LastStatementReturn;
 

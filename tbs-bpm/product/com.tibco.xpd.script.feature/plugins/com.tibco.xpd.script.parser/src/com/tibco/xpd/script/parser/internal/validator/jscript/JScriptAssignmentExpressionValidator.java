@@ -6,9 +6,6 @@ package com.tibco.xpd.script.parser.internal.validator.jscript;
 import java.util.ArrayList;
 import java.util.List;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
@@ -18,14 +15,17 @@ import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 /**
  * 
  * Expression validator for the validation of assignment expressions
  * 
  * @author mtorres
  */
-public class JScriptAssignmentExpressionValidator extends
-        AbstractExpressionValidator {
+public class JScriptAssignmentExpressionValidator
+        extends AbstractExpressionValidator {
 
     @Override
     public IValidateResult evaluate(IExpr expression) {
@@ -48,7 +48,8 @@ public class JScriptAssignmentExpressionValidator extends
                     if (lhsExpression != null) {
                         // Evaluate LHS expression
                         IValidateResult evaluateLHS =
-                                delegateEvaluateExpression(lhsExpression, token);
+                                delegateEvaluateExpression(lhsExpression,
+                                        token);
                         if (evaluateLHS != null) {
                             evaluateLHSAssignment(evaluateLHS, (Token) token);
                             lhsDataType = evaluateLHS.getType();
@@ -87,10 +88,9 @@ public class JScriptAssignmentExpressionValidator extends
                 }
             }
         }
-        IValidateResult result =
-                updateResult(expression,
-                        returnDataType,
-                        JScriptUtils.getCurrentGenericContext(returnDataType));
+        IValidateResult result = updateResult(expression,
+                returnDataType,
+                JScriptUtils.getCurrentGenericContext(returnDataType));
         return result;
     }
 
@@ -103,7 +103,9 @@ public class JScriptAssignmentExpressionValidator extends
     protected void performExtraAssignmentValidation(
             IValidateResult lhsValidateResult,
             IValidateResult rhsValidateResult, Token token) {
-        validateSuperTypeAssignment(lhsValidateResult, rhsValidateResult, token);
+        validateSuperTypeAssignment(lhsValidateResult,
+                rhsValidateResult,
+                token);
         // validateTypeRestrictions(lhsValidateResult, rhsValidateResult,
         // token);
     }
@@ -116,10 +118,10 @@ public class JScriptAssignmentExpressionValidator extends
             String warningMessage =
                     Messages.JScriptAssignmentExpressionValidator_AssignmentOfSuperclassToSubClass;
             List<String> additionalAttributes = new ArrayList<String>();
-            additionalAttributes.add(parseTypeMessage(rhsValidateResult
-                    .getType()));
-            additionalAttributes.add(parseTypeMessage(lhsValidateResult
-                    .getType()));
+            additionalAttributes
+                    .add(parseTypeMessage(rhsValidateResult.getType()));
+            additionalAttributes
+                    .add(parseTypeMessage(lhsValidateResult.getType()));
             addWarningMessage(token, warningMessage, additionalAttributes);
         }
     }
