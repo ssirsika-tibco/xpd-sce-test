@@ -8,7 +8,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -45,7 +44,7 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
 
     private Label errorMessage;
 
-    private IProgressMonitor monitor;
+    private ProgressBarMonitor monitor;
 
     private boolean hasErrors;
 
@@ -216,10 +215,21 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
         monitor.done();
         // Enable launch button
         if (!hasErrors) {
+            monitor.setTaskName(Messages.ProgressBarMonitor_ExportComplete);
             Shell shell = getShell();
             if (shell != null && !shell.isDisposed()) {
                 shell.getDisplay().asyncExec(() -> {
                     setPageComplete(true);
+                });
+            }
+        } else {
+            monitor.setTaskName(
+                    Messages.RascExportStatusPage_ProblemsFinish_status);
+
+            Shell shell = getShell();
+            if (shell != null && !shell.isDisposed()) {
+                shell.getDisplay().asyncExec(() -> {
+                    monitor.setState(SWT.ERROR);
                 });
             }
         }

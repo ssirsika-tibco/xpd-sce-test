@@ -9,8 +9,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 
-import com.tibco.xpd.rasc.ui.internal.Messages;
-
 /**
  * Progress monitor that can be linked to a ProgressBar and Label.
  *
@@ -58,7 +56,7 @@ public class ProgressBarMonitor implements IProgressMonitor {
     public void done() {
         bar.getDisplay().syncExec(() -> {
             bar.setSelection(totalWork);
-            label.setText(Messages.ProgressBarMonitor_ExportComplete);
+
         });
     }
 
@@ -125,6 +123,18 @@ public class ProgressBarMonitor implements IProgressMonitor {
         Display display = bar.getDisplay();
         if (display != null && !display.isDisposed()) {
             display.syncExec(() -> bar.setSelection(current));
+        }
+    }
+
+    /**
+     * Set the colour of the bar.
+     * 
+     * @param state
+     *            see {@link ProgressBar}
+     */
+    public void setState(int state) {
+        if (bar != null && !bar.isDisposed()) {
+            bar.setState(state);
         }
     }
 
