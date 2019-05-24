@@ -1,0 +1,81 @@
+Mac Tel Project:
+                                 Proc's   BOMs       size (b)
+BusinessData                               27         750,186
+OrderProductDelivery                2                  60,746
+RestServices                                            4,892
+ServiceDeliveryBOM                          6         482,291
+ServiceDeliveryBuild               11               2,321,115
+ServiceDeliveryBundle              11               1,312,690
+ServiceDeliveryHostingBundle       12               3,467,184
+ServiceDeliveryOrg                                     36,646
+ServiceDeliveryProduct             28               8,644,477
+ServicesTester                     40                 427,944
+Services_v1.0                      20                 572,416
+Utilities                           5                 119,211
+UtilitiesTester                    14                 137,526
+                                  ===      ==      ========== 
+                                  143      33      18,337,324 bytes
+
+
+RestServices                        -> Time: n/a
+ServiceDeliveryBOM                  -> Time: 00.483   00.574   00.487     18,324 
+ServiceDeliveryOrg                  -> Time: 00.055   00.061   00.065      2,344 
+BusinessData                        -> Time: 00.112   00.121   00.096     10,621 
+Utilities                           -> Time: 01.632   01.711   01.688      9,501 
+UtilitiesTester                     -> Time: 00.795   01.138   00.958      5,085 
+Services_v1.0                       -> Time: 02.237   02.074   02.723     10,776 
+OrderProductDelivery                -> Time: 00.021   00.048   00.023      1,561 
+ServicesTester                      -> Time: 01.096   02.505   01.465     23,858 
+ServiceDeliveryHostingBundle        -> Time: 00.069   00.110   00.142     91,069 
+ServiceDeliveryBuild                -> Time: 00.123   00.126   00.103     82,900 
+ServiceDeliveryProduct              -> Time: 00.427   00.192   00.223      2,570 
+ServiceDeliveryBundle               -> Time: 00.066   00.090   00.124     31,506 
+                                             ======   ======   ======    =======
+                                              7.125    8.759    8.105    290,115 bytes
+Total time: 5 minutes 10 seconds
+Total time: 4 minutes 39 seconds
+Total time: 4 minutes 30 seconds
+
+
+AFTER PRE-INITIALIZATION
+------------------------------------------------------------------------
+RestServices                        -> Time: n/a
+ServiceDeliveryBOM                  -> Time: 02.398  00.657
+ServiceDeliveryOrg                  -> Time: 00.051  00.071
+BusinessData                        -> Time: 00.106  00.218
+Utilities                           -> Time: 02.477  01.604
+UtilitiesTester                     -> Time: 00.838  00.887
+Services_v1.0                       -> Time: 01.939  01.720
+OrderProductDelivery                -> Time: 00.024  00.028
+ServicesTester                      -> Time: 01.265  01.184
+ServiceDeliveryHostingBundle        -> Time: 00.069  00.096
+ServiceDeliveryBuild                -> Time: 00.095  00.081
+ServiceDeliveryProduct              -> Time: 00.329  00.382
+ServiceDeliveryBundle               -> Time: 00.095  00.105
+                                             ======  ======
+                                              9.692   7.046
+Total time: 4 minutes 41 seconds
+Total time: 4 minutes 28 seconds
+
+
+Example breakdown of steps (using a watch and monitoring screen)
+Start-up: 1:10
+Import:   0:30
+Build:    2:45
+          ====
+          4:25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

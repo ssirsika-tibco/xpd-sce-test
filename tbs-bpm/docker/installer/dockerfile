@@ -17,6 +17,10 @@ WORKDIR /tmp/tibco
 RUN unzip -q TIB_business-studio-cloud-bpm-edition*.zip && \
     ./TIBCOUniversalInstaller-lnx-x86-64.bin -silent -V responseFile="docker-studio.silent"
 
+# initialize the eclipse configuration - to improve start-up performance
+WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse
+RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
+
 # start a fresh image - in order to reduce final size
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as production
 LABEL maintainer="TIBCO Software Inc" \
@@ -35,7 +39,7 @@ RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
 COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIBCO/studio-cloud-bpm
 
 # copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
+COPY --chown=studio:studio build.xml entrypoint.sh TIBCOBusinessStudio.ini /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECT_DIR   = the folder in which the project to be imported is located
@@ -51,7 +55,8 @@ RUN mkdir -p "$WORKSPACE_DIR" && chown -R studio:studio "$WORKSPACE_DIR" && chmo
 # allow user to supply their own folders (workspace is optional)
 VOLUME $WORKSPACE_DIR $PROJECT_DIR $EXPORT_DIR
 
-# run the ant script
 USER studio:studio
 WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse
+
+# run the ant script
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]

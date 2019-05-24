@@ -5,8 +5,7 @@ if [[ -n "$1" ]] && [[ "$1" = "export" ]]; then
   # run the export ant task
   exec ./ant-runner -f ./build.xml -data $WORKSPACE_DIR -Dworkspace.dir=$WORKSPACE_DIR -Dproject.dir=$PROJECT_DIR -Dexport.dir=$EXPORT_DIR
 
-# otherwise
-elif [[ -z "$1" ]] || [[ "$1" != "export" ]]; then
+else
   # start a studio session
   exec ./TIBCOBusinessStudio -data $WORKSPACE_DIR
 fi
