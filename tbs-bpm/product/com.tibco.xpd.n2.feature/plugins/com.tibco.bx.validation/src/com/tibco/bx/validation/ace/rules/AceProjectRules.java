@@ -5,6 +5,7 @@ import org.eclipse.core.resources.IResource;
 
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.ui.Activator;
+import com.tibco.xpd.om.core.om.util.OMUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -58,8 +59,8 @@ public class AceProjectRules implements
                     hasAssetTypeAndFiles(project,
                             projectConfig,
                             "com.tibco.xpd.asset.om", //$NON-NLS-1$
-                            BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
-                            BOMResourcesPlugin.BOM_FILE_EXTENSION);
+                            OMUtil.OM_SPECIAL_FOLDER_KIND,
+                            OMUtil.OM_FILE_EXTENSION);
 
             if (hasOrgAsset) {
                 if (projectConfig.getAssetTypes().size() != 1) {
