@@ -3385,13 +3385,40 @@ public interface XpdExtensionPackage extends EPackage {
     int REST_SERVICE_RESOURCE__SECURITY_POLICY = 1;
 
     /**
+     * The feature id for the '<em><b>Resource Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_SERVICE_RESOURCE__RESOURCE_NAME = 2;
+
+    /**
+     * The feature id for the '<em><b>Resource Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_SERVICE_RESOURCE__RESOURCE_TYPE = 3;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_SERVICE_RESOURCE__DESCRIPTION = 4;
+
+    /**
      * The number of structural features of the '<em>Rest Service Resource</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE_FEATURE_COUNT = 2;
+    int REST_SERVICE_RESOURCE_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceSecurityImpl <em>Rest Service Resource Security</em>}' class.
@@ -9845,6 +9872,39 @@ public interface XpdExtensionPackage extends EPackage {
     EReference getRestServiceResource_SecurityPolicy();
 
     /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getResourceName <em>Resource Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Resource Name</em>'.
+     * @see com.tibco.xpd.xpdExtension.RestServiceResource#getResourceName()
+     * @see #getRestServiceResource()
+     * @generated
+     */
+    EAttribute getRestServiceResource_ResourceName();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getResourceType <em>Resource Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Resource Type</em>'.
+     * @see com.tibco.xpd.xpdExtension.RestServiceResource#getResourceType()
+     * @see #getRestServiceResource()
+     * @generated
+     */
+    EAttribute getRestServiceResource_ResourceType();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getDescription <em>Description</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Description</em>'.
+     * @see com.tibco.xpd.xpdExtension.RestServiceResource#getDescription()
+     * @see #getRestServiceResource()
+     * @generated
+     */
+    EAttribute getRestServiceResource_Description();
+
+    /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.RestServiceResourceSecurity <em>Rest Service Resource Security</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15070,6 +15130,33 @@ public interface XpdExtensionPackage extends EPackage {
          */
         EReference REST_SERVICE_RESOURCE__SECURITY_POLICY =
                 eINSTANCE.getRestServiceResource_SecurityPolicy();
+
+        /**
+         * The meta object literal for the '<em><b>Resource Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REST_SERVICE_RESOURCE__RESOURCE_NAME =
+                eINSTANCE.getRestServiceResource_ResourceName();
+
+        /**
+         * The meta object literal for the '<em><b>Resource Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REST_SERVICE_RESOURCE__RESOURCE_TYPE =
+                eINSTANCE.getRestServiceResource_ResourceType();
+
+        /**
+         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REST_SERVICE_RESOURCE__DESCRIPTION =
+                eINSTANCE.getRestServiceResource_Description();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceSecurityImpl <em>Rest Service Resource Security</em>}' class.

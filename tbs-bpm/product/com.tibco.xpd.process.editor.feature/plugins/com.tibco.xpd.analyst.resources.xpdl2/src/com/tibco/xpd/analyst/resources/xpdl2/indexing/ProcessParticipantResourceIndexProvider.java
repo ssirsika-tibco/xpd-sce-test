@@ -10,12 +10,15 @@ import java.util.HashMap;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
+import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.indexer.IndexerItemImpl;
 import com.tibco.xpd.resources.internal.indexer.IndexerServiceImpl;
+import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
@@ -39,9 +42,79 @@ public class ProcessParticipantResourceIndexProvider extends
     public static final String PROCESS_PARTICIPANT_INDEXER_ID =
             "com.tibco.xpd.analyst.resources.xpdl2.indexing.participantIndexer"; //$NON-NLS-1$
 
+    /**
+     * Attribute to store shared resource type of the participant.
+     */
+    public static final String ATTRIBUTE_SHARED_RESOURCE_TYPE =
+            "sharedResourceType"; //$NON-NLS-1$
+
+    /**
+     * Attribute to store shared resource end point name of the participant.
+     */
+    public static final String ATTRIBUTE_ENDPOINT_NAME = "endPointName"; //$NON-NLS-1$
+
+    /**
+     * Attribute to store shared resource end point ID of the participant.
+     */
+    public static final String ATTRIBUTE_ENDPOINT_ID = "endPointId"; //$NON-NLS-1$
+
     public ProcessParticipantResourceIndexProvider() {
         super();
     }
+
+    public enum ResourceType {
+        EMAIL(Messages.SharedResourcesSection_EmailEnum_button,
+                XpdExtensionPackage.eINSTANCE
+                        .getParticipantSharedResource_Email(),
+                ""), // //$NON-NLS-1$
+        JDBC(Messages.SharedResourcesSection_JdbcEnum_button,
+                XpdExtensionPackage.eINSTANCE
+                        .getParticipantSharedResource_Jdbc(),
+                ""), // //$NON-NLS-1$
+
+        REST_SERVICE(Messages.SharedResourcesSection_RestServiceEnum_button,
+                XpdExtensionPackage.eINSTANCE
+                        .getParticipantSharedResource_RestService(),
+                "REST Service invocation shared resource."); //$NON-NLS-1$
+
+        private final String label;
+
+        private final EStructuralFeature feature;
+
+        private final String description;
+
+        private ResourceType(String label, EStructuralFeature feature,
+                String description) {
+            this.label = label;
+            this.feature = feature;
+            this.description = description;
+        }
+
+        /**
+         * @return the description
+         */
+        public String getDescription() {
+            return description;
+        }
+
+        public EStructuralFeature getFeature() {
+            return feature;
+        }
+
+        @Override
+        public String toString() {
+            return label;
+        }
+
+        public static ResourceType getByFeature(EStructuralFeature feature) {
+            for (ResourceType r : ResourceType.values()) {
+                if (r.feature == feature) {
+                    return r;
+                }
+            }
+            throw new IllegalArgumentException("Incorrect feature: " + feature); //$NON-NLS-1$
+        }
+    };
 
     /*
      * (non-Javadoc)
@@ -109,6 +182,24 @@ public class ProcessParticipantResourceIndexProvider extends
         map.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
         map.put(Xpdl2ResourcesPlugin.ATTRIBUTE_DISPLAY_NAME, display_name);
         map.put(Xpdl2ResourcesPlugin.ATTRIBUTE_NAME, participant.getName());
+
+        Object psrObj = Xpdl2ModelUtil.getOtherElement(participant,
+                XpdExtensionPackage.eINSTANCE
+                        .getDocumentRoot_ParticipantSharedResource());
+
+        if (psrObj instanceof ParticipantSharedResource) {
+            ParticipantSharedResource psr = (ParticipantSharedResource) psrObj;
+
+            if (null != psr.getRestService()) {
+                map.put(ATTRIBUTE_SHARED_RESOURCE_TYPE,
+                        ResourceType.REST_SERVICE.toString());
+
+                map.put(ATTRIBUTE_ENDPOINT_NAME,
+                        psr.getRestService().getResourceName());
+            }
+        }
+        
+        //type and additional info (endpoint id name), extension point contribution for the indexer.
 
         IndexerItem item =
                 new IndexerItemImpl(name, PROCESS_PARTICIPANT_INDEX_TYPE, uri,

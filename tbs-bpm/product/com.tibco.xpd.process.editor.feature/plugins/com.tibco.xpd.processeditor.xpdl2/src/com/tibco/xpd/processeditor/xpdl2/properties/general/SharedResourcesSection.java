@@ -5,20 +5,25 @@
 package com.tibco.xpd.processeditor.xpdl2.properties.general;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.fieldassist.ContentProposal;
+import org.eclipse.jface.fieldassist.IContentProposal;
+import org.eclipse.jface.fieldassist.IContentProposalProvider;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -26,7 +31,13 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.ScrolledPageBook;
 
+import com.tibco.xpd.analyst.resources.xpdl2.indexing.ProcessParticipantResourceIndexProvider;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
+import com.tibco.xpd.om.core.om.ResourceType;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
+import com.tibco.xpd.processeditor.xpdl2.properties.util.CommandContentAssistTextHandler;
+import com.tibco.xpd.processeditor.xpdl2.properties.util.ContentAssistText;
+import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdExtension.EmailResource;
@@ -49,60 +60,6 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class SharedResourcesSection
         extends AbstractFilteredTransactionalSection {
 
-    enum ResourceType {
-        EMAIL(Messages.SharedResourcesSection_EmailEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_Email(),
-                ""), // //$NON-NLS-1$
-        JDBC(Messages.SharedResourcesSection_JdbcEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_Jdbc(),
-                ""), // //$NON-NLS-1$
-
-        REST_SERVICE(Messages.SharedResourcesSection_RestServiceEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_RestService(),
-                "REST Service invocation shared resource.");
-
-        private final String label;
-
-        private final EStructuralFeature feature;
-
-        private final String description;
-
-        private ResourceType(String label, EStructuralFeature feature,
-                String description) {
-            this.label = label;
-            this.feature = feature;
-            this.description = description;
-        }
-
-        /**
-         * @return the description
-         */
-        public String getDescription() {
-            return description;
-        }
-
-        public EStructuralFeature getFeature() {
-            return feature;
-        }
-
-        @Override
-        public String toString() {
-            return label;
-        }
-
-        public static ResourceType getByFeature(EStructuralFeature feature) {
-            for (ResourceType r : ResourceType.values()) {
-                if (r.feature == feature) {
-                    return r;
-                }
-            }
-            throw new IllegalArgumentException("Incorrect feature: " + feature); //$NON-NLS-1$
-        }
-    };
-
     private List<Button> typeButtons;
 
     private ScrolledPageBook resourceTypeBook;
@@ -116,10 +73,10 @@ public class SharedResourcesSection
     private Button wsOutboundButton;
 
     private Text jdbcProfileNameText;
-
-    private Text restInstanceNameText;
-
-    private RestSecurityPolicySection restPolicy;
+    
+    private Text endPointIdentifierText;
+    
+    private Text endPointIdentifierDescText;
 
     /**
      * @param eClass
@@ -141,7 +98,8 @@ public class SharedResourcesSection
         GridLayoutFactory.swtDefaults().applyTo(typesComposite);
         // Create the types radio buttons
         typeButtons = new ArrayList<Button>();
-        for (ResourceType resourceType : ResourceType.values()) {
+        for (ProcessParticipantResourceIndexProvider.ResourceType resourceType : ProcessParticipantResourceIndexProvider.ResourceType
+                .values()) {
             Button button = toolkit.createButton(typesComposite,
                     resourceType.toString(),
                     SWT.RADIO,
@@ -176,7 +134,8 @@ public class SharedResourcesSection
 
         Point minSize = new Point(0, 0);
 
-        for (ResourceType resourceType : ResourceType.values()) {
+        for (ProcessParticipantResourceIndexProvider.ResourceType resourceType : ProcessParticipantResourceIndexProvider.ResourceType
+                .values()) {
             page = toolkit.createComposite(book.getContainer());
             GridDataFactory.fillDefaults().grab(true, true).applyTo(page);
             // Create pages for each type declaration type
@@ -251,6 +210,119 @@ public class SharedResourcesSection
     }
 
     /**
+     * TODO Content proposal for Enpoint identifier.
+     * 
+     * @author sajain
+     */
+    private static abstract class EndpointIdentifierProposalProvider
+            implements IContentProposalProvider {
+
+        @Override
+        public IContentProposal[] getProposals(String contents, int position) {
+
+            List<ContentProposal> proposals = new ArrayList<ContentProposal>();
+
+            /*
+             * Get all the participants which match the content of the content
+             * assist field
+             */
+            Set<Participant> allParticipants = getParticipantemp();
+
+            for (Participant eachParticipant : allParticipants) {
+
+                String displayName =
+                        Xpdl2ModelUtil.getDisplayName(eachParticipant);
+
+                if (doesProposalMatch(eachParticipant.getName(),
+                        contents,
+                        position)) {
+
+                    proposals.add(
+                            new ContentProposal(eachParticipant.getName(),
+                                    displayName));
+                }
+            }
+
+            return proposals.toArray(new IContentProposal[proposals.size()]);
+        }
+
+        /**
+         * Get the input of the section.
+         * 
+         * @return
+         */
+        protected abstract Participant getInput();
+
+        /**
+         * Get all Case class reference data types that are in scope of the
+         * input object.
+         * 
+         * @return
+         */
+        private Set<Participant> getParticipantemp() {
+
+            Set<Participant> items = new HashSet<Participant>();
+
+            List<Participant> participants = new ArrayList<Participant>();
+
+            // List<Participant> participants = get all participants here;
+
+            for (Participant eachParticipant : participants) {
+
+                if (eachParticipant != null) {
+
+
+                    items.add(eachParticipant);
+                }
+            }
+
+            return items;
+        }
+
+        /**
+         * Check if the value matches the content assist proposal.
+         * 
+         * @param value
+         * @param contentAssistContents
+         * @param contentAssistPosition
+         * @return
+         */
+        public boolean doesProposalMatch(String value,
+                String contentAssistContents, int contentAssistPosition) {
+
+            if (value != null && !value.isEmpty()
+                    && contentAssistContents != null
+                    && !contentAssistContents.isEmpty()) {
+                String toMatch = null;
+
+                if (!contentAssistContents.isEmpty()) {
+                    toMatch = contentAssistPosition > 0
+                            ? contentAssistContents.substring(0,
+                                    contentAssistPosition)
+                            : contentAssistContents;
+                }
+
+                return toMatch == null || value.startsWith(toMatch);
+            }
+
+            return true;
+        }
+
+    }
+
+    /**
+     * Provides the same functionality for ContentAssistText fields as the
+     * manageControl methods in AbstractXpdSection do for SWT Controls.
+     * 
+     * @param control
+     *            The content assist control to manage.
+     */
+    protected void manageControl(final ContentAssistText control) {
+
+        new CommandContentAssistTextHandler(control, this);
+    }
+
+    /**
      * Creates the REST Service shared resource property page.
      * 
      * @param page
@@ -262,21 +334,53 @@ public class SharedResourcesSection
                 Messages.SharedResourcesSection_RestResourceDesc);
         GridDataFactory.swtDefaults().span(2, 1).indent(5, 0)
                 .applyTo(description);
-        Label invokeLabel = toolkit.createLabel(page,
-                Messages.SharedResourcesSection_RestInvokeUsingLabel);
-        GridDataFactory.swtDefaults().span(2, 1).applyTo(invokeLabel);
-        Label clientLabel = toolkit.createLabel(page,
-                Messages.SharedResourcesSection_RestClientInstanceLabel);
-        GridDataFactory.swtDefaults().applyTo(clientLabel);
-        restInstanceNameText = toolkit.createText(page, ""); //$NON-NLS-1$
+        
+        Label endPointIdentifierLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierLabel);
+        GridDataFactory.swtDefaults().applyTo(endPointIdentifierLabel);
+
+        /*
+         * Content assist text control to enter case reference data.
+         */
+        // ContentAssistText contentAssistText = new ContentAssistText(page,
+        // toolkit, new EndpointIdentifierProposalProvider() {
+        //
+        // @Override
+        // protected Participant getInput() {
+        //
+        // EObject input =
+        // SharedResourcesSection.this.getInput();
+        //
+        // return (Participant) (input instanceof Participant
+        // ? input
+        // : null);
+        // }
+        // });
+        //
+        // manageControl(contentAssistText);
+
+        /*
+         * Get the text control from the content assist text control.
+         */
+        // endPointIdentifierText = contentAssistText.getText();
+
+        endPointIdentifierText = toolkit.createText(page, ""); //$NON-NLS-1$
         GridDataFactory.fillDefaults().grab(true, false)
-                .applyTo(restInstanceNameText);
+                .applyTo(endPointIdentifierText);
 
-        restPolicy = new RestSecurityPolicySection(
-                XpdExtensionPackage.eINSTANCE.getRestServiceResource());
-        restPolicy.createControls(page, toolkit);
+        endPointIdentifierText.setToolTipText(
+                Messages.SharedResourcesSection_EndpointIdentifierTooltip);
 
-        manageControlUpdateOnDeactivate(restInstanceNameText);
+        GridData gd1 = new GridData(GridData.FILL_HORIZONTAL);
+        gd1.horizontalIndent = -6;
+        // contentAssistText.setLayoutData(gd1);
+
+        Label endPointIdentifierDescLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierDescLabel);
+        GridDataFactory.swtDefaults().applyTo(endPointIdentifierDescLabel);
+        endPointIdentifierDescText = toolkit.createText(page, ""); //$NON-NLS-1$
+        GridDataFactory.fillDefaults().grab(true, false).applyTo(endPointIdentifierDescText);
+
+        manageControlUpdateOnDeactivate(endPointIdentifierText);
+        manageControlUpdateOnDeactivate(endPointIdentifierDescText);
     }
 
     /**
@@ -288,8 +392,9 @@ public class SharedResourcesSection
         if (typeButtons.contains(obj)) {
             Button button = (Button) obj;
             if (button.getSelection()) { // is selected
-                final ResourceType resourceType =
-                        (ResourceType) button.getData();
+                final ProcessParticipantResourceIndexProvider.ResourceType resourceType =
+                        (ProcessParticipantResourceIndexProvider.ResourceType) button
+                                .getData();
                 RecordingCommand cmd = new RecordingCommand(
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
@@ -381,26 +486,55 @@ public class SharedResourcesSection
                 }
             }
         }
-        if (obj == restInstanceNameText) {
+        
+        if (obj == endPointIdentifierText) {
+          final ParticipantSharedResource sr =
+                  getSetParticipantSharedResource(participant, false);
+            if (null != sr && null != sr.getRestService()) {
+              Text tc = (Text) obj;
+              final String text = tc.getText();
+
+                Collection<IndexerItem> s =
+                        ProcessUIUtil.getAllParticipantIndexerItems();
+
+              /*
+               * Don't exec command if text is "" and no ext
+               * attrib set yet - can confuse the SharedResourceUtil check
+               * for same configs.
+               */
+              if (!nullSafe(text).equals(nullSafe(
+                        sr.getRestService().getResourceName()))) {
+                  return new RecordingCommand(
+                          (TransactionalEditingDomain) getEditingDomain()) {
+                      @Override
+                      protected void doExecute() {
+                            sr.getRestService().setResourceName(
+                                  text.length() > 0 ? text : null);
+                      }
+                  };
+                }
+            }
+        }
+
+        if (obj == endPointIdentifierDescText) {
             final ParticipantSharedResource sr =
                     getSetParticipantSharedResource(participant, false);
-            if (sr != null && sr.getRestService() != null) {
+            if (null != sr && null != sr.getRestService()) {
                 Text tc = (Text) obj;
                 final String text = tc.getText();
 
+                RestServiceResource rsr = sr.getRestService();
+
                 /*
-                 * Sid XPD-7543 Don't exec command if text is "" and no ext
-                 * attrib set yet - can confuses the SharedResourceUtil check
-                 * for same configs.
+                 * Don't exec command if text is "" and no ext attrib set yet -
+                 * can confuse the SharedResourceUtil check for same configs.
                  */
-                if (!nullSafe(text).equals(nullSafe(
-                        sr.getRestService().getHttpClientInstanceName()))) {
+                if (!nullSafe(text).equals(nullSafe(rsr.getDescription()))) {
                     return new RecordingCommand(
                             (TransactionalEditingDomain) getEditingDomain()) {
                         @Override
                         protected void doExecute() {
-                            sr.getRestService().setHttpClientInstanceName(
-                                    text.length() > 0 ? text : null);
+                            rsr.setDescription(text.length() > 0 ? text : null);
                         }
                     };
                 }
@@ -452,7 +586,8 @@ public class SharedResourcesSection
                      * corresponding page in the book.
                      */
 
-                    ResourceType resType = getResourceType(sharedResource);
+                    ProcessParticipantResourceIndexProvider.ResourceType resType =
+                            getResourceType(sharedResource);
 
                     for (Button typeButton : typeButtons) {
 
@@ -483,16 +618,16 @@ public class SharedResourcesSection
      * @return {@link ResourceType} for the given
      *         {@link ParticipantSharedResource}
      */
-    private ResourceType getResourceType(
+    private ProcessParticipantResourceIndexProvider.ResourceType getResourceType(
             ParticipantSharedResource sharedResource) {
         if (sharedResource.getEmail() != null) {
-            return ResourceType.EMAIL;
+            return ProcessParticipantResourceIndexProvider.ResourceType.EMAIL;
         }
         if (sharedResource.getJdbc() != null) {
-            return ResourceType.JDBC;
+            return ProcessParticipantResourceIndexProvider.ResourceType.JDBC;
         }
         if (sharedResource.getRestService() != null) {
-            return ResourceType.REST_SERVICE;
+            return ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE;
         }
 
         return null;
@@ -511,12 +646,19 @@ public class SharedResourcesSection
                     nullSafe(sharedResource.getJdbc().getInstanceName()));
             jdbcProfileNameText.setText(
                     nullSafe(sharedResource.getJdbc().getJdbcProfileName()));
-        } else if (sharedResource.getRestService() != null) {
+        }
+        else if (sharedResource.getRestService() != null) {
             RestServiceResource restService = sharedResource.getRestService();
-            restInstanceNameText
-                    .setText(nullSafe(restService.getHttpClientInstanceName()));
-            restPolicy.setInput(Collections.singleton(restService));
-            restPolicy.refresh();
+            if (restService.getResourceName() != null) {
+                String resName =
+                        restService.getResourceName();
+                endPointIdentifierText.setText(resName);
+            }
+            if (restService.getDescription() != null) {
+                String resDesc = restService.getDescription();
+                endPointIdentifierDescText.setText(resDesc);
+            }
+
         }
     }
 

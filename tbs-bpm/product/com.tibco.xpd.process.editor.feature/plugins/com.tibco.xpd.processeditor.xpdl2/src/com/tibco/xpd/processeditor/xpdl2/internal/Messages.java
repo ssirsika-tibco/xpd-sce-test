@@ -1581,6 +1581,12 @@ public class Messages extends NLS {
     public static String SharedResourcesSection_WebServiceConsumerEnum_button;
 
     public static String SharedResourcesSection_RestClientInstanceLabel;
+    
+    public static String SharedResourcesSection_EndpointIdentifierLabel;
+    
+    public static String SharedResourcesSection_EndpointIdentifierDescLabel;
+
+    public static String SharedResourcesSection_EndpointIdentifierTooltip;
 
     public static String SharedResourcesSection_RestInvokeUsingLabel;
 

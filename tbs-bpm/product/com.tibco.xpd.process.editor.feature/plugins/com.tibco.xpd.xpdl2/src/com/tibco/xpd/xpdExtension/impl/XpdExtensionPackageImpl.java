@@ -3935,6 +3935,36 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getRestServiceResource_ResourceName() {
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
+                .get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRestServiceResource_ResourceType() {
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
+                .get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRestServiceResource_Description() {
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
+                .get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getRestServiceResourceSecurity() {
         return restServiceResourceSecurityEClass;
     }
@@ -6606,6 +6636,12 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME);
         createEReference(restServiceResourceEClass,
                 REST_SERVICE_RESOURCE__SECURITY_POLICY);
+        createEAttribute(restServiceResourceEClass,
+                REST_SERVICE_RESOURCE__RESOURCE_NAME);
+        createEAttribute(restServiceResourceEClass,
+                REST_SERVICE_RESOURCE__RESOURCE_TYPE);
+        createEAttribute(restServiceResourceEClass,
+                REST_SERVICE_RESOURCE__DESCRIPTION);
 
         restServiceResourceSecurityEClass =
                 createEClass(REST_SERVICE_RESOURCE_SECURITY);
@@ -11060,6 +11096,51 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE,
                 IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getRestServiceResource_ResourceName(),
+                theXMLTypePackage.getString(),
+                "resourceName", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                RestServiceResource.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getRestServiceResource_ResourceType(),
+                theXMLTypePackage.getString(),
+                "resourceType", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                RestServiceResource.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getRestServiceResource_Description(),
+                theXMLTypePackage.getString(),
+                "description", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                RestServiceResource.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
 
@@ -15876,6 +15957,21 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "SecurityPolicy", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
+        addAnnotation(getRestServiceResource_ResourceName(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "resourceName" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getRestServiceResource_ResourceType(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "resourceType" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getRestServiceResource_Description(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "Description" //$NON-NLS-1$ //$NON-NLS-2$
+                });
         addAnnotation(getRestServiceResourceSecurity_PolicyType(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
@@ -17149,7 +17245,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     protected void createExtendedMetaData_1Annotations() {
-        String source = "ExtendedMetaData"; //$NON-NLS-1$	
+        String source = "ExtendedMetaData"; //$NON-NLS-1$
         addAnnotation(discriminatorEClass,
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$

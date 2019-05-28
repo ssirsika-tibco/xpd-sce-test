@@ -32,6 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getHttpClientInstanceName <em>Http Client Instance Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getSecurityPolicy <em>Security Policy</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getResourceName <em>Resource Name</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getResourceType <em>Resource Type</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +79,66 @@ public class RestServiceResourceImpl extends EObjectImpl
      * @ordered
      */
     protected EList<RestServiceResourceSecurity> securityPolicy;
+
+    /**
+     * The default value of the '{@link #getResourceName() <em>Resource Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResourceName()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getResourceName() <em>Resource Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResourceName()
+     * @generated
+     * @ordered
+     */
+    protected String resourceName = RESOURCE_NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getResourceType() <em>Resource Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResourceType()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_TYPE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getResourceType() <em>Resource Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResourceType()
+     * @generated
+     * @ordered
+     */
+    protected String resourceType = RESOURCE_TYPE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
+    protected static final String DESCRIPTION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
+    protected String description = DESCRIPTION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -139,6 +202,75 @@ public class RestServiceResourceImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getResourceName() {
+        return resourceName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setResourceName(String newResourceName) {
+        String oldResourceName = resourceName;
+        resourceName = newResourceName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME,
+                    oldResourceName, resourceName));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setResourceType(String newResourceType) {
+        String oldResourceType = resourceType;
+        resourceType = newResourceType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE,
+                    oldResourceType, resourceType));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDescription(String newDescription) {
+        String oldDescription = description;
+        description = newDescription;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION,
+                    oldDescription, description));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd,
             int featureID, NotificationChain msgs) {
@@ -162,6 +294,12 @@ public class RestServiceResourceImpl extends EObjectImpl
             return getHttpClientInstanceName();
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             return getSecurityPolicy();
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
+            return getResourceName();
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
+            return getResourceType();
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
+            return getDescription();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -183,6 +321,15 @@ public class RestServiceResourceImpl extends EObjectImpl
             getSecurityPolicy().addAll(
                     (Collection<? extends RestServiceResourceSecurity>) newValue);
             return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
+            setResourceName((String) newValue);
+            return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
+            setResourceType((String) newValue);
+            return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
+            setDescription((String) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -200,6 +347,15 @@ public class RestServiceResourceImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             getSecurityPolicy().clear();
+            return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
+            setResourceName(RESOURCE_NAME_EDEFAULT);
+            return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
+            setResourceType(RESOURCE_TYPE_EDEFAULT);
+            return;
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
+            setDescription(DESCRIPTION_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -220,6 +376,15 @@ public class RestServiceResourceImpl extends EObjectImpl
                             .equals(httpClientInstanceName);
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             return securityPolicy != null && !securityPolicy.isEmpty();
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
+            return RESOURCE_NAME_EDEFAULT == null ? resourceName != null
+                    : !RESOURCE_NAME_EDEFAULT.equals(resourceName);
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
+            return RESOURCE_TYPE_EDEFAULT == null ? resourceType != null
+                    : !RESOURCE_TYPE_EDEFAULT.equals(resourceType);
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
+            return DESCRIPTION_EDEFAULT == null ? description != null
+                    : !DESCRIPTION_EDEFAULT.equals(description);
         }
         return super.eIsSet(featureID);
     }
@@ -234,9 +399,15 @@ public class RestServiceResourceImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (httpClientInstanceName: "); //$NON-NLS-1$
         result.append(httpClientInstanceName);
+        result.append(", resourceName: "); //$NON-NLS-1$
+        result.append(resourceName);
+        result.append(", resourceType: "); //$NON-NLS-1$
+        result.append(resourceType);
+        result.append(", description: "); //$NON-NLS-1$
+        result.append(description);
         result.append(')');
         return result.toString();
     }

@@ -22,6 +22,7 @@
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AllocationType/OfferAll"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AllocationType/OfferOne"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AllocationType/AllocateOne"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AllocationType/AllocateOfferSetMember"/>
     </genEnums>
     <genEnums ecoreEnum="XpdExtension.ecore#//AuditEventType">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AuditEventType/Initiated"/>
@@ -71,6 +72,7 @@
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SecurityPolicy/X509Token"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SecurityPolicy/SamlToken"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SecurityPolicy/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SecurityPolicy/Basic"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//SoapBindingStyle">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SoapBindingStyle/RpcLiteral"/>
@@ -92,10 +94,15 @@
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//Visibility/Private"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//Visibility/Public"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//DeliveryMode">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//DeliveryMode/PERSISTENT"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//DeliveryMode/NON_PERSISTENT"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//XpdModelType">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdModelType/PageFlow"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdModelType/TaskLibrary"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdModelType/DecisionFlow"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdModelType/ServiceProcess"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//AdHocExecutionTypeType">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AdHocExecutionTypeType/Automatic"/>
@@ -121,6 +128,27 @@
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//CMISQueryOperator/NULL"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//CMISQueryOperator/NOT_NULL"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//AsyncExecutionMode">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AsyncExecutionMode/Attached"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//AsyncExecutionMode/Detached"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//SignalType">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SignalType/Local"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SignalType/Global"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SignalType/CaseData"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//XpdInterfaceType">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdInterfaceType/ProcessInterface"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//XpdInterfaceType/ServiceProcessInterface"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//DataMapperArrayInflationType">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//DataMapperArrayInflationType/AppendList"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//DataMapperArrayInflationType/MergeList"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//BusinessServicePublishType">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//BusinessServicePublishType/Desktop"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//BusinessServicePublishType/Mobile"/>
+    </genEnums>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//AuditEventTypeObject"/>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//SecurityPolicyObject"/>
     <genDataTypes ecoreDataType="XpdExtension.ecore#//SoapBindingStyleObject"/>
@@ -138,6 +166,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//AllocationStrategy/strategy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//AllocationStrategy/reOfferOnClose"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//AllocationStrategy/reOfferOnCancel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//AllocationStrategy/allocateToOfferSetMemberIdentifier"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//AssociatedCorrelationFields">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//AssociatedCorrelationFields/associatedCorrelationField"/>
@@ -305,7 +334,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/adHocTaskConfiguration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/isEventSubProcess"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/nonInterruptingEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/correlateImmediately"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/asyncExecutionMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/signalType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/serviceProcessConfiguration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/likeMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/scriptDataMapper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/likeMappingExclusions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/sourceContributorId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/targetContributorId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/restServiceOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/inputMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/outputMappings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/businessServicePublishType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/suppressMaxMappingsError"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//DurationCalculation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DurationCalculation/years"/>
@@ -341,7 +383,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ErrorThrowerInfo/throwerType"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//EventHandlerInitialisers">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//EventHandlerInitialisers/activityRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//EventHandlerInitialisers/activityRef">
+        <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="Documentation" value="List of initialisers for event handlers"/>
+        </genAnnotations>
+      </genFeatures>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//FaultMessage"/>
     <genClasses ecoreClass="XpdExtension.ecore#//FormImplementation">
@@ -404,6 +450,8 @@
     <genClasses ecoreClass="XpdExtension.ecore#//ProcessInterface">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ProcessInterface/startMethods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ProcessInterface/intermediateMethods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ProcessInterface/xpdInterfaceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ProcessInterface/serviceProcessConfiguration"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//ProcessInterfaces">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ProcessInterfaces/processInterface"/>
@@ -417,14 +465,24 @@
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//RescheduleTimers">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RescheduleTimers/timerSelectionType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//RescheduleTimers/timerEvents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//RescheduleTimers/timerEvents">
+        <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="Documentation" value="List of initialisers for event handlers"/>
+        </genAnnotations>
+      </genFeatures>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//RESTServices">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//RESTServices/RESTServices"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//RestServiceResource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResource/httpClientInstanceName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResource/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//RestServiceResource/securityPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResource/resourceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResource/resourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResource/description"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//RestServiceResourceSecurity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceResourceSecurity/policyType"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//RetainFamiliarActivities">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//RetainFamiliarActivities/activityRef"/>
@@ -445,6 +503,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//SeparationOfDutiesActivities/activityRef"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//SignalData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//SignalData/correlationMappings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//SignalData/dataMappings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//SignalData/rescheduleTimers"/>
     </genClasses>
@@ -537,6 +596,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/inboundDestination"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/outboundDestination"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//WsSoapJmsOutboundBinding/outboundSecurity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/deliveryMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/messageExpiration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//WsSoapJmsOutboundBinding/invocationTimeout"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//WsSoapSecurity">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//WsSoapSecurity/securityPolicy"/>
@@ -689,6 +752,28 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//CaseDocumentQueryExpression/processDataField"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//CaseDocumentQueryExpression/closeBracketCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//CaseDocumentQueryExpression/cmisDocumentPropertySelected"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//ServiceProcessConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ServiceProcessConfiguration/deployToProcessRuntime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ServiceProcessConfiguration/deployToPageflowRuntime"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//ScriptDataMapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ScriptDataMapper/mapperContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//ScriptDataMapper/mappingDirection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ScriptDataMapper/dataMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ScriptDataMapper/unmappedScripts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//ScriptDataMapper/arrayInflationType"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//DataMapperArrayInflation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DataMapperArrayInflation/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DataMapperArrayInflation/mappingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DataMapperArrayInflation/contributorId"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//LikeMappingExclusion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//LikeMappingExclusion/path"/>
+    </genClasses>
+    <genClasses ecoreClass="XpdExtension.ecore#//LikeMappingExclusions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//LikeMappingExclusions/exclusions"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//RestServiceOperation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//RestServiceOperation/location"/>

@@ -68,6 +68,9 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
             super.getPropertyDescriptors(object);
 
             addHttpClientInstanceNamePropertyDescriptor(object);
+            addResourceNamePropertyDescriptor(object);
+            addResourceTypePropertyDescriptor(object);
+            addDescriptionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -89,6 +92,78 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
                         "_UI_RestServiceResource_httpClientInstanceName_feature", //$NON-NLS-1$
                         "_UI_RestServiceResource_type"), //$NON-NLS-1$
                 XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
+    }
+
+    /**
+     * This adds a property descriptor for the Resource Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addResourceNamePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory)
+                        .getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_RestServiceResource_resourceName_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                        "_UI_RestServiceResource_resourceName_feature", //$NON-NLS-1$
+                        "_UI_RestServiceResource_type"), //$NON-NLS-1$
+                XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE__RESOURCE_NAME,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
+    }
+
+    /**
+     * This adds a property descriptor for the Resource Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addResourceTypePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory)
+                        .getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_RestServiceResource_resourceType_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                        "_UI_RestServiceResource_resourceType_feature", //$NON-NLS-1$
+                        "_UI_RestServiceResource_type"), //$NON-NLS-1$
+                XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE__RESOURCE_TYPE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
+    }
+
+    /**
+     * This adds a property descriptor for the Description feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDescriptionPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory)
+                        .getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_RestServiceResource_description_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                        "_UI_RestServiceResource_description_feature", //$NON-NLS-1$
+                        "_UI_RestServiceResource_type"), //$NON-NLS-1$
+                XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE__DESCRIPTION,
                 true,
                 false,
                 false,
@@ -170,6 +245,9 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(RestServiceResource.class)) {
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
+        case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
             fireNotifyChanged(new ViewerNotification(notification,
                     notification.getNotifier(), false, true));
             return;

@@ -740,6 +740,12 @@ public class Messages extends NLS {
 
     public static String DeleteAction_deleteTypeDeclarationsCommand_title;
 
+    public static String SharedResourcesSection_EmailEnum_button;
+
+    public static String SharedResourcesSection_JdbcEnum_button;
+
+    public static String SharedResourcesSection_RestServiceEnum_button;
+
     public static String DNDProcessToPackage_MoveProcessFailedError_desc;
 
     public static String DNDProcessToPackage_MoveProcessWizard_title;
