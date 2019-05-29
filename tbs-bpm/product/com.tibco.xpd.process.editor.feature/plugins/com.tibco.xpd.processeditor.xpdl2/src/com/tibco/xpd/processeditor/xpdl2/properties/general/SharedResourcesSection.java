@@ -13,6 +13,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -226,19 +227,19 @@ public class SharedResourcesSection
              * Get all the participants which match the content of the content
              * assist field
              */
-            Set<Participant> allParticipants = getParticipantemp();
+            Set<IndexerItem> allParticipantIndexerItems = getAllParticipantIndexerItems();
 
-            for (Participant eachParticipant : allParticipants) {
+            for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
 
                 String displayName =
-                        Xpdl2ModelUtil.getDisplayName(eachParticipant);
+                        eachParticipantIndexerItem.getName();
 
-                if (doesProposalMatch(eachParticipant.getName(),
+                if (doesProposalMatch(eachParticipantIndexerItem.getName(),
                         contents,
                         position)) {
 
                     proposals.add(
-                            new ContentProposal(eachParticipant.getName(),
+                            new ContentProposal(eachParticipantIndexerItem.getName(),
                                     displayName));
                 }
             }
@@ -254,29 +255,31 @@ public class SharedResourcesSection
         protected abstract Participant getInput();
 
         /**
-         * Get all Case class reference data types that are in scope of the
-         * input object.
+         * Get all Case class reference participant indexer items that are in
+         * scope of the input object.
          * 
          * @return
          */
-        private Set<Participant> getParticipantemp() {
+        private Set<IndexerItem> getAllParticipantIndexerItems() {
 
-            Set<Participant> items = new HashSet<Participant>();
+            Set<IndexerItem> contentAssistItems = new HashSet<IndexerItem>();
 
-            List<Participant> participants = new ArrayList<Participant>();
+            Collection<IndexerItem> allParticipantIndexerItems =
+                    ProcessUIUtil.getAllParticipantIndexerItems();
 
-            // List<Participant> participants = get all participants here;
+            for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
 
-            for (Participant eachParticipant : participants) {
-
-                if (eachParticipant != null) {
-
-
-                    items.add(eachParticipant);
+                // TODO Filter goes here
+                if (eachParticipantIndexerItem != null
+                        && ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE
+                                .toString()
+                                .equals(eachParticipantIndexerItem.get(
+                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_SHARED_RESOURCE_TYPE))) {
+                    contentAssistItems.add(eachParticipantIndexerItem);
                 }
             }
 
-            return items;
+            return contentAssistItems;
         }
 
         /**
@@ -341,38 +344,33 @@ public class SharedResourcesSection
         /*
          * Content assist text control to enter case reference data.
          */
-        // ContentAssistText contentAssistText = new ContentAssistText(page,
-        // toolkit, new EndpointIdentifierProposalProvider() {
-        //
-        // @Override
-        // protected Participant getInput() {
-        //
-        // EObject input =
-        // SharedResourcesSection.this.getInput();
-        //
-        // return (Participant) (input instanceof Participant
-        // ? input
-        // : null);
-        // }
-        // });
-        //
-        // manageControl(contentAssistText);
+        ContentAssistText contentAssistText = new ContentAssistText(page,
+                toolkit, new EndpointIdentifierProposalProvider() {
+
+                    @Override
+                    protected Participant getInput() {
+
+                        EObject input = SharedResourcesSection.this.getInput();
+
+                        return (Participant) (input instanceof Participant
+                                ? input
+                                : null);
+                    }
+                });
+
+        manageControl(contentAssistText);
 
         /*
          * Get the text control from the content assist text control.
          */
-        // endPointIdentifierText = contentAssistText.getText();
-
-        endPointIdentifierText = toolkit.createText(page, ""); //$NON-NLS-1$
-        GridDataFactory.fillDefaults().grab(true, false)
-                .applyTo(endPointIdentifierText);
+        endPointIdentifierText = contentAssistText.getText();
 
         endPointIdentifierText.setToolTipText(
                 Messages.SharedResourcesSection_EndpointIdentifierTooltip);
 
         GridData gd1 = new GridData(GridData.FILL_HORIZONTAL);
         gd1.horizontalIndent = -6;
-        // contentAssistText.setLayoutData(gd1);
+        contentAssistText.setLayoutData(gd1);
 
         Label endPointIdentifierDescLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierDescLabel);
         GridDataFactory.swtDefaults().applyTo(endPointIdentifierDescLabel);
