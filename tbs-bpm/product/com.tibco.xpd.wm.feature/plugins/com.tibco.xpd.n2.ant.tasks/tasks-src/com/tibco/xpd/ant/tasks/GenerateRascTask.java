@@ -311,17 +311,20 @@ public class GenerateRascTask extends Task {
         try {
             aMonitor.setTaskName(getStartingLabel(aProjects));
 
-            if ((isBuildBeforeGenerating())
-                    && (build(aProjects, aMonitor) != Status.OK_STATUS)) {
-                aMonitor.setTaskName(
-                        "Unable to generate RASC(s) due to errors in project(s)");
-                return;
+            if (isBuildBeforeGenerating()) {
+                IStatus status = build(aProjects, aMonitor);
+                if (status != Status.OK_STATUS) {
+                    aMonitor.setTaskName(
+                            "Unable to generate Deployment Artifact(s). There were errors building the workspace project(s): "
+                                    + status.getMessage());
+                    return;
+                }
             }
 
             // always check for errors - even if we have just done a build
             if (errorsExist(aProjects)) {
                 aMonitor.setTaskName(
-                        "Unable to generate RASC(s) due to errors in project(s)");
+                        "Unable to generate Deployment Artifact(s). There workspace project(s) have problems that need to be resolved first.");
                 return;
             }
 
@@ -533,7 +536,7 @@ public class GenerateRascTask extends Task {
         for (IProject studioProject : aProjects) {
             Set<IProject> referencedProjects = ProjectUtil
                     .getReferencedProjectsHierarchy(studioProject, null);
-            
+
             allProjects.addAll(referencedProjects);
             allProjects.add(studioProject);
         }
