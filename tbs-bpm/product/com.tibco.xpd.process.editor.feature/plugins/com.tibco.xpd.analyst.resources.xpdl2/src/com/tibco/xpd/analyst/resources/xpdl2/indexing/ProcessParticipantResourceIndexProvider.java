@@ -67,15 +67,16 @@ public class ProcessParticipantResourceIndexProvider extends
                 XpdExtensionPackage.eINSTANCE
                         .getParticipantSharedResource_Email(),
                 ""), // //$NON-NLS-1$
-        JDBC(Messages.SharedResourcesSection_JdbcEnum_button,
-                XpdExtensionPackage.eINSTANCE
-                        .getParticipantSharedResource_Jdbc(),
-                ""), // //$NON-NLS-1$
 
         REST_SERVICE(Messages.SharedResourcesSection_RestServiceEnum_button,
                 XpdExtensionPackage.eINSTANCE
                         .getParticipantSharedResource_RestService(),
-                "REST Service invocation shared resource."); //$NON-NLS-1$
+                "REST Service invocation shared resource."), //$NON-NLS-1$
+
+        JDBC(Messages.SharedResourcesSection_JdbcEnum_button,
+                XpdExtensionPackage.eINSTANCE
+                        .getParticipantSharedResource_Jdbc(),
+                ""); // //$NON-NLS-1$
 
         private final String label;
 

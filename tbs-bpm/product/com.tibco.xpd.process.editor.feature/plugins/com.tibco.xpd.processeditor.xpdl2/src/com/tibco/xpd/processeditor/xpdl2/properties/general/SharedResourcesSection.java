@@ -114,6 +114,14 @@ public class SharedResourcesSection
                 button.setToolTipText(description);
             }
 
+            /*
+             * ACE-1371: Saket: User should not be able to create participant of
+             * JDBC type
+             */
+            if (resourceType == ProcessParticipantResourceIndexProvider.ResourceType.JDBC) {
+                button.setVisible(false);
+            }
+
             manageControl(button);
             typeButtons.add(button);
         }
