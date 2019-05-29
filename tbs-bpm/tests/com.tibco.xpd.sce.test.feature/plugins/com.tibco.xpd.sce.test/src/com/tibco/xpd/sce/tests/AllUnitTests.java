@@ -20,6 +20,7 @@ import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
+import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
@@ -82,6 +83,7 @@ public class AllUnitTests {
         suite.addTestSuite(AceProcessValidDataRulesTest.class);
         suite.addTestSuite(AceTemporalDefaultValueRuleTest.class);
         suite.addTestSuite(TerminalStateValidationTest.class);
+        suite.addTestSuite(AceBomTextPatternRemovalTest.class);
 
         /*
          * Miscellaneous

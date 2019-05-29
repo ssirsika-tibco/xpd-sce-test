@@ -23,6 +23,9 @@ public interface CDSIssueIds {
     public static final String RESTRICTION_VALUE_ATTRIBUTE_DEFAULT =
             "bom.cds.attribute.restriction.default.issue"; //$NON-NLS-1$
 
+    public static final String RESTRICTION_TEXT_ATTRIBUTE_PATTERN =
+            "bom.cds.attribute.restriction.text.pattern.issue"; //$NON-NLS-1$
+
     public static final String NAME_CLASH_CLASSIFIER_IGNORECASE =
             "bom.cds.name.clash.classifier.ignorecase.issue"; //$NON-NLS-1$
 

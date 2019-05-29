@@ -16,6 +16,7 @@
             scopeProvider="com.tibco.xpd.bom.validator.BOMScopeProvider">
 
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeDefaultValueRule"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeTextPatternRule"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Class"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Package"/>
  	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Enumeration"/>
@@ -290,6 +291,15 @@
             id="bom.cds.attribute.restriction.default.issue"
             message="%cds.attribute.restriction.default.issue.message"
             severity="WARNING">
+      </issue>
+      <issue
+            id="bom.cds.attribute.restriction.text.pattern.issue"
+            message="%cds.attribute.restriction.text.pattern.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.removetextpatternresolution">
+         </resolution>
       </issue>
       <issue
             id="bom.cds.duplicateModelName.issue"
@@ -654,6 +664,11 @@
             id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType"
             label="%makepropertytexttype_resolution_label">
       </resolution>      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.RemoveTextPatternResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.removetextpatternresolution"
+            label="%removetextpattern_resolution_label">
+      </resolution>
    </extension>
 
    <extension
