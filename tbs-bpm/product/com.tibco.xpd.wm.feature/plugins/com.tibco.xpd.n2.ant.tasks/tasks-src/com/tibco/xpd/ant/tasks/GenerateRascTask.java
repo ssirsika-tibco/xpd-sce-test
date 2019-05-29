@@ -313,6 +313,15 @@ public class GenerateRascTask extends Task {
 
             if ((isBuildBeforeGenerating())
                     && (build(aProjects, aMonitor) != Status.OK_STATUS)) {
+                aMonitor.setTaskName(
+                        "Unable to generate RASC(s) due to errors in project(s)");
+                return;
+            }
+
+            // always check for errors - even if we have just done a build
+            if (errorsExist(aProjects)) {
+                aMonitor.setTaskName(
+                        "Unable to generate RASC(s) due to errors in project(s)");
                 return;
             }
 
@@ -330,10 +339,9 @@ public class GenerateRascTask extends Task {
                 ep.begin(thisName);
                 try {
                     if (!controller.hasContributionsFor(nextProject)) {
-                        aMonitor.setTaskName(
-                                String.format(
-                                        "Deployment Artifact generation was skipped for project '%1$s' (does not contain deployable content).",
-                                        thisName));
+                        aMonitor.setTaskName(String.format(
+                                "Deployment Artifact generation was skipped for project '%1$s' (does not contain deployable content).",
+                                thisName));
                         ep.end(thisName, Result.SKIPPED.toString());
                         continue;
                     }
@@ -395,33 +403,28 @@ public class GenerateRascTask extends Task {
          * loader cannot load OAW .ext files from bundle's classpath. The used
          * job is synchronous - current thread will on join.
          */
-        Job job =
-                new Job("Deployment Artifact generation for project: "
-                        + aProject.getName()) {
-                    @Override
-                    protected IStatus run(IProgressMonitor aProgress) {
-                        File rascFile;
-                        try {
-                            rascFile = getOutputFile(aProject);
-                            aProgress.setTaskName(
-                                    "Generating Deployment Artifact: "
-                                    + rascFile.getAbsolutePath());
-                            aController.generateRasc(aProject,
-                                    rascFile,
-                                    aProgress);
-                        } catch (Exception e) {
-                            return new Status(IStatus.ERROR,
-                                    XpdResourcesPlugin.ID_PLUGIN, 1,
-                                    "Exception was thrown while generating Deployment Artifact for "
-                                            + aProject.getName(),
-                                    e);
-                        }
-                        return new Status(IStatus.OK,
-                                XpdResourcesPlugin.ID_PLUGIN,
-                                "Generated Deployment Artifact: "
-                                        + rascFile.getAbsolutePath());
-                    }
-                };
+        Job job = new Job("Deployment Artifact generation for project: "
+                + aProject.getName()) {
+            @Override
+            protected IStatus run(IProgressMonitor aProgress) {
+                File rascFile;
+                try {
+                    rascFile = getOutputFile(aProject);
+                    aProgress.setTaskName("Generating Deployment Artifact: "
+                            + rascFile.getAbsolutePath());
+                    aController.generateRasc(aProject, rascFile, aProgress);
+                } catch (Exception e) {
+                    return new Status(IStatus.ERROR,
+                            XpdResourcesPlugin.ID_PLUGIN, 1,
+                            "Exception was thrown while generating Deployment Artifact for "
+                                    + aProject.getName(),
+                            e);
+                }
+                return new Status(IStatus.OK, XpdResourcesPlugin.ID_PLUGIN,
+                        "Generated Deployment Artifact: "
+                                + rascFile.getAbsolutePath());
+            }
+        };
         job.setUser(false);
         job.schedule();
 
@@ -515,7 +518,7 @@ public class GenerateRascTask extends Task {
 
     /**
      * For a given collection of Studio Projects tells whether there are error
-     * level problem markers on it or their referenced projects.
+     * level problem markers on them or their referenced projects.
      * 
      * @param aProjects
      *            collection of projects.
@@ -523,17 +526,19 @@ public class GenerateRascTask extends Task {
      *         project has error marker.
      * @throws CoreException
      */
-    private boolean hasErrorLevelProblemMarkers(Collection<IProject> aProjects)
+    private boolean errorsExist(Collection<IProject> aProjects)
             throws CoreException {
+        // collate all projects and referenced projects
         Set<IProject> allProjects = new HashSet<>();
         for (IProject studioProject : aProjects) {
-            Set<IProject> referencedProjectsHierarchy = new HashSet<>();
-            ProjectUtil.getReferencedProjectsHierarchy(studioProject,
-                    referencedProjectsHierarchy);
-            allProjects.addAll(referencedProjectsHierarchy);
+            Set<IProject> referencedProjects = ProjectUtil
+                    .getReferencedProjectsHierarchy(studioProject, null);
+            
+            allProjects.addAll(referencedProjects);
             allProjects.add(studioProject);
         }
 
+        // search for any error marker
         for (IProject eachProject : allProjects) {
             if (!eachProject.isAccessible()) {
                 continue;
@@ -541,14 +546,14 @@ public class GenerateRascTask extends Task {
             IMarker[] markers = eachProject
                     .findMarkers(null, true, IResource.DEPTH_INFINITE);
             for (IMarker marker : markers) {
-                int severity = marker.getAttribute(IMarker.SEVERITY,
-                        IMarker.SEVERITY_INFO);
-                if (severity == IMarker.SEVERITY_ERROR) {
+                if (marker.getAttribute(IMarker.SEVERITY,
+                        IMarker.SEVERITY_INFO) == IMarker.SEVERITY_ERROR) {
                     // no need to check further
                     return true;
                 }
             }
         }
+
         return false;
     }
 
@@ -596,12 +601,11 @@ public class GenerateRascTask extends Task {
                     String endResult =
                             end.getLabels().length > 0 ? end.getLabels()[0]
                                     : "";
-                    sb.append(
-                            String.format(
-                                    "|%-35s -> %s\n|  Duration (ms): %d\n|\n",
-                                    end.getName(),
-                                    endResult,
-                                    elapsed));
+                    sb.append(String.format(
+                            "|%-35s -> %s\n|  Duration (ms): %d\n|\n",
+                            end.getName(),
+                            endResult,
+                            elapsed));
                 }
                 sb.append(
                         "-----------------------------------------------------------------------\n");
@@ -647,7 +651,7 @@ public class GenerateRascTask extends Task {
 
         // Check errors
         long ts = System.currentTimeMillis();
-        boolean errorProblemMarkers = hasErrorLevelProblemMarkers(aProjects);
+        boolean errorProblemMarkers = errorsExist(aProjects);
         aMonitor.setTaskName("Checking projects' error markers took:  "
                 + (System.currentTimeMillis() - ts) + "ms "
                 + (errorProblemMarkers ? "[errors detected]" : "[no errors]"));
