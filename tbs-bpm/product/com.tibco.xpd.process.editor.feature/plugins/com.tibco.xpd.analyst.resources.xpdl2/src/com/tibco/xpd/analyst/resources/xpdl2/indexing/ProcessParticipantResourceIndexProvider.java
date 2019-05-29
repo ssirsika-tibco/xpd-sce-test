@@ -199,8 +199,6 @@ public class ProcessParticipantResourceIndexProvider extends
                         psr.getRestService().getResourceName());
             }
         }
-        
-        //type and additional info (endpoint id name), extension point contribution for the indexer.
 
         IndexerItem item =
                 new IndexerItemImpl(name, PROCESS_PARTICIPANT_INDEX_TYPE, uri,

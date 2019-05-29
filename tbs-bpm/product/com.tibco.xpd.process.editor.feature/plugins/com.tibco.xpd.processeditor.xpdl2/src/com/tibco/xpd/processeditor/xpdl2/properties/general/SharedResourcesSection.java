@@ -13,13 +13,11 @@ import java.util.Set;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.fieldassist.ContentProposal;
-import org.eclipse.jface.fieldassist.IContentProposal;
-import org.eclipse.jface.fieldassist.IContentProposalProvider;
+import org.eclipse.jface.fieldassist.DecoratedField;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -36,8 +34,9 @@ import com.tibco.xpd.analyst.resources.xpdl2.indexing.ProcessParticipantResource
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.om.core.om.ResourceType;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.properties.util.CommandContentAssistTextHandler;
-import com.tibco.xpd.processeditor.xpdl2.properties.util.ContentAssistText;
+import com.tibco.xpd.processeditor.xpdl2.properties.util.FixedValueFieldAssistHelper;
+import com.tibco.xpd.processeditor.xpdl2.properties.util.FixedValueFieldAssistHelper.FixedValueFieldChangedListener;
+import com.tibco.xpd.processeditor.xpdl2.properties.util.FixedValueFieldAssistHelper.FixedValueFieldProposalProvider;
 import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
@@ -59,7 +58,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author Jan Arciuchiewicz
  */
 public class SharedResourcesSection
-        extends AbstractFilteredTransactionalSection {
+        extends AbstractFilteredTransactionalSection
+        implements FixedValueFieldChangedListener {
 
     private List<Button> typeButtons;
 
@@ -75,7 +75,7 @@ public class SharedResourcesSection
 
     private Text jdbcProfileNameText;
     
-    private Text endPointIdentifierText;
+    private DecoratedField endPointIdentifierText;
     
     private Text endPointIdentifierDescText;
 
@@ -219,121 +219,6 @@ public class SharedResourcesSection
     }
 
     /**
-     * TODO Content proposal for Enpoint identifier.
-     * 
-     * @author sajain
-     */
-    private static abstract class EndpointIdentifierProposalProvider
-            implements IContentProposalProvider {
-
-        @Override
-        public IContentProposal[] getProposals(String contents, int position) {
-
-            List<ContentProposal> proposals = new ArrayList<ContentProposal>();
-
-            /*
-             * Get all the participants which match the content of the content
-             * assist field
-             */
-            Set<IndexerItem> allParticipantIndexerItems = getAllParticipantIndexerItems();
-
-            for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
-
-                String displayName =
-                        eachParticipantIndexerItem.getName();
-
-                if (doesProposalMatch(eachParticipantIndexerItem.getName(),
-                        contents,
-                        position)) {
-
-                    proposals.add(
-                            new ContentProposal(eachParticipantIndexerItem.getName(),
-                                    displayName));
-                }
-            }
-
-            return proposals.toArray(new IContentProposal[proposals.size()]);
-        }
-
-        /**
-         * Get the input of the section.
-         * 
-         * @return
-         */
-        protected abstract Participant getInput();
-
-        /**
-         * Get all Case class reference participant indexer items that are in
-         * scope of the input object.
-         * 
-         * @return
-         */
-        private Set<IndexerItem> getAllParticipantIndexerItems() {
-
-            Set<IndexerItem> contentAssistItems = new HashSet<IndexerItem>();
-
-            Collection<IndexerItem> allParticipantIndexerItems =
-                    ProcessUIUtil.getAllParticipantIndexerItems();
-
-            for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
-
-                // TODO Filter goes here
-                if (eachParticipantIndexerItem != null
-                        && ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE
-                                .toString()
-                                .equals(eachParticipantIndexerItem.get(
-                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_SHARED_RESOURCE_TYPE))) {
-                    contentAssistItems.add(eachParticipantIndexerItem);
-                }
-            }
-
-            return contentAssistItems;
-        }
-
-        /**
-         * Check if the value matches the content assist proposal.
-         * 
-         * @param value
-         * @param contentAssistContents
-         * @param contentAssistPosition
-         * @return
-         */
-        public boolean doesProposalMatch(String value,
-                String contentAssistContents, int contentAssistPosition) {
-
-            if (value != null && !value.isEmpty()
-                    && contentAssistContents != null
-                    && !contentAssistContents.isEmpty()) {
-                String toMatch = null;
-
-                if (!contentAssistContents.isEmpty()) {
-                    toMatch = contentAssistPosition > 0
-                            ? contentAssistContents.substring(0,
-                                    contentAssistPosition)
-                            : contentAssistContents;
-                }
-
-                return toMatch == null || value.startsWith(toMatch);
-            }
-
-            return true;
-        }
-
-    }
-
-    /**
-     * Provides the same functionality for ContentAssistText fields as the
-     * manageControl methods in AbstractXpdSection do for SWT Controls.
-     * 
-     * @param control
-     *            The content assist control to manage.
-     */
-    protected void manageControl(final ContentAssistText control) {
-
-        new CommandContentAssistTextHandler(control, this);
-    }
-
-    /**
      * Creates the REST Service shared resource property page.
      * 
      * @param page
@@ -346,47 +231,139 @@ public class SharedResourcesSection
         GridDataFactory.swtDefaults().span(2, 1).indent(5, 0)
                 .applyTo(description);
         
+        /*
+         * Endpoint resource name controls.
+         */
+
         Label endPointIdentifierLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierLabel);
         GridDataFactory.swtDefaults().applyTo(endPointIdentifierLabel);
 
-        /*
-         * Content assist text control to enter case reference data.
-         */
-        ContentAssistText contentAssistText = new ContentAssistText(page,
-                toolkit, new EndpointIdentifierProposalProvider() {
-
+        FixedValueFieldProposalProvider endpointNamesProposalProvider =
+                new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
                     @Override
-                    protected Participant getInput() {
-
-                        EObject input = SharedResourcesSection.this.getInput();
-
-                        return (Participant) (input instanceof Participant
-                                ? input
-                                : null);
+                    public Object[] getProposals() {
+                        /*
+                         * Get all the participants which match the content of
+                         * the content assist field
+                         */
+                        Set<String> allResourceNames = getAllResourceNames();
+                        Object[] proposals = allResourceNames.toArray();
+                        return proposals;
                     }
-                });
 
-        manageControl(contentAssistText);
+                    /**
+                     * Get all resource names that are in the scope of the input
+                     * object.
+                     * 
+                     * @return
+                     */
+                    private Set<String> getAllResourceNames() {
+
+                        Set<String> allResourceNames = new HashSet<String>();
+
+                        Collection<IndexerItem> allParticipantIndexerItems =
+                                ProcessUIUtil.getAllParticipantIndexerItems();
+
+                        for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
+                            /*
+                             * Check if the participant is of shared resource is
+                             * of REST share resource type.
+                             */
+                            if (eachParticipantIndexerItem != null
+                                    && ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE
+                                            .toString()
+                                            .equals(eachParticipantIndexerItem
+                                                    .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_SHARED_RESOURCE_TYPE))) {
+
+                                /*
+                                 * Make sure that we haven't already added the
+                                 * current resource name to the list of all
+                                 * resource names.
+                                 */
+                                if (null != eachParticipantIndexerItem.get(
+                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME)
+                                        && !eachParticipantIndexerItem.get(
+                                                ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME)
+                                                .isEmpty()
+                                        && !allResourceNames.contains(
+                                                eachParticipantIndexerItem.get(
+                                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME))) {
+                                    allResourceNames
+                                            .add(eachParticipantIndexerItem.get(
+                                                    ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME));
+                                }
+
+                            }
+                        }
+
+                        return allResourceNames;
+                    }
+                };
 
         /*
-         * Get the text control from the content assist text control.
+         * Content assist helper for endpoint names content assist.
          */
-        endPointIdentifierText = contentAssistText.getText();
-
-        endPointIdentifierText.setToolTipText(
+        FixedValueFieldAssistHelper endpointNameContentAssistHelper =
+                new FixedValueFieldAssistHelper(toolkit, page, endpointNamesProposalProvider,
+                        false);
+        endpointNameContentAssistHelper.addValueChangedListener(this);
+        endPointIdentifierText = endpointNameContentAssistHelper.getDecoratedField();
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalIndent = -6;
+        endPointIdentifierText.getLayoutControl().setLayoutData(gridData);
+        endPointIdentifierText.getLayoutControl()
+                .setBackground(page.getBackground());
+        endPointIdentifierText.getControl().setToolTipText(
                 Messages.SharedResourcesSection_EndpointIdentifierTooltip);
 
-        GridData gd1 = new GridData(GridData.FILL_HORIZONTAL);
-        gd1.horizontalIndent = -6;
-        contentAssistText.setLayoutData(gd1);
+        /*
+         * Endpoint resource description controls.
+         */
 
         Label endPointIdentifierDescLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierDescLabel);
         GridDataFactory.swtDefaults().applyTo(endPointIdentifierDescLabel);
         endPointIdentifierDescText = toolkit.createText(page, ""); //$NON-NLS-1$
         GridDataFactory.fillDefaults().grab(true, false).applyTo(endPointIdentifierDescText);
 
-        manageControlUpdateOnDeactivate(endPointIdentifierText);
+        manageControlUpdateOnDeactivate(
+                (Text) endPointIdentifierText.getControl());
         manageControlUpdateOnDeactivate(endPointIdentifierDescText);
+    }
+
+    /**
+     * @see com.tibco.xpd.processeditor.xpdl2.properties.util.FixedValueFieldAssistHelper.FixedValueFieldChangedListener#fixedValueFieldChanged(java.lang.Object)
+     *
+     * @param newValue
+     */
+    @Override
+    public void fixedValueFieldChanged(Object newValue) {
+        final Participant participant = (Participant) getInput();
+        final ParticipantSharedResource sr =
+                getSetParticipantSharedResource(participant, false);
+        if (null != sr && null != sr.getRestService()) {
+            final String text = newValue.toString();
+
+            /*
+             * Don't exec command if text is "" and no ext attrib set yet - can
+             * confuse the SharedResourceUtil check for same configs.
+             */
+            if (!nullSafe(text)
+                    .equals(nullSafe(sr.getRestService().getResourceName()))) {
+                Command cmd = new RecordingCommand(
+                        (TransactionalEditingDomain) getEditingDomain()) {
+                    @Override
+                    protected void doExecute() {
+                        sr.getRestService().setResourceName(
+                                text.length() > 0 ? text : null);
+                    }
+                };
+
+                if (cmd != null) {
+                    EditingDomain ed = getEditingDomain();
+                    ed.getCommandStack().execute(cmd);
+                }
+            }
+        }
     }
 
     /**
@@ -499,9 +476,6 @@ public class SharedResourcesSection
             if (null != sr && null != sr.getRestService()) {
               Text tc = (Text) obj;
               final String text = tc.getText();
-
-                Collection<IndexerItem> s =
-                        ProcessUIUtil.getAllParticipantIndexerItems();
 
               /*
                * Don't exec command if text is "" and no ext
@@ -658,11 +632,15 @@ public class SharedResourcesSection
             if (restService.getResourceName() != null) {
                 String resName =
                         restService.getResourceName();
-                endPointIdentifierText.setText(resName);
+                ((Text) endPointIdentifierText.getControl()).setText(resName);
+            } else {
+                ((Text) endPointIdentifierText.getControl()).setText("");//$NON-NLS-1$
             }
             if (restService.getDescription() != null) {
                 String resDesc = restService.getDescription();
                 endPointIdentifierDescText.setText(resDesc);
+            } else {
+                endPointIdentifierDescText.setText(""); //$NON-NLS-1$
             }
 
         }
