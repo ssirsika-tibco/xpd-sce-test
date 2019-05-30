@@ -53,11 +53,6 @@ public class ProcessParticipantResourceIndexProvider extends
      */
     public static final String ATTRIBUTE_ENDPOINT_NAME = "endPointName"; //$NON-NLS-1$
 
-    /**
-     * Attribute to store shared resource end point ID of the participant.
-     */
-    public static final String ATTRIBUTE_ENDPOINT_ID = "endPointId"; //$NON-NLS-1$
-
     public ProcessParticipantResourceIndexProvider() {
         super();
     }
