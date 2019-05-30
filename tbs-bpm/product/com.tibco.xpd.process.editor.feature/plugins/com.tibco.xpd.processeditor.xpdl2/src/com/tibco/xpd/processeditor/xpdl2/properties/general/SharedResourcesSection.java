@@ -343,10 +343,6 @@ public class SharedResourcesSection
         if (null != sr && null != sr.getRestService()) {
             final String text = newValue.toString();
 
-            /*
-             * Don't exec command if text is "" and no ext attrib set yet - can
-             * confuse the SharedResourceUtil check for same configs.
-             */
             if (!nullSafe(text)
                     .equals(nullSafe(sr.getRestService().getResourceName()))) {
                 Command cmd = new RecordingCommand(
@@ -477,11 +473,6 @@ public class SharedResourcesSection
               Text tc = (Text) obj;
               final String text = tc.getText();
 
-              /*
-               * Don't exec command if text is "" and no ext
-               * attrib set yet - can confuse the SharedResourceUtil check
-               * for same configs.
-               */
               if (!nullSafe(text).equals(nullSafe(
                         sr.getRestService().getResourceName()))) {
                   return new RecordingCommand(
@@ -505,10 +496,6 @@ public class SharedResourcesSection
 
                 RestServiceResource rsr = sr.getRestService();
 
-                /*
-                 * Don't exec command if text is "" and no ext attrib set yet -
-                 * can confuse the SharedResourceUtil check for same configs.
-                 */
                 if (!nullSafe(text).equals(nullSafe(rsr.getDescription()))) {
                     return new RecordingCommand(
                             (TransactionalEditingDomain) getEditingDomain()) {
