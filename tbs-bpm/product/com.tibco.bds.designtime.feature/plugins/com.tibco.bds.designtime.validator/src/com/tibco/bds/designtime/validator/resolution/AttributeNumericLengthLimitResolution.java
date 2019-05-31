@@ -18,15 +18,13 @@ import com.tibco.xpd.validation.resolutions.ResolutionException;
 
 /**
  * Resolution to change the length of a numeric attribute to the maximum
- * supported
- * 
+ * supported.
  */
-public class AttributeNumericLengthLimitResolution extends
-        AbstractWorkingCopyResolution implements IResolution {
-
-    protected Command getResolutionCommand(EditingDomain domain,
-            EObject target, IMarker marker) throws ResolutionException {
-
+public class AttributeNumericLengthLimitResolution
+        extends AbstractWorkingCopyResolution implements IResolution {
+    @Override
+    protected Command getResolutionCommand(EditingDomain domain, EObject target,
+            IMarker marker) throws ResolutionException {
         // Should only be set for Property types
         if (!(target instanceof Property)) {
             return null;
@@ -46,32 +44,31 @@ public class AttributeNumericLengthLimitResolution extends
                 PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
 
         // Resolution is currently only for text fields
-        if (primType.getName()
-                .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)
-                || primType.getName()
-                        .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME)) {
-
-            return new RecordingCommand((TransactionalEditingDomain) domain) {
-
-                protected void doExecute() {
-                    // Make sure the correct value is used for the update
-                    String propertyName =
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH;
-                    if (primType.getName()
-                            .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)) {
-                        propertyName =
-                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH;
-                    }
-
-                    PrimitivesUtil
-                            .setFacetPropertyValue((PrimitiveType) type,
-                                    propertyName,
-                                    Integer.toString(BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION),
-                                    prop);
-                }
-            };
+        if ((!primType.getName()
+                .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME))
+                && (!primType.getName()
+                        .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME))) {
+            return null;
         }
 
-        return null;
+        return new RecordingCommand((TransactionalEditingDomain) domain) {
+            @Override
+            protected void doExecute() {
+                // Make sure the correct value is used for the update
+                String propertyName =
+                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH;
+                if (primType.getName()
+                        .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)) {
+                    propertyName =
+                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH;
+                }
+
+                PrimitivesUtil.setFacetPropertyValue((PrimitiveType) type,
+                        propertyName,
+                        Integer.toString(
+                                BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION),
+                        prop);
+            }
+        };
     }
 }

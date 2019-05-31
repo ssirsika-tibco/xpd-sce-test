@@ -10,7 +10,6 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.jface.window.Window;
 
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
@@ -32,8 +31,8 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * @author bharge
  * @since 3.3 (18 Mar 2010)
  */
-public class SetBasicTypeDecimalPlacesResolution extends
-        AbstractWorkingCopyResolution {
+public class SetBasicTypeDecimalPlacesResolution
+        extends AbstractWorkingCopyResolution {
 
     /*
      * (non-Javadoc)
@@ -46,10 +45,10 @@ public class SetBasicTypeDecimalPlacesResolution extends
     protected Command getResolutionCommand(EditingDomain editingDomain,
             EObject target, IMarker marker) throws ResolutionException {
         CompoundCommand cmd = new CompoundCommand();
+
         if (target instanceof ProcessRelevantData) {
-            ProcessRelevantData processRelevantData =
-                    (ProcessRelevantData) target;
-            DataType dataType = processRelevantData.getDataType();
+            ProcessRelevantData data = (ProcessRelevantData) target;
+            DataType dataType = data.getDataType();
             if (dataType instanceof BasicType) {
                 BasicType basicType = (BasicType) dataType;
                 if (BasicTypeType.FLOAT_LITERAL.equals(basicType.getType())) {
@@ -57,6 +56,7 @@ public class SetBasicTypeDecimalPlacesResolution extends
                 }
             }
         }
+
         if (target instanceof TypeDeclaration) {
             TypeDeclaration typeDeclaration = (TypeDeclaration) target;
             BasicType basicType = typeDeclaration.getBasicType();
@@ -66,6 +66,7 @@ public class SetBasicTypeDecimalPlacesResolution extends
                 }
             }
         }
+
         return cmd;
     }
 
@@ -76,20 +77,17 @@ public class SetBasicTypeDecimalPlacesResolution extends
      */
     private void setDecimalPlaces(EditingDomain editingDomain,
             CompoundCommand cmd, BasicType basicType) {
-        String oldValue = ""; //$NON-NLS-1$
-        if (null != basicType.getScale()) {
-            oldValue = String.valueOf(basicType.getScale().getValue());
-        }
+        short oldValue = (null == basicType.getScale()) ? Short.MIN_VALUE
+                : basicType.getScale().getValue();
 
-        short newValue = 0;
-        String newScaleValue =
-                setDecimalValue(oldValue,
-                        String
-                                .valueOf(ProcessRelevantDataUtil.DEFAULT_FLOATTYPE_SCALE));
-        if (newScaleValue.length() > 0) {
-            newValue =
-                    ProcessRelevantDataUtil
-                            .safeParseShort((String) newScaleValue);
+        // allow the user to select a new value
+        String newScaleValue = getNewValue(oldValue,
+                ProcessRelevantDataUtil.DEFAULT_FLOATTYPE_SCALE);
+
+        // if a new value given
+        if ((newScaleValue != null) && (!newScaleValue.isEmpty())) {
+            short newValue =
+                    ProcessRelevantDataUtil.safeParseShort(newScaleValue);
 
             Scale newScale = Xpdl2Factory.eINSTANCE.createScale();
             newScale.setValue(newValue);
@@ -101,19 +99,21 @@ public class SetBasicTypeDecimalPlacesResolution extends
     }
 
     /**
-     * @param name
-     *            The current name.
-     * @return The new name.
+     * Ask the user what value to set as the decimal places.
+     * 
+     * @param oldValue
+     *            the current decimal places setting.
+     * @param defaultValue
+     *            the default decimal places setting
+     * @return the chosen decimal places setting - as a string. If the user
+     *         choses "cancel", the return value will be an empty string.
      */
-    private String setDecimalValue(String oldValue, String defaultValue) {
-        RenameDialog dialog = new RenameDialog(null, oldValue);
-        dialog.setDefaultName(defaultValue);
-        dialog.setBlockOnOpen(true);
-        int result = dialog.open();
-        if (result == Window.OK) {
-            return dialog.getName();
-        } else {
-            return ""; //$NON-NLS-1$
-        }
+    private String getNewValue(short oldValue, short defaultValue) {
+
+        String old =
+                (oldValue == Short.MIN_VALUE) ? "" : String.valueOf(oldValue); //$NON-NLS-1$
+        String def = (defaultValue == Short.MIN_VALUE) ? "" //$NON-NLS-1$
+                : String.valueOf(defaultValue);
+        return RenameDialog.getDecimalPlaces(old, def);
     }
 }

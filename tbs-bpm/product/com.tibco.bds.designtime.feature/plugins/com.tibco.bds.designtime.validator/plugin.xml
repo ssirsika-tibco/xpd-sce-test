@@ -395,7 +395,12 @@
       		severity="ERROR"/>
        <issue id="bom.cds.attribute.global.type.numeric.length.issue"
       		message = "%cds.attribute.global.type.numeric.length.issue"
-      		severity="ERROR"/>
+      		severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.numeric.length">
+          </resolution>
+       </issue>
        <issue id="bom.cds.attribute.global.type.searchable.length.issue"
       		message = "%cds.attribute.global.type.searchable.length.issue"
       		severity="ERROR"/>
@@ -428,11 +433,28 @@
              id="ace.bom.number.property.max.length"
              message="%ace.bom.number.property.max.length"
              severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.numeric.length">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.number.primitive.max.length"
              message="%ace.bom.number.primitive.max.length"
              severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.numeric.length">
+          </resolution>
+       </issue>
+       <issue
+             id="ace.bom.number.property.dec.places"
+             message="%ace.bom.number.property.dec.places"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="false"
+                id="com.tibco.xpd.n2.cds.validator.resolution.dec.places">
+          </resolution>
        </issue>
        <issue
              id="ace.bom.enumeration.superclass"
@@ -610,13 +632,6 @@
       </resolution>
       <resolution
             canApplyToMultiple="true"
-            class="com.tibco.bds.designtime.validator.resolution.AttributeNumericLengthLimitResolution"
-            description="%resolution_AttributeIndexLimit_shortdesc"
-            id="bom.cds.attribute.global.type.numeric.length.issue"
-            label="%resolution_AttributeIndexLimit_label">
-      </resolution>
-      <resolution
-            canApplyToMultiple="true"
             class="com.tibco.bds.designtime.validator.resolution.AssociationOptionalResolution"
             description="%resolution_AssociationOptional_shortdesc"
             id="bom.cds.attribute.global.association.mandatory.issue"
@@ -669,6 +684,18 @@
             id="com.tibco.xpd.n2.cds.validator.resolution.removetextpatternresolution"
             label="%removetextpattern_resolution_label">
       </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.AttributeNumericLengthLimitResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.numeric.length"
+            label="%resolution_AttributeIndexLimit_label">
+      </resolution>
+      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.AttributeNumericDecPlacesResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.dec.places"
+            label="%resolution_AttributeDecPlaces_label">
+      </resolution>
+      
    </extension>
 
    <extension

@@ -1,6 +1,7 @@
 package com.tibco.xpd.validation.xpdl2.resolutions;
 
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -21,6 +22,9 @@ public class RenameDialog extends Dialog {
 
     /** Dialog title id. */
     private static final String RENAME_DIALOG_TITLE = "renameDialogTitle"; //$NON-NLS-1$
+
+    private static final String DEC_PLACES_DIALOG_TITLE =
+            "decimalPlacesDialogTitle"; //$NON-NLS-1$
 
     /** Old name label id. */
     private static final String RENAME_DIALOG_OLD = "renameDialogNewNameLabel"; //$NON-NLS-1$
@@ -44,6 +48,29 @@ public class RenameDialog extends Dialog {
     private String title = null;
 
     private Label oldNameDescriptionCtrl;
+
+    /**
+     * Ask the user what value to set as the decimal places.
+     * 
+     * @param oldValue
+     *            the current decimal places setting.
+     * @param defaultValue
+     *            the default decimal places setting
+     * @return the chosen decimal places setting - as a string. If the user
+     *         choses "cancel", the return value will be an empty string.
+     */
+    public static String getDecimalPlaces(String oldValue,
+            String defaultValue) {
+        RenameDialog dialog = new RenameDialog(null,
+                ResolutionMessages.getText(
+                        RenameDialog.DEC_PLACES_DIALOG_TITLE),
+                oldValue);
+        dialog.setDefaultName(defaultValue);
+        dialog.setBlockOnOpen(true);
+
+        int button = dialog.open();
+        return (button == Window.OK) ? dialog.getName().trim() : ""; //$NON-NLS-1$
+    }
 
     /**
      * @param parentShell
@@ -116,6 +143,8 @@ public class RenameDialog extends Dialog {
     protected Control createDialogArea(Composite parent) {
         Composite composite = (Composite) super.createDialogArea(parent);
         GridLayout layout = new GridLayout();
+        layout.marginHeight = 20;
+        layout.marginWidth = 20;
         layout.numColumns = 2;
         composite.setLayout(layout);
         composite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));

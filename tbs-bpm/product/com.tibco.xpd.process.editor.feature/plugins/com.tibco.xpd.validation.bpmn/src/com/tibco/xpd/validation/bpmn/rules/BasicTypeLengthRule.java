@@ -7,15 +7,15 @@ package com.tibco.xpd.validation.bpmn.rules;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.eclipse.emf.common.util.EList;
-
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdExtension.ProcessInterfaces;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
+import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.DataType;
+import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.NamedElement;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
@@ -49,22 +49,26 @@ public class BasicTypeLengthRule extends PackageValidationRule {
     private static final String ISSUE_NOSCALE_MUST_HAVE_NOLENGTH =
             "bpmn.noScaleMustHaveNoLength"; //$NON-NLS-1$
 
+    private static final String LENGTH_PATTERN = "[1-9]\\d*"; //$NON-NLS-1$
+
+    private static final String SCALE_PATTERN = "[0-9]\\d*"; //$NON-NLS-1$
+
     @Override
     public void validate(Package pckg) {
         if (null != pckg) {
-            List dataFields = pckg.getDataFields();
+            List<DataField> dataFields = pckg.getDataFields();
             validateFieldsOrParamsLength(dataFields);
 
-            EList<TypeDeclaration> typeDeclarations =
-                    pckg.getTypeDeclarations();
+            List<TypeDeclaration> typeDeclarations = pckg.getTypeDeclarations();
             validateTypeDeclLength(typeDeclarations);
 
             List<Process> processes = pckg.getProcesses();
             for (Process process : processes) {
-                List fields = process.getDataFields();
+                List<DataField> fields = process.getDataFields();
                 validateFieldsOrParamsLength(fields);
 
-                List parameters = process.getFormalParameters();
+                List<FormalParameter> parameters =
+                        process.getFormalParameters();
                 validateFieldsOrParamsLength(parameters);
             }
 
@@ -74,7 +78,7 @@ public class BasicTypeLengthRule extends PackageValidationRule {
                 List<ProcessInterface> processInterfaceList =
                         processInterfaces.getProcessInterface();
                 for (ProcessInterface processInterface : processInterfaceList) {
-                    List formalParameters =
+                    List<FormalParameter> formalParameters =
                             processInterface.getFormalParameters();
                     validateFieldsOrParamsLength(formalParameters);
                 }
@@ -83,10 +87,12 @@ public class BasicTypeLengthRule extends PackageValidationRule {
     }
 
     /**
+     * Validates the numeric type declaration in the given list.
+     * 
      * @param typeDeclarations
      */
     protected void validateTypeDeclLength(
-            EList<TypeDeclaration> typeDeclarations) {
+            List<TypeDeclaration> typeDeclarations) {
         for (TypeDeclaration typeDeclaration : typeDeclarations) {
             BasicType basicType = typeDeclaration.getBasicType();
             if (null != basicType) {
@@ -96,10 +102,12 @@ public class BasicTypeLengthRule extends PackageValidationRule {
     }
 
     /**
+     * Validates the numeric data fields in the given list.
+     * 
      * @param dataFields
      */
     protected void validateFieldsOrParamsLength(
-            List<ProcessRelevantData> prdList) {
+            List<? extends ProcessRelevantData> prdList) {
         for (ProcessRelevantData prd : prdList) {
             DataType dataType = prd.getDataType();
             if (dataType instanceof BasicType) {
@@ -110,78 +118,80 @@ public class BasicTypeLengthRule extends PackageValidationRule {
     }
 
     /**
+     * Validates the length and decimal places configured on the given numeric
+     * attribute element.
+     * 
      * @param namedElement
+     *            the attribute to be validated.
      * @param basicType
+     *            the data type of the attribute.
      */
     protected void validateLengthOrScale(NamedElement namedElement,
             BasicType basicType) {
-        String lengthPattern = "[1-9]\\d*"; //$NON-NLS-1$
-        String scalePattern = "[0-9]\\d*"; //$NON-NLS-1$
-        if (basicType != null) {
-            if (basicType.getType() != null
-                    && basicType.getType()
-                            .equals(BasicTypeType.INTEGER_LITERAL)) {
-                Short value = 0;
+        if (basicType == null) {
+            return;
+        }
 
-                if (basicType.getPrecision() != null) {
-                    value = basicType.getPrecision().getValue();
-                }
+        BasicTypeType type = basicType.getType();
+        if (type == null) {
+            return;
+        }
 
-                if (!Pattern.matches(lengthPattern, value.toString())) {
-                    addIssue(INVALID_LENGTH, namedElement);
-                }
+        if (type.equals(BasicTypeType.INTEGER_LITERAL)) {
+            Short value = 0;
 
-            } else if (basicType.getType() != null
-                    && basicType.getType().equals(BasicTypeType.FLOAT_LITERAL)) {
-                Short precision = 0;
+            if (basicType.getPrecision() != null) {
+                value = basicType.getPrecision().getValue();
+            }
 
+            if (!Pattern.matches(LENGTH_PATTERN, value.toString())) {
+                addIssue(INVALID_LENGTH, namedElement);
+            }
+        }
+
+        else if (type.equals(BasicTypeType.FLOAT_LITERAL)) {
+            /*
+             * Sid ACE-1355 Numbers are now allowed to have no decimal places
+             * defined (this means 'floating point number' rather than fixed
+             * point number.
+             */
+            // if (basicType.getScale() == null) {
+            // addIssue(INVALID_SCALE, namedElement);
+            // }
+
+            /*
+             * Sid ACE-1355 Length is allowed to be null if the scale is (as it
+             * means it's a floating point number then there can't be specific
+             * precision).
+             */
+            if (basicType.getScale() != null) {
+                short precision = 0;
                 if (basicType.getPrecision() != null) {
                     precision = basicType.getPrecision().getValue();
                 }
 
-                Short scale = 0;
+                short scale = 0;
                 if (basicType.getScale() != null) {
                     scale = basicType.getScale().getValue();
                 }
 
-                /*
-                 * Sid ACE-1355 Numbers are now allowed to have no decimal
-                 * places defined (this means 'floating point number' rather
-                 * than fixed point number.
-                 */
-                // if (basicType.getScale() == null) {
-                // addIssue(INVALID_SCALE, namedElement);
-                // }
-
-                /*
-                 * Sid ACE-1355 Length is allowed to be null if
-                 * the scale is (as it means it's a floating point number then
-                 * there can't be specific precision).
-                 */
-                if (basicType.getScale() != null) {
-                    if (!Pattern.matches(lengthPattern, precision.toString())) {
-                        addIssue(INVALID_LENGTH, namedElement);
-                    }
-                    if (!Pattern.matches(scalePattern, scale.toString())) {
-                        addIssue(INVALID_SCALE, namedElement);
-                    }
-                    if (basicType.getPrecision() != null
-                            && scale >= precision) {
-                        addIssue(INVALID_SCALE, namedElement);
-                    }
-
-                } else {
-                    /*
-                     * Sid ACE-1355 - If scale is not set then length must not
-                     * be set.
-                     */
-                    if (basicType.getPrecision() != null) {
-                        addIssue(ISSUE_NOSCALE_MUST_HAVE_NOLENGTH,
-                                namedElement);
-                    }
-
+                if (!Pattern.matches(LENGTH_PATTERN,
+                        Short.toString(precision))) {
+                    addIssue(INVALID_LENGTH, namedElement);
                 }
-
+                if (!Pattern.matches(SCALE_PATTERN, Short.toString(scale))) {
+                    addIssue(INVALID_SCALE, namedElement);
+                } else if (scale > precision) {
+                    addIssue(INVALID_SCALE, namedElement);
+                }
+            } else {
+                /*
+                 * Sid ACE-1355 - If scale is not set then length must not be
+                 * set.
+                 */
+                if (basicType.getPrecision() != null) {
+                    addIssue(ISSUE_NOSCALE_MUST_HAVE_NOLENGTH, namedElement);
+                }
             }
         }
     }
