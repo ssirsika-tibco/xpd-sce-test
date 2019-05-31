@@ -119,13 +119,15 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
      * @param resource
      *            resource that contains XPDL model
      */
-    public Xpdl2WorkingCopyImpl(IResource resource, Xpdl2FileType xpdl2FileType) {
+    public Xpdl2WorkingCopyImpl(IResource resource,
+            Xpdl2FileType xpdl2FileType) {
         /*
          * XPD-1128: Have to be able to cope without actual resource in working
          * copy (for load from repository etc)
          */
-        super((List<IResource>) (resource != null ? Collections
-                .singletonList(resource) : Collections.emptyList()));
+        super((List<IResource>) (resource != null
+                ? Collections.singletonList(resource)
+                : Collections.emptyList()));
         this.xpdl2FileType = xpdl2FileType;
         setUseWriteTransactionToSave(true);
     }
@@ -133,7 +135,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
     @Override
     protected EObject doLoadModel() throws InvalidFileException {
         // System.out
-        //                .println("==> doLoadModel(" + getFirstResource().getName() + ")"); //$NON-NLS-1$ //$NON-NLS-2$
+        // .println("==> doLoadModel(" + getFirstResource().getName() + ")");
+        // //$NON-NLS-1$ //$NON-NLS-2$
 
         if (!isExist()) {
             return null;
@@ -166,9 +169,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                          * a Studio format version and so should not be changed.
                          */
                         int version = XpdlMigrate.getFileFormatVersion(file);
-                        if (version > 0
-                                && version < Integer
-                                        .parseInt(XpdlMigrate.FORMAT_VERSION_ATT_VALUE)) {
+                        if (version > 0 && version < Integer.parseInt(
+                                XpdlMigrate.FORMAT_VERSION_ATT_VALUE)) {
                             isVersionProblem = true;
                         }
                     } catch (Exception e) {
@@ -188,8 +190,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             res.setTrackingModification(true);
 
             if (res instanceof ResourceImpl) {
-                ((ResourceImpl) res)
-                        .setIntrinsicIDToEObjectMap(new HashMap<String, EObject>());
+                ((ResourceImpl) res).setIntrinsicIDToEObjectMap(
+                        new HashMap<String, EObject>());
             }
         }
 
@@ -224,7 +226,9 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
         if (!XpdlMigrate.FORMAT_VERSION_ATT_VALUE.equals(loadedFormatVersion)
                 && !ignoreFormatVersion) {
             // System.out
-            //                    .println("  doLoadModel(" + getFirstResource().getName() + "): Old Format version found - " + loadedFormatVersion); //$NON-NLS-1$ //$NON-NLS-2$
+            // .println(" doLoadModel(" + getFirstResource().getName() + "): Old
+            // Format version found - " + loadedFormatVersion); //$NON-NLS-1$
+            // //$NON-NLS-2$
 
             /*
              * If there was NO FormatVersion attribute at all then this was not
@@ -232,7 +236,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
              * the file is Studio XPDL file that is of previous version (because
              * only thenn can it be migrated!)
              */
-            if (loadedFormatVersion != null && loadedFormatVersion.length() > 0) {
+            if (loadedFormatVersion != null
+                    && loadedFormatVersion.length() > 0) {
                 createInvalidVersionFileMarker(getFirstResource());
             }
 
@@ -258,11 +263,13 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
              * invalid file markers.
              */
             // System.out
-            //                    .println("  doLoadModel(" + getFirstResource().getName() + "): Format version OK"); //$NON-NLS-1$ //$NON-NLS-2$
+            // .println(" doLoadModel(" + getFirstResource().getName() + "):
+            // Format version OK"); //$NON-NLS-1$ //$NON-NLS-2$
             deleteInvalidFileMarker();
         }
 
-        //        System.out.println("<== doLoadModel(" + getFirstResource().getName()); //$NON-NLS-1$
+        // System.out.println("<== doLoadModel(" +
+        // getFirstResource().getName()); //$NON-NLS-1$
         return xpdlPackage;
     }
 
@@ -291,13 +298,13 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             try {
 
                 version = XpdlMigrate.getFileFormatVersion(file);
-            } catch (SAXException | IOException | ParserConfigurationException e) {
+            } catch (SAXException | IOException
+                    | ParserConfigurationException e) {
 
                 e.printStackTrace();
             }
-            if (version > 0
-                    && version < Integer
-                            .parseInt(XpdlMigrate.FORMAT_VERSION_ATT_VALUE)) {
+            if (version > 0 && version < Integer
+                    .parseInt(XpdlMigrate.FORMAT_VERSION_ATT_VALUE)) {
                 boolean isVersionProblem = true;
                 /*
                  * if it is not a format version problem, then hand-over to
@@ -312,12 +319,11 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                      * if it is a format version problem, then log the info
                      * message
                      */
-                    String msg =
-                            String.format(Messages.Migration_LoadResource_Info_message,
-                                    file.getName());
-                    Status status2 =
-                            new Status(IStatus.INFO,
-                                    XpdResourcesPlugin.ID_PLUGIN, msg);
+                    String msg = String.format(
+                            Messages.Migration_LoadResource_Info_message,
+                            file.getName());
+                    Status status2 = new Status(IStatus.INFO,
+                            XpdResourcesPlugin.ID_PLUGIN, msg);
                     XpdResourcesPlugin.getDefault().getLogger().log(status2);
                 }
             }
@@ -344,12 +350,15 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
              * Sid ACE-475 - Same goes for the eaijava and database namespaces
              * (for which we also have removed the model contribution from the
              * product)
+             * 
+             * Sid ACE-1353 - Same for iProcessExt
              */
 
             if (!map.containsKey(Xpdl2Package.eNS_URI)
                     || nsMap.containsKey("simulation") //$NON-NLS-1$
                     || nsMap.containsKey("eaijava") //$NON-NLS-1$
-                    || nsMap.containsKey("database")) { //$NON-NLS-1$
+                    || nsMap.containsKey("database") //$NON-NLS-1$
+                    || nsMap.containsKey("iProcessExt")) { //$NON-NLS-1$
 
                 WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(docRoot);
 
@@ -378,18 +387,24 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                                 /* Sid ACE-475 - same for eaijava & database */
                                 nsMap.removeKey("eaijava"); //$NON-NLS-1$
                                 nsMap.removeKey("database"); //$NON-NLS-1$
+                                /* Sid ACE-1353 - Same for iProcessExt */
+                                nsMap.removeKey("iProcessExt"); //$NON-NLS-1$
 
-                                nsMap.put("iProcessExt", "http://www.tibco.com/XPD/iProcessExt1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
-                                nsMap.put("xpdExt", "http://www.tibco.com/XPD/xpdExtension1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
-                                nsMap.put("email", "http://www.tibco.com/XPD/email1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
+                                nsMap.put("xpdExt", //$NON-NLS-1$
+                                        "http://www.tibco.com/XPD/xpdExtension1.0.0"); //$NON-NLS-1$
+                                nsMap.put("email", //$NON-NLS-1$
+                                        "http://www.tibco.com/XPD/email1.0.0"); //$NON-NLS-1$
 
-                                nsMap.put("orchestrator", "http://www.tibco.com/XPD/orchestrator1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
-                                nsMap.put("order", "http://www.tibco.com/XPD/order1.0.0"); //$NON-NLS-1$ //$NON-NLS-2$
+                                nsMap.put("orchestrator", //$NON-NLS-1$
+                                        "http://www.tibco.com/XPD/orchestrator1.0.0"); //$NON-NLS-1$
+                                nsMap.put("order", //$NON-NLS-1$
+                                        "http://www.tibco.com/XPD/order1.0.0"); //$NON-NLS-1$
 
                             }
 
                         };
-                        cmd.setLabel(Messages.Xpdl2WorkingCopyImpl_SetSchemaLocationCommand);
+                        cmd.setLabel(
+                                Messages.Xpdl2WorkingCopyImpl_SetSchemaLocationCommand);
                         if (cmd.canExecute()) {
                             ted.getCommandStack().execute(cmd);
                         }
@@ -501,16 +516,16 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
      * @param loc
      * @return
      */
-    public static void appendRemoveReferenceCommand(
-            EditingDomain editingDomain, CompoundCommand cmd,
-            String externalPackageHref, Xpdl2WorkingCopyImpl wc) {
+    public static void appendRemoveReferenceCommand(EditingDomain editingDomain,
+            CompoundCommand cmd, String externalPackageHref,
+            Xpdl2WorkingCopyImpl wc) {
         if (externalPackageHref != null && externalPackageHref.length() > 0) {
             EList<ExternalPackage> eps =
                     ((Package) wc.getRootElement()).getExternalPackages();
             ExternalPackage externalPackageFound = null;
             for (ExternalPackage externalPackage : eps) {
-                if (externalPackageHref.equalsIgnoreCase(externalPackage
-                        .getHref())) {
+                if (externalPackageHref
+                        .equalsIgnoreCase(externalPackage.getHref())) {
                     externalPackageFound = externalPackage;
                     break;
                 }
@@ -532,7 +547,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
      * @return ExtemalPackage or null if cannot be located.
      * 
      */
-    public static ExternalPackage createExternalPackage(WorkingCopy externalWc) {
+    public static ExternalPackage createExternalPackage(
+            WorkingCopy externalWc) {
         /*
          * XPD-1128: May not have an actual resource backing a working copy
          * created from temporary input stream (for things like history
@@ -564,15 +580,13 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
 
         if (externalRes != null) {
             // Get special folder container of the resource if there is one
-            ProjectConfig config =
-                    XpdResourcesPlugin.getDefault()
-                            .getProjectConfig(externalRes.getProject());
+            ProjectConfig config = XpdResourcesPlugin.getDefault()
+                    .getProjectConfig(externalRes.getProject());
             SpecialFolder sFolder = null;
 
             if (config != null && config.getSpecialFolders() != null) {
-                sFolder =
-                        config.getSpecialFolders()
-                                .getFolderContainer(externalRes);
+                sFolder = config.getSpecialFolders()
+                        .getFolderContainer(externalRes);
             }
 
             if (sFolder == null) {
@@ -584,11 +598,9 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                 return null;
             }
 
-            IPath path =
-                    externalRes
-                            .getFullPath()
-                            .removeFirstSegments(folder.getFullPath()
-                                    .segmentCount()).makeAbsolute();
+            IPath path = externalRes.getFullPath()
+                    .removeFirstSegments(folder.getFullPath().segmentCount())
+                    .makeAbsolute();
 
             String loc = path.toPortableString();
 
@@ -698,13 +710,12 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             XpdlMigrate.migrate(getFirstResource());
 
         } catch (Exception e) {
-            throw new CoreException(
-                    new Status(
-                            IStatus.ERROR,
-                            Xpdl2ResourcesPlugin.PLUGIN_ID,
-                            String.format(Messages.Xpdl2WorkingCopyImpl_migrationProblem_error_message,
-                                    getFirstResource().getFullPath().toString()),
-                            e));
+            throw new CoreException(new Status(IStatus.ERROR,
+                    Xpdl2ResourcesPlugin.PLUGIN_ID,
+                    String.format(
+                            Messages.Xpdl2WorkingCopyImpl_migrationProblem_error_message,
+                            getFirstResource().getFullPath().toString()),
+                    e));
         }
 
     }
@@ -712,9 +723,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.tibco.xpd.resources.wc.AbstractWorkingCopy#computeDependenciesFromModel
-     * ()
+     * @see com.tibco.xpd.resources.wc.AbstractWorkingCopy#
+     * computeDependenciesFromModel ()
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -733,29 +743,26 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             if (pck != null) {
                 List<ExternalPackage> packages = pck.getExternalPackages();
 
-                XpdProjectResourceFactory projResFactory =
-                        XpdResourcesPlugin.getDefault()
-                                .getXpdProjectResourceFactory(project);
+                XpdProjectResourceFactory projResFactory = XpdResourcesPlugin
+                        .getDefault().getXpdProjectResourceFactory(project);
                 for (ExternalPackage epck : packages) {
                     String ref = getExternalPackageLocation(epck.getHref());
                     /*
                      * XPD-4532: Resolve package locations in referenced
                      * projects
                      */
-                    IResource resource =
-                            SpecialFolderUtil
-                                    .resolveSpecialFolderRelativePath(project,
-                                            Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND,
-                                            ref,
-                                            true);
+                    IResource resource = SpecialFolderUtil
+                            .resolveSpecialFolderRelativePath(project,
+                                    Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND,
+                                    ref,
+                                    true);
 
                     if (resource == null) {
                         // Check for Task Library special folders too.
-                        resource =
-                                projResFactory
-                                        .resolveResourceReference(getFirstResource(),
-                                                ref,
-                                                Xpdl2ResourcesConsts.TASK_LIBRARY_SPECIAL_FOLDER_KIND);
+                        resource = projResFactory.resolveResourceReference(
+                                getFirstResource(),
+                                ref,
+                                Xpdl2ResourcesConsts.TASK_LIBRARY_SPECIAL_FOLDER_KIND);
                     }
 
                     if (resource != null) {
@@ -777,11 +784,10 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                                 && artifact.getDataObject() != null) {
                             DataObject dataObject = artifact.getDataObject();
 
-                            EObject element =
-                                    dataObject
-                                            .getOtherElement(XpdExtensionPackage.eINSTANCE
-                                                    .getDocumentRoot_DataObjectAttributes()
-                                                    .getName());
+                            EObject element = dataObject.getOtherElement(
+                                    XpdExtensionPackage.eINSTANCE
+                                            .getDocumentRoot_DataObjectAttributes()
+                                            .getName());
 
                             if (element instanceof XpdExtDataObjectAttributes) {
                                 XpdExtDataObjectAttributes extAttr =
@@ -1009,11 +1015,10 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
                 }
 
                 // Include Process Itefaces in cached Id's.
-                ProcessInterfaces ifcs =
-                        (ProcessInterfaces) Xpdl2ModelUtil
-                                .getOtherElement((Package) getRootElement(),
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_ProcessInterfaces());
+                ProcessInterfaces ifcs = (ProcessInterfaces) Xpdl2ModelUtil
+                        .getOtherElement((Package) getRootElement(),
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_ProcessInterfaces());
                 if (ifcs != null) {
                     for (ProcessInterface ifc : ifcs.getProcessInterface()) {
                         if (builder.length() > 0) {
@@ -1093,7 +1098,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
             }
         } else if (eo instanceof ProcessInterface) {
 
-            if (Xpdl2ModelUtil.isServiceProcessInterface((ProcessInterface) eo)) {
+            if (Xpdl2ModelUtil
+                    .isServiceProcessInterface((ProcessInterface) eo)) {
 
                 return Messages.BpmContentLabelProvider_ServiceProcessInterface_label;
             }
@@ -1166,8 +1172,8 @@ public class Xpdl2WorkingCopyImpl extends AbstractTransactionalWorkingCopy {
         if (resources != null) {
             for (Resource resource : resources) {
                 if (resource instanceof ResourceImpl) {
-                    ((ResourceImpl) resource)
-                            .setIntrinsicIDToEObjectMap(new HashMap<String, EObject>());
+                    ((ResourceImpl) resource).setIntrinsicIDToEObjectMap(
+                            new HashMap<String, EObject>());
 
                 }
             }

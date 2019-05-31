@@ -13,6 +13,8 @@
 		- Removal of simulation namespace and elements and attributes (this will need to be done in migration XSLT as the simulation 
 		  model has been removed from code base)
 		
+		- Removal of iProcess, eaijava and database extension namespace and elements and attributes
+		
 		- Remove 'Publish as REST Service' option from business processes and the hidden derived pageflows from XPDL files.
 
 		- Remove all javascript/XPath mappings for all WSDL related activities Service task, receive task, send tasks, message events, 
@@ -155,11 +157,11 @@
 	===============================================================================
     -->
 	<xsl:template match="@simulation:* | simulation:*">
-		<!-- Do nothing (e.g. do not output he simulation attribute / element)-->
+		<!-- Do nothing (e.g. do not output the attribute / element)-->
 	</xsl:template>
 
 	<xsl:template match="xpdl2:ExtendedAttribute[@Name = 'ParticipantSimulationData' or @Name = 'StartSimulationData' or @Name = 'ActivitySimulationData' or @Name = 'WorkflowProcessSimulationData']">
-		<!-- Do nothing (e.g. do not output the simulation extended attribute / element)-->
+		<!-- Do nothing (e.g. do not output the extended attribute / element)-->
 	</xsl:template>
 
 	<!--
@@ -169,7 +171,7 @@
 	===============================================================================
     -->
 	<xsl:template match="@eaijava:* | eaijava:*">
-		<!-- Do nothing (e.g. do not output he simulation attribute / element)-->
+		<!-- Do nothing (e.g. do not output the attribute / element)-->
 	</xsl:template>
 	
 	<!--
@@ -179,7 +181,18 @@
 	===============================================================================
     -->
 	<xsl:template match="@database:* | database:*">
-		<!-- Do nothing (e.g. do not output he simulation attribute / element)-->
+		<!-- Do nothing (e.g. do not output the attribute / element)-->
+	</xsl:template>
+
+	
+	<!--
+	===============================================================================
+	Remove all references to iProcessExt schema elements (the extension model contribution is
+	no longer part of the SCE feature set so have to remove it). 
+	===============================================================================
+    -->
+	<xsl:template match="@iProcessExt:* | iProcessExt:*">
+		<!-- Do nothing (e.g. do not output the attribute / element)-->
 	</xsl:template>
 
 	<!--
