@@ -35,6 +35,12 @@ public class AceSupportedBomTypesRule implements IValidationRule {
     private static final String ISSUE_ACE_ILLEGAL_PRIMITIVE_TYPE =
             "ace.bom.illegal.primitive.type"; //$NON-NLS-1$
 
+    private static final String ISSUE_ACE_ILLEGAL_PROPERTY_DATE_TYPE =
+            "ace.bom.illegal.property.date.type"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_ILLEGAL_PRIMITIVE_DATE_TYPE =
+            "ace.bom.illegal.primitive.date.type"; //$NON-NLS-1$
+
     private PrimitiveType textPrimitiveType;
 
     private PrimitiveType decimalPrimitiveType;
@@ -44,6 +50,8 @@ public class AceSupportedBomTypesRule implements IValidationRule {
     private PrimitiveType timePrimitiveType;
 
     private PrimitiveType dateTimeTZPrimitiveType;
+
+    private PrimitiveType dateTimePrimitiveType;
 
     private PrimitiveType uriPrimitiveType;
 
@@ -73,6 +81,10 @@ public class AceSupportedBomTypesRule implements IValidationRule {
                 PrimitivesUtil.getStandardPrimitiveTypeByName(rSet,
                         PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME);
 
+        dateTimePrimitiveType =
+                PrimitivesUtil.getStandardPrimitiveTypeByName(rSet,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME);
+
         uriPrimitiveType = PrimitivesUtil.getStandardPrimitiveTypeByName(rSet,
                 PrimitivesUtil.BOM_PRIMITIVE_URI_NAME);
 
@@ -96,9 +108,19 @@ public class AceSupportedBomTypesRule implements IValidationRule {
     protected void validatePrimitiveType(IValidationScope scope,
             PrimitiveType primitiveType) {
         if (!isValidType(PrimitivesUtil.getBasePrimitiveType(primitiveType))) {
-            scope.createIssue(ISSUE_ACE_ILLEGAL_PRIMITIVE_TYPE,
-                    BOMValidationUtil.getLocation(primitiveType),
-                    primitiveType.eResource().getURIFragment(primitiveType));
+            if (isDateTimeType(primitiveType)) {
+                // assign issue with quick-fix
+                scope.createIssue(ISSUE_ACE_ILLEGAL_PRIMITIVE_DATE_TYPE,
+                        BOMValidationUtil.getLocation(primitiveType),
+                        primitiveType.eResource()
+                                .getURIFragment(primitiveType));
+
+            } else {
+                scope.createIssue(ISSUE_ACE_ILLEGAL_PRIMITIVE_TYPE,
+                        BOMValidationUtil.getLocation(primitiveType),
+                        primitiveType.eResource()
+                                .getURIFragment(primitiveType));
+            }
         }
     }
 
@@ -117,23 +139,30 @@ public class AceSupportedBomTypesRule implements IValidationRule {
          * validation
          */
         if (property.getType() != null && !isValidType(property.getType())) {
-            scope.createIssue(ISSUE_ACE_ILLEGAL_PROPERTY_TYPE,
-                    BOMValidationUtil.getLocation(property),
-                    property.eResource().getURIFragment(property));
+            if (isDateTimeType(property.getType())) {
+                // assign issue with quick-fix
+                scope.createIssue(ISSUE_ACE_ILLEGAL_PROPERTY_DATE_TYPE,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
+            } else {
+                scope.createIssue(ISSUE_ACE_ILLEGAL_PROPERTY_TYPE,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
+            }
         }
     }
 
     /**
-     * @param type
+     * @param aType
      * @return <code>true</code> if the given type is a complex type OR is a
      *         supported simple type.
      */
-    private boolean isValidType(Type type) {
-        if (type == null) {
+    private boolean isValidType(Type aType) {
+        if (aType == null) {
             return false;
         }
 
-        if (!(type instanceof PrimitiveType)) {
+        if (!(aType instanceof PrimitiveType)) {
             /* Complex types are all ok as far as this rule is concerned */
             return true;
         }
@@ -143,18 +172,45 @@ public class AceSupportedBomTypesRule implements IValidationRule {
          * user-defined primitive types (the base super-type of all of these
          * will be validated ultimately.
          */
-        EList<Classifier> superType = ((PrimitiveType) type).getGenerals();
+        EList<Classifier> superType = ((PrimitiveType) aType).getGenerals();
         if (superType != null && !superType.isEmpty()) {
             return true;
         }
 
-        if (textPrimitiveType.equals(type) || decimalPrimitiveType.equals(type)
-                || datePrimitiveType.equals(type)
-                || timePrimitiveType.equals(type)
-                || dateTimeTZPrimitiveType.equals(type)
-                || uriPrimitiveType.equals(type)
-                || booleanPrimitiveType.equals(type)) {
+        if (textPrimitiveType.equals(aType)
+                || decimalPrimitiveType.equals(aType)
+                || datePrimitiveType.equals(aType)
+                || timePrimitiveType.equals(aType)
+                || dateTimeTZPrimitiveType.equals(aType)
+                || uriPrimitiveType.equals(aType)
+                || booleanPrimitiveType.equals(aType)) {
             return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Tests if the given type is a simple date-time type - without time-zone.
+     * 
+     * @param aType
+     *            the type to be tested.
+     * @return <code>true</code> if the given type is a date-time type.
+     */
+    private boolean isDateTimeType(Type aType) {
+        // is it the date-time primitive
+        if (dateTimePrimitiveType.equals(aType)) {
+            return true;
+        }
+
+        if (aType instanceof PrimitiveType) {
+            // is it a subclass of date-time
+            PrimitiveType pt = (PrimitiveType) aType;
+            PrimitiveType basePrimitiveType =
+                    PrimitivesUtil.getBasePrimitiveType(pt);
+            if (dateTimePrimitiveType.equals(basePrimitiveType)) {
+                return true;
+            }
         }
 
         return false;

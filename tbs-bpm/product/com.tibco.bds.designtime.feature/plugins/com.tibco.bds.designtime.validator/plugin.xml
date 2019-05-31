@@ -430,6 +430,24 @@
              severity="ERROR">
        </issue>
        <issue
+             id="ace.bom.illegal.property.date.type"
+             message="%ace.bom.illegal.property.type"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyDateTimeTZType">
+          </resolution>
+       </issue>
+       <issue
+             id="ace.bom.illegal.primitive.date.type"
+             message="%ace.bom.illegal.primitive.type"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyDateTimeTZType">
+          </resolution>
+       </issue>
+       <issue
              id="ace.bom.number.property.max.length"
              message="%ace.bom.number.property.max.length"
              severity="ERROR">
@@ -678,6 +696,11 @@
             class="com.tibco.bds.designtime.validator.resolution.SetTypeTextResolution"
             id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyTextType"
             label="%makepropertytexttype_resolution_label">
+      </resolution>      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.SetTypeDateTimeTZResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.makePropertyDateTimeTZType"
+            label="%makepropertydatetimetztype_resolution_label">
       </resolution>      
       <resolution
             class="com.tibco.bds.designtime.validator.resolution.RemoveTextPatternResolution"

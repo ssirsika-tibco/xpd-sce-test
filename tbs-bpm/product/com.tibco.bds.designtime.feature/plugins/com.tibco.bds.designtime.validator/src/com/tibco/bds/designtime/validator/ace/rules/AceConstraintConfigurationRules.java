@@ -76,14 +76,14 @@ public class AceConstraintConfigurationRules implements IValidationRule {
         Type type = PrimitivesUtil.getBasePrimitiveType(primitiveType);
 
         if (decimalPrimitiveType.equals(type)) {
-            if (!validLength(primitiveType, (Property) primitiveType)) {
+            if (!validLength(primitiveType, null)) {
                 scope.createIssue(ISSUE_ACE_NUMBER_PRIMITIVE_MAX_LENGTH,
                         BOMValidationUtil.getLocation(primitiveType),
                         primitiveType.eResource()
                                 .getURIFragment(primitiveType));
             }
 
-            else if (!validDecimals(primitiveType, (Property) primitiveType)) {
+            else if (!validDecimals(primitiveType, null)) {
                 scope.createIssue(ISSUE_ACE_NUMBER_DEC_PLACES,
                         BOMValidationUtil.getLocation(primitiveType),
                         primitiveType.eResource()
@@ -155,18 +155,28 @@ public class AceConstraintConfigurationRules implements IValidationRule {
     }
 
     private Number getMaxLength(PrimitiveType aType, Property aProperty) {
-        Object result = PrimitivesUtil.getFacetPropertyValue(aType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH,
-                aProperty);
-
+        Object result;
+        if (aProperty == null) {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH);
+        } else {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH,
+                    aProperty);
+        }
         return (result instanceof Number) ? (Number) result : null;
     }
 
     private Number getDecimals(PrimitiveType aType, Property aProperty) {
-        Object result = PrimitivesUtil.getFacetPropertyValue(aType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
-                aProperty);
-
+        Object result;
+        if (aProperty == null) {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES);
+        } else {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
+                    aProperty);
+        }
         return (result instanceof Number) ? (Number) result : null;
     }
 }
