@@ -1,0 +1,107 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _quqeUIIJEemoZds-9k_wPw,_7CRdYH3wEembhM5KGYhVkg
+Element-Name: TerminalStates_1efg
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6kyHoIH3EemoZds-9k_wPw
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/2/19 11:01 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-eclipse-window | maximize
+
+//Import the archiveProject to workspace
+importArchiveFile -archiveName "ACE-535_CaseAction_1f" -projectLocation [concat $PROJECT_IMPORT_LOCATION"ACE-535_CaseAction_1f.zip"]
+importArchiveFile -archiveName "ACE-535_CaseClass_1efg" -projectLocation [concat $PROJECT_IMPORT_LOCATION"ACE-535_CaseClass_1efg.zip"]
+
+//Open the Project Tree and Verify the error message for atleast one terminal state
+with [get-view "Project Explorer" | get-tree] {
+	select "ACE-535_CaseClass_1efg/Business Objects/ACE535_CaseClass_1efg.bom" | double-click
+}
+
+//Verify the quick fix for terminal states.
+quickFixMsg -error "BPM  : A Case State must have at least one Terminal State set" 
+
+//Make states terminal
+with [get-editor "ACE535_CaseClass_1efg.bom" | get-diagram -index 1 | get-edit-part 
+    -name "com.example.ace528_caseclass_1efg"] {
+    with [get-edit-part -name ACE535CaseClass | get-edit-part -text "autoCaseIdentifier1 : TextcaseState1 : CaseStates" 
+        | get-edit-part -name caseState1] {
+        mouse-move 79 9 button1 -height 17 -width 155
+        mouse-press 79 9 button1 -height 17 -width 155
+        mouse-release 79 9 button1 524288 -height 17 -width 155
+        mouse-press 79 9 button1 -height 17 -width 155
+        mouse-double-click 79 9 button1 -height 17 -width 155
+        mouse-release 79 9 button1 524288 -height 17 -width 155
+        mouse-hover 79 9 -height 17 -width 155
+    }
+    mouse-move 377 398 -height 405 -width 1045
+}
+with [get-view Properties] {
+    get-property-tab "Terminal States" | click
+    with [get-table] {
+        get-item -path State2 | check
+        get-item -path State3 | check
+        get-item -path State4 | check
+        key-type "M1+s"
+    }
+}
+
+//Open the Case Action Properties tab
+get-view "Project Explorer" | get-tree 
+    | select "ACE-535_CaseAction_1f/Process Packages/ACE-535_CaseAction_1f.xpdl/ACE-535_CaseAction_1f \\(ACE535_CaseAction_1f\\)" 
+    | double-click
+get-editor "ACE-535_CaseAction_1f.xpdl" | get-section Processes 
+    | get-link "ACE-535_CaseAction_1f (ACE535_CaseAction_1f)" | click
+get-editor "ACE-535_CaseAction_1f (ACE535_CaseAction_1f)" | get-canvas | key-type "M1+s"
+
+//Verify the All States and Specific States
+get-view Properties | get-section "Case Action..." | get-button "All States" | click
+with [get-view Properties | get-section "Case Action..."] {
+    with [get-button "All States"] {
+        get-property enablement | equals true | verify-true
+        get-property tooltip | equals "Available in all states except terminal states." | verify-true
+        get-property "getText()" | equals "All States" | verify-true
+    }
+    with [get-button "Specific States..."] {
+        get-property enablement | equals true | verify-true        
+        get-property tooltip | equals "Case action is available in selected states (excluding terminal states)." 
+            | verify-true
+        get-property selected | equals false | verify-true
+        get-property "getText()" | equals "Specific States..." | verify-true
+    }
+}
+
+//Verify the States listed under All States.
+with [get-view Properties | get-section "Case Action..." | get-table] {
+    get-property itemCount | equals 2 | verify-true
+    get-item -path State1 | get-property caption | equals State1 | verify-true
+    get-item -path State1 | get-property enablement | equals false | verify-true
+    get-item -path State1 | get-property "getText()" | equals State1 | verify-true
+    get-item -path State1 | get-property "toString()" | equals "TableItem {State1}" | verify-true
+    get-item -path "No Case State Set" | get-property caption | equals "No Case State Set" | verify-true
+    get-item -path "No Case State Set" | get-property enablement | equals false | verify-true
+    get-item -path "No Case State Set" | get-property "getText()" | equals "No Case State Set" | verify-true
+    get-item -path "No Case State Set" | get-property "toString()" | equals "TableItem {No Case State Set}" 
+        | verify-true
+}
+
+//Select specific states and verify the states listed under 'Specific states'
+get-view Properties | get-section "Case Action..." | get-button "Specific States..." | click
+with [get-view Properties | get-section "Case Action..." | get-table] {
+    get-item -path "No Case State Set" | check
+    get-item -path State1 | check
+    key-type "M1+s"
+}
+savePackage
+
+
+
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

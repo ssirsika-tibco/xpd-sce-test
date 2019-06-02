@@ -1,0 +1,91 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: BOMProcedures
+Element-Type: context
+Element-Version: 2.0
+Id: _7CRdYH3wEembhM5KGYhVkg
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/2/19 11:12 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+
+//Prefix Suffix tests for autoCaseID
+proc autoCaseIDPrefixSuffixSet [val caseIdentifierName ][val prefix] [val suffix]{
+	with [get-view Properties] {
+    with [get-editbox -after [get-label "Label:"]] {
+        set-text $caseIdentifierName
+        key-type "M1+s"
+    }
+    get-editbox -after [get-label "Prefix:"] | set-text $prefix
+	}
+	get-editor $BOM_NAME | get-diagram -index 1 | get-edit-part 
+    -name $CASE_CLASS_PROPERTIES | mouse-move 6 374 -height 405 -width 1045
+	with [get-view Properties] {
+    
+    with [get-editbox -after [get-label "Suffix:"]] {
+        set-text $suffix
+    }
+	}
+
+}
+
+proc openCaseClassProperties{
+	get-view "Project Explorer" | get-tree |get-editor $BOM_NAME | get-diagram -index 1 | get-edit-part 
+    -name $CASE_CLASS_PROPERTIES
+}
+//verify Quick Fix 
+proc quickFixMsg [val error]{
+
+	with [get-view Problems] {
+    click
+    get-tree 
+        | select [concat "Errors (1 item)/"$error" ("$ERROR_ELEMENT_1" ("$CASE_CLASS_PROPERTIES"))"]
+	}
+	get-view Problems | get-tree | get-item 
+    -path [concat "Errors \\(1 item\\)/"$error" \\("$ERROR_ELEMENT_1" \\("$CASE_CLASS_PROPERTIES"\\)\\)"]
+    | get-property "getText()" 
+    | equals [concat $error" ("$ERROR_ELEMENT_1" ("$CASE_CLASS_PROPERTIES"))"] 
+    | verify-true
+	
+}
+
+
+//Select manual CaseIdentifier, set Max Length.
+proc "manualCaseIDLength" [val caseIDname] [val maxLength] {
+	get-editor $BOM_NAME | get-diagram -index 1 | get-edit-part 
+    -name $CASE_CLASS_PROPERTIES | get-edit-part -name Case1 | get-edit-part 
+    -text $CASE_TEXT
+    | get-edit-part -name $caseIDname | get-property text | equals [concat $caseIDname" : Text"]
+    | verify-true
+	with [get-view Properties] {
+    with [get-label "Maximum text length:"] {
+        get-property enablement | equals true | verify-true
+        get-property "getText()" | equals "Maximum text length:" | verify-true
+    }
+    get-editbox -after [get-label "Maximum text length:"] | get-property text | equals $maxLength| verify-true
+	}
+
+}
+
+//Select Attribute searchable
+proc searchable {
+	with [get-view Properties] {
+    get-button "Make the case class searchable by this attribute’s value" | check
+    
+	}
+}
+
+//Select Summary Attribute
+proc summary {
+	with [get-view Properties] {
+   get-button "Include this attribute in case summary" | check
+	}
+}
+
+
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
