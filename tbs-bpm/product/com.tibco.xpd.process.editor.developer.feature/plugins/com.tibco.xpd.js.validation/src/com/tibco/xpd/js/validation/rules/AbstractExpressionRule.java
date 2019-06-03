@@ -17,6 +17,7 @@ import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.parser.validator.ErrorMessage;
 import com.tibco.xpd.validation.destinations.Destination;
 import com.tibco.xpd.validation.provider.IValidationScope;
@@ -111,6 +112,9 @@ public abstract class AbstractExpressionRule extends Xpdl2ValidationRule {
      */
     protected abstract String getScriptContext();
 
+    /** Sid ACE-1378 Track that we only complain once above validation off. */
+    private static boolean validationOffErrorDone = false;
+
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.Xpdl2ValidationRule#validate(java.lang.Object)
      * 
@@ -118,6 +122,22 @@ public abstract class AbstractExpressionRule extends Xpdl2ValidationRule {
      */
     @Override
     protected void validate(Object o) {
+        
+        /*
+         * Sid ACE-1378 - check the tibco.scripts.validation.off=true and
+         * disable script valdiation if so.
+         */
+        String validationOff =
+                System.getProperty("xpd.scripts.validation.off"); //$NON-NLS-1$
+        if (validationOff != null && "true".equalsIgnoreCase(validationOff)) { //$NON-NLS-1$
+            if (!validationOffErrorDone) {
+                validationOffErrorDone = true;
+                XpdResourcesPlugin.getDefault().getLogger().error(
+                        "Script validations disabled (xpd.scripts.validation.off=true)"); //$NON-NLS-1$
+            }
+            return;
+        }
+        
         if (o instanceof Expression) {
             Expression expression = (Expression) o;
 
