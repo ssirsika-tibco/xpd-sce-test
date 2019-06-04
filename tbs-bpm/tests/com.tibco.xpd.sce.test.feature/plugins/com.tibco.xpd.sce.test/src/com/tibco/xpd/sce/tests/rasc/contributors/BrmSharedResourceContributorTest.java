@@ -186,7 +186,7 @@ public class BrmSharedResourceContributorTest extends TestCase {
      */
     private ProjectImporter importProject(String projectName) {
         String[] locations =
-                new String[] { "resources/BrmRascTest/" + projectName + "/" }; //$NON-NLS-1$ //$NON-NLS-2$
+                new String[] { "resources/BrmRascTest/" + projectName + "/" };
         String[] names = new String[] { projectName };
         return importProjects(locations, names);
     }
@@ -200,17 +200,17 @@ public class BrmSharedResourceContributorTest extends TestCase {
          * Import and mgirate the project
          */
         ProjectImporter projectImporter =
-                TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+                TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                         aProjectLocations,
                         aProjectNames);
 
-        assertTrue("Failed to load projects " + aProjectNames, //$NON-NLS-1$
+        assertTrue("Failed to load projects " + aProjectNames,
                 projectImporter != null);
 
         for (String name : aProjectNames) {
             IProject project =
-                    ResourcesPlugin.getWorkspace().getRoot().getProject(name); // $NON-NLS-1$
-            assertTrue(name + " project does not exist", //$NON-NLS-1$
+                    ResourcesPlugin.getWorkspace().getRoot().getProject(name);
+            assertTrue(name + " project does not exist",
                     project.isAccessible());
         }
 
