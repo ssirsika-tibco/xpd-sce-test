@@ -35,6 +35,14 @@ public class AttributeTextPatternRule implements IValidationRule {
             return;
         }
 
+        // Resolution is currently only for text fields
+        PrimitiveType primType =
+                PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+        if (!primType.getName()
+                .equals(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME)) {
+            return;
+        }
+
         // retrieve pattern value from property
         PrimitiveType pt = (PrimitiveType) type;
         Object pattern = PrimitivesUtil.getFacetPropertyValue(pt,
