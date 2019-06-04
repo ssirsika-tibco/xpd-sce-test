@@ -47,19 +47,19 @@ public class ProcessParticipantResourceIndexProvider extends
      * Attribute to store shared resource type of the participant.
      */
     public static final String ATTRIBUTE_RESOURCE_TYPE =
-            "resourceType"; //$NON-NLS-1$
+            "resource_Type"; //$NON-NLS-1$
 
     /**
      * Attribute to store shared resource end point name of the participant.
      */
-    public static final String ATTRIBUTE_RESOURCE_NAME = "resourceName"; //$NON-NLS-1$
+    public static final String ATTRIBUTE_RESOURCE_NAME = "resource_Name"; //$NON-NLS-1$
 
     /**
      * Attribute to store shared resource end point description of the
      * participant.
      */
     public static final String ATTRIBUTE_RESOURCE_DESCRIPTION =
-            "resourceDescription"; //$NON-NLS-1$
+            "resource_Description"; //$NON-NLS-1$
 
     public ProcessParticipantResourceIndexProvider() {
         super();

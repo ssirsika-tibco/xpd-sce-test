@@ -246,20 +246,21 @@ public class SharedResourcesSection
                          * Get all the participants which match the content of
                          * the content assist field
                          */
-                        Set<String> allResourceNames = getAllResourceNames();
-                        Object[] proposals = allResourceNames.toArray();
+                        Set<SharedResourceProposal> allResourceNameProposals =
+                                getAllResourceProposals();
+                        Object[] proposals = allResourceNameProposals.toArray();
                         return proposals;
                     }
 
                     /**
-                     * Get all resource names that are in the scope of the input
-                     * object.
+                     * Get all resource name proposals that are in the scope of
+                     * the input object.
                      * 
                      * @return
                      */
-                    private Set<String> getAllResourceNames() {
+                    private Set<SharedResourceProposal> getAllResourceProposals() {
 
-                        Set<String> allResourceNames = new HashSet<String>();
+                        Set<SharedResourceProposal> allResourceProposals = new HashSet<SharedResourceProposal>();
 
                         Collection<IndexerItem> allParticipantIndexerItems =
                                 ProcessUIUtil.getAllParticipantIndexerItems();
@@ -287,16 +288,59 @@ public class SharedResourcesSection
                                         .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
                                 if (null != resourceName
                                         && !resourceName.isEmpty()
-                                        && !allResourceNames
-                                                .contains(resourceName)) {
-                                    allResourceNames
-                                            .add(resourceName);
+                                        && !isAlreadyInTheResourceProposals(
+                                                resourceName,
+                                                allResourceProposals)) {
+                                    
+                                    String resourceDescription = eachParticipantIndexerItem
+                                            .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
+                                    
+                                    SharedResourceProposal newRestServiceSharedResourceProposal =
+                                            new SharedResourceProposal(
+                                                    resourceName,
+                                                    resourceDescription);
+                                    allResourceProposals
+                                            .add(newRestServiceSharedResourceProposal);
                                 }
 
                             }
                         }
 
-                        return allResourceNames;
+                        return allResourceProposals;
+                    }
+
+                    /**
+                     * Return <code>true</code> if a resource proposal with the
+                     * specified resource name is already present in the list of
+                     * resource proposals, <code>false</code> otherwise.
+                     * 
+                     * @param resourceName
+                     * @param allResourceProposals
+                     * 
+                     * @return <code>true</code> if a resource proposal with the
+                     *         specified resource name is already present in the
+                     *         list of resource proposals, <code>false</code>
+                     *         otherwise.
+                     */
+                    private boolean isAlreadyInTheResourceProposals(
+                            String resourceName,
+                            Set<SharedResourceProposal> allResourceProposals) {
+                        boolean isResourceNameInTheResourceProposals = false;
+
+                        if (null != resourceName) {
+                            for (SharedResourceProposal eachProposal : allResourceProposals) {
+                                if (null != eachProposal && null != eachProposal
+                                        .getResourceName()) {
+                                    if (resourceName.equals(
+                                            eachProposal.getResourceName())) {
+                                        isResourceNameInTheResourceProposals =
+                                                true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        return isResourceNameInTheResourceProposals;
                     }
                 };
 
@@ -349,8 +393,26 @@ public class SharedResourcesSection
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        sr.getRestService().setResourceName(
-                                text.length() > 0 ? text : null);
+                        if (newValue instanceof SharedResourceProposal) {
+                            String resName =
+                                    ((SharedResourceProposal) newValue)
+                                            .getResourceName();
+                            String resDesc =
+                                    ((SharedResourceProposal) newValue)
+                                            .getResourceDescription();
+                            if (null != resName && !resName.isEmpty()) {
+                                sr.getRestService().setResourceName(resName);
+                            }
+                            if (null != resDesc && !resDesc.isEmpty()) {
+                                sr.getRestService().setDescription(resDesc);
+                            }
+                        } else if (newValue instanceof String) {
+                            String newValueString = (String) newValue;
+                            if (!newValueString.equals(
+                                    sr.getRestService().getResourceName()))
+                                sr.getRestService()
+                                        .setResourceName(newValueString);
+                        }
                     }
                 };
 
@@ -359,6 +421,89 @@ public class SharedResourcesSection
                     ed.getCommandStack().execute(cmd);
                 }
             }
+        }
+    }
+
+    /**
+     * Class to facilitate the proposals for Rest service shared resource name
+     * content assist.
+     *
+     * @author sajain
+     * @since Jun 4, 2019
+     */
+    private static class SharedResourceProposal {
+
+        /**
+         * Resource name.
+         */
+        private String resourceName;
+
+        /**
+         * Resource description.
+         */
+        private String resourceDescription;
+
+        /**
+         * Class to facilitate the proposals for Rest service shared resource
+         * name content assist.
+         * 
+         * @param aResourceName
+         * @param aResourceDescription
+         */
+        public SharedResourceProposal(
+                String aResourceName, String aResourceDescription) {
+            this.setResourceName(aResourceName);
+            this.setResourceDescription(aResourceDescription);
+        }
+
+        /**
+         * @see java.lang.Object#toString()
+         *
+         * @return
+         */
+        @Override
+        public String toString() {
+            String toStr = super.toString();
+            if (null != this.resourceName && !this.resourceName.isEmpty()) {
+                toStr = this.resourceName;
+
+                if (null != this.resourceDescription
+                        && !this.resourceDescription.isEmpty()) {
+                    toStr += " - " + this.resourceDescription; //$NON-NLS-1$
+                }
+            }
+
+            return toStr;
+        }
+
+        /**
+         * @return the resourceName
+         */
+        public String getResourceName() {
+            return resourceName;
+        }
+
+        /**
+         * @param resourceName
+         *            the resourceName to set
+         */
+        public void setResourceName(String resourceName) {
+            this.resourceName = resourceName;
+        }
+
+        /**
+         * @return the resourceDescription
+         */
+        public String getResourceDescription() {
+            return resourceDescription;
+        }
+
+        /**
+         * @param resourceDescription
+         *            the resourceDescription to set
+         */
+        public void setResourceDescription(String resourceDescription) {
+            this.resourceDescription = resourceDescription;
         }
     }
 
