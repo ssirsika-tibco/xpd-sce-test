@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_YstWwIHzEemwcs8vYEbmtg" xpdExt:DisplayName="SimpleProc" Name="SimpleProc">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-05-29</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>pwatson</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_6p514IXhEemreJ7fmIXVPg" xpdExt:DisplayName="SimpleServicesService_Consumer" Name="SimpleServicesService_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService HttpClientInstanceName="SimpleServices-Service" resourceName="SimpleProc/Participants/SimpleServicesService_Consumer" Description="Customer data services"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_d1MiIIXmEemreJ7fmIXVPg" xpdExt:DisplayName="CustomerReps" Name="CustomerReps">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Email InstanceName="all_reps@work.com"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_c5zCQIHzEemwcs8vYEbmtg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_YtKpwIHzEemwcs8vYEbmtg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_c5zCQYHzEemwcs8vYEbmtg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_YtKpwIHzEemwcs8vYEbmtg" xpdExt:DisplayName="SimpleProc-Process" Name="SimpleProcProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_fM8woIHzEemwcs8vYEbmtg" xpdExt:DisplayName="TextProcField" Name="TextProcField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qjnnwIIQEemKl_kc4dKXjw" xpdExt:DisplayName="NumProcField1" Name="NumProcField1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ol0qsIIREemKl_kc4dKXjw" xpdExt:DisplayName="NumProcField2" Name="NumProcField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ROmq0IIREemKl_kc4dKXjw" xpdExt:DisplayName="NumProcField3" Name="NumProcField3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>10</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ni2bsIIaEem5idng-Y-hlA" xpdExt:DisplayName="NumProcField4" Name="NumProcField4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>5</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_c5zCQoHzEemwcs8vYEbmtg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="27.0" LaneId="_c5zCQYHzEemwcs8vYEbmtg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="95.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_c5zCQ4HzEemwcs8vYEbmtg" Name="GetcustomerGETCustomers" FinishMode="Manual" IsATransaction="false" StartMode="Manual" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Get customer - GET Customers" xpdExt:Visibility="Private">
+          <xpdl2:Description>Retrieve customer data.</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_ySeGUIXgEemreJ7fmIXVPg">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PATH_customerId">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">NumProcField1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_ySeGUYXgEemreJ7fmIXVPg">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT"/>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="SimpleServices.rsd" xpdExt:MethodId="_5P-rAoXgEemreJ7fmIXVPg"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_6p514IXhEemreJ7fmIXVPg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="64.0" LaneId="_c5zCQYHzEemwcs8vYEbmtg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="223.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_c5zCRIHzEemwcs8vYEbmtg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="47.0" LaneId="_c5zCQYHzEemwcs8vYEbmtg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="485.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uzdaEIXmEemreJ7fmIXVPg" Name="EmailCustomers" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Email Customers">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="E-Mail" Implementation="Other">
+                <xpdl2:MessageIn Id="_ycDRYIXmEemreJ7fmIXVPg"/>
+                <xpdl2:MessageOut Id="_ycDRYYXmEemreJ7fmIXVPg"/>
+                <email:Email>
+                  <email:Definition>
+                    <email:From email:Configuration="Custom">%TextProcField%</email:From>
+                    <email:To>me@work.com</email:To>
+                    <email:Priority>High</email:Priority>
+                    <email:Subject>Help</email:Subject>
+                  </email:Definition>
+                  <email:Body>WTF</email:Body>
+                  <email:SMTP email:Configuration="Server"/>
+                </email:Email>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_d1MiIIXmEemreJ7fmIXVPg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_c5zCQYHzEemwcs8vYEbmtg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="351.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_c5zCRYHzEemwcs8vYEbmtg" xpdExt:DisplayName="" From="_c5zCQoHzEemwcs8vYEbmtg" To="_c5zCQ4HzEemwcs8vYEbmtg"/>
+        <xpdl2:Transition Id="_c5zCRoHzEemwcs8vYEbmtg" xpdExt:DisplayName="" From="_uzdaEIXmEemreJ7fmIXVPg" To="_c5zCRIHzEemwcs8vYEbmtg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_uzeBIIXmEemreJ7fmIXVPg" xpdExt:DisplayName="" Name="" From="_c5zCQ4HzEemwcs8vYEbmtg" To="_uzdaEIXmEemreJ7fmIXVPg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

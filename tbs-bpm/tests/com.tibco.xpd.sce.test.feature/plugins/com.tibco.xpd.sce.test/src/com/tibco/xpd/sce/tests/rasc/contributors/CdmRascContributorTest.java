@@ -6,11 +6,6 @@ package com.tibco.xpd.sce.tests.rasc.contributors;
 
 import static org.junit.Assert.assertArrayEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.eclipse.core.resources.IFile;
@@ -18,12 +13,11 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
-import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 import com.tibco.xpd.core.test.util.AbstractBuildingBaseResourceTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.n2.cdm.rasc.CdmRascContributor;
 import com.tibco.xpd.rasc.core.RascContributor;
-import com.tibco.xpd.rasc.core.RascWriter;
+import com.tibco.xpd.sce.tests.rasc.contributors.MockRascWriter.WriterContent;
 
 /**
  * Test CDM (created from BOM) RASC Contribution.
@@ -112,82 +106,5 @@ public class CdmRascContributorTest extends AbstractBuildingBaseResourceTest {
 
         // some data was written to the artifact
         assertTrue(artifact.getContent().size() > 0);
-    }
-
-    /**
-     * Used to capture the properties and content of an artifact written to the
-     * MockRascWriter.
-     */
-    private static class WriterContent {
-        private String resourcePath;
-
-        private MicroService[] services;
-
-        private ByteArrayOutputStream content;
-
-        private String internalName;
-
-        private String artifactName;
-
-        public WriterContent(String aResourcePath, String aArtifactName,
-                String aInternalName, MicroService[] aServices) {
-            resourcePath = aResourcePath;
-            artifactName = aArtifactName;
-            internalName = aInternalName;
-            services = aServices;
-            content = new ByteArrayOutputStream();
-        }
-
-        public String getArtifactName() {
-            return artifactName;
-        }
-
-        public String getInternalName() {
-            return internalName;
-        }
-
-        public String getFullPath() {
-            return resourcePath;
-        }
-
-        public MicroService[] getServices() {
-            return services;
-        }
-
-        public ByteArrayOutputStream getContent() {
-            return content;
-        }
-    }
-
-    /**
-     * A mock implementation of RascWriter to capture the properties and content
-     * of the artifacts written to the RASC by the RascContributor.
-     */
-    private static class MockRascWriter implements RascWriter {
-        final ArrayList<WriterContent> artifacts = new ArrayList<>();
-
-        /**
-         * @see com.tibco.xpd.rasc.core.RascWriter#addContent(java.lang.String,
-         *      com.tibco.bpm.dt.rasc.MicroService[])
-         */
-        @Override
-        public OutputStream addContent(String aName, String aArtifactName,
-                String aInternalName, MicroService[] aMicroServices)
-                throws RuntimeApplicationException, IOException {
-            WriterContent result = new WriterContent(aName, aArtifactName,
-                    aInternalName, aMicroServices);
-            artifacts.add(result);
-            return result.getContent();
-        }
-
-        /**
-         * Allows the test to retrieve the captured artifacts, in the order they
-         * were captured.
-         * 
-         * @return the ordered collection of captured artifacts.
-         */
-        public List<WriterContent> getArtifacts() {
-            return artifacts;
-        }
     }
 }

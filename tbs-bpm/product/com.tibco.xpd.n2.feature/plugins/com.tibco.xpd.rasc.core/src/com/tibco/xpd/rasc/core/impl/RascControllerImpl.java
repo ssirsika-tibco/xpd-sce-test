@@ -22,6 +22,8 @@ import org.eclipse.core.runtime.SubMonitor;
 import com.tibco.bpm.dt.rasc.DeploymentFactory;
 import com.tibco.bpm.dt.rasc.DeploymentWriter;
 import com.tibco.bpm.dt.rasc.GovernanceState;
+import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.bpm.dt.rasc.VersionRange.Endpoint;
@@ -163,10 +165,16 @@ public class RascControllerImpl implements RascController {
                     contributorlocator.getContributors();
             List<RascContributor> contributors = new ArrayList<>();
 
+            // filter those contributors with any work to do
             for (RascContributor contributor : allContributors) {
                 if (contributor.hasContributionsFor(aProject)) {
                     contributors.add(contributor);
                 }
+            }
+
+            // if there are no contributions to make
+            if (contributors.isEmpty()) {
+                return;
             }
 
             int workSize = contributors.size();
@@ -191,12 +199,26 @@ public class RascControllerImpl implements RascController {
                             .forDeployment(NullIdGenerator.INSTANCE, aOutput);
 
                     // create a facade over the DeploymentWriter
-                    RascWriter writer = (aName, aArtifactName, aInternalName,
-                            aMicroServices) -> deployment.addContent(aName,
+                    RascWriter writer = new RascWriter() {
+                        @Override
+                        public OutputStream addContent(String aName,
+                                String aArtifactName, String aInternalName,
+                                MicroService[] aMicroServices)
+                                throws RuntimeApplicationException,
+                                IOException {
+                            return deployment.addContent(aName,
                                     null,
                                     aArtifactName,
                                     aInternalName,
                                     aMicroServices);
+                        }
+
+                        @Override
+                        public void setManifestAttribute(String aAttrName,
+                                PropertyValue[] aValues) {
+                            deployment.setProperties(aAttrName, aValues);
+                        }
+                    };
 
                     // has the job been cancelled by the user
                     if (monitor.isCanceled()) {

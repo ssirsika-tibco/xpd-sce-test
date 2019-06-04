@@ -5,6 +5,7 @@ package com.tibco.xpd.n2.brm;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -62,6 +63,7 @@ import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.SharedResourceUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
@@ -94,6 +96,7 @@ import com.tibco.xpd.xpdExtension.ActivityResourcePatterns;
 import com.tibco.xpd.xpdExtension.AllocationStrategy;
 import com.tibco.xpd.xpdExtension.AllocationType;
 import com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping;
+import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.PilingInfo;
 import com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
@@ -136,7 +139,6 @@ public class BRMGenerator {
      */
     public static final String WORKMODEL_ARTIFACT_NAME = "workModel.wm"; //$NON-NLS-1$
 
-
     private static final String GRAMMAR_JAVA_SCRIPT = "JavaScript"; //$NON-NLS-1$
 
     private static final Logger LOG = BRMActivator.getDefault().getLogger();
@@ -152,9 +154,6 @@ public class BRMGenerator {
 
     /** Work model ID prefix. */
     private static final String WORK_TYPE_ID_PREFIX = "WT_"; //$NON-NLS-1$
-
-    /** XML file extension */
-    private static final String XML_EXTENSION = "xml"; //$NON-NLS-1$
 
     /** workType.wt file extension */
     private static final String WT_EXTENSION = "wt"; //$NON-NLS-1$
@@ -217,8 +216,6 @@ public class BRMGenerator {
     private BRMGenerator() {
     }
 
-
-
     /**
      * Check if the project has relevant content for requiring generation of the
      * work model and work type models.
@@ -241,17 +238,100 @@ public class BRMGenerator {
                     for (Activity activity : Xpdl2ModelUtil
                             .getAllActivitiesInProc(process)) {
 
-                        if (TaskType.USER_LITERAL
-                                .equals(TaskObjectUtil
-                                        .getTaskTypeStrict(activity))) {
+                        if (TaskType.USER_LITERAL.equals(
+                                TaskObjectUtil.getTaskTypeStrict(activity))) {
                             return true;
                         }
                     }
                 }
+
+                // look for any shared resource instances in process
+                if (hasSharedResources(process.getParticipants())) {
+                    return true;
+                }
+            }
+
+            // look for any shared resource instances in package
+            if (hasSharedResources(pkg.getParticipants())) {
+                return true;
             }
         }
 
         return false;
+    }
+
+    /**
+     * Search to the given collection of participants for any shared resources.
+     * 
+     * @param aParticipants
+     *            the participants to be searched.
+     * @return <code>true</code> if any shared resource references found.
+     */
+    private boolean hasSharedResources(Collection<Participant> aParticipants) {
+        if ((aParticipants != null) && (!aParticipants.isEmpty())) {
+            for (Participant participant : aParticipants) {
+                if (SharedResourceUtil
+                        .getParticipantSharedResource(participant) != null) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Find all SharedResource instances within the given project. Returns an
+     * empty collection if none are found.
+     * 
+     * @param aProject
+     *            the project to search.
+     * @return the collection of shared resource found.
+     */
+    public Collection<ParticipantSharedResource> getSharedResources(
+            IProject aProject) {
+        Collection<Package> packages = BRMUtils.getN2ProcessPackages(aProject);
+        if ((packages == null) || (packages.isEmpty())) {
+            return Collections.emptyList();
+        }
+
+        Collection<ParticipantSharedResource> result = new ArrayList<>();
+        for (Package pkg : packages) {
+            result.addAll(getSharedResources(pkg.getParticipants()));
+
+            for (Process process : pkg.getProcesses()) {
+                result.addAll(getSharedResources(process.getParticipants()));
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Return all instances of the given Participants that reference shared
+     * resources. If there are no shared resource references the return value
+     * will be an empty collection.
+     * 
+     * @param aParticipants
+     *            the participants to search.
+     * @return the collection of shared resource references.
+     */
+    private Collection<ParticipantSharedResource> getSharedResources(
+            Collection<Participant> aParticipants) {
+        if ((aParticipants == null) || (aParticipants.isEmpty())) {
+            return Collections.emptyList();
+        }
+
+        Collection<ParticipantSharedResource> result = new ArrayList<>();
+        ParticipantSharedResource sharedResource;
+        for (Participant participant : aParticipants) {
+            sharedResource = SharedResourceUtil
+                    .getParticipantSharedResource(participant);
+            if (sharedResource != null) {
+                result.add(sharedResource);
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -266,72 +346,76 @@ public class BRMGenerator {
      */
     public Map<String, Resource> generateBRMModels(IProject aProject,
             String version) {
-        LinkedHashMap<String, Resource> brmModels = new LinkedHashMap();
+        /*
+         * get user task activities for the project.
+         */
+        final Collection<Activity> manualN2Activities = BRMUtils
+                .getN2ManualActivities(BRMUtils.getN2ProcessPackages(aProject));
 
-        ResourceSet rs = new ResourceSetImpl();
+        // if there are no user tasks
+        if (manualN2Activities.isEmpty()) {
+            return Collections.emptyMap();
+        }
+
+        LinkedHashMap<String, Resource> result = new LinkedHashMap<>();
 
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 
-        final Object previousWTFactory =
-                extensionToFactoryMap.get(WT_EXTENSION);
+        ResourceSet rs = new ResourceSetImpl();
 
-        final Object previousWMFactory =
-                extensionToFactoryMap.get(WM_EXTENSION);
+        /*
+         * Create the work types model.
+         */
+        DocumentRoot brmWorkType =
+                createBRMWorkTypes(manualN2Activities, version);
 
-        try {
-
-            /*
-             * get user task activities for the project.
-             */
-            final Collection<Activity> manualN2Activities =
-                    BRMUtils.getN2ManualActivities(
-                            BRMUtils.getN2ProcessPackages(aProject));
-
-            /*
-             * Create the work types model.
-             */
-            DocumentRoot brmWorkType =
-                    createBRMWorkTypes(manualN2Activities, version);
-
-            if (brmWorkType != null) {
-                extensionToFactoryMap.put(WT_EXTENSION,
-                        new WorktypeResourceFactoryImpl());
-
-                Resource workTypeResource =
-                        rs.createResource(
-                                URI.createURI(WORKTYPE_ARTIFACT_NAME));
+        if (brmWorkType != null) {
+            // record original factory - and select a new one
+            final Object previousWTFactory =
+                    extensionToFactoryMap.get(WT_EXTENSION);
+            extensionToFactoryMap.put(WT_EXTENSION,
+                    new WorktypeResourceFactoryImpl());
+            try {
+                Resource workTypeResource = rs
+                        .createResource(URI.createURI(WORKTYPE_ARTIFACT_NAME));
 
                 workTypeResource.getContents().add(brmWorkType);
-
-                brmModels.put(WORKTYPE_ARTIFACT_NAME, workTypeResource);
+                result.put(WORKTYPE_ARTIFACT_NAME, workTypeResource);
+            } finally {
+                // restore original factory object
+                extensionToFactoryMap.put(WT_EXTENSION, previousWTFactory);
             }
+        }
 
-            /*
-             * Create the work-models model
-             */
-            com.tibco.n2.brm.workmodel.DocumentRoot brmWorkModel =
-                    createBRMWorkModels(aProject, manualN2Activities, version);
+        /*
+         * Create the work-models model
+         */
+        com.tibco.n2.brm.workmodel.DocumentRoot brmWorkModel =
+                createBRMWorkModels(aProject, manualN2Activities, version);
 
-            if (brmWorkModel != null) {
-                extensionToFactoryMap.put(WM_EXTENSION,
-                        new WorkmodelResourceFactoryImpl());
+        if (brmWorkModel != null) {
+            // record original factory - and select a new one
+            final Object previousWMFactory =
+                    extensionToFactoryMap.get(WM_EXTENSION);
 
+            extensionToFactoryMap.put(WM_EXTENSION,
+                    new WorkmodelResourceFactoryImpl());
+            try {
                 Resource workModelsResource = rs
                         .createResource(URI.createURI(WORKMODEL_ARTIFACT_NAME));
 
                 workModelsResource.getContents().add(brmWorkModel);
-
-                brmModels.put(WORKMODEL_ARTIFACT_NAME, workModelsResource);
+                result.put(WORKMODEL_ARTIFACT_NAME, workModelsResource);
+            } finally {
+                // restore original factory object
+                extensionToFactoryMap.put(WM_EXTENSION, previousWMFactory);
             }
-
-        } finally {
-            extensionToFactoryMap.put(WM_EXTENSION, previousWMFactory);
-            extensionToFactoryMap.put(WT_EXTENSION, previousWTFactory);
         }
-        return brmModels;
+
+        return result;
     }
-    
+
     /**
      * Creates the list of N2 specific WorkTypes based on the provided model.
      * 
@@ -475,8 +559,7 @@ public class BRMGenerator {
      * @return the root of the work-model model.
      */
     private com.tibco.n2.brm.workmodel.DocumentRoot createBRMWorkModels(
-            IProject project,
-            Collection<Activity> manualN2Activities, 
+            IProject project, Collection<Activity> manualN2Activities,
             String version) {
         List<WorkModel> brmWorkModels = new ArrayList<WorkModel>();
 
@@ -561,6 +644,7 @@ public class BRMGenerator {
                     }
                 }
             }
+
             Process process = activity.getProcess();
             for (Performer performer : activity.getPerformerList()) {
                 Object participantObj = Xpdl2ModelUtil
@@ -600,16 +684,15 @@ public class BRMGenerator {
                                 Integer majorVer = BRMUtils
                                         .getReferencedOMMajorVersion(project);
                                 if (majorVer == null) {
-                                    majorVer = -1;
+                                    majorVer = Integer.valueOf(-1);
                                 }
-                                xmlResourceQuery.setModelVersion(majorVer);
+                                xmlResourceQuery
+                                        .setModelVersion(majorVer.intValue());
                                 workModelEntity
                                         .setEntityQuery(xmlResourceQuery);
                             }
-
                         }
                     }
-
                 }
                 // TODO deal with DataField participant.
             }
@@ -712,26 +795,20 @@ public class BRMGenerator {
                     && physicalAttributeMappingScript.length() > 0) {
 
                 // Add the generated script for their equivalent mapping.
-                if (physicalAttributeMappingScript != null) {
-                    Expression expression =
-                            Xpdl2Factory.eINSTANCE.createExpression(
-                                    physicalAttributeMappingScript.toString());
+                Expression expression = Xpdl2Factory.eINSTANCE.createExpression(
+                        physicalAttributeMappingScript.toString());
 
-                    expression.setScriptGrammar(GRAMMAR_JAVA_SCRIPT);
-                    WorkModelScript workModelScript =
-                            createWorkModelScript(expression);
-                    workModelScript
-                            .setScriptTypeID(getParentProcessId(activity));
-                    workModelScript.setScriptOperation(
-                            WorkItemScriptOperation.SYSAPPEND);
-                    // set generated script
-                    workModelScript
-                            .setScriptBody(physicalAttributeMappingScript);
-                    workModelScripts.getWorkModelScript().add(workModelScript);
-
-                }
-
+                expression.setScriptGrammar(GRAMMAR_JAVA_SCRIPT);
+                WorkModelScript workModelScript =
+                        createWorkModelScript(expression);
+                workModelScript.setScriptTypeID(getParentProcessId(activity));
+                workModelScript
+                        .setScriptOperation(WorkItemScriptOperation.SYSAPPEND);
+                // set generated script
+                workModelScript.setScriptBody(physicalAttributeMappingScript);
+                workModelScripts.getWorkModelScript().add(workModelScript);
             }
+
             // XPD-4957 Work Item Attribute - END
 
             // XPD-995: Deleted code to include Initiate & Cancel scripts in the
@@ -757,10 +834,10 @@ public class BRMGenerator {
 
         Integer majorVer = BRMUtils.getReferencedOMMajorVersion(project);
         if (majorVer == null) {
-            majorVer = -1;
+            majorVer = Integer.valueOf(-1);
         }
 
-        workModelRoot.setOrgModelVersion(majorVer);
+        workModelRoot.setOrgModelVersion(majorVer.intValue());
         workModelRoot.getWorkModel().addAll(brmWorkModels);
 
         return docRoot;
@@ -1059,8 +1136,7 @@ public class BRMGenerator {
         if (parent instanceof OrgModel) {
             OrgModel orgModel = (OrgModel) parent;
             String version = orgModel.getVersion();
-            return getMajorVersionComponent(version,
-                    OM_ENTITY_DEFAULT_VERSION);
+            return getMajorVersionComponent(version, OM_ENTITY_DEFAULT_VERSION);
         }
         return OM_ENTITY_DEFAULT_VERSION;
     }
@@ -1322,24 +1398,6 @@ public class BRMGenerator {
     }
 
     /**
-     * Gets module name, which is a workspace relative path of a resource or
-     * <code>null</code> if parameter is not contained in the resource.
-     */
-    private String getModuleName(EObject eo) {
-        WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(eo);
-        if (wc != null && !wc.isInvalidFile()) {
-            IResource resource = wc.getEclipseResources().get(0);
-            return resource.getFullPath().toPortableString();
-        } else {
-            LOG.error(String.format(
-                    "EObject has to be contained inside a valid resource: %1$s", //$NON-NLS-1$
-                    eo.toString()));
-        }
-        return null;
-
-    }
-
-    /**
      * Generate work list facade model resource for the project.
      * 
      * @param project
@@ -1350,8 +1408,7 @@ public class BRMGenerator {
      * @return The EMF Resource for the worklist facade model or null if none
      *         generated.
      */
-    public Resource generateWlfModel(final IProject project,
-            String version) {
+    public Resource generateWlfModel(final IProject project, String version) {
 
         final List<IResource> wlfFiles = SpecialFolderUtil
                 .getAllDeepResourcesInSpecialFolderOfKind(project,
@@ -1369,8 +1426,9 @@ public class BRMGenerator {
             IFile srcWlfFile = (IFile) wlfFiles.get(0);
             WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(srcWlfFile);
             if (wc == null) {
-                BRMActivator.getDefault().getLogger().error(
-                        String.format(Messages.BRMGenerator_invalidWlf_message,
+                BRMActivator.getDefault().getLogger()
+                        .error(String.format(
+                                Messages.BRMGenerator_invalidWlf_message,
                                 srcWlfFile.getFullPath()));
                 return null;
             }
@@ -1413,20 +1471,19 @@ public class BRMGenerator {
 
             destWlfRoot.setWorkListAttributeFacade(destWlf);
 
-            /* Sid ACE-245 Now returns EMF resource for runtime WLF model. */ 
-            return createWlfResource(WORKLISTFACADE_FILENAME,
-                    destWlfRoot);
+            /* Sid ACE-245 Now returns EMF resource for runtime WLF model. */
+            return createWlfResource(WORKLISTFACADE_FILENAME, destWlfRoot);
         }
 
         return null;
     }
 
     /**
-     * Saves emf model in XML format (with 'xml' extension).
-     * Sid ACE-245 Now returns EMF resource for runtime WLF model.
+     * Saves emf model in XML format (with 'xml' extension). Sid ACE-245 Now
+     * returns EMF resource for runtime WLF model.
      * 
      * @param rascRelativePath
-     *            path to the file. 
+     *            path to the file.
      * @param documentRoot
      *            the document root element.
      * 
@@ -1450,14 +1507,13 @@ public class BRMGenerator {
              */
             extensionToFactoryMap.put(WLF_MODULE_FILE_EXTENSION,
                     resourceFactory);
-            final URI resourceURI =
-                    URI.createURI(rascRelativePath);
+            final URI resourceURI = URI.createURI(rascRelativePath);
             final ResourceSet rs = new ResourceSetImpl();
-            
+
             Resource wlfResource = rs.createResource(resourceURI);
 
             wlfResource.getContents().add(documentRoot);
-            
+
             return wlfResource;
 
         } catch (Exception e) {
@@ -1467,7 +1523,6 @@ public class BRMGenerator {
                     Messages.BRMGenerator_resourceSaveProblem_message,
                     rascRelativePath) : msg;
             BRMActivator.getDefault().getLogger().error(msg);
-            
         } finally {
             /* Revert previous registry settings. */
             extensionToFactoryMap.put(WLF_MODULE_FILE_EXTENSION,

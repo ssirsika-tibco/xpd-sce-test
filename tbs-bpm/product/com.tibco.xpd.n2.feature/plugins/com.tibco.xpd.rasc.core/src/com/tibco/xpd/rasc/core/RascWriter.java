@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import com.tibco.bpm.dt.rasc.MicroService;
+import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 
 /**
@@ -56,4 +57,16 @@ public interface RascWriter {
             String aInternalName, MicroService[] aMicroServices)
             throws RuntimeApplicationException, IOException;
 
+    /**
+     * Sets the named manifest attribute to the given collection of values. A
+     * manifest attribute can hold many values, each comma-separated.
+     * Furthermore, each value can have any number of additional name/value
+     * pairs, each semi-colon-separated.
+     * 
+     * @param aAttrName
+     *            the name of the manifest attribute to be set.
+     * @param aValues
+     *            the value(s) to be set against the named attribute.
+     */
+    public void setManifestAttribute(String aAttrName, PropertyValue[] aValues);
 }

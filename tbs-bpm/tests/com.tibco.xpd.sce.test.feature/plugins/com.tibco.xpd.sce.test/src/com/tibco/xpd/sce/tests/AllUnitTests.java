@@ -23,6 +23,8 @@ import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
+import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
+import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessTemporalDefaultValueRuleTest;
@@ -84,6 +86,8 @@ public class AllUnitTests {
         suite.addTestSuite(AceTemporalDefaultValueRuleTest.class);
         suite.addTestSuite(TerminalStateValidationTest.class);
         suite.addTestSuite(AceBomTextPatternRemovalTest.class);
+        suite.addTestSuite(AceDecPlacesValidationTest.class);
+        suite.addTestSuite(AceDateTimeResolutionTest.class);
 
         /*
          * Miscellaneous

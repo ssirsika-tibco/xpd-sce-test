@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rsd:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsd="http://com.tibco.xpd/rsd" xmi:id="_5P-rAIXgEemreJ7fmIXVPg" name="SimpleServices-Service">
+  <resources xmi:id="_5P-rAYXgEemreJ7fmIXVPg" name="Customers" pathTemplate="/v1/customers/{customerId}">
+    <parameters xmi:id="_l4328IXhEemreJ7fmIXVPg" name="customerId" style="PATH" dataType="INTEGER" mandatory="true">
+      <defaultValue xsi:nil="true"/>
+    </parameters>
+    <methods xmi:id="_5P-rAoXgEemreJ7fmIXVPg" name="Get customer">
+      <request xmi:id="_5P-rA4XgEemreJ7fmIXVPg"/>
+      <response xmi:id="_5P-rBIXgEemreJ7fmIXVPg">
+        <payloadReference xmi:id="_qZ-1MIXiEemreJ7fmIXVPg" namespace="http://xpd.tibco.com/jsd/1.0" ref="UNPROCESSED-TEXT" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_gf94kIXhEemreJ7fmIXVPg" name="updateCustomer" httpMethod="POST">
+      <request xmi:id="_gf94kYXhEemreJ7fmIXVPg"/>
+      <response xmi:id="_gf94koXhEemreJ7fmIXVPg"/>
+    </methods>
+    <methods xmi:id="_iQWREIXhEemreJ7fmIXVPg" name="deleteCustomer" httpMethod="DELETE">
+      <request xmi:id="_iQWREYXhEemreJ7fmIXVPg"/>
+      <response xmi:id="_iQWREoXhEemreJ7fmIXVPg"/>
+    </methods>
+  </resources>
+  <resources xmi:id="_pW1LkIXhEemreJ7fmIXVPg" name="Customers" pathTemplate="/v1/customers">
+    <methods xmi:id="_uEEWwIXhEemreJ7fmIXVPg" name="listCustomers">
+      <request xmi:id="_uEEWwYXhEemreJ7fmIXVPg"/>
+      <response xmi:id="_uEEWwoXhEemreJ7fmIXVPg">
+        <payloadReference xmi:id="_01QH8IXnEemreJ7fmIXVPg" namespace="http://xpd.tibco.com/jsd/1.0" ref="UNPROCESSED-TEXT" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_xdAogIXhEemreJ7fmIXVPg" name="createCustomer" httpMethod="PUT">
+      <request xmi:id="_xdAogYXhEemreJ7fmIXVPg">
+        <payloadReference xmi:id="_zRJ38IXnEemreJ7fmIXVPg" namespace="http://xpd.tibco.com/jsd/1.0" ref="UNPROCESSED-TEXT" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_xdAogoXhEemreJ7fmIXVPg"/>
+    </methods>
+  </resources>
+</rsd:Service>
