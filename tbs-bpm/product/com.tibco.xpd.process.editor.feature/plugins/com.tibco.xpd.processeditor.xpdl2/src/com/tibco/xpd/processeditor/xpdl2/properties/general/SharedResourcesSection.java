@@ -269,28 +269,28 @@ public class SharedResourcesSection
                              * Check if the participant is of shared resource is
                              * of REST share resource type.
                              */
+
+                            String resourceType = eachParticipantIndexerItem
+                                    .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
                             if (eachParticipantIndexerItem != null
                                     && ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE
                                             .toString()
-                                            .equals(eachParticipantIndexerItem
-                                                    .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE))) {
+                                            .equals(resourceType)) {
 
                                 /*
                                  * Make sure that we haven't already added the
                                  * current resource name to the list of all
                                  * resource names.
                                  */
-                                if (null != eachParticipantIndexerItem.get(
-                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME)
-                                        && !eachParticipantIndexerItem.get(
-                                                ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME)
-                                                .isEmpty()
-                                        && !allResourceNames.contains(
-                                                eachParticipantIndexerItem.get(
-                                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME))) {
+
+                                String resourceName = eachParticipantIndexerItem
+                                        .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME);
+                                if (null != resourceName
+                                        && !resourceName.isEmpty()
+                                        && !allResourceNames
+                                                .contains(resourceName)) {
                                     allResourceNames
-                                            .add(eachParticipantIndexerItem.get(
-                                                    ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME));
+                                            .add(resourceName);
                                 }
 
                             }

@@ -19,6 +19,7 @@ import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.indexer.IndexerItemImpl;
 import com.tibco.xpd.resources.internal.indexer.IndexerServiceImpl;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
+import com.tibco.xpd.xpdExtension.RestServiceResource;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
@@ -258,6 +259,10 @@ public class ProcessParticipantResourceIndexProvider extends
                     }
                 }
             }
+        }
+
+        if (o instanceof RestServiceResource) {
+            shouldReIndex = true;
         }
 
         return shouldReIndex;
