@@ -26,7 +26,6 @@ public class AllTests {
         suite.addTestSuite(SpecialFolderUtilTest.class);
         suite.addTestSuite(ProjectUtilTest.class);
         suite.addTestSuite(ResourceDbDerbyTest.class);
-        suite.addTestSuite(ProcessParticipantResourceIndexProviderTest.class);
         // $JUnit-END$
         return suite;
     }
