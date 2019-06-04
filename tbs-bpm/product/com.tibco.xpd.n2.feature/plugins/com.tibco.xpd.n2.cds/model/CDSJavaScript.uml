@@ -8,6 +8,7 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="__6rEMZSbEeO0_N6kReVM0Q" name="DQLString"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_h2km8OWqEd6droIMdV2Wlw" name="Decimal"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_qbPYkINcEd-d7pAxM0lUeg" name="bom.Class"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_RgOFgIYSEemPmt-F0Us-xg" name="Number"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_atX0MEc6EeWnNqT0IlnHnw" name="Array">
     <ownedRule xmi:id="_atX0MUc6EeWnNqT0IlnHnw" name="Multiple"/>
     <ownedRule xmi:id="_atX0Mkc6EeWnNqT0IlnHnw" name="Contextless"/>
@@ -1240,6 +1241,143 @@
       <ownedParameter xmi:id="_x2C_cUVVEeOBtrMaqqQ-Dw" type="_eTPKMKHqEd6gj7Xw0shGxA" direction="return">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fv43sEVWEeOBtrMaqqQ-Dw" value="*"/>
       </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_PdyVsIX8EemPmt-F0Us-xg" name="BigNumber">
+    <ownedOperation xmi:id="_ZxNtUIX8EemPmt-F0Us-xg" name="absoluteValue">
+      <ownedParameter xmi:id="_x6ezYIX8EemPmt-F0Us-xg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6iRi0IawEemAQ5iYsHJhfg" name="ceil">
+      <ownedParameter xmi:id="_8uEsAIawEemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vRBqkIYMEemPmt-F0Us-xg" name="comparedTo">
+      <ownedParameter xmi:id="_MYkWkIYPEemPmt-F0Us-xg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_NOhHIIYPEemPmt-F0Us-xg" type="_RgOFgIYSEemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-asewIYUEemPmt-F0Us-xg" name="decimalPlaces">
+      <ownedParameter xmi:id="_gbXacIanEemAQ5iYsHJhfg" type="_RgOFgIYSEemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_s8FJAIanEemAQ5iYsHJhfg" name="dividedBy">
+      <ownedParameter xmi:id="_CRT50IarEemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_DD1i8IarEemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_QGkZcIarEemAQ5iYsHJhfg" name="dividedToIntegerBy">
+      <ownedParameter xmi:id="_8r3CUIasEemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_9kn2UIasEemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Cp2DsIatEemAQ5iYsHJhfg" name="equals">
+      <ownedParameter xmi:id="_TvupwIaxEemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_UhI4kIaxEemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_uhULAIazEemAQ5iYsHJhfg" name="floor">
+      <ownedParameter xmi:id="_wJ-K4IazEemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UpwsQIa1EemAQ5iYsHJhfg" name="greaterThan">
+      <ownedParameter xmi:id="_Z_mIgIa1EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_a4zocIa1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hMnI0Ia1EemAQ5iYsHJhfg" name="greaterThanOrEqualTo">
+      <ownedParameter xmi:id="_jhzekIa1EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_kpGd0Ia1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_pvzR4Ia1EemAQ5iYsHJhfg" name="isFinite">
+      <ownedParameter xmi:id="_rRg8QIa1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_tlz6IIa1EemAQ5iYsHJhfg" name="isInteger">
+      <ownedParameter xmi:id="_vfHlIIa1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_zH5CoIa1EemAQ5iYsHJhfg" name="isNaN">
+      <ownedParameter xmi:id="_1QSSgIa1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3V5UIIa1EemAQ5iYsHJhfg" name="isNegative">
+      <ownedParameter xmi:id="_7PGaUIa1EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_D7Er8Ia2EemAQ5iYsHJhfg" name="isZero">
+      <ownedParameter xmi:id="_F81IUIa2EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_H1vKsIa2EemAQ5iYsHJhfg" name="lessThan">
+      <ownedParameter xmi:id="_KMMEsIa2EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_K4-SMIa2EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_PyC58Ia2EemAQ5iYsHJhfg" name="lessThanOrEqualTo">
+      <ownedParameter xmi:id="_VQ8yoIa2EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_WBxLkIa2EemAQ5iYsHJhfg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_bZHqwIa2EemAQ5iYsHJhfg" name="minus">
+      <ownedParameter xmi:id="_c4OtEIa2EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_dxJSEIa2EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xvVpYIa3EemAQ5iYsHJhfg" name="modulo">
+      <ownedParameter xmi:id="_4xKGUIa3EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_5eOnsIa3EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-Gkr0Ia3EemAQ5iYsHJhfg" name="negated">
+      <ownedParameter xmi:id="_RqRU8Ia4EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Vj5R4Ia4EemAQ5iYsHJhfg" name="plus">
+      <ownedParameter xmi:id="_XFJpQIa4EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_X9jQ4Ia4EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_5Gj5IIa4EemAQ5iYsHJhfg" name="precision">
+      <ownedParameter xmi:id="_6pbaEIa4EemAQ5iYsHJhfg" type="_RgOFgIYSEemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_KFyaYIa5EemAQ5iYsHJhfg" name="round">
+      <ownedParameter xmi:id="_ZU96UIa5EemAQ5iYsHJhfg" name="dp" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_bJZsYIa5EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_l94ioIa5EemAQ5iYsHJhfg" name="shift">
+      <ownedParameter xmi:id="_nbH8sIa5EemAQ5iYsHJhfg" name="n" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+      <ownedParameter xmi:id="_rw9UgIa5EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_wfoDEIa5EemAQ5iYsHJhfg" name="squareRoot">
+      <ownedParameter xmi:id="_za6vgIa5EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_24Y78Ia5EemAQ5iYsHJhfg" name="times">
+      <ownedParameter xmi:id="_4NPPAIa5EemAQ5iYsHJhfg" name="n" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_5GMQQIa5EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-YRN4Ia5EemAQ5iYsHJhfg" name="toDigits">
+      <ownedParameter xmi:id="_HNXmUIa6EemAQ5iYsHJhfg" name="sd" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_H2teQIa6EemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_GONZ8Ia7EemAQ5iYsHJhfg" name="toExponential">
+      <ownedParameter xmi:id="_X0OX8IbHEemAQ5iYsHJhfg" name="dp" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_Yp_iUIbHEemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_bNUlQIbIEemAQ5iYsHJhfg" name="toFixed">
+      <ownedParameter xmi:id="_dL9cMIbIEemAQ5iYsHJhfg" name="dp" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_eCbKIIbIEemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7u6LsIbJEemAQ5iYsHJhfg" name="toFormat">
+      <ownedParameter xmi:id="_0-V6AIbNEemAQ5iYsHJhfg" name="dp" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_1vTc4IbNEemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6Sc38IbNEemAQ5iYsHJhfg" name="toFraction">
+      <ownedParameter xmi:id="_79YvwIbNEemAQ5iYsHJhfg" name="md" type="_PdyVsIX8EemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_-7pQoIbNEemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RPuE8IbOEemAQ5iYsHJhfg" value="2"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OPpmMIbOEemAQ5iYsHJhfg" value="2"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ZESikIbQEemAQ5iYsHJhfg" name="toNumber">
+      <ownedParameter xmi:id="_gJXH0IbQEemAQ5iYsHJhfg" type="_RgOFgIYSEemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mxAxQIbQEemAQ5iYsHJhfg" name="toPower">
+      <ownedParameter xmi:id="_pTk0oIbQEemAQ5iYsHJhfg" name="n" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_p9_qoIbQEemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_w4rk0IbQEemAQ5iYsHJhfg" name="toPrecision">
+      <ownedParameter xmi:id="_963owIbQEemAQ5iYsHJhfg" name="sd" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="__OaUQIbQEemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_D1vrwIbREemAQ5iYsHJhfg" name="toString">
+      <ownedParameter xmi:id="_I6A24IbREemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_NXvmcIbREemAQ5iYsHJhfg" name="truncated">
+      <ownedParameter xmi:id="_O0EagIbREemAQ5iYsHJhfg" type="_PdyVsIX8EemPmt-F0Us-xg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_VpLRIIbREemAQ5iYsHJhfg" name="valueOf">
+      <ownedParameter xmi:id="_YEpOAIbREemAQ5iYsHJhfg" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
     </ownedOperation>
   </packagedElement>
 </uml:Model>
