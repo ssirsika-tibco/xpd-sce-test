@@ -43,31 +43,55 @@ public class AttributeNumericDecPlacesResolution
     @Override
     protected Command getResolutionCommand(EditingDomain domain, EObject target,
             IMarker marker) throws ResolutionException {
-        // Should only be set for Property types
-        if (!(target instanceof Property)) {
-            return null;
+        if (target instanceof Property) {
+            return resolve(domain, (Property) target);
         }
 
-        final Property prop = (Property) target;
-        final Type type = prop.getType();
+        if (target instanceof PrimitiveType) {
+            return resolve(domain, null, (PrimitiveType) target);
+        }
+
+        return null;
+    }
+
+    /**
+     * Returns the resolution for property based markers.
+     * 
+     * @param domain
+     * @param aProperty
+     * @return
+     */
+    private Command resolve(EditingDomain domain, Property aProperty) {
+        final Type type = aProperty.getType();
 
         // Only deal with Primitive Types
         if (!(type instanceof PrimitiveType)) {
             return null;
         }
 
-        // Get the base type in case this is a BOM primitive type defined by
-        // the user, we want to get the type of that for checking
-        final PrimitiveType primType =
-                PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+        return resolve(domain, aProperty, (PrimitiveType) type);
+    }
+
+    /**
+     * Returns the resolution for primitive-type based markers, optionally
+     * sourced from a property based marker.
+     * 
+     * @param domain
+     * @param aProperty
+     * @param aType
+     * @return
+     */
+    private Command resolve(EditingDomain domain, final Property aProperty,
+            final PrimitiveType aType) {
 
         // resolution is only for decimal fields
-        if (!decimalPrimitiveType.equals(primType)) {
+        if (!decimalPrimitiveType
+                .equals(PrimitivesUtil.getBasePrimitiveType(aType))) {
             return null;
         }
 
         // allow the user to select a new value
-        Number oldValue = getOriginalValue((PrimitiveType) type, prop);
+        Number oldValue = getOriginalValue(aType, null);
         String newScaleValue = getNewValue(oldValue, DEFAULT_DEC_PLACES);
 
         // if no new value given
@@ -78,10 +102,10 @@ public class AttributeNumericDecPlacesResolution
         return new RecordingCommand((TransactionalEditingDomain) domain) {
             @Override
             protected void doExecute() {
-                PrimitivesUtil.setFacetPropertyValue((PrimitiveType) type,
+                PrimitivesUtil.setFacetPropertyValue(aType,
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
                         newScaleValue,
-                        prop);
+                        aProperty);
             }
         };
     }
@@ -112,10 +136,15 @@ public class AttributeNumericDecPlacesResolution
      * @return
      */
     private Number getOriginalValue(PrimitiveType aType, Property aProperty) {
-        Object result = PrimitivesUtil.getFacetPropertyValue(aType,
-                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
-                aProperty);
-
+        Object result;
+        if (aProperty == null) {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES);
+        } else {
+            result = PrimitivesUtil.getFacetPropertyValue(aType,
+                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_PLACES,
+                    aProperty);
+        }
         return (result instanceof Number) ? (Number) result : null;
     }
 }

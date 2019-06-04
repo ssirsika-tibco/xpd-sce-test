@@ -26,28 +26,58 @@ public class AttributeNumericLengthLimitResolution
     protected Command getResolutionCommand(EditingDomain domain, EObject target,
             IMarker marker) throws ResolutionException {
         // Should only be set for Property types
-        if (!(target instanceof Property)) {
-            return null;
+        if (target instanceof Property) {
+            return resolve(domain, (Property) target);
         }
 
-        final Property prop = (Property) target;
-        final Type type = prop.getType();
+        else if (target instanceof PrimitiveType) {
+            return resolve(domain, null, (PrimitiveType) target);
+        }
+
+        return null;
+    }
+
+    /**
+     * Returns the resolution for property based markers.
+     * 
+     * @param domain
+     * @param aProperty
+     * @return
+     */
+    private Command resolve(EditingDomain domain, Property aProperty) {
+        final Type type = aProperty.getType();
 
         // Only deal with Primitive Types
         if (!(type instanceof PrimitiveType)) {
             return null;
         }
 
+        return resolve(domain, aProperty, (PrimitiveType) type);
+    }
+
+    /**
+     * Returns the resolution for primitive-type based markers, optionally
+     * sourced from a property based marker.
+     * 
+     * @param domain
+     * @param aProperty
+     * @param aType
+     * @return
+     */
+    private Command resolve(EditingDomain domain, Property aProperty,
+            PrimitiveType aType) {
         // Get the base type in case this is a BOM primitive type defined by
         // the user, we want to get the type of that for checking
         final PrimitiveType primType =
-                PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+                PrimitivesUtil.getBasePrimitiveType(aType);
 
-        // Resolution is currently only for text fields
-        if ((!primType.getName()
-                .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME))
-                && (!primType.getName()
-                        .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME))) {
+        // resolution is only for numeric fields
+        final boolean isDecimal = primType.getName()
+                .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
+        final boolean isInteger = primType.getName()
+                .equals(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+
+        if ((!isDecimal) && (!isInteger)) {
             return null;
         }
 
@@ -55,19 +85,15 @@ public class AttributeNumericLengthLimitResolution
             @Override
             protected void doExecute() {
                 // Make sure the correct value is used for the update
-                String propertyName =
-                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH;
-                if (primType.getName()
-                        .equals(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME)) {
-                    propertyName =
-                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH;
-                }
+                String propertyName = (isInteger)
+                        ? PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_LENGTH
+                        : PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LENGTH;
 
-                PrimitivesUtil.setFacetPropertyValue((PrimitiveType) type,
+                PrimitivesUtil.setFacetPropertyValue(aType,
                         propertyName,
                         Integer.toString(
                                 BDSConstants.CASE_DATA_STORE_DEFAULT_MAXIMUM_NUMERIC_PRECISION),
-                        prop);
+                        aProperty);
             }
         };
     }
