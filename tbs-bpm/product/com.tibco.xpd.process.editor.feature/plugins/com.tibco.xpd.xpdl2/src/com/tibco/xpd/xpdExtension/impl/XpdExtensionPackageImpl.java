@@ -15970,7 +15970,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         addAnnotation(getRestServiceResource_Description(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-                        "name", "Description" //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "description" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(getRestServiceResourceSecurity_PolicyType(),
                 source,

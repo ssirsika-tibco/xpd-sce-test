@@ -134,7 +134,7 @@ public interface RestServiceResource extends EObject {
      * @see #setDescription(String)
      * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRestServiceResource_Description()
      * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='Description'"
+     *        extendedMetaData="kind='attribute' name='description'"
      * @generated
      */
     String getDescription();

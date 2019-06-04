@@ -45,18 +45,32 @@ public class ProcessParticipantResourceIndexProvider extends
     /**
      * Attribute to store shared resource type of the participant.
      */
-    public static final String ATTRIBUTE_SHARED_RESOURCE_TYPE =
-            "sharedResourceType"; //$NON-NLS-1$
+    public static final String ATTRIBUTE_RESOURCE_TYPE =
+            "resourceType"; //$NON-NLS-1$
 
     /**
      * Attribute to store shared resource end point name of the participant.
      */
-    public static final String ATTRIBUTE_ENDPOINT_NAME = "endPointName"; //$NON-NLS-1$
+    public static final String ATTRIBUTE_RESOURCE_NAME = "resourceName"; //$NON-NLS-1$
+
+    /**
+     * Attribute to store shared resource end point description of the
+     * participant.
+     */
+    public static final String ATTRIBUTE_RESOURCE_DESCRIPTION =
+            "resourceDescription"; //$NON-NLS-1$
 
     public ProcessParticipantResourceIndexProvider() {
         super();
     }
 
+    /**
+     * The enumeration to hold the shared resource types for a participant
+     * shared resource.
+     *
+     * @author sajain
+     * @since Jun 3, 2019
+     */
     public enum ResourceType {
         EMAIL(Messages.SharedResourcesSection_EmailEnum_button,
                 XpdExtensionPackage.eINSTANCE
@@ -187,11 +201,14 @@ public class ProcessParticipantResourceIndexProvider extends
             ParticipantSharedResource psr = (ParticipantSharedResource) psrObj;
 
             if (null != psr.getRestService()) {
-                map.put(ATTRIBUTE_SHARED_RESOURCE_TYPE,
+                map.put(ATTRIBUTE_RESOURCE_TYPE,
                         ResourceType.REST_SERVICE.toString());
 
-                map.put(ATTRIBUTE_ENDPOINT_NAME,
+                map.put(ATTRIBUTE_RESOURCE_NAME,
                         psr.getRestService().getResourceName());
+
+                map.put(ATTRIBUTE_RESOURCE_DESCRIPTION,
+                        psr.getRestService().getDescription());
             }
         }
 

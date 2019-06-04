@@ -273,7 +273,7 @@ public class SharedResourcesSection
                                     && ProcessParticipantResourceIndexProvider.ResourceType.REST_SERVICE
                                             .toString()
                                             .equals(eachParticipantIndexerItem
-                                                    .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_SHARED_RESOURCE_TYPE))) {
+                                                    .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE))) {
 
                                 /*
                                  * Make sure that we haven't already added the
@@ -281,16 +281,16 @@ public class SharedResourcesSection
                                  * resource names.
                                  */
                                 if (null != eachParticipantIndexerItem.get(
-                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME)
+                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME)
                                         && !eachParticipantIndexerItem.get(
-                                                ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME)
+                                                ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME)
                                                 .isEmpty()
                                         && !allResourceNames.contains(
                                                 eachParticipantIndexerItem.get(
-                                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME))) {
+                                                        ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME))) {
                                     allResourceNames
                                             .add(eachParticipantIndexerItem.get(
-                                                    ProcessParticipantResourceIndexProvider.ATTRIBUTE_ENDPOINT_NAME));
+                                                    ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_NAME));
                                 }
 
                             }
