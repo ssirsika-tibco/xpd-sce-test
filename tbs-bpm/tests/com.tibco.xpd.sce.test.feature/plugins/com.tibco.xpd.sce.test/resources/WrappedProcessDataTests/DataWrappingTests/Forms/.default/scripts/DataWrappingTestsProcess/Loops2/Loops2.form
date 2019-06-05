@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="DataWrappingTests.xpdl#_1ekZsYezEemmHL5LWHEcVw?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=scripts%3a%3aDataWrappingTestsProcess%26n=Loops2?" formatVersion="11.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/scripts/DataWrappingTestsProcess/Loops2/Loops2.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_B7j6MIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=TextField?" name="data.TextField" label="Text Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_Eban0IbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=NumberField?" name="data.NumberField" label="Number Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_Eix0EIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=FixedPointNumberField?" name="data.FixedPointNumberField" label="Fixed Point Number Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" decimalPlaces="2" length="10" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_Eov5MIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=DateTimeField?" name="data.DateTimeField" label="Date Time Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_EthEcYbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=DateField?" name="data.DateField" label="Date Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_ExnhUIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=TimeField?" name="data.TimeField" label="Time Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BAs0YHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_pVsgQIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=BooleanField?" name="data.BooleanField" label="Boolean Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_pZL5IIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=FixedNumberTypeDecl?" name="data.FixedNumberTypeDecl" label="Fixed Number Type Decl" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" decimalPlaces="2" length="10" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_pbtosIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=PerformerField?" name="data.PerformerField" label="Performer Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_4SvHUIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ClassField?" name="data.ClassField" label="Class Field" dataType="uml:Class Data.bom#_u8B3UIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=DataTypes?" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" name="data.ComplexListField" label="Complex List Field" dataType="uml:Class Data.bom#_u8B3UIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=DataTypes?" isArray="true" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_Nu9vMId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=SimpleListField?" name="data.SimpleListField" label="Simple List Field" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" isArray="true" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_cSkikod3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ListFixedNumberTypeDecl?" name="data.ListFixedNumberTypeDecl" label="List Fixed Number Type Decl" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" isArray="true" decimalPlaces="2" length="10" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="DataWrappingTests.xpdl#_nUJX0IeyEemmHL5LWHEcVw?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=CorrelationField?" name="data.CorrelationField" label="CorrelationField" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" length="50" inout="IN"/>
+  </form:dataModel>
+  <form:actions/>
+  <form:rules>
+    <form:rule generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" name="rule.enable_ComplexListField__detail" label="Enable 'Complex List Field' Detail">
+      <form:event source="#pane.ComplexListField__detail" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#update" subject="form.pane.ComplexListField__detail.update"/>
+      <form:action xsi:type="form:ComputationAction" generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" name="action.enable_ComplexListField__detail" label="Enable 'Complex List Field' Detail">
+        <form:script>context.newValue != null;</form:script>
+        <form:destination target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/form#//UIElement/enabled" data="form.pane.ComplexListField__detail.enabled"/>
+      </form:action>
+    </form:rule>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_DNp_4Ie0EemmHL5LWHEcVw">
+      <form:source target="data.TextField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.TextField.value"/>
+      <form:destination target="control.TextField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.TextField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNp_4Ye0EemmHL5LWHEcVw">
+      <form:source target="data.NumberField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.NumberField.value"/>
+      <form:destination target="control.NumberField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.NumberField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNp_4oe0EemmHL5LWHEcVw">
+      <form:source target="data.FixedPointNumberField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FixedPointNumberField.value"/>
+      <form:destination target="control.FixedPointNumberField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FixedPointNumberField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm8Ie0EemmHL5LWHEcVw">
+      <form:source target="data.DateTimeField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.DateTimeField.value"/>
+      <form:destination target="control.DateTimeField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.DateTimeField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm8Ye0EemmHL5LWHEcVw">
+      <form:source target="data.DateField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.DateField.value"/>
+      <form:destination target="control.DateField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.DateField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm8oe0EemmHL5LWHEcVw">
+      <form:source target="data.TimeField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.TimeField.value"/>
+      <form:destination target="control.TimeField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.TimeField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm84e0EemmHL5LWHEcVw">
+      <form:source target="data.BooleanField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.BooleanField.value"/>
+      <form:destination target="control.BooleanField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.BooleanField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm9Ie0EemmHL5LWHEcVw">
+      <form:source target="data.FixedNumberTypeDecl" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FixedNumberTypeDecl.value"/>
+      <form:destination target="control.FixedNumberTypeDecl" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FixedNumberTypeDecl.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm9Ye0EemmHL5LWHEcVw">
+      <form:source target="data.PerformerField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.PerformerField.value"/>
+      <form:destination target="control.PerformerField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.PerformerField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNqm9oe0EemmHL5LWHEcVw">
+      <form:source target="data.ClassField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ClassField.value"/>
+      <form:destination target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.ClassField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOAIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" data="form.pane.ClassField.value.float1"/>
+      <form:destination target="control.ClassField_float1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_float1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOAYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" data="form.pane.ClassField.value.fixed"/>
+      <form:destination target="control.ClassField_fixed" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_fixed.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOAoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" data="form.pane.ClassField.value.text"/>
+      <form:destination target="control.ClassField_text" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_text.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOA4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" data="form.pane.ClassField.value.dateTimeTz"/>
+      <form:destination target="control.ClassField_dateTimeTz" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_dateTimeTz.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOBIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_ZB0CEobrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexChild?" data="form.pane.ClassField.value.complexChild"/>
+      <form:destination target="pane.ClassField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.ClassField_complexChild.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNrOBYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" data="form.pane.ClassField_complexChild.value.attribute1"/>
+      <form:destination target="control.ClassField_complexChild_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_complexChild_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1EIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" data="form.pane.ClassField_complexChild.value.attribute2"/>
+      <form:destination target="control.ClassField_complexChild_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_complexChild_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1EYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" data="form.pane.ClassField.value.boolean1"/>
+      <form:destination target="control.ClassField_boolean1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_boolean1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1Eoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" data="form.pane.ClassField.value.URI"/>
+      <form:destination target="control.ClassField_URI" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_URI.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1E4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" data="form.pane.ClassField.value.date"/>
+      <form:destination target="control.ClassField_date" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_date.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1FIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" data="form.pane.ClassField.value.time"/>
+      <form:destination target="control.ClassField_time" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_time.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1FYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" data="form.pane.ClassField.value.textList"/>
+      <form:destination target="control.ClassField_textList" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_textList.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNr1Foe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_kTrfAIeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexList?" data="form.pane.ClassField.value.complexList"/>
+      <form:destination target="pane.ClassField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value" data="form.pane.ClassField_complexList.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNscIIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" data="form.pane.ClassField_complexList.value.attribute1"/>
+      <form:destination target="control.ClassField_complexList_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_complexList_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNscIYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ClassField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" data="form.pane.ClassField_complexList.value.attribute2"/>
+      <form:destination target="control.ClassField_complexList_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClassField_complexList_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNscIoe0EemmHL5LWHEcVw">
+      <form:source target="data.ComplexListField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ComplexListField.value"/>
+      <form:destination target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value" data="form.pane.ComplexListField__master.value"/>
+    </form:binding>
+    <form:binding direction="bothways" name="_DNscI4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//GridPanePropertySet/selection" data="form.pane.ComplexListField__master.selection"/>
+      <form:destination target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.ComplexListField__detail.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNscJIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" data="form.pane.ComplexListField__master.value.float1"/>
+      <form:destination target="control.ComplexListField_float1__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_float1__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDMIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" data="form.pane.ComplexListField__master.value.fixed"/>
+      <form:destination target="control.ComplexListField_fixed__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_fixed__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDMYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" data="form.pane.ComplexListField__master.value.text"/>
+      <form:destination target="control.ComplexListField_text__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_text__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDMoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" data="form.pane.ComplexListField__master.value.dateTimeTz"/>
+      <form:destination target="control.ComplexListField_dateTimeTz__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_dateTimeTz__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDM4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" data="form.pane.ComplexListField__master.value.boolean1"/>
+      <form:destination target="control.ComplexListField_boolean1__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_boolean1__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDNIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" data="form.pane.ComplexListField__master.value.URI"/>
+      <form:destination target="control.ComplexListField_URI__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_URI__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDNYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" data="form.pane.ComplexListField__master.value.date"/>
+      <form:destination target="control.ComplexListField_date__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_date__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDNoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" data="form.pane.ComplexListField__master.value.time"/>
+      <form:destination target="control.ComplexListField_time__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_time__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtDN4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__master" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" data="form.pane.ComplexListField__master.value.textList"/>
+      <form:destination target="control.ComplexListField_textList__master" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_textList__master.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqQIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" data="form.pane.ComplexListField__detail.value.float1"/>
+      <form:destination target="control.ComplexListField_float1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_float1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqQYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" data="form.pane.ComplexListField__detail.value.fixed"/>
+      <form:destination target="control.ComplexListField_fixed" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_fixed.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqQoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" data="form.pane.ComplexListField__detail.value.text"/>
+      <form:destination target="control.ComplexListField_text" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_text.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqQ4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" data="form.pane.ComplexListField__detail.value.dateTimeTz"/>
+      <form:destination target="control.ComplexListField_dateTimeTz" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_dateTimeTz.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqRIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_ZB0CEobrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexChild?" data="form.pane.ComplexListField__detail.value.complexChild"/>
+      <form:destination target="pane.ComplexListField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.ComplexListField_complexChild.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNtqRYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" data="form.pane.ComplexListField_complexChild.value.attribute1"/>
+      <form:destination target="control.ComplexListField_complexChild_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_complexChild_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRUIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField_complexChild" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" data="form.pane.ComplexListField_complexChild.value.attribute2"/>
+      <form:destination target="control.ComplexListField_complexChild_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_complexChild_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRUYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" data="form.pane.ComplexListField__detail.value.boolean1"/>
+      <form:destination target="control.ComplexListField_boolean1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_boolean1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRUoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" data="form.pane.ComplexListField__detail.value.URI"/>
+      <form:destination target="control.ComplexListField_URI" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_URI.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRU4e0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" data="form.pane.ComplexListField__detail.value.date"/>
+      <form:destination target="control.ComplexListField_date" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_date.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRVIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" data="form.pane.ComplexListField__detail.value.time"/>
+      <form:destination target="control.ComplexListField_time" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_time.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRVYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" data="form.pane.ComplexListField__detail.value.textList"/>
+      <form:destination target="control.ComplexListField_textList" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_textList.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNuRVoe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField__detail" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value Data.bom#_kTrfAIeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexList?" data="form.pane.ComplexListField__detail.value.complexList"/>
+      <form:destination target="pane.ComplexListField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value" data="form.pane.ComplexListField_complexList.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNu4YIe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" data="form.pane.ComplexListField_complexList.value.attribute1"/>
+      <form:destination target="control.ComplexListField_complexList_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_complexList_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNu4YYe0EemmHL5LWHEcVw">
+      <form:source target="pane.ComplexListField_complexList" feature="http://www.tibco.com/forms/model/elemtypes#//CollectionPanePropertySet/value Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" data="form.pane.ComplexListField_complexList.value.attribute2"/>
+      <form:destination target="control.ComplexListField_complexList_attribute2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ComplexListField_complexList_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNu4Yoe0EemmHL5LWHEcVw">
+      <form:source target="data.SimpleListField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.SimpleListField.value"/>
+      <form:destination target="control.SimpleListField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.SimpleListField.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_DNu4Y4e0EemmHL5LWHEcVw">
+      <form:source target="data.ListFixedNumberTypeDecl" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ListFixedNumberTypeDecl.value"/>
+      <form:destination target="control.ListFixedNumberTypeDecl" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ListFixedNumberTypeDecl.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_DNu4ZIe0EemmHL5LWHEcVw">
+      <form:source target="data.CorrelationField" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CorrelationField.value"/>
+      <form:destination target="control.CorrelationField" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CorrelationField.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>Loops 2</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="left"/>
+    </form:defaults>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_B7j6MIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=TextField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.TextField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>Text Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_Eban0IbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=NumberField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.NumberField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>Number Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_Eix0EIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=FixedPointNumberField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FixedPointNumberField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>15</et:displayLength>
+        <et:maxLength>10</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+      </form:propertySet>
+      <form:label>Fixed Point Number Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_Eov5MIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=DateTimeField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.DateTimeField">
+      <form:propertySet xsi:type="et:DateTimePropertySet">
+        <et:minRelative>true</et:minRelative>
+        <et:maxRelative>true</et:maxRelative>
+        <et:year min="-20" max="20"/>
+        <et:minute increment="15"/>
+      </form:propertySet>
+      <form:label>Date Time Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_EthEcYbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=DateField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.date" controlType="com.tibco.forms.controls.date" name="control.DateField">
+      <form:propertySet xsi:type="et:DatePropertySet">
+        <et:minRelative>true</et:minRelative>
+        <et:maxRelative>true</et:maxRelative>
+        <et:year min="-20" max="20"/>
+      </form:propertySet>
+      <form:label>Date Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_ExnhUIbVEemIvtzY3lwZZg?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=TimeField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.time" controlType="com.tibco.forms.controls.time" name="control.TimeField">
+      <form:propertySet xsi:type="et:TimePropertySet">
+        <et:minute increment="15"/>
+      </form:propertySet>
+      <form:label>Time Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_pVsgQIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=BooleanField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.BooleanField">
+      <form:label>Boolean Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_pZL5IIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=FixedNumberTypeDecl?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FixedNumberTypeDecl">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>15</et:displayLength>
+        <et:maxLength>10</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+      </form:propertySet>
+      <form:label>Fixed Number Type Decl</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_pbtosIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=PerformerField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.PerformerField">
+      <form:propertySet xsi:type="et:TextAreaPropertySet">
+        <et:rows>10</et:rows>
+        <et:cols>25</et:cols>
+      </form:propertySet>
+      <form:label>Performer Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:pane generated="true" generatorSource="DataWrappingTests.xpdl#_4SvHUIbrEemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ClassField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Data.bom#_u8B3UIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=DataTypes?" name="pane.ClassField" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Class Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_float1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_decimal</et:formatRef>
+        </form:propertySet>
+        <form:label>Float</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_fixed">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>15</et:displayLength>
+          <et:maxLength>10</et:maxLength>
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+        </form:propertySet>
+        <form:label>Fixed</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_text">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>Text</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.ClassField_dateTimeTz">
+        <form:propertySet xsi:type="et:DateTimePropertySet">
+          <et:minRelative>true</et:minRelative>
+          <et:maxRelative>true</et:maxRelative>
+          <et:year min="-20" max="20"/>
+          <et:minute increment="15"/>
+        </form:propertySet>
+        <form:label>DateTimeTz</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" generatorSource="Data.bom#_ZB0CEobrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexChild?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Data.bom#_Wvn9AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=Child?" name="pane.ClassField_complexChild" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Complex Child</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_complexChild_attribute1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_complexChild_attribute2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+      <form:control generated="true" generatorSource="Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.ClassField_boolean1">
+        <form:label>Boolean</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_URI">
+        <form:propertySet xsi:type="et:TextPropertySet"/>
+        <form:label>URI</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.date" controlType="com.tibco.forms.controls.date" name="control.ClassField_date">
+        <form:propertySet xsi:type="et:DatePropertySet">
+          <et:minRelative>true</et:minRelative>
+          <et:maxRelative>true</et:maxRelative>
+          <et:year min="-20" max="20"/>
+        </form:propertySet>
+        <form:label>Date</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.time" controlType="com.tibco.forms.controls.time" name="control.ClassField_time">
+        <form:propertySet xsi:type="et:TimePropertySet">
+          <et:minute increment="15"/>
+        </form:propertySet>
+        <form:label>Time</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_textList">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <form:list>true</form:list>
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>Text List</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" generatorSource="Data.bom#_kTrfAIeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexList?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.grid" dataType="uml:Class Data.bom#_Wvn9AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=Child?" name="pane.ClassField_complexList" paneType="com.tibco.forms.panes.grid">
+        <form:propertySet xsi:type="et:GridPanePropertySet">
+          <et:showNavigator>false</et:showNavigator>
+          <et:supportAddOperation>true</et:supportAddOperation>
+          <et:supportDeleteOperation>true</et:supportDeleteOperation>
+          <et:editable>true</et:editable>
+          <et:sortable>true</et:sortable>
+          <et:rowLabel>{0}</et:rowLabel>
+        </form:propertySet>
+        <form:label>Complex List</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_complexList_attribute1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClassField_complexList_attribute2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+    </form:pane>
+    <form:pane generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.ComplexListField" paneType="com.tibco.forms.panes.horizontal">
+      <form:label>Complex List Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="top"/>
+      </form:defaults>
+      <form:pane generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.grid" dataType="uml:Class Data.bom#_u8B3UIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=DataTypes?" readOnly="true" name="pane.ComplexListField__master" paneType="com.tibco.forms.panes.grid">
+        <form:propertySet xsi:type="et:GridPanePropertySet">
+          <et:showNavigator>false</et:showNavigator>
+          <et:supportAddOperation>true</et:supportAddOperation>
+          <et:supportDeleteOperation>true</et:supportDeleteOperation>
+          <et:sortable>true</et:sortable>
+        </form:propertySet>
+        <form:label>Master</form:label>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_float1__master">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:numeric>true</et:numeric>
+            <et:formatRef>resource.common.format_decimal</et:formatRef>
+          </form:propertySet>
+          <form:label>Float</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_fixed__master">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>15</et:displayLength>
+            <et:maxLength>10</et:maxLength>
+            <et:numeric>true</et:numeric>
+            <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+          </form:propertySet>
+          <form:label>Fixed</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_text__master">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>Text</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.ComplexListField_dateTimeTz__master">
+          <form:propertySet xsi:type="et:DateTimePropertySet">
+            <et:minRelative>true</et:minRelative>
+            <et:maxRelative>true</et:maxRelative>
+            <et:year min="-20" max="20"/>
+            <et:minute increment="15"/>
+          </form:propertySet>
+          <form:label>DateTimeTz</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.ComplexListField_boolean1__master">
+          <form:label>Boolean</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_URI__master">
+          <form:propertySet xsi:type="et:TextPropertySet"/>
+          <form:label>URI</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.date" controlType="com.tibco.forms.controls.date" name="control.ComplexListField_date__master">
+          <form:propertySet xsi:type="et:DatePropertySet">
+            <et:minRelative>true</et:minRelative>
+            <et:maxRelative>true</et:maxRelative>
+            <et:year min="-20" max="20"/>
+          </form:propertySet>
+          <form:label>Date</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.time" controlType="com.tibco.forms.controls.time" name="control.ComplexListField_time__master">
+          <form:propertySet xsi:type="et:TimePropertySet">
+            <et:minute increment="15"/>
+          </form:propertySet>
+          <form:label>Time</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_textList__master">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <form:list>true</form:list>
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>Text List</form:label>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+      <form:pane generated="true" generatorSource="DataWrappingTests.xpdl#_H864EId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ComplexListField?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Data.bom#_u8B3UIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=DataTypes?" name="pane.ComplexListField__detail" paneType="com.tibco.forms.panes.vertical">
+        <form:label>Detail</form:label>
+        <form:visible>true</form:visible>
+        <form:enabled>false</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="left"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="Data.bom#_vNL4wIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=float1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_float1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:numeric>true</et:numeric>
+            <et:formatRef>resource.common.format_decimal</et:formatRef>
+          </form:propertySet>
+          <form:label>Float</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_vfAokIXSEemPctemFSy3MA?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=fixed?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_fixed">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>15</et:displayLength>
+            <et:maxLength>10</et:maxLength>
+            <et:numeric>true</et:numeric>
+            <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+          </form:propertySet>
+          <form:label>Fixed</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_SCZ_8IbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=text?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_text">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>Text</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_TFBTgIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=dateTimeTz?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.ComplexListField_dateTimeTz">
+          <form:propertySet xsi:type="et:DateTimePropertySet">
+            <et:minRelative>true</et:minRelative>
+            <et:maxRelative>true</et:maxRelative>
+            <et:year min="-20" max="20"/>
+            <et:minute increment="15"/>
+          </form:propertySet>
+          <form:label>DateTimeTz</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:pane generated="true" generatorSource="Data.bom#_ZB0CEobrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexChild?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class Data.bom#_Wvn9AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=Child?" name="pane.ComplexListField_complexChild" paneType="com.tibco.forms.panes.vertical">
+          <form:label>Complex Child</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:defaults>
+            <form:labelProperties position="top"/>
+          </form:defaults>
+          <form:control generated="true" generatorSource="Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_complexChild_attribute1">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>attribute1</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+          <form:control generated="true" generatorSource="Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_complexChild_attribute2">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>attribute2</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+        </form:pane>
+        <form:control generated="true" generatorSource="Data.bom#_czs_UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=boolean1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.ComplexListField_boolean1">
+          <form:label>Boolean</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_edJCUIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=URI?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_URI">
+          <form:propertySet xsi:type="et:TextPropertySet"/>
+          <form:label>URI</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_ga03AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=date?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.date" controlType="com.tibco.forms.controls.date" name="control.ComplexListField_date">
+          <form:propertySet xsi:type="et:DatePropertySet">
+            <et:minRelative>true</et:minRelative>
+            <et:maxRelative>true</et:maxRelative>
+            <et:year min="-20" max="20"/>
+          </form:propertySet>
+          <form:label>Date</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_hqBOAIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=time?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.time" controlType="com.tibco.forms.controls.time" name="control.ComplexListField_time">
+          <form:propertySet xsi:type="et:TimePropertySet">
+            <et:minute increment="15"/>
+          </form:propertySet>
+          <form:label>Time</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" generatorSource="Data.bom#_hzcW4IeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=textList?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_textList">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <form:list>true</form:list>
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>Text List</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:pane generated="true" generatorSource="Data.bom#_kTrfAIeHEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aDataTypes%26n=complexList?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.grid" dataType="uml:Class Data.bom#_Wvn9AIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.data%26n=Child?" name="pane.ComplexListField_complexList" paneType="com.tibco.forms.panes.grid">
+          <form:propertySet xsi:type="et:GridPanePropertySet">
+            <et:showNavigator>false</et:showNavigator>
+            <et:supportAddOperation>true</et:supportAddOperation>
+            <et:supportDeleteOperation>true</et:supportDeleteOperation>
+            <et:editable>true</et:editable>
+            <et:sortable>true</et:sortable>
+            <et:rowLabel>{0}</et:rowLabel>
+          </form:propertySet>
+          <form:label>Complex List</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:defaults>
+            <form:labelProperties position="top"/>
+          </form:defaults>
+          <form:control generated="true" generatorSource="Data.bom#_Xp7pIIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_complexList_attribute1">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>attribute1</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+          <form:control generated="true" generatorSource="Data.bom#_YI75UIbrEemzHtQaUrf4NQ?p=DataWrappingData%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.data%3a%3aChild%26n=attribute2?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ComplexListField_complexList_attribute2">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>attribute2</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+        </form:pane>
+      </form:pane>
+    </form:pane>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_Nu9vMId3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=SimpleListField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.SimpleListField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <form:list>true</form:list>
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>Simple List Field</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_cSkikod3EemzHtQaUrf4NQ?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=ListFixedNumberTypeDecl?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ListFixedNumberTypeDecl">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <form:list>true</form:list>
+        <et:displayLength>15</et:displayLength>
+        <et:maxLength>10</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+      </form:propertySet>
+      <form:label>List Fixed Number Type Decl</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="DataWrappingTests.xpdl#_nUJX0IeyEemmHL5LWHEcVw?p=DataWrappingTests%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=scripts%3a%3aDataWrappingTestsProcess%26n=CorrelationField?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CorrelationField">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>CorrelationField</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

@@ -907,9 +907,14 @@ public class ScriptGrammarContributionsUtil {
                                             .setContext(objectContext);
                                     scriptRelevantDataProvider
                                             .setScriptType(grammarId);
-                                    complexScriptRelevantData
-                                            .addAll(scriptRelevantDataProvider
-                                                    .getComplexScriptRelevantDataList());
+
+                                    /*
+                                     * Sid ACE-1317 Removed
+                                     * getComplexScriptRelevantDataList() as it
+                                     * was redundant.
+                                     */
+
+
                                 }
                             }
                         }

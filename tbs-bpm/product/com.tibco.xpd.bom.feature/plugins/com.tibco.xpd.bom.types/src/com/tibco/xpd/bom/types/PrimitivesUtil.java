@@ -238,6 +238,9 @@ public class PrimitivesUtil {
 
     public static final String INTEGER_SUBTYPE_FIXEDLENGTH = "fixedLength"; //$NON-NLS-1$
 
+    /** Maximum length of FixedPoint numbers in ACE. */
+    public static final int MAX_FIXED_POINT_NUMBER_LENGTH = 15;
+
     public static final String DECIMAL_SUBTYPE_FIXEDPOINT = "fixedPoint"; //$NON-NLS-1$
 
     public static final String OBJECT_SUBTYPE_XSD_ANY = "xsdAny"; //$NON-NLS-1$

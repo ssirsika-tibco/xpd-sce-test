@@ -16,6 +16,8 @@ public class Messages extends NLS {
     private static final String BUNDLE_NAME =
             "com.tibco.xpd.process.js.model.internal.messages"; //$NON-NLS-1$
 
+    public static String AceScriptProcessDataWrapperObject_ProcessDataWrapperObject_description;
+
     public static String ProcessJavaScriptInfoProvider_AddInstsLoopScriptHeader_label;
 
     public static String ProcessJavaScriptInfoProvider_AutomaticAdhocTaskPreconditionScriptEnablement_label;

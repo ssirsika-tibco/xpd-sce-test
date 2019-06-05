@@ -16,6 +16,13 @@ import java.util.List;
  * @since 3.3 (14 Jul 2010)
  */
 public class ReservedWords {
+
+    /**
+     * Sid ACE-1317 the name of the process data wrapper object introduced for
+     * ACE.
+     */
+    public static final String PROCESS_DATA_WRAPPER_OBJECT_NAME = "data"; //$NON-NLS-1$
+
     private static List<String> symbolTableKeyWords;
 
     public static List<String> getSymbolTableKeyWords() {
@@ -107,6 +114,13 @@ public class ReservedWords {
             symbolTableKeyWords.add("RETURN_VALUE"); //$NON-NLS-1$
             symbolTableKeyWords.add("INPUT_MESSAGE"); //$NON-NLS-1$
             symbolTableKeyWords.add("OUTPUT_MESSAGE"); //$NON-NLS-1$
+
+            /*
+             * Sid ACE-1317 In ACE all process data is wrapped in an object
+             * called "data" therefore this is a reserved word.
+             */
+            symbolTableKeyWords.add(PROCESS_DATA_WRAPPER_OBJECT_NAME);
+
         }
     }
 

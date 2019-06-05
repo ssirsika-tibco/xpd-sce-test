@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rsd:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rsd="http://com.tibco.xpd/rsd" xmi:id="_Kc2ygIepEemmHL5LWHEcVw" name="DataWrappingREST-Service">
+  <resources xmi:id="_Kc2ygYepEemmHL5LWHEcVw" name="Resource1">
+    <methods xmi:id="_Kc2ygoepEemmHL5LWHEcVw" name="Method1" httpMethod="PUT">
+      <request xmi:id="_Kc2yg4epEemmHL5LWHEcVw">
+        <parameters xmi:id="_V5e78IerEemmHL5LWHEcVw" name="queryparam1"/>
+        <parameters xmi:id="_WlyoUIerEemmHL5LWHEcVw" name="headerparam2" style="HEADER"/>
+        <payloadReference xmi:id="_Uzm5AIerEemmHL5LWHEcVw" namespace="http://xpd.tibco.com/jsd/1.0" ref="_NY00Y4epEemmHL5LWHEcVw" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_Kc2yhIepEemmHL5LWHEcVw">
+        <parameters xmi:id="_ZB3pMIerEemmHL5LWHEcVw" name="headerparam1" style="HEADER"/>
+        <payloadReference xmi:id="_VYdSgIerEemmHL5LWHEcVw" namespace="http://xpd.tibco.com/jsd/1.0" ref="_NY00Y4epEemmHL5LWHEcVw" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_fYJj4IetEemmHL5LWHEcVw" name="Method2">
+      <request xmi:id="_fYJj4YetEemmHL5LWHEcVw"/>
+      <response xmi:id="_fYJj4oetEemmHL5LWHEcVw"/>
+    </methods>
+  </resources>
+</rsd:Service>

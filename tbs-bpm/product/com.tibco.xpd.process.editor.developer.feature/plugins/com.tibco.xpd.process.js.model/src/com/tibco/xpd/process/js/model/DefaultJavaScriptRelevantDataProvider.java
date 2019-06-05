@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.destinations.ui.DestinationUtil;
@@ -29,21 +30,14 @@ import com.tibco.xpd.script.ui.ScriptGrammarContributionsUtil;
 import com.tibco.xpd.script.ui.internal.AbstractScriptRelevantDataProvider;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
-import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.ActivitySet;
 import com.tibco.xpd.xpdl2.DataMapping;
 import com.tibco.xpd.xpdl2.DirectionType;
-import com.tibco.xpd.xpdl2.Event;
 import com.tibco.xpd.xpdl2.FormalParameter;
-import com.tibco.xpd.xpdl2.Implementation;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
-import com.tibco.xpd.xpdl2.StartEvent;
-import com.tibco.xpd.xpdl2.Task;
-import com.tibco.xpd.xpdl2.TaskReceive;
-import com.tibco.xpd.xpdl2.TriggerType;
 import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
@@ -56,25 +50,48 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 public class DefaultJavaScriptRelevantDataProvider extends
         AbstractScriptRelevantDataProvider {
 
-    private static final String WEBSERVICE_SERVICE_TYPE = "WebService";//$NON-NLS-1$
+    /**
+     * Sid ACE-1317 the name of the process data wrapper object introduced for
+     * ACE.
+     */
+    public static final String PROCESS_DATA_WRAPPER_OBJECT_NAME =
+            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME;
 
+    /**
+     * At this level wraps all of the data provided by
+     * {@link #getAssociatedProcessRelevantData()} in a new object "data" (as
+     * per ACE requirements).
+     * 
+     * If a sub-class is handling process data content then it should ONLY
+     * overwrite {@link #getAssociatedProcessRelevantData()} NOT
+     * {@link #getScriptRelevantDataList()} here
+     * 
+     * @see com.tibco.xpd.script.ui.internal.AbstractScriptRelevantDataProvider#getScriptRelevantDataList()
+     *
+     * @return
+     */
     @Override
     public List<IScriptRelevantData> getScriptRelevantDataList() {
         List<ProcessRelevantData> processDataList =
                 getAssociatedProcessRelevantData();
-        if (getProcess() != null) {
-            IProject project = WorkingCopyUtil.getProjectFor(getProcess());
-            if (project != null) {
-                List<IScriptRelevantData> srdList =
-                        convertToScriptRelevantData(processDataList);
-                if (srdList != null) {
-                    return srdList;
-                }
-            }
-        }
-        return Collections.emptyList();
+
+        /*
+         * Sid ACE-1317: Wrap the process data to be associated with this script
+         * context in a special "data" object.
+         */
+        IScriptRelevantData dataWrapper = AceScriptProcessDataWrapperFactory
+                .getDefault()
+                .createProcessDataWrapper(PROCESS_DATA_WRAPPER_OBJECT_NAME,
+                        processDataList);
+
+        return Collections.singletonList(dataWrapper);
     }
 
+    /**
+     * Get the list of data that should be available for the current activity.
+     * 
+     * @return The lsit of process data to be converted to script relevant data.
+     */
     protected List<ProcessRelevantData> getAssociatedProcessRelevantData() {
         List<ProcessRelevantData> processDataList =
                 new ArrayList<ProcessRelevantData>();
@@ -139,10 +156,10 @@ public class DefaultJavaScriptRelevantDataProvider extends
         return processDataList;
     }
 
-    @Override
-    public List getComplexScriptRelevantDataList() {
-        return Collections.emptyList();
-    }
+    /*
+     * Sid ACE-1317 Removed getComplexScriptRelevantDataList() as it was
+     * redundant.
+     */
 
     protected List<IScriptRelevantData> convertToScriptRelevantData(
             List<ProcessRelevantData> processDataList) {
@@ -291,45 +308,8 @@ public class DefaultJavaScriptRelevantDataProvider extends
         }
     }
 
-    protected boolean isInputMessage() {
-        return isStartEventTypeMessage() || isReceiveTaskTypeMessage();
-    }
-
-    protected boolean isStartEventTypeMessage() {
-        Activity activity = getActivity();
-        if (activity != null) {
-            Event event = activity.getEvent();
-            if (event instanceof StartEvent) {
-                TriggerType trigger = ((StartEvent) event).getTrigger();
-                if (trigger != null
-                        && TriggerType.MESSAGE_LITERAL.equals(trigger)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    protected boolean isReceiveTaskTypeMessage() {
-        Activity activity = getActivity();
-        if (activity != null) {
-            Implementation implementation = activity.getImplementation();
-            if (implementation instanceof Task) {
-                Task task = (Task) implementation;
-                TaskReceive taskReceive = task.getTaskReceive();
-                if (taskReceive != null) {
-                    String type =
-                            (String) Xpdl2ModelUtil
-                                    .getOtherAttribute(taskReceive,
-                                            XpdExtensionPackage.eINSTANCE
-                                                    .getDocumentRoot_ImplementationType());
-                    if (type != null && type.equals(WEBSERVICE_SERVICE_TYPE)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
+    /*
+     * Sid ACE-1317 Removed isInputMessage() is StartEventMessage() as they were
+     * redundant.
+     */
 }

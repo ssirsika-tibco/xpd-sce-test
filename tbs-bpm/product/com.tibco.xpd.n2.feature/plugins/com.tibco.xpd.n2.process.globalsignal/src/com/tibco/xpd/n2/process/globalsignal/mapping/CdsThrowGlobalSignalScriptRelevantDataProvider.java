@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
-import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
@@ -26,13 +25,17 @@ public class CdsThrowGlobalSignalScriptRelevantDataProvider extends
         AbstractCdsGlobalSignalScriptRelevantDataProvider {
 
     /**
-     * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getScriptRelevantDataList()
+     * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getAssociatedProcessRelevantData()
+     * 
+     *      Sid ACE-1317 - cannot allow getScriptRelevantData() to be overridden
+     *      anymore as it wraps the data up in a data Object and we need to do
+     *      that here. So instead we supply the list of appropriate asociated
+     *      process data as was intended.
      * 
      * @return
      */
     @Override
-    public List<IScriptRelevantData> getScriptRelevantDataList() {
-
+    protected List<ProcessRelevantData> getAssociatedProcessRelevantData() {
         Activity activity = getActivity();
 
         if (activity != null) {
@@ -50,12 +53,7 @@ public class CdsThrowGlobalSignalScriptRelevantDataProvider extends
                 data.add(payloadData.getData());
             }
 
-            List<IScriptRelevantData> scriptRelevantDataList =
-                    convertToScriptRelevantData(data);
-
-            if (scriptRelevantDataList != null) {
-                return scriptRelevantDataList;
-            }
+            return data;
         }
 
         return Collections.emptyList();

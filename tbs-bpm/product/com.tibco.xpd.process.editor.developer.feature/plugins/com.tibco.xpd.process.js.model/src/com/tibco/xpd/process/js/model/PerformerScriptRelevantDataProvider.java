@@ -21,7 +21,10 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * @author mtorres
+ * 
+ * @deprecated Sid ACE-1317 This class is never used (and never was I think)
  */
+@Deprecated
 public class PerformerScriptRelevantDataProvider extends
         DefaultJavaScriptRelevantDataProvider {
 
@@ -72,7 +75,7 @@ public class PerformerScriptRelevantDataProvider extends
                     for (Iterator<IScriptRelevantData> iterator =
                             srdList.iterator(); iterator.hasNext();) {
                         IScriptRelevantData scriptRelevantData =
-                                (IScriptRelevantData) iterator.next();
+                                iterator.next();
                         if (scriptRelevantData != null) {
                             scriptRelevantDataList.add(scriptRelevantData);
                         }

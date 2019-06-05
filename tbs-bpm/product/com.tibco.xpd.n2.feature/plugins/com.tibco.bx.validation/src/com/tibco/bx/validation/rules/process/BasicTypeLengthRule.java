@@ -4,6 +4,7 @@
 
 package com.tibco.bx.validation.rules.process;
 
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.NamedElement;
@@ -22,7 +23,8 @@ public class BasicTypeLengthRule extends
     /**
      * 
      */
-    private static final int INTEGER_MAX_LENGTH = 15;
+    private static final int INTEGER_MAX_LENGTH =
+            PrimitivesUtil.MAX_FIXED_POINT_NUMBER_LENGTH;
 
     private static final String INTEGER_CROSSES_MAX_LENGTH =
             "bx.integerCrossMaxLength"; //$NON-NLS-1$

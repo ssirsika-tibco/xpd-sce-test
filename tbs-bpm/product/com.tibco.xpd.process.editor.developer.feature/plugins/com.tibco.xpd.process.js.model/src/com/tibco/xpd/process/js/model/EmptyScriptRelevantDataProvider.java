@@ -19,10 +19,10 @@ public class EmptyScriptRelevantDataProvider extends
         return Collections.emptyList();
     }
     
+    /*
+     * Sid ACE-1317 Removed getComplexScriptRelevantDataList() as it was
+     * redundant.
+     */
 
-    
-    @Override
-    public List getComplexScriptRelevantDataList() {
-        return Collections.emptyList();
-    }
+
 }

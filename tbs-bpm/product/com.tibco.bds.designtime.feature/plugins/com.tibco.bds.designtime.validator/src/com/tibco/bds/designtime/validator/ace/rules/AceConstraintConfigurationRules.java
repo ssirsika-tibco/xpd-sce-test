@@ -34,7 +34,8 @@ public class AceConstraintConfigurationRules implements IValidationRule {
     private static final String ISSUE_ACE_NUMBER_DEC_PLACES =
             "ace.bom.number.property.dec.places"; //$NON-NLS-1$
 
-    private static final int MAX_NUMBER_LENGTH = 15;
+    private static final int MAX_NUMBER_LENGTH =
+            PrimitivesUtil.MAX_FIXED_POINT_NUMBER_LENGTH;
 
     private final PrimitiveType decimalPrimitiveType;
 

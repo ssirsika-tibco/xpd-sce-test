@@ -214,10 +214,11 @@ public class RQLScriptRelevantDataProvider extends
         return null;
     }
 
-    @Override
-    public List getComplexScriptRelevantDataList() {
-        return null;
-    }
+    /*
+     * Sid ACE-1317 Removed getComplexScriptRelevantDataList() as it was
+     * redundant.
+     */
+
 
     private IProject getProject() {
         if (getContext() instanceof EObject) {

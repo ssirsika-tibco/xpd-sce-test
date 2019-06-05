@@ -37,12 +37,11 @@ public abstract class AbstractScriptRelevantDataProvider {
      **/
     public abstract List<IScriptRelevantData> getScriptRelevantDataList();
     
-    /**
-     * Returns the Complex ScriptRelevantData
-     * 
-     * @return List of complex ScriptRelevantData
-     **/
-    public abstract List getComplexScriptRelevantDataList();
+    /*
+     * Sid ACE-1317 - getComplexScriptRelevantDataList() this was never
+     * implemented (only one that returned empty list. S cleared it out.
+     */
+
 
     /**
      * Returns the name of the destination

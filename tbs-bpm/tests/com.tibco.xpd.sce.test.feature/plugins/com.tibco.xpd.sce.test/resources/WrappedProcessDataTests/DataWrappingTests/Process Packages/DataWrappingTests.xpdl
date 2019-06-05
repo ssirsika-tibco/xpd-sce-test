@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_p66HAIX3EemzgbDVShI3Yw" xpdExt:DisplayName="scripts" Name="scripts">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-06-03</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:TypeDeclarations>
+    <xpdl2:TypeDeclaration Id="_xveOoIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Fixed Point Number Type" Name="FixedPointNumberType">
+      <xpdl2:BasicType Type="FLOAT">
+        <xpdl2:Precision>10</xpdl2:Precision>
+        <xpdl2:Scale>2</xpdl2:Scale>
+      </xpdl2:BasicType>
+    </xpdl2:TypeDeclaration>
+  </xpdl2:TypeDeclarations>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_KAey8IYREemzgbDVShI3Yw" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;fred&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_blsQ04erEemmHL5LWHEcVw" xpdExt:DisplayName="DataWrappingRESTService_Consumer" Name="DataWrappingRESTService_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService HttpClientInstanceName="DataWrappingREST-Service"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_nLIvQIYREemzgbDVShI3Yw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_nLBagIYREemzgbDVShI3Yw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_nLIvQYYREemzgbDVShI3Yw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_qpqqcIX3EemzgbDVShI3Yw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_p7UWsIX3EemzgbDVShI3Yw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_qpqqcYX3EemzgbDVShI3Yw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="510.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_p7UWsIX3EemzgbDVShI3Yw" xpdExt:DisplayName="DataWrapping-Tests-Process" Name="DataWrappingTestsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_B7j6MIbVEemIvtzY3lwZZg" xpdExt:DisplayName="Text Field" Name="TextField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Eban0IbVEemIvtzY3lwZZg" xpdExt:DisplayName="Number Field" Name="NumberField" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Eix0EIbVEemIvtzY3lwZZg" xpdExt:DisplayName="Fixed Point Number Field" Name="FixedPointNumberField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Eov5MIbVEemIvtzY3lwZZg" xpdExt:DisplayName="Date Time Field" Name="DateTimeField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_EthEcYbVEemIvtzY3lwZZg" xpdExt:DisplayName="Date Field" Name="DateField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ExnhUIbVEemIvtzY3lwZZg" xpdExt:DisplayName="Time Field" Name="TimeField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_pVsgQIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Boolean Field" Name="BooleanField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_pZL5IIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Fixed Number Type Decl" Name="FixedNumberTypeDecl" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:DeclaredType Id="_xveOoIbrEemzHtQaUrf4NQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_pbtosIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Performer Field" Name="PerformerField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER">
+              <xpdExt:ParticipantQuery ScriptGrammar="RQL"/>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_4SvHUIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Class Field" Name="ClassField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_u8B3UIXSEemPctemFSy3MA"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_H864EId3EemzHtQaUrf4NQ" xpdExt:DisplayName="Complex List Field" Name="ComplexListField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_u8B3UIXSEemPctemFSy3MA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Nu9vMId3EemzHtQaUrf4NQ" xpdExt:DisplayName="Simple List Field" Name="SimpleListField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_cSkikod3EemzHtQaUrf4NQ" xpdExt:DisplayName="List Fixed Number Type Decl" Name="ListFixedNumberTypeDecl" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:DeclaredType Id="_xveOoIbrEemzHtQaUrf4NQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nUJX0IeyEemmHL5LWHEcVw" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_kxhDBYeyEemmHL5LWHEcVw">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_kxhDBoeyEemmHL5LWHEcVw" Name="CatchGlobalGlobalSignal" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Global: GlobalSignal">
+              <xpdl2:Event>
+                <xpdl2:StartEvent xpdExt:NonInterruptingEvent="false" Trigger="Signal">
+                  <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" CatchThrow="CATCH" Name="com.example.datawappingglobalsignal/DataWappingGlobalSignal.gsd#GlobalSignal">
+                    <xpdExt:SignalData>
+                      <xpdExt:CorrelationMappings>
+                        <xpdExt:DataMapping Direction="OUT" Formal="TextPayloadData">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:CorrelationMappings>
+                      <xpdExt:DataMappings>
+                        <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                          <xpdExt:ScriptInformation Id="_pyGA8IeyEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
+                            <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_ClassPayloadData + SIGNAL_ClassPayloadData.text + SIGNAL_TextPayloadData.concat(&quot; &quot;, &quot;Hey!&quot;);</xpdExt:Expression>
+                          </xpdExt:ScriptInformation>
+                          <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                          <xpdExt:ScriptInformation Id="_30PGAIeyEemmHL5LWHEcVw" Name="Script2" Direction="OUT">
+                            <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_NumberPayloadData + 1;</xpdExt:Expression>
+                          </xpdExt:ScriptInformation>
+                          <xpdl2:Actual ScriptGrammar="JavaScript">FixedNumberTypeDecl</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:DataMappings>
+                    </xpdExt:SignalData>
+                    <xpdExt:EventHandlerInitialisers Id="_2npXEIeyEemmHL5LWHEcVw">
+                      <xpdExt:ActivityRef xpdExt:IdRef="_qpqqcoX3EemzgbDVShI3Yw"/>
+                    </xpdExt:EventHandlerInitialisers>
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:StartEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="48.0" YCoordinate="76.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_kxhDB4eyEemmHL5LWHEcVw" Name="Task" xpdExt:Visibility="Private" xpdExt:DisplayName="Task">
+              <xpdl2:Implementation>
+                <xpdl2:No/>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="143.0" YCoordinate="76.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_kxhDCIeyEemmHL5LWHEcVw" Name="EndEvent5" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event (5)">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="238.0" YCoordinate="76.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_kxhDCYeyEemmHL5LWHEcVw" Name="" From="_kxhDBoeyEemmHL5LWHEcVw" To="_kxhDB4eyEemmHL5LWHEcVw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_kxhDCoeyEemmHL5LWHEcVw" Name="" From="_kxhDB4eyEemmHL5LWHEcVw" To="_kxhDCIeyEemmHL5LWHEcVw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_qpqqcoX3EemzgbDVShI3Yw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="37.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_qpqqc4X3EemzgbDVShI3Yw" Name="ThrowGlobalGlobalSignal" xpdExt:DisplayName="Throw Global: GlobalSignal">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.datawappingglobalsignal/DataWappingGlobalSignal.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:CorrelationMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="TextPayloadData">
+                      <xpdExt:ScriptInformation Id="__FrTUIeyEemmHL5LWHEcVw" Name="Script1">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"></xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField.text.concat(&quot; &quot;, &quot;Hey back!&quot;);</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationMappings>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="IN" Formal="ClassPayloadData">
+                      <xpdExt:ScriptInformation Id="_IAggUIezEemmHL5LWHEcVw" Name="Script2">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"></xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="IN" Formal="NumberPayloadData">
+                      <xpdExt:ScriptInformation Id="_MOIXUIezEemmHL5LWHEcVw" Name="Script3">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"></xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField.fixed;</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1025.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6lNXwYYQEemzgbDVShI3Yw" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="216.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DoEfYYYREemzgbDVShI3Yw" Name="UserTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="User Task" xpdExt:ActivityDeadlineEventId="_7jxcUIYREemzgbDVShI3Yw">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_IMGrQIYREemzgbDVShI3Yw"/>
+                <xpdl2:MessageOut Id="_IMGrQYYREemzgbDVShI3Yw"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:OpenScript>
+                  <xpdExt:CloseScript ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:CloseScript>
+                  <xpdExt:SubmitScript ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:SubmitScript>
+                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:ScheduleScript>
+                  <xpdExt:RescheduleScript ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:RescheduleScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_KAey8IYREemzgbDVShI3Yw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="373.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+            <xpdExt:AuditEvent Type="DeadlineExpired">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+            <xpdExt:AuditEvent Type="Cancelled">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="TextField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="NumberField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ComplexListField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="FixedNumberTypeDecl" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="SimpleListField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ClassField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="PerformerField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="TimeField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="FixedPointNumberField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateTimeField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ListFixedNumberTypeDecl" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2EqIQIYREemzgbDVShI3Yw" Name="Loops" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Loops" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_2EqIQYYREemzgbDVShI3Yw"/>
+                <xpdl2:MessageOut Id="_2EqIQoYREemzgbDVShI3Yw"/>
+                <xpdExt:UserTaskScripts/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_KAey8IYREemzgbDVShI3Yw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:Loop LoopType="Standard">
+            <xpdl2:LoopStandard TestTime="Before">
+              <xpdl2:LoopCondition ScriptGrammar="JavaScript">data.BooleanField;&#xD;
+</xpdl2:LoopCondition>
+            </xpdl2:LoopStandard>
+          </xpdl2:Loop>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="533.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7jxcUIYREemzgbDVShI3Yw" Name="deadline" xpdExt:Visibility="Private" xpdExt:DisplayName="deadline">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_DoEfYYYREemzgbDVShI3Yw" Trigger="Timer">
+              <xpdl2:TriggerTimer>
+                <xpdl2:TimeDate/>
+                <xpdExt:RescheduleTimerScript ScriptGrammar="JavaScript" DurationRelativeTo="RescheduleTime">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+ &#xD;
+data.DateTimeField;</xpdExt:RescheduleTimerScript>
+              </xpdl2:TriggerTimer>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="JavaScript">// Simple type&#xD;
+data.FixedPointNumberField.add(1);&#xD;
+data.NumberField.toExponential();&#xD;
+data.BooleanField = true;&#xD;
+data.DateField.getDay();&#xD;
+data.DateTimeField.getTimezone();&#xD;
+data.PerformerField.charAt(1);&#xD;
+data.TextField.charCodeAt(1);&#xD;
+data.TimeField.getMinute();&#xD;
+&#xD;
+// Complex type&#xD;
+data.ClassField.boolean1 = true;&#xD;
+data.ClassField.URI.indexOf(3);&#xD;
+data.ClassField.complexChild.attribute1.length;&#xD;
+data.ClassField.date.getDay();&#xD;
+data.ClassField.dateTimeTz.getTimezone();&#xD;
+data.ClassField.fixed.add(2);&#xD;
+data.ClassField.float1.toExponential();&#xD;
+data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;
+data.ClassField.time.getHour();&#xD;
+&#xD;
+// Lists&#xD;
+data.SimpleListField.pop();&#xD;
+data.SimpleListField[0] = &quot;xyz&quot;;&#xD;
+data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;
+&#xD;
+data.ComplexListField.pop();&#xD;
+data.ComplexListField[0].URI.charAt(1);&#xD;
+data.ClassField.complexList.pop();&#xD;
+data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;
+&#xD;
+// Type declaration types&#xD;
+data.FixedNumberTypeDecl.add(2); // This should work!&#xD;
+data.ListFixedNumberTypeDecl.pop();&#xD;
+data.ListFixedNumberTypeDecl[0].add(123);&#xD;
+&#xD;
+data.DateTimeField;&#xD;
+&#xD;
+ &#xD;
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="28.749999999999996" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-voUUIYREemzgbDVShI3Yw" Name="EndEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="451.0" YCoordinate="242.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_4LnzoIekEemmHL5LWHEcVw">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Parallel">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_6lXv0IYQEemzgbDVShI3Yw"/>
+                  <xpdl2:TransitionRef Id="_5qlsAYekEemmHL5LWHEcVw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="110.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5qlsAIekEemmHL5LWHEcVw" Name="ThrowSignalEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Throw Signal Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="Signal1">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="71.0">
+              <xpdl2:Coordinates XCoordinate="110.0" YCoordinate="242.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="TextField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="BooleanField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="PerformerField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="SimpleListField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="FixedNumberTypeDecl" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="FixedPointNumberField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="TimeField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="NumberField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateTimeField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ComplexListField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ListFixedNumberTypeDecl" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ClassField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">data.BooleanField = false;</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6nDUQoekEemmHL5LWHEcVw" Name="EndEvent3" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 3">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="206.0" YCoordinate="242.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_f1QI4IeoEemmHL5LWHEcVw" Name="CatchSignal1" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch: Signal1">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_DoEfYYYREemzgbDVShI3Yw" Trigger="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:NonCancelling="true" CatchThrow="CATCH" Name="Signal1">
+                <xpdExt:SignalData>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_mm7RAIeoEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">data.TextField.concat(SIGNAL_PerformerField, &quot;abc&quot;);&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="43.75" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_grrakIeoEemmHL5LWHEcVw" Name="EndEvent4" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 4">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="345.0" YCoordinate="265.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_blsQ0IerEemmHL5LWHEcVw" Name="Method1PUTResource1" xpdExt:Visibility="Private" xpdExt:DisplayName="Method1 - PUT Resource1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_blsQ0YerEemmHL5LWHEcVw">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.booleanProperty">
+                        <xpdExt:ScriptInformation Id="_cYfmwIerEemmHL5LWHEcVw" Name="Script1">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.BooleanField;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.textProperty">
+                        <xpdExt:ScriptInformation Id="_gZ8C8IerEemmHL5LWHEcVw" Name="Script2">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.TextField.concat(&quot; &quot;, &quot;hey!!&quot;);</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.dateProperty">
+                        <xpdExt:ScriptInformation Id="_puxEUIerEemmHL5LWHEcVw" Name="Script3">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.date;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.dateTimeProperty">
+                        <xpdExt:ScriptInformation Id="_ww-i0IerEemmHL5LWHEcVw" Name="Script4">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.DateTimeField;&#xD;
+</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.numberProperty">
+                        <xpdExt:ScriptInformation Id="_zfkQAIerEemmHL5LWHEcVw" Name="Script5">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.NumberField;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.timeProperty">
+                        <xpdExt:ScriptInformation Id="_--PSwIerEemmHL5LWHEcVw" Name="Script6">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.time;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_blsQ0oerEemmHL5LWHEcVw">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BooleanField">
+                        <xpdExt:ScriptInformation Id="_JJMq4IesEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return REST_PAYLOAD.booleanProperty;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="DataWrappingREST.rsd" xpdExt:MethodId="_Kc2ygoepEemmHL5LWHEcVw"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_blsQ04erEemmHL5LWHEcVw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="647.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_u2OeoIexEemmHL5LWHEcVw" Name="sub" xpdExt:Visibility="Private" xpdExt:DisplayName="sub">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_nLBagIYREemzgbDVShI3Yw" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="BooleanParameter">
+                    <xpdExt:ScriptInformation Id="_vu5zEIexEemmHL5LWHEcVw" Name="Script1">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return data.BooleanField;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="ClassParameter.URI">
+                    <xpdExt:ScriptInformation Id="_zJK6gIexEemmHL5LWHEcVw" Name="Script2">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.URI;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="ClassParameter.complexChild.attribute1">
+                    <xpdExt:ScriptInformation Id="_6CVxwIexEemmHL5LWHEcVw" Name="Script3">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return data.TextField.concat(&quot; &quot;, &quot;Hey!!&quot;);</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:InputMappings>
+              <xpdExt:OutputMappings MapperContext="SubProcessToProcess" MappingDirection="OUT">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BooleanField">
+                    <xpdExt:ScriptInformation Id="_CtgyIIeyEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return BooleanParameter;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextField">
+                    <xpdExt:ScriptInformation Id="_FShskIeyEemmHL5LWHEcVw" Name="Script2" Direction="OUT">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return TextParameter.concat(&quot; &quot;, &quot;Hey back!&quot;);</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:OutputMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="771.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_kxhDBIeyEemmHL5LWHEcVw" Name="EventSubProcess" xpdExt:DisplayName="Event Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="true" ActivitySetId="_kxhDBYeyEemmHL5LWHEcVw" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="192.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="288.0">
+              <xpdl2:Coordinates XCoordinate="214.0" YCoordinate="404.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1ekZsYezEemmHL5LWHEcVw" Name="Loops2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Loops 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_1ekZsoezEemmHL5LWHEcVw"/>
+                <xpdl2:MessageOut Id="_1ekZs4ezEemmHL5LWHEcVw"/>
+                <xpdExt:UserTaskScripts/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_KAey8IYREemzgbDVShI3Yw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:Loop LoopType="MultiInstance">
+            <xpdl2:LoopMultiInstance MI_FlowCondition="All" MI_Ordering="Parallel">
+              <xpdl2:MI_Condition ScriptGrammar="JavaScript">data.ClassField.fixed;</xpdl2:MI_Condition>
+              <xpdl2:ComplexMI_FlowCondition ScriptGrammar="JavaScript">data.ClassField.text.length > 0</xpdl2:ComplexMI_FlowCondition>
+              <xpdExt:MultiInstanceScripts>
+                <xpdExt:AdditionalInstances ScriptGrammar="JavaScript">data.NumberField + 1;</xpdExt:AdditionalInstances>
+              </xpdExt:MultiInstanceScripts>
+            </xpdl2:LoopMultiInstance>
+          </xpdl2:Loop>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_qpqqcYX3EemzgbDVShI3Yw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="910.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_qpqqdIX3EemzgbDVShI3Yw" Name="" From="_1ekZsYezEemmHL5LWHEcVw" To="_qpqqc4X3EemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6lXv0IYQEemzgbDVShI3Yw" Name="" From="_4LnzoIekEemmHL5LWHEcVw" To="_6lNXwYYQEemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DoG7oIYREemzgbDVShI3Yw" xpdExt:DisplayName="" Name="" From="_6lNXwYYQEemzgbDVShI3Yw" To="_DoEfYYYREemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_p7NqMIYREemzgbDVShI3Yw" xpdExt:DisplayName="" Name="" From="_DoEfYYYREemzgbDVShI3Yw" To="_2EqIQIYREemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_-voUUYYREemzgbDVShI3Yw" Name="" From="_7jxcUIYREemzgbDVShI3Yw" To="_-voUUIYREemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_4MAOIIekEemmHL5LWHEcVw" xpdExt:DisplayName="" Name="" From="_qpqqcoX3EemzgbDVShI3Yw" To="_4LnzoIekEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5qlsAYekEemmHL5LWHEcVw" Name="" From="_4LnzoIekEemmHL5LWHEcVw" To="_5qlsAIekEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6nDUQ4ekEemmHL5LWHEcVw" Name="" From="_5qlsAIekEemmHL5LWHEcVw" To="_6nDUQoekEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_grrakYeoEemmHL5LWHEcVw" Name="" From="_f1QI4IeoEemmHL5LWHEcVw" To="_grrakIeoEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_blutEIerEemmHL5LWHEcVw" xpdExt:DisplayName="" Name="" From="_2EqIQIYREemzgbDVShI3Yw" To="_blsQ0IerEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_u2PswIexEemmHL5LWHEcVw" xpdExt:DisplayName="" Name="" From="_blsQ0IerEemmHL5LWHEcVw" To="_u2OeoIexEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1endAIezEemmHL5LWHEcVw" xpdExt:DisplayName="" Name="" From="_u2OeoIexEemmHL5LWHEcVw" To="_1ekZsYezEemmHL5LWHEcVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ValidationControl>
+        <xpdExt:ValidationIssueOverrides>
+          <xpdExt:ValidationIssueOverride ValidationIssueId="bx.processHasNoMigrationPoints" OverrideType="SuppressUntilManualReactivation"/>
+        </xpdExt:ValidationIssueOverrides>
+      </xpdExt:ValidationControl>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_nLBagIYREemzgbDVShI3Yw" xpdExt:DisplayName="sub" Name="sub">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_fGczEYexEemmHL5LWHEcVw" Name="BooleanParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Boolean Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczHYexEemmHL5LWHEcVw" Name="ClassParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Class Parameter">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_u8B3UIXSEemPctemFSy3MA"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczGoexEemmHL5LWHEcVw" Name="ComplexListParameter" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="Complex List Parameter">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_u8B3UIXSEemPctemFSy3MA"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczHIexEemmHL5LWHEcVw" Name="DateParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Date Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczGYexEemmHL5LWHEcVw" Name="DateTimeParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Date Time Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczFYexEemmHL5LWHEcVw" Name="FixedPointNumberParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Fixed Point Number Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczF4exEemmHL5LWHEcVw" Name="NumberParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Number Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczEoexEemmHL5LWHEcVw" Name="PerformerParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Performer Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER">
+              <xpdExt:ParticipantQuery ScriptGrammar="RQL"/>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczE4exEemmHL5LWHEcVw" Name="SimpleListParameter" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="Simple List Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczEIexEemmHL5LWHEcVw" Name="TextParameter" Mode="INOUT" Required="false" xpdExt:DisplayName="Text Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fGczFoexEemmHL5LWHEcVw" Name="TimeParameter" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="Time Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_nLIvQoYREemzgbDVShI3Yw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_nLIvQYYREemzgbDVShI3Yw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nLIvQ4YREemzgbDVShI3Yw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_nLIvQYYREemzgbDVShI3Yw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nLIvRIYREemzgbDVShI3Yw" xpdExt:DisplayName="" Name="" From="_nLIvQoYREemzgbDVShI3Yw" To="_nLIvQ4YREemzgbDVShI3Yw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>
