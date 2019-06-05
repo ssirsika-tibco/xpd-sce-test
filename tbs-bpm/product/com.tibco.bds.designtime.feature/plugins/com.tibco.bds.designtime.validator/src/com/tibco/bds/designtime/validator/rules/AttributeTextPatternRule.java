@@ -1,5 +1,6 @@
 package com.tibco.bds.designtime.validator.rules;
 
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
@@ -20,17 +21,42 @@ public class AttributeTextPatternRule implements IValidationRule {
 
     @Override
     public Class<?> getTargetClass() {
-        return org.eclipse.uml2.uml.Property.class;
+        return NamedElement.class;
     }
 
     @Override
     public void validate(IValidationScope scope, Object o) {
-        if (!(o instanceof Property)) {
+        if (o instanceof Property) {
+            validate(scope, (Property) o);
+        } else if (o instanceof PrimitiveType) {
+            validate(scope, (PrimitiveType) o);
+        }
+    }
+
+    private void validate(IValidationScope scope,
+            PrimitiveType aPrimitiveType) {
+        // Resolution is currently only for text fields
+        PrimitiveType primType =
+                PrimitivesUtil.getBasePrimitiveType(aPrimitiveType);
+        if (!primType.getName()
+                .equals(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME)) {
             return;
         }
 
-        Property property = (Property) o;
-        Type type = property.getType();
+        // retrieve pattern value from property
+        Object pattern = PrimitivesUtil.getFacetPropertyValue(aPrimitiveType,
+                PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE);
+
+        if (!isEmpty(pattern)) {
+            scope.createIssue(CDSIssueIds.RESTRICTION_TEXT_ATTRIBUTE_PATTERN,
+                    BOMValidationUtil.getLocation(aPrimitiveType),
+                    aPrimitiveType.eResource().getURIFragment(aPrimitiveType));
+        }
+    }
+
+    private void validate(IValidationScope scope, Property aProperty) {
+        Type type = aProperty.getType();
+
         if (!(type instanceof PrimitiveType)) {
             return;
         }
@@ -44,16 +70,15 @@ public class AttributeTextPatternRule implements IValidationRule {
         }
 
         // retrieve pattern value from property
-        PrimitiveType pt = (PrimitiveType) type;
-        Object pattern = PrimitivesUtil.getFacetPropertyValue(pt,
+        Object pattern = PrimitivesUtil.getFacetPropertyValue(primType,
                 PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
-                property,
+                aProperty,
                 false);
 
         if (!isEmpty(pattern)) {
             scope.createIssue(CDSIssueIds.RESTRICTION_TEXT_ATTRIBUTE_PATTERN,
-                    BOMValidationUtil.getLocation(property),
-                    property.eResource().getURIFragment(property));
+                    BOMValidationUtil.getLocation(aProperty),
+                    aProperty.eResource().getURIFragment(aProperty));
         }
     }
 

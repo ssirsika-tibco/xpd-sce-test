@@ -21,26 +21,39 @@ import com.tibco.xpd.validation.resolutions.ResolutionException;
 public class RemoveTextPatternResolution extends AbstractWorkingCopyResolution
         implements IResolution {
 
+
     @Override
     protected Command getResolutionCommand(EditingDomain domain, EObject target,
             IMarker marker) throws ResolutionException {
-
-        // Should only be set for Property types
-        if (!(target instanceof Property)) {
-            return null;
+        if (target instanceof Property) {
+            return resolve(domain, (Property) target);
         }
 
-        final Property prop = (Property) target;
-        final Type type = prop.getType();
+        if (target instanceof PrimitiveType) {
+            return resolve(domain, null, (PrimitiveType) target);
+        }
+
+        return null;
+    }
+
+    private Command resolve(EditingDomain domain, Property aProperty)
+            throws ResolutionException {
+        final Type type = aProperty.getType();
 
         // Only deal with Primitive Types
         if (!(type instanceof PrimitiveType)) {
             return null;
         }
 
+        return resolve(domain, aProperty, (PrimitiveType) type);
+    }
+
+    private Command resolve(EditingDomain domain, Property aProperty,
+            PrimitiveType aPrimitiveType)
+            throws ResolutionException {
         // Resolution is currently only for text fields
         PrimitiveType primType =
-                PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+                PrimitivesUtil.getBasePrimitiveType(aPrimitiveType);
         if (!primType.getName()
                 .equals(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME)) {
             return null;
@@ -50,10 +63,10 @@ public class RemoveTextPatternResolution extends AbstractWorkingCopyResolution
         return new RecordingCommand((TransactionalEditingDomain) domain) {
             @Override
             protected void doExecute() {
-                PrimitivesUtil.setFacetPropertyValue((PrimitiveType) type,
+                PrimitivesUtil.setFacetPropertyValue(aPrimitiveType,
                         PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_PATTERN_VALUE,
                         null,
-                        prop);
+                        aProperty);
             }
         };
     }

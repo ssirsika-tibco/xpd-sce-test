@@ -1244,6 +1244,10 @@ public class PrimitivesUtil {
      * @return
      */
     public static PrimitiveType getBasePrimitiveType(PrimitiveType pt) {
+        if (pt == null) {
+            return null;
+        }
+
         PrimitiveType base = pt;
         HashSet<PrimitiveType> visited = new HashSet<PrimitiveType>();
         while (!base.getGenerals().isEmpty()) {
