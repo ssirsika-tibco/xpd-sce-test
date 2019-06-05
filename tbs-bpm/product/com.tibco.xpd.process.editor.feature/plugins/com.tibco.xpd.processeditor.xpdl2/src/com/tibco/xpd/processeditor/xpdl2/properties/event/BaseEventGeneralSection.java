@@ -156,8 +156,8 @@ public abstract class BaseEventGeneralSection extends
      * Constructor initialise trigger types and label.
      */
     protected BaseEventGeneralSection(EventType eventType) {
-        super(Xpdl2Package.eINSTANCE.getActivity(), Xpdl2ProcessEditorPlugin.ID
-                + ".BaseEventGeneralSection"); //$NON-NLS-1$
+        super(Xpdl2Package.eINSTANCE.getActivity(),
+                Xpdl2ProcessEditorPlugin.ID + ".BaseEventGeneralSection"); //$NON-NLS-1$
 
         this.triggerTypeLabelText = getTriggerTypeLabelText();
         this.eventTriggerTypeSections = getEventTriggerTypeSections();
@@ -170,9 +170,8 @@ public abstract class BaseEventGeneralSection extends
         // processeditor.xpdl2.
 
         // Old processwdiget extension.
-        IExtensionPoint ep =
-                er.getExtensionPoint(ProcessWidgetPlugin.ID,
-                        IMPL_SECTION_EXTENSION_POINT_ID);
+        IExtensionPoint ep = er.getExtensionPoint(ProcessWidgetPlugin.ID,
+                IMPL_SECTION_EXTENSION_POINT_ID);
 
         IExtension[] extensions = ep.getExtensions();
         if (extensions != null) {
@@ -187,17 +186,16 @@ public abstract class BaseEventGeneralSection extends
                     // subclass's event type.
                     if (eventType.equals(EventImplementationElement
                             .getEventType(configElement))) {
-                        implementations.add(new EventImplementationElement(
-                                configElement));
+                        implementations.add(
+                                new EventImplementationElement(configElement));
                     }
                 }
             }
         }
 
         // New process editor extension.
-        ep =
-                er.getExtensionPoint(Xpdl2ProcessEditorPlugin.ID,
-                        IMPL_SECTION_EXTENSION_POINT_ID);
+        ep = er.getExtensionPoint(Xpdl2ProcessEditorPlugin.ID,
+                IMPL_SECTION_EXTENSION_POINT_ID);
 
         extensions = ep.getExtensions();
         if (extensions != null) {
@@ -211,8 +209,8 @@ public abstract class BaseEventGeneralSection extends
                     // subclass's event type.
                     if (eventType.equals(EventImplementationElement
                             .getEventType(configElement))) {
-                        implementations.add(new EventImplementationElement(
-                                configElement));
+                        implementations.add(
+                                new EventImplementationElement(configElement));
                     }
                 }
             }
@@ -272,12 +270,13 @@ public abstract class BaseEventGeneralSection extends
                 ISection implSection =
                         getImplSectionFromConfig(currentImplConfigElement);
                 for (EventTriggerTypeSection trigTypeSect : eventTriggerTypeSections) {
-                    if (trigTypeSect.eventTriggerType.equals(eventTriggerType)) {
+                    if (trigTypeSect.eventTriggerType
+                            .equals(eventTriggerType)) {
                         currEventTriggerSection = trigTypeSect;
                         eventTriggerTypeSpecificPageBook
                                 .showPage(currEventTriggerSection.page);
-                        eventTriggerTypeSpecificPageBook.getParent()
-                                .getParent().layout(true);
+                        eventTriggerTypeSpecificPageBook.getParent().getParent()
+                                .layout(true);
                     }
                 }
                 setInputToImplSection(implSection);
@@ -303,8 +302,9 @@ public abstract class BaseEventGeneralSection extends
                     && type.equals(element.getTriggerResultType())) {
                 IFilter filter = element.getFilterExec();
                 if (filter == null
-                // Filter on underlying model object because this is what
-                // implementations will deal with.
+                        // Filter on underlying model object because this is
+                        // what
+                        // implementations will deal with.
                         || filter.select(getInput())) {
                     return element;
                 }
@@ -317,9 +317,8 @@ public abstract class BaseEventGeneralSection extends
     protected Composite doCreateGeneralSection(Composite parent,
             XpdFormToolkit toolkit) {
 
-        generalSection =
-                toolkit.createScrolledComposite(parent, SWT.V_SCROLL
-                        | SWT.H_SCROLL);
+        generalSection = toolkit.createScrolledComposite(parent,
+                SWT.V_SCROLL | SWT.H_SCROLL);
         generalSection.setExpandHorizontal(true);
         generalSection.setExpandVertical(true);
 
@@ -406,7 +405,8 @@ public abstract class BaseEventGeneralSection extends
      * @param toolkit
      * @return
      */
-    private Control createImplControls(Composite parent, XpdFormToolkit toolkit) {
+    private Control createImplControls(Composite parent,
+            XpdFormToolkit toolkit) {
         implBook = new PageBook(parent, SWT.NONE);// toolkit.createPageBook(parent
         // ,
         // SWT.NONE);
@@ -469,14 +469,13 @@ public abstract class BaseEventGeneralSection extends
 
         triggerTypeLabel = toolkit.createLabel(eventCmp, triggerTypeLabelText);
 
-        triggerTypeCombo =
-                toolkit.createCCombo(eventCmp,
-                        SWT.READ_ONLY | SWT.SINGLE,
-                        instrumentationPrefixName + "TriggerType"); //$NON-NLS-1$
+        triggerTypeCombo = toolkit.createCCombo(eventCmp,
+                SWT.READ_ONLY | SWT.SINGLE,
+                instrumentationPrefixName + "TriggerType"); //$NON-NLS-1$
         triggerTypeCombo.setData("name", "comboEventTriggerType"); //$NON-NLS-1$ //$NON-NLS-2$
-        triggerTypeCombo
-                .setData(TabbedPropertySheetWidgetFactory.KEY_DRAW_BORDER,
-                        TabbedPropertySheetWidgetFactory.TEXT_BORDER);
+        triggerTypeCombo.setData(
+                TabbedPropertySheetWidgetFactory.KEY_DRAW_BORDER,
+                TabbedPropertySheetWidgetFactory.TEXT_BORDER);
         for (EventTriggerTypeSection trigType : eventTriggerTypeSections) {
             triggerTypeCombo.add(trigType.triggerTypeTextLabel);
             triggerTypeCombo.setData(trigType.triggerTypeTextLabel,
@@ -496,8 +495,8 @@ public abstract class BaseEventGeneralSection extends
         addiditonalControlsComp =
                 createAdditionalTypeControls(eventCmp, toolkit);
         if (addiditonalControlsComp != null) {
-            addiditonalControlsComp.setLayoutData(new GridData(
-                    GridData.FILL_BOTH));
+            addiditonalControlsComp
+                    .setLayoutData(new GridData(GridData.FILL_BOTH));
         } else {
             addiditonalControlsComp = toolkit.createComposite(eventCmp);
             fillGd = new GridData();
@@ -537,9 +536,8 @@ public abstract class BaseEventGeneralSection extends
                 true,
                 false);
 
-        GridData layoutData =
-                new GridData(GridData.FILL_HORIZONTAL
-                        | GridData.HORIZONTAL_ALIGN_END);
+        GridData layoutData = new GridData(
+                GridData.FILL_HORIZONTAL | GridData.HORIZONTAL_ALIGN_END);
         solutionDesignForm.setLayoutData(layoutData);
 
         manageControl(solutionDesignForm);
@@ -568,19 +566,28 @@ public abstract class BaseEventGeneralSection extends
             if (obj == triggerTypeCombo) {
                 int selIndex = triggerTypeCombo.getSelectionIndex();
                 if (selIndex >= 0) {
+                    /*
+                     * Sid ACE-1485 Cannot rely on selection index in combo
+                     * being same index in ALL event type sections because some
+                     * of the combo list is filtered out. Use the data added to
+                     * combo for it instead.
+                     */
+
+                    String itemText = triggerTypeCombo.getItem(selIndex);
 
                     EventTriggerType newTrigType =
-                            eventTriggerTypeSections.get(selIndex).eventTriggerType;
+                            (EventTriggerType) triggerTypeCombo
+                                    .getData(itemText);
 
-                    EventTriggerType curTrigType =
-                            EventObjectUtil.getEventTriggerType(activity);
+                    if (newTrigType != null) {
+                        EventTriggerType curTrigType =
+                                EventObjectUtil.getEventTriggerType(activity);
 
-                    if (!newTrigType.equals(curTrigType)) {
-                        // Switch to different task type.
-                        cmd =
-                                ChangeEventTriggerTypeCommand.create(ed,
-                                        activity,
-                                        newTrigType);
+                        if (!newTrigType.equals(curTrigType)) {
+                            // Switch to different task type.
+                            cmd = ChangeEventTriggerTypeCommand
+                                    .create(ed, activity, newTrigType);
+                        }
                     }
                 }
             }
@@ -597,7 +604,8 @@ public abstract class BaseEventGeneralSection extends
 
         if (activity != null) {
             if (ProcessInterfaceUtil.isEventImplemented(activity)
-                    && ProcessInterfaceUtil.getImplementedMethod(activity) != null) {
+                    && ProcessInterfaceUtil
+                            .getImplementedMethod(activity) != null) {
                 InterfaceMethod method =
                         ProcessInterfaceUtil.getImplementedMethod(activity);
                 if (method != null) {
@@ -607,12 +615,12 @@ public abstract class BaseEventGeneralSection extends
                             Messages.BaseEventGeneralSection_UnresolvedName_label;
                 }
             } else if (ProcessInterfaceUtil.isEventImplemented(activity)
-                    && ProcessInterfaceUtil.getImplementedErrorMethod(activity) != null) {
+                    && ProcessInterfaceUtil
+                            .getImplementedErrorMethod(activity) != null) {
 
                 InterfaceMethod interfaceMethod = null;
-                ErrorMethod errorMethod =
-                        ProcessInterfaceUtil
-                                .getImplementedErrorMethod(activity);
+                ErrorMethod errorMethod = ProcessInterfaceUtil
+                        .getImplementedErrorMethod(activity);
 
                 if (errorMethod.eContainer() instanceof InterfaceMethod) {
                     interfaceMethod =
@@ -668,9 +676,10 @@ public abstract class BaseEventGeneralSection extends
                     if (type.equals(element.getTriggerResultType())) {
                         IFilter filter = element.getFilterExec();
                         if (filter == null
-                        // Filter on underlying model object because this is
-                        // what
-                        // implementations will deal with.
+                                // Filter on underlying model object because
+                                // this is
+                                // what
+                                // implementations will deal with.
                                 || filter.select(getInput())) {
                             implConfigElement = element;
                             break;
@@ -686,30 +695,28 @@ public abstract class BaseEventGeneralSection extends
     @Override
     protected void doRefreshDetailsSection() {
         if (!CapabilityUtil.isDeveloperActivityEnabled()) {
-            solutionDesignForm
-                    .setText(Messages.AddSolutionDesignCapability_form,
-                            true,
-                            false);
+            solutionDesignForm.setText(
+                    Messages.AddSolutionDesignCapability_form,
+                    true,
+                    false);
         } else {
-            solutionDesignForm
-                    .setText(Messages.RemoveSolutionDesignCapability_form,
-                            true,
-                            false);
+            solutionDesignForm.setText(
+                    Messages.RemoveSolutionDesignCapability_form,
+                    true,
+                    false);
         }
 
         if (shouldShowSolutionDesignForm()) {
             if (!solutionDesignForm.getVisible()) {
-                GridData layoutData =
-                        new GridData(GridData.FILL_HORIZONTAL
-                                | GridData.HORIZONTAL_ALIGN_END);
+                GridData layoutData = new GridData(GridData.FILL_HORIZONTAL
+                        | GridData.HORIZONTAL_ALIGN_END);
                 solutionDesignForm.setLayoutData(layoutData);
                 solutionDesignForm.setVisible(true);
             }
         } else {
             if (solutionDesignForm.getVisible()) {
-                GridData layoutData =
-                        new GridData(GridData.FILL_HORIZONTAL
-                                | GridData.HORIZONTAL_ALIGN_END);
+                GridData layoutData = new GridData(GridData.FILL_HORIZONTAL
+                        | GridData.HORIZONTAL_ALIGN_END);
                 solutionDesignForm.setLayoutData(layoutData);
                 solutionDesignForm.setVisible(false);
             }
@@ -723,19 +730,21 @@ public abstract class BaseEventGeneralSection extends
         if (activity != null) {
             // Update the name
             if (ProcessInterfaceUtil.isEventImplemented(activity)
-                    && ProcessInterfaceUtil.getImplementedErrorMethod(activity) != null) {
-                nameLabel
-                        .setText(Messages.BaseEventGeneralSection_ImplementsErrorFor_Label);
+                    && ProcessInterfaceUtil
+                            .getImplementedErrorMethod(activity) != null) {
+                nameLabel.setText(
+                        Messages.BaseEventGeneralSection_ImplementsErrorFor_Label);
 
             } else if (ProcessInterfaceUtil.isEventImplemented(activity)
-                    && ProcessInterfaceUtil.getImplementedMethod(activity) != null) {
+                    && ProcessInterfaceUtil
+                            .getImplementedMethod(activity) != null) {
 
                 if (ReplyActivityUtil.isReplyActivity(activity)) {
-                    nameLabel
-                            .setText(Messages.BaseEventGeneralSection_ImplementsReplyTo_Label);
+                    nameLabel.setText(
+                            Messages.BaseEventGeneralSection_ImplementsReplyTo_Label);
                 } else {
-                    nameLabel
-                            .setText(Messages.BaseEventGeneralSection_ImplementsMethod_label);
+                    nameLabel.setText(
+                            Messages.BaseEventGeneralSection_ImplementsMethod_label);
                 }
 
             } else {
@@ -744,8 +753,8 @@ public abstract class BaseEventGeneralSection extends
 
             if (!nameLabel.getText().equals(nameLabelChecker)) {
 
-                nameLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-                        false, false));
+                nameLabel.setLayoutData(
+                        new GridData(SWT.FILL, SWT.CENTER, false, false));
                 nameLabel.getParent().layout();
                 nameLabel.getParent().redraw();
                 nameLabelChecker = nameLabel.getText();
@@ -809,8 +818,8 @@ public abstract class BaseEventGeneralSection extends
             TriggerType msgLiteral =
                     com.tibco.xpd.xpdl2.TriggerType.MESSAGE_LITERAL;
             if (!triggerTypeCombo.isDisposed()) {
-                if (implementedEvent != null
-                        && !(msgLiteral.equals(implementedEvent.getTrigger()))) {
+                if (implementedEvent != null && !(msgLiteral
+                        .equals(implementedEvent.getTrigger()))) {
                     triggerTypeCombo.setVisible(false);
                     triggerTypeLabel.setVisible(false);
                 } else {
@@ -830,7 +839,8 @@ public abstract class BaseEventGeneralSection extends
      * @param activity
      */
     private void refreshEventTypeCombo(
-            EventTriggerTypeSection currentTriggerTypeSection, Activity activity) {
+            EventTriggerTypeSection currentTriggerTypeSection,
+            Activity activity) {
         if (currentTriggerTypeSection != null) {
             EventTriggerType currEventType =
                     currentTriggerTypeSection.eventTriggerType;
@@ -848,9 +858,8 @@ public abstract class BaseEventGeneralSection extends
             EventFlowType flowType = EventObjectUtil.getFlowType(activity);
 
             for (EventTriggerTypeSection ets : eventTriggerTypeSections) {
-                ProcessEditorObjectType objectType =
-                        ets.eventTriggerType
-                                .getProcessEditorObjectType(flowType);
+                ProcessEditorObjectType objectType = ets.eventTriggerType
+                        .getProcessEditorObjectType(flowType);
 
                 if (!excludedObjectTypes.contains(objectType)) {
                     includedEventTypes.add(ets.eventTriggerType);
@@ -884,7 +893,7 @@ public abstract class BaseEventGeneralSection extends
                 for (EventTriggerTypeSection ets : eventTriggerTypeSections) {
                     if (includedEventTypes.contains(ets.eventTriggerType)) {
                         triggerTypeCombo.add(ets.triggerTypeTextLabel);
-                        triggerTypeCombo.setData(triggerTypeLabelText,
+                        triggerTypeCombo.setData(ets.triggerTypeTextLabel,
                                 ets.eventTriggerType);
                     }
                 }
@@ -934,7 +943,8 @@ public abstract class BaseEventGeneralSection extends
                     previousImplConfig = currentImplConfigElement;
                     localRefreshTabs();
                 } else if (currentImplConfigElement != null
-                        && !currentImplConfigElement.equals(previousImplConfig)) {
+                        && !currentImplConfigElement
+                                .equals(previousImplConfig)) {
                     ISection prevSection =
                             getImplSectionFromConfig(previousImplConfig);
                     prevSection.setInput(getPart(), StructuredSelection.EMPTY);
@@ -1088,7 +1098,8 @@ public abstract class BaseEventGeneralSection extends
         super.dispose();
     }
 
-    private void setEventTriggerTypePageInput(EventTriggerType eventTriggerType) {
+    private void setEventTriggerTypePageInput(
+            EventTriggerType eventTriggerType) {
         // Set the input for task type specific page
         // and unset all others (by giving them empty selection.
         StructuredSelection emptySel = new StructuredSelection();
@@ -1116,7 +1127,8 @@ public abstract class BaseEventGeneralSection extends
         return eventTriggerTypeSpecificPageBook;
     }
 
-    private void createEventTriggerTypePages(XpdFormToolkit f, PageBook pageBook) {
+    private void createEventTriggerTypePages(XpdFormToolkit f,
+            PageBook pageBook) {
         int minHeight = 0;
 
         for (EventTriggerTypeSection trigType : eventTriggerTypeSections) {
@@ -1160,9 +1172,8 @@ public abstract class BaseEventGeneralSection extends
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#aboutToBeShown
-     * ()
+     * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#
+     * aboutToBeShown ()
      */
     @Override
     public void aboutToBeShown() {
@@ -1181,7 +1192,8 @@ public abstract class BaseEventGeneralSection extends
      * (org.eclipse.ui.activities.ActivityManagerEvent)
      */
     @Override
-    public void activityManagerChanged(ActivityManagerEvent activityManagerEvent) {
+    public void activityManagerChanged(
+            ActivityManagerEvent activityManagerEvent) {
         if (activityManagerEvent.haveEnabledActivityIdsChanged()) {
             if (isImplementationEnabled()) {
                 showAlignmentButtons();
@@ -1196,8 +1208,8 @@ public abstract class BaseEventGeneralSection extends
         Object inputModel = getInput();
         if (implSection != null && isImplementationEnabled()
                 && implSection instanceof AbstractXpdSection) {
-            implSection
-                    .setInput(getPart(), new StructuredSelection(inputModel));
+            implSection.setInput(getPart(),
+                    new StructuredSelection(inputModel));
             implSection.refresh();
         }
     }
