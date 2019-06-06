@@ -83,6 +83,37 @@ public class BOMImages {
 
     public static final String WARNING_LARGE = "icons/16x16/warningLarge.gif"; //$NON-NLS-1$
 
+    /*
+     * Sid ACE-1496 In BOM editor Standardise the base data type icons with
+     * those used in processes
+     */
+    public static final String PROCESS_DATA_FIELD =
+            "icons/process_data/DataField.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_BOOLEAN =
+            "icons/process_data/DataFieldBoolean.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_DATETIME =
+            "icons/process_data/DataFieldDateTime.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_COMPLEXTYPE =
+            "icons/process_data/DataFieldExtRef.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_FLOAT =
+            "icons/process_data/DataFieldFloat.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_INT =
+            "icons/process_data/DataFieldInt.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_STRING =
+            "icons/process_data/DataFieldString.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_ENUM =
+            "icons/process_data/DataFieldEnumeration.png"; //$NON-NLS-1$
+
+    public static final String PROCESS_DATA_FIELD_URI =
+            "icons/process_data/DataFieldURI.png"; //$NON-NLS-1$
+
     public static final String[] IMAGES = new String[] { CLASS, CASE_CLASS,
             GLOBAL_CLASS, AUTO_CASE_IDENTIFIER, CASE_STATE, PACKAGE, PROPERTY,
             PRIMITIVE_TYPE, DIAGRAM, DIAGRAM_FOLDER, ASSOCIATION,
@@ -90,5 +121,11 @@ public class BOMImages {
             ENUMERATION, ENUMLIT, OPERATION, PACKAGE_32, CONCEPT_32,
             STEREOTYPE, PROFILE, BADGEMODEL, BADGESHORTCUT, BADGEMODEL_CM,
             ASSOCIATION_COMPOSITION, ASSOCIATION_COMPOSITION_UNI,
-            ASSOCIATION_AGGREGATION_UNI, BADGEMODEL_SUBDIAG, WARNING_LARGE };
+            ASSOCIATION_AGGREGATION_UNI, BADGEMODEL_SUBDIAG, WARNING_LARGE,
+            PROCESS_DATA_FIELD, PROCESS_DATA_FIELD_BOOLEAN,
+            PROCESS_DATA_FIELD_DATETIME, PROCESS_DATA_FIELD_COMPLEXTYPE,
+            PROCESS_DATA_FIELD_FLOAT, PROCESS_DATA_FIELD_INT,
+            PROCESS_DATA_FIELD_STRING, PROCESS_DATA_FIELD_ENUM,
+            PROCESS_DATA_FIELD_URI
+    };
 }

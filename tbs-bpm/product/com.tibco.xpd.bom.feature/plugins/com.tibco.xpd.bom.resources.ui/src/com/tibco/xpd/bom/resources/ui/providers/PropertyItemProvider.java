@@ -91,7 +91,7 @@ public class PropertyItemProvider extends NamedElementItemProvider {
 
     private enum Overlays {
         MultiN, MultiNToUnbounded, MultiOne, MultiOneToN, MultiOneToUnbounded, MultiZero, //
-        MultiZeroToN, MultiZeroToOne, MultiZeroToUnbounded, MultiNToM;
+        MultiZeroToN, MultiZeroToOne, MultiZeroToUnbounded, MultiNToM, Multi;
 
         /**
          * Select multiplicity icon. Returns null if it is undefined or invalid.
@@ -105,41 +105,52 @@ public class PropertyItemProvider extends NamedElementItemProvider {
                 return null;
             }
 
-            if (property.getLower() == 0) {
-                if (property.getUpper() == 1) {
-                    return MultiZeroToOne;
-                }
-                if (property.getUpper() > 1) {
-                    return MultiZeroToN;
-                }
-                if (property.getUpper() < 0) {
-                    return MultiZeroToUnbounded;
-                }
-                // when lower == 0 && upper == 0, return null
-            } else if (property.getLower() == 1) {
-                if (property.getUpper() == 1) {
-                    return MultiOne;
-                }
-                if (property.getUpper() > 1) {
-                    return MultiOneToN;
-                }
-                if (property.getUpper() < 0) {
-                    return MultiOneToUnbounded;
-                }
-                // when lower == 1 && upper == 0, return null
-            } else if (property.getLower() > 1) {
-                if (property.getUpper() == property.getLower()) {
-                    return MultiN;
-                }
-                if (property.getUpper() > property.getLower()) {
-                    return MultiNToM;
-                }
-                if (property.getUpper() < 0) {
-                    return MultiNToUnbounded;
-                }
-                // when lower == 1 && upper == 0, return null
+            /*
+             * Sid ACE-1496. As with Process data only display whether it is
+             * array or not, for BPM use cases this is enough. Trying to display
+             * more makes the icon unreadable anyway at this scale.
+             */
+            if (property.getUpper() > 1 || property.getUpper() < 0) {
+                return Multi;
+            } else {
+                return null;
             }
-            return null;
+
+            // if (property.getLower() == 0) {
+            // if (property.getUpper() == 1) {
+            // return MultiZeroToOne;
+            // }
+            // if (property.getUpper() > 1) {
+            // return MultiZeroToN;
+            // }
+            // if (property.getUpper() < 0) {
+            // return MultiZeroToUnbounded;
+            // }
+            // // when lower == 0 && upper == 0, return null
+            // } else if (property.getLower() == 1) {
+            // if (property.getUpper() == 1) {
+            // return MultiOne;
+            // }
+            // if (property.getUpper() > 1) {
+            // return MultiOneToN;
+            // }
+            // if (property.getUpper() < 0) {
+            // return MultiOneToUnbounded;
+            // }
+            // // when lower == 1 && upper == 0, return null
+            // } else if (property.getLower() > 1) {
+            // if (property.getUpper() == property.getLower()) {
+            // return MultiN;
+            // }
+            // if (property.getUpper() > property.getLower()) {
+            // return MultiNToM;
+            // }
+            // if (property.getUpper() < 0) {
+            // return MultiNToUnbounded;
+            // }
+            // // when lower == 1 && upper == 0, return null
+            // }
+            // return null;
         }
     }
 
@@ -343,6 +354,15 @@ public class PropertyItemProvider extends NamedElementItemProvider {
             }
 
             if (registry != null) {
+                /*
+                 * Id must now distinguish between different icons for different
+                 * types.
+                 */
+                String baseImagePath = getBasePropertyImagePath(property);
+
+                if (baseImagePath != null) {
+                    imgId += "_" + baseImagePath; //$NON-NLS-1$
+                }
 
                 image = registry.get(imgId);
                 if (image == null) {
@@ -392,10 +412,93 @@ public class PropertyItemProvider extends NamedElementItemProvider {
             }
         }
 
-        img = getFirstClassStereotypeImage(property);
+        /*
+         * Sid ACE-1496 In BOM editor Standardise the base data type icons with
+         * those used in processes
+         */
+        img = getEquivalentProcessDataImage(property);
+
+        if (img == null) {
+            img = getFirstClassStereotypeImage(property);
+        }
 
         return img != null ? img : Activator.getDefault().getImageRegistry()
                 .get(BOMImages.PROPERTY);
+    }
+
+    /**
+     * @param property
+     * @return The process data equivalent image for the given property type.
+     */
+    private Image getEquivalentProcessDataImage(Property property) {
+        String imagePath = getBasePropertyImagePath(property);
+
+        if (imagePath != null) {
+            return Activator.getDefault().getImageRegistry().get(imagePath);
+        }
+        
+        return null;
+    }
+
+    /**
+     * @param property
+     * @return the plugin relative path of the image for the given property type
+     *         or null if not one handled here.
+     */
+    protected String getBasePropertyImagePath(Property property) {
+        String imageName = null;
+        
+        Type type = property.getType();
+
+        if (type instanceof PrimitiveType) {
+            PrimitiveType pType =
+                    PrimitivesUtil.getBasePrimitiveType((PrimitiveType) type);
+
+            if (pType != null) {
+                String typeName = pType.getName();
+
+                if (PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME
+                        .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_BOOLEAN;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME
+                        .equals(typeName)
+                        || PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME
+                                .equals(typeName)
+                        || PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME
+                                .equals(typeName)
+                        || PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME
+                                .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_DATETIME;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
+                        .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_FLOAT;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME
+                        .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_INT;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
+                        .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_STRING;
+
+                } else if (PrimitivesUtil.BOM_PRIMITIVE_URI_NAME
+                        .equals(typeName)) {
+                    imageName = BOMImages.PROCESS_DATA_FIELD_URI;
+                }
+            }
+
+        } else if (type instanceof org.eclipse.uml2.uml.Class) {
+            imageName = BOMImages.PROCESS_DATA_FIELD_COMPLEXTYPE;
+
+        } else if (type instanceof Enumeration) {
+            imageName = BOMImages.PROCESS_DATA_FIELD_ENUM;
+
+        } else {
+            imageName = BOMImages.PROCESS_DATA_FIELD;
+        }
+        return imageName;
     }
 
     /**
