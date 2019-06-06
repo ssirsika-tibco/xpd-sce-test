@@ -13,7 +13,7 @@ import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
-import com.tibco.xpd.sce.tests.rasc.contributors.BrmSharedResourceContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
@@ -56,7 +56,7 @@ public class AllUnitTests {
         suite.addTestSuite(BrmModelRascContributorTest.class);
         suite.addTestSuite(WpModelRascContributorTest.class);
         suite.addTestSuite(WlfModelRascContributorTest.class);
-        suite.addTestSuite(BrmSharedResourceContributorTest.class);
+        suite.addTestSuite(PeSharedResourceContributorTest.class);
 
         /*
          * BOM->CDM transformation

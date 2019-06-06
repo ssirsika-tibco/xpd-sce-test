@@ -12,7 +12,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.core.test.util.TestUtil;
-import com.tibco.xpd.n2.brm.BrmModelsRascContributor;
+import com.tibco.xpd.n2.pe.transform.PERascContributor;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.resources.util.ProjectImporter;
@@ -28,7 +28,7 @@ import junit.framework.TestCase;
  * @since 12 Apr 2019
  */
 @SuppressWarnings("nls")
-public class BrmSharedResourceContributorTest extends TestCase {
+public class PeSharedResourceContributorTest extends TestCase {
 
     /**
      * Test that the hasContributionsFor and RASC generation contribution for
@@ -42,13 +42,13 @@ public class BrmSharedResourceContributorTest extends TestCase {
 
         ProjectImporter projectImporter = importProject(projectName);
         try {
-            RascContributor fixture = new BrmModelsRascContributor();
+            RascContributor fixture = new PERascContributor();
 
             IProject project = ResourcesPlugin.getWorkspace().getRoot()
                     .getProject(projectName);
 
             assertTrue(
-                    projectName + " project should have BRM RASC contributions",
+                    projectName + " project should have PE RASC contributions",
                     fixture.hasContributionsFor(project));
 
             // create a mock writer to capture contributor's output
@@ -66,34 +66,33 @@ public class BrmSharedResourceContributorTest extends TestCase {
             };
             fixture.process(project, rascContext, null, writer);
 
-            // two BRM artifacts should have been added to the writer
-            WriterContent wmArtifact = null;
-            WriterContent wtArtifact = null;
+            // these artifacts should have been added to the writer
+            String[] expectedArtifacts = { "BrmRascTest-Process2",
+                    "BrmRascTest-Process", "BrmRascTest-Process2 - xpdl2",
+                    "BrmRascTest-Process - xpdl 2" };
             List<WriterContent> artifacts = writer.getArtifacts();
+            assertEquals(expectedArtifacts.length, artifacts.size());
             for (WriterContent artifact : artifacts) {
-                if ("workModel.wm".equals(artifact.getArtifactName())) {
-                    wmArtifact = artifact;
-                } else if ("workType.wt".equals(artifact.getArtifactName())) {
-                    wtArtifact = artifact;
+                boolean found = false;
+                for (String expected : expectedArtifacts) {
+                    if (expected.equals(artifact.getArtifactName())) {
+                        found = true;
+                        break;
+                    }
                 }
+                assertTrue("Unexpected artifact: " + artifact.getArtifactName(),
+                        found);
             }
-
-            assertTrue(projectName
-                    + " project should have a contributed workModel.wm artifact",
-                    wmArtifact != null);
-            assertTrue(projectName
-                    + " project should have a contributed workType.wt artifact",
-                    wtArtifact != null);
 
             // no shared resource should have been added
             assertNull(writer.getManifestAttribute(
-                    BrmModelsRascContributor.SHARED_RESOURCE_MANIFEST_ATTR));
+                    PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR));
         } finally {
             projectImporter.performDelete();
         }
     }
 
-    public void testProjectWithOnlySharedResources() throws Exception {
+    public void testProjectWithSharedResources() throws Exception {
         String[] locations = new String[] {
                 "resources/BrmRascTest/BrmRascSharedResourceTest/SimpleProc/",
                 "resources/BrmRascTest/BrmRascSharedResourceTest/SimpleServices/" };
@@ -101,12 +100,13 @@ public class BrmSharedResourceContributorTest extends TestCase {
 
         ProjectImporter projectImporter = importProjects(locations, names);
         try {
-            RascContributor fixture = new BrmModelsRascContributor();
+            RascContributor fixture = new PERascContributor();
 
             IProject project = ResourcesPlugin.getWorkspace().getRoot()
                     .getProject(names[0]);
 
-            assertTrue(names[0] + " project should have BRM RASC contributions",
+            assertTrue(names[0]
+                    + " project should have Shared Resource contributions",
                     fixture.hasContributionsFor(project));
 
             // create a mock writer to capture contributor's output
@@ -124,12 +124,25 @@ public class BrmSharedResourceContributorTest extends TestCase {
             };
             fixture.process(project, rascContext, null, writer);
 
-            // NO BRM artifacts should have been added to the writer
-            assertTrue(writer.getArtifacts().isEmpty());
+            // these artifacts should have been added to the writer
+            String[] expectedArtifacts = { "SimpleProc-Process" };
+            List<WriterContent> artifacts = writer.getArtifacts();
+            assertEquals(expectedArtifacts.length, artifacts.size());
+            for (WriterContent artifact : artifacts) {
+                boolean found = false;
+                for (String expected : expectedArtifacts) {
+                    if (expected.equals(artifact.getArtifactName())) {
+                        found = true;
+                        break;
+                    }
+                }
+                assertTrue("Unexpected artifact: " + artifact.getArtifactName(),
+                        found);
+            }
 
             // Shared resource should have been added
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
-                    BrmModelsRascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
+                    PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR);
             assertNotNull(manifestAttrs);
             assertEquals(2, manifestAttrs.length);
 
@@ -148,31 +161,6 @@ public class BrmSharedResourceContributorTest extends TestCase {
                 }
                 assertTrue("Expected " + expected, found);
             }
-        } finally {
-            projectImporter.performDelete();
-        }
-    }
-
-    /**
-     * Check that a data project doesn't claim to have contributions.
-     * 
-     * @throws Exception
-     */
-    public void testProjectWithoutContributions2() throws Exception {
-
-        String projectName = "BrmRascTestProjectWithoutContributions";
-
-        ProjectImporter projectImporter = importProject(projectName);
-        try {
-            RascContributor fixture = new BrmModelsRascContributor();
-
-            IProject project = ResourcesPlugin.getWorkspace().getRoot()
-                    .getProject(projectName);
-
-            assertFalse(
-                    projectName
-                            + " project should not have BRM RASC contributions",
-                    fixture.hasContributionsFor(project));
         } finally {
             projectImporter.performDelete();
         }

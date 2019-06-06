@@ -63,7 +63,6 @@ import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
-import com.tibco.xpd.analyst.resources.xpdl2.utils.SharedResourceUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
@@ -96,7 +95,6 @@ import com.tibco.xpd.xpdExtension.ActivityResourcePatterns;
 import com.tibco.xpd.xpdExtension.AllocationStrategy;
 import com.tibco.xpd.xpdExtension.AllocationType;
 import com.tibco.xpd.xpdExtension.DataWorkItemAttributeMapping;
-import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.PilingInfo;
 import com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
@@ -244,94 +242,10 @@ public class BRMGenerator {
                         }
                     }
                 }
-
-                // look for any shared resource instances in process
-                if (hasSharedResources(process.getParticipants())) {
-                    return true;
-                }
-            }
-
-            // look for any shared resource instances in package
-            if (hasSharedResources(pkg.getParticipants())) {
-                return true;
             }
         }
 
         return false;
-    }
-
-    /**
-     * Search to the given collection of participants for any shared resources.
-     * 
-     * @param aParticipants
-     *            the participants to be searched.
-     * @return <code>true</code> if any shared resource references found.
-     */
-    private boolean hasSharedResources(Collection<Participant> aParticipants) {
-        if ((aParticipants != null) && (!aParticipants.isEmpty())) {
-            for (Participant participant : aParticipants) {
-                if (SharedResourceUtil
-                        .getParticipantSharedResource(participant) != null) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Find all SharedResource instances within the given project. Returns an
-     * empty collection if none are found.
-     * 
-     * @param aProject
-     *            the project to search.
-     * @return the collection of shared resource found.
-     */
-    public Collection<ParticipantSharedResource> getSharedResources(
-            IProject aProject) {
-        Collection<Package> packages = BRMUtils.getN2ProcessPackages(aProject);
-        if ((packages == null) || (packages.isEmpty())) {
-            return Collections.emptyList();
-        }
-
-        Collection<ParticipantSharedResource> result = new ArrayList<>();
-        for (Package pkg : packages) {
-            result.addAll(getSharedResources(pkg.getParticipants()));
-
-            for (Process process : pkg.getProcesses()) {
-                result.addAll(getSharedResources(process.getParticipants()));
-            }
-        }
-
-        return result;
-    }
-
-    /**
-     * Return all instances of the given Participants that reference shared
-     * resources. If there are no shared resource references the return value
-     * will be an empty collection.
-     * 
-     * @param aParticipants
-     *            the participants to search.
-     * @return the collection of shared resource references.
-     */
-    private Collection<ParticipantSharedResource> getSharedResources(
-            Collection<Participant> aParticipants) {
-        if ((aParticipants == null) || (aParticipants.isEmpty())) {
-            return Collections.emptyList();
-        }
-
-        Collection<ParticipantSharedResource> result = new ArrayList<>();
-        ParticipantSharedResource sharedResource;
-        for (Participant participant : aParticipants) {
-            sharedResource = SharedResourceUtil
-                    .getParticipantSharedResource(participant);
-            if (sharedResource != null) {
-                result.add(sharedResource);
-            }
-        }
-
-        return result;
     }
 
     /**
