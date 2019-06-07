@@ -571,7 +571,11 @@ public class RestServiceTaskAdapter {
                 psr);
         RestServiceResource rsr =
                 XpdExtensionFactory.eINSTANCE.createRestServiceResource();
-        rsr.setHttpClientInstanceName(svc.getName());
+        /*
+         * ACE-1487: Saket: Need to set resourceName instead of
+         * HttpClientInstanceName.
+         */
+        rsr.setResourceName(svc.getName());
         psr.setRestService(rsr);
         participant.setParticipantType(type);
         return participant;
