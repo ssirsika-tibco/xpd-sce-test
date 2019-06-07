@@ -1,0 +1,33 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ProcessProcedures
+Element-Type: context
+Element-Version: 2.0
+Id: __4WYAIkTEem40pYcsbaLuA
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/7/19 5:11 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+//Create a participant.
+proc "createParticipant"[val participantLabel][val Type][val type] {
+get-view "Project Explorer" | get-tree 
+    | select [concat $PROJECT_NAME"/Process Packages/"$PROJECT_NAME".xpdl/"$PROJECT_NAME" ("$PROJECT_NAME")/Participants" ]
+    | get-menu -path "New/Participant" | click
+with [get-window "New Participant"] {
+	
+	get-editbox -after [get-label "Label:"] | set-text $participantLabel
+    get-editbox -after [get-label "Name:"] | set-text $participantLabel
+    with [get-section "Type..."] {
+        get-button $Type | click
+        get-button $type | click
+    }
+    get-button Finish | click
+}
+}
+
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

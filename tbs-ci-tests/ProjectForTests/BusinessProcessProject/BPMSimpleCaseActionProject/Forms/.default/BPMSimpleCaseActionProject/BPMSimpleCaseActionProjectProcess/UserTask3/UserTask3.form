@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_QvYCAJI4EeSILPfDOLw_Ww?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess%26n=UserTask3?" formatVersion="4.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_IunMoJGgEeSEt8Tfy09v4w?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess%26n=LocalData?" name="data.LocalData" label="LocalData" dataType="uml:Class CaseActionStudy.bom#_zw8x0JGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.caseactionstudy%26n=Case1?" type="com.example.caseactionstudy::Case1" inout="IN"/>
+    <form:parameter generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_ZNJboJGgEeSEt8Tfy09v4w?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess%26n=CaseRef?" name="data.CaseRef" label="CaseRef" dataType="uml:Class CaseActionStudy.bom#_zw8x0JGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.caseactionstudy%26n=Case1?" type="com.example.caseactionstudy::Case1" inout="IN"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_GCOoUGGsEemFAJaaGQnk8g">
+      <form:source target="data.LocalData" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.LocalData.value"/>
+      <form:destination target="pane.LocalData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.LocalData.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_GCYZUGGsEemFAJaaGQnk8g">
+      <form:source target="pane.LocalData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value CaseActionStudy.bom#_BqgGIJGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseState1?" data="form.pane.LocalData.value.caseState1"/>
+      <form:destination target="control.LocalData_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LocalData_caseState1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_GC1FQGGsEemFAJaaGQnk8g">
+      <form:source target="pane.LocalData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value CaseActionStudy.bom#_Nx580JGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseID?" data="form.pane.LocalData.value.caseID"/>
+      <form:destination target="control.LocalData_caseID" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.LocalData_caseID.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_GC1FQWGsEemFAJaaGQnk8g">
+      <form:source target="data.CaseRef" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseRef.value"/>
+      <form:destination target="pane.CaseRef" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.CaseRef.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_GC1FQmGsEemFAJaaGQnk8g">
+      <form:source target="pane.CaseRef" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value CaseActionStudy.bom#_BqgGIJGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseState1?" data="form.pane.CaseRef.value.caseState1"/>
+      <form:destination target="control.CaseRef_caseState1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRef_caseState1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_GC1FQ2GsEemFAJaaGQnk8g">
+      <form:source target="pane.CaseRef" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value CaseActionStudy.bom#_Nx580JGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseID?" data="form.pane.CaseRef.value.caseID"/>
+      <form:destination target="control.CaseRef_caseID" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseRef_caseID.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>User Task (3)</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="top"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_IunMoJGgEeSEt8Tfy09v4w?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess%26n=LocalData?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class CaseActionStudy.bom#_zw8x0JGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.caseactionstudy%26n=Case1?" name="pane.LocalData" paneType="com.tibco.forms.panes.vertical">
+      <form:label>LocalData</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="CaseActionStudy.bom#_BqgGIJGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" readOnly="true" controlType="com.tibco.forms.controls.optionlist" name="control.LocalData_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>CaseActionStudy.bom#_3SuPcJGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.caseactionstudy%26n=Approval?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="CaseActionStudy.bom#_Nx580JGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseID?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.LocalData_caseID">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>15</et:displayLength>
+          <et:maxLength>10</et:maxLength>
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_decimal</et:formatRef>
+        </form:propertySet>
+        <form:label>CaseID</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+    <form:pane generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_ZNJboJGgEeSEt8Tfy09v4w?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess%26n=CaseRef?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class CaseActionStudy.bom#_zw8x0JGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.caseactionstudy%26n=Case1?" name="pane.CaseRef" paneType="com.tibco.forms.panes.vertical">
+      <form:label>CaseRef</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="CaseActionStudy.bom#_BqgGIJGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseState1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.optionlist" readOnly="true" controlType="com.tibco.forms.controls.optionlist" name="control.CaseRef_caseState1">
+        <form:propertySet xsi:type="et:MultiChoicePropertySet">
+          <et:choiceType>enumeration</et:choiceType>
+          <et:choiceEnumeration>CaseActionStudy.bom#_3SuPcJGdEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aEnumeration%26q=com.example.caseactionstudy%26n=Approval?</et:choiceEnumeration>
+        </form:propertySet>
+        <form:label>caseState1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="CaseActionStudy.bom#_Nx580JGfEeSEt8Tfy09v4w?p=CaseActionStudy%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.caseactionstudy%3a%3aCase1%26n=caseID?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" readOnly="true" controlType="com.tibco.forms.controls.textinput" name="control.CaseRef_caseID">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>15</et:displayLength>
+          <et:maxLength>10</et:maxLength>
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_decimal</et:formatRef>
+        </form:propertySet>
+        <form:label>CaseID</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

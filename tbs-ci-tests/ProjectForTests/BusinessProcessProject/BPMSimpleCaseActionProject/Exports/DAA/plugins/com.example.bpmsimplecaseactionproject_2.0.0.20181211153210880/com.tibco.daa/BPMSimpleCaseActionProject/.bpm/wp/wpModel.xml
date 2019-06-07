@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service:Service-Archive-Descriptor xmlns:service="http://service.archive.wp.n2.tibco.com">
+  <service:channels>
+    <service:channel channelId="GIGWTPull_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>GIChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Pull</service:implementation-type>
+      <service:work-type guid="WT__QvYCAJI4EeSILPfDOLw_Ww" name="UserTask3" version="2.0.0.20181211153210880">
+        <service:form name="UserTask3.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__OwlaEpI4EeSILPfDOLw_Ww" name="UserTask2" version="2.0.0.20181211153210880">
+        <service:form name="UserTask2.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__J_x_sEUyEeeeWvVABXaG_A" name="UserTask" version="2.0.0.20181211153210880">
+        <service:form name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="GIGWTPull_DefaultChannel.properties" location="2.0.0.20181211153210880/GIGWTPull_DefaultChannel"/>
+      <service:business-service id="_rjp44FMxEeeaHod8jATlPA" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcessCatchMessageEvent2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcessCatchMessageEvent2.bpel">
+        <service:page-activity id="_rpqaQVMxEeeaHod8jATlPA" name="UserTask">
+          <service:page-reference name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_gpr7IJGfEeSEt8Tfy09v4w" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess2.bpel">
+        <service:page-activity id="_gqDHhZGfEeSEt8Tfy09v4w" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_gqDHiJGfEeSEt8Tfy09v4w" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4GFYEJI3EeSILPfDOLw_Ww" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectUpdateCaseAction" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectUpdateCaseAction.bpel">
+        <service:page-activity id="_4Nj5EJI3EeSILPfDOLw_Ww" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSC5I3EeSILPfDOLw_Ww" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSBZI3EeSILPfDOLw_Ww" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_0l-vUEXbEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess3" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess3.bpel">
+        <service:page-activity id="_0oHdWEXbEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oG2RUXbEeeeWvVABXaG_A" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oHdUkXbEeeeWvVABXaG_A" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4SscMEXcEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess4" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess4.bpel">
+        <service:page-activity id="_4S_XIUXcEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4S-wFUXcEeeeWvVABXaG_A" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+    </service:channel>
+    <service:channel channelId="openspaceGWTPull_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>openspaceChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Pull</service:implementation-type>
+      <service:work-type guid="WT__QvYCAJI4EeSILPfDOLw_Ww" name="UserTask3" version="2.0.0.20181211153210880">
+        <service:form name="UserTask3.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__OwlaEpI4EeSILPfDOLw_Ww" name="UserTask2" version="2.0.0.20181211153210880">
+        <service:form name="UserTask2.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__J_x_sEUyEeeeWvVABXaG_A" name="UserTask" version="2.0.0.20181211153210880">
+        <service:form name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="openspaceGWTPull_DefaultChannel.properties" location="2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel"/>
+      <service:business-service id="_rjp44FMxEeeaHod8jATlPA" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcessCatchMessageEvent2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcessCatchMessageEvent2.bpel">
+        <service:page-activity id="_rpqaQVMxEeeaHod8jATlPA" name="UserTask">
+          <service:page-reference name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_gpr7IJGfEeSEt8Tfy09v4w" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess2.bpel">
+        <service:page-activity id="_gqDHhZGfEeSEt8Tfy09v4w" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_gqDHiJGfEeSEt8Tfy09v4w" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4GFYEJI3EeSILPfDOLw_Ww" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectUpdateCaseAction" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectUpdateCaseAction.bpel">
+        <service:page-activity id="_4Nj5EJI3EeSILPfDOLw_Ww" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSC5I3EeSILPfDOLw_Ww" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSBZI3EeSILPfDOLw_Ww" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_0l-vUEXbEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess3" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess3.bpel">
+        <service:page-activity id="_0oHdWEXbEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oG2RUXbEeeeWvVABXaG_A" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oHdUkXbEeeeWvVABXaG_A" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4SscMEXcEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess4" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess4.bpel">
+        <service:page-activity id="_4S_XIUXcEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4S-wFUXcEeeeWvVABXaG_A" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+    </service:channel>
+    <service:channel channelId="openspaceEmailPush_DefaultChannel" defaultChannel="true" name="DefaultChannel">
+      <service:description>DefaultChannel</service:description>
+      <service:target-channel-type>EmailChannel</service:target-channel-type>
+      <service:presentation-channel-type>GWT</service:presentation-channel-type>
+      <service:implementation-type>Push</service:implementation-type>
+      <service:work-type guid="WT__QvYCAJI4EeSILPfDOLw_Ww" name="UserTask3" version="2.0.0.20181211153210880">
+        <service:form name="UserTask3.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__OwlaEpI4EeSILPfDOLw_Ww" name="UserTask2" version="2.0.0.20181211153210880">
+        <service:form name="UserTask2.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:work-type guid="WT__J_x_sEUyEeeeWvVABXaG_A" name="UserTask" version="2.0.0.20181211153210880">
+        <service:form name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+          <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</service:formIdentifier>
+          <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask</service:relative-path>
+        </service:form>
+      </service:work-type>
+      <service:domain></service:domain>
+      <service:extension-config filename="openspaceEmailPush_DefaultChannel.properties" location="2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel"/>
+      <service:business-service id="_rjp44FMxEeeaHod8jATlPA" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcessCatchMessageEvent2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcessCatchMessageEvent2.bpel">
+        <service:page-activity id="_rpqaQVMxEeeaHod8jATlPA" name="UserTask">
+          <service:page-reference name="UserTask.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_gpr7IJGfEeSEt8Tfy09v4w" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess2" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess2.bpel">
+        <service:page-activity id="_gqDHhZGfEeSEt8Tfy09v4w" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_gqDHiJGfEeSEt8Tfy09v4w" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4GFYEJI3EeSILPfDOLw_Ww" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectUpdateCaseAction" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectUpdateCaseAction.bpel">
+        <service:page-activity id="_4Nj5EJI3EeSILPfDOLw_Ww" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSC5I3EeSILPfDOLw_Ww" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4NjSBZI3EeSILPfDOLw_Ww" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_0l-vUEXbEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess3" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess3.bpel">
+        <service:page-activity id="_0oHdWEXbEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oG2RUXbEeeeWvVABXaG_A" name="ModifyData">
+          <service:page-reference name="ModifyData.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_0oHdUkXbEeeeWvVABXaG_A" name="UpdateFailed">
+          <service:page-reference name="UpdateFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+      <service:business-service id="_4SscMEXcEeeeWvVABXaG_A" moduleName="/BPMSimpleCaseActionProject/Process Packages/BPMSimpleCaseActionProject.xpdl" moduleVersion="2.0.0.20181211153210880" name="BPMSimpleCaseActionProjectProcess4" url="BPMSimpleCaseActionProject/.bpm/.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess4.bpel">
+        <service:page-activity id="_4S_XIUXcEeeeWvVABXaG_A" name="LookupFailed">
+          <service:page-reference name="LookupFailed.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+        <service:page-activity id="_4S-wFUXcEeeeWvVABXaG_A" name="ViewCase">
+          <service:page-reference name="ViewCase.gwt.json" version="2.0.0.20181211153210880">
+            <service:formIdentifier>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.json</service:formIdentifier>
+            <service:relative-path>2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase</service:relative-path>
+          </service:page-reference>
+        </service:page-activity>
+      </service:business-service>
+    </service:channel>
+  </service:channels>
+</service:Service-Archive-Descriptor>

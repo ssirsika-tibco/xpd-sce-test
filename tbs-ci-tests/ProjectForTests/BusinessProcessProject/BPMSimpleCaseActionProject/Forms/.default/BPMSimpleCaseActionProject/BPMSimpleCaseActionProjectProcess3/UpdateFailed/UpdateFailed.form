@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdUkXbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=UpdateFailed?" formatVersion="4.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZUXbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=ErrorCode?" name="data.ErrorCode" label="Error Code" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZkXbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=ErrorDetail?" name="data.ErrorDetail" label="Error Detail" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="250" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZ0XbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=CaseOutOfSynchError?" name="data.CaseOutOfSynchError" label="CaseOutOfSynchError" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" type="BomPrimitiveTypes::Text" length="150" inout="IN"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_GFtaIGGsEemFAJaaGQnk8g">
+      <form:source target="data.ErrorCode" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ErrorCode.value"/>
+      <form:destination target="control.ErrorCode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ErrorCode.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_GFtaIWGsEemFAJaaGQnk8g">
+      <form:source target="data.ErrorDetail" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ErrorDetail.value"/>
+      <form:destination target="control.ErrorDetail" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ErrorDetail.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="sourceToDest" name="_GFtaImGsEemFAJaaGQnk8g">
+      <form:source target="data.CaseOutOfSynchError" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.CaseOutOfSynchError.value"/>
+      <form:destination target="control.CaseOutOfSynchError" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.CaseOutOfSynchError.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>Update Failed</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="left"/>
+    </form:defaults>
+    <form:control generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZUXbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=ErrorCode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ErrorCode">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>Error Code</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>true</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZkXbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=ErrorDetail?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" controlType="com.tibco.forms.controls.textarea" name="control.ErrorDetail">
+      <form:propertySet xsi:type="et:TextAreaPropertySet">
+        <et:rows>10</et:rows>
+        <et:cols>25</et:cols>
+        <et:maxLength>250</et:maxLength>
+      </form:propertySet>
+      <form:label>Error Detail</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>true</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="BPMSimpleCaseActionProject.xpdl#_0oHdZ0XbEeeeWvVABXaG_A?p=BPMSimpleCaseActionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=BPMSimpleCaseActionProject%3a%3aBPMSimpleCaseActionProjectProcess3%26n=CaseOutOfSynchError?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textarea" readOnly="true" controlType="com.tibco.forms.controls.textarea" name="control.CaseOutOfSynchError">
+      <form:propertySet xsi:type="et:TextAreaPropertySet">
+        <et:rows>10</et:rows>
+        <et:cols>25</et:cols>
+        <et:maxLength>150</et:maxLength>
+      </form:propertySet>
+      <form:label>CaseOutOfSynchError</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+      <form:value>Your local copy of the case object is out of synch. The case object has been changed by something else since your copy was fetched.</form:value>
+    </form:control>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

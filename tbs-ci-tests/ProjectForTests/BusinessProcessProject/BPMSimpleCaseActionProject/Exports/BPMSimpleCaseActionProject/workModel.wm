@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="-1" version="2.0.0.20190425160152221">
+  <workmodel:WorkModel workModelUID="WM__OwlaEpI4EeSILPfDOLw_Ww">
+    <BaseModelInfo description="User Task (2)" name="UserTask2" priority="50"/>
+    <WorkModelSpecification>
+      <inputs name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inputs>
+      <inputs name="CaseRef" optional="true" type="Data Reference"/>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query></query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[2.0.0.20190425160152221,2.0.0.20190425160152221]" workTypeID="WT__OwlaEpI4EeSILPfDOLw_Ww">
+        <WorkModelMapping>
+          <TypeParamName>LocalData</TypeParamName>
+          <ModelParamName>LocalData</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>CaseRef</TypeParamName>
+          <ModelParamName>CaseRef</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__QvYCAJI4EeSILPfDOLw_Ww">
+    <BaseModelInfo description="User Task (3)" name="UserTask3" priority="50"/>
+    <WorkModelSpecification>
+      <inputs name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inputs>
+      <inputs name="CaseRef" optional="true" type="Data Reference"/>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query></query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[2.0.0.20190425160152221,2.0.0.20190425160152221]" workTypeID="WT__QvYCAJI4EeSILPfDOLw_Ww">
+        <WorkModelMapping>
+          <TypeParamName>LocalData</TypeParamName>
+          <ModelParamName>LocalData</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>CaseRef</TypeParamName>
+          <ModelParamName>CaseRef</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__J_x_sEUyEeeeWvVABXaG_A">
+    <BaseModelInfo description="User Task" name="UserTask" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query></query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[2.0.0.20190425160152221,2.0.0.20190425160152221]" workTypeID="WT__J_x_sEUyEeeeWvVABXaG_A">
+        <WorkModelMapping>
+          <TypeParamName>LocalData</TypeParamName>
+          <ModelParamName>LocalData</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

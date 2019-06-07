@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="2.0.0.20181211153210880">
+  <worktype:WorkType>
+    <workTypeUID>WT__QvYCAJI4EeSILPfDOLw_Ww</workTypeUID>
+    <workTypeDescription>UserTask3</workTypeDescription>
+    <dataModel>
+      <inputs name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inputs>
+      <inputs name="CaseRef" optional="true" type="Data Reference"/>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__OwlaEpI4EeSILPfDOLw_Ww</workTypeUID>
+    <workTypeDescription>UserTask2</workTypeDescription>
+    <dataModel>
+      <inputs name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inputs>
+      <inputs name="CaseRef" optional="true" type="Data Reference"/>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__J_x_sEUyEeeeWvVABXaG_A</workTypeUID>
+    <workTypeDescription>UserTask</workTypeDescription>
+    <dataModel>
+      <inouts name="LocalData" optional="true" type="Complex">
+        <complexSpec className="com.example.caseactionstudy.Case1"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de:model xmlns:de="http://tibco.com/bpm/directory-model/2.0" name="APITestingOrgModel" version="1.0.0.qualifier">
+  <de:meta-model>
+    <de:location-type id="_RHBGEw__Ed-K1uFKLLiIUw" label="Standard Location Type" name="StandardLocationType">
+      <de:attribute id="_RHBGFA__Ed-K1uFKLLiIUw" label="Country" name="Country" data-type="String"/>
+      <de:attribute id="_RHBGFQ__Ed-K1uFKLLiIUw" label="State" name="State" data-type="String"/>
+      <de:attribute id="_RHBGFg__Ed-K1uFKLLiIUw" label="City" name="City" data-type="String"/>
+      <de:attribute id="_RHBGFw__Ed-K1uFKLLiIUw" label="Street" name="Street" data-type="String"/>
+      <de:attribute id="_RHBGGA__Ed-K1uFKLLiIUw" label="Postcode" name="Postcode" data-type="String"/>
+    </de:location-type>
+    <de:organization-type id="_RHBGGQ__Ed-K1uFKLLiIUw" label="Public Company" name="PublicCompany">
+      <de:org-unit-feature id="_RHBGGg__Ed-K1uFKLLiIUw" label="Head Department" name="HeadDepartment" definition="_RHBGGw__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="1"/>
+    </de:organization-type>
+    <de:org-unit-type id="_RHBGGw__Ed-K1uFKLLiIUw" label="Department Type" name="DepartmentType">
+      <de:org-unit-feature id="_RHBGHA__Ed-K1uFKLLiIUw" label="Department" name="Department" definition="_RHBGGw__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="-1"/>
+      <de:org-unit-feature id="_RHBGHQ__Ed-K1uFKLLiIUw" label="Business Unit" name="BusinessUnit" definition="_RHBGGw__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="-1"/>
+      <de:org-unit-feature id="_RHBGHg__Ed-K1uFKLLiIUw" label="Team" name="Team" definition="_RHBGGw__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="-1"/>
+      <de:position-feature id="_RHBGHw__Ed-K1uFKLLiIUw" label="Manager" name="Manager" definition="_RHBGIQ__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="1"/>
+      <de:position-feature id="_RHBGIA__Ed-K1uFKLLiIUw" label="Member" name="Member" definition="_RHBGIQ__Ed-K1uFKLLiIUw" lower-bound="0" upper-bound="-1"/>
+    </de:org-unit-type>
+    <de:position-type id="_RHBGIQ__Ed-K1uFKLLiIUw" label="Standard Position Type" name="StandardPositionType">
+      <de:attribute id="_RHBGIg__Ed-K1uFKLLiIUw" label="Contract Type" name="ContractType" data-type="Enum">
+        <de:enum>temporary</de:enum>
+        <de:enum>permanent</de:enum>
+      </de:attribute>
+    </de:position-type>
+  </de:meta-model>
+  <de:capability-category id="_bIAeAJnJEeWquYmG2X2BuQ" label="QACapabilities" name="QACapabilities">
+    <de:capability id="_gOZwEJnJEeWquYmG2X2BuQ" label="ISTQB" name="ISTQB">
+      <de:qualifier data-type="Integer"/>
+    </de:capability>
+    <de:capability id="_gOZwEZnJEeWquYmG2X2BuQ" label="LISA" name="LISA">
+      <de:qualifier data-type="String"/>
+    </de:capability>
+    <de:capability id="_gOZwEpnJEeWquYmG2X2BuQ" label="Selenium" name="Selenium">
+      <de:qualifier data-type="Time"/>
+    </de:capability>
+    <de:capability id="_1_1KIJnLEeWquYmG2X2BuQ" label="JMeter" name="JMeter">
+      <de:qualifier data-type="Set"/>
+    </de:capability>
+  </de:capability-category>
+  <de:capability-category id="_iCEGEJnJEeWquYmG2X2BuQ" label="DevCapabilities" name="DevCapabilities">
+    <de:capability id="_mEO7AJnJEeWquYmG2X2BuQ" label="CPP" name="CPP">
+      <de:qualifier data-type="Date"/>
+    </de:capability>
+    <de:capability id="_mEO7AZnJEeWquYmG2X2BuQ" label="angularJS" name="angularJS">
+      <de:qualifier data-type="Boolean"/>
+    </de:capability>
+    <de:capability id="_mEO7ApnJEeWquYmG2X2BuQ" label="PHP" name="PHP">
+      <de:qualifier data-type="DateTime"/>
+    </de:capability>
+    <de:capability id="_y6BPwJnLEeWquYmG2X2BuQ" label="Python" name="Python">
+      <de:qualifier data-type="Decimal"/>
+    </de:capability>
+  </de:capability-category>
+  <de:capability-category id="_0P5vgJnJEeWquYmG2X2BuQ" label="ManagementCapbilities" name="ManagementCapbilities">
+    <de:capability id="_38IwsJnJEeWquYmG2X2BuQ" label="MBA" name="MBA">
+      <de:qualifier data-type="EnumSet">
+        <de:enum>EnumSet1</de:enum>
+        <de:enum>EnumSet2</de:enum>
+        <de:enum>EnumSet3</de:enum>
+        <de:enum>EnumSet4</de:enum>
+      </de:qualifier>
+    </de:capability>
+    <de:capability id="_5I6s4JnJEeWquYmG2X2BuQ" label="ERP" name="ERP">
+      <de:qualifier data-type="Enum">
+        <de:enum>Enum1</de:enum>
+        <de:enum>Enum2</de:enum>
+        <de:enum>Enum3</de:enum>
+        <de:enum>Enum4</de:enum>
+      </de:qualifier>
+    </de:capability>
+  </de:capability-category>
+  <de:privilege-category id="_jvLMoBACEd-K1uFKLLiIUw" label="DevPrivileges" name="DevPrivileges">
+    <de:privilege id="_zsVM4BACEd-K1uFKLLiIUw" label="CommitCode" name="CommitCode">
+      <de:qualifier data-type="Date"/>
+    </de:privilege>
+    <de:privilege id="_3roUABACEd-K1uFKLLiIUw" label="ApproveTestSpec" name="ApproveTestSpec">
+      <de:qualifier data-type="Boolean"/>
+    </de:privilege>
+    <de:privilege id="_5ujOABACEd-K1uFKLLiIUw" label="ResolveJIRA" name="ResolveJIRA">
+      <de:qualifier data-type="Decimal"/>
+    </de:privilege>
+    <de:privilege id="_72OsMBACEd-K1uFKLLiIUw" label="LockTrunk" name="LockTrunk">
+      <de:qualifier data-type="DateTime"/>
+    </de:privilege>
+  </de:privilege-category>
+  <de:privilege-category id="_IGcfUJnOEeWquYmG2X2BuQ" label="QAPrivileges" name="QAPrivileges">
+    <de:privilege id="_JpUAQJnOEeWquYmG2X2BuQ" label="CreateTests" name="CreateTests">
+      <de:qualifier data-type="Set"/>
+    </de:privilege>
+    <de:privilege id="_LNyDsJnOEeWquYmG2X2BuQ" label="DeleteTests" name="DeleteTests">
+      <de:qualifier data-type="String"/>
+    </de:privilege>
+    <de:privilege id="_MVOM4JnOEeWquYmG2X2BuQ" label="CreateJIRA" name="CreateJIRA">
+      <de:qualifier data-type="Integer"/>
+    </de:privilege>
+    <de:privilege id="_N8H5QJnOEeWquYmG2X2BuQ" label="PrepareTestPlan" name="PrepareTestPlan">
+      <de:qualifier data-type="Time"/>
+    </de:privilege>
+  </de:privilege-category>
+  <de:privilege-category id="_TO7PoJnOEeWquYmG2X2BuQ" label="ManagementPrivileges" name="ManagementPrivileges">
+    <de:privilege id="_VXXi0JnOEeWquYmG2X2BuQ" label="ReleaseProduct" name="ReleaseProduct">
+      <de:qualifier data-type="Enum">
+        <de:enum>Enum1</de:enum>
+        <de:enum>Enum2</de:enum>
+        <de:enum>Enum3</de:enum>
+        <de:enum>Enum4</de:enum>
+      </de:qualifier>
+    </de:privilege>
+    <de:privilege id="_XQ0-0JnOEeWquYmG2X2BuQ" label="RevenueMonitoring" name="RevenueMonitoring">
+      <de:qualifier data-type="EnumSet">
+        <de:enum>EnumSet1</de:enum>
+        <de:enum>EnumSet2</de:enum>
+        <de:enum>EnumSet3</de:enum>
+        <de:enum>EnumSet4</de:enum>
+      </de:qualifier>
+    </de:privilege>
+  </de:privilege-category>
+  <de:group id="_f-3EEA__Ed-K1uFKLLiIUw" label="N2 Development" name="DEVN2" alloc-method="ANY">
+    <de:req-capability capability="_mEO7AJnJEeWquYmG2X2BuQ">
+      <de:date>2015-12-01</de:date>
+    </de:req-capability>
+    <de:req-capability capability="_mEO7ApnJEeWquYmG2X2BuQ">
+      <de:date-time>2015-12-01T00:00:00Z</de:date-time>
+    </de:req-capability>
+    <de:req-capability capability="_y6BPwJnLEeWquYmG2X2BuQ">
+      <de:decimal>123.45</de:decimal>
+    </de:req-capability>
+    <de:req-capability capability="_mEO7AZnJEeWquYmG2X2BuQ">
+      <de:boolean>false</de:boolean>
+    </de:req-capability>
+    <de:privilege-held privilege="_zsVM4BACEd-K1uFKLLiIUw">
+      <de:date>2015-12-01</de:date>
+    </de:privilege-held>
+  </de:group>
+  <de:group id="_lR65IA__Ed-K1uFKLLiIUw" label="N2 Quality Assurance" name="QAN2" alloc-method="NEXT">
+    <de:req-capability capability="_gOZwEJnJEeWquYmG2X2BuQ">
+      <de:integer>12345</de:integer>
+    </de:req-capability>
+    <de:req-capability capability="_1_1KIJnLEeWquYmG2X2BuQ"/>
+    <de:req-capability capability="_gOZwEZnJEeWquYmG2X2BuQ">
+      <de:string>Text Qualifier</de:string>
+    </de:req-capability>
+    <de:req-capability capability="_gOZwEpnJEeWquYmG2X2BuQ">
+      <de:time>00:00:00Z</de:time>
+    </de:req-capability>
+    <de:privilege-held privilege="_MVOM4JnOEeWquYmG2X2BuQ">
+      <de:integer>12345</de:integer>
+    </de:privilege-held>
+    <de:privilege-held privilege="_JpUAQJnOEeWquYmG2X2BuQ"/>
+  </de:group>
+  <de:group id="_pAsQ8A__Ed-K1uFKLLiIUw" label="N2 Employee" name="EMPN2" alloc-method="ANY"/>
+  <de:location id="_cVLgQBACEd-K1uFKLLiIUw" label="Pune" name="Pune"/>
+  <de:location id="_dnAUgBACEd-K1uFKLLiIUw" label="Swindon" name="Swindon"/>
+  <de:location id="_qud-oKbfEd-dfqVmbBHHBQ" label="PaloAlto" name="PaloAlto"/>
+  <de:organization id="_RHBGEQ__Ed-K1uFKLLiIUw" label="Organization" name="Organization" alloc-method="NEXT">
+    <de:org-unit id="_-FXOMJnIEeWquYmG2X2BuQ" label="Management" name="Management" alloc-method="NEXT">
+      <de:model-template-ref>_JkikQOp7EeWy3v3yc11fcQ</de:model-template-ref>
+      <de:position id="__XpVcJnIEeWquYmG2X2BuQ" label="CEO" name="CEO" alloc-method="ANY" ideal-number="1" location="_qud-oKbfEd-dfqVmbBHHBQ">
+        <de:req-capability capability="_5I6s4JnJEeWquYmG2X2BuQ">
+          <de:enum>Enum4</de:enum>
+        </de:req-capability>
+        <de:req-capability capability="_38IwsJnJEeWquYmG2X2BuQ">
+          <de:enum-set>EnumSet2</de:enum-set>
+        </de:req-capability>
+        <de:privilege-held privilege="_VXXi0JnOEeWquYmG2X2BuQ">
+          <de:enum>Enum4</de:enum>
+        </de:privilege-held>
+        <de:privilege-held privilege="_XQ0-0JnOEeWquYmG2X2BuQ">
+          <de:enum-set>EnumSet2</de:enum-set>
+        </de:privilege-held>
+      </de:position>
+      <de:position id="_pAJAkJnLEeWquYmG2X2BuQ" label="ProductManager" name="ProductManager" alloc-method="ANY" ideal-number="1" location="_qud-oKbfEd-dfqVmbBHHBQ">
+        <de:req-capability capability="_38IwsJnJEeWquYmG2X2BuQ">
+          <de:enum-set>EnumSet2</de:enum-set>
+        </de:req-capability>
+        <de:privilege-held privilege="_VXXi0JnOEeWquYmG2X2BuQ">
+          <de:enum>Enum4</de:enum>
+        </de:privilege-held>
+      </de:position>
+      <de:org-unit id="_0JuI8BABEd-K1uFKLLiIUw" label="Development" name="Development" alloc-method="NEXT">
+        <de:position id="_-5kW0BABEd-K1uFKLLiIUw" label="DevManager" name="DevManager" alloc-method="ANY" ideal-number="1" location="_dnAUgBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_mEO7AJnJEeWquYmG2X2BuQ">
+            <de:date>2015-12-01</de:date>
+          </de:req-capability>
+          <de:req-capability capability="_mEO7ApnJEeWquYmG2X2BuQ">
+            <de:date-time>2015-12-01T00:00:00Z</de:date-time>
+          </de:req-capability>
+          <de:req-capability capability="_y6BPwJnLEeWquYmG2X2BuQ">
+            <de:decimal>123.45</de:decimal>
+          </de:req-capability>
+          <de:req-capability capability="_mEO7AZnJEeWquYmG2X2BuQ">
+            <de:boolean>false</de:boolean>
+          </de:req-capability>
+          <de:privilege-held privilege="_3roUABACEd-K1uFKLLiIUw">
+            <de:boolean>false</de:boolean>
+          </de:privilege-held>
+          <de:privilege-held privilege="_zsVM4BACEd-K1uFKLLiIUw">
+            <de:date>2015-12-01</de:date>
+          </de:privilege-held>
+          <de:privilege-held privilege="_72OsMBACEd-K1uFKLLiIUw">
+            <de:date-time>2015-12-01T00:00:00Z</de:date-time>
+          </de:privilege-held>
+          <de:privilege-held privilege="_5ujOABACEd-K1uFKLLiIUw">
+            <de:decimal>123.45</de:decimal>
+          </de:privilege-held>
+        </de:position>
+        <de:position id="_BG5xEBACEd-K1uFKLLiIUw" label="Senior Developer" name="SeniorDeveloper" alloc-method="ANY" ideal-number="1" location="_dnAUgBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_mEO7AJnJEeWquYmG2X2BuQ">
+            <de:date>2015-12-01</de:date>
+          </de:req-capability>
+          <de:req-capability capability="_mEO7ApnJEeWquYmG2X2BuQ">
+            <de:date-time>2015-12-01T00:00:00Z</de:date-time>
+          </de:req-capability>
+          <de:req-capability capability="_mEO7AZnJEeWquYmG2X2BuQ">
+            <de:boolean>false</de:boolean>
+          </de:req-capability>
+          <de:privilege-held privilege="_zsVM4BACEd-K1uFKLLiIUw">
+            <de:date>2015-12-01</de:date>
+          </de:privilege-held>
+          <de:privilege-held privilege="_5ujOABACEd-K1uFKLLiIUw">
+            <de:decimal>123.45</de:decimal>
+          </de:privilege-held>
+        </de:position>
+        <de:position id="_EPJUYBACEd-K1uFKLLiIUw" label="Junior Developer" name="JuniorDeveloper" alloc-method="ANY" ideal-number="1" location="_cVLgQBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_mEO7AJnJEeWquYmG2X2BuQ">
+            <de:date>2015-12-01</de:date>
+          </de:req-capability>
+          <de:privilege-held privilege="_zsVM4BACEd-K1uFKLLiIUw">
+            <de:date>2015-12-01</de:date>
+          </de:privilege-held>
+        </de:position>
+      </de:org-unit>
+      <de:org-unit id="_5uZScBABEd-K1uFKLLiIUw" label="QualityAssurance" name="QualityAssurance" alloc-method="NEXT">
+        <de:position id="_KT5FEBACEd-K1uFKLLiIUw" label="QAManager" name="QAManager" alloc-method="NEXT" ideal-number="1" location="_dnAUgBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_gOZwEJnJEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:req-capability>
+          <de:req-capability capability="_1_1KIJnLEeWquYmG2X2BuQ"/>
+          <de:req-capability capability="_gOZwEZnJEeWquYmG2X2BuQ">
+            <de:string>Text Qualifier</de:string>
+          </de:req-capability>
+          <de:req-capability capability="_gOZwEpnJEeWquYmG2X2BuQ">
+            <de:time>00:00:00Z</de:time>
+          </de:req-capability>
+          <de:privilege-held privilege="_MVOM4JnOEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:privilege-held>
+          <de:privilege-held privilege="_JpUAQJnOEeWquYmG2X2BuQ"/>
+          <de:privilege-held privilege="_LNyDsJnOEeWquYmG2X2BuQ">
+            <de:string>Text Qualifier</de:string>
+          </de:privilege-held>
+          <de:privilege-held privilege="_N8H5QJnOEeWquYmG2X2BuQ">
+            <de:time>00:00:00Z</de:time>
+          </de:privilege-held>
+        </de:position>
+        <de:position id="_LS0ygBACEd-K1uFKLLiIUw" label="Senior QA" name="SeniorQA" alloc-method="NEXT" ideal-number="1" location="_cVLgQBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_gOZwEJnJEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:req-capability>
+          <de:req-capability capability="_1_1KIJnLEeWquYmG2X2BuQ"/>
+          <de:req-capability capability="_gOZwEZnJEeWquYmG2X2BuQ">
+            <de:string>Text Qualifier</de:string>
+          </de:req-capability>
+          <de:privilege-held privilege="_MVOM4JnOEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:privilege-held>
+          <de:privilege-held privilege="_JpUAQJnOEeWquYmG2X2BuQ"/>
+          <de:privilege-held privilege="_LNyDsJnOEeWquYmG2X2BuQ">
+            <de:string>Text Qualifier</de:string>
+          </de:privilege-held>
+        </de:position>
+        <de:position id="_MjKZABACEd-K1uFKLLiIUw" label="Junior QA" name="JuniorQA" alloc-method="NEXT" ideal-number="1" location="_cVLgQBACEd-K1uFKLLiIUw">
+          <de:req-capability capability="_gOZwEJnJEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:req-capability>
+          <de:privilege-held privilege="_MVOM4JnOEeWquYmG2X2BuQ">
+            <de:integer>12345</de:integer>
+          </de:privilege-held>
+          <de:privilege-held privilege="_JpUAQJnOEeWquYmG2X2BuQ"/>
+        </de:position>
+      </de:org-unit>
+    </de:org-unit>
+  </de:organization>
+  <de:resource-attribute id="_VrSu8JnPEeWquYmG2X2BuQ" label="BooleanAttribute" name="BooleanAttribute" data-type="Boolean"/>
+  <de:resource-attribute id="_WQ-18JnPEeWquYmG2X2BuQ" label="DateAttribute" name="DateAttribute" data-type="Date"/>
+  <de:resource-attribute id="_WtADkJnPEeWquYmG2X2BuQ" label="DateTimeAttribute" name="DateTimeAttribute" data-type="DateTime"/>
+  <de:resource-attribute id="_XH7sEJnPEeWquYmG2X2BuQ" label="DecimalAttribute" name="DecimalAttribute" data-type="Decimal"/>
+  <de:resource-attribute id="_Xh0LsJnPEeWquYmG2X2BuQ" label="EnumAttribute" name="EnumAttribute" data-type="Enum">
+    <de:enum>Enum1</de:enum>
+    <de:enum>Enum2</de:enum>
+    <de:enum>Enum3</de:enum>
+    <de:enum>Enum4</de:enum>
+  </de:resource-attribute>
+  <de:resource-attribute id="_X6LoYJnPEeWquYmG2X2BuQ" label="EnumSetAttribute" name="EnumSetAttribute" data-type="EnumSet">
+    <de:enum>EnumSet1</de:enum>
+    <de:enum>EnumSet2</de:enum>
+    <de:enum>EnumSet3</de:enum>
+    <de:enum>EnumSet4</de:enum>
+  </de:resource-attribute>
+  <de:resource-attribute id="_YQP_AJnPEeWquYmG2X2BuQ" label="IntegerAttribute" name="IntegerAttribute" data-type="Integer"/>
+  <de:resource-attribute id="_YzZvYJnPEeWquYmG2X2BuQ" label="SetAttribute" name="SetAttribute" data-type="Set"/>
+  <de:resource-attribute id="_ZNcnEJnPEeWquYmG2X2BuQ" label="TextAttribute" name="TextAttribute" data-type="String"/>
+  <de:resource-attribute id="_5jQQwJnPEeWquYmG2X2BuQ" label="TimeAttribute" name="TimeAttribute" data-type="Time"/>
+  <de:model-template id="_JkikQOp7EeWy3v3yc11fcQ" label="Support" name="Support" alloc-method="NEXT">
+    <de:model-position id="_KXqDQOp7EeWy3v3yc11fcQ" label="SupportManager" name="Manager" alloc-method="ANY" ideal-number="1"/>
+    <de:model-position id="_Lkx9sOp7EeWy3v3yc11fcQ" label="CustomerSupportExecutive" name="CSE" alloc-method="ANY" ideal-number="1"/>
+    <de:model-position id="_QMehkOp7EeWy3v3yc11fcQ" label="ITGuy" name="ITGuy" alloc-method="ANY" ideal-number="1"/>
+    <de:instance-id-attribute>location</de:instance-id-attribute>
+  </de:model-template>
+</de:model>

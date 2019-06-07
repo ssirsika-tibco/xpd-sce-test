@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="ASCII"?>
+<reqs:ApplicationRequirements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:reqs="http://xsd.tns.tibco.com/amf/models/sca/requirements" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType">
+  <requirements xsi:type="reqs:ServiceRequirements" service="sca:PromotedService com.example.bpmsimplecaseactionproject.composite#_132xQP0rEeiC4bmcaDEmpw">
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+  </requirements>
+  <requirements xsi:type="reqs:BindingRequirements" bindingAdjunct="com.example.bpmsimplecaseactionproject.composite#_136boP0rEeiC4bmcaDEmpw">
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+  </requirements>
+  <requirements xsi:type="reqs:BindingRequirements" bindingAdjunct="com.example.bpmsimplecaseactionproject.composite#_1935sP0rEeiC4bmcaDEmpw">
+    <scact:requiresCapability id="com.tibco.amx.capability.binding.soap" version="1.1.0" type="factory"/>
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+    <scact:includedResource>resources/WRMPolicySetsResource.policysets</scact:includedResource>
+    <scact:importPackage name="com.tibco.corona.binding.bindingsoapmodel">
+      <range lower="2.0.0" upper="3.0.0"/>
+    </scact:importPackage>
+  </requirements>
+  <requirements xsi:type="reqs:ComponentRequirements" component="com.example.bpmsimplecaseactionproject.composite#_13Y3MP0rEeiC4bmcaDEmpw">
+    <scact:requiresCapability id="com.tibco.bx.capability.implementation.bx" version="1.0.0" type="factory">
+      <scact:with>#//@requirements.3/@requiredCapabilities.1</scact:with>
+      <scact:with>#//@requirements.3/@requiredCapabilities.2</scact:with>
+    </scact:requiresCapability>
+    <scact:requiresCapability id="com.example.bpmsimplecaseactionproject.brm.capability" version="2.0.0.20181211153210880"/>
+    <scact:requiresCapability id="com.example.caseactionstudy.bds.capability" version="2.0.0.20181005160157098"/>
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess.bpel</scact:includedResource>
+    <scact:includedResource>com.example.bpmsimplecaseactionproject.scripts</scact:includedResource>
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+    <scact:includedResource>resources/PrepareBeforeUndeploy.policysets</scact:includedResource>
+    <scact:includedResource>resources/ThreadPolicy.policysets</scact:includedResource>
+    <scact:includedResource>resources/TransactedOneWay.policysets</scact:includedResource>
+    <scact:importPackage name="com.tibco.bx.amx.model.service">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.bx.amx.container">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.ctc.wstx.stax">
+      <range lower="3.2.0" upper="4.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.n2.ut.model">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:requireBundle name="com.example.caseactionstudy.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:requireBundle name="com.example.caseactionstudy.si.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:providedCapability id="com.example.bpmsimplecaseactionproject.BPMSimpleCaseActionProject.pe.capability" version="2.0.0"/>
+    <scact:featureDependency name="com.tibco.amx.bpm.it.model.product.feature">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:featureDependency>
+    <scact:deploymentConstraint xsi:type="scact:productApplicationDeployment"/>
+  </requirements>
+  <requirements xsi:type="reqs:ServiceRequirements" service="sca:ComponentService com.example.bpmsimplecaseactionproject.composite#_13yf0P0rEeiC4bmcaDEmpw">
+    <scact:includedResource>.processOut/process/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+  </requirements>
+  <requirements xsi:type="reqs:ComponentRequirements" component="com.example.bpmsimplecaseactionproject.composite#_14OksP0rEeiC4bmcaDEmpw">
+    <scact:requiresCapability id="com.example.bpmsimplecaseactionproject.wp.capability" version="2.0.0.20181211153210880"/>
+    <scact:requiresCapability id="com.tibco.amx.capability.implementation.brm" version="1.0.0" type="factory">
+      <scact:with>#//@requirements.5/@requiredCapabilities.0</scact:with>
+      <scact:with>#//@requirements.5/@requiredCapabilities.2</scact:with>
+    </scact:requiresCapability>
+    <scact:requiresCapability id="com.example.caseactionstudy.bds.capability" version="2.0.0.20181005160157098"/>
+    <scact:includedResource>brm-spec.brm</scact:includedResource>
+    <scact:includedResource>wm.xml</scact:includedResource>
+    <scact:includedResource>wt.xml</scact:includedResource>
+    <scact:includedResource>com.example.bpmsimplecaseactionproject.scripts</scact:includedResource>
+    <scact:importPackage name="com.tibco.n2.model.common">
+      <range lower="2.0.0" upper="3.0.0"/>
+    </scact:importPackage>
+    <scact:requireBundle name="com.example.caseactionstudy.si.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:requireBundle name="com.example.caseactionstudy.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:providedCapability id="com.example.bpmsimplecaseactionproject.brm.capability" version="2.0.0.20181211153210880"/>
+    <scact:featureDependency name="com.tibco.amx.bpm.it.model.product.feature">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:featureDependency>
+    <scact:deploymentConstraint xsi:type="scact:productApplicationDeployment"/>
+  </requirements>
+  <requirements xsi:type="reqs:ComponentRequirements" component="com.example.bpmsimplecaseactionproject.composite#_16l8MP0rEeiC4bmcaDEmpw">
+    <scact:requiresCapability id="com.tibco.amx.capability.implementation.pfe" version="1.0.0" type="factory">
+      <scact:with>#//@requirements.6/@requiredCapabilities.1</scact:with>
+    </scact:requiresCapability>
+    <scact:requiresCapability id="com.example.caseactionstudy.bds.capability" version="2.0.0.20181005160157098"/>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess2.bpel</scact:includedResource>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess3.bpel</scact:includedResource>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcess4.bpel</scact:includedResource>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectProcessCatchMessageEvent2.bpel</scact:includedResource>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProjectUpdateCaseAction.bpel</scact:includedResource>
+    <scact:includedResource>com.example.bpmsimplecaseactionproject.scripts</scact:includedResource>
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+    <scact:includedResource>resources/PrepareBeforeUndeploy.policysets</scact:includedResource>
+    <scact:includedResource>resources/StartServiceFirstPolicy.policysets</scact:includedResource>
+    <scact:includedResource>resources/TransactedOneWay.policysets</scact:includedResource>
+    <scact:importPackage name="com.tibco.bx.amx.model.service">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.bx.amx.container">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.ctc.wstx.stax">
+      <range lower="3.2.0" upper="4.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.n2.pfe">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.n2.pageactivity.model">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:requireBundle name="com.example.caseactionstudy.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:requireBundle name="com.example.caseactionstudy.si.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:providedCapability id="com.example.bpmsimplecaseactionproject.BPMSimpleCaseActionProjectPageFlow.pfc.capability" version="2.0.0.20181211153210880"/>
+    <scact:featureDependency name="com.tibco.amx.bpm.it.model.product.feature">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:featureDependency>
+    <scact:deploymentConstraint xsi:type="scact:productApplicationDeployment"/>
+  </requirements>
+  <requirements xsi:type="reqs:ReferenceRequirements" reference="sca:ComponentReference com.example.bpmsimplecaseactionproject.composite#_16nKUP0rEeiC4bmcaDEmpw">
+    <scact:includedResource>.processOut/pageflow/BPMSimpleCaseActionProject.xpdl/BPMSimpleCaseActionProject.wsdl</scact:includedResource>
+  </requirements>
+  <requirements xsi:type="reqs:ComponentRequirements" component="com.example.bpmsimplecaseactionproject.composite#_2C_DMP0rEeiC4bmcaDEmpw">
+    <scact:requiresCapability id="com.tibco.amx.capability.implementation.wp" version="1.0.0" type="factory">
+      <scact:with>#//@requirements.8/@requiredCapabilities.1</scact:with>
+      <scact:with>#//@requirements.8/@requiredCapabilities.2</scact:with>
+    </scact:requiresCapability>
+    <scact:requiresCapability id="com.example.bpmsimplecaseactionproject.BPMSimpleCaseActionProjectPageFlow.pfc.capability" version="2.0.0.20181211153210880"/>
+    <scact:requiresCapability id="com.example.caseactionstudy.bds.capability" version="2.0.0.20181005160157098"/>
+    <scact:includedResource>presentation.wp</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/GIGWTPull_DefaultChannel/GIGWTPull_DefaultChannel.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/com/example/bpmsimplecaseactionproject/BpmsimplecaseactionprojectPackage.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/com/example/caseactionstudy/Case1.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/com/example/caseactionstudy/CaseactionstudyFactory.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/com/example/caseactionstudy/CaseactionstudyPackage.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceEmailPush_DefaultChannel/openspaceEmailPush_DefaultChannel.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask2/UserTask2.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask3/UserTask3.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess2/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess3/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess4/ViewCase/ViewCase.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcessCatchMessageEvent2/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/LookupFailed/LookupFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/ModifyData/ModifyData.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/.default/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectUpdateCaseAction/UpdateFailed/UpdateFailed.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.css</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.js</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.gwt.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.live.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.locales.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/BPMSimpleCaseActionProject/BPMSimpleCaseActionProjectProcess/UserTask/UserTask.properties.json</scact:includedResource>
+    <scact:includedResource>wp/2.0.0.20181211153210880/openspaceGWTPull_DefaultChannel/openspaceGWTPull_DefaultChannel.properties</scact:includedResource>
+    <scact:includedResource>wp/wpModel.xml</scact:includedResource>
+    <scact:includedResource>wt.xml</scact:includedResource>
+    <scact:importPackage name="com.tibco.n2.model.common">
+      <range lower="2.0.0" upper="3.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.n2.model.wp">
+      <range lower="2.0.0" upper="3.0.0"/>
+    </scact:importPackage>
+    <scact:importPackage name="com.tibco.amf.sca.model.implementationtype.webapp">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:importPackage>
+    <scact:requireBundle name="com.example.caseactionstudy.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:requireBundle name="com.example.caseactionstudy.si.bds">
+      <range lower="2.0.0.20181005160157098" upper="2.0.0.20181005160157098" upperIncluded="true"/>
+    </scact:requireBundle>
+    <scact:providedCapability id="com.example.bpmsimplecaseactionproject.wp.capability" version="2.0.0.20181211153210880"/>
+    <scact:featureDependency name="com.tibco.amx.bpm.it.model.product.feature">
+      <range lower="1.0.0" upper="2.0.0"/>
+    </scact:featureDependency>
+    <scact:deploymentConstraint xsi:type="scact:productApplicationDeployment"/>
+  </requirements>
+</reqs:ApplicationRequirements>
