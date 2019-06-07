@@ -8,20 +8,16 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IProject;
-
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDestinationUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.event.error.CatchBpmnErrorMapperSection;
 import com.tibco.xpd.processeditor.xpdl2.util.SubProcUtil;
-import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.ModeType;
-import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
 /**
@@ -78,23 +74,17 @@ public class SubProcessScriptRelevantDataProvider extends
             if (tempAdditionalData != null) {
                 scriptRelevantData.addAll(tempAdditionalData);
             }
+
             // adding process data available for independent sub process task
             // (Main process)
-            Process process = activity.getProcess();
-            IProject project = WorkingCopyUtil.getProjectFor(process);
-            List<ProcessRelevantData> allAvailableRelevantDataForActivity =
-                    ProcessInterfaceUtil
-                            .getAllAvailableRelevantDataForActivity(activity);
-            List<IScriptRelevantData> mainProcessScriptRelevantData =
-                    ProcessUtil
-                            .convertToScriptRelevantData(allAvailableRelevantDataForActivity,
-                                    project);
-            if (mainProcessScriptRelevantData != null) {
-                scriptRelevantData.addAll(mainProcessScriptRelevantData);
-            }
-            if (scriptRelevantData == null) {
-                scriptRelevantData = new ArrayList<IScriptRelevantData>();
-            }
+
+            /*
+             * Sid ACE-1317 Use the super-class' relevant data list (which will
+             * now be the "data" object that wraps all the data in the main
+             * process.
+             */
+            scriptRelevantData.addAll(super.getScriptRelevantDataList());
+
             scriptRelevantData.addAll(getAdditionalScriptData());
         }
         return scriptRelevantData;
