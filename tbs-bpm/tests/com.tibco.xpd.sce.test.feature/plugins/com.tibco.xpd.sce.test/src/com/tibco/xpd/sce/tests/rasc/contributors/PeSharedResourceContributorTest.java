@@ -40,7 +40,9 @@ public class PeSharedResourceContributorTest extends TestCase {
 
         String projectName = "BrmRascTestProject";
 
-        ProjectImporter projectImporter = importProject(projectName);
+        ProjectImporter projectImporter =
+                importProject("resources/BrmRascTest/BrmRascTestProject/",
+                        projectName);
         try {
             RascContributor fixture = new PERascContributor();
 
@@ -94,8 +96,8 @@ public class PeSharedResourceContributorTest extends TestCase {
 
     public void testProjectWithSharedResources() throws Exception {
         String[] locations = new String[] {
-                "resources/BrmRascTest/BrmRascSharedResourceTest/SimpleProc/",
-                "resources/BrmRascTest/BrmRascSharedResourceTest/SimpleServices/" };
+                "resources/BpelRascTest/PeRascSharedResourceTest/SimpleProc/",
+                "resources/BpelRascTest/PeRascSharedResourceTest/SimpleServices/" };
         String[] names = new String[] { "SimpleProc", "SimpleServices" };
 
         ProjectImporter projectImporter = importProjects(locations, names);
@@ -172,9 +174,8 @@ public class PeSharedResourceContributorTest extends TestCase {
      * @param projectName
      * @return
      */
-    private ProjectImporter importProject(String projectName) {
-        String[] locations =
-                new String[] { "resources/BrmRascTest/" + projectName + "/" };
+    private ProjectImporter importProject(String aPath, String projectName) {
+        String[] locations = new String[] { aPath };
         String[] names = new String[] { projectName };
         return importProjects(locations, names);
     }
