@@ -42,18 +42,18 @@ COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIB
 COPY --chown=studio:studio build.xml entrypoint.sh TIBCOBusinessStudio.ini /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
-# PROJECT_DIR   = the folder in which the project to be imported is located
-# EXPORT_DIR    = the folder in which the generated RASC is to be written
+# PROJECTS_DIR  = the folder in which the project to be imported is located
+# EXPORTS_DIR   = the folder in which the generated RASC is to be written
 ENV WORKSPACE_DIR=/workspace \
-    PROJECT_DIR=/project \
-    EXPORT_DIR=/export
+    PROJECTS_DIR=/projects \
+    EXPORTS_DIR=/exports
 
 RUN mkdir -p "$WORKSPACE_DIR" && chown -R studio:studio "$WORKSPACE_DIR" && chmod 777 "$WORKSPACE_DIR" && \
-    mkdir -p "$PROJECT_DIR"   && chown -R studio:studio "$PROJECT_DIR"   && chmod 777 "$PROJECT_DIR"   && \
-    mkdir -p "$EXPORT_DIR"    && chown -R studio:studio "$EXPORT_DIR"    && chmod 777 "$EXPORT_DIR"
+    mkdir -p "$PROJECTS_DIR"  && chown -R studio:studio "$PROJECTS_DIR"  && chmod 777 "$PROJECTS_DIR"   && \
+    mkdir -p "$EXPORTS_DIR"   && chown -R studio:studio "$EXPORTS_DIR"   && chmod 777 "$EXPORTS_DIR"
 
 # allow user to supply their own folders (workspace is optional)
-VOLUME $WORKSPACE_DIR $PROJECT_DIR $EXPORT_DIR
+VOLUME $WORKSPACE_DIR $PROJECTS_DIR $EXPORTS_DIR
 
 USER studio:studio
 WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse

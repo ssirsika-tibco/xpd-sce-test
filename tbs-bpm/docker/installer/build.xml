@@ -8,12 +8,12 @@
  
     <target name="importProjects" depends="clean" description="Imports the given project into the workspace.">
         <echo>Importing project</echo>
-		<tbs.importProjects dir="${project.dir}" copyProjects="true"/>       
+		<tbs.importProjects dir="${projects.dir}" copyProjects="true"/>       
     </target>
  
     <target name="generateRASC" depends="importProjects" description="Generates a RASC file in the given location for the workspace project.">
         <echo>Exporting RASC</echo>
-        <bpm.generateRASC destdir="${export.dir}"/>
+        <bpm.generateRASC destdir="${exports.dir}"/>
     </target>
 
 </project>
