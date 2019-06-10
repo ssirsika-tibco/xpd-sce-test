@@ -23,7 +23,6 @@ import com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
-import com.tibco.xpd.resources.indexer.IndexerItem;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.rest.schema.ui.internal.RestSchemaImage;
 import com.tibco.xpd.rest.schema.ui.internal.RestSchemaUiPlugin;
@@ -42,7 +41,6 @@ import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClassDefinitionReader;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeReference;
-import com.tibco.xpd.xpdExtension.RestServiceOperation;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdl2.Activity;
@@ -62,8 +60,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * @author nwilson
  * @since 24 Mar 2015
  */
-public class CdsRestServiceJavaScriptRelevantDataProvider extends
-        DefaultJavaScriptRelevantDataProvider {
+public class CdsRestServiceJavaScriptRelevantDataProvider
+        extends DefaultJavaScriptRelevantDataProvider {
 
     /**
      * Gets a list of script relevant data for a REST Service invocation mapping
@@ -129,8 +127,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
              * Without this fix then the mapping script content assist just
              * shows the standard payload data
              */
-            if (EventTriggerType.EVENT_ERROR_LITERAL.equals(EventObjectUtil
-                    .getEventTriggerType(mappingActivity))
+            if (EventTriggerType.EVENT_ERROR_LITERAL.equals(
+                    EventObjectUtil.getEventTriggerType(mappingActivity))
                     && EventObjectUtil.isAttachedToTask(mappingActivity)) {
                 isCatch = true;
             }
@@ -139,7 +137,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
             if (method != null) {
                 PayloadRefContainer payloadContainer = null;
                 List<JsClassDefinitionReader> readers =
-                        readContributedDefinitionReaders(getProcessDestinationList(getProcess()));
+                        readContributedDefinitionReaders(
+                                getProcessDestinationList(getProcess()));
                 String statusType = getJsType(DataType.INTEGER);
                 final IScriptRelevantData statusData =
                         ProcessUtil.resolveBasicTypeToUML(statusType,
@@ -155,9 +154,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
 
                         public void run() {
                             Image icon =
-                                    RestSchemaUiPlugin
-                                            .getDefault()
-                                            .getImage(RestSchemaImage.JSON_INTEGER_PROPERTY);
+                                    RestSchemaUiPlugin.getDefault().getImage(
+                                            RestSchemaImage.JSON_INTEGER_PROPERTY);
                             statusData.setIcon(icon);
                         }
                     });
@@ -186,8 +184,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
                                         + headerParam.getName().replace('-',
                                                 '_'));
 
-                                srd.setIcon(WorkingCopyUtil
-                                        .getImage(headerParam));
+                                srd.setIcon(
+                                        WorkingCopyUtil.getImage(headerParam));
                                 data.add(srd);
                             }
                         }
@@ -197,9 +195,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
                     PayloadReference payload =
                             payloadContainer.getPayloadReference();
                     if (payload != null) {
-                        ExternalReference extRef =
-                                Xpdl2Factory.eINSTANCE
-                                        .createExternalReference();
+                        ExternalReference extRef = Xpdl2Factory.eINSTANCE
+                                .createExternalReference();
                         extRef.setNamespace(payload.getNamespace());
                         extRef.setLocation(payload.getLocation());
                         extRef.setXref(payload.getRef());
@@ -231,7 +228,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
      * @return
      */
     public static IUMLScriptRelevantData convertToUMLScriptRelevantData(
-            ExternalReference extRef, IProject project, String specialFolderKind) {
+            ExternalReference extRef, IProject project,
+            String specialFolderKind) {
 
         IUMLScriptRelevantData scriptRelevantData = null;
         Class umlClass = null;
@@ -264,11 +262,12 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
      * @return
      */
     private static IUMLScriptRelevantData convertToUMLScriptRelevantData(
-            Class umlClass, boolean isArray, final ILabelProvider labelProvider) {
+            Class umlClass, boolean isArray,
+            final ILabelProvider labelProvider) {
 
         DefaultJsClass jsClass = new RestJsClass(umlClass, labelProvider);
-        jsClass.setContentAssistIconProvider(JScriptUtils
-                .getJsContentAssistIconProvider());
+        jsClass.setContentAssistIconProvider(
+                JScriptUtils.getJsContentAssistIconProvider());
         RestUMLScriptRelevantData umlScriptRelevantData =
                 new RestUMLScriptRelevantData(umlClass.getName(),
                         jsClass.getName(), isArray, jsClass);
@@ -281,8 +280,7 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
     private Map<String, String> getTypeMap() {
         Map<String, String> typeMap = new HashMap<String, String>();
         typeMap.put(JsConsts.BOOLEAN, JsConsts.BOOLEAN);
-        typeMap.put(JsConsts.XML_GREGORIAN_CALENDAR,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+        typeMap.put(JsConsts.DATE, JsConsts.DATE);
         typeMap.put(JsConsts.NUMBER, JsConsts.NUMBER);
         typeMap.put(JsConsts.INTEGER, JsConsts.INTEGER);
         typeMap.put(JsConsts.STRING, JsConsts.STRING);
@@ -302,7 +300,7 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
         case DATE:
         case DATE_TIME:
         case TIME:
-            jsType = JsConsts.XML_GREGORIAN_CALENDAR;
+            jsType = JsConsts.DATE;
             break;
         case DECIMAL:
             jsType = JsConsts.NUMBER;
@@ -329,9 +327,8 @@ public class CdsRestServiceJavaScriptRelevantDataProvider extends
         ScriptDataMapper sdm = null;
         if (context instanceof DataMapping) {
             DataMapping dm = (DataMapping) context;
-            sdm =
-                    (ScriptDataMapper) Xpdl2ModelUtil.getAncestor(dm,
-                            ScriptDataMapper.class);
+            sdm = (ScriptDataMapper) Xpdl2ModelUtil.getAncestor(dm,
+                    ScriptDataMapper.class);
         } else if (context instanceof ScriptInformation) {
             ScriptInformation si = (ScriptInformation) context;
             isInput = DirectionType.IN_LITERAL.equals(si.getDirection());

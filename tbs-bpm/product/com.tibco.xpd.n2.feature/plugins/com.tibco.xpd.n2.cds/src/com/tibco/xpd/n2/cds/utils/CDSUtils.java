@@ -581,11 +581,11 @@ public class CDSUtils {
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
                 JsConsts.BOOLEAN);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+                JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+                JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+                JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
                 JsConsts.NUMBER);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
@@ -597,7 +597,7 @@ public class CDSUtils {
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
                 JsConsts.STRING);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+                JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
                 JsConsts.STRING);
         // From Process types
@@ -620,12 +620,9 @@ public class CDSUtils {
         // From N2 Factories
         N2JAVASCRIPT_TYPE.put(JsConsts.BIGINTEGER, JsConsts.BIGINTEGER);
         N2JAVASCRIPT_TYPE.put(JsConsts.BIGDECIMAL, JsConsts.BIGDECIMAL);
-        N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMELC,
-                JsConsts.XML_GREGORIAN_CALENDAR);
-        N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMETZLC,
-                JsConsts.XML_GREGORIAN_CALENDAR);
-        N2JAVASCRIPT_TYPE.put(JsConsts.BOM_DATE,
-                JsConsts.XML_GREGORIAN_CALENDAR);
+        N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMELC, JsConsts.DATE);
+        N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMETZLC, JsConsts.DATE);
+        N2JAVASCRIPT_TYPE.put(JsConsts.BOM_DATE, JsConsts.DATE);
 
         return N2JAVASCRIPT_TYPE;
     }

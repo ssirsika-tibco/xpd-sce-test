@@ -5,62 +5,170 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_xeJlkE3xEd-h8Y40ETH46A" name="NaN"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_y1Lp8E3xEd-h8Y40ETH46A" name="Infinity"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_kr6asNI7EduWapZ5a676CA" name="Date">
-    <ownedOperation xmi:id="_hSmJ4PyKEduQPNEkUL8doA" name="now">
+    <ownedOperation xmi:id="_qYSTgIeMEem_s9iTX28VBA" name="UTC" isStatic="true">
+      <ownedParameter xmi:id="_tuKDIIeMEem_s9iTX28VBA" name="year" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_J6QFcIeNEem_s9iTX28VBA" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_MYJEMIeNEem_s9iTX28VBA" name="7"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hSmJ4PyKEduQPNEkUL8doA" name="now" isStatic="true">
       <ownedParameter xmi:id="_hSmJ4vyKEduQPNEkUL8doA" type="_kr6asNI7EduWapZ5a676CA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_oRpzoIeLEem_s9iTX28VBA" name="parse" isStatic="true">
+      <ownedParameter xmi:id="_qRinwIeLEem_s9iTX28VBA" name="dateString" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_ui-nwIeLEem_s9iTX28VBA" type="_kr6asNI7EduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
     <ownedOperation xmi:id="_mXSy0PyKEduQPNEkUL8doA" name="getDate">
-      <ownedParameter xmi:id="_mXSy0fyKEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_mXSy0fyKEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_zdChEPyKEduQPNEkUL8doA" name="getDay">
-      <ownedParameter xmi:id="_zdChEfyKEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_zdChEfyKEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_8vSvkPyKEduQPNEkUL8doA" name="getFullYear">
-      <ownedParameter xmi:id="_8vSvkfyKEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_8vSvkfyKEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_BaghgPyLEduQPNEkUL8doA" name="getHours">
-      <ownedParameter xmi:id="_BaghgfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_BaghgfyLEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_EgjFYPyLEduQPNEkUL8doA" name="getMilliseconds">
-      <ownedParameter xmi:id="_EgjFYfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_EgjFYfyLEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_IkbKgPyLEduQPNEkUL8doA" name="getMinutes">
-      <ownedParameter xmi:id="_IkbKgfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_IkbKgfyLEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_Mh5FoPyLEduQPNEkUL8doA" name="getMonth">
-      <ownedParameter xmi:id="_Mh5FofyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_Mh5FofyLEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_QybtwPyLEduQPNEkUL8doA" name="getSeconds">
-      <ownedParameter xmi:id="_QybtwfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_QybtwfyLEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_cjmxkPySEduQPNEkUL8doA" name="getTime">
-      <ownedParameter xmi:id="_cjmxkfySEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_cjmxkfySEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_CfmnsPyTEduQPNEkUL8doA" name="getTimezoneOffset">
-      <ownedParameter xmi:id="_CfmnsfyTEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_CfmnsfyTEduQPNEkUL8doA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_LgyeEIeQEem_s9iTX28VBA" name="getUTCDate">
+      <ownedParameter xmi:id="_eFmnoIeREem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_QpQzwIeQEem_s9iTX28VBA" name="getUTCDay">
+      <ownedParameter xmi:id="_jK5GcIeREem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RhCwUIeQEem_s9iTX28VBA" name="getUTCFullYear">
+      <ownedParameter xmi:id="_m8HVUIeREem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_SbmUEIeQEem_s9iTX28VBA" name="getUTCHours">
+      <ownedParameter xmi:id="_31588IeREem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TK2mwIeQEem_s9iTX28VBA" name="getUTCMilliseconds">
+      <ownedParameter xmi:id="_9T4BgIeREem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_V479oIeQEem_s9iTX28VBA" name="getUTCMinutes">
+      <ownedParameter xmi:id="_Btg7QIeSEem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WycYgIeQEem_s9iTX28VBA" name="getUTCMonth">
+      <ownedParameter xmi:id="_GGtwIIeSEem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Xmo1kIeQEem_s9iTX28VBA" name="getUTCSeconds">
+      <ownedParameter xmi:id="_NmBaUIeSEem_s9iTX28VBA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_qPFNoPyTEduQPNEkUL8doA" name="setDate">
+      <ownedParameter xmi:id="_qPFNofyTEduQPNEkUL8doA" name="yearValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
     </ownedOperation>
     <ownedOperation xmi:id="_NanjwPyTEduQPNEkUL8doA" name="setFullYear">
       <ownedParameter xmi:id="_TFT1sPyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_pt2v4PyTEduQPNEkUL8doA" name="setMonth">
-      <ownedParameter xmi:id="_pt2v4fyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_qPFNoPyTEduQPNEkUL8doA" name="setDate">
-      <ownedParameter xmi:id="_qPFNofyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
-    </ownedOperation>
     <ownedOperation xmi:id="_1BmVAPyTEduQPNEkUL8doA" name="setHours">
-      <ownedParameter xmi:id="_1BmVAfyTEduQPNEkUL8doA" name="hourValue" type="__1YCoPx9EduQPNEkUL8doA"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_1fjcUPyTEduQPNEkUL8doA" name="setMinutes">
-      <ownedParameter xmi:id="_1fjcUfyTEduQPNEkUL8doA" name="minuteValue" type="__1YCoPx9EduQPNEkUL8doA"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_2GcdMPyTEduQPNEkUL8doA" name="setSeconds">
-      <ownedParameter xmi:id="_2GcdMfyTEduQPNEkUL8doA" name="secondsValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_1BmVAfyTEduQPNEkUL8doA" name="hourValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
     </ownedOperation>
     <ownedOperation xmi:id="_HUrq0PyUEduQPNEkUL8doA" name="setMilliseconds">
-      <ownedParameter xmi:id="_HUrq0fyUEduQPNEkUL8doA" name="secondsValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_HUrq0fyUEduQPNEkUL8doA" name="secondsValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_1fjcUPyTEduQPNEkUL8doA" name="setMinutes">
+      <ownedParameter xmi:id="_1fjcUfyTEduQPNEkUL8doA" name="minuteValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_pt2v4PyTEduQPNEkUL8doA" name="setMonth">
+      <ownedParameter xmi:id="_pt2v4fyTEduQPNEkUL8doA" name="yearValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_2GcdMPyTEduQPNEkUL8doA" name="setSeconds">
+      <ownedParameter xmi:id="_2GcdMfyTEduQPNEkUL8doA" name="secondsValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RUyH0IhSEemafsNm_rM7nQ" name="setTime">
+      <ownedParameter xmi:id="_VmkGEIhSEemafsNm_rM7nQ" name="timeValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_7Vh1cIkFEemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_gN420IhiEemafsNm_rM7nQ" name="setUTCDate">
+      <ownedParameter xmi:id="_v7Jy8Ij8EemlWcxn-EbBJQ" name="dayValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_zN_csIj8EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hlm3sIhiEemafsNm_rM7nQ" name="setUTCFullYear">
+      <ownedParameter xmi:id="_d-VyoIj9EemlWcxn-EbBJQ" name="yearValue" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_nMarwIj9EemlWcxn-EbBJQ" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_o68DEIj9EemlWcxn-EbBJQ" name="3"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_f4nG8Ij9EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_iIKyMIhiEemafsNm_rM7nQ" name="setUTCHours">
+      <ownedParameter xmi:id="_XafOoIj-EemlWcxn-EbBJQ" name="hoursValue" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_cPZvIIj-EemlWcxn-EbBJQ" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_dwa18Ij-EemlWcxn-EbBJQ" name="4"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_YdHJQIj-EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_isiDgIhiEemafsNm_rM7nQ" name="setUTCMilliseconds">
+      <ownedParameter xmi:id="__X5i4Ij-EemlWcxn-EbBJQ" name="millisecondsValue" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="__37GwIj-EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_jPF-AIhiEemafsNm_rM7nQ" name="setUTCMinutes">
+      <ownedParameter xmi:id="_KWkP4Ij_EemlWcxn-EbBJQ" name="minutesValue" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_RRlhQIj_EemlWcxn-EbBJQ" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_SlCGIIj_EemlWcxn-EbBJQ" name="3"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_LE5VgIj_EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_jzMJkIhiEemafsNm_rM7nQ" name="setUTCMonth">
+      <ownedParameter xmi:id="_XhGXgIj_EemlWcxn-EbBJQ" name="monthValue" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_i_fGYIj_EemlWcxn-EbBJQ" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_kQpzUIj_EemlWcxn-EbBJQ" name="2"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_YKvxcIj_EemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_kY3CcIhiEemafsNm_rM7nQ" name="setUTCSeconds">
+      <ownedParameter xmi:id="_WFBloIkAEemlWcxn-EbBJQ" name="secondsValue" type="_mFFkIPxsEduQPNEkUL8doA">
+        <lowerValue xmi:type="uml:Interval" xmi:id="_mlvl8IkAEemlWcxn-EbBJQ" name="1"/>
+        <upperValue xmi:type="uml:Interval" xmi:id="_oTWXQIkAEemlWcxn-EbBJQ" name="2"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_XPcxYIkAEemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_wJcVUIj2EemlWcxn-EbBJQ" name="toDateString">
+      <ownedParameter xmi:id="_8zEjwIkAEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_0gAF4Ij2EemlWcxn-EbBJQ" name="toISOString">
+      <ownedParameter xmi:id="_F0DcEIkBEemlWcxn-EbBJQ" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4_GucIj2EemlWcxn-EbBJQ" name="toJSON">
+      <ownedParameter xmi:id="_MTIYUIkBEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_8r6-cIj2EemlWcxn-EbBJQ" name="toLocaleDateString">
+      <ownedParameter xmi:id="_DTMMYIkCEemlWcxn-EbBJQ" name="locale" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_Iz1KcIkCEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_qpT7UIj7EemlWcxn-EbBJQ" name="toLocaleString">
+      <ownedParameter xmi:id="_grXnUIkCEemlWcxn-EbBJQ" name="locale" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_hRRJsIkCEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_rk6n8Ij7EemlWcxn-EbBJQ" name="toLocaleTimeString">
+      <ownedParameter xmi:id="_wtHXMIkDEemlWcxn-EbBJQ" name="locale" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_xTZUEIkDEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_PndZUPyUEduQPNEkUL8doA" name="toString">
       <ownedParameter xmi:id="_PndZUfyUEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_z22B4Ij7EemlWcxn-EbBJQ" name="toTimeString">
+      <ownedParameter xmi:id="_-emxIIkDEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_0pOhEIj7EemlWcxn-EbBJQ" name="toUTCString">
+      <ownedParameter xmi:id="_EqIfQIkEEemlWcxn-EbBJQ" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_Co_KUNGrEduWapZ5a676CA" name="Math">
@@ -158,7 +266,7 @@
     </ownedOperation>
     <ownedOperation xmi:id="_h2GGEPxqEduQPNEkUL8doA" name="concat">
       <ownedParameter xmi:id="_h2GGEfxqEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA">
-        <lowerValue xmi:type="uml:Interval" xmi:id="_u5-WAF0CEd-D3_Qjl8GOOQ" name="2"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="_u5-WAF0CEd-D3_Qjl8GOOQ" name="1"/>
         <upperValue xmi:type="uml:Interval" xmi:id="_6icN8F0CEd-D3_Qjl8GOOQ" name="*"/>
       </ownedParameter>
       <ownedParameter xmi:id="_h2GGEvxqEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
@@ -435,6 +543,9 @@
     <ownedOperation xmi:id="_C2UNQE3cEd-bTqBcTPF_lg" name="unescape">
       <ownedParameter xmi:id="_C2UNQU3cEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
       <ownedParameter xmi:id="_C2UNQk3cEd-bTqBcTPF_lg" name="str" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_X7KS4Id2Eem_s9iTX28VBA" name="Date">
+      <ownedParameter xmi:id="_iFOTIId2Eem_s9iTX28VBA" type="_kr6asNI7EduWapZ5a676CA" direction="return"/>
     </ownedOperation>
   </packagedElement>
 </uml:Model>
