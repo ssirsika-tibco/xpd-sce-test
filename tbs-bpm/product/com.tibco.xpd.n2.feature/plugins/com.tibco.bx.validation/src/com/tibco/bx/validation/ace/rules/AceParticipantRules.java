@@ -5,6 +5,8 @@
 package com.tibco.bx.validation.ace.rules;
 
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
+import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
+import com.tibco.xpd.xpdExtension.RestServiceResource;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Participant;
@@ -30,6 +32,12 @@ public class AceParticipantRules extends PackageValidationRule {
 
     private static final String ACE_ISSUE_SYSTEM_PARTICIPANT_MUST_HAVE_TYPE =
             "ace.system.participant.must.have.type.set"; //$NON-NLS-1$
+
+    /**
+     * REST Service participants must have an Endpoint Identification value set.
+     */
+    private static final String ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME =
+            "ace.rest.participant.must.have.resource.name"; //$NON-NLS-1$
 
     /**
      * @see com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule#validate(com.tibco.xpd.xpdl2.Package)
@@ -70,11 +78,29 @@ public class AceParticipantRules extends PackageValidationRule {
 
             if (ParticipantType.SYSTEM_LITERAL.equals(type)) {
                 // System participant must have type set
-                if (Xpdl2ModelUtil.getOtherElement(participant,
+                Object psrObject =
+                        Xpdl2ModelUtil.getOtherElement(participant,
                         XpdExtensionPackage.eINSTANCE
-                                .getDocumentRoot_ParticipantSharedResource()) == null) {
+                                        .getDocumentRoot_ParticipantSharedResource());
+                if (psrObject == null) {
                     addIssue(ACE_ISSUE_SYSTEM_PARTICIPANT_MUST_HAVE_TYPE,
                             participant);
+                } else if (psrObject instanceof ParticipantSharedResource) {
+                    ParticipantSharedResource psr =
+                            (ParticipantSharedResource) psrObject;
+                    RestServiceResource rsr = psr.getRestService();
+                    if (null != rsr) {
+                        /*
+                         * REST Service participants must have an Endpoint
+                         * Identification value set.
+                         */
+                        if (null == rsr.getResourceName()
+                                || rsr.getResourceName().isEmpty()) {
+                            addIssue(
+                                    ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME,
+                                    participant);
+                        }
+                    }
                 }
 
             } else if (!ParticipantType.RESOURCE_LITERAL.equals(type)
