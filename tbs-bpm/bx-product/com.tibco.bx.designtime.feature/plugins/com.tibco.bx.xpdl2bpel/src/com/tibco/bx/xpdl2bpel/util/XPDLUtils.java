@@ -175,7 +175,8 @@ public class XPDLUtils {
      * Enums for types of shared resource (values of "sharedResourceType" attribute).
      */
     public enum SharedResourceType{
-        HTTP_CLIENT("HTTPClient"); //$NON-NLS-1$
+        HTTP_CLIENT("HTTPClient"), //$NON-NLS-1$
+        EMAIL("Email"); //$NON-NLS-1$
         
         private String name;
         
@@ -186,6 +187,17 @@ public class XPDLUtils {
             return name;
         }
     }; 
+    
+    /**
+     * Constant for the name of the sharedResourceName (tibex) attribute.
+     */
+    public static final String ATTR_SHARED_RESOURCE_NAME = "sharedResourceName"; //$NON-NLS-1$
+    
+    /**
+     * Constant for the name of the sharedResourceDesctiption (tibex) attribute.
+     */
+    public static final String ATTR_SHARED_RESOURCE_DESC = "sharedResourceDescription"; //$NON-NLS-1$
+    
 
     public static boolean isSupportedXpdlFile(Path path) {
         IResource resource =
@@ -604,19 +616,30 @@ public class XPDLUtils {
      * @return
      */
     public static String resolveEmailSimpleValue(Activity xpdlActivity) {
+        EmailResource emailResource = getEmailResource(xpdlActivity);
+        if (emailResource != null) {
+            return emailResource.getInstanceName();
+        }
+        return null;
+    }
+    
+    /**
+     * Return email shared resource from associated participant.
+     * 
+     * @param xpdlActivity the context activity.
+     * @return email shared resource from associated participant or 'null' if it can't be resolved.
+     */
+    public static EmailResource getEmailResource(Activity xpdlActivity) {
         if (xpdlActivity != null) {
             ParticipantSharedResource sharedResource =
                     getActivitySharedResource(xpdlActivity);
             if (sharedResource != null) {
-                EmailResource email = sharedResource.getEmail();
-                if (email != null) {
-                    return email.getInstanceName();
-                }
+                return sharedResource.getEmail();
             }
         }
         return null;
     }
-
+    
     /**
      * Based on the Web service shared resource configuration - if the
      * participant is configured as a Provider the Http connector instance name

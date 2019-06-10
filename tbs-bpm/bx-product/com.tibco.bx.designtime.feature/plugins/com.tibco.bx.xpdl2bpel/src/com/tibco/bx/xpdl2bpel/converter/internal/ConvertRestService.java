@@ -96,16 +96,17 @@ public class ConvertRestService {
             BPELUtils.addExtensionAttribute(invoke,
                     XPDLUtils.ATTR_SHARED_RESOURCE_TYPE,
                     XPDLUtils.SharedResourceType.HTTP_CLIENT.getName());
+            
             String sharedResourceName = restServiceResource.getResourceName();
             if (sharedResourceName != null) {
                 BPELUtils.addExtensionAttribute(invoke,
-                        "sharedResourceName", //$NON-NLS-1$
+                        XPDLUtils.ATTR_SHARED_RESOURCE_NAME,
                         sharedResourceName);
             }
             String sharedResourceDesc = restServiceResource.getDescription();
             if (sharedResourceDesc != null && !sharedResourceDesc.trim().isEmpty()) {
                 BPELUtils.addExtensionAttribute(invoke,
-                        "sharedResourceDescription", //$NON-NLS-1$
+                        XPDLUtils.ATTR_SHARED_RESOURCE_DESC,
                         sharedResourceDesc);
             }
         }

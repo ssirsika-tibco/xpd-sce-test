@@ -39,7 +39,10 @@ import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.CDSUtils;
 import com.tibco.bx.xpdl2bpel.util.DataTypeUtil;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
+import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
+import com.tibco.xpd.xpdExtension.EmailResource;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.resolvers.DataReferenceContext;
 
@@ -98,7 +101,9 @@ public class ConverterExtensions {
         
 	    ExtensionActivity extensionActivity = BPELUtils.createExtensionActivityFromEmfObject(configModel, false);
 	    extensionActivity.setName(xpdlActivity.getName());
-
+	    
+	    addSharedResourceInfo(extensionActivity, xpdlActivity);
+	    
 	    //see if we need to add pre- and/or post- mappings around the extension activity
     	org.eclipse.bpel.model.Variables variables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
         org.eclipse.bpel.model.Assign preCallAssign = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
@@ -168,6 +173,33 @@ public class ConverterExtensions {
     	XPDLUtils.configureHaltOnError(scope, xpdlActivity);
         return scope;
 	}
+
+    /**
+     * @param extensionActivity 
+     * @param configModel 
+     * @param xpdlActivity
+     */
+    private static void addSharedResourceInfo(
+            ExtensionActivity extensionActivity, final com.tibco.xpd.xpdl2.Activity xpdlActivity) {
+        String implementationTypeId =
+                TaskObjectUtil.getTaskImplementationExtensionId(xpdlActivity);
+        if (TaskImplementationTypeDefinitions.EMAIL_SERVICE
+                .equals(implementationTypeId)) {
+            // Set shared resource configuration attributes.
+            EmailResource emailSharedResource = XPDLUtils.getEmailResource(xpdlActivity);
+            if (emailSharedResource != null) {
+                BPELUtils.addExtensionAttribute(extensionActivity,
+                        XPDLUtils.ATTR_SHARED_RESOURCE_TYPE,
+                        XPDLUtils.SharedResourceType.EMAIL.getName());
+                String sharedResourceName = emailSharedResource.getInstanceName();
+                if (sharedResourceName != null) {
+                    BPELUtils.addExtensionAttribute(extensionActivity,
+                            XPDLUtils.ATTR_SHARED_RESOURCE_NAME,
+                            sharedResourceName);
+                }
+            }   
+        }
+    }
 
 	static private org.eclipse.bpel.model.Variable createVariable(ExtensionVariable extVar) {
 		org.eclipse.bpel.model.Variable var = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
