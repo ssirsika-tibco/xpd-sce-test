@@ -57,9 +57,6 @@ public class AceScriptProcessDataWrapperFactory {
         return DEFAULT;
     }
 
-    public static long totalTimeIn = 0;
-
-    public static long numIterations = 0;
 
     /**
      * Keep a permanent resource set. As we load the primitive type definitions
@@ -86,8 +83,6 @@ public class AceScriptProcessDataWrapperFactory {
      */
     public IScriptRelevantData createProcessDataWrapper(
             String wrapperObjectName, Collection<ProcessRelevantData> dataSet) {
-        // long start = System.nanoTime();
-
         /*
          * Create a resource set and resource to place our temporary UML package
          * in (many of our utilities currently demand this in order to apply
@@ -160,22 +155,6 @@ public class AceScriptProcessDataWrapperFactory {
             scriptData.setIcon(
                     Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
                             .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
-
-            // numIterations++;
-            //
-            // // Ignore first iteration
-            // if (numIterations > 1) {
-            // totalTimeIn += System.nanoTime() - start;
-            //
-            // long aveTime = totalTimeIn / (numIterations - 1);
-            //
-            // System.out.println(
-            // String.format("Numiterations: %d Ave' Time: %d.%09d",
-            // //$NON-NLS-1$
-            // numIterations,
-            // aveTime / 1000000000,
-            // aveTime % 1000000000));
-            // }
 
             return scriptData;
 
