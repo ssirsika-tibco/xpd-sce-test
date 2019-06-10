@@ -79,6 +79,7 @@ import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
 import com.tibco.xpd.xpdExtension.PortTypeOperation;
 import com.tibco.xpd.xpdExtension.ProcessDataWorkItemAttributeMappings;
 import com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings;
+import com.tibco.xpd.xpdExtension.RestServiceResource;
 import com.tibco.xpd.xpdExtension.Retry;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.ScriptInformation;
@@ -142,6 +143,49 @@ public class XPDLUtils {
      * location of the referenced file.
      */
     private static final String ATTR_LOCATION = "location"; //$NON-NLS-1$
+    
+    /**
+     * Constant for the name of the invoke type attribute.
+     */
+    public static final String ATTR_INVOKE_TYPE = "invokeType"; //$NON-NLS-1$
+    
+    /**
+     * Enums for types of invocation (values of "invokeType" attribute).
+     */
+    public enum InvokeType{
+        REST("REST"); //$NON-NLS-1$
+        
+        private String name;
+
+        InvokeType(String name) {
+            this.name = name;
+        }
+        public String getName() {
+            return name;
+        }
+    }; 
+    
+    /**
+     * Constant for the name of the sharedRedourceType attribute.
+     */
+    public static final String ATTR_SHARED_RESOURCE_TYPE = "sharedResourceType"; //$NON-NLS-1$
+    
+    
+    /**
+     * Enums for types of shared resource (values of "sharedResourceType" attribute).
+     */
+    public enum SharedResourceType{
+        HTTP_CLIENT("HTTPClient"); //$NON-NLS-1$
+        
+        private String name;
+        
+        SharedResourceType(String name) {
+            this.name = name;
+        }
+        public String getName() {
+            return name;
+        }
+    }; 
 
     public static boolean isSupportedXpdlFile(Path path) {
         IResource resource =
@@ -585,7 +629,9 @@ public class XPDLUtils {
         if (xpdlActivity != null) {
             ParticipantSharedResource sharedResource =
                     getActivitySharedResource(xpdlActivity);
-
+            if (sharedResource == null) {
+                return null;
+            }
             WsResource webService = sharedResource.getWebService();
             if (webService != null) {
                 WsInbound inbound = webService.getInbound();
@@ -622,7 +668,9 @@ public class XPDLUtils {
 
             ParticipantSharedResource sharedResource =
                     getActivitySharedResource(xpdlActivity);
-
+            if (sharedResource == null) {
+                return null;
+            }
             WsResource webService = sharedResource.getWebService();
             if (webService != null) {
                 WsInbound inbound = webService.getInbound();
@@ -641,6 +689,24 @@ public class XPDLUtils {
                 }
             }
 
+        }
+        return null;
+    }
+    
+    /**
+     * Returns RestServiceResource for the associated participant or 'null' if not resolved.
+     * 
+     * @param xpdlActivity the context activity.
+     * @return RestServiceResource for the associated participant or 'null' if not resolved.
+     */
+    public static RestServiceResource getRestServiceResource(
+            Activity xpdlActivity) {
+        if (xpdlActivity != null) {
+            ParticipantSharedResource sharedResource =
+                    getActivitySharedResource(xpdlActivity);
+            if (sharedResource != null) {
+                return sharedResource.getRestService();
+            }
         }
         return null;
     }

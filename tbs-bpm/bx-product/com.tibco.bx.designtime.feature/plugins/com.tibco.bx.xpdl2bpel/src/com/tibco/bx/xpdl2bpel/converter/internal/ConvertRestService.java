@@ -26,25 +26,26 @@ import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.rest.datamapper.RestScriptDataMapperProvider;
+import com.tibco.xpd.xpdExtension.RestServiceResource;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DirectionType;
 import com.tibco.xpd.xpdl2.Participant;
 
+/**
+ * Converter for REST service activity.
+ *
+ * @author jarciuch
+ * @since 10 Jun 2019
+ */
 public class ConvertRestService {
-
-	public static String REST_PASSTHROUGH_SERVICE_FILE = "TIBCO-REST-PassThrough.wsdl"; //$NON-NLS-1$
-	public static String REST_PASSTHROUGH_SERVICE_NAMESPACE = "http://www.tibco.com/rsbtPassThrough/"; //$NON-NLS-1$
-	public static String REST_PASSTHROUGH_SERVICE_PORTTYPE = "RESTPassThroughService"; //$NON-NLS-1$
-	public static String REST_PASSTHROUGH_SERVICE_OPERATION = "invoke"; //$NON-NLS-1$
 
     public static org.eclipse.bpel.model.Activity convertRestTask(
     		ConverterContext context, 
     		final Activity xpdlActivity,
     		DirectionType directionType) throws ConversionException {
-    	Definition restWsdl = copyPassThroughWsdl(context);
 		
-        org.eclipse.bpel.model.Invoke invoke = createInvoke(context, restWsdl, xpdlActivity);
+        org.eclipse.bpel.model.Invoke invoke = createInvoke(context, xpdlActivity);
 
         if ((directionType.ordinal() == DirectionType.IN) || (directionType.ordinal() == DirectionType.INOUT)) {
             //add the request script to invoke
@@ -70,59 +71,47 @@ public class ConvertRestService {
 		ele.setAttribute("expressionLanguage", N2PEConstants.JSCRIPT_LANGUAGE);
 	}
 
-	private static org.eclipse.bpel.model.Invoke createInvoke(
-			ConverterContext context, Definition restWsdl, final Activity xpdlActivity) {
-		org.eclipse.bpel.model.Invoke invoke = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createInvoke();
+    /**
+     * Creates invoke element for REST service activity.
+     * 
+     * @param context
+     *            the converter context.
+     * @param xpdlActivity
+     *            the rest service xpdl activity.
+     * @return invoke element for REST service activity.
+     */
+    private static org.eclipse.bpel.model.Invoke createInvoke(
+            ConverterContext context, final Activity xpdlActivity) {
+        org.eclipse.bpel.model.Invoke invoke =
+                org.eclipse.bpel.model.BPELFactory.eINSTANCE.createInvoke();
         invoke.setName(xpdlActivity.getName());
 
-    	QName qName = new QName(REST_PASSTHROUGH_SERVICE_NAMESPACE, REST_PASSTHROUGH_SERVICE_PORTTYPE);
-
-		//set the port type for invoke
-        org.eclipse.wst.wsdl.PortType portType = (org.eclipse.wst.wsdl.PortType) restWsdl.getPortType(qName);
-		invoke.setPortType(portType);
-        
-        //set the operation for invoke
-		org.eclipse.wst.wsdl.Operation op = WSDLFactory.eINSTANCE.createOperation();
-		op.setName(REST_PASSTHROUGH_SERVICE_OPERATION);
-        invoke.setOperation(op);
-
-        //set the partner link for invoke
-        Participant participant = XPDLUtils.resolveXpdlSystemParticipant(xpdlActivity);
-        if (participant != null) {
-            PartnerLinkType partnerLinkType = PartnerlinktypeFactory.eINSTANCE.createPartnerLinkType();	
-            partnerLinkType.setName(REST_PASSTHROUGH_SERVICE_PORTTYPE + "_PLT"); //$NON-NLS-1$
-            org.eclipse.bpel.model.PartnerLink partnerLink = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createPartnerLink();
-            partnerLink.setName(participant.getId());
-    		partnerLink.setPartnerLinkType(partnerLinkType);
-    		Role role = PartnerlinktypeFactory.eINSTANCE.createRole();
-    		role.setPortType(portType);
-    		role.setName(REST_PASSTHROUGH_SERVICE_PORTTYPE + "Provider"); //$NON-NLS-1$
-            partnerLink.setPartnerRole(role);
-            context.addPartnerLink(partnerLink);
-            invoke.setPartnerLink(partnerLink);
+        RestServiceResource restServiceResource =
+                XPDLUtils.getRestServiceResource(xpdlActivity);
+        if (restServiceResource != null) {
+            // Set shared resource configuration attributes.
+            BPELUtils.addExtensionAttribute(invoke,
+                    XPDLUtils.ATTR_INVOKE_TYPE,
+                    XPDLUtils.InvokeType.REST.getName());
+            BPELUtils.addExtensionAttribute(invoke,
+                    XPDLUtils.ATTR_SHARED_RESOURCE_TYPE,
+                    XPDLUtils.SharedResourceType.HTTP_CLIENT.getName());
+            String sharedResourceName = restServiceResource.getResourceName();
+            if (sharedResourceName != null) {
+                BPELUtils.addExtensionAttribute(invoke,
+                        "sharedResourceName", //$NON-NLS-1$
+                        sharedResourceName);
+            }
+            String sharedResourceDesc = restServiceResource.getDescription();
+            if (sharedResourceDesc != null && !sharedResourceDesc.trim().isEmpty()) {
+                BPELUtils.addExtensionAttribute(invoke,
+                        "sharedResourceDescription", //$NON-NLS-1$
+                        sharedResourceDesc);
+            }
         }
-        
+
         XPDLUtils.configureRetry(invoke, xpdlActivity);
-		return invoke;
-	}
-
-	private static Definition copyPassThroughWsdl(ConverterContext context)
-			throws ConversionException {
-		URI restWsdlUri = URI.createPlatformPluginURI(ConverterActivator.PLUGIN_ID + "/" + REST_PASSTHROUGH_SERVICE_FILE, false); //$NON-NLS-1$
-    	Definition restWsdl = WSDLUtils.loadWsdlDefinition(restWsdlUri);
-        String destName = context.getOutputFilePath() + System.getProperty("file.separator") + REST_PASSTHROUGH_SERVICE_FILE; //$NON-NLS-1$
-	    URI destURI = URI.createPlatformResourceURI(destName, false);
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.createResource(destURI);
-	    resource.getContents().add(restWsdl);
-		try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			throw new ConversionException(e.getMessage());
-		}
-		
-		return restWsdl;
-	}
-
+        return invoke;
+    }
 
 }
