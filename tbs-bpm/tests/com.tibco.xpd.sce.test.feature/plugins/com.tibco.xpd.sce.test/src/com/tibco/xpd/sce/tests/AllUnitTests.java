@@ -10,6 +10,8 @@ import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
+import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
@@ -99,6 +101,9 @@ public class AllUnitTests {
 
         suite.addTestSuite(BRMGenUC2FTest.class);
         suite.addTestSuite(GenerateRascTaskTest.class);
+
+        suite.addTestSuite(AceDataWrapperScriptObjectTest.class);
+        suite.addTestSuite(AceProcessDataWrapperMappingsTest.class);
 
         /*
          * Related Legacy Studio tests moved to SCE once proved work

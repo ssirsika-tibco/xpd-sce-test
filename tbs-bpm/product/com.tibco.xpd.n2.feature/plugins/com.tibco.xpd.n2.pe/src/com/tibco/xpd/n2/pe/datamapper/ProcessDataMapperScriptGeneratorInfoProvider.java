@@ -9,6 +9,7 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PrimitiveType;
 
 import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
@@ -168,7 +169,21 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 getter = getEnumConversionGetterStatement(jsVarAlias, e);
 
             } else {
-                getter = "ScriptUtil.copy(" + jsVarAlias + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+                /*
+                 * Sid ACE-1318 In AMX BPM used to have to copy source object
+                 * because the objects are backed by EMF and therefore if you
+                 * did Customer2.Address = Customer1.Address the Address object
+                 * would get re-parented from Customer 1 to Customer 2 and
+                 * Customer1.Address would be null.
+                 * 
+                 * In the now purely JavaScript representation Customer1 and
+                 * Customer2 can be allowed to reference the same Address (this
+                 * will only be temporary because the two values will be
+                 * serialised to their repsecitvie data fields after script
+                 * execution and when reloaded therefore will be separate
+                 * copies.
+                 */
+                getter = jsVarAlias;
             }
         }
         return getter;
@@ -188,6 +203,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
         String getter;
         PrimitiveType pt = EnumLitValueUtil.getBaseType(enumerationType);
         BasicType basic = BasicTypeConverterFactory.INSTANCE.getBasicType(pt);
+
+        /*
+         * TODO When we do Ace-559 Don't forget that we don't support anything
+         * BUT text enums now - (plus the fact that there's no such thing as
+         * DateTimeUtil JS class etc.
+         */
 
         BasicTypeType base = basic.getType();
         switch (base) {
@@ -321,7 +342,9 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 script.append(internalFinaliseObjectPath(cp, cp.getPath()));
 
             }
-            script.append(".size()"); //$NON-NLS-1$
+
+            /* Sid ACE-1318 - Use JS array notation */
+            script.append(".length"); //$NON-NLS-1$
             return script.toString();
         }
         return null;
@@ -391,25 +414,34 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * collection.get(i) from LHS source element OR a colleciton.get(i) for a
      * target element.
      * <p>
-     * If we are doing a GET from a SOURCE complex type array then WE MUST copy
-     * the element extracted from script. BDS implements the array as an EMF
-     * list and that means an object can only be parented by one list.
-     * <p>
-     * So if you just do targetList.add(sourceList.get(i)) the element source(i)
-     * will be MOVED from source to target NOT copied (it will disappear from
-     * source list!). So we have to do a ScriptUtil copy.
+     * Sid ACE-1318 - In ACE data lists are JavaScript array equivalents and
+     * therefore we do not have to ScriptUtil.copy(sourceListElement) (in AMX
+     * BPM we had to as the lists were backed by EMF lists and it would have
+     * re-parented the source list element to the target list in we'd not copied
+     * it).
+     * 
+     * In ACE there's no need to copy As FAR AS I KNOW AT TIME OF CODING.
+     * 
+     * HOWEVER just to be on the safe side I will keep the option to copy and
+     * simply not use it from the invoking functions (they will always ask not
+     * to copy.
+     * 
+     * Later if we decide we need to then we can implement the alternative to
+     * ScriptUtil.copy for ACE
      * 
      * @param collection
      * @param indexVarName
      * @param objectParentJsVar
-     * @param isTargetMerge
+     * @param dontCreateCopyOfSource
+     *            see comment above - currently should always be TRUE for ACE at
+     *            the moment.
      * 
      * @return Script to get an element from a process array field / bom multi
      *         instance property.
      */
     private String internalGetCollectionElementScript(Object collection,
             String indexVarName, String objectParentJsVar,
-            boolean isTargetMerge) {
+            boolean dontCreateCopyOfSource) {
         if (collection instanceof ConceptPath) {
             ConceptPath cp = (ConceptPath) collection;
 
@@ -427,9 +459,15 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
              * disappear from source list!).
              * 
              * So we have to do a ScriptUtil copy.
+             * 
+             * ACE-1318 EXCEPT that in ACE we aren't using EMF and therefore our
+             * callers should pass in true for contCreateCopy
              */
-            if (!isTargetMerge && isComplexType(cp)) {
+            if (!dontCreateCopyOfSource && isComplexType(cp)) {
                 script.append("ScriptUtil.copy("); //$NON-NLS-1$
+
+                throw new RuntimeException(
+                        "If we need to create copy of mapped source complex list elements then need to update the copy code here."); //$NON-NLS-1$
 
             }
 
@@ -451,11 +489,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 script.append(internalFinaliseObjectPath(cp, cp.getPath()));
             }
 
-            script.append(".get("); //$NON-NLS-1$
+            /* SId ACE-1318 Use JS array notation. */
+            script.append("["); //$NON-NLS-1$
             script.append(indexVarName);
-            script.append(")"); //$NON-NLS-1$
+            script.append("]"); //$NON-NLS-1$
 
-            if (!isTargetMerge && isComplexType(cp)) {
+            if (!dontCreateCopyOfSource && isComplexType(cp)) {
                 script.append(")"); //$NON-NLS-1$
             }
 
@@ -486,10 +525,15 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      */
     public String getCollectionElementScript(Object collection,
             String indexVarName, String objectParentJsVar) {
+        /*
+         * Sid ACE-1318 As we're using JS arrays, shouldn't need to create copy
+         * of source element any more. see internalGetCollectionElementScript()
+         * description for more details.
+         */
         return internalGetCollectionElementScript(collection,
                 indexVarName,
                 objectParentJsVar,
-                false);
+                true);
     }
 
     /**
@@ -543,7 +587,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 script.append(internalFinaliseObjectPath(cp, cp.getPath()));
             }
 
-            script.append(".add("); //$NON-NLS-1$
+            /* Sid ACE-1318 Use JS array notation. */
+            script.append(".push("); //$NON-NLS-1$
 
             /*
              * Sid XPD-7742 wrap the original 'value setter' statement, with an
@@ -601,11 +646,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 script.append(internalFinaliseObjectPath(cp, cp.getPath()));
             }
 
-            script.append(".set("); //$NON-NLS-1$
+            /* Sid ACE-1318 Use JS Array notation. */
+            script.append("["); //$NON-NLS-1$
             script.append(loopIndexJsVar);
-            script.append(", "); //$NON-NLS-1$
+            script.append("] = "); //$NON-NLS-1$
             script.append(jsVarName);
-            script.append(");"); //$NON-NLS-1$
+            script.append(";"); //$NON-NLS-1$
             return script.toString();
         }
 
@@ -643,7 +689,11 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                 script.append(internalFinaliseObjectPath(cp, cp.getPath()));
             }
 
-            script.append(".clear()"); //$NON-NLS-1$
+            /*
+             * Sid ACE-1318 In ACE process data lists are actually arrays, so
+             * set length = 0; instead of clear
+             */
+            script.append(".length = 0"); //$NON-NLS-1$
 
             return script.toString();
         }
@@ -868,16 +918,21 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * 
      * @param designTimePath
      * @param pathOrJsVarAlias
-     *            The default path for designTimePath or potentially a temporary
-     *            variable for loop iteration (in which case it will be prefixed
-     *            with {@link IScriptGeneratorInfoProvider#SOURCE_VAR_PREFIX}
-     *            {@link IScriptGeneratorInfoProvider#TARGET_VAR_PREFIX}
+     *            The default path for designTimePath. When used by this class
+     *            then this CANNOT be the a temporary variable for loop
+     *            iteration (prefixed with
+     *            {@link IScriptGeneratorInfoProvider#SOURCE_VAR_PREFIX}
+     *            {@link IScriptGeneratorInfoProvider#TARGET_VAR_PREFIX}) as
+     *            this is prevented by
+     *            {@link #internalFinaliseObjectPath(ConceptPath, String)}
      * 
      * @return The original path or adjusted path if necessary.
      */
     protected String finaliseObjectPath(ConceptPath designTimePath,
             String pathOrJsVarAlias) {
-        return pathOrJsVarAlias;
+        /* Sid ACE-1318 All process data is now wrapped in a "data" object. */
+        return ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME
+                + ConceptPath.CONCEPTPATH_SEPARATOR + pathOrJsVarAlias;
     }
 
     /**

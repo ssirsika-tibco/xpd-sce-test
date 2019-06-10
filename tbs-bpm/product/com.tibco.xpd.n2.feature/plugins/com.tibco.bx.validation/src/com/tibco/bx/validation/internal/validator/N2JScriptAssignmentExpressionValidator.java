@@ -126,8 +126,14 @@ public class N2JScriptAssignmentExpressionValidator
                             && JScriptTokenTypes.IDENT == firstChild
                                     .getType()) {
                         if (!firstChild.getText().equals("ScriptUtil")) { //$NON-NLS-1$
-                            addWarningMessage(token,
-                                    Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
+                            /*
+                             * Sid ACE-1318 - suppress the validation
+                             * "Explicit assignment of containment relationships could cause contained object being removed from one parent and assigned to another. Please use ScriptUtil.copy(EObject)/ScriptUtil.copyAll(EObject) to avoid the same."
+                             * As we use JavaScript then this isn't true
+                             * anymore.
+                             */
+                            // addWarningMessage(token,
+                            // Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
                         } else {
                             AST firstChild2 =
                                     firstChild.getNextSibling().getFirstChild();
@@ -138,8 +144,14 @@ public class N2JScriptAssignmentExpressionValidator
                                 if (!(firstChild2.getText().equals("copy") //$NON-NLS-1$
                                         || firstChild2.getText()
                                                 .equals("copyAll"))) { //$NON-NLS-1$
-                                    addWarningMessage(token,
-                                            Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
+                                    /*
+                                     * Sid ACE-1318 - suppress the validation
+                                     * "Explicit assignment of containment relationships could cause contained object being removed from one parent and assigned to another. Please use ScriptUtil.copy(EObject)/ScriptUtil.copyAll(EObject) to avoid the same."
+                                     * As we use JavaScript then this isn't true
+                                     * anymore.
+                                     */
+                                    // addWarningMessage(token,
+                                    // Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
                                 }
                             }
                         }
@@ -443,8 +455,14 @@ public class N2JScriptAssignmentExpressionValidator
                                         || isCompositeRelationship(
                                                 parentUmlClass,
                                                 umlClass)) {
-                                    addWarningMessage(token,
-                                            Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
+                                    /*
+                                     * Sid ACE-1318 - suppress the validation
+                                     * "Explicit assignment of containment relationships could cause contained object being removed from one parent and assigned to another. Please use ScriptUtil.copy(EObject)/ScriptUtil.copyAll(EObject) to avoid the same."
+                                     * As we use JavaScript then this isn't true
+                                     * anymore.
+                                     */
+                                    // addWarningMessage(token,
+                                    // Messages.N2JScriptAssignmentExpressionValidator_CompositeRelationshipsAssignment_1);
                                     return;
                                 }
                             }

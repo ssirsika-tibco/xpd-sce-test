@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="-1" version="1.0.0.20190606121409015">
+  <workmodel:WorkModel workModelUID="WM__DoEfYYYREemzgbDVShI3Yw">
+    <BaseModelInfo description="User Task" name="UserTask" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+      <inouts name="ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query>resource(name=&quot;fred&quot;)</query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190606121409015,1.0.0.20190606121409015]" workTypeID="WT__DoEfYYYREemzgbDVShI3Yw">
+        <WorkModelMapping>
+          <TypeParamName>TimeField</TypeParamName>
+          <ModelParamName>TimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>NumberField</TypeParamName>
+          <ModelParamName>NumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>SimpleListField</TypeParamName>
+          <ModelParamName>SimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>PerformerField</TypeParamName>
+          <ModelParamName>PerformerField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>FixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedPointNumberField</TypeParamName>
+          <ModelParamName>FixedPointNumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ClassField</TypeParamName>
+          <ModelParamName>ClassField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TextField</TypeParamName>
+          <ModelParamName>TextField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ComplexListField</TypeParamName>
+          <ModelParamName>ComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateTimeField</TypeParamName>
+          <ModelParamName>DateTimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ListFixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>ListFixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateField</TypeParamName>
+          <ModelParamName>DateField</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+    <WorkModelScripts>
+      <WorkModelScript scriptBody="// Simple type&#xD;&#xA;data.FixedPointNumberField.add(1);&#xD;&#xA;data.NumberField.toExponential();&#xD;&#xA;&#xD;&#xA;data.DateField.getDay();&#xD;&#xA;data.DateTimeField.getTimezone();&#xD;&#xA;data.PerformerField.charAt(1);&#xD;&#xA;data.TextField.charCodeAt(1);&#xD;&#xA;data.TimeField.getMinute();&#xD;&#xA;&#xD;&#xA;// Complex type&#xD;&#xA;data.ClassField.boolean1 = true;&#xD;&#xA;data.ClassField.URI.indexOf(3);&#xD;&#xA;data.ClassField.complexChild.attribute1.length;&#xD;&#xA;data.ClassField.date.getDay();&#xD;&#xA;data.ClassField.dateTimeTz.getTimezone();&#xD;&#xA;data.ClassField.fixed.add(2);&#xD;&#xA;data.ClassField.float1.toExponential();&#xD;&#xA;data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;&#xA;data.ClassField.time.getHour();&#xD;&#xA;&#xD;&#xA;// Lists&#xD;&#xA;data.SimpleListField.pop();&#xD;&#xA;data.SimpleListField[0] = &quot;xyz&quot;;&#xD;&#xA;data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;&#xA;&#xD;&#xA;data.ComplexListField.pop();&#xD;&#xA;data.ComplexListField[0].URI.charAt(1);&#xD;&#xA;data.ClassField.complexList.pop();&#xD;&#xA;data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;&#xA;&#xD;&#xA;// Type declaration types&#xD;&#xA;data.FixedNumberTypeDecl.add(2); // This should work!&#xD;&#xA;data.ListFixedNumberTypeDecl.pop();&#xD;&#xA;data.ListFixedNumberTypeDecl[0].add(123);&#xD;&#xA; &#xD;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="OPEN" scriptTypeID="_p7UWsIX3EemzgbDVShI3Yw"/>
+      <WorkModelScript scriptBody="// Simple type&#xD;&#xA;data.FixedPointNumberField.add(1);&#xD;&#xA;data.NumberField.toExponential();&#xD;&#xA;&#xD;&#xA;data.DateField.getDay();&#xD;&#xA;data.DateTimeField.getTimezone();&#xD;&#xA;data.PerformerField.charAt(1);&#xD;&#xA;data.TextField.charCodeAt(1);&#xD;&#xA;data.TimeField.getMinute();&#xD;&#xA;&#xD;&#xA;// Complex type&#xD;&#xA;data.ClassField.boolean1 = true;&#xD;&#xA;data.ClassField.URI.indexOf(3);&#xD;&#xA;data.ClassField.complexChild.attribute1.length;&#xD;&#xA;data.ClassField.date.getDay();&#xD;&#xA;data.ClassField.dateTimeTz.getTimezone();&#xD;&#xA;data.ClassField.fixed.add(2);&#xD;&#xA;data.ClassField.float1.toExponential();&#xD;&#xA;data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;&#xA;data.ClassField.time.getHour();&#xD;&#xA;&#xD;&#xA;// Lists&#xD;&#xA;data.SimpleListField.pop();&#xD;&#xA;data.SimpleListField[0] = &quot;xyz&quot;;&#xD;&#xA;data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;&#xA;&#xD;&#xA;data.ComplexListField.pop();&#xD;&#xA;data.ComplexListField[0].URI.charAt(1);&#xD;&#xA;data.ClassField.complexList.pop();&#xD;&#xA;data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;&#xA;&#xD;&#xA;// Type declaration types&#xD;&#xA;data.FixedNumberTypeDecl.add(2); // This should work!&#xD;&#xA;data.ListFixedNumberTypeDecl.pop();&#xD;&#xA;data.ListFixedNumberTypeDecl[0].add(123);&#xD;&#xA; &#xD;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="CLOSE" scriptTypeID="_p7UWsIX3EemzgbDVShI3Yw"/>
+      <WorkModelScript scriptBody="// Simple type&#xD;&#xA;data.FixedPointNumberField.add(1);&#xD;&#xA;data.NumberField.toExponential();&#xD;&#xA;&#xD;&#xA;data.DateField.getDay();&#xD;&#xA;data.DateTimeField.getTimezone();&#xD;&#xA;data.PerformerField.charAt(1);&#xD;&#xA;data.TextField.charCodeAt(1);&#xD;&#xA;data.TimeField.getMinute();&#xD;&#xA;&#xD;&#xA;// Complex type&#xD;&#xA;data.ClassField.boolean1 = true;&#xD;&#xA;data.ClassField.URI.indexOf(3);&#xD;&#xA;data.ClassField.complexChild.attribute1.length;&#xD;&#xA;data.ClassField.date.getDay();&#xD;&#xA;data.ClassField.dateTimeTz.getTimezone();&#xD;&#xA;data.ClassField.fixed.add(2);&#xD;&#xA;data.ClassField.float1.toExponential();&#xD;&#xA;data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;&#xA;data.ClassField.time.getHour();&#xD;&#xA;&#xD;&#xA;// Lists&#xD;&#xA;data.SimpleListField.pop();&#xD;&#xA;data.SimpleListField[0] = &quot;xyz&quot;;&#xD;&#xA;data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;&#xA;&#xD;&#xA;data.ComplexListField.pop();&#xD;&#xA;data.ComplexListField[0].URI.charAt(1);&#xD;&#xA;data.ClassField.complexList.pop();&#xD;&#xA;data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;&#xA;&#xD;&#xA;// Type declaration types&#xD;&#xA;data.FixedNumberTypeDecl.add(2); // This should work!&#xD;&#xA;data.ListFixedNumberTypeDecl.pop();&#xD;&#xA;data.ListFixedNumberTypeDecl[0].add(123);&#xD;&#xA; &#xD;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="COMPLETE" scriptTypeID="_p7UWsIX3EemzgbDVShI3Yw"/>
+      <WorkModelScript scriptBody="// Simple type&#xD;&#xA;data.FixedPointNumberField.add(1);&#xD;&#xA;data.NumberField.toExponential();&#xD;&#xA;&#xD;&#xA;data.DateField.getDay();&#xD;&#xA;data.DateTimeField.getTimezone();&#xD;&#xA;data.PerformerField.charAt(1);&#xD;&#xA;data.TextField.charCodeAt(1);&#xD;&#xA;data.TimeField.getMinute();&#xD;&#xA;&#xD;&#xA;// Complex type&#xD;&#xA;data.ClassField.boolean1 = true;&#xD;&#xA;data.ClassField.URI.indexOf(3);&#xD;&#xA;data.ClassField.complexChild.attribute1.length;&#xD;&#xA;data.ClassField.date.getDay();&#xD;&#xA;data.ClassField.dateTimeTz.getTimezone();&#xD;&#xA;data.ClassField.fixed.add(2);&#xD;&#xA;data.ClassField.float1.toExponential();&#xD;&#xA;data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;&#xA;data.ClassField.time.getHour();&#xD;&#xA;&#xD;&#xA;// Lists&#xD;&#xA;data.SimpleListField.pop();&#xD;&#xA;data.SimpleListField[0] = &quot;xyz&quot;;&#xD;&#xA;data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;&#xA;&#xD;&#xA;data.ComplexListField.pop();&#xD;&#xA;data.ComplexListField[0].URI.charAt(1);&#xD;&#xA;data.ClassField.complexList.pop();&#xD;&#xA;data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;&#xA;&#xD;&#xA;// Type declaration types&#xD;&#xA;data.FixedNumberTypeDecl.add(2); // This should work!&#xD;&#xA;data.ListFixedNumberTypeDecl.pop();&#xD;&#xA;data.ListFixedNumberTypeDecl[0].add(123);&#xD;&#xA; &#xD;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="SCHEDULE" scriptTypeID="_p7UWsIX3EemzgbDVShI3Yw"/>
+      <WorkModelScript scriptBody="// Simple type&#xD;&#xA;data.FixedPointNumberField.add(1);&#xD;&#xA;data.NumberField.toExponential();&#xD;&#xA;&#xD;&#xA;data.DateField.getDay();&#xD;&#xA;data.DateTimeField.getTimezone();&#xD;&#xA;data.PerformerField.charAt(1);&#xD;&#xA;data.TextField.charCodeAt(1);&#xD;&#xA;data.TimeField.getMinute();&#xD;&#xA;&#xD;&#xA;// Complex type&#xD;&#xA;data.ClassField.boolean1 = true;&#xD;&#xA;data.ClassField.URI.indexOf(3);&#xD;&#xA;data.ClassField.complexChild.attribute1.length;&#xD;&#xA;data.ClassField.date.getDay();&#xD;&#xA;data.ClassField.dateTimeTz.getTimezone();&#xD;&#xA;data.ClassField.fixed.add(2);&#xD;&#xA;data.ClassField.float1.toExponential();&#xD;&#xA;data.ClassField.text.concat(&quot;a&quot;, &quot;bc&quot;, &quot;de&quot;, &quot;xx&quot;);&#xD;&#xA;data.ClassField.time.getHour();&#xD;&#xA;&#xD;&#xA;// Lists&#xD;&#xA;data.SimpleListField.pop();&#xD;&#xA;data.SimpleListField[0] = &quot;xyz&quot;;&#xD;&#xA;data.SimpleListField[0].concat(&quot;a&quot;, &quot;b&quot;);&#xD;&#xA;&#xD;&#xA;data.ComplexListField.pop();&#xD;&#xA;data.ComplexListField[0].URI.charAt(1);&#xD;&#xA;data.ClassField.complexList.pop();&#xD;&#xA;data.ClassField.complexList[1].attribute1 = &quot;xyz&quot;;&#xD;&#xA;&#xD;&#xA;// Type declaration types&#xD;&#xA;data.FixedNumberTypeDecl.add(2); // This should work!&#xD;&#xA;data.ListFixedNumberTypeDecl.pop();&#xD;&#xA;data.ListFixedNumberTypeDecl[0].add(123);&#xD;&#xA; &#xD;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="RESCHEDULE" scriptTypeID="_p7UWsIX3EemzgbDVShI3Yw"/>
+    </WorkModelScripts>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__2EqIQIYREemzgbDVShI3Yw">
+    <BaseModelInfo description="Loops" name="Loops" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+      <inouts name="TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="CorrelationField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query>resource(name=&quot;fred&quot;)</query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190606121409015,1.0.0.20190606121409015]" workTypeID="WT__2EqIQIYREemzgbDVShI3Yw">
+        <WorkModelMapping>
+          <TypeParamName>TimeField</TypeParamName>
+          <ModelParamName>TimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>NumberField</TypeParamName>
+          <ModelParamName>NumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>BooleanField</TypeParamName>
+          <ModelParamName>BooleanField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>PerformerField</TypeParamName>
+          <ModelParamName>PerformerField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedPointNumberField</TypeParamName>
+          <ModelParamName>FixedPointNumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TextField</TypeParamName>
+          <ModelParamName>TextField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ComplexListField</TypeParamName>
+          <ModelParamName>ComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>SimpleListField</TypeParamName>
+          <ModelParamName>SimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>FixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ClassField</TypeParamName>
+          <ModelParamName>ClassField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>CorrelationField</TypeParamName>
+          <ModelParamName>CorrelationField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateTimeField</TypeParamName>
+          <ModelParamName>DateTimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ListFixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>ListFixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateField</TypeParamName>
+          <ModelParamName>DateField</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__1ekZsYezEemmHL5LWHEcVw">
+    <BaseModelInfo description="Loops 2" name="Loops2" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+      <inouts name="TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="CorrelationField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <EntityQuery model-version="-1">
+          <query>resource(name=&quot;fred&quot;)</query>
+        </EntityQuery>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190606121409015,1.0.0.20190606121409015]" workTypeID="WT__1ekZsYezEemmHL5LWHEcVw">
+        <WorkModelMapping>
+          <TypeParamName>TimeField</TypeParamName>
+          <ModelParamName>TimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>NumberField</TypeParamName>
+          <ModelParamName>NumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>BooleanField</TypeParamName>
+          <ModelParamName>BooleanField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>PerformerField</TypeParamName>
+          <ModelParamName>PerformerField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedPointNumberField</TypeParamName>
+          <ModelParamName>FixedPointNumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TextField</TypeParamName>
+          <ModelParamName>TextField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ComplexListField</TypeParamName>
+          <ModelParamName>ComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>SimpleListField</TypeParamName>
+          <ModelParamName>SimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>FixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ClassField</TypeParamName>
+          <ModelParamName>ClassField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>CorrelationField</TypeParamName>
+          <ModelParamName>CorrelationField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateTimeField</TypeParamName>
+          <ModelParamName>DateTimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ListFixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>ListFixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateField</TypeParamName>
+          <ModelParamName>DateField</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>
