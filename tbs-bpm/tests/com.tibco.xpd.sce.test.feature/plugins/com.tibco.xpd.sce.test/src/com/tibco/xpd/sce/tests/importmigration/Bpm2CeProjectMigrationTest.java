@@ -1062,11 +1062,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                                     + Xpdl2ModelUtil.getDisplayName(participant)
                                     + ":" //$NON-NLS-1$
                                     + " - REST system participant should have had all content from xpdExt:ParticipantSharedResource/xpdExt:RestService removed", //$NON-NLS-1$
-                                    psr.getRestService()
-                                            .getHttpClientInstanceName() == null
-                                            && psr.getRestService()
-                                                    .getSecurityPolicy()
-                                                    .isEmpty());
+                                    psr.getRestService().getSecurityPolicy()
+                                            .isEmpty());
                         }
                     }
                 }
@@ -1101,10 +1098,8 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                                 + Xpdl2ModelUtil.getDisplayName(participant)
                                 + ":" //$NON-NLS-1$
                                 + " - REST system participant should have had all content from xpdExt:ParticipantSharedResource/xpdExt:RestService removed", //$NON-NLS-1$
-                                psr.getRestService()
-                                        .getHttpClientInstanceName() == null
-                                        && psr.getRestService()
-                                                .getSecurityPolicy().isEmpty());
+                                psr.getRestService().getSecurityPolicy()
+                                        .isEmpty());
                     }
                 }
             }
