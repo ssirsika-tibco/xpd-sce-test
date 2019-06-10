@@ -418,6 +418,13 @@ public class AceMigratedProcessValidationsTest
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
+                                "ace.rest.participant.must.have.resource.name", //$NON-NLS-1$
+                                "_SXL6IGdPEemc57YnadR58Q", //$NON-NLS-1$
+                                "BPM  : REST Service participants must have an Endpoint Identification value set. (RESTParticipant)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
+
+                        new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
                                 "ace.invalid.participant.type", //$NON-NLS-1$
                                 "_NV0SAGdPEemc57YnadR58Q", //$NON-NLS-1$
                                 "BPM  : Participant must be of type External reference, Organisation Model Query or System. (Role Participant)", //$NON-NLS-1$
