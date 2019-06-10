@@ -67,37 +67,11 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addHttpClientInstanceNamePropertyDescriptor(object);
             addResourceNamePropertyDescriptor(object);
             addResourceTypePropertyDescriptor(object);
             addDescriptionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Http Client Instance Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addHttpClientInstanceNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_RestServiceResource_httpClientInstanceName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_RestServiceResource_httpClientInstanceName_feature", //$NON-NLS-1$
-                        "_UI_RestServiceResource_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
     }
 
     /**
@@ -225,8 +199,7 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label =
-                ((RestServiceResource) object).getHttpClientInstanceName();
+        String label = ((RestServiceResource) object).getResourceName();
         return label == null || label.length() == 0
                 ? getString("_UI_RestServiceResource_type") //$NON-NLS-1$
                 : getString("_UI_RestServiceResource_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -244,7 +217,6 @@ public class RestServiceResourceItemProvider extends ItemProviderAdapter
         updateChildren(notification);
 
         switch (notification.getFeatureID(RestServiceResource.class)) {
-        case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:

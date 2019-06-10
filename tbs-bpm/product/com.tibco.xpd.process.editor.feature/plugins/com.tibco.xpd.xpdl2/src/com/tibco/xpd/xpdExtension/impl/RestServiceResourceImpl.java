@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getHttpClientInstanceName <em>Http Client Instance Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getSecurityPolicy <em>Security Policy</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getResourceName <em>Resource Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl#getResourceType <em>Resource Type</em>}</li>
@@ -48,27 +47,6 @@ public class RestServiceResourceImpl extends EObjectImpl
      */
     public static final String copyright =
             "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
-
-    /**
-     * The default value of the '{@link #getHttpClientInstanceName() <em>Http Client Instance Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getHttpClientInstanceName()
-     * @generated
-     * @ordered
-     */
-    protected static final String HTTP_CLIENT_INSTANCE_NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getHttpClientInstanceName() <em>Http Client Instance Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getHttpClientInstanceName()
-     * @generated
-     * @ordered
-     */
-    protected String httpClientInstanceName =
-            HTTP_CLIENT_INSTANCE_NAME_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getSecurityPolicy() <em>Security Policy</em>}' containment reference list.
@@ -157,29 +135,6 @@ public class RestServiceResourceImpl extends EObjectImpl
     @Override
     protected EClass eStaticClass() {
         return XpdExtensionPackage.Literals.REST_SERVICE_RESOURCE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getHttpClientInstanceName() {
-        return httpClientInstanceName;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setHttpClientInstanceName(String newHttpClientInstanceName) {
-        String oldHttpClientInstanceName = httpClientInstanceName;
-        httpClientInstanceName = newHttpClientInstanceName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME,
-                    oldHttpClientInstanceName, httpClientInstanceName));
     }
 
     /**
@@ -290,8 +245,6 @@ public class RestServiceResourceImpl extends EObjectImpl
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
-            return getHttpClientInstanceName();
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             return getSecurityPolicy();
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
@@ -313,9 +266,6 @@ public class RestServiceResourceImpl extends EObjectImpl
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
-            setHttpClientInstanceName((String) newValue);
-            return;
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             getSecurityPolicy().clear();
             getSecurityPolicy().addAll(
@@ -342,9 +292,6 @@ public class RestServiceResourceImpl extends EObjectImpl
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
-            setHttpClientInstanceName(HTTP_CLIENT_INSTANCE_NAME_EDEFAULT);
-            return;
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             getSecurityPolicy().clear();
             return;
@@ -369,11 +316,6 @@ public class RestServiceResourceImpl extends EObjectImpl
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case XpdExtensionPackage.REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME:
-            return HTTP_CLIENT_INSTANCE_NAME_EDEFAULT == null
-                    ? httpClientInstanceName != null
-                    : !HTTP_CLIENT_INSTANCE_NAME_EDEFAULT
-                            .equals(httpClientInstanceName);
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             return securityPolicy != null && !securityPolicy.isEmpty();
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
@@ -400,9 +342,7 @@ public class RestServiceResourceImpl extends EObjectImpl
             return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (httpClientInstanceName: "); //$NON-NLS-1$
-        result.append(httpClientInstanceName);
-        result.append(", resourceName: "); //$NON-NLS-1$
+        result.append(" (resourceName: "); //$NON-NLS-1$
         result.append(resourceName);
         result.append(", resourceType: "); //$NON-NLS-1$
         result.append(resourceType);

@@ -3915,19 +3915,9 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getRestServiceResource_HttpClientInstanceName() {
-        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getRestServiceResource_SecurityPolicy() {
         return (EReference) restServiceResourceEClass.getEStructuralFeatures()
-                .get(1);
+                .get(0);
     }
 
     /**
@@ -3937,7 +3927,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     public EAttribute getRestServiceResource_ResourceName() {
         return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(2);
+                .get(1);
     }
 
     /**
@@ -3947,7 +3937,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     public EAttribute getRestServiceResource_ResourceType() {
         return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(3);
+                .get(2);
     }
 
     /**
@@ -3957,7 +3947,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     public EAttribute getRestServiceResource_Description() {
         return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(4);
+                .get(3);
     }
 
     /**
@@ -6632,8 +6622,6 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEReference(restServicesEClass, REST_SERVICES__REST_SERVICES);
 
         restServiceResourceEClass = createEClass(REST_SERVICE_RESOURCE);
-        createEAttribute(restServiceResourceEClass,
-                REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME);
         createEReference(restServiceResourceEClass,
                 REST_SERVICE_RESOURCE__SECURITY_POLICY);
         createEAttribute(restServiceResourceEClass,
@@ -11066,21 +11054,6 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_ABSTRACT,
                 !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getRestServiceResource_HttpClientInstanceName(),
-                theXMLTypePackage.getString(),
-                "httpClientInstanceName", //$NON-NLS-1$
-                null,
-                0,
-                1,
-                RestServiceResource.class,
-                !IS_TRANSIENT,
-                !IS_VOLATILE,
-                IS_CHANGEABLE,
-                !IS_UNSETTABLE,
-                !IS_ID,
-                IS_UNIQUE,
-                !IS_DERIVED,
-                IS_ORDERED);
         initEReference(getRestServiceResource_SecurityPolicy(),
                 this.getRestServiceResourceSecurity(),
                 null,
@@ -15945,11 +15918,6 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 source,
                 new String[] { "name", "RestServiceResource", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-                });
-        addAnnotation(getRestServiceResource_HttpClientInstanceName(),
-                source,
-                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-                        "name", "HttpClientInstanceName" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(getRestServiceResource_SecurityPolicy(),
                 source,

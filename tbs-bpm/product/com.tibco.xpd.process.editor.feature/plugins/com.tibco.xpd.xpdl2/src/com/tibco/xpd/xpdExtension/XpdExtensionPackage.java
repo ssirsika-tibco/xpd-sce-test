@@ -3367,22 +3367,13 @@ public interface XpdExtensionPackage extends EPackage {
     int REST_SERVICE_RESOURCE = 47;
 
     /**
-     * The feature id for the '<em><b>Http Client Instance Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME = 0;
-
-    /**
      * The feature id for the '<em><b>Security Policy</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE__SECURITY_POLICY = 1;
+    int REST_SERVICE_RESOURCE__SECURITY_POLICY = 0;
 
     /**
      * The feature id for the '<em><b>Resource Name</b></em>' attribute.
@@ -3391,7 +3382,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE__RESOURCE_NAME = 2;
+    int REST_SERVICE_RESOURCE__RESOURCE_NAME = 1;
 
     /**
      * The feature id for the '<em><b>Resource Type</b></em>' attribute.
@@ -3400,7 +3391,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE__RESOURCE_TYPE = 3;
+    int REST_SERVICE_RESOURCE__RESOURCE_TYPE = 2;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3409,7 +3400,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE__DESCRIPTION = 4;
+    int REST_SERVICE_RESOURCE__DESCRIPTION = 3;
 
     /**
      * The number of structural features of the '<em>Rest Service Resource</em>' class.
@@ -3418,7 +3409,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE_FEATURE_COUNT = 5;
+    int REST_SERVICE_RESOURCE_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceSecurityImpl <em>Rest Service Resource Security</em>}' class.
@@ -9850,17 +9841,6 @@ public interface XpdExtensionPackage extends EPackage {
     EClass getRestServiceResource();
 
     /**
-     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getHttpClientInstanceName <em>Http Client Instance Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Http Client Instance Name</em>'.
-     * @see com.tibco.xpd.xpdExtension.RestServiceResource#getHttpClientInstanceName()
-     * @see #getRestServiceResource()
-     * @generated
-     */
-    EAttribute getRestServiceResource_HttpClientInstanceName();
-
-    /**
      * Returns the meta object for the containment reference list '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getSecurityPolicy <em>Security Policy</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -15112,15 +15092,6 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EClass REST_SERVICE_RESOURCE = eINSTANCE.getRestServiceResource();
-
-        /**
-         * The meta object literal for the '<em><b>Http Client Instance Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute REST_SERVICE_RESOURCE__HTTP_CLIENT_INSTANCE_NAME =
-                eINSTANCE.getRestServiceResource_HttpClientInstanceName();
 
         /**
          * The meta object literal for the '<em><b>Security Policy</b></em>' containment reference list feature.

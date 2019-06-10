@@ -275,8 +275,8 @@ public class SharedResourceUtil {
 
         if (p1RestServiceResource != null && p2RestServiceResource != null) {
 
-            if (areEqual(p1RestServiceResource.getHttpClientInstanceName(),
-                    p2RestServiceResource.getHttpClientInstanceName())) {
+            if (areEqual(p1RestServiceResource.getResourceName(),
+                    p2RestServiceResource.getResourceName())) {
 
                 /*
                  * Compare secutiry policies

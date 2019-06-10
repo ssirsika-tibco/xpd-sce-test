@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.tibco.xpd.xpdExtension.RestServiceResource#getHttpClientInstanceName <em>Http Client Instance Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.RestServiceResource#getSecurityPolicy <em>Security Policy</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.RestServiceResource#getResourceName <em>Resource Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.RestServiceResource#getResourceType <em>Resource Type</em>}</li>
@@ -35,33 +34,6 @@ public interface RestServiceResource extends EObject {
      */
     String copyright =
             "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
-
-    /**
-     * Returns the value of the '<em><b>Http Client Instance Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Http Client Instance Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Http Client Instance Name</em>' attribute.
-     * @see #setHttpClientInstanceName(String)
-     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getRestServiceResource_HttpClientInstanceName()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='HttpClientInstanceName'"
-     * @generated
-     */
-    String getHttpClientInstanceName();
-
-    /**
-     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.RestServiceResource#getHttpClientInstanceName <em>Http Client Instance Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Http Client Instance Name</em>' attribute.
-     * @see #getHttpClientInstanceName()
-     * @generated
-     */
-    void setHttpClientInstanceName(String value);
 
     /**
      * Returns the value of the '<em><b>Security Policy</b></em>' containment reference list.
