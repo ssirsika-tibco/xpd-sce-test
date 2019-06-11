@@ -34,7 +34,7 @@ public class BRMSchemaUtil {
 
     /** The URI of the base schema folder. */
     private static final String SCHEMA_BASE =
-            "platform:/plugin/com.tibco.n2.common.wsdls/wsdls"; //$NON-NLS-1$
+            "platform:/plugin/com.tibco.xpd.n2.brm/model"; //$NON-NLS-1$
 
     /**
      * Validate document against BRM schema.
