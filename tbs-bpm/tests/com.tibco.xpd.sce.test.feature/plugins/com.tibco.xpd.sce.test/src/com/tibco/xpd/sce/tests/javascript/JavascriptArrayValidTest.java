@@ -23,7 +23,6 @@ public class JavascriptArrayValidTest extends AbstractN2BaseValidationTest {
 
     public JavascriptArrayValidTest() {
         super(true);
-        cleanProjectAtEnd = false;
     }
 
     /**
