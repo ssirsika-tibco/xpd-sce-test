@@ -26,6 +26,7 @@ import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
+import com.tibco.xpd.xpdl2.RecordType;
 
 /**
  * Script relevant data class that represents the "data" object that wraps all
@@ -185,11 +186,38 @@ public class AceScriptProcessDataWrapperFactory {
     private void configurePropertyTypeForDataField(
             ResourceSetImpl wrapperResourceSet, Property property,
             ProcessRelevantData data) {
+
         Object baseType =
                 BasicTypeConverterFactory.INSTANCE.getBaseType(data, false);
 
-        /* Handle simple types first. */
-        if (baseType instanceof BasicType) {
+        /*
+         * TODO Handle case reference types... For NOW we will set it to unknown
+         * (Object) type (although it is actually a string, we don't want user
+         * to be able to fiddle about with it.
+         * 
+         * When we implement the case data scripting, which as changed to all
+         * static methods that take case references as parameters, then we will
+         * need to be able to distinguish Case Reference properties properly.
+         * 
+         * We cannot do it like we used to because we can't add a UML Script
+         * relevant data object as a bom property in the data object (and we
+         * wouldn't want to because all the methods are static now). Instead, I
+         * think the approach will be to add a new internal case reference type
+         * to CdsJavaScript.uml and et the property to that type here (or even
+         * PrimitiveType.uml PROVIDED we can keep it hidden). The static cae
+         * access methods will then use this type as their parameter type.
+         */
+        if (data.getDataType() instanceof RecordType) {
+            // TODO for now we will treat them as strings type
+            // Later when we do case data scripting then we will have to
+            // consider how we validate that these are what they say they are in
+            // the new Static Case Data scripting class methods
+            property.setType(PrimitivesUtil.getStandardPrimitiveTypeByName(
+                    wrapperResourceSet,
+                    PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+
+        } else if (baseType instanceof BasicType) {
+            /* Handle simple types first. */
 
             BasicType basicType = (BasicType) baseType;
             BasicTypeType basicTypeType = ((BasicType) baseType).getType();
