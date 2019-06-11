@@ -95,7 +95,7 @@ public class AceParticipantRules extends PackageValidationRule {
                          * Identification value set.
                          */
                         if (null == rsr.getResourceName()
-                                || rsr.getResourceName().isEmpty()) {
+                                || rsr.getResourceName().trim().isEmpty()) {
                             addIssue(
                                     ACE_ISSUE_REST_PARTICIPANT_MUST_HAVE_RESOURCE_NAME,
                                     participant);
