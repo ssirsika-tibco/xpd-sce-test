@@ -26,6 +26,7 @@ import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProject
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
+import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
@@ -93,6 +94,7 @@ public class AllUnitTests {
         suite.addTestSuite(AceBomTextPatternRemovalTest.class);
         suite.addTestSuite(AceDecPlacesValidationTest.class);
         suite.addTestSuite(AceDateTimeResolutionTest.class);
+        suite.addTestSuite(AceCaseCompositionValidationTest.class);
 
         /*
          * Miscellaneous
