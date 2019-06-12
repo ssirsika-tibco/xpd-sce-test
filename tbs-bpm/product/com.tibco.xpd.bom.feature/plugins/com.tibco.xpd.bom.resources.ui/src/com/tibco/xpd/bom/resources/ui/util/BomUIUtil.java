@@ -60,6 +60,7 @@ import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.bom.resources.ui.Activator;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.bom.resources.ui.internal.Messages;
+import com.tibco.xpd.bom.resources.ui.internal.picker.filters.BOMBasePrimitiveTypesFilter;
 import com.tibco.xpd.bom.resources.ui.internal.picker.filters.OnCaseIdentifierFilter;
 import com.tibco.xpd.bom.resources.ui.prefs.BOMPickerPreferencePage;
 import com.tibco.xpd.bom.resources.utils.ResourceItemType;
@@ -217,15 +218,17 @@ public class BomUIUtil {
                             BOMTypeQuery.GLOBAL_CLASS_TYPE,
                             BOMTypeQuery.ENUMERATION_TYPE);
 
+            filters = new IFilter[] { new BOMBasePrimitiveTypesFilter() };
+
             if (GlobalDataProfileManager.getInstance()
                     .isAutoCaseIdentifier(prop)) {
                 // Pass in if it is an auto case identifier or not
-                filters = new IFilter[] { new OnCaseIdentifierFilter(true) };
+                filters[filters.length] = new OnCaseIdentifierFilter(true);
             } else if (GlobalDataProfileManager.getInstance().isCID(prop)
                     || GlobalDataProfileManager.getInstance()
                             .isCompositeCaseIdentifier(prop)) {
                 // Pass in if it is an auto case identifier or not
-                filters = new IFilter[] { new OnCaseIdentifierFilter(false) };
+                filters[filters.length] = new OnCaseIdentifierFilter(false);
             } else if (GlobalDataProfileManager.getInstance().isCaseState(prop)) {
                 // Case State attributes can only be enumerations
                 query = new BOMTypeQuery(BOMTypeQuery.ENUMERATION_TYPE);
