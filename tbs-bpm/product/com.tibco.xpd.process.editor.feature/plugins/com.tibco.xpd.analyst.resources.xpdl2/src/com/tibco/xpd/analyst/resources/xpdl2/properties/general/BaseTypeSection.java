@@ -764,10 +764,20 @@ public abstract class BaseTypeSection extends
                             .equals(BasicTypeType.INTEGER_LITERAL)
                             || basicType.getType()
                                     .equals(BasicTypeType.FLOAT_LITERAL)) {
-                        if (null != basicType.getPrecision()) {
-                            updateText(txtBasicLength, Short.toString(basicType
-                                    .getPrecision().getValue()));
-                        }
+
+                        /*
+                         * Sid ACE-1417 Didn't used to update the length control
+                         * if Precision model was unset, that meant if switched
+                         * from field with it set to one without then the old
+                         * field's precision (length) would still be shown.
+                         * 
+                         * So now always set.
+                         */
+                        updateText(txtBasicLength,
+                                basicType.getPrecision() == null ? "" //$NON-NLS-1$
+                                        : Short.toString(
+                                                basicType
+                                .getPrecision().getValue()));
                     } else {
                         updateText(txtBasicLength,
                                 basicType.getPrecision() == null ? Messages.BaseTypeSection_NotApplicable_text
@@ -777,10 +787,18 @@ public abstract class BaseTypeSection extends
                 }
                 if (txtBasicScale.isEnabled() || isImplementedType()) {
                     if (basicType.getType().equals(BasicTypeType.FLOAT_LITERAL)) {
-                        if (null != basicType.getScale()) {
-                            updateText(txtBasicScale, Short.toString(basicType
-                                    .getScale().getValue()));
-                        }
+                        /*
+                         * Sid ACE-1417 Didn't used to update the length control
+                         * if Scale (decimals) model was unset, that meant if switched
+                         * from field with it set to one without then the old
+                         * field's Scale (decimals) would still be shown.
+                         * 
+                         * So now always set.
+                         */
+                        updateText(txtBasicScale,
+                                basicType.getScale() == null ? "" //$NON-NLS-1$
+                                        : Short.toString(basicType.getScale()
+                                                .getValue()));
                     } else {
                         updateText(txtBasicScale,
                                 basicType.getScale() == null ? Messages.BaseTypeSection_NotApplicable_text
