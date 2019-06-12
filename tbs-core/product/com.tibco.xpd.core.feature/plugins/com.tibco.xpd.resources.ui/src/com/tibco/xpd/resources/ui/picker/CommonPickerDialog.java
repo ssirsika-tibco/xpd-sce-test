@@ -325,7 +325,6 @@ public class CommonPickerDialog extends FilteredMultiSelectionDialog {
             List<String> allowedBasePrimitiveTypes = new ArrayList<String>();
             allowedBasePrimitiveTypes.add("Text"); //$NON-NLS-1$
             allowedBasePrimitiveTypes.add("Number"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Integer"); //$NON-NLS-1$
             allowedBasePrimitiveTypes.add("Boolean"); //$NON-NLS-1$
             allowedBasePrimitiveTypes.add("Date"); //$NON-NLS-1$
             allowedBasePrimitiveTypes.add("Time"); //$NON-NLS-1$
