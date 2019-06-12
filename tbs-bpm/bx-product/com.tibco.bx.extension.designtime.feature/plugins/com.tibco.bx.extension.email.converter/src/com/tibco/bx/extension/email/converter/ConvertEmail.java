@@ -78,24 +78,10 @@ public class ConvertEmail implements IActivityConfigurationModelBuilder  {
 		EmailType xpdEmail = (EmailType) emailObj;
 		Email bpelEmail = EmailExtensionsModelFactory.eINSTANCE.createEmail();		
 
-        List<Performer> list = xpdlActivity.getPerformerList();
-        if (list!=null) {
-            for (Performer performer: list) {
-            	if (performer != null) {
-	        		String performerName = performer.getValue();
-	        		if (participantMap != null) {
-	        			Participant participant = participantMap.get(performerName);
-	        			if (participant != null) {
-	        				String name = participant.getName();
-	        				bpelEmail.setConnectionResource(name);
-	        			}
-	        		}
-            	}
-            }
-        }
+		// ACE-494: Don't set "connectionResource" attr. (bpelEmail.setConnectionResource(name)) 
+		// to participant name.  
 
 		// transform correspondents
-
 		DefinitionType def = xpdEmail.getDefinition();
 		CorrespondentsType correspondents = EmailExtensionsModelFactory.eINSTANCE.createCorrespondentsType();
 
