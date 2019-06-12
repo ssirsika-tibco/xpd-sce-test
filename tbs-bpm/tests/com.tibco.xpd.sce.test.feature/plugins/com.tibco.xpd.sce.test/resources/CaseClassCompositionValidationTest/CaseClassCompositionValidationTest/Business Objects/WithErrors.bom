@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BOMGlobalDataProfile="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:elx="http://www.tibco.com/EnumLiteralExt" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0 pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_AgDz8I0UEemH3_ZpSP5OIA" name="com.example.caseclasscompositionvalidationtest">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AgDz8Y0UEemH3_ZpSP5OIA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AgDz8o0UEemH3_ZpSP5OIA" key="author" value="aallway"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AgDz840UEemH3_ZpSP5OIA" key="created" value="1560348868399"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AgDz9I0UEemH3_ZpSP5OIA" key="version" value="6"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_r3KycI0VEemFSJi5ncrI2A" name="BADCase1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sZpNYI0VEemFSJi5ncrI2A" name="caseState1" type="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sZqbgI0VEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sZqbgY0VEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wM9uAI0VEemFSJi5ncrI2A" name="autoCaseIdentifier1" isReadOnly="true" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wM-8II0VEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wM-8IY0VEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T5OWII0WEemFSJi5ncrI2A" name="badCaseToCaseProperty" type="_RXbH040WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T5O9MY0WEemFSJi5ncrI2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T5O9Mo0WEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_tI8jYI0VEemFSJi5ncrI2A" name="Enumeration1">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tZgu8I0VEemFSJi5ncrI2A" name="ENUMLIT1" classifier="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tZhWAI0VEemFSJi5ncrI2A" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_tZhWAY0VEemFSJi5ncrI2A" value="ENUMLIT1"/>
+        </eAnnotations>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ttFyQI0VEemFSJi5ncrI2A" name="ENUMLIT2" classifier="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ttHAYI0VEemFSJi5ncrI2A" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_ttHAYY0VEemFSJi5ncrI2A" value="ENUMLIT2"/>
+        </eAnnotations>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_w92_cI0VEemFSJi5ncrI2A" name="BADClass1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xjxv8I0VEemFSJi5ncrI2A" name="attribute1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xjyXAY0VEemFSJi5ncrI2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xjyXAo0VEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_97Nmso0VEemFSJi5ncrI2A" name="badcase1" type="_r3KycI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1?" aggregation="composite" association="_97M_oI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition?">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_97Nms40VEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_97NmtI0VEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-45W8I0VEemFSJi5ncrI2A" name="badCaseAttribute" type="_r3KycI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-45-AY0VEemFSJi5ncrI2A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-46lEI0VEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_97M_oI0VEemFSJi5ncrI2A" name="Badcaseclasscomposition" memberEnd="_97M_oY0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition%3a%3abadclass1? _97Nmso0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3abadcase1?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_97M_oY0VEemFSJi5ncrI2A" name="badclass1" type="_w92_cI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1?" association="_97M_oI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition?">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_97NmsI0VEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_97NmsY0VEemFSJi5ncrI2A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_RXbH040WEemFSJi5ncrI2A" name="BADCase2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RXbH1I0WEemFSJi5ncrI2A" name="caseState1" type="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RXbH1Y0WEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RXbH1o0WEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RXbH140WEemFSJi5ncrI2A" name="autoCaseIdentifier1" isReadOnly="true" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RXbH2I0WEemFSJi5ncrI2A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RXbH2Y0WEemFSJi5ncrI2A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_AmKb8I0UEemH3_ZpSP5OIA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AmM4MI0UEemH3_ZpSP5OIA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_20kHsWs1EeC_hvle0zpSaA?BOM%20Global%20Data%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_r3LZgI0VEemFSJi5ncrI2A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r3LZgY0VEemFSJi5ncrI2A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_AgIFYI0UEemH3_ZpSP5OIA" type="Business Object Model" element="_AgDz8I0UEemH3_ZpSP5OIA?com.example.caseclasscompositionvalidationtest?" name="CaseClassCompositionValidationTest.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_rQw5wI0VEemFSJi5ncrI2A" type="1007" element="_AgDz8I0UEemH3_ZpSP5OIA?com.example.caseclasscompositionvalidationtest?">
+      <children xmi:type="notation:Node" xmi:id="_rQw5xI0VEemFSJi5ncrI2A" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_rQw5xY0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_rQw5xo0VEemFSJi5ncrI2A" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_rQw5x40VEemFSJi5ncrI2A" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_rQw5yI0VEemFSJi5ncrI2A" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_rQw5yY0VEemFSJi5ncrI2A" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_rQw5yo0VEemFSJi5ncrI2A" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_rQxg0I0VEemFSJi5ncrI2A" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_rQxg0Y0VEemFSJi5ncrI2A" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_rQxg0o0VEemFSJi5ncrI2A" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rQxg040VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_rQxg1I0VEemFSJi5ncrI2A" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rQxg1Y0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rQxg1o0VEemFSJi5ncrI2A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rQw5wY0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rQw5wo0VEemFSJi5ncrI2A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rQw5w40VEemFSJi5ncrI2A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_r31g0I0VEemFSJi5ncrI2A" type="1002" element="_r3KycI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1?">
+      <children xmi:type="notation:Node" xmi:id="_r31g1I0VEemFSJi5ncrI2A" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_r31g1Y0VEemFSJi5ncrI2A" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_r31g1o0VEemFSJi5ncrI2A" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_r31g140VEemFSJi5ncrI2A" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_sZte0I0VEemFSJi5ncrI2A" type="2001" element="_sZpNYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3acaseState1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_sZte0Y0VEemFSJi5ncrI2A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_wNDNkI0VEemFSJi5ncrI2A" type="2001" element="_wM9uAI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3aautoCaseIdentifier1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_wNDNkY0VEemFSJi5ncrI2A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_T5TOoI0WEemFSJi5ncrI2A" type="2001" element="_T5OWII0WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3abadCaseToCaseProperty?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_T5TOoY0WEemFSJi5ncrI2A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_r31g2I0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_r31g2Y0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_r31g2o0VEemFSJi5ncrI2A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_r31g240VEemFSJi5ncrI2A" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_r31g3I0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_r31g3Y0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_r31g3o0VEemFSJi5ncrI2A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_r31g0Y0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_r31g0o0VEemFSJi5ncrI2A" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r31g040VEemFSJi5ncrI2A" x="265" y="166"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_tJLz8I0VEemFSJi5ncrI2A" type="1004" element="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?">
+      <children xmi:type="notation:Node" xmi:id="_tJLz9I0VEemFSJi5ncrI2A" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_tJMbAI0VEemFSJi5ncrI2A" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_tJMbAY0VEemFSJi5ncrI2A" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_tJMbAo0VEemFSJi5ncrI2A" type="5004">
+        <children xmi:type="notation:Node" xmi:id="_tZlncI0VEemFSJi5ncrI2A" type="2003" element="_tZgu8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_tZlncY0VEemFSJi5ncrI2A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ttKDsI0VEemFSJi5ncrI2A" type="2003" element="_ttFyQI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT2?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ttKDsY0VEemFSJi5ncrI2A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_tJMbA40VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_tJMbBI0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_tJMbBY0VEemFSJi5ncrI2A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_tJLz8Y0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_tJLz8o0VEemFSJi5ncrI2A" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tJLz840VEemFSJi5ncrI2A" x="880" y="75"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_w-G3EI0VEemFSJi5ncrI2A" type="1002" element="_w92_cI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1?">
+      <children xmi:type="notation:Node" xmi:id="_w-G3FI0VEemFSJi5ncrI2A" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_w-G3FY0VEemFSJi5ncrI2A" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_w-G3Fo0VEemFSJi5ncrI2A" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_w-G3F40VEemFSJi5ncrI2A" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_xj1aUI0VEemFSJi5ncrI2A" type="2001" element="_xjxv8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3aattribute1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_xj1aUY0VEemFSJi5ncrI2A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-4-PcI0VEemFSJi5ncrI2A" type="2001" element="_-45W8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3abadCaseAttribute?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-4-PcY0VEemFSJi5ncrI2A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_w-G3GI0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_w-G3GY0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_w-G3Go0VEemFSJi5ncrI2A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_w-G3G40VEemFSJi5ncrI2A" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_w-G3HI0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_w-G3HY0VEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_w-G3Ho0VEemFSJi5ncrI2A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_w-G3EY0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_w-G3Eo0VEemFSJi5ncrI2A" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w-G3E40VEemFSJi5ncrI2A" x="761" y="252"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_RXbHwI0WEemFSJi5ncrI2A" type="1002" element="_RXbH040WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2?">
+      <children xmi:type="notation:Node" xmi:id="_RXbHwY0WEemFSJi5ncrI2A" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_RXbHwo0WEemFSJi5ncrI2A" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_RXbHw40WEemFSJi5ncrI2A" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_RXbHxI0WEemFSJi5ncrI2A" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_RXbHxY0WEemFSJi5ncrI2A" type="2001" element="_RXbH1I0WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3acaseState1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RXbHxo0WEemFSJi5ncrI2A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RXbHx40WEemFSJi5ncrI2A" type="2001" element="_RXbH140WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3aautoCaseIdentifier1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RXbHyI0WEemFSJi5ncrI2A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_RXbHyY0WEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_RXbHyo0WEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_RXbHy40WEemFSJi5ncrI2A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_RXbHzI0WEemFSJi5ncrI2A" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_RXbHzY0WEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_RXbHzo0WEemFSJi5ncrI2A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_RXbHz40WEemFSJi5ncrI2A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_RXbH0I0WEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_RXbH0Y0WEemFSJi5ncrI2A" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RXbH0o0WEemFSJi5ncrI2A" x="280" y="392"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_AgIFYY0UEemH3_ZpSP5OIA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_AgIFYo0UEemH3_ZpSP5OIA"/>
+    <edges xmi:type="notation:Edge" xmi:id="_97abAI0VEemFSJi5ncrI2A" type="3002" element="_97M_oI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition?" source="_w-G3EI0VEemFSJi5ncrI2A" target="_r31g0I0VEemFSJi5ncrI2A">
+      <children xmi:type="notation:Node" xmi:id="_97abBI0VEemFSJi5ncrI2A" type="4010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97abBY0VEemFSJi5ncrI2A" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_97abBo0VEemFSJi5ncrI2A" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97abB40VEemFSJi5ncrI2A" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_97abCI0VEemFSJi5ncrI2A" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97abCY0VEemFSJi5ncrI2A" y="15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_97abCo0VEemFSJi5ncrI2A" type="4013">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97abC40VEemFSJi5ncrI2A" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_97abDI0VEemFSJi5ncrI2A" type="4014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97abDY0VEemFSJi5ncrI2A" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_97abAY0VEemFSJi5ncrI2A"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_97abAo0VEemFSJi5ncrI2A" fontName="Segoe UI" fontHeight="10"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_97abA40VEemFSJi5ncrI2A" points="[-61, -29, 187, 88]$[-244, -153, 4, -36]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_97cQMI0VEemFSJi5ncrI2A" id="(0.9047619047619048,0.30833333333333335)"/>
+    </edges>
+  </notation:Diagram>
+  <BOMGlobalDataProfile:Case xmi:id="_r3KycY0VEemFSJi5ncrI2A" base_Class="_r3KycI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_r3MAkI0VEemFSJi5ncrI2A" displayLabel="BAD Case1" base_NamedElement="_r3KycI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_sZp0cI0VEemFSJi5ncrI2A" base_Property="_sZpNYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3acaseState1?" terminalStates="_ttFyQI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sZp0cY0VEemFSJi5ncrI2A" displayLabel="caseState1" base_NamedElement="_sZpNYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3acaseState1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tI9KcI0VEemFSJi5ncrI2A" displayLabel="Enumeration1" base_NamedElement="_tI8jYI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tZgu8Y0VEemFSJi5ncrI2A" displayLabel="ENUMLIT1" base_NamedElement="_tZgu8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ttGZUI0VEemFSJi5ncrI2A" displayLabel="ENUMLIT2" base_NamedElement="_ttFyQI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT2?"/>
+  <BOMGlobalDataProfile:AutoCaseIdentifier xmi:id="_wM-VEI0VEemFSJi5ncrI2A" base_Property="_wM9uAI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3aautoCaseIdentifier1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wM-VEY0VEemFSJi5ncrI2A" displayLabel="autoCaseIdentifier1" base_NamedElement="_wM9uAI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3aautoCaseIdentifier1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_w92_cY0VEemFSJi5ncrI2A" displayLabel="BAD Class1" base_NamedElement="_w92_cI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_xjyXAI0VEemFSJi5ncrI2A" displayLabel="attribute1" base_NamedElement="_xjxv8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3aattribute1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_97ONwI0VEemFSJi5ncrI2A" displayLabel="BAD Class1" base_NamedElement="_97M_oY0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition%3a%3abadclass1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_97ONwY0VEemFSJi5ncrI2A" displayLabel="BAD Case1" base_NamedElement="_97Nmso0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3abadcase1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-45-AI0VEemFSJi5ncrI2A" displayLabel="badCaseAttribute" base_NamedElement="_-45W8I0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADClass1%3a%3abadCaseAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CS1uQI0WEemFSJi5ncrI2A" displayLabel="Bad case class composition" base_NamedElement="_97M_oI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBadcaseclasscomposition?"/>
+  <BOMGlobalDataProfile:Case xmi:id="_RXagtI0WEemFSJi5ncrI2A" base_Class="_RXbH040WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2?" summaryAttributes=""/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_RXagtY0WEemFSJi5ncrI2A" base_Property="_RXbH1I0WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3acaseState1?" terminalStates="_ttFyQI0VEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aEnumeration1%3a%3aENUMLIT2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RXagto0WEemFSJi5ncrI2A" displayLabel="caseState1" base_NamedElement="_RXbH1I0WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3acaseState1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RXagt40WEemFSJi5ncrI2A" displayLabel="autoCaseIdentifier1" base_NamedElement="_RXbH140WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3aautoCaseIdentifier1?"/>
+  <BOMGlobalDataProfile:AutoCaseIdentifier xmi:id="_RXaguI0WEemFSJi5ncrI2A" base_Property="_RXbH140WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2%3a%3aautoCaseIdentifier1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RXaguY0WEemFSJi5ncrI2A" displayLabel="BAD Case2" base_NamedElement="_RXbH040WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_T5O9MI0WEemFSJi5ncrI2A" displayLabel="badCaseToCaseProperty" base_NamedElement="_T5OWII0WEemFSJi5ncrI2A?com.example.caseclasscompositionvalidationtest%3a%3aBADCase1%3a%3abadCaseToCaseProperty?"/>
+</xmi:XMI>
