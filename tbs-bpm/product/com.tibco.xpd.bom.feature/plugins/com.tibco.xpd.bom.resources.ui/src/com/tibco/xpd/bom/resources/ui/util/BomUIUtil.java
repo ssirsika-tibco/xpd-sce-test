@@ -3,8 +3,10 @@
  */
 package com.tibco.xpd.bom.resources.ui.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
@@ -200,6 +202,7 @@ public class BomUIUtil {
 
         PickerTypeQuery query = null;
         IFilter[] filters = null;
+        List<IFilter> filtersList = new ArrayList<IFilter>();
 
         if (context instanceof PrimitiveType && resourceFilter != null) {
             query = new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE);
@@ -218,17 +221,17 @@ public class BomUIUtil {
                             BOMTypeQuery.GLOBAL_CLASS_TYPE,
                             BOMTypeQuery.ENUMERATION_TYPE);
 
-            filters = new IFilter[] { new BOMBasePrimitiveTypesFilter() };
+            filtersList.add(new BOMBasePrimitiveTypesFilter());
 
             if (GlobalDataProfileManager.getInstance()
                     .isAutoCaseIdentifier(prop)) {
                 // Pass in if it is an auto case identifier or not
-                filters[filters.length] = new OnCaseIdentifierFilter(true);
+                filtersList.add(new OnCaseIdentifierFilter(true));
             } else if (GlobalDataProfileManager.getInstance().isCID(prop)
                     || GlobalDataProfileManager.getInstance()
                             .isCompositeCaseIdentifier(prop)) {
                 // Pass in if it is an auto case identifier or not
-                filters[filters.length] = new OnCaseIdentifierFilter(false);
+                filtersList.add(new OnCaseIdentifierFilter(false));
             } else if (GlobalDataProfileManager.getInstance().isCaseState(prop)) {
                 // Case State attributes can only be enumerations
                 query = new BOMTypeQuery(BOMTypeQuery.ENUMERATION_TYPE);
@@ -257,6 +260,9 @@ public class BomUIUtil {
                 return null;
             }
         }
+
+        filters = new IFilter[filtersList.size()];
+        filtersList.toArray(filters);
 
         @SuppressWarnings("deprecation")
         Object result =

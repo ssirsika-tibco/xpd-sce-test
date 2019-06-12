@@ -10,6 +10,7 @@ import java.util.HashSet;
 import org.eclipse.jface.viewers.IFilter;
 
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.resources.ui.picker.PickerItemImpl;
 
 /**
@@ -25,9 +26,11 @@ public class BOMBasePrimitiveTypesFilter implements IFilter {
      * The base primitive types that aren't supported in ACE.
      */
     private static final String[] UNSUPPORTED_BASE_PRIMITIVE_TYPE_NAMES = {
-            "Attachment", //$NON-NLS-1$
-            "Duration", "ID", "Object", "Integer" }; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$//$NON-NLS-4$
-
+            PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
+            PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+            PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+            PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME,
+            PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME };
 
     /**
      * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
