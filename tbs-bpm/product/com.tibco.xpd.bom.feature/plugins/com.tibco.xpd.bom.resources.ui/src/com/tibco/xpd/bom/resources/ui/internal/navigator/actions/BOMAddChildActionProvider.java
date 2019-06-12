@@ -76,9 +76,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
      * Default constructor.
      */
     public BOMAddChildActionProvider() {
-        activePart =
-                PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-                        .getActivePage().getActivePart();
+        activePart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+                .getActivePage().getActivePart();
     }
 
     @Override
@@ -90,12 +89,11 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
     @Override
     public void fillContextMenu(IMenuManager menu) {
 
-        MenuManager subMenu =
-                new MenuManager(
-                        Messages.BOMAddChildActionProvider_addChild_menu);
+        MenuManager subMenu = new MenuManager(
+                Messages.BOMAddChildActionProvider_addChild_menu);
         WorkingCopy wc = null;
-        if (getContext() != null
-                && getContext().getSelection() instanceof IStructuredSelection) {
+        if (getContext() != null && getContext()
+                .getSelection() instanceof IStructuredSelection) {
 
             IStructuredSelection selection =
                     (IStructuredSelection) getContext().getSelection();
@@ -126,9 +124,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
 
                         for (Object descriptor : descriptors) {
 
-                            NewChildAction childAct =
-                                    new NewChildAction(activePart, selection,
-                                            descriptor);
+                            NewChildAction childAct = new NewChildAction(
+                                    activePart, selection, descriptor);
 
                             if (descriptor instanceof CommandParameter) {
                                 CommandParameter cp =
@@ -142,11 +139,11 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                                      * Make sure a Property is displayed as
                                      * "Attribute"
                                      */
-                                    if (feature
-                                            .getEClass()
-                                            .equals(UMLPackage.Literals.PROPERTY)) {
+                                    if (feature.getEClass().equals(
+                                            UMLPackage.Literals.PROPERTY)) {
 
-                                        childAct.setText(Messages.BOMAddChildActionProvider_AddChildAttribute_menu);
+                                        childAct.setText(
+                                                Messages.BOMAddChildActionProvider_AddChildAttribute_menu);
                                     }
 
                                     /*
@@ -160,7 +157,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                                         Package pkg = (Package) sel;
                                         if (FirstClassProfileManager
                                                 .getInstance()
-                                                .isFirstClassProfileApplied(pkg.getModel())) {
+                                                .isFirstClassProfileApplied(
+                                                        pkg.getModel())) {
 
                                             setFirstClassLabelAndIcon(childAct,
                                                     pkg.getModel());
@@ -213,7 +211,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
      * @param childAct
      * @param mod
      */
-    private void setFirstClassLabelAndIcon(CreateChildAction childAct, Model mod) {
+    private void setFirstClassLabelAndIcon(CreateChildAction childAct,
+            Model mod) {
 
         /* Set the Label */
         childAct.setText(Messages.BOMAddChildActionProvider_AddChildClass_menu);
@@ -221,9 +220,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
         /* Then the icon */
         String imgURI = null;
 
-        IFirstClassProfileExtension ext =
-                FirstClassProfileManager.getInstance()
-                        .getAppliedFirstClassProfile(mod);
+        IFirstClassProfileExtension ext = FirstClassProfileManager.getInstance()
+                .getAppliedFirstClassProfile(mod);
         if (ext != null) {
             Profile profile = ext.getProfile();
             if (profile != null) {
@@ -232,9 +230,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                 imgURI = BOMProfileUtils.getStereotypeIconURI(type, profile);
 
                 if (imgURI != null) {
-                    ImageDescriptor desc =
-                            Activator.getDefault().getImageRegistry()
-                                    .getDescriptor(imgURI);
+                    ImageDescriptor desc = Activator.getDefault()
+                            .getImageRegistry().getDescriptor(imgURI);
 
                     if (desc == null) {
                         URL url;
@@ -281,35 +278,21 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                  * need to add any global data objects that can be added to a
                  * model
                  */
-                IClientContext cc =
-                        ClientContextManager.getInstance()
-                                .getClientContextFor((EObject) sel);
+                IClientContext cc = ClientContextManager.getInstance()
+                        .getClientContextFor((EObject) sel);
 
-                Stereotype stereotype =
-                        GlobalDataProfileManager.getInstance()
-                                .getStereotype(StereotypeKind.CASE);
+                Stereotype stereotype = GlobalDataProfileManager.getInstance()
+                        .getStereotype(StereotypeKind.CASE);
 
-                CommandParameter commandParameter =
-                        new CommandParameter(null, ElementTypeRegistry
-                                .getInstance()
+                CommandParameter commandParameter = new CommandParameter(null,
+                        ElementTypeRegistry.getInstance()
                                 .getElementType(UMLPackage.Literals.CLASS, cc),
-                                null);
+                        null);
 
-                NewChildAction childAct2 =
-                        new NewChildAction(activePart, selection,
-                                commandParameter, stereotype);
+                NewChildAction childAct2 = new NewChildAction(activePart,
+                        selection, commandParameter, stereotype);
                 childAct2.setText("Case");
                 subMenu.add(childAct2);
-
-                /* Also add the global class */
-                Stereotype globalStereotype =
-                        GlobalDataProfileManager.getInstance()
-                                .getStereotype(StereotypeKind.GLOBAL);
-                NewChildAction childAct3 =
-                        new NewChildAction(activePart, selection,
-                                commandParameter, globalStereotype);
-                childAct3.setText("Global");
-                subMenu.add(childAct3);
 
                 /*
                  * Working copy is read only if the project is pre-compiled.
@@ -323,11 +306,9 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                 if (isWorkingCopyReadOnly) {
 
                     childAct2.setEnabled(false);
-                    childAct3.setEnabled(false);
                 } else {
 
                     childAct2.setEnabled(true);
-                    childAct3.setEnabled(true);
                 }
             }
         }
@@ -347,35 +328,30 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                 if (BOMGlobalDataUtils.isGlobalDataBOM(model)
                         && BOMGlobalDataUtils.isCaseClass((Class) sel)) {
 
-                    IClientContext cc =
-                            ClientContextManager.getInstance()
-                                    .getClientContextFor((EObject) sel);
+                    IClientContext cc = ClientContextManager.getInstance()
+                            .getClientContextFor((EObject) sel);
 
-                    Stereotype stereotypeCID =
-                            GlobalDataProfileManager
-                                    .getInstance()
-                                    .getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER);
+                    Stereotype stereotypeCID = GlobalDataProfileManager
+                            .getInstance()
+                            .getStereotype(StereotypeKind.AUTO_CASE_IDENTIFIER);
 
-                    CommandParameter commandParameter =
-                            new CommandParameter(
-                                    null,
-                                    ElementTypeRegistry
-                                            .getInstance()
-                                            .getElementType(UMLPackage.Literals.PROPERTY,
-                                                    cc), null);
+                    CommandParameter commandParameter = new CommandParameter(
+                            null,
+                            ElementTypeRegistry.getInstance().getElementType(
+                                    UMLPackage.Literals.PROPERTY,
+                                    cc),
+                            null);
 
-                    NewChildAction childAct2 =
-                            new NewChildAction(activePart, selection,
-                                    commandParameter, stereotypeCID);
+                    NewChildAction childAct2 = new NewChildAction(activePart,
+                            selection, commandParameter, stereotypeCID);
                     childAct2.setText(Messages.CaseIdentifier_label);
                     subMenu.add(childAct2);
 
                     Stereotype stereotypeCaseState =
                             GlobalDataProfileManager.getInstance()
                                     .getStereotype(StereotypeKind.CASE_STATE);
-                    NewChildAction childAct3 =
-                            new NewChildAction(activePart, selection,
-                                    commandParameter, stereotypeCaseState);
+                    NewChildAction childAct3 = new NewChildAction(activePart,
+                            selection, commandParameter, stereotypeCaseState);
                     childAct3.setText(Messages.CaseState_label);
                     subMenu.add(childAct3);
 
@@ -421,7 +397,8 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
         }
 
         public NewChildAction(IWorkbenchPart workbenchPart,
-                ISelection selection, Object descriptor, Stereotype stereotype) {
+                ISelection selection, Object descriptor,
+                Stereotype stereotype) {
             super(workbenchPart, selection, descriptor);
             this.stereotype = stereotype;
 
@@ -445,86 +422,76 @@ public class BOMAddChildActionProvider extends CommonActionProvider {
                     super.createActionCommand(editingDomain, collection);
 
             // Create a new command to set the stereo type
-            RecordingCommand stereoCommand =
-                    new RecordingCommand(
-                            (TransactionalEditingDomain) editingDomain) {
+            RecordingCommand stereoCommand = new RecordingCommand(
+                    (TransactionalEditingDomain) editingDomain) {
 
-                        @Override
-                        protected void doExecute() {
-                            // Check if there is a stereotype to be applied
-                            if (stereotype != null) {
-                                Collection<?> result = command.getResult();
-                                if (result != null && !result.isEmpty()) {
-                                    for (Object object : result) {
-                                        if (object instanceof Element) {
-                                            ((Element) object)
-                                                    .applyStereotype(stereotype);
-                                        }
-                                        // If it's a property and the stereo
-                                        // type is set then we know that it is
-                                        // an auto-case identifier, and we need
-                                        // to set the correct restrictions
-                                        if (object instanceof Property) {
-                                            Property prop = (Property) object;
-                                            if (BOMGlobalDataUtils
-                                                    .isAutoCID(prop)) {
-                                                BOMGlobalDataUtils
-                                                        .setAutoCaseIdentifierRestrictions(prop,
-                                                                XpdResourcesPlugin
-                                                                        .getDefault()
-                                                                        .getEditingDomain()
-                                                                        .getResourceSet());
-                                            }
-
-                                            // Make sure first character is
-                                            // lower case
-                                            String stereoName =
-                                                    stereotype.getName();
-                                            String defaultName =
-                                                    stereoName
-                                                            .replace(stereoName
-                                                                    .charAt(0),
-                                                                    Character
-                                                                            .toLowerCase(stereoName
-                                                                                    .charAt(0)));
-
-                                            defaultName =
-                                                    UML2ModelUtil
-                                                            .createUniquePropertyName(prop
-                                                                    .getClass_(),
-                                                                    defaultName);
-                                            // "autoCaseIdentifier");
-                                            prop.setName(defaultName);
-                                            // Set the display label
-                                            PrimitivesUtil
-                                                    .setDisplayLabel(prop,
-                                                            defaultName,
-                                                            false);
-                                        }
-
-                                        // If we have a Case or Global class
-                                        // then we need to check to ensure that
-                                        // we set the correct default name
-                                        if (object instanceof Class) {
-                                            Class theClass = ((Class) object);
-                                            String defaultName =
-                                                    UML2ModelUtil
-                                                            .createUniqueElementName(theClass
-                                                                    .getPackage(),
-                                                                    stereotype
-                                                                            .getLabel());
-                                            theClass.setName(defaultName);
-                                            // Set the display label
-                                            PrimitivesUtil
-                                                    .setDisplayLabel(theClass,
-                                                            defaultName,
-                                                            false);
-                                        }
+                @Override
+                protected void doExecute() {
+                    // Check if there is a stereotype to be applied
+                    if (stereotype != null) {
+                        Collection<?> result = command.getResult();
+                        if (result != null && !result.isEmpty()) {
+                            for (Object object : result) {
+                                if (object instanceof Element) {
+                                    ((Element) object)
+                                            .applyStereotype(stereotype);
+                                }
+                                // If it's a property and the stereo
+                                // type is set then we know that it is
+                                // an auto-case identifier, and we need
+                                // to set the correct restrictions
+                                if (object instanceof Property) {
+                                    Property prop = (Property) object;
+                                    if (BOMGlobalDataUtils.isAutoCID(prop)) {
+                                        BOMGlobalDataUtils
+                                                .setAutoCaseIdentifierRestrictions(
+                                                        prop,
+                                                        XpdResourcesPlugin
+                                                                .getDefault()
+                                                                .getEditingDomain()
+                                                                .getResourceSet());
                                     }
+
+                                    // Make sure first character is
+                                    // lower case
+                                    String stereoName = stereotype.getName();
+                                    String defaultName = stereoName.replace(
+                                            stereoName.charAt(0),
+                                            Character.toLowerCase(
+                                                    stereoName.charAt(0)));
+
+                                    defaultName = UML2ModelUtil
+                                            .createUniquePropertyName(
+                                                    prop.getClass_(),
+                                                    defaultName);
+                                    // "autoCaseIdentifier");
+                                    prop.setName(defaultName);
+                                    // Set the display label
+                                    PrimitivesUtil.setDisplayLabel(prop,
+                                            defaultName,
+                                            false);
+                                }
+
+                                // If we have a Case or Global class
+                                // then we need to check to ensure that
+                                // we set the correct default name
+                                if (object instanceof Class) {
+                                    Class theClass = ((Class) object);
+                                    String defaultName = UML2ModelUtil
+                                            .createUniqueElementName(
+                                                    theClass.getPackage(),
+                                                    stereotype.getLabel());
+                                    theClass.setName(defaultName);
+                                    // Set the display label
+                                    PrimitivesUtil.setDisplayLabel(theClass,
+                                            defaultName,
+                                            false);
                                 }
                             }
                         }
-                    };
+                    }
+                }
+            };
 
             // Build up a compound command with the create and then the
             // stereotype added

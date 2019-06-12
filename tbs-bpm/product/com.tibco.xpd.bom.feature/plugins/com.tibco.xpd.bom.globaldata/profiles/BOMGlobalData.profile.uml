@@ -28,6 +28,12 @@
       </eClassifiers>
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_V_RKYMkVEeKrMZ9I529TSA" name="AutoCaseIdentifier" eSuperTypes="_-r7KHXyPEeCumvZ6xHSUiw">
         <eAnnotations xmi:id="_V_RKYckVEeKrMZ9I529TSA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_c67SwMkGEeKrMZ9I529TSA"/>
+        <eAnnotations xmi:id="_V_RKYskVEeKrMZ9I529TSA" source="duplicates">
+          <contents xmi:type="ecore:EReference" xmi:id="_V_RKY8kVEeKrMZ9I529TSA" name="base_Property" ordered="false" lowerBound="1">
+            <eAnnotations xmi:id="_V_RKZMkVEeKrMZ9I529TSA" source="redefines" references="_-r7KIHyPEeCumvZ6xHSUiw"/>
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </contents>
+        </eAnnotations>
         <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wmRyE229EemOePsQ_uItBw" name="minDigits" ordered="false" lowerBound="1" defaultValueLiteral="0">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
         </eStructuralFeatures>
@@ -37,12 +43,6 @@
         <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wmRyF229EemOePsQ_uItBw" name="suffix" ordered="false">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
         </eStructuralFeatures>
-        <eAnnotations xmi:id="_V_RKYskVEeKrMZ9I529TSA" source="duplicates">
-          <contents xmi:type="ecore:EReference" xmi:id="_V_RKY8kVEeKrMZ9I529TSA" name="base_Property" ordered="false" lowerBound="1">
-            <eAnnotations xmi:id="_V_RKZMkVEeKrMZ9I529TSA" source="redefines" references="_-r7KIHyPEeCumvZ6xHSUiw"/>
-            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-          </contents>
-        </eAnnotations>
       </eClassifiers>
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_pL-N3zfMEeOlpOpA6dQeDw" name="CompositeCaseIdentifier" eSuperTypes="_-r7KHXyPEeCumvZ6xHSUiw">
         <eAnnotations xmi:id="_pL-N4DfMEeOlpOpA6dQeDw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_tl34IDfKEeOlpOpA6dQeDw"/>
@@ -133,7 +133,7 @@
   <packagedElement xmi:type="uml:Extension" xmi:id="_GvkWYGs3EeC_hvle0zpSaA" name="Class_Case" memberEnd="_GvkWYWs3EeC_hvle0zpSaA _GvkWYms3EeC_hvle0zpSaA">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_GvkWYWs3EeC_hvle0zpSaA" name="extension_Case" type="_DvOK0Gs3EeC_hvle0zpSaA" aggregation="composite" association="_GvkWYGs3EeC_hvle0zpSaA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Stereotype" xmi:id="_0uFG4Gs2EeC_hvle0zpSaA" name="Global">
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_0uFG4Gs2EeC_hvle0zpSaA" name="Global" visibility="protected">
     <ownedAttribute xmi:id="_ALas4ms3EeC_hvle0zpSaA" name="base_Class" association="_ALas4Gs3EeC_hvle0zpSaA">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
     </ownedAttribute>

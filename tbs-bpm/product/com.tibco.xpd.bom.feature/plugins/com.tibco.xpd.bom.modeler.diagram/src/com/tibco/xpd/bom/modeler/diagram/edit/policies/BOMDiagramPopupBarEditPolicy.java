@@ -55,7 +55,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
             new HashMap<ImageDescriptor, Image>();
 
     @Override
-    protected void fillWithPaletteToolsInContainer(PaletteContainer palContainer) {
+    protected void fillWithPaletteToolsInContainer(
+            PaletteContainer palContainer) {
 
         // Check to see if this is a Global Data palette, in which case will
         // will add the correct entries to the palette
@@ -69,7 +70,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
 
         // If this is a first class profile model then process the elements
         // contributed by it, if any
-        if (FirstClassProfileEditPolicyHelper.getFirstClassProfile(getHost()) != null) {
+        if (FirstClassProfileEditPolicyHelper
+                .getFirstClassProfile(getHost()) != null) {
             if (palContainer != null) {
                 Collection<BOMNodeToolEntry> toolEntries =
                         FirstClassProfileEditPolicyHelper
@@ -85,9 +87,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
 
     @Override
     protected void populatePopupBars() {
-        IFirstClassProfileExtension ext =
-                FirstClassProfileEditPolicyHelper
-                        .getFirstClassProfile(getHost());
+        IFirstClassProfileExtension ext = FirstClassProfileEditPolicyHelper
+                .getFirstClassProfile(getHost());
         if (ext != null && !ext.showBomPaletteElements()) {
             // Only show the first-class extension elements
             fillPopupBarDescriptors();
@@ -108,26 +109,27 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
     }
 
     private boolean isMirrored() {
-        return ((getHost().getViewer().getControl().getStyle() & SWT.MIRRORED) != 0);
+        return ((getHost().getViewer().getControl().getStyle()
+                & SWT.MIRRORED) != 0);
     }
 
-    @SuppressWarnings("unchecked")//$NON-NLS-1$
+    @SuppressWarnings("unchecked") //$NON-NLS-1$
     private Image convert(Image srcImage) {
         int height = srcImage.getBounds().height;
         int width = srcImage.getBounds().width;
 
         ImageData srcImageData = srcImage.getImageData();
 
-        RGB backgroundRGB =
-                ((GraphicalEditPart) getHost()).getFigure()
-                        .getBackgroundColor().getRGB();
+        RGB backgroundRGB = ((GraphicalEditPart) getHost()).getFigure()
+                .getBackgroundColor().getRGB();
         int backgroundColor = srcImageData.palette.getPixel(backgroundRGB);
 
         // Set the transparent pixels to the background color
         int count = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (((srcImageData.maskData[count >> 3] >> (7 - (count % 8))) & 1) == 0) {
+                if (((srcImageData.maskData[count >> 3] >> (7 - (count % 8)))
+                        & 1) == 0) {
                     srcImageData.setPixel(x, y, backgroundColor);
                 }
                 count++;
@@ -135,9 +137,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
         }
         srcImageData.maskData = null;
 
-        Image convertedImage =
-                ImageDescriptor.createFromImageData(srcImageData)
-                        .createImage(srcImage.getDevice());
+        Image convertedImage = ImageDescriptor.createFromImageData(srcImageData)
+                .createImage(srcImage.getDevice());
 
         imagesToBeDisposed.add(convertedImage);
 
@@ -151,7 +152,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
      * @param palContainer
      * @return
      */
-    private boolean fillWithGloablDataPaletteTools(PaletteContainer palContainer) {
+    private boolean fillWithGloablDataPaletteTools(
+            PaletteContainer palContainer) {
         boolean isGlobalDataPalette = false;
 
         // Check if the BOM we are dealing with is a global data BOM
@@ -177,18 +179,10 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
         if ((editPart instanceof CanvasPackageEditPart)
                 || (editPart instanceof PackagePackageContentsCompartmentEditPart)) {
             // Need to add the Case Class icon
-            Stereotype caseStereotype =
-                    GlobalDataProfileManager.getInstance()
-                            .getStereotype(StereotypeKind.CASE);
+            Stereotype caseStereotype = GlobalDataProfileManager.getInstance()
+                    .getStereotype(StereotypeKind.CASE);
             addToolEntryToPopup(DynamicPaletteFactory
                     .createClassCreationTool(caseStereotype));
-
-            // Add the Global Class to the popup bar
-            Stereotype globalStereotype =
-                    GlobalDataProfileManager.getInstance()
-                            .getStereotype(StereotypeKind.GLOBAL);
-            addToolEntryToPopup(DynamicPaletteFactory
-                    .createClassCreationTool(globalStereotype));
         }
 
         return true;
@@ -205,9 +199,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
             CreationTool creationTool = (CreationTool) createTool;
             creationTool.setViewer(getHost().getViewer());
 
-            PopupBarTool theTracker =
-                    new PopupBarTool(getHost(),
-                            (CreateRequest) creationTool.createCreateRequest());
+            PopupBarTool theTracker = new PopupBarTool(getHost(),
+                    (CreateRequest) creationTool.createCreateRequest());
 
             // Get the image, we need to store this in the internal
             // list. Doing this enables us to keep track of the images
@@ -221,7 +214,8 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
                 if (image == null) {
                     image = smallIcon.createImage();
                     // Workaround for mirroring and SWT.ICON issue
-                    if (image != null && image.type == SWT.ICON && isMirrored()) {
+                    if (image != null && image.type == SWT.ICON
+                            && isMirrored()) {
                         image = convert(image);
                     }
                     images.put(smallIcon, image);
@@ -231,9 +225,9 @@ public class BOMDiagramPopupBarEditPolicy extends DiagramPopupBarEditPolicy {
             // Get the tooltip label
             String label = toolEntry.getLabel();
             if (label != null) {
-                label =
-                        String.format(Messages.BOMDiagramPopupBarEditPolicy_AddElement_tooltip,
-                                label);
+                label = String.format(
+                        Messages.BOMDiagramPopupBarEditPolicy_AddElement_tooltip,
+                        label);
             }
 
             addPopupBarDescriptor(creationTool.getElementType(),
