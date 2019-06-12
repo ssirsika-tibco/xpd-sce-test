@@ -294,11 +294,7 @@ public class CommonPickerDialog extends FilteredMultiSelectionDialog {
                             itemsProvider.getContent(typeQuery, monitor);
                     for (PickerItem item : itmesContent) {
                         // Filtering
-                        /*
-                         * ACE-481: Saket: Need to ensure that we only show the
-                         * Base Primitive Types that we support in ACE.
-                         */
-                        if (!isItemExcluded(item) && isBasePrimitiveTypeItemSupported(item)) {
+                        if (!isItemExcluded(item)) {
                             result.add(item);
                         }
                     }
@@ -308,38 +304,6 @@ public class CommonPickerDialog extends FilteredMultiSelectionDialog {
             contents = result.toArray(new PickerItem[result.size()]);
         }
         return contents;
-    }
-
-    /**
-     * Return <code>true</code> if the specified picker item is one of the Base
-     * Primitive Types that we support in ACE, <code>false</code> otherwise.
-     * 
-     * @param item
-     * 
-     * @return <code>true</code> if the specified picker item is one of the Base
-     *         Primitive Types that we support in ACE, <code>false</code>
-     *         otherwise.
-     */
-    private boolean isBasePrimitiveTypeItemSupported(PickerItem item) {
-        if ("BASE_PRIMITIVE".equals(item.getType())) { //$NON-NLS-1$
-            List<String> allowedBasePrimitiveTypes = new ArrayList<String>();
-            allowedBasePrimitiveTypes.add("Text"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Number"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Boolean"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Date"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Time"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Date Time and Time Zone"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("Performer"); //$NON-NLS-1$
-            allowedBasePrimitiveTypes.add("URI"); //$NON-NLS-1$
-
-            if (allowedBasePrimitiveTypes.contains(item.getName())) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return true;
-        }
     }
 
     private boolean isItemExcluded(PickerItem item) {
