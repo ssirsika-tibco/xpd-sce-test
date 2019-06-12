@@ -68,50 +68,16 @@ public class AssociatonSection extends AbstractGeneralSection {
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        createLabel(root,
-                toolkit,
-                Messages.AssociatonSection_navigability_label);
-        Composite navSection = createNavigabilitySection(root, toolkit);
-        setLayoutData(navSection);
+        /*
+         * ACE-481: Saket: User shouldn't be able to create any association type
+         * other than bi-directiona. Hence removing the navigability section.
+         */
 
         createLabel(root,
                 toolkit,
                 Messages.AssociatonSection_aggregationKind_label);
         Composite section = createKindSection(root, toolkit);
         setLayoutData(section);
-
-        return root;
-    }
-
-    /**
-     * Create the navigability options section.
-     * 
-     * @param parent
-     * @param toolkit
-     * @return
-     */
-    private Composite createNavigabilitySection(Composite parent,
-            XpdFormToolkit toolkit) {
-        Group root = toolkit.createGroup(parent, ""); //$NON-NLS-1$
-        RowLayout layout = new RowLayout();
-        layout.spacing = 20;
-        layout.marginHeight = 0;
-        layout.marginWidth = 0;
-        root.setLayout(layout);
-        navBtns = new Button[3];
-
-        navBtns[0] =
-                toolkit.createButton(root,
-                        Messages.AssociatonSection_biDirectional_radio,
-                        SWT.RADIO);
-        navBtns[0].setData(NavigabilityDirection.BIDIRECTIONAL);
-        manageControl(navBtns[0]);
-        navBtns[1] = toolkit.createButton(root, "", SWT.RADIO); //$NON-NLS-1$
-        navBtns[1].setData(NavigabilityDirection.SRC2TARGET);
-        manageControl(navBtns[1]);
-        navBtns[2] = toolkit.createButton(root, "", SWT.RADIO); //$NON-NLS-1$
-        navBtns[2].setData(NavigabilityDirection.TARGET2SRC);
-        manageControl(navBtns[2]);
 
         return root;
     }

@@ -87,8 +87,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
         List<CommandParameter> result = new ArrayList<CommandParameter>();
 
-        result.add(new CommandParameter(null, ElementTypeRegistry.getInstance()
-                .getElementType(UMLPackage.Literals.PACKAGE, cc), null));
+        /*
+         * ACE-481: Saket: Removed Package item from the Project Explorer context menu.
+         */
         result.add(new CommandParameter(null, ElementTypeRegistry.getInstance()
                 .getElementType(UMLPackage.Literals.CLASS, cc), null));
         result.add(new CommandParameter(null, ElementTypeRegistry.getInstance()
