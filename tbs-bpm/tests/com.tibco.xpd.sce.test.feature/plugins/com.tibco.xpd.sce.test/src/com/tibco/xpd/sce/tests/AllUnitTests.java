@@ -5,6 +5,7 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
@@ -15,10 +16,10 @@ import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
-import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
@@ -109,6 +110,11 @@ public class AllUnitTests {
          * Related Legacy Studio tests moved to SCE once proved work
          */
         suite.addTestSuite(WorkListFacadeGenTest.class);
+
+        /*
+         * BPEL transformation tests
+         */
+        suite.addTestSuite(BpelSharedResourceTest.class);
 
         return suite;
     }
