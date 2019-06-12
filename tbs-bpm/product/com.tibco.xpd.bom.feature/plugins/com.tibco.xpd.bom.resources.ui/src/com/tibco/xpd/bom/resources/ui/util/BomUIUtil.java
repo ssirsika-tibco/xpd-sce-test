@@ -203,24 +203,19 @@ public class BomUIUtil {
         if (context instanceof PrimitiveType && resourceFilter != null) {
             query = new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE);
         } else if (context instanceof PrimitiveType) {
-
-            /*
-             * ACE-481: Saket: Need to ensure that only Text, Number, Date,
-             * Time, Date-Time with Timezone, URI and Boolean simple types are
-             * supported for Primitive Type definitions.
-             */
             query =
-                    new BOMTypeQuery(BOMTypeQuery.BASE_PRIMITIVE_TYPE);
+                    new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE,
+                            BOMTypeQuery.BASE_PRIMITIVE_TYPE);
         } else if (context instanceof Property) {
             Property prop = (Property) context;
 
-            /*
-             * ACE-481: Saket: Need to ensure that only Text, Number, Date,
-             * Time, Date-Time with Timezone, URI and Boolean simple types are
-             * supported for attributes.
-             */
             query =
-                    new BOMTypeQuery(BOMTypeQuery.BASE_PRIMITIVE_TYPE);
+                    new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE,
+                            BOMTypeQuery.BASE_PRIMITIVE_TYPE,
+                            BOMTypeQuery.CLASS_TYPE,
+                            BOMTypeQuery.CASE_CLASS_TYPE,
+                            BOMTypeQuery.GLOBAL_CLASS_TYPE,
+                            BOMTypeQuery.ENUMERATION_TYPE);
 
             if (GlobalDataProfileManager.getInstance()
                     .isAutoCaseIdentifier(prop)) {
