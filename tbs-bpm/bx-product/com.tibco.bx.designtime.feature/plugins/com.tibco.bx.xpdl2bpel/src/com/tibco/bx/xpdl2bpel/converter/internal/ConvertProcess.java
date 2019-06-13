@@ -15,6 +15,8 @@ import org.eclipse.bpel.model.EventHandler;
 import org.eclipse.bpel.model.Sources;
 import org.eclipse.bpel.model.Targets;
 import org.eclipse.bpel.model.Variable;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -44,6 +46,8 @@ import com.tibco.bx.xpdl2bpel.util.ConverterUtil;
 import com.tibco.bx.xpdl2bpel.util.WSDLUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
+import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.Audit;
 import com.tibco.xpd.xpdExtension.AuditEvent;
 import com.tibco.xpd.xpdExtension.AuditEventType;
@@ -120,6 +124,15 @@ public class ConvertProcess {
             if (XpdModelType.SERVICE_PROCESS.equals(type)) {
             	BPELUtils.addExtensionAttribute(bpelProcess, SERVICE_PROCESS, "yes");
             }
+            
+            /*
+             * Sid ACE-1598 Add the dataFieldDescriptor information (this is a
+             * per-process JS file and class that is generated for runtime
+             * initialisation of the process data in a "data" object - and also
+             * does JSON to JS data coercion and initialisation of arrays etc.
+             */
+            addDataFieldDescriptorInfo(bpelProcess, process);
+            
             org.eclipse.bpel.model.Flow bpelFlow = convertFlowToBpel(context, analyzerProcess);
             if (context.isUseExplicitCompensation()) {
             	BPELUtils.addExtensionAttribute(bpelProcess, EXPLICIT_COMPENSATION_EXTENSION, "yes"); //$NON-NLS-1$
@@ -165,7 +178,52 @@ public class ConvertProcess {
         return bpelProcess;
     }
     
-	public static org.eclipse.bpel.model.Activity convertTaskToBpel(ConverterContext context, AnalyzerTask analyzerTask)
+    /**
+     * * Sid ACE-1598 Add the dataFieldDescriptor information (this is a
+     * per-process JS file and class that is generated for runtime
+     * initialisation of the process data in a "data" object - and also does
+     * JSON to JS data coercion and initialisation of arrays etc.
+     * 
+     * <li>tibex:dataFieldDescriptorScript="/process-js/<process-package-name>/<process-name>/<process-name>.js"</li> 
+     * <li>tibex:dataFieldDescriptorClass="<application-id>.<process-package-name>.<process-name>"</li>
+     * 
+     * @param bpelProcess
+     * @param process
+     */
+    private static void addDataFieldDescriptorInfo(
+            org.eclipse.bpel.model.Process bpelProcess, Process process) {
+        /*
+         * Build the path name.
+         * 
+         * /process-js/<process-package-name>/<process-name>/<process-name>.js
+         */
+        String pkgName = process.getPackage().getName();
+        String processName = process.getName();
+
+        IPath descriptorPath =
+                new Path(IPath.SEPARATOR + "process-js").append(pkgName) //$NON-NLS-1$ //$NON-NLS-2$
+                        .append(processName).append(processName + "." + "js"); //$NON-NLS-1$ //$NON-NLS-2$
+
+        BPELUtils.addExtensionAttribute(bpelProcess,
+                "dataFieldDescriptorScript", //$NON-NLS-1$
+                descriptorPath.toString());
+
+        /*
+         * Build the class name.
+         * 
+         * <application-id>.<process-package-name>.<process-name>
+         */
+        String projectId = ProjectUtil
+                .getProjectId(WorkingCopyUtil.getProjectFor(process));
+
+        String className = projectId + "." + pkgName + "." + processName; //$NON-NLS-1$ //$NON-NLS-2$
+
+        BPELUtils.addExtensionAttribute(bpelProcess,
+                "dataFieldDescriptorClass", //$NON-NLS-1$
+                className);
+    }
+
+    public static org.eclipse.bpel.model.Activity convertTaskToBpel(ConverterContext context, AnalyzerTask analyzerTask)
             throws ConversionException {
         org.eclipse.bpel.model.Activity result = null;
         boolean processLevel = false;

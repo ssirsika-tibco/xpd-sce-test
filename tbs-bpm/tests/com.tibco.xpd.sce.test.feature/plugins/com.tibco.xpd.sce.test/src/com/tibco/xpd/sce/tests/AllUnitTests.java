@@ -5,6 +5,7 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
@@ -121,6 +122,7 @@ public class AllUnitTests {
          * BPEL transformation tests
          */
         suite.addTestSuite(BpelSharedResourceTest.class);
+        suite.addTestSuite(BpelDataFieldDescriptorTest.class);
 
         return suite;
     }
