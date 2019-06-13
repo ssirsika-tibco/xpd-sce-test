@@ -1,6 +1,7 @@
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as installer
 LABEL maintainer="TIBCO Software Inc" \
-      image="Installation"
+      image="Installation" \
+      copyright="(c) TIBCO Software Inc 2004 - 2019. All rights reserved."
 
 # install required software
 # RUN yum -y -q install java-1.8.0-openjdk && \
@@ -25,7 +26,8 @@ RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 # start a fresh image - in order to reduce final size
 FROM centos:7.6.1810@sha256:6ae4cddb2b37f889afd576a17a5286b311dcbf10a904409670827f6f9b50065e as production
 LABEL maintainer="TIBCO Software Inc" \
-      image="Production"
+      image="Production" \
+      copyright="(c) TIBCO Software Inc 2004 - 2019. All rights reserved."
 
 # install required software and create studio user
 RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
