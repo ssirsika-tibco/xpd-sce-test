@@ -480,13 +480,17 @@
              severity="ERROR">
              <resolution
                 canApplyToMultiple="false"
-                id="com.tibco.xpd.n2.cds.validator.resolution.enum.superclass">
+                id="com.tibco.xpd.n2.cds.validator.resolution.remove.superclass">
           	 </resolution>
        </issue>
        <issue
              id="ace.bom.class.superclass"
              message="%ace.bom.class.superclass"
              severity="ERROR">
+             <resolution
+                canApplyToMultiple="false"
+                id="com.tibco.xpd.n2.cds.validator.resolution.remove.superclass">
+          	 </resolution>
        </issue>
        <issue
              id="ace.bom.class.operation"
@@ -729,9 +733,9 @@
       </resolution>
       
       <resolution
-            class="com.tibco.bds.designtime.validator.resolution.RemoveEnumSuperClassResolution"
-            id="com.tibco.xpd.n2.cds.validator.resolution.enum.superclass"
-            label="%resolution_RemoveEnumSuperClass_label">
+            class="com.tibco.bds.designtime.validator.resolution.RemoveGeneralizationResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.remove.superclass"
+            label="%resolution_RemoveGeneralization_label">
       </resolution>
       
    </extension>

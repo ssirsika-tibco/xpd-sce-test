@@ -18,7 +18,7 @@ import com.tibco.xpd.validation.resolutions.ResolutionException;
  * @author sajain
  * @since Jun 13, 2019
  */
-public class RemoveEnumSuperClassResolution
+public class RemoveGeneralizationResolution
         extends AbstractWorkingCopyResolution implements IResolution {
     @Override
     protected Command getResolutionCommand(EditingDomain domain, EObject target,
