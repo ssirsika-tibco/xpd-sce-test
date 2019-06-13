@@ -12,7 +12,7 @@ RUN yum -y -q install unzip  && \
 USER studio:studio
 
 # copy and un-zip installer into /tmp/tibco and run installation
-COPY TIB_business-studio-cloud-bpm-edition_?.?.?_linux24gl23_x86_64.zip /tmp/tibco/TIB_business-studio-cloud-bpm-edition.zip
+COPY TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip /tmp/tibco/TIB_business-studio-cloud-bpm-edition.zip
 COPY docker-studio.silent /tmp/tibco/
 WORKDIR /tmp/tibco
 RUN unzip -q TIB_business-studio-cloud-bpm-edition.zip && \
