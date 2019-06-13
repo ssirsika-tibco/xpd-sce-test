@@ -142,7 +142,10 @@ public class UMLPaletteFactory {
                 new PaletteDrawer(Messages.Children2Group_title);
         paletteContainer.setDescription(Messages.Children2Group_desc);
         paletteContainer.add(createAttribute1CreationTool());
-        paletteContainer.add(createOperation2CreationTool());
+        /*
+         * ACE-481: Saket: Operations not supported in ACE.
+         */
+        // paletteContainer.add(createOperation2CreationTool());
         paletteContainer.add(createEnumLiteral3CreationTool());
         return paletteContainer;
     }
@@ -156,9 +159,15 @@ public class UMLPaletteFactory {
         PaletteDrawer paletteContainer =
                 new PaletteDrawer(Messages.Relationships3Group_title);
         paletteContainer.setDescription(Messages.Relationships3Group_desc);
-        paletteContainer.add(createGeneralization1CreationTool());
+        /*
+         * ACE-481: Saket: Generalization not supported in ACE.
+         */
+        // paletteContainer.add(createGeneralization1CreationTool());
         paletteContainer.add(createAssociation2CreationTool());
-        paletteContainer.add(createAggregation3CreationTool());
+        /*
+         * ACE-481: Saket: Aggregation not supported in ACE.
+         */
+        // paletteContainer.add(createAggregation3CreationTool());
         paletteContainer.add(createComposition4CreationTool());
         paletteContainer.add(createAssociationEnd5CreationTool());
         return paletteContainer;
@@ -445,6 +454,7 @@ public class UMLPaletteFactory {
         /**
          * @generated
          */
+        @Override
         public Tool createTool() {
             Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
             tool.setProperties(getToolProperties());
@@ -474,6 +484,7 @@ public class UMLPaletteFactory {
         /**
          * @generated
          */
+        @Override
         public Tool createTool() {
             Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
             tool.setProperties(getToolProperties());
@@ -497,6 +508,7 @@ public class UMLPaletteFactory {
             elementType = type;
         }
 
+        @Override
         public Tool createTool() {
             // We create a custom tool to hold useful information
             // e.g. the aggregation kind of an association

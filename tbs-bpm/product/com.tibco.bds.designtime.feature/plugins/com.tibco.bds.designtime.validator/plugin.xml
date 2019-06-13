@@ -478,6 +478,10 @@
              id="ace.bom.enumeration.superclass"
              message="%ace.bom.enumeration.superclass"
              severity="ERROR">
+             <resolution
+                canApplyToMultiple="false"
+                id="com.tibco.xpd.n2.cds.validator.resolution.enum.superclass">
+          	 </resolution>
        </issue>
        <issue
              id="ace.bom.class.superclass"
@@ -722,6 +726,12 @@
             class="com.tibco.bds.designtime.validator.resolution.AttributeNumericDecPlacesResolution"
             id="com.tibco.xpd.n2.cds.validator.resolution.dec.places"
             label="%resolution_AttributeDecPlaces_label">
+      </resolution>
+      
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.RemoveEnumSuperClassResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.enum.superclass"
+            label="%resolution_RemoveEnumSuperClass_label">
       </resolution>
       
    </extension>

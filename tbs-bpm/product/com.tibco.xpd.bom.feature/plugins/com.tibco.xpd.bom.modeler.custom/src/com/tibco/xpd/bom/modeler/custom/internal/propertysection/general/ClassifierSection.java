@@ -54,10 +54,16 @@ public class ClassifierSection extends AbstractGeneralSection {
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        createLabel(root, toolkit, Messages.ClassifierSection_superclass_label);
+        // createLabel(root, toolkit,
+        // Messages.ClassifierSection_superclass_label);
         superClassCtrl =
                 new SuperclassPickerControl(root, toolkit, getEditingDomain());
         superClassCtrl.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        /*
+         * ACE-481: Saket: Need to hide the superclass control as we don't
+         * support generalization in ACE.
+         */
+        superClassCtrl.setVisible(false);
 
         return root;
     }
