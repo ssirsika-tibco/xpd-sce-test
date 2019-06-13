@@ -13,7 +13,9 @@ import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
+import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
+import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
@@ -76,6 +78,8 @@ public class AllUnitTests {
          * Javascript
          */
         suite.addTestSuite(JavascriptArrayValidTest.class);
+        suite.addTestSuite(JavascriptArrayInvalidTest.class);
+        suite.addTestSuite(JavascriptDateValidTest.class);
 
         /*
          * Validations
