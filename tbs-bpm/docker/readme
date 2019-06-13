@@ -1,0 +1,22 @@
+
+The docker image does not come as part of the Studio installation. Instead, it
+is necessary to generate the docker image on-site. To create the docker image
+you will need to install docker on your machine, and include it in the path.
+
+Once docker is installed, open a shell prompt and navigate to the Studio docker
+installer folder (<TIBCO Studio Home>/docker_cicd).
+
+You will require the Linux linux24gl23_x86_64 version of the Studio Installer
+(e.g. TIB_business-studio-cloud-bpm-edition_5.0.0_linux24gl23_x86_64.zip).
+
+You can copy the Studio Installer to the folder 
+    <TIBCO Studio Home>/docker_cicd/image_template
+or pass the its full file path to the build script.
+
+To build the docker image use the following command:
+
+./build-image <studio-installer>
+
+where:
+  <studio-installer> is the full path of the Linux Studio Installer file. This
+  is optional if you have already copied the file to the image_template folder.
