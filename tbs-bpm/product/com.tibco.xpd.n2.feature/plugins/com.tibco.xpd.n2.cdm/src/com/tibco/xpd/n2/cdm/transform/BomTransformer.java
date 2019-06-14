@@ -347,7 +347,7 @@ public class BomTransformer {
                 LinkEnd cdmEnd1 = cdmLink.getEnd1();
                 cdmEnd1.setName(bomEnd1.getName());
                 cdmEnd1.setLabel(getLabel(bomEnd1));
-                // TODO ACE-1621: the 'type' will be change to 'owner'.
+                // TODO ACE-1621: the 'type' should be changed to 'owner'.
                 cdmEnd1.setType(
                         transformType((Type) bomEnd1.getOwner(), bomEnd1));
                 cdmEnd1.setIsArray(isArray(bomEnd1));
