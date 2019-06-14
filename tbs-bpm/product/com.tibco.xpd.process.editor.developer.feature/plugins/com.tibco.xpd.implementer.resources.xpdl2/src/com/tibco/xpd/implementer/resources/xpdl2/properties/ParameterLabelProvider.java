@@ -131,7 +131,7 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
                         && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH.equals(
                                 (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGINTEGER;
+                    intOrDeciSubType = JsConsts.INTEGER;
                 } else {
                     intOrDeciSubType = JsConsts.INTEGER;
                 }
@@ -143,7 +143,7 @@ public class ParameterLabelProvider extends ConceptLabelProvider {
                         && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
                                 (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGDECIMAL;
+                    intOrDeciSubType = JsConsts.DECIMAL;
                 } else {
                     intOrDeciSubType = JsConsts.DECIMAL;
                 }

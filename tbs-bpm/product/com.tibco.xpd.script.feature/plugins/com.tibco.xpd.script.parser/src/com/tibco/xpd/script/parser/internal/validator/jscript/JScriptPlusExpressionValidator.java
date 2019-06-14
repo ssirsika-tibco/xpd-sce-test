@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
@@ -21,6 +18,9 @@ import com.tibco.xpd.script.parser.antlr.JScriptTokenTypes;
 import com.tibco.xpd.script.parser.internal.expr.IExpr;
 import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 /**
  * @author mtorres
  * 
@@ -28,13 +28,16 @@ import com.tibco.xpd.script.parser.internal.validator.IValidateResult;
  *         expression ie: field + field2
  * 
  */
-public class JScriptPlusExpressionValidator extends AbstractExpressionValidator {
+public class JScriptPlusExpressionValidator
+        extends AbstractExpressionValidator {
     @Override
     public IValidateResult evaluate(IExpr expression) {
         IScriptRelevantData returnDataType =
                 createScriptRelevantData(JsConsts.UNDEFINED_DATA_TYPE,
                         JsConsts.UNDEFINED_DATA_TYPE,
-                        false, null, null);
+                        false,
+                        null,
+                        null);
         if (null != expression) {
             Object expr = expression.getExpr();
             Object token = expression.getToken();
@@ -49,7 +52,8 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
                     if (null != lhsExpression) {
                         // Evaluate LHS expression
                         IValidateResult evaluateLHS =
-                                delegateEvaluateExpression(lhsExpression, token);
+                                delegateEvaluateExpression(lhsExpression,
+                                        token);
                         if (null != evaluateLHS) {
                             lhsDataType = evaluateLHS.getType();
                         }
@@ -85,10 +89,10 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
         addResolutionTypes(returnDataType,
                 returnDataType.isArray(),
                 JScriptUtils.getCurrentGenericContext(returnDataType));
-        IValidateResult result =
-                updateResult(expression,
-                        returnDataType,
-                        createGenericContext(returnDataType, isGenericContextArray(returnDataType, returnDataType)));
+        IValidateResult result = updateResult(expression,
+                returnDataType,
+                createGenericContext(returnDataType,
+                        isGenericContextArray(returnDataType, returnDataType)));
         return result;
     }
 
@@ -125,8 +129,8 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
         // XPD-5355: Complex Types are not allowed on the LHS of the
         // PLUS_Assignment operator.
         if (!isValidPlusOperator(lhsDataType, rhsDataType)
-                || (JScriptTokenTypes.PLUS_ASSIGN == operationType && JScriptUtils
-                        .isDynamicComplexType(lhsDataType))) {
+                || (JScriptTokenTypes.PLUS_ASSIGN == operationType
+                        && JScriptUtils.isDynamicComplexType(lhsDataType))) {
             String errorMessage = Messages.ExpressionValidator_PlusOperation;
             List<String> additionalAttributes = new ArrayList<String>();
             additionalAttributes.add(parseTypeMessage(lhsDataType));
@@ -153,21 +157,23 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
         IScriptRelevantData dataType =
                 createScriptRelevantData(JsConsts.UNDEFINED_DATA_TYPE,
                         JsConsts.UNDEFINED_DATA_TYPE,
-                        false, null, null);
+                        false,
+                        null,
+                        null);
         if (lhsDataType != null && lhsDataType.getType() != null
                 && rhsDataType != null && rhsDataType.getType() != null) {
             String lhsStrType = convertSpecificToGenericType(lhsDataType);
             String rhsStrType = convertSpecificToGenericType(rhsDataType);
             String newType = JsConsts.TEXT;
-            if (isNumericDataType(lhsStrType) && isNumericDataType(rhsStrType)) {
+            if (isNumericDataType(lhsStrType)
+                    && isNumericDataType(rhsStrType)) {
                 newType = getBiggerNumericDataType(lhsDataType, rhsDataType);
-            } 
-            dataType =
-                    createScriptRelevantData(newType,
-                            newType,
-                            false,
-                            null,
-                            null);
+            }
+            dataType = createScriptRelevantData(newType,
+                    newType,
+                    false,
+                    null,
+                    null);
         }
         return dataType;
     }
@@ -180,10 +186,8 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
                     || JScriptUtils.isXsdDerivedObject(rhsDataType)) {
                 return false;
             }
-            String lhsStrType =
-                    convertSpecificToGenericType(lhsDataType);
-            String rhsTypeStr =
-                    convertSpecificToGenericType(rhsDataType);
+            String lhsStrType = convertSpecificToGenericType(lhsDataType);
+            String rhsTypeStr = convertSpecificToGenericType(rhsDataType);
             Map<String, Set<String>> inCompatiblePlusOperatorTypesMap = null;
 
             IDataTypeMapper dataTypeMapper = getDataTypeMapper(getInfoObject());
@@ -193,8 +197,8 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
                 inCompatiblePlusOperatorTypesMap =
                         jsDataTypeMapper.getInCompatiblePlusOperatorTypesMap();
                 inCompatiblePlusOperatorTypesMap =
-                        jsDataTypeMapper
-                                .convertSpecificMapToGeneric(inCompatiblePlusOperatorTypesMap);
+                        jsDataTypeMapper.convertSpecificMapToGeneric(
+                                inCompatiblePlusOperatorTypesMap);
             }
             if (inCompatiblePlusOperatorTypesMap != null) {
                 Set<String> compatiblePlusOperatorSet =
@@ -208,7 +212,8 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
         return true;
     }
 
-    protected boolean shouldWarnAboutConcat(String lhsStrType, String rhsStrType) {
+    protected boolean shouldWarnAboutConcat(String lhsStrType,
+            String rhsStrType) {
         if (lhsStrType != null && rhsStrType != null) {
             if (lhsStrType.equals(JsConsts.DATE)
                     || lhsStrType.equals(JsConsts.BOM_DATE)
@@ -216,16 +221,12 @@ public class JScriptPlusExpressionValidator extends AbstractExpressionValidator 
                     || lhsStrType.equals(JsConsts.DATETIME)
                     || lhsStrType.equals(JsConsts.DATETIMETZ)
                     || lhsStrType.equals(JsConsts.DURATION)
-                    || lhsStrType.equals(JsConsts.BIGINTEGER)
-                    || lhsStrType.equals(JsConsts.BIGDECIMAL)
                     || rhsStrType.equals(JsConsts.DATE)
                     || rhsStrType.equals(JsConsts.BOM_DATE)
                     || rhsStrType.equals(JsConsts.TIME)
                     || rhsStrType.equals(JsConsts.DATETIME)
                     || rhsStrType.equals(JsConsts.DATETIMETZ)
-                    || rhsStrType.equals(JsConsts.DURATION)
-                    || rhsStrType.equals(JsConsts.BIGINTEGER)
-                    || rhsStrType.equals(JsConsts.BIGDECIMAL)) {
+                    || rhsStrType.equals(JsConsts.DURATION)) {
                 return true;
             }
         }

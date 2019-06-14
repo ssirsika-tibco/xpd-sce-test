@@ -145,23 +145,21 @@ public class ConceptLabelProvider implements ILabelProvider {
                          * XPD-7929: Saket: BOM child attribute is always BOM
                          * type even if it's a case class.
                          */
-                        text =
-                                String.format("%1$s %2$s : %3$s (%4$s)", //$NON-NLS-1$
-                                        PrimitivesUtil
-                                                .getDisplayLabel(property, true),
-                                        conceptPathSuffix,
-                                        PrimitivesUtil.getDisplayLabel(property
-                                                .getType(), true),
-                                        Messages.ConceptLabelProvider_BomType_label);
+                        text = String.format("%1$s %2$s : %3$s (%4$s)", //$NON-NLS-1$
+                                PrimitivesUtil.getDisplayLabel(property, true),
+                                conceptPathSuffix,
+                                PrimitivesUtil.getDisplayLabel(
+                                        property.getType(),
+                                        true),
+                                Messages.ConceptLabelProvider_BomType_label);
 
                     } else {
-                        text =
-                                String.format("%1$s %2$s : %3$s", //$NON-NLS-1$
-                                        PrimitivesUtil
-                                                .getDisplayLabel(property, true),
-                                        conceptPathSuffix,
-                                        PrimitivesUtil.getDisplayLabel(property
-                                                .getType(), true));
+                        text = String.format("%1$s %2$s : %3$s", //$NON-NLS-1$
+                                PrimitivesUtil.getDisplayLabel(property, true),
+                                conceptPathSuffix,
+                                PrimitivesUtil.getDisplayLabel(
+                                        property.getType(),
+                                        true));
                     }
                 }
             } else {
@@ -268,29 +266,29 @@ public class ConceptLabelProvider implements ILabelProvider {
                     /*
                      * label for bom type
                      */
-                    resolvedType =
-                            String.format("%1$s (%2$s)", //$NON-NLS-1$
-                                    classifier.getLabel() != null ? classifier
-                                            .getLabel() : classifier.getName(),
-                                    Messages.ConceptLabelProvider_BomType_label);
+                    resolvedType = String.format("%1$s (%2$s)", //$NON-NLS-1$
+                            classifier.getLabel() != null
+                                    ? classifier.getLabel()
+                                    : classifier.getName(),
+                            Messages.ConceptLabelProvider_BomType_label);
 
                 } else if (prd.getDataType() instanceof RecordType) {
                     /*
                      * label for record type
                      */
-                    resolvedType =
-                            String.format("%1$s (%2$s)", //$NON-NLS-1$
-                                    classifier.getLabel() != null ? classifier
-                                            .getLabel() : classifier.getName(),
-                                    Messages.ConceptLabelProvider_CaseRef_label);
+                    resolvedType = String.format("%1$s (%2$s)", //$NON-NLS-1$
+                            classifier.getLabel() != null
+                                    ? classifier.getLabel()
+                                    : classifier.getName(),
+                            Messages.ConceptLabelProvider_CaseRef_label);
                 } else {
                     /*
                      * for type declaration no need to mention Type Decl in the
                      * label as that is obvious and will take too much space.
                      */
-                    resolvedType =
-                            classifier.getLabel() != null ? classifier
-                                    .getLabel() : classifier.getName();
+                    resolvedType = classifier.getLabel() != null
+                            ? classifier.getLabel()
+                            : classifier.getName();
                 }
             } else {
 
@@ -311,40 +309,37 @@ public class ConceptLabelProvider implements ILabelProvider {
         String typeName = null;
 
         if (classifier instanceof PrimitiveType) {
-            Classifier basePrimitiveType =
-                    PrimitivesUtil
-                            .getBasePrimitiveType((PrimitiveType) classifier);
+            Classifier basePrimitiveType = PrimitivesUtil
+                    .getBasePrimitiveType((PrimitiveType) classifier);
             if (null != basePrimitiveType) {
                 typeName = basePrimitiveType.getName();
             }
 
             if (null != property) {
                 if (JsConsts.INTEGER.equals(typeName)) {
-                    Object facetPropertyValue =
-                            PrimitivesUtil
-                                    .getFacetPropertyValue((PrimitiveType) classifier,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                            property);
+                    Object facetPropertyValue = PrimitivesUtil
+                            .getFacetPropertyValue((PrimitiveType) classifier,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
+                                    property);
 
                     if (facetPropertyValue instanceof EnumerationLiteral
                             && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
                                     .equals((((EnumerationLiteral) facetPropertyValue)
                                             .getName()))) {
-                        intOrDeciSubType = JsConsts.BIGINTEGER;
+                        intOrDeciSubType = JsConsts.INTEGER;
                     } else {
                         intOrDeciSubType = JsConsts.INTEGER;
                     }
                 } else if (JsConsts.DECIMAL.equals(typeName)) {
-                    Object facetPropertyValue =
-                            PrimitivesUtil
-                                    .getFacetPropertyValue((PrimitiveType) classifier,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                            property);
+                    Object facetPropertyValue = PrimitivesUtil
+                            .getFacetPropertyValue((PrimitiveType) classifier,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                    property);
                     if (facetPropertyValue instanceof EnumerationLiteral
-                            && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                    .equals((((EnumerationLiteral) facetPropertyValue)
+                            && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                                    (((EnumerationLiteral) facetPropertyValue)
                                             .getName()))) {
-                        intOrDeciSubType = JsConsts.BIGDECIMAL;
+                        intOrDeciSubType = JsConsts.DECIMAL;
                     } else {
                         intOrDeciSubType = JsConsts.DECIMAL;
                     }
@@ -353,29 +348,27 @@ public class ConceptLabelProvider implements ILabelProvider {
             } else {
 
                 if (JsConsts.INTEGER.equals(typeName)) {
-                    Object facetPropertyValue =
-                            PrimitivesUtil
-                                    .getFacetPropertyValue((PrimitiveType) classifier,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
+                    Object facetPropertyValue = PrimitivesUtil
+                            .getFacetPropertyValue((PrimitiveType) classifier,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
 
                     if (facetPropertyValue instanceof EnumerationLiteral
                             && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
                                     .equals((((EnumerationLiteral) facetPropertyValue)
                                             .getName()))) {
-                        intOrDeciSubType = JsConsts.BIGINTEGER;
+                        intOrDeciSubType = JsConsts.INTEGER;
                     } else {
                         intOrDeciSubType = JsConsts.INTEGER;
                     }
                 } else if (JsConsts.DECIMAL.equals(typeName)) {
-                    Object facetPropertyValue =
-                            PrimitivesUtil
-                                    .getFacetPropertyValue((PrimitiveType) classifier,
-                                            PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
+                    Object facetPropertyValue = PrimitivesUtil
+                            .getFacetPropertyValue((PrimitiveType) classifier,
+                                    PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
                     if (facetPropertyValue instanceof EnumerationLiteral
-                            && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                    .equals((((EnumerationLiteral) facetPropertyValue)
+                            && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                                    (((EnumerationLiteral) facetPropertyValue)
                                             .getName()))) {
-                        intOrDeciSubType = JsConsts.BIGDECIMAL;
+                        intOrDeciSubType = JsConsts.DECIMAL;
                     } else {
                         intOrDeciSubType = JsConsts.DECIMAL;
                     }

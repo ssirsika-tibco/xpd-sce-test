@@ -618,8 +618,6 @@ public class CDSUtils {
         N2JAVASCRIPT_TYPE.put(JsConsts.BYTE, JsConsts.UNDEFINED_DATA_TYPE);
         N2JAVASCRIPT_TYPE.put(JsConsts.PBYTE, JsConsts.UNDEFINED_DATA_TYPE);
         // From N2 Factories
-        N2JAVASCRIPT_TYPE.put(JsConsts.BIGINTEGER, JsConsts.BIGINTEGER);
-        N2JAVASCRIPT_TYPE.put(JsConsts.BIGDECIMAL, JsConsts.BIGDECIMAL);
         N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMELC, JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(JsConsts.DATETIMETZLC, JsConsts.DATE);
         N2JAVASCRIPT_TYPE.put(JsConsts.BOM_DATE, JsConsts.DATE);

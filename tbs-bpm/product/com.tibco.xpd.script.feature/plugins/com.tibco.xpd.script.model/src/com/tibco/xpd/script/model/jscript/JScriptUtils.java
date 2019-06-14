@@ -562,9 +562,7 @@ public class JScriptUtils {
         javaScriptTypeMap.put(JsConsts.LONG, JsConsts.NUMBER);
         javaScriptTypeMap.put(JsConsts.PLONG, JsConsts.NUMBER);
         javaScriptTypeMap.put(JsConsts.SHORT, JsConsts.NUMBER);
-        javaScriptTypeMap.put(JsConsts.BIGDECIMAL, JsConsts.NUMBER);
         javaScriptTypeMap.put(JsConsts.DECIMAL, JsConsts.NUMBER);
-        javaScriptTypeMap.put(JsConsts.BIGINTEGER, JsConsts.NUMBER);
         javaScriptTypeMap.put(JsConsts.BYTE, JsConsts.UNDEFINED_DATA_TYPE);
         javaScriptTypeMap.put(JsConsts.PBYTE, JsConsts.UNDEFINED_DATA_TYPE);
     }
@@ -814,13 +812,6 @@ public class JScriptUtils {
             if (type instanceof IScriptRelevantData) {
                 IScriptRelevantData scriptRelevantData = type;
                 if (scriptRelevantData instanceof DefaultScriptRelevantData) {
-                    if (null != scriptRelevantData.getName()
-                            && (JsConsts.BIGDECIMAL
-                                    .equals(scriptRelevantData.getName())
-                                    || JsConsts.BIGINTEGER.equals(
-                                            scriptRelevantData.getName()))) {
-                        return scriptRelevantData.getName();
-                    }
                     /*
                      * TODO: remove this code if all types that a text list can
                      * have is to be allowed (to be added) to ID/URI list

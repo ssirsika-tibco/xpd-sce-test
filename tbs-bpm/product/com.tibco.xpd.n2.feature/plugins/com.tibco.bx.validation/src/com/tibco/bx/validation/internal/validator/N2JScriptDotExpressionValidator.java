@@ -429,47 +429,6 @@ public class N2JScriptDotExpressionValidator
         String dataType = null;
         if (jsAttribute != null) {
             dataType = JScriptUtils.getJsAttributeBaseDataType(jsAttribute);
-            if (dataType != null && (dataType.equals(JsConsts.INTEGER)
-                    || dataType.equals(JsConsts.DECIMAL))) {
-                if (jsAttribute instanceof IUMLElement) {
-                    Element element = ((IUMLElement) jsAttribute).getElement();
-                    if (element instanceof Property) {
-                        Property property = (Property) element;
-                        if (property.getType() instanceof PrimitiveType) {
-                            PrimitiveType basePrimitiveType =
-                                    PrimitivesUtil.getBasePrimitiveType(
-                                            (PrimitiveType) property.getType());
-                            if (dataType.equals(JsConsts.INTEGER)) {
-                                Object facetPropertyValue =
-                                        PrimitivesUtil.getFacetPropertyValue(
-                                                (PrimitiveType) property
-                                                        .getType(),
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                                property);
-                                if (facetPropertyValue instanceof EnumerationLiteral
-                                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
-                                                .equals((((EnumerationLiteral) facetPropertyValue)
-                                                        .getName()))) {
-                                    dataType = JsConsts.BIGINTEGER;
-                                }
-                            } else if (dataType.equals(JsConsts.DECIMAL)) {
-                                Object facetPropertyValue =
-                                        PrimitivesUtil.getFacetPropertyValue(
-                                                (PrimitiveType) property
-                                                        .getType(),
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                                property);
-                                if (facetPropertyValue instanceof EnumerationLiteral
-                                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                                .equals((((EnumerationLiteral) facetPropertyValue)
-                                                        .getName()))) {
-                                    dataType = JsConsts.BIGDECIMAL;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
         return dataType;
     }

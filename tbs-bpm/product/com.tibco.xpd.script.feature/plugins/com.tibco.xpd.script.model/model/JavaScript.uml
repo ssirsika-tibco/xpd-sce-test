@@ -452,11 +452,18 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_Zb2LsPxsEduQPNEkUL8doA" name="Object"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_mFFkIPxsEduQPNEkUL8doA" name="Number">
-    <ownedAttribute xmi:id="_ZDz_MPy5EduQPNEkUL8doA" name="MAX_VALUE" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
-    <ownedAttribute xmi:id="_cZzDkPy5EduQPNEkUL8doA" name="MIN_VALUE" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
-    <ownedAttribute xmi:id="_ffY7gPy5EduQPNEkUL8doA" name="NaN" type="_gf3WIPxuEduQPNEkUL8doA"/>
-    <ownedAttribute xmi:id="_59fyAPy5EduQPNEkUL8doA" name="NEGATIVE_INFINITY" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
-    <ownedAttribute xmi:id="_AF2QUPy6EduQPNEkUL8doA" name="POSITIVE_INFINITY" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_6om-oI6jEemGRMEut82DiQ" name="EPSILON" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_aTHBgI6kEemGRMEut82DiQ" name="MAX_SAFE_INTEGER" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_ZDz_MPy5EduQPNEkUL8doA" name="MAX_VALUE" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_nUOucI6kEemGRMEut82DiQ" name="MIN_SAFE_INTEGER" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_cZzDkPy5EduQPNEkUL8doA" name="MIN_VALUE" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_59fyAPy5EduQPNEkUL8doA" name="NEGATIVE_INFINITY" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_ffY7gPy5EduQPNEkUL8doA" name="NaN" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_AF2QUPy6EduQPNEkUL8doA" name="POSITIVE_INFINITY" isStatic="true" type="_mFFkIPxsEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedOperation xmi:id="_OhtvsI6nEemGRMEut82DiQ" name="isFinite" isStatic="true">
+      <ownedParameter xmi:id="_SxlpcI6nEemGRMEut82DiQ" name="value" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_TWnCEI6nEemGRMEut82DiQ" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
     <ownedOperation xmi:id="_NzrSQPy6EduQPNEkUL8doA" name="toExponential">
       <ownedParameter xmi:id="_NzrSQfy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
     </ownedOperation>
@@ -478,6 +485,22 @@
     </ownedOperation>
     <ownedOperation xmi:id="_uQcfkPy6EduQPNEkUL8doA" name="valueOf">
       <ownedParameter xmi:id="_uQcfkfy6EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_g9X10Iz-Eem5d9MYS-TZuA" name="add">
+      <ownedParameter xmi:id="_zWhXYIz-Eem5d9MYS-TZuA" name="n" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_z8hAYIz-Eem5d9MYS-TZuA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_tk4v8Iz-Eem5d9MYS-TZuA" name="subtract">
+      <ownedParameter xmi:id="_0qQ3MIz-Eem5d9MYS-TZuA" name="n" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_1aFxoIz-Eem5d9MYS-TZuA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vL5xEIz-Eem5d9MYS-TZuA" name="multiply">
+      <ownedParameter xmi:id="_2L-hkIz-Eem5d9MYS-TZuA" name="n" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_26EWoIz-Eem5d9MYS-TZuA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xPvREIz-Eem5d9MYS-TZuA" name="divide">
+      <ownedParameter xmi:id="_3vUjoIz-Eem5d9MYS-TZuA" name="n" type="_mFFkIPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_4fifoIz-Eem5d9MYS-TZuA" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_RaDDAPxtEduQPNEkUL8doA" name="Boolean">

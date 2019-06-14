@@ -998,8 +998,6 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
                 || JsConsts.LONG.equals(dataType)
                 || JsConsts.DOUBLE.equals(dataType)
                 || JsConsts.DECIMAL.equals(dataType)
-                || JsConsts.BIGINTEGER.equals(dataType)
-                || JsConsts.BIGDECIMAL.equals(dataType)
                 || JsConsts.NUMBER.equals(dataType)) {
             return true;
         }
@@ -1013,13 +1011,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         String typeStr1 = convertSpecificToGenericType(numericDataType1);
         String typeStr2 = convertSpecificToGenericType(numericDataType2);
         if (typeStr1 != null && typeStr2 != null) {
-            if (typeStr1.equals(JsConsts.BIGDECIMAL)
-                    || typeStr2.equals(JsConsts.BIGDECIMAL)) {
-                return JsConsts.BIGDECIMAL;
-            } else if (typeStr1.equals(JsConsts.BIGINTEGER)
-                    || typeStr2.equals(JsConsts.BIGINTEGER)) {
-                return JsConsts.BIGINTEGER;
-            } else if (typeStr1.equals(JsConsts.DECIMAL)
+            if (typeStr1.equals(JsConsts.DECIMAL)
                     || typeStr2.equals(JsConsts.DECIMAL)) {
                 return JsConsts.DECIMAL;
             } else if (typeStr1.equals(JsConsts.INTEGER)
@@ -1039,8 +1031,7 @@ public abstract class AbstractExpressionValidator extends AbstractValidator
         }
         String dataType = scriptData.getType();
         if (JsConsts.INT.equals(dataType) || JsConsts.INTEGER.equals(dataType)
-                || JsConsts.LONG.equals(dataType)
-                || JsConsts.BIGINTEGER.equals(dataType)) {
+                || JsConsts.LONG.equals(dataType)) {
             return true;
         }
         return false;

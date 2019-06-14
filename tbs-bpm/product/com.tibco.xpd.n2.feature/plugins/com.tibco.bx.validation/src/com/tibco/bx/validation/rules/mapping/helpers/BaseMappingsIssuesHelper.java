@@ -105,7 +105,8 @@ public class BaseMappingsIssuesHelper {
      * 
      * @param type
      * @param target
-     * @return the base primitive type name or type name for UML primitive type <br>
+     * @return the base primitive type name or type name for UML primitive type
+     *         <br>
      *         Returns the sub types of {@link BigDecimal} or {@link BigInteger}
      *         for Integer or Decimal types
      */
@@ -132,33 +133,31 @@ public class BaseMappingsIssuesHelper {
         if (target.getItem() instanceof Property) {
             if (JsConsts.INTEGER.equals(typeName)) {
 
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) type,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                        (Property) target.getItem());
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) type,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
+                                (Property) target.getItem());
 
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGINTEGER;
+                    intOrDeciSubType = JsConsts.INTEGER;
                 } else {
                     intOrDeciSubType = JsConsts.INTEGER;
                 }
             } else if (JsConsts.DECIMAL.equals(typeName)) {
 
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) type,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                        (Property) target.getItem());
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) type,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                (Property) target.getItem());
 
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGDECIMAL;
+                    intOrDeciSubType = JsConsts.DECIMAL;
                 } else {
                     intOrDeciSubType = JsConsts.DECIMAL;
                 }
@@ -166,31 +165,29 @@ public class BaseMappingsIssuesHelper {
         } else {
             if (JsConsts.INTEGER.equals(typeName)) {
 
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) type,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) type,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE);
 
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGINTEGER;
+                    intOrDeciSubType = JsConsts.INTEGER;
                 } else {
                     intOrDeciSubType = JsConsts.INTEGER;
                 }
             } else if (JsConsts.DECIMAL.equals(typeName)) {
 
-                Object facetPropertyValue =
-                        PrimitivesUtil
-                                .getFacetPropertyValue((PrimitiveType) type,
-                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
+                Object facetPropertyValue = PrimitivesUtil
+                        .getFacetPropertyValue((PrimitiveType) type,
+                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE);
 
                 if (facetPropertyValue instanceof EnumerationLiteral
-                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                .equals((((EnumerationLiteral) facetPropertyValue)
+                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT.equals(
+                                (((EnumerationLiteral) facetPropertyValue)
                                         .getName()))) {
-                    intOrDeciSubType = JsConsts.BIGDECIMAL;
+                    intOrDeciSubType = JsConsts.DECIMAL;
                 } else {
                     intOrDeciSubType = JsConsts.DECIMAL;
                 }
@@ -254,7 +251,8 @@ public class BaseMappingsIssuesHelper {
      * @param target
      * @return the {@link BasicType} for a process relevant data
      */
-    public static BasicType getBasicType(Activity activity, ConceptPath target) {
+    public static BasicType getBasicType(Activity activity,
+            ConceptPath target) {
 
         ProcessRelevantData data = null;
 
@@ -296,8 +294,8 @@ public class BaseMappingsIssuesHelper {
             Set<String> compatibleEqualityOperatorSet, String sourceTypeName) {
         boolean found = false;
         if (compatibleEqualityOperatorSet.contains(sourceTypeName)
-                || compatibleEqualityOperatorSet
-                        .contains(convertSpecificToGenericType(sourceTypeName))) {
+                || compatibleEqualityOperatorSet.contains(
+                        convertSpecificToGenericType(sourceTypeName))) {
             found = true;
         }
         if (!found) {
@@ -322,8 +320,8 @@ public class BaseMappingsIssuesHelper {
      *         generic and specific types) <br>
      *         <code>false</code> if not
      */
-    public static boolean isSourceNameTargetNameEquals(
-            String sourceTypeStrName, String targetTypeStrName) {
+    public static boolean isSourceNameTargetNameEquals(String sourceTypeStrName,
+            String targetTypeStrName) {
         if (sourceTypeStrName == null && targetTypeStrName == null) {
             return true;
         }
@@ -386,10 +384,8 @@ public class BaseMappingsIssuesHelper {
                     N2JScriptDataTypeMapper.getInstance()
                             .getCompatibleAssignmentTypesMap();
 
-            compatibleAssignmentTypesMap =
-                    N2JScriptDataTypeMapper
-                            .getInstance()
-                            .convertSpecificMapToGeneric(compatibleAssignmentTypesMap);
+            compatibleAssignmentTypesMap = N2JScriptDataTypeMapper.getInstance()
+                    .convertSpecificMapToGeneric(compatibleAssignmentTypesMap);
 
             if (compatibleAssignmentTypesMap != null) {
                 Set<String> compatibleEqualityOperatorSet =
@@ -397,7 +393,8 @@ public class BaseMappingsIssuesHelper {
 
                 if (null != compatibleEqualityOperatorSet) {
 
-                    if (isSourceTypeNameInCompatibleSet(compatibleEqualityOperatorSet,
+                    if (isSourceTypeNameInCompatibleSet(
+                            compatibleEqualityOperatorSet,
                             sourceTypeName)) {
                         return null;
                     }
@@ -432,19 +429,21 @@ public class BaseMappingsIssuesHelper {
                     return null;
                 }
                 if (compatibleEqualityOperatorSet != null
-                        && !compatibleEqualityOperatorSet.contains(genericType)) {
-                    return arr(WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
+                        && !compatibleEqualityOperatorSet
+                                .contains(genericType)) {
+                    return arr(
+                            WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
                 }
                 if (null != sourceTypeName && null != targetTypeName) {
                     if (!sourceTypeName.equals(targetTypeName)) {
-                        return arr(WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
+                        return arr(
+                                WebServiceJavaScriptMappingIssue.TYPES_DONT_MATCH);
                     }
                 }
             }
 
-            Set<String> compatibleTypes =
-                    JSTypesCompatabilityUtil.getCompatibleBOMtoBOMTypesMap()
-                            .get(targetTypeName);
+            Set<String> compatibleTypes = JSTypesCompatabilityUtil
+                    .getCompatibleBOMtoBOMTypesMap().get(targetTypeName);
             /*
              * Compares if both the types are of a base type primitive type.
              */
@@ -509,14 +508,13 @@ public class BaseMappingsIssuesHelper {
         } else {
             if (type instanceof PrimitiveType) {
                 // Extract the base primitive types for primitive types
-                type =
-                        PrimitivesUtil
-                                .getBasePrimitiveType((PrimitiveType) type);
+                type = PrimitivesUtil
+                        .getBasePrimitiveType((PrimitiveType) type);
             }
             String bomPrimitiveTypeName = type.getName();
             Set<String> compatibleProcessToBOMTypesMap =
-                    JSTypesCompatabilityUtil
-                            .getCompatibleProcessToBOMTypesMap().get(basicType);
+                    JSTypesCompatabilityUtil.getCompatibleProcessToBOMTypesMap()
+                            .get(basicType);
 
             if (compatibleProcessToBOMTypesMap != null
                     && compatibleProcessToBOMTypesMap
@@ -543,15 +541,13 @@ public class BaseMappingsIssuesHelper {
         } else {
             if (type instanceof PrimitiveType) {
                 // Extract the base primitive types for primitive types
-                type =
-                        PrimitivesUtil
-                                .getBasePrimitiveType((PrimitiveType) type);
+                type = PrimitivesUtil
+                        .getBasePrimitiveType((PrimitiveType) type);
             }
             String bomPrimitiveTypeName = type.getName();
 
             Set<BasicTypeType> compatibleBOMToProcessTypesMap =
-                    JSTypesCompatabilityUtil
-                            .getCompatibleBOMToProcessTypesMap()
+                    JSTypesCompatabilityUtil.getCompatibleBOMToProcessTypesMap()
                             .get(bomPrimitiveTypeName);
             if (compatibleBOMToProcessTypesMap != null
                     && compatibleBOMToProcessTypesMap.contains(basicType)) {

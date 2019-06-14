@@ -72,13 +72,9 @@ public class JsConsts {
 
     public static final String INTEGER = "Integer"; //$NON-NLS-1$
 
-    public static final String BIGDECIMAL = "BigDecimal"; //$NON-NLS-1$
-
     public static final String REGULAR_EXPRESSION = "RegExpr"; //$NON-NLS-1$
 
     public static final String DECIMAL = "Decimal"; //$NON-NLS-1$
-
-    public static final String BIGINTEGER = "BigInteger"; //$NON-NLS-1$
 
     public static final String BYTE = "Byte"; //$NON-NLS-1$
 

@@ -40,8 +40,6 @@ public class JSTypesCompatabilityUtil {
         // Valid Integer Assignments
         HashSet<String> integerAllowed =
                 new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL,
                         JsConsts.BOOLEAN,
                         JsConsts.FLOAT,
                         JsConsts.DECIMAL,
@@ -56,8 +54,6 @@ public class JSTypesCompatabilityUtil {
         HashSet<String> textAllowed =
                 new HashSet<String>(Arrays.asList(JsConsts.BOOLEAN,
                         JsConsts.INTEGER,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL,
                         JsConsts.FLOAT,
                         JsConsts.STRING,
                         JsConsts.TEXT,
@@ -75,8 +71,8 @@ public class JSTypesCompatabilityUtil {
         JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.DATE, dateAllowed);
 
         // Valid Time Assignments
-        HashSet<String> timeAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.TEXT, JsConsts.TIME));
+        HashSet<String> timeAllowed = new HashSet<String>(
+                Arrays.asList(JsConsts.TEXT, JsConsts.TIME));
         JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.TIME, timeAllowed);
 
         HashSet<String> dateTimeAllowed =
@@ -88,26 +84,6 @@ public class JSTypesCompatabilityUtil {
         JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.DATETIME, dateTimeAllowed);
 
         JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.DATETIMETZ, dateTimeAllowed);
-
-        HashSet<String> bigIntegerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.BOOLEAN,
-                        JsConsts.INTEGER,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGDECIMAL,
-                        JsConsts.TEXT));
-        JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.BIGINTEGER,
-                bigIntegerAllowed);
-
-        HashSet<String> bigDecimalAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.BOOLEAN,
-                        JsConsts.INTEGER,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGDECIMAL,
-                        JsConsts.TEXT));
-        JAVASCRIPT_PRIMITIVETYPES_MAP.put(JsConsts.BIGDECIMAL,
-                bigDecimalAllowed);
 
         return JAVASCRIPT_PRIMITIVETYPES_MAP;
     }

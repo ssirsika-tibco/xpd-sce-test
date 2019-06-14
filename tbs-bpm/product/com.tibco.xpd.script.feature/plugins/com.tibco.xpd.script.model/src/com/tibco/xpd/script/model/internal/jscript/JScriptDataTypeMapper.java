@@ -120,31 +120,31 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
             symbolTableFutureKeyWords.add("static");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("short");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("public");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("protected");//$NON-NLS-1$$
+            symbolTableFutureKeyWords.add("protected");//$NON-NLS-1$ $
             symbolTableFutureKeyWords.add("private");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("package");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("native");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("long");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("interface");//$NON-NLS-1$$
+            symbolTableFutureKeyWords.add("interface");//$NON-NLS-1$ $
             symbolTableFutureKeyWords.add("int");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("import");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("implements");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("goto");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("float");//$NON-NLS-1$$
+            symbolTableFutureKeyWords.add("float");//$NON-NLS-1$ $
             symbolTableFutureKeyWords.add("final");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("extends");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("export");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("enum");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("double");//$NON-NLS-1$$
+            symbolTableFutureKeyWords.add("double");//$NON-NLS-1$ $
             symbolTableFutureKeyWords.add("debugger");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("const");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("class");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("char");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("byte");//$NON-NLS-1$ 
+            symbolTableFutureKeyWords.add("byte");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("transient");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("volatile");//$NON-NLS-1$
             symbolTableFutureKeyWords.add("throws");//$NON-NLS-1$
-            symbolTableFutureKeyWords.add("synchronized");//$NON-NLS-1$             
+            symbolTableFutureKeyWords.add("synchronized");//$NON-NLS-1$
         }
         return symbolTableFutureKeyWords;
     }
@@ -194,8 +194,8 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         ASSIGNMENT_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        ASSIGNMENT_TYPES_MAP.putAll(JSTypesCompatabilityUtil
-                .getCompatibleJavaScriptTypesMap());
+        ASSIGNMENT_TYPES_MAP.putAll(
+                JSTypesCompatabilityUtil.getCompatibleJavaScriptTypesMap());
 
         return ASSIGNMENT_TYPES_MAP;
     }
@@ -224,17 +224,11 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         MINUS_OPERATOR_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.NUMBER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL));
+        HashSet<String> integerAllowed = new HashSet<String>(Arrays
+                .asList(JsConsts.INTEGER, JsConsts.NUMBER, JsConsts.DECIMAL));
         MINUS_OPERATOR_TYPES_MAP.put(JsConsts.INTEGER, integerAllowed);
         MINUS_OPERATOR_TYPES_MAP.put(JsConsts.NUMBER, integerAllowed);
         MINUS_OPERATOR_TYPES_MAP.put(JsConsts.DECIMAL, integerAllowed);
-        MINUS_OPERATOR_TYPES_MAP.put(JsConsts.BIGINTEGER, integerAllowed);
-        MINUS_OPERATOR_TYPES_MAP.put(JsConsts.BIGDECIMAL, integerAllowed);
 
         return MINUS_OPERATOR_TYPES_MAP;
     }
@@ -264,19 +258,11 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         MULTIPLICATION_OPERATOR_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.NUMBER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL));
+        HashSet<String> integerAllowed = new HashSet<String>(Arrays
+                .asList(JsConsts.INTEGER, JsConsts.NUMBER, JsConsts.DECIMAL));
         MULTIPLICATION_OPERATOR_TYPES_MAP.put(JsConsts.INTEGER, integerAllowed);
         MULTIPLICATION_OPERATOR_TYPES_MAP.put(JsConsts.DECIMAL, integerAllowed);
         MULTIPLICATION_OPERATOR_TYPES_MAP.put(JsConsts.NUMBER, integerAllowed);
-        MULTIPLICATION_OPERATOR_TYPES_MAP.put(JsConsts.BIGINTEGER,
-                integerAllowed);
-        MULTIPLICATION_OPERATOR_TYPES_MAP.put(JsConsts.BIGDECIMAL,
-                integerAllowed);
 
         return MULTIPLICATION_OPERATOR_TYPES_MAP;
     }
@@ -292,17 +278,11 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         DIVISION_OPERATOR_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.NUMBER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL));
+        HashSet<String> integerAllowed = new HashSet<String>(Arrays
+                .asList(JsConsts.INTEGER, JsConsts.NUMBER, JsConsts.DECIMAL));
         DIVISION_OPERATOR_TYPES_MAP.put(JsConsts.INTEGER, integerAllowed);
         DIVISION_OPERATOR_TYPES_MAP.put(JsConsts.NUMBER, integerAllowed);
         DIVISION_OPERATOR_TYPES_MAP.put(JsConsts.DECIMAL, integerAllowed);
-        DIVISION_OPERATOR_TYPES_MAP.put(JsConsts.BIGINTEGER, integerAllowed);
-        DIVISION_OPERATOR_TYPES_MAP.put(JsConsts.BIGDECIMAL, integerAllowed);
 
         return DIVISION_OPERATOR_TYPES_MAP;
     }
@@ -318,17 +298,11 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         MOD_OPERATOR_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.NUMBER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL));
+        HashSet<String> integerAllowed = new HashSet<String>(Arrays
+                .asList(JsConsts.INTEGER, JsConsts.NUMBER, JsConsts.DECIMAL));
         MOD_OPERATOR_TYPES_MAP.put(JsConsts.INTEGER, integerAllowed);
         MOD_OPERATOR_TYPES_MAP.put(JsConsts.NUMBER, integerAllowed);
         MOD_OPERATOR_TYPES_MAP.put(JsConsts.DECIMAL, integerAllowed);
-        MOD_OPERATOR_TYPES_MAP.put(JsConsts.BIGINTEGER, integerAllowed);
-        MOD_OPERATOR_TYPES_MAP.put(JsConsts.BIGDECIMAL, integerAllowed);
 
         return MOD_OPERATOR_TYPES_MAP;
     }
@@ -344,19 +318,11 @@ public class JScriptDataTypeMapper implements IJScriptDataTypeMapper {
         }
         EXPONENTIATION_OPERATOR_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(Arrays.asList(JsConsts.INTEGER,
-                        JsConsts.NUMBER,
-                        JsConsts.DECIMAL,
-                        JsConsts.BIGINTEGER,
-                        JsConsts.BIGDECIMAL));
+        HashSet<String> integerAllowed = new HashSet<String>(
+                Arrays.asList(JsConsts.INTEGER, JsConsts.NUMBER));
         EXPONENTIATION_OPERATOR_TYPES_MAP.put(JsConsts.INTEGER, integerAllowed);
         EXPONENTIATION_OPERATOR_TYPES_MAP.put(JsConsts.NUMBER, integerAllowed);
         EXPONENTIATION_OPERATOR_TYPES_MAP.put(JsConsts.DECIMAL, integerAllowed);
-        EXPONENTIATION_OPERATOR_TYPES_MAP.put(JsConsts.BIGINTEGER,
-                integerAllowed);
-        EXPONENTIATION_OPERATOR_TYPES_MAP.put(JsConsts.BIGDECIMAL,
-                integerAllowed);
 
         return EXPONENTIATION_OPERATOR_TYPES_MAP;
     }

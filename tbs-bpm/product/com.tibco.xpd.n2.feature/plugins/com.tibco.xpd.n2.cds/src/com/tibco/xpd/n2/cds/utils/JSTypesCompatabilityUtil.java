@@ -46,20 +46,18 @@ public class JSTypesCompatabilityUtil {
 
         BOM_TO_PROCESS_TYPES_MAP = new HashMap<String, Set<BasicTypeType>>();
 
-        HashSet<BasicTypeType> booleanAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.BOOLEAN_LITERAL,
-                                BasicTypeType.STRING_LITERAL));
+        HashSet<BasicTypeType> booleanAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.BOOLEAN_LITERAL,
+                        BasicTypeType.STRING_LITERAL));
 
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
                 booleanAllowed);
 
-        HashSet<BasicTypeType> integerAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.INTEGER_LITERAL,
-                                BasicTypeType.BOOLEAN_LITERAL,
-                                BasicTypeType.FLOAT_LITERAL,
-                                BasicTypeType.STRING_LITERAL));
+        HashSet<BasicTypeType> integerAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.INTEGER_LITERAL,
+                        BasicTypeType.BOOLEAN_LITERAL,
+                        BasicTypeType.FLOAT_LITERAL,
+                        BasicTypeType.STRING_LITERAL));
 
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
                 integerAllowed);
@@ -67,63 +65,55 @@ public class JSTypesCompatabilityUtil {
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
                 integerAllowed);
 
-        HashSet<BasicTypeType> textAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.BOOLEAN_LITERAL,
-                                BasicTypeType.INTEGER_LITERAL,
-                                BasicTypeType.FLOAT_LITERAL,
-                                BasicTypeType.STRING_LITERAL,
-                                BasicTypeType.PERFORMER_LITERAL));
+        HashSet<BasicTypeType> textAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.BOOLEAN_LITERAL,
+                        BasicTypeType.INTEGER_LITERAL,
+                        BasicTypeType.FLOAT_LITERAL,
+                        BasicTypeType.STRING_LITERAL,
+                        BasicTypeType.PERFORMER_LITERAL));
 
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
                 textAllowed);
 
-        HashSet<BasicTypeType> dateAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.STRING_LITERAL,
-                                BasicTypeType.DATE_LITERAL,
-                                BasicTypeType.DATETIME_LITERAL));
+        HashSet<BasicTypeType> dateAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.STRING_LITERAL,
+                        BasicTypeType.DATE_LITERAL,
+                        BasicTypeType.DATETIME_LITERAL));
 
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
                 dateAllowed);
 
-        HashSet<BasicTypeType> timeAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.TIME_LITERAL,
-                                BasicTypeType.STRING_LITERAL));
+        HashSet<BasicTypeType> timeAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.TIME_LITERAL,
+                        BasicTypeType.STRING_LITERAL));
 
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
                 timeAllowed);
 
-        HashSet<BasicTypeType> dateTimeAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.DATE_LITERAL,
-                                BasicTypeType.DATETIME_LITERAL,
-                                BasicTypeType.STRING_LITERAL,
-                                BasicTypeType.TIME_LITERAL));
+        HashSet<BasicTypeType> dateTimeAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.DATE_LITERAL,
+                        BasicTypeType.DATETIME_LITERAL,
+                        BasicTypeType.STRING_LITERAL,
+                        BasicTypeType.TIME_LITERAL));
 
-        BOM_TO_PROCESS_TYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                        dateTimeAllowed);
+        BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                dateTimeAllowed);
 
-        BOM_TO_PROCESS_TYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                        dateTimeAllowed);
+        BOM_TO_PROCESS_TYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                dateTimeAllowed);
 
-        HashSet<BasicTypeType> durationAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.STRING_LITERAL));
-        BOM_TO_PROCESS_TYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                        durationAllowed);
+        HashSet<BasicTypeType> durationAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.STRING_LITERAL));
+        BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                durationAllowed);
 
-        BOM_TO_PROCESS_TYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
-                        Collections.EMPTY_SET);
+        BOM_TO_PROCESS_TYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
+                Collections.EMPTY_SET);
 
-        HashSet<BasicTypeType> uriAndIdAllowed =
-                new HashSet<BasicTypeType>(
-                        Arrays.asList(BasicTypeType.STRING_LITERAL));
+        HashSet<BasicTypeType> uriAndIdAllowed = new HashSet<BasicTypeType>(
+                Arrays.asList(BasicTypeType.STRING_LITERAL));
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
                 uriAndIdAllowed);
         BOM_TO_PROCESS_TYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
@@ -144,69 +134,61 @@ public class JSTypesCompatabilityUtil {
 
         PROCESS_TO_BOM_TYPES_MAP = new HashMap<BasicTypeType, Set<String>>();
 
-        HashSet<String> booleanAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> booleanAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
 
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.BOOLEAN_LITERAL,
                 booleanAllowed);
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> integerAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.INTEGER_LITERAL,
                 integerAllowed);
 
-        HashSet<String> decimalAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> decimalAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.FLOAT_LITERAL,
                 decimalAllowed);
 
-        HashSet<String> textAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> textAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.STRING_LITERAL, textAllowed);
 
-        HashSet<String> dateAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> dateAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.DATE_LITERAL, dateAllowed);
 
-        HashSet<String> timeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> timeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.TIME_LITERAL, timeAllowed);
 
-        HashSet<String> dateTimeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> dateTimeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.DATETIME_LITERAL,
                 dateTimeAllowed);
 
-        HashSet<String> performerAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+        HashSet<String> performerAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
         PROCESS_TO_BOM_TYPES_MAP.put(BasicTypeType.PERFORMER_LITERAL,
                 performerAllowed);
 
@@ -220,34 +202,30 @@ public class JSTypesCompatabilityUtil {
         BOM_OBJECT_SUB_TYPES_MAP = new HashMap<String, Set<String>>();
 
         // values allowed to map to xsdAnyType
-        HashSet<String> anyTypeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE));
+        HashSet<String> anyTypeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE));
         BOM_OBJECT_SUB_TYPES_MAP.put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE,
                 anyTypeAllowed);
 
         // values allowed to map to xsdAnySimpleType
-        HashSet<String> anySimpleType =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE));
-        BOM_OBJECT_SUB_TYPES_MAP
-                .put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE,
-                        anySimpleType);
+        HashSet<String> anySimpleType = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE));
+        BOM_OBJECT_SUB_TYPES_MAP.put(
+                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE,
+                anySimpleType);
 
         // values allowed to map to xsdAny
-        HashSet<String> anyAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY));
+        HashSet<String> anyAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY));
         BOM_OBJECT_SUB_TYPES_MAP.put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY,
                 anyAllowed);
 
         // values allowed to map to xsdAnyAttribute
-        HashSet<String> anyAttribute =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE));
-        BOM_OBJECT_SUB_TYPES_MAP
-                .put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE,
-                        anyAttribute);
+        HashSet<String> anyAttribute = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE));
+        BOM_OBJECT_SUB_TYPES_MAP.put(
+                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE,
+                anyAttribute);
 
         return BOM_OBJECT_SUB_TYPES_MAP;
     }
@@ -260,77 +238,73 @@ public class JSTypesCompatabilityUtil {
         // values allowed to map anySimpleType from RHS
         BOM_OBJECT_RHS_SUB_TYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> anyTypeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE));
+        HashSet<String> anyTypeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                        PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE));
 
         BOM_OBJECT_RHS_SUB_TYPES_MAP
                 .put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYTYPE, anyTypeAllowed);
 
-        HashSet<String> anySimpleType =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE));
+        HashSet<String> anySimpleType = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                        PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE));
 
-        BOM_OBJECT_RHS_SUB_TYPES_MAP
-                .put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE,
-                        anySimpleType);
+        BOM_OBJECT_RHS_SUB_TYPES_MAP.put(
+                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYSIMPLETYPE,
+                anySimpleType);
 
-        HashSet<String> anyAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY));
+        HashSet<String> anyAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                        PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY));
         BOM_OBJECT_RHS_SUB_TYPES_MAP.put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANY,
                 anyAllowed);
 
-        HashSet<String> anyAttributeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE));
-        BOM_OBJECT_RHS_SUB_TYPES_MAP
-                .put(PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE,
-                        anyAttributeAllowed);
+        HashSet<String> anyAttributeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                        PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE));
+        BOM_OBJECT_RHS_SUB_TYPES_MAP.put(
+                PrimitivesUtil.OBJECT_SUBTYPE_XSD_ANYATTRIBUTE,
+                anyAttributeAllowed);
 
         return BOM_OBJECT_RHS_SUB_TYPES_MAP;
     }
@@ -351,32 +325,29 @@ public class JSTypesCompatabilityUtil {
                 .put(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME, booleanAllowed);
 
         // Values allowed to map to Integer fields
-        HashSet<String> integerAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
+        HashSet<String> integerAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME, integerAllowed);
 
         // Values allowed to map to Decimal fields
-        HashSet<String> decimalAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME));
+        HashSet<String> decimalAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME, decimalAllowed);
 
         // Values allowed to map to Text fields
-        HashSet<String> textAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME));
+        HashSet<String> textAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME, textAllowed);
 
@@ -391,50 +362,48 @@ public class JSTypesCompatabilityUtil {
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME, timeAllowed);
 
         // Values allowed to map to DateTime fields
-        HashSet<String> dateTimeAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME));
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                        dateTimeAllowed);
+        HashSet<String> dateTimeAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME));
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                dateTimeAllowed);
         // Values allowed to map to DateTimeTZ fields
-        HashSet<String> dateTimeTZAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                        dateTimeTZAllowed);
+        HashSet<String> dateTimeTZAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                dateTimeTZAllowed);
 
         // Values allowed to URI or Id
-        HashSet<String> uriOrId =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME));
+        HashSet<String> uriOrId = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME));
 
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_URI_NAME, uriOrId);
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                uriOrId);
 
         BOM_TO_BOM_PRIMITIVETYPES_MAP.put(PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
                 uriOrId);
 
         // Values for Attachment EMPTY SET
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
-                        Collections.EMPTY_SET);
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_ATTACHMENT_NAME,
+                Collections.EMPTY_SET);
 
         //
         HashSet<String> durationAllowed = new HashSet<String>();
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
-                        durationAllowed);
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
+                durationAllowed);
 
         //
         HashSet<String> bomObjectAllowed =
                 new HashSet<String>(Arrays.asList(JsConsts.BOM_OBJECT));
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(JsConsts.BOM_OBJECT, bomObjectAllowed);
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(JsConsts.BOM_OBJECT,
+                bomObjectAllowed);
 
-        BOM_TO_BOM_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME, Collections
+        BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME,
+                Collections
                         .singleton(PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
 
         return BOM_TO_BOM_PRIMITIVETYPES_MAP;
@@ -450,75 +419,46 @@ public class JSTypesCompatabilityUtil {
         }
         CDS_TO_CDS_PRIMITIVETYPES_MAP = new HashMap<String, Set<String>>();
 
-        HashSet<String> bigIntegerAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                JsConsts.BIGINTEGER,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                JsConsts.BIGDECIMAL));
-        CDS_TO_CDS_PRIMITIVETYPES_MAP.put(JsConsts.BIGINTEGER,
-                bigIntegerAllowed);
-
-        HashSet<String> bigDecimalAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                JsConsts.BIGINTEGER,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                JsConsts.BIGDECIMAL));
-        CDS_TO_CDS_PRIMITIVETYPES_MAP.put(JsConsts.BIGDECIMAL,
-                bigDecimalAllowed);
-
-        HashSet<String> textAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                JsConsts.BIGINTEGER,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
-                                JsConsts.BIGDECIMAL,
-                                PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
-                                JsConsts.DQL_STRING));
+        HashSet<String> textAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_URI_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
+                        JsConsts.DQL_STRING));
         CDS_TO_CDS_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME, textAllowed);
 
         CDS_TO_CDS_PRIMITIVETYPES_MAP.put(JsConsts.PERFORMER, textAllowed);
 
-        HashSet<String> booleanAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME));
+        HashSet<String> booleanAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME));
         CDS_TO_CDS_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME, booleanAllowed);
 
-        HashSet<String> integerAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                JsConsts.BIGINTEGER,
-                                JsConsts.BIGDECIMAL,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
+        HashSet<String> integerAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
 
         CDS_TO_CDS_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME, integerAllowed);
 
-        HashSet<String> decimalAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
-                                JsConsts.BIGINTEGER,
-                                JsConsts.BIGDECIMAL,
-                                PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
+        HashSet<String> decimalAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME));
         CDS_TO_CDS_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME, decimalAllowed);
 
-        HashSet<String> dateTimeTZAllowed =
-                new HashSet<String>(
-                        Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
-                                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
+        HashSet<String> dateTimeTZAllowed = new HashSet<String>(
+                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                        PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
 
-        CDS_TO_CDS_PRIMITIVETYPES_MAP
-                .put(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
-                        dateTimeTZAllowed);
+        CDS_TO_CDS_PRIMITIVETYPES_MAP.put(
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
+                dateTimeTZAllowed);
 
         return CDS_TO_CDS_PRIMITIVETYPES_MAP;
     }

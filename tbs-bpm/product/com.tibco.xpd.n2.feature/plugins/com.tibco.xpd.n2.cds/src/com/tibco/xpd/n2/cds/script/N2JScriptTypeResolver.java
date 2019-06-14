@@ -11,12 +11,9 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
-import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
-import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -25,7 +22,6 @@ import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.internal.client.DefaultJsEnumeration;
 import com.tibco.xpd.script.model.internal.client.IDataTypeMapper;
-import com.tibco.xpd.script.model.internal.client.IUMLElement;
 import com.tibco.xpd.script.model.internal.client.JsEnumeration;
 import com.tibco.xpd.script.model.internal.client.JsEnumerationLiteral;
 import com.tibco.xpd.script.model.jscript.JScriptTypeResolver;
@@ -134,45 +130,6 @@ public class N2JScriptTypeResolver extends JScriptTypeResolver {
         String dataType = null;
         if (jsAttribute != null) {
             dataType = JScriptUtils.getJsAttributeBaseDataType(jsAttribute);
-            if (dataType != null && (dataType.equals(JsConsts.INTEGER)
-                    || dataType.equals(JsConsts.DECIMAL))) {
-                if (jsAttribute instanceof IUMLElement) {
-                    Element element = ((IUMLElement) jsAttribute).getElement();
-                    if (element instanceof Property) {
-                        Property property = (Property) element;
-                        if (property.getType() instanceof PrimitiveType) {
-                            PrimitiveType basePrimitiveType =
-                                    PrimitivesUtil.getBasePrimitiveType(
-                                            (PrimitiveType) property.getType());
-                            if (dataType.equals(JsConsts.INTEGER)) {
-                                Object facetPropertyValue =
-                                        PrimitivesUtil.getFacetPropertyValue(
-                                                basePrimitiveType,
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                                property);
-                                if (facetPropertyValue instanceof EnumerationLiteral
-                                        && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
-                                                .equals((((EnumerationLiteral) facetPropertyValue)
-                                                        .getName()))) {
-                                    dataType = JsConsts.BIGINTEGER;
-                                }
-                            } else if (dataType.equals(JsConsts.DECIMAL)) {
-                                Object facetPropertyValue =
-                                        PrimitivesUtil.getFacetPropertyValue(
-                                                basePrimitiveType,
-                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                                property);
-                                if (facetPropertyValue instanceof EnumerationLiteral
-                                        && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
-                                                .equals((((EnumerationLiteral) facetPropertyValue)
-                                                        .getName()))) {
-                                    dataType = JsConsts.BIGDECIMAL;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
         return dataType;
     }
