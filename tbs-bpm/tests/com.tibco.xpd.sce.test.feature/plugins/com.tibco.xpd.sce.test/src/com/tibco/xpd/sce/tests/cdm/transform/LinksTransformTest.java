@@ -82,13 +82,13 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
                     orderCustomerLink.get().getEnd1(),
                     /* name */ "myOrderName",
                     /* label */ "MyOrderLabel",
-                    /* type */ "Order",
+                    /* type */ "Customer",
                     /* isArray */ false);
             assertLinkEnd(orderCustomerLink.get(),
                     orderCustomerLink.get().getEnd2(),
                     /* name */ "myCustomerName",
                     /* label */ "MyCustomerLabel",
-                    /* type */ "Customer",
+                    /* type */ "Order",
                     /* isArray */ false);
         }
 
@@ -102,13 +102,13 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
                     orderProductLink.get().getEnd1(),
                     /* name */ "order",
                     /* label */ "Order",
-                    /* type */ "Order",
+                    /* type */ "Product",
                     /* isArray */ false);
             assertLinkEnd(orderProductLink.get(),
                     orderProductLink.get().getEnd2(),
                     /* name */ "product",
                     /* label */ "Product",
-                    /* type */ "Product",
+                    /* type */ "Order",
                     /* isArray */ true);
         }
     }
