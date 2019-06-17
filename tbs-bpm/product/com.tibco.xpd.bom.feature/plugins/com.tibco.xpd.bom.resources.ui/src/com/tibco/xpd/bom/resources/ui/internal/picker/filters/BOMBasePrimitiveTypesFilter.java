@@ -30,7 +30,8 @@ public class BOMBasePrimitiveTypesFilter implements IFilter {
             PrimitivesUtil.BOM_PRIMITIVE_DURATION_NAME,
             PrimitivesUtil.BOM_PRIMITIVE_ID_NAME,
             PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME,
-            PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME };
+            PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME,
+            PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME };
 
     /**
      * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
@@ -63,6 +64,8 @@ public class BOMBasePrimitiveTypesFilter implements IFilter {
                 new HashSet<String>(
                         Arrays.asList(UNSUPPORTED_BASE_PRIMITIVE_TYPE_NAMES));
 
-        return unsupportedBasePrimitiveType.contains(name);
+        return unsupportedBasePrimitiveType.contains(name)
+                || unsupportedBasePrimitiveType
+                        .contains(name.replaceAll("\\s+", "")); //$NON-NLS-1$ //$NON-NLS-2$
     }
 }
