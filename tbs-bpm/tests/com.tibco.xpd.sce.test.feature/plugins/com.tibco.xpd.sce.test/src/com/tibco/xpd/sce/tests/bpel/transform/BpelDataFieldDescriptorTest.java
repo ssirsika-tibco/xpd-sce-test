@@ -70,10 +70,10 @@ public class BpelDataFieldDescriptorTest extends AbstractBpelTransformTest {
     @Override
     protected void checkBpelContent(Document document) {
         // Check REST task shared resources
-        NodeList invokeElems =
+        NodeList processElems =
                 document.getElementsByTagNameNS(BPWS_NS, "process");
-        assertEquals("One process element.", 1, invokeElems.getLength());
-        Node invokeElem = invokeElems.item(0);
+        assertEquals("One process element.", 1, processElems.getLength());
+        Node invokeElem = processElems.item(0);
 
         /*
          * The following should appear in the bpws:process element to identify
