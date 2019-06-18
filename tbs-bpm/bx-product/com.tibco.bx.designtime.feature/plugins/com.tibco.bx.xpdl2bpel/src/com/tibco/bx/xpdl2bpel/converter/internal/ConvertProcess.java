@@ -201,7 +201,7 @@ public class ConvertProcess {
         String processName = process.getName();
 
         IPath descriptorPath =
-                new Path(IPath.SEPARATOR + "process-js").append(pkgName) //$NON-NLS-1$ //$NON-NLS-2$
+                new Path("process-js").append(pkgName) //$NON-NLS-1$
                         .append(processName).append(processName + "." + "js"); //$NON-NLS-1$ //$NON-NLS-2$
 
         BPELUtils.addExtensionAttribute(bpelProcess,

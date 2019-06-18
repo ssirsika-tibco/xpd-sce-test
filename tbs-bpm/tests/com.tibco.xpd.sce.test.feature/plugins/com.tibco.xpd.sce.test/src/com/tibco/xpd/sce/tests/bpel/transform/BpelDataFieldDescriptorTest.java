@@ -89,7 +89,7 @@ public class BpelDataFieldDescriptorTest extends AbstractBpelTransformTest {
                 Optional.of(TIBEX_NS),
                 "dataFieldDescriptorScript",
                 Optional.of(
-                        "/process-js/Datafielddescriptor/MainProcess/MainProcess.js"));
+                        "process-js/Datafielddescriptor/MainProcess/MainProcess.js"));
 
         assertAttr(invokeElem,
                 Optional.of(TIBEX_NS),
