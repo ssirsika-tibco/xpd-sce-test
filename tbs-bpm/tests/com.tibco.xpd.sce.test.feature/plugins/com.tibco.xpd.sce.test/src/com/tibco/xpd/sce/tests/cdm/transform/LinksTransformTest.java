@@ -155,7 +155,7 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
                 linkEnd.toString());
         assertEquals(msg + "name", expectedName, linkEnd.getName());
         assertEquals(msg + "label", expectedLabel, linkEnd.getLabel());
-        assertEquals(msg + "type", expectedOwner, linkEnd.getOwner());
+        assertEquals(msg + "owner", expectedOwner, linkEnd.getOwner());
         assertEquals(msg + "isArray", expectedIsArray, linkEnd.getIsArray());
     }
 }
