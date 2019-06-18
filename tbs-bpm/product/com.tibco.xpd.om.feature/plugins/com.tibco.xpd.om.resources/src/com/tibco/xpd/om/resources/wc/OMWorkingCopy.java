@@ -6,11 +6,16 @@ package com.tibco.xpd.om.resources.wc;
 import java.util.List;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.tibco.xpd.om.core.om.BaseOrgModel;
 import com.tibco.xpd.om.core.om.NamedElement;
@@ -19,6 +24,10 @@ import com.tibco.xpd.om.core.om.Organization;
 import com.tibco.xpd.om.core.om.provider.OMItemProviderAdapterFactory;
 import com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin;
 import com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin.Implementation;
+import com.tibco.xpd.om.resources.OMResourcesActivator;
+import com.tibco.xpd.om.resources.internal.Messages;
+import com.tibco.xpd.resources.wc.InvalidFileException;
+import com.tibco.xpd.resources.wc.InvalidVersionException;
 import com.tibco.xpd.resources.wc.gmf.AbstractGMFWorkingCopy;
 
 /**
@@ -134,4 +143,80 @@ public class OMWorkingCopy extends AbstractGMFWorkingCopy {
         }
         return super.getMetaText(eo);
     }
+
+    @Override
+    protected Resource loadResource(IResource resource)
+            throws InvalidFileException {
+        Resource res = super.loadResource(resource);
+        /*
+         * If there is a version in the org model then it's an old one from AMX
+         * or elsewhere.
+         */
+        EObject model = getModelFromResource(res);
+        if (model instanceof BaseOrgModel) {
+
+            if (((BaseOrgModel) model).getVersion() != null) {
+                // Unload the resource and throw exception
+                res.unload();
+                throw new InvalidVersionException(
+                        Messages.OMWorkingCopy_OrgModelVersionProblem_message);
+            }
+        }
+        return res;
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.wc.AbstractWorkingCopy#doMigrateToLatestVersion()
+     *
+     * @throws CoreException
+     */
+    @Override
+    protected void doMigrateToLatestVersion() throws CoreException {
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the organisation version exactly matches the project
+         * version THEN we can get rid of the organisation version altogether
+         * and use the parent Project version instead.
+         */
+        try {
+            Resource resource = super.loadResource(getFirstResource());
+            if (resource != null) {
+                BaseOrgModel model = null;
+                for (EObject eo : resource.getContents()) {
+                    if (eo instanceof BaseOrgModel) {
+                        model = (BaseOrgModel) eo;
+                        break;
+                    }
+                }
+
+                if (model != null && model.getVersion() != null) {
+                    final BaseOrgModel orgModel = model;
+
+                    RecordingCommand cmd = new RecordingCommand(
+                            (TransactionalEditingDomain) getEditingDomain()) {
+
+                        @Override
+                        protected void doExecute() {
+                            orgModel.setVersion(null);
+
+                        }
+                    };
+
+                    getEditingDomain().getCommandStack().execute(cmd);
+
+                    resource.save(null);
+                }
+            }
+        } catch (Exception e) {
+            if (e.getCause() instanceof CoreException) {
+                throw (CoreException) e.getCause();
+            } else {
+                throw new CoreException(new Status(IStatus.ERROR,
+                        OMResourcesActivator.PLUGIN_ID, e.getLocalizedMessage(),
+                        e.getCause()));
+            }
+        }
+
+    }
+
 }

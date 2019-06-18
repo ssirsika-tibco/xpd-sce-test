@@ -37,6 +37,7 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -47,6 +48,7 @@ import org.eclipse.swt.widgets.Shell;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.internal.Messages;
 import com.tibco.xpd.resources.logger.Logger;
+import com.tibco.xpd.resources.projectconfig.AssetType;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.resources.util.DependencySorter.Arc;
@@ -1335,5 +1337,32 @@ public final class ProjectUtil {
         }
         return ret;
 
+    }
+
+    /**
+     * Check if the given project has the given asset type configured.
+     * 
+     * @param project
+     * @param assetId
+     * 
+     * @return <code>true</code> if the project has the given asset type.
+     */
+    public static boolean hasAssetType(IProject project, String assetId) {
+        ProjectConfig projectConfig =
+                XpdResourcesPlugin.getDefault().getProjectConfig(project);
+
+        if (projectConfig != null) {
+            EList<AssetType> assetTypes = projectConfig.getAssetTypes();
+
+            if (assetTypes != null) {
+                for (AssetType assetType : assetTypes) {
+                    if (assetId.equals(assetType.getId())) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }

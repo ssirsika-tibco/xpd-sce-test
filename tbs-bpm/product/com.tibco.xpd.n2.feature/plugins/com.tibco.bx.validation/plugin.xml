@@ -431,9 +431,6 @@
                class="com.tibco.bx.validation.rules.process.BxParticipantSharedResourceUriRules">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.process.PackageVersionRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.process.PackageCrossProjectReferenceRule">
          </rule>
          <rule
@@ -855,24 +852,6 @@
             id="bx.invalidMappingParamType"
             message="%bx.invalidMappingParamType"
             severity="ERROR">
-      </issue>
-      <issue
-            id="bx.packageVersionNotSameAsProjectVersion"
-            message="%bx.packageVersionNotSameAsProjectVersion"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bx.packageVersionSameAsProjectVersion">
-         </resolution>
-      </issue>
-      <issue
-            id="bx.packageVersionNotSet"
-            message="%bx.packageVersionNotSet"
-            severity="ERROR">
-         <resolution
-               canApplyToMultiple="true"
-               id="resolution.bx.packageVersionSameAsProjectVersion">
-         </resolution>
       </issue>
       <issue
             id="bx.crossProjectReference.issue"
@@ -3402,11 +3381,6 @@ s         <scriptContribution
             description="%resolution.bx.setScriptGrammar"
             id="bx.removeRescheduleTimerScript"
             label="%resolution.bx.setScriptGrammar">
-      </resolution>
-      <resolution
-            class="com.tibco.bx.validation.resolutions.SetPackageVersionToProjectVersionResolution"
-            id="resolution.bx.packageVersionSameAsProjectVersion"
-            label="%resolution.bx.packageVersionSameAsProjectVersion">
       </resolution>
       <resolution
             class="com.tibco.bx.validation.resolutions.AbstractSetTaskPriorityResolution$SetTaskPriority300Resolution"

@@ -32,19 +32,12 @@ import com.tibco.xpd.ui.properties.XpdFormToolkit;
 public class BaseOrgModelSection extends AbstractGeneralSection implements
         IFilter {
 
-    private Text versionTxt;
     private Text authorTxt;
     private Text dateCreatedTxt;
 
     @Override
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
-
-        createLabel(root, toolkit, Messages.BaseOrgModelSection_version_label);
-        versionTxt = toolkit.createText(root, getInput(), OMPackage.eINSTANCE
-                .getBaseOrgModel_Version(), "baseOrgModel-version"); //$NON-NLS-1$
-        setLayoutData(versionTxt);
-        manageControlUpdateOnDeactivate(versionTxt);
 
         createLabel(root, toolkit, Messages.BaseOrgModelSection_author_label);
         authorTxt = toolkit.createText(root, getInput(), OMPackage.eINSTANCE
@@ -88,10 +81,7 @@ public class BaseOrgModelSection extends AbstractGeneralSection implements
     protected void doRefresh() {
         EObject input = getInput();
 
-        if (input instanceof BaseOrgModel && !versionTxt.isDisposed()) {
-            updateText(versionTxt, (String) input
-                    .eGet((EStructuralFeature) versionTxt
-                            .getData(XpdFormToolkit.FEATURE_DATA)));
+        if (input instanceof BaseOrgModel && !dateCreatedTxt.isDisposed()) {
             updateText(authorTxt, (String) input
                     .eGet((EStructuralFeature) authorTxt
                             .getData(XpdFormToolkit.FEATURE_DATA)));
@@ -106,6 +96,7 @@ public class BaseOrgModelSection extends AbstractGeneralSection implements
      * 
      * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
      */
+    @Override
     public boolean select(Object toTest) {
         EObject input = resollveInput(toTest);
 

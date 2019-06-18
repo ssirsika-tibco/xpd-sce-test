@@ -40,8 +40,6 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
 import com.tibco.xpd.n2.brm.BRMActivator;
 import com.tibco.xpd.n2.resources.util.N2Utils;
-import com.tibco.xpd.om.core.om.BaseOrgModel;
-import com.tibco.xpd.om.resources.OMResourcesActivator;
 import com.tibco.xpd.om.resources.wc.OMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -406,6 +404,7 @@ public class BRMUtils {
         }
 
         /** {@inheritDoc} */
+        @Override
         public boolean visit(IResource resource) throws CoreException {
             if (resource.getType() == IResource.FILE) {
                 IFile file = (IFile) resource;
@@ -478,11 +477,11 @@ public class BRMUtils {
         return formTasks;
     }
 
-    private static final String WP = "wp";
+    private static final String WP = "wp"; //$NON-NLS-1$
 
-    private static final String BRM = "brm";
+    private static final String BRM = "brm"; //$NON-NLS-1$
 
-    private static final String EC = "ec";
+    private static final String EC = "ec"; //$NON-NLS-1$
 
     private static final String KEY_SEPARATOR = "::"; //$NON-NLS-1$
 
@@ -522,29 +521,26 @@ public class BRMUtils {
      * @param project
      */
     private static Map<String, String> getProjectsOMVersions(IProject project) {
-
-        // determine whether given referenced project contains OM files
-        List<IResource> omResources = SpecialFolderUtil
-                .getAllDeepResourcesInSpecialFolderOfKind(project,
-                        OMResourcesActivator.OM_SPECIAL_FOLDER_KIND,
-                        OMResourcesActivator.OM_FILE_EXTENSION,
-                        false);
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the organisation version exactly matches the project
+         * version THEN we can get rid of the organisation version altogether
+         * and use the parent Project version instead.
+         * 
+         * So now we're only interested in whether all org PROJECTs are the same
+         * version.
+         */
 
         Map<String, String> ret = new HashMap<String, String>();
 
-        for (IResource omResource : omResources) {
-
-            WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(omResource);
-            if ((wc instanceof OMWorkingCopy) && (!wc.isInvalidFile())) {
-
-                BaseOrgModel rootElement = (BaseOrgModel) wc.getRootElement();
-                String key = createOmVerKey(omResource.getName(),
-                        rootElement.getName());
-                String omFileVersion = rootElement.getVersion();
-                ret.put(key, omFileVersion);
-            }
+        /*
+         * We get called for all referened projects, so only interested in OM
+         * projects.
+         */
+        if (ProjectUtil.hasAssetType(project, "com.tibco.xpd.asset.om")) { //$NON-NLS-1$
+            ret.put(project.getName(), ProjectUtil.getProjectVersion(project));
         }
-
+        
         return ret;
     }
 
@@ -602,16 +598,6 @@ public class BRMUtils {
         }
     }
 
-    private static String getOMFileVersion(IResource omResource) {
-        WorkingCopy workingCopy = WorkingCopyUtil.getWorkingCopy(omResource);
-        BaseOrgModel rootElement = (BaseOrgModel) workingCopy.getRootElement();
-        String omFileVersion = rootElement.getVersion();
-        int lastIndexOf = omFileVersion.lastIndexOf(".");
-        if (lastIndexOf != -1) {
-            omFileVersion = omFileVersion.substring(0, lastIndexOf);
-        }
-        return omFileVersion;
-    }
 
     public static List<Process> getPageflowOrBusinessServiceList(String path) {
         List<Process> pageflows = new ArrayList<Process>();

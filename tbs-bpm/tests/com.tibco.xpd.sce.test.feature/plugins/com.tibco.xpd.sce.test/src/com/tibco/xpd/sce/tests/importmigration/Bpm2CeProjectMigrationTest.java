@@ -888,6 +888,11 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
             Package pkg = (Package) wc.getRootElement();
 
+            /* Sid ACE-1354 Package version should be removed on migration. */
+            assertTrue("Process package version has been removed.",
+                    pkg.getRedefinableHeader() == null
+                            || pkg.getRedefinableHeader().getVersion() == null);
+
             Collection<ExtendedAttributesContainer> procsAndIfcs =
                     new ArrayList<>();
             procsAndIfcs.addAll(pkg.getProcesses());

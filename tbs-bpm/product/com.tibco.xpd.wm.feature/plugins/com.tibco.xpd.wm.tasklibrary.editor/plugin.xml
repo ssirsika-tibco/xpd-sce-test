@@ -853,19 +853,7 @@
          </visibility>
       </objectContribution>
    </extension>
-   <extension
-         point="com.tibco.xpd.resources.projectVersionRefactoringParticipant">
-      <participant
-            class="com.tibco.xpd.wm.tasklibrary.editor.resources.TaskLibraryRefactorParticipant"
-            id="com.tibco.xpd.wm.tasklibrary.editor.taskLibraryParticipant"
-            name="%taskLibrary_participant_name">
-         <enablement>
-            <instanceof
-                  value="org.eclipse.core.resources.IProject">
-            </instanceof>
-         </enablement>
-      </participant>
-   </extension>
+
    <extension
          name="Task Library Compare diff viewer (top window of task library compare editor)"
          point="org.eclipse.compare.structureMergeViewers">

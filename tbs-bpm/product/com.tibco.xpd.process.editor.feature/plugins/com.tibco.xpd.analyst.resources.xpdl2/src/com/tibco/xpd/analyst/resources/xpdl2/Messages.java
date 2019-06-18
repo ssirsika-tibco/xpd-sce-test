@@ -42,29 +42,7 @@ public class Messages extends NLS {
 
     public static String ActivityFilterPicker_Dialog_Display_Message;
 
-    public static String PackageVersionRefactorParticipant_NoPackageInThisProject_shortdesc;
 
-    public static String PackageVersionRefactorParticipant_projectConfigNotFound_error_shortdesc;
-
-    public static String PackageVersionRefactorParticipant_ChangesToProcessPackage_shortdesc;
-
-    public static String PackageVersionRefactorParticipant_NoProcessPackageAffected_shortdesc;
-
-    public static String PackageVersionRefactorParticipant_versionDowngrade_message;
-
-    public static String PackageVersionRefactorParticipant_validatingPackage_progress_shortdesc;
-
-    public static String PackageVersionRefactorParticipant_NoPackageContainer_error_shortdesc;
-
-    public static String ProcessDestinationRefactorParticipant_validatingProcess_progress_shortdesc;
-
-    public static String ProcessDestinationRefactorParticipant_NoProcessContainer_error_shortdesc;
-
-    public static String TaskLibraryRefactorParticipant_NoTaskLibraryInThisProject_shortdesc;
-
-    public static String TaskLibraryRefactorParticipant_ChangesToTaskLibrary_shortdesc;
-
-    public static String TaskLibraryRefactorParticipant_NoTaskLibraryAffected_shortdesc;
 
     static {
         // initialize resource bundle

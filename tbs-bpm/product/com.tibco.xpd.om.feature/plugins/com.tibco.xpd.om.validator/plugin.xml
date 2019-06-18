@@ -207,9 +207,7 @@
             id="com.tibco.xpd.om.validator.activeMatrixBPM"
             name="OM BPM Validation Provider"
             scopeProvider="com.tibco.xpd.om.validator.providers.OMBPMScopeProvider">
-         <rule
-               class="com.tibco.xpd.om.validator.rules.InvalidVersionForDeploymentRule">
-         </rule>
+
          <rule
                class="com.tibco.xpd.om.validator.rules.UniqueGroupNameRule">
          </rule>
@@ -229,11 +227,7 @@
                class="com.tibco.xpd.om.validator.rules.EmptyPrivilegeAssociationOnSystemActionsRule">
          </rule> 
       </provider>
-      <issue
-            id="om.invalidOMVersionForDeployment.issue"
-            message="%issue_invalidOMVersion_message"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="om.uniqueGroupName.issue"
             message="%issue_nonuniqueGroupName_message"
@@ -254,11 +248,7 @@
             message="%om.orgQueryUnsupported.issue"
             severity="WARNING">
       </issue>
-      <issue
-            id="om.doesntMatchProjectVersion.issue"
-            message="%omVerDoesNotMatchProject_issue_shortdesc"
-            severity="ERROR">
-      </issue>
+
       <issue
             id="om.attributedefaultvalue.issue"
             message="%issue_attributedefaultvalue_message"
@@ -277,13 +267,7 @@
    </extension>
    <extension
          point="com.tibco.xpd.validation.resolution">
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.om.validator.resolution.ResetOrgModelVersionResolution"
-            description="%resolution_resetOMVesion_description"
-            id="om.invalidOMVersionForDeployment.issue"
-            label="%resolution_resetVersion_label">
-      </resolution>
+
       <resolution
             canApplyToMultiple="false"
             class="com.tibco.xpd.om.validator.resolution.SetUniqueGroupNameResolution"
@@ -302,12 +286,6 @@
             description="%resolution.desc.om.orgQueryUnsupported.issue"
             id="om.orgQueryUnsupported.issue"
             label="%resolution.title.om.orgQueryUnsupported.issue">
-      </resolution>
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.om.validator.resolution.SetToProjectVersionResolution"
-            id="om.doesntMatchProjectVersion.issue"
-            label="%setOMVerSameAsProjectVer_resolution_label">
       </resolution>
       <resolution
             canApplyToMultiple="false"

@@ -6473,15 +6473,6 @@ public class Xpdl2ModelUtil {
         return wso;
     }
 
-    public static String getProcessPackageVersionNumber(
-            Package processPackage) {
-        if (processPackage != null
-                && processPackage.getRedefinableHeader() != null) {
-            return processPackage.getRedefinableHeader().getVersion();
-        }
-        return null;
-    }
-
     /**
      * Each process may have a single system participant that acts as the
      * default service EndPoint participant for process api activities (incoming

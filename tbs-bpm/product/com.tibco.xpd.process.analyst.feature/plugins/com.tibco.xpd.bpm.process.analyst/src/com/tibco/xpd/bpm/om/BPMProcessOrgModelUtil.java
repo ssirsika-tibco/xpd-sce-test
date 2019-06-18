@@ -21,9 +21,9 @@ import com.tibco.xpd.bpm.om.internal.Messages;
 import com.tibco.xpd.om.core.om.ModelElement;
 import com.tibco.xpd.om.core.om.NamedElement;
 import com.tibco.xpd.om.core.om.OMPackage;
-import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.util.OMUtil;
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -301,29 +301,28 @@ public class BPMProcessOrgModelUtil extends ProcessOrgModelUtil {
         // required
         Integer version = null;
 
-        // Find the OrgModel object
-        EObject modelObject = omModelElement.eContainer();
-        while ((modelObject != null) && !(modelObject instanceof OrgModel)) {
-            modelObject = modelObject.eContainer();
-        }
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the organisation version exactly matches the project
+         * version THEN we can get rid of the organisation version altogether
+         * and use the parent Project version instead.
+         */
 
-        // Check if the OrgModel object was found
-        if (modelObject != null) {
-            String versionStr = ((OrgModel) modelObject).getVersion();
-            // If this is a multiple-part version then we only want the major
-            // part
-            // e.g 1.2.3 (so require only 1 in this instance)
-            if (versionStr.contains(".")) {
-                versionStr = versionStr.substring(0, versionStr.indexOf("."));
-            }
-            try {
-                version = new Integer(versionStr);
-            } catch (NumberFormatException e) {
-                // Version number is not a number for some reason, this should
-                // have been caught in the studio validations, set to null
-                // so the version number is auto-selected by DE
-                version = null;
-            }
+        String versionStr = ProjectUtil.getProjectVersion(
+                WorkingCopyUtil.getProjectFor(omModelElement));
+
+        // If this is a multiple-part version then we only want the major
+        // part e.g 1.2.3 (so require only 1 in this instance)
+        if (versionStr.contains(".")) {
+            versionStr = versionStr.substring(0, versionStr.indexOf("."));
+        }
+        try {
+            version = new Integer(versionStr);
+        } catch (NumberFormatException e) {
+            // Version number is not a number for some reason, this should
+            // have been caught in the studio validations, set to null
+            // so the version number is auto-selected by DE
+            version = null;
         }
 
         return version;

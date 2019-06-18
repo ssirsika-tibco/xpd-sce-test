@@ -95,7 +95,6 @@ import com.tibco.xpd.om.modeler.subdiagram.part.OrganizationModelSubDiagramEdito
 import com.tibco.xpd.om.resources.ui.OMResourcesUIActivator;
 import com.tibco.xpd.om.resources.ui.editor.IGotoObject;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
-import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.UserInfoUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
@@ -696,30 +695,6 @@ public class OrganizationModelDiagramEditorUtil {
     }
 
     /**
-     * Get the default version from the project version details if available.
-     * 
-     * @param diagramResource
-     * @return
-     */
-    private static String getVersion(Resource diagramResource) {
-        String version = null;
-
-        if (diagramResource != null) {
-            IFile file = WorkspaceSynchronizer.getFile(diagramResource);
-            if (file != null && file.getProject() != null) {
-                ProjectConfig config =
-                        XpdResourcesPlugin.getDefault()
-                                .getProjectConfig(file.getProject());
-                if (config != null && config.getProjectDetails() != null) {
-                    version = config.getProjectDetails().getVersion();
-                }
-            }
-        }
-
-        return version != null ? version : "1.0"; //$NON-NLS-1$
-    }
-
-    /**
      * Create a new instance of domain element associated with canvas.
      * 
      * @return OrgModel
@@ -728,7 +703,6 @@ public class OrganizationModelDiagramEditorUtil {
             Resource diagramResource) {
         String projPrefUserName = null;
 
-        String version = getVersion(diagramResource);
         OrgModel om = createInitialModelGen();
 
         IFile file = WorkspaceSynchronizer.getFile(diagramResource);
@@ -759,7 +733,12 @@ public class OrganizationModelDiagramEditorUtil {
         long time = cal.getTimeInMillis();
         om.setDateCreated(time);
 
-        om.setVersion(version);
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the organisation version exactly matches the project
+         * version THEN we can get rid of the organisation version altogether
+         * and use the parent Project version instead.
+         */
 
         Organization org = OMFactory.eINSTANCE.createOrganization();
 

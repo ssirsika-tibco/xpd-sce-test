@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
-import org.osgi.framework.Version;
 
 import com.tibco.n2.brm.api.BaseModelInfo;
 import com.tibco.n2.brm.api.DistributionStrategy;
@@ -63,6 +62,7 @@ import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
+import com.tibco.xpd.bpm.om.BPMProcessOrgModelUtil;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
@@ -73,7 +73,6 @@ import com.tibco.xpd.om.core.om.Capability;
 import com.tibco.xpd.om.core.om.Group;
 import com.tibco.xpd.om.core.om.Location;
 import com.tibco.xpd.om.core.om.ModelElement;
-import com.tibco.xpd.om.core.om.OrgModel;
 import com.tibco.xpd.om.core.om.OrgUnit;
 import com.tibco.xpd.om.core.om.Organization;
 import com.tibco.xpd.om.core.om.Position;
@@ -1040,31 +1039,8 @@ public class BRMGenerator {
      * @return
      */
     private int getOMEntityVersion(ModelElement entity) {
-        EObject parent = entity.eContainer();
-        while (parent != null) {
-            if (parent instanceof OrgModel) {
-                break;
-            }
-            parent = parent.eContainer();
-        }
-        if (parent instanceof OrgModel) {
-            OrgModel orgModel = (OrgModel) parent;
-            String version = orgModel.getVersion();
-            return getMajorVersionComponent(version, OM_ENTITY_DEFAULT_VERSION);
-        }
-        return OM_ENTITY_DEFAULT_VERSION;
-    }
+        return BPMProcessOrgModelUtil.getOMModelVersion(entity);
 
-    public static int getMajorVersionComponent(String version,
-            int defaultVersion) {
-        if (version != null) {
-            try {
-                return (new Version(version)).getMajor();
-            } catch (Exception e) {
-                // ignore
-            }
-        }
-        return defaultVersion;
     }
 
     /**

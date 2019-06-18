@@ -590,32 +590,7 @@
          </enablement>
       </changePreviewViewer>
    </extension>
-    <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="false"
-            id="com.tibco.xpd.resources.ui.popup.projectVersionRefactor"
-            objectClass="org.eclipse.core.resources.IProject">
-         <action
-               class="com.tibco.xpd.resources.ui.internal.actions.ProjectVersionRefactorAction"
-               enablesFor="1"
-               id="com.tibco.xpd.resources.ui.action.projectVersionRefactor"
-               label="%projectLifecycleRefactor_action"
-               menubarPath="xpd.refactor/main">
-         </action>
-         <visibility>
-            <and>
-               <objectClass
-                     name="org.eclipse.core.resources.IProject">
-               </objectClass>
-               <objectState
-                     name="projectNature"
-                     value="com.tibco.xpd.resources.xpdNature">
-               </objectState>
-            </and>
-         </visibility>
-      </objectContribution>
-   </extension>
+
     <extension
           point="org.eclipse.core.expressions.propertyTesters">
        <propertyTester

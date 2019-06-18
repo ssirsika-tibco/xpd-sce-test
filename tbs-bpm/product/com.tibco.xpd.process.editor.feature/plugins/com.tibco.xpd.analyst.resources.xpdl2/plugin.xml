@@ -1728,23 +1728,7 @@
       </propertyTester>
    </extension>
    
-   <!-- SDA-12 moved to com.tibco.bpm.process.analyst
-   <extension
-         point="com.tibco.xpd.resources.projectVersionRefactoringParticipant">
-      <participant
-            class="com.tibco.xpd.analyst.resources.xpdl2.PackageVersionRefactorParticipant"
-            id="com.tibco.xpd.analyst.resources.xpdl2.newProjectParticipant"
-            name="%newProject_participant_name">
-         <enablement>
-            <instanceof
-                  value="org.eclipse.core.resources.IProject">
-            </instanceof>
-         </enablement>
-      </participant>
-   </extension>
-   -->
-   
-   <extension
+  <extension
          point="com.tibco.xpd.resources.workingCopyDependencyProvider">
       <dependency
             provider="com.tibco.xpd.analyst.resources.xpdl2.internal.Xpdl2BOMDependencyProvider">

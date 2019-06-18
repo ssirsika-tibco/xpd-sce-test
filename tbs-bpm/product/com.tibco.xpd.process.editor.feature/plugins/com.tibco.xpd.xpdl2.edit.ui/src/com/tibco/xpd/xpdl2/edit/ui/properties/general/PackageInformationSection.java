@@ -57,8 +57,6 @@ public class PackageInformationSection extends
 
     private CCombo publicationStatusCombo;
 
-    private Text versionText;
-
     private Text costUnitText;
 
     private Text languageText;
@@ -136,16 +134,6 @@ public class PackageInformationSection extends
                 GridData.FILL_HORIZONTAL));
         globaliseStatusCombo();
         manageControl(publicationStatusCombo);
-
-        label =
-                toolkit.createLabel(composite,
-                        Messages.PackageInformationSection_version_label);
-        label.setLayoutData(new GridData());
-        versionText =
-                toolkit.createText(composite, null, Xpdl2Package.eINSTANCE
-                        .getRedefinableHeader_Version());
-        versionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        manageControl(versionText);
 
         // create anonymous text content adaptor that forces the selection of a
         // content assist to
@@ -328,17 +316,6 @@ public class PackageInformationSection extends
             } else {
                 return null;
             }
-        } else if (obj == versionText) {
-            if (redefinableHeader.eContainer() == null) {
-                redefinableHeader.setVersion(versionText.getText());
-            } else {
-                command.append(SetCommand.create(getEditingDomain(),
-                        redefinableHeader,
-                        feat,
-                        versionText.getText()));
-                command
-                        .setLabel(Messages.PackageInformationSection_SetVersion_menu);
-            }
         } else if (obj == costUnitText) {
             CostUnit costUnit = Xpdl2Factory.eINSTANCE.createCostUnit();
             costUnit.setValue(costUnitText.getText());
@@ -428,9 +405,9 @@ public class PackageInformationSection extends
                                         .getName());
                 break;
             }
-            updateText(versionText, redefinableHeader.getVersion());
+
         } else {
-            updateText(versionText, ""); //$NON-NLS-1$
+
             updateText(authorText, ""); //$NON-NLS-1$
         }
         // updateCCombo(publicationStatusCombo, statusText);

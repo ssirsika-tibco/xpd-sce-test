@@ -1,6 +1,5 @@
 package com.tibco.xpd.om.resources;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
@@ -24,6 +23,9 @@ public class OMResourcesActivator extends Plugin {
     
     // Special folder kind
     public static final String OM_SPECIAL_FOLDER_KIND = OMUtil.OM_SPECIAL_FOLDER_KIND;
+
+    // The OM file version (anything earlier than this is non-ACE.
+    public static final int OM_FILE_VERSION = 2;
 
     // The shared instance
     private static OMResourcesActivator plugin;

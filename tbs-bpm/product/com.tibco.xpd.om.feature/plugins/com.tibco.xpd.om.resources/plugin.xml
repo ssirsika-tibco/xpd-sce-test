@@ -11,18 +11,5 @@
           filePattern=".*\.[oO][mM]">
     </factory>
  </extension>
-   <extension
-         point="com.tibco.xpd.resources.projectVersionRefactoringParticipant">
-      <participant
-            class="com.tibco.xpd.om.resources.internal.OMVersionRefactorParticipant"
-            id="com.tibco.xpd.om.resource.projectVersionRefactorParticipant"
-            name="%OMVersionRefactoring_participant_name">
-         <enablement>
-            <instanceof
-                  value="org.eclipse.core.resources.IProject">
-            </instanceof>
-         </enablement>
-      </participant>
-   </extension>
 
 </plugin>

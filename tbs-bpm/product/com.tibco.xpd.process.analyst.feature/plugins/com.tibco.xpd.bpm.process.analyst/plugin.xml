@@ -228,21 +228,6 @@
             id="com.tibco.xpd.analyst.resources.xpdl2.process_special_folder">
       </migrate>
    </extension>
-   
-   <extension
-         point="com.tibco.xpd.resources.projectVersionRefactoringParticipant">
-      <participant
-            class="com.tibco.xpd.analyst.resources.xpdl2.PackageVersionRefactorParticipant"
-            id="com.tibco.xpd.analyst.resources.xpdl2.newProjectParticipant"
-            name="%newProject_participant_name">
-         <enablement>
-            <instanceof
-                  value="org.eclipse.core.resources.IProject">
-            </instanceof>
-         </enablement>
-      </participant>
-   </extension>
-
 
    <extension
         point="com.tibco.xpd.resources.projectAsset">

@@ -811,13 +811,20 @@ public class XPDLUtils {
     }
 
     public static String getPackageVersionRange(Package pkg) {
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the process package version exactly matches the project
+         * version THEN we can get rid of the process package version altogether
+         * and use the parent Project version instead.
+         */
+
         // BX-788: turn "1.2.3.qualifier" into "[1.2.3,2.0.0)"
         // BX-2627: turn "1.2.3.qualifier" into "[1.0.0,2.0.0)"
-        RedefinableHeader redefHeader = pkg.getRedefinableHeader();
-        Version version = new Version(redefHeader.getVersion());
-        String versionRange =
-                String.format("[%d.0.0,%d.0.0)", new Object[] { //$NON-NLS-1$
-                        version.getMajor(), version.getMajor() + 1 });
+        Version version = new Version(ProjectUtil
+                .getProjectVersion(WorkingCopyUtil.getProjectFor(pkg)));
+
+        String versionRange = String.format("[%d.0.0,%d.0.0)", //$NON-NLS-1$
+                new Object[] { version.getMajor(), version.getMajor() + 1 });
         return versionRange;
     }
     

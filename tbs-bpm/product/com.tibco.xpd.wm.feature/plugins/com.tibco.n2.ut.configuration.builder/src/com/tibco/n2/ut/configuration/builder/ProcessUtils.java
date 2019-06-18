@@ -7,10 +7,11 @@ package com.tibco.n2.ut.configuration.builder;
 import org.eclipse.osgi.service.resolver.VersionRange;
 import org.osgi.framework.Version;
 
+import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.ExtendedAttribute;
 import com.tibco.xpd.xpdl2.Package;
-import com.tibco.xpd.xpdl2.RedefinableHeader;
 
 /**
  * Class to supply utility methods for operations at the process level
@@ -61,18 +62,22 @@ public class ProcessUtils {
      * @return
      */
     static public String getProcessVersionRange(Package xpdlPackage) {
+        /*
+         * Sid ACE-1354 - GIVEN that there is a validation rule that has always
+         * ensured that the process package version exactly matches the project
+         * version THEN we can get rid of the process package version altogether
+         * and use the parent Project version instead.
+         */
         String versionRange = null;
-        RedefinableHeader redefHeader = xpdlPackage.getRedefinableHeader();
-        if (redefHeader != null) {
-            // Generate the range from the exact version
-            String exactVersion = redefHeader.getVersion();
-            if ((exactVersion != null) && (exactVersion.length() > 0)) {
-                VersionRange verRange =
-                        new VersionRange(new Version(exactVersion),
-                                Boolean.TRUE, new Version(exactVersion),
-                                Boolean.TRUE);
-                versionRange = verRange.toString();
-            }
+
+        // Generate the range from the exact version
+        String exactVersion = ProjectUtil
+                .getProjectVersion(WorkingCopyUtil.getProjectFor(xpdlPackage));
+
+        if ((exactVersion != null) && (exactVersion.length() > 0)) {
+            VersionRange verRange = new VersionRange(new Version(exactVersion),
+                    Boolean.TRUE, new Version(exactVersion), Boolean.TRUE);
+            versionRange = verRange.toString();
         }
         return versionRange;
     }

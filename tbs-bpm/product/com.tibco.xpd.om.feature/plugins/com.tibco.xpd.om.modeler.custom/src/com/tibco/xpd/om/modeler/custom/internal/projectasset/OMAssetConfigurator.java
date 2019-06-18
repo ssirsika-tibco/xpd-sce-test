@@ -17,9 +17,11 @@ import com.tibco.xpd.om.modeler.diagram.part.OrganizationModelDiagramEditorPlugi
 import com.tibco.xpd.om.modeler.diagram.part.OrganizationModelDiagramEditorUtil;
 import com.tibco.xpd.om.resources.OMResourcesActivator;
 import com.tibco.xpd.resources.projectconfig.projectassets.AbstractSpecialFolderAssetConfigurator;
+import com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider;
 import com.tibco.xpd.resources.projectconfig.projectassets.SpecialFolderAssetConfiguration;
 
-public class OMAssetConfigurator extends AbstractSpecialFolderAssetConfigurator {
+public class OMAssetConfigurator extends AbstractSpecialFolderAssetConfigurator
+        implements IProjectAssetVersionProvider {
 
     @Override
     protected String getSpecialFolderKind() {
@@ -47,6 +49,7 @@ public class OMAssetConfigurator extends AbstractSpecialFolderAssetConfigurator 
         return Messages.OMAssetConfigurator_DefaultFolderName;
     }
 
+    @Override
     public void configure(IProject project, Object configuration)
             throws CoreException {
         super.configure(project, configuration);
@@ -104,6 +107,17 @@ public class OMAssetConfigurator extends AbstractSpecialFolderAssetConfigurator 
             }
         }
 
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.projectconfig.projectassets.IProjectAssetVersionProvider#getVersion(org.eclipse.core.resources.IProject)
+     *
+     * @param project
+     * @return
+     */
+    @Override
+    public int getVersion(IProject project) {
+        return OMResourcesActivator.OM_FILE_VERSION;
     }
 
 }

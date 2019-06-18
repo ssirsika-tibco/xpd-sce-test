@@ -771,6 +771,13 @@
             <wizardpage
                   page="com.tibco.xpd.om.modeler.custom.internal.projectasset.OMAssetWizardPage">
             </wizardpage>
+	        <assetMigration
+	            class="com.tibco.xpd.resources.projectconfig.projectassets.util.AssetWorkingCopyMigrationFactory: -kind om -fileExt om">
+	        </assetMigration>
+         <dynamicVersion
+               versionProvider="com.tibco.xpd.om.modeler.custom.internal.projectasset.OMAssetConfigurator">
+         </dynamicVersion>
+	            
          </asset>
       </extension>
       <extension

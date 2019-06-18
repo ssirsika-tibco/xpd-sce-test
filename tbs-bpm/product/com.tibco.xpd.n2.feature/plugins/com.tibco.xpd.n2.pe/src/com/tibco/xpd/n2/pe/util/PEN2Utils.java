@@ -16,7 +16,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
@@ -182,26 +181,6 @@ public class PEN2Utils {
                             false);
         }
         return Collections.emptyList();
-    }
-
-    public static String getProcessComponentVersionNumber(IResource xpdlFile) {
-        if (xpdlFile != null) {
-            WorkingCopy wc =
-                    XpdResourcesPlugin.getDefault().getWorkingCopy(xpdlFile);
-            if (wc instanceof Xpdl2WorkingCopyImpl) {
-                Xpdl2WorkingCopyImpl xpdl2Wc = (Xpdl2WorkingCopyImpl) wc;
-                EObject rootElement = xpdl2Wc.getRootElement();
-                if (rootElement instanceof Package) {
-                    String xpdl2PackageVersion =
-                            Xpdl2ModelUtil
-                                    .getProcessPackageVersionNumber((Package) rootElement);
-                    if (xpdl2PackageVersion != null) {
-                        return xpdl2PackageVersion;
-                    }
-                }
-            }
-        }
-        return DEFAULT_PROCESS_COMPONENT_VERSION;
     }
 
     public static boolean isOnlyPageFlowContainedInXpdl(IFile xpdlFile) {

@@ -36,6 +36,7 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
         super(view);
     }
 
+    @Override
     protected IFigure createNodeShape() {
         OrgModelBadgeFigure figure = new OrgModelBadgeFigure();
         return primaryShape = figure;
@@ -44,6 +45,7 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
     /**
      * Creates a node figure.
      */
+    @Override
     protected NodeFigure createNodeFigure() {
         NodeFigure figure = createNodePlate();
         figure.setLayoutManager(new StackLayout());
@@ -53,10 +55,12 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
         return figure;
     }
 
+    @Override
     public OrgModelBadgeFigure getPrimaryShape() {
         return (OrgModelBadgeFigure) primaryShape;
     }
 
+    @Override
     protected void handleNotificationEvent(Notification notification) {
         // handle gradient change
         if (GradientFigureUtil.isGradientChange(notification)) {
@@ -126,6 +130,7 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
         return false;
     }
 
+    @Override
     protected void addChildVisual(EditPart childEditPart, int index) {
         if (addFixedChild(childEditPart)) {
             return;
@@ -246,21 +251,28 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
             // Version label
             labelVersion = new WrappingLabel();
             labelVersion.setText(Messages.OrgModelBadgeEditPart_version_label);
-            GridData gdLabelVersion = new GridData();
-            gdLabelVersion.horizontalAlignment = SWT.LEFT;
-            gdLabelVersion.grabExcessHorizontalSpace = true;
-            gdLabelVersion.grabExcessVerticalSpace = true;
-            baseRectFigure.add(labelVersion);
-            baseRectFigure.setConstraint(labelVersion, gdLabelVersion);
+
+            /*
+             * Sid ACE-1354 - We create the labelVersion control so that things
+             * around us do not break, but we dont add it to the parent as we
+             * don't want individual version to be displayed.
+             */
+            // GridData gdLabelVersion = new GridData();
+            // gdLabelVersion.horizontalAlignment = SWT.LEFT;
+            // gdLabelVersion.grabExcessHorizontalSpace = true;
+            // gdLabelVersion.grabExcessVerticalSpace = true;
+            // baseRectFigure.add(labelVersion);
+            // baseRectFigure.setConstraint(labelVersion, gdLabelVersion);
+
 
             orgModelVersionLabelValue = new WrappingLabel();
-            GridData gdVersionValue = new GridData();
-            gdVersionValue.horizontalAlignment = SWT.LEFT;
-            gdVersionValue.grabExcessHorizontalSpace = true;
-            gdVersionValue.grabExcessVerticalSpace = true;
-            baseRectFigure.add(orgModelVersionLabelValue);
-            baseRectFigure.setConstraint(orgModelVersionLabelValue,
-                    gdVersionValue);
+            // GridData gdVersionValue = new GridData();
+            // gdVersionValue.horizontalAlignment = SWT.LEFT;
+            // gdVersionValue.grabExcessHorizontalSpace = true;
+            // gdVersionValue.grabExcessVerticalSpace = true;
+            // baseRectFigure.add(orgModelVersionLabelValue);
+            // baseRectFigure.setConstraint(orgModelVersionLabelValue,
+            // gdVersionValue);
 
             // Create date label
             labelCreationDate = new WrappingLabel();
@@ -392,6 +404,7 @@ public class OrgModelBadgeEditPart extends BadgeEditPart {
         /**
          * @generated
          */
+        @Override
         protected boolean useLocalCoordinates() {
             return myUseLocalCoordinates;
         }

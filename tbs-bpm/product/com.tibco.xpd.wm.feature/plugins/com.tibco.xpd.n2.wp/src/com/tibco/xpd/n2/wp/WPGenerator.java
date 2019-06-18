@@ -61,6 +61,7 @@ import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
+import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.FormImplementation;
@@ -68,7 +69,6 @@ import com.tibco.xpd.xpdExtension.FormImplementationType;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Process;
-import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Generates N2 deployment artifacts.
@@ -838,17 +838,14 @@ public class WPGenerator {
             /* XPD-2608 : remove .qualifier before setting the version */
 
             /*
-             * TODO ACE-1005 Project Life-cycle governance
-             * 
-             * Sid ACE-1028 - GIVEN that there is a validation rule that has
+             * Sid ACE-1354 - GIVEN that there is a validation rule that has
              * always ensured that the process package version exactly matches
-             * the project version THEN we should be able to get rid of the
-             * process package version altogether and use the parent Project
-             * version instead.
+             * the project version THEN we can get rid of the process package
+             * version altogether and use the parent Project version instead.
              */
-            String pageflowProcessVersion =
-                    Xpdl2ModelUtil.getProcessPackageVersionNumber(
-                            pageflowProcess.getPackage());
+            String pageflowProcessVersion = ProjectUtil.getProjectVersion(
+                    WorkingCopyUtil.getProjectFor(pageflowProcess));
+
             if (null != pageflowProcessVersion) {
                 Version pageflowProjVer = new Version(pageflowProcessVersion);
                 String qualifier = pageflowProjVer.getQualifier();

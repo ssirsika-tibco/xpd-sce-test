@@ -31,6 +31,8 @@
 		  
 		- Convert Integer data fields and parameters to Decimals with num decimals = 0
 		
+		- Remove process package version (we only use project version now).
+		
   	    (See XpdlMigrate.java for format version <-> Studio version equivalence).
   	     
 	===================================================================================================================
@@ -233,6 +235,16 @@
 		</xsl:copy>
 	</xsl:template>
 
+
+	<!--
+	===============================================================================
+	Remove process package version
+	===============================================================================
+    -->
+	<xsl:template match="xpdl2:RedefinableHeader/xpdl2:Version">
+		<!--  Not outputting the version element to target will effectively remove it -->
+	</xsl:template>
+	
 	<!--
 	===============================================================================
 	Update the format version.
