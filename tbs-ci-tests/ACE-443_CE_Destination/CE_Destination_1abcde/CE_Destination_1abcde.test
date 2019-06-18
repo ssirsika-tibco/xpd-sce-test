@@ -1,0 +1,125 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _n6EVUJDnEem-4tVl3LjgFQ,_ji3IsJDgEem-4tVl3LjgFQ,_7CRdYH3wEembhM5KGYhVkg,__4WYAIkTEem40pYcsbaLuA
+Element-Name: CE_Destination_1abcde
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _GlP_UJDfEem-4tVl3LjgFQ
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/18/19 11:47 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Verify the automatic conversion of destination environment (CE).
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-eclipse-window | maximize
+
+//Import a project to the workspace
+//The Projects are kept in Workspace context of the test, Importing the projects will not result in validation error
+//Verify the error message on old(Studio) project import "Older BPM related projects must be imported using Import Studio Projects or MAA Projects (delete and re-import the project)"
+verifyErrorMessageProblem -error "Older BPM related projects must be imported using Import Studio Projects or MAA Projects (delete and re-import the project)" -numberItems "2 items" -project "ACE-443_DestEnv_BPM"
+//verifyErrorMessageProblem -error "Older BPM related projects must be imported using Import Studio Projects or MAA Projects (delete and re-import the project)" -index "1" -numberItems "2 items" -project "ACE-443_DestEnv_Simulation"
+
+//Should not get Destination Environment in Window>>Preference.
+verifyPropertyWinPreferenceNotPresent -property "Destination Environments"
+
+//Verify the Project does not show any other error. The first error user should see should be of project migration.
+with [get-view "Project Explorer" | get-tree] {
+    select "ACE-443_DestEnv_BPM" | double-click
+    select "ACE-443_DestEnv_BPM/Process Packages" | double-click
+    select "ACE-443_DestEnv_BPM/Process Packages/ACE-443_DestEnv_BPM.xpdl" | double-click
+}
+with [get-window "Invalid Version"] {
+    get-property title | equals "Invalid Version" | verify-true
+    with [get-label "This model cannot be loaded as it is of an older version.  Would you like to migrate it to the latest version?"] {
+        get-property enablement | equals true | verify-true
+        get-property caption 
+            | equals "This model cannot be loaded as it is of an older version.  Would you like to migrate it to the latest version?" 
+            | verify-true
+    }
+    with [get-button Yes] {
+        get-property enablement | equals true | verify-true
+        get-property caption | equals "&Yes" | verify-true
+    }
+    with [get-button No] {
+        get-property enablement | equals true | verify-true
+        get-property caption | equals "&No" | verify-true
+    }
+}
+get-window "Invalid Version" | get-button No | click
+with [get-editor "ACE-443_DestEnv_BPM.xpdl" 
+    | get-label "The Process Package has invalid file markers. Please resolve migration problems to proceed"] {
+    get-property enablement | equals true | verify-true
+    get-property caption 
+        | equals "The Process Package has invalid file markers. Please resolve migration problems to proceed" 
+        | verify-true
+}
+
+//Delete the project and import their zip file via studio.
+
+deleteProject -projectName "ACE-443_DestEnv_BPM"
+deleteProject -projectName "ACE-443_DestEnv_Simulation"
+
+importArchiveFile -archiveName "ACE-443_DestEnv_BPM" -projectLocation [concat $PROJECT_IMPORT_LOCATION"ACE-443_DestEnv_BPM.zip"]
+importArchiveFile -archiveName "ACE-443_DestEnv_Simulation" -projectLocation [concat $PROJECT_IMPORT_LOCATION"ACE-443_DestEnv_Simulation.zip"]
+
+//Verify there are no errors in the Problem tab.
+get-view Problems | get-tree | select "Infos (1 item)"
+
+
+//Create an error in Projec to verify the error prefix (Destination set to CE now)
+get-view "Project Explorer" | get-tree 
+    | select "ACE-443_DestEnv_BPM/Process Packages/ACE-443_DestEnv_BPM.xpdl/ACE-443_DestEnv_BPM \\(ACE443_DestEnv_BPM\\)/Processes/ACE443_DestEnv_BPM-Process \\(ACE443_DestEnv_BPMProcess\\)" 
+    | double-click
+with [get-editor "ACE443_DestEnv_BPM-Process (ACE443_DestEnv_BPMProcess)" | get-diagram] {
+    with [get-edit-part -name "ACE443_DestEnv_BPMProcess" | get-edit-part -name Pool | get-edit-part -name Lane] {
+        with [get-edit-part -name EndEvent] {
+            mouse-move 25 16 button1 -height 47 -width 54
+            mouse-press 25 16 button1 -height 47 -width 54
+            mouse-release 25 16 button1 524288 -height 47 -width 54
+        }
+        mouse-hover 588 270 -height 314 -width 669
+    }
+    key-type Del
+    get-edit-part -name "ACE443_DestEnv_BPMProcess" | get-edit-part -name Pool | get-edit-part -name Lane 
+        | mouse-hover 551 259 -height 314 -width 668
+}
+//Delete Info message, to set focus on error:
+get-view Problems | get-tree | select "Infos (1 item)/OM Generic  : Untyped Organization (Organization1)" | get-menu 
+    -path Delete | click
+get-window "Delete Selected Entries" | get-button Yes | click
+get-view Problems | get-tree 
+    | select "Errors (1 item)/BPM  : There are no migration point activities in the process. No migration of any existing run-time process instances to new process version will be possible. (ACE443_DestEnv_BPMProcess)"
+    
+    //Verify the erro message prefix is set to BPM
+get-view Problems | get-tree  | select "Errors (1 item)"
+    | select "Errors (1 item)/BPM  : There are no migration point activities in the process. No migration of any existing run-time process instances to new process version will be possible. (ACE443_DestEnv_BPMProcess)"    | get-menu -path Properties | click
+with [get-window "Properties for"] {
+    get-editbox -after [get-label "Severity:"] | click-text 4
+    get-editbox -after [get-label "Description:"] | click-text "1:1" "1:188"
+}
+with [get-window "Properties for" | get-editbox -after [get-label "Description:"]] {
+    get-property enablement | equals true | verify-true
+    get-property text 
+        | equals "BPM  : There are no migration point activities in the process. No migration of any existing run-time process instances to new process version will be possible. (ACE443_DestEnv_BPMProcess)" 
+        | verify-true
+}
+get-window "Properties for" | get-button "Apply and Close" | click
+get-eclipse-window | key-type "M1+s"
+with [get-window "Save Package" | get-button OK] {
+    key-type "M1+s" -times 2
+    click
+}
+
+
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
