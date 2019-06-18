@@ -82,13 +82,13 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
                     orderCustomerLink.get().getEnd1(),
                     /* name */ "myOrderName",
                     /* label */ "MyOrderLabel",
-                    /* type */ "Customer",
+                    /* owner */ "Customer",
                     /* isArray */ false);
             assertLinkEnd(orderCustomerLink.get(),
                     orderCustomerLink.get().getEnd2(),
                     /* name */ "myCustomerName",
                     /* label */ "MyCustomerLabel",
-                    /* type */ "Order",
+                    /* owner */ "Order",
                     /* isArray */ false);
         }
 
@@ -102,13 +102,13 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
                     orderProductLink.get().getEnd1(),
                     /* name */ "order",
                     /* label */ "Order",
-                    /* type */ "Product",
+                    /* owner */ "Product",
                     /* isArray */ false);
             assertLinkEnd(orderProductLink.get(),
                     orderProductLink.get().getEnd2(),
                     /* name */ "product",
                     /* label */ "Product",
-                    /* type */ "Order",
+                    /* owner */ "Order",
                     /* isArray */ true);
         }
     }
@@ -137,25 +137,25 @@ public class LinksTransformTest extends AbstractSingleBomCdmTransformTest {
      * @param link
      *            the link.
      * @param linkEnd
-     *            the link.
+     *            the link end.
      * @param expectedName
-     *            expected name of the link.
+     *            expected name of the link end.
      * @param expectedLabel
-     *            expected label of the link.
-     * @param expectedType
-     *            expected type of the link.
+     *            expected label of the link end.
+     * @param expectedOwner
+     *            expected owner of the link end.
      * @param expectedIsArray
      *            expected isArray of the link.
      */
     private void assertLinkEnd(Link link, LinkEnd linkEnd, String expectedName,
-            String expectedLabel, String expectedType,
+            String expectedLabel, String expectedOwner,
             boolean expectedIsArray) {
         String msg = String.format("Link: '%s', end: '%s' ",
                 link.toString(),
                 linkEnd.toString());
         assertEquals(msg + "name", expectedName, linkEnd.getName());
         assertEquals(msg + "label", expectedLabel, linkEnd.getLabel());
-        assertEquals(msg + "type", expectedType, linkEnd.getType());
+        assertEquals(msg + "type", expectedOwner, linkEnd.getOwner());
         assertEquals(msg + "isArray", expectedIsArray, linkEnd.getIsArray());
     }
 }
