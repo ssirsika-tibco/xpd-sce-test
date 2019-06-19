@@ -1,19 +1,27 @@
+================================================================================
+Product Name:    TIBCO Business Studio™ Cloud BPM Edition - Docker Configuration 
+for Automated CI/CD
+Release Version: 5.0.0
+Release Date:    October 2019
+================================================================================
+The Docker image does not come as part of the TIBCO Business Studio Cloud 
+BPM Edition installation. Instead, it is necessary to build the Docker 
+image on-site. To create the Docker image you will need to install Docker 
+on your machine, and include it in the path.
 
-The docker image does not come as part of the Studio installation. Instead, it
-is necessary to build the docker image on-site. To create the docker image
-you will need to install docker on your machine, and include it in the path.
+Once Docker is installed, open a shell prompt and navigate to the TIBCO 
+Business Studio Cloud BPM Edition Docker installer folder 
+(<TIBCO Studio Home>/docker_cicd).
 
-Once docker is installed, open a shell prompt and navigate to the Studio docker
-installer folder (<TIBCO Studio Home>/docker_cicd).
-
-You will require the Linux x86_64 version of the Studio Installer
+You will require the Linux x86_64 version of the TIBCO Business Studio Cloud 
+BPM Edition Installer
 (e.g. TIB_business-studio-cloud-bpm-edition_5.0.0_linux24gl23_x86_64.zip).
 
-You can copy the Studio Installer to the folder 
+You can copy the TIBCO Business Studio Cloud BPM Edition installer to the folder 
     <TIBCO Studio Home>/docker_cicd/image_template
 or pass its full file path to the build script.
 
-To build the docker image use the following command:
+To build the Docker image use the following command:
 
 Windows:
 build-image.bat [<studio-installer>]
@@ -22,5 +30,28 @@ Linux:
 ./build-image.sh [<studio-installer>]
 
 where:
-  <studio-installer> is the full path of the Linux Studio Installer file. This
-  is optional if you have already copied the file to the image_template folder.
+  <studio-installer> is the full path of the Linux TIBCO Business Studio Cloud 
+  BPM Edition Installer file. This is optional if you have already copied the 
+  file to the image_template folder.
+================================================================================
+TIBCO Product Support
+
+- For an overview of TIBCO Support Services, and information about getting 
+  started with TIBCO Product Support, visit this site:
+
+  http://www.tibco.com/services/support/default.jsp
+
+- If you already have a valid maintenance or support contract, visit the TIBCO 
+  Product Support site: 
+
+  https://support.tibco.com
+  
+  Entry to this site requires a user name and password. If you do not have a 
+  user name, you can request one.
+
+- Check the TIBCO Product Support site for notifications and product information
+  that was not available at release time.
+  
+===============================================================================
+Copyright (C) 2005-2019 TIBCO Software Inc. All rights reserved.
+TIBCO Software Inc. Confidential Information
