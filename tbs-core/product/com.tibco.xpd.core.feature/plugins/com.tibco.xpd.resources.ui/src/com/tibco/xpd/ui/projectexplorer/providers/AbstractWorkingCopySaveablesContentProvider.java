@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.Saveable;
@@ -471,12 +472,23 @@ public abstract class AbstractWorkingCopySaveablesContentProvider extends
                     }
 
                     // Reselect the item to refresh the Save action
-                    TreeViewer viewer = getViewer();
-                    if (viewer != null) {
-                        ISelection selection = viewer.getSelection();
-                        if (selection != null)
-                            viewer.setSelection(selection);
-                    }
+                    /*
+                     * Sid ACE-1684 We can be called on a non Display thread, in
+                     * which case viewer.setSelection() will cause an except, so
+                     * make sure it's executed on Display thread.
+                     */
+                    Display.getDefault().asyncExec(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            TreeViewer viewer = getViewer();
+                            if (viewer != null) {
+                                ISelection selection = viewer.getSelection();
+                                if (selection != null)
+                                    viewer.setSelection(selection);
+                            }
+                        }
+                    });
                 }
             }
         }
