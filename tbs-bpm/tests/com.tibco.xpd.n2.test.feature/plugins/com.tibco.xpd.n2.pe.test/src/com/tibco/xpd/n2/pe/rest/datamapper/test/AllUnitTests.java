@@ -15,11 +15,11 @@ import junit.framework.TestSuite;
  */
 public class AllUnitTests {
     public static Test suite() {
-        TestSuite suite =
-                new TestSuite(
-                        "Test for com.tibco.xpd.n2.pe.rest.datamapper.test"); //$NON-NLS-1$
+        TestSuite suite = new TestSuite(
+                "Test for com.tibco.xpd.n2.pe.rest.datamapper.test"); //$NON-NLS-1$
 
         suite.addTestSuite(RestScriptGeneratorInfoProviderUriTest.class);
+        suite.addTestSuite(RestScriptGeneratorInfoProviderStatementTest.class);
 
         return suite;
     }

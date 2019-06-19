@@ -60,6 +60,7 @@ public class RestScriptGeneratorInfoProvider
      *            parent alias var.
      * @return The assignment statement.
      */
+    @Override
     public String getAssignmentStatement(Object object,
             String rhsObjectStatement, String jsVarAlias) {
         StringBuilder statement = new StringBuilder();
@@ -99,32 +100,19 @@ public class RestScriptGeneratorInfoProvider
                 suffix = " ? new String(" + rhsObjectStatement + ") : null"; //$NON-NLS-1$ //$NON-NLS-2$
                 break;
             case BOOLEAN:
-                /*
-                 * Sid XPD-8277 "!= null" is now done for all types at end of
-                 * method now.
-                 */
-                suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                        + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                        + ".booleanValue() : " + rhsObjectStatement //$NON-NLS-1$
-                        + ") : null"; //$NON-NLS-1$
-                break;
             case DECIMAL:
-                suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                        + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                        + ".doubleValue() : " + rhsObjectStatement //$NON-NLS-1$
-                        + ") : null"; //$NON-NLS-1$
+                suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                        + " : null"; //$NON-NLS-1$
                 break;
             case INTEGER:
-                suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                        + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                        + ".intValue() : " + rhsObjectStatement //$NON-NLS-1$
+                suffix = " ? Math.round(" + rhsObjectStatement //$NON-NLS-1$
                         + ") : null"; //$NON-NLS-1$
                 break;
             case DATE:
             case DATE_TIME:
             case TIME:
-                suffix = " ? new String(" + rhsObjectStatement //$NON-NLS-1$
-                        + ".toXMLFormat()) : null"; //$NON-NLS-1$
+                suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                        + ".toJSON() : null"; //$NON-NLS-1$
                 break;
             }
         } else if (object instanceof ConceptPath) {
@@ -139,14 +127,12 @@ public class RestScriptGeneratorInfoProvider
                                 .equals(name)
                         || PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME
                                 .equals(name)) {
-                    suffix = " ? new String(" + rhsObjectStatement //$NON-NLS-1$
-                            + ".toXMLFormat()) : null"; //$NON-NLS-1$
+                    suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                            + ".toJSON() : null"; //$NON-NLS-1$
 
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME
                         .equals(name)) {
-                    suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                            + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                            + ".intValue() : " + rhsObjectStatement //$NON-NLS-1$
+                    suffix = " ? Math.round(" + rhsObjectStatement //$NON-NLS-1$
                             + ") : null"; //$NON-NLS-1$
 
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME
@@ -155,16 +141,12 @@ public class RestScriptGeneratorInfoProvider
                      * Sid XPD-8277 "!= null" is now done for all types at end
                      * of method now.
                      */
-                    suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                            + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                            + ".booleanValue() : " + rhsObjectStatement //$NON-NLS-1$
-                            + ") : null"; //$NON-NLS-1$
+                    suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                            + " : null"; //$NON-NLS-1$
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
                         .equals(name)) {
-                    suffix = " ? (typeof " + rhsObjectStatement //$NON-NLS-1$
-                            + " == 'object' ? " + rhsObjectStatement //$NON-NLS-1$
-                            + ".doubleValue() : " + rhsObjectStatement //$NON-NLS-1$
-                            + ") : null"; //$NON-NLS-1$
+                    suffix = " ? " + rhsObjectStatement //$NON-NLS-1$
+                            + " : null"; //$NON-NLS-1$
                 } else if (PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME
                         .equals(name)) {
                     suffix = " ? new String(" + rhsObjectStatement + ") : null"; //$NON-NLS-1$ //$NON-NLS-2$
@@ -207,6 +189,7 @@ public class RestScriptGeneratorInfoProvider
      *            The parent alias var.
      * @return The statement to get the value.
      */
+    @Override
     public String getGetterStatement(Object object, String jsVarAlias) {
         String statement = null;
         String suffix = ""; //$NON-NLS-1$
@@ -216,28 +199,6 @@ public class RestScriptGeneratorInfoProvider
             jsVarAlias =
                     convertPath(jsVarAlias) + "['" + getName(object) + "']"; //$NON-NLS-1$ //$NON-NLS-2$
         }
-        if (object instanceof ConceptPath) {
-            ConceptPath cp = (ConceptPath) object;
-            Classifier type = cp.getType();
-            if (type instanceof PrimitiveType) {
-                PrimitiveType pt = (PrimitiveType) type;
-                PrimitiveType basePt = PrimitivesUtil.getBasePrimitiveType(pt);
-                String name = basePt.getName();
-                if (PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME.equals(name)) {
-                    suffix = " ? DateTimeUtil.createDate(" + jsVarAlias //$NON-NLS-1$
-                            + ") : null"; //$NON-NLS-1$
-                } else if (PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME
-                        .equals(name)) {
-                    suffix = " ? DateTimeUtil.createDatetimetz(" + jsVarAlias //$NON-NLS-1$
-                            + ") : null"; //$NON-NLS-1$
-                } else if (PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME
-                        .equals(name)) {
-                    suffix = " ? DateTimeUtil.createTime(" + jsVarAlias //$NON-NLS-1$
-                            + ") : null"; //$NON-NLS-1$
-                }
-            }
-        }
-
         if (isSimpleType(object)) {
             statement = jsVarAlias + suffix;
         } else {
@@ -284,6 +245,7 @@ public class RestScriptGeneratorInfoProvider
      *            true if the REST data is the mapping source.
      * @return Scripts to prepend to the final mapping script.
      */
+    @Override
     public String getScriptsToPrepend(ScriptDataMapper container,
             boolean isSource) {
         JavaScriptStringBuilder jssb = new JavaScriptStringBuilder();
@@ -476,6 +438,7 @@ public class RestScriptGeneratorInfoProvider
      *            true if the REST data is the mapping source.
      * @return Scripts to append to the final mapping script.
      */
+    @Override
     public String getScriptsToAppend(ScriptDataMapper container,
             boolean isSource) {
         if (!isSource) {
@@ -806,6 +769,7 @@ public class RestScriptGeneratorInfoProvider
      *            JS variable containing the parent, or null.
      * @return Script to get the collection size.
      */
+    @Override
     public String getCollectionSizeScript(Object object,
             String objectParentJsVar) {
         StringBuilder script = new StringBuilder();
@@ -832,6 +796,7 @@ public class RestScriptGeneratorInfoProvider
      *            JS variable containing the parent, or null.
      * @return Script to get the given element.
      */
+    @Override
     public String getCollectionElementScript(Object collection,
             String indexVarName, String objectParentJsVar) {
 
@@ -858,6 +823,7 @@ public class RestScriptGeneratorInfoProvider
      * @param objectParentJsVar
      * @return
      */
+    @Override
     public String getCollectionElementScriptForTargetMerge(Object collection,
             String indexVarName, String objectParentJsVar) {
         /*
@@ -882,6 +848,7 @@ public class RestScriptGeneratorInfoProvider
      *            JS variable containing the parent, or null.
      * @return Script to clear the collection.
      */
+    @Override
     public String getClearCollectionScript(Object collectionObject,
             String jsVarAlias) {
         StringBuilder script = new StringBuilder();
@@ -905,6 +872,7 @@ public class RestScriptGeneratorInfoProvider
      * @param objectParentJsVar
      * @return
      */
+    @Override
     public String getCollectionAddElementScript(Object collection,
             String jsElementToAdd, String objectParentJsVar) {
 
@@ -932,6 +900,7 @@ public class RestScriptGeneratorInfoProvider
      * @param loopIndexJsVar
      * @return
      */
+    @Override
     public String getCollectionSetElementScript(Object collection,
             String jsElementToAdd, String objectParentJsVar,
             String loopIndexJsVar) {
@@ -962,6 +931,7 @@ public class RestScriptGeneratorInfoProvider
      *            The complex object to create.
      * @return Script to create the object.
      */
+    @Override
     public String getComplexObjectCreationScript(Object complexObject) {
         if (complexObject instanceof ConceptPath) {
             /*
@@ -982,6 +952,7 @@ public class RestScriptGeneratorInfoProvider
      *            The complex object to create.
      * @return Script to create the object.
      */
+    @Override
     public String getArrayCreationScript(Object arrayObject) {
         if (!isSimpleType(arrayObject)) {
             /*
@@ -1084,6 +1055,7 @@ public class RestScriptGeneratorInfoProvider
      * @param checkType
      * @return
      */
+    @Override
     public String getCheckNullTreeExpression(Object object, String jsVarAlias,
             CheckNullTreeExpressionType checkType) {
 
@@ -1202,6 +1174,7 @@ public class RestScriptGeneratorInfoProvider
      * @param path
      * @return
      */
+    @Override
     public String resolvePath(Object object, String path) {
         return convertPath(path);
     }
@@ -1216,6 +1189,7 @@ public class RestScriptGeneratorInfoProvider
         UNASSIGNED, JSON, UNPROCESSED_TEXT
     }
 
+    @Override
     public String getSingleToMultiInstanceAssignmentStatement(Object targetItem,
             String rhsObjectStatement, String jsVarAlias) {
         // TODO Auto-generated method stub
