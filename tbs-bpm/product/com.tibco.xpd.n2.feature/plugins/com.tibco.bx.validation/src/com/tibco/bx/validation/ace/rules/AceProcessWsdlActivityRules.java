@@ -13,6 +13,7 @@ import com.tibco.xpd.validation.xpdl2.rules.ProcessActivitiesValidationRule;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
 import com.tibco.xpd.xpdl2.util.ThrowErrorEventUtil;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Validation rules related to the presence of WSDL related activities left in
@@ -95,7 +96,13 @@ public class AceProcessWsdlActivityRules
                     addIssue(ACE_ISSUE_INCOMING_MESSAGE_TASK_NOTSUPPORTED,
                             activity);
                 }
-            } else {
+            } else if (!Xpdl2ModelUtil.isEventImplemented(activity)) {
+                /*
+                 * ACE-1369: Saket: This rule should not be raised for process
+                 * events that implement process interface events because it
+                 * changes the type of the process event, but it is the
+                 * interface event that is at fault.
+                 */
                 addIssue(ACE_ISSUE_INCOMING_MESSAGE_EVENT_NOTSUPPORTED,
                         activity);
             }
@@ -105,7 +112,13 @@ public class AceProcessWsdlActivityRules
                     .equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
                 addIssue(ACE_ISSUE_INCOMING_MESSAGE_TASK_NOTSUPPORTED,
                         activity);
-            } else {
+            } else if (!Xpdl2ModelUtil.isEventImplemented(activity)) {
+                /*
+                 * ACE-1369: Saket: This rule should not be raised for process
+                 * events that implement process interface events because it
+                 * changes the type of the process event, but it is the
+                 * interface event that is at fault.
+                 */
                 addIssue(ACE_ISSUE_INCOMING_MESSAGE_EVENT_NOTSUPPORTED,
                         activity);
             }

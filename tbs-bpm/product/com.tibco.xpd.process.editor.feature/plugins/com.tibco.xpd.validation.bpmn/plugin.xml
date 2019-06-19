@@ -281,6 +281,9 @@
          <rule
                class="com.tibco.xpd.validation.bpmn.rules.MessageEventParamRule">
          </rule>
+         <rule
+               class="com.tibco.xpd.validation.bpmn.rules.ProcessInterfaceMessageEventsRule">
+         </rule>
       </provider>
       <issue
             id="bpmn.activityName"
@@ -722,6 +725,11 @@
       <issue
             id="bpmn.signalEventNameMandatory2"
             message="%bpmn.signalEventNameMandatory2"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="bpmn.interfaceMessageEventNotSsupported"
+            message="%bpmn.interfaceMessageEventNotSsupported"
             severity="ERROR">
       </issue>
 
@@ -1711,6 +1719,13 @@
             id="bpmn.implementedMethodOutOfSync"
             label="%resolution.title.bpmn.implementedMethodOutOfSync">
       </resolution> -->
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.xpd.validation.xpdl2.resolutions.SynchronizeProcessResolution"
+            description="%resolution.description.bpmn.processOutOfSyncProcIfc"
+            id="bpmn.processOutOfSyncProcIfc"
+            label="%resolution.title.bpmn.processOutOfSyncProcIfc">
+      </resolution>      
      <resolution
             canApplyToMultiple="false"
             class="com.tibco.xpd.validation.xpdl2.resolutions.InterfaceDestinationResolution"
