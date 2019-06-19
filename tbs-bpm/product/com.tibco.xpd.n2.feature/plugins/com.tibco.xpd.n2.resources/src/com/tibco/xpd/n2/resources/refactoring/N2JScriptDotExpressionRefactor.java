@@ -14,9 +14,6 @@ import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 
-import antlr.Token;
-import antlr.collections.AST;
-
 import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.n2.resources.util.N2Utils;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -31,6 +28,9 @@ import com.tibco.xpd.script.parser.internal.refactoring.RefactoringInfo;
 import com.tibco.xpd.script.parser.internal.refactoring.jscript.AbstractExpressionRefactor;
 import com.tibco.xpd.ui.util.NameUtil;
 
+import antlr.Token;
+import antlr.collections.AST;
+
 /**
  * @author mtorres
  * 
@@ -43,6 +43,7 @@ public class N2JScriptDotExpressionRefactor extends AbstractExpressionRefactor {
 
     private final static String CREATE_PREFIX = "create";//$NON-NLS-1$
 
+    @Override
     public RefactorResult evaluate(IExpr expression) {
         if (expression != null) {
             Object expr = expression.getExpr();
@@ -79,17 +80,18 @@ public class N2JScriptDotExpressionRefactor extends AbstractExpressionRefactor {
                             RefactorResult delegateEvaluateExpression =
                                     delegateEvaluateExpression(firstChild,
                                             token);
-                            processExpressionAfterDot(expression,
-                                    delegateEvaluateExpression.getType(),
-                                    astExpression,
-                                    firstChild,
-                                    astToken,
-                                    result);
-                            if (result != null) {
-                                getRefactorResultList()
-                                        .add(result);
+                            if (delegateEvaluateExpression != null) {
+                                processExpressionAfterDot(expression,
+                                        delegateEvaluateExpression.getType(),
+                                        astExpression,
+                                        firstChild,
+                                        astToken,
+                                        result);
+                                if (result != null) {
+                                    getRefactorResultList().add(result);
+                                }
+                                return result;
                             }
-                            return result;
                         }
                     }
                     break;
