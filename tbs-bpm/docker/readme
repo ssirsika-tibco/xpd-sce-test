@@ -1,25 +1,25 @@
 ﻿================================================================================
-Product Name:    TIBCO Business Studio™ Cloud BPM Edition - Docker Configuration 
-for Automated CI/CD
+Product Name:    TIBCO Business Studio™ - Cloud BPM Edition 
+Docker Configuration for Automated CI/CD
 Release Version: 5.0.0
 Release Date:    October 2019
 ================================================================================
-The Docker image does not come as part of the TIBCO Business Studio Cloud 
+The Docker image does not come as part of the TIBCO Business Studio - Cloud 
 BPM Edition installation. Instead, it is necessary to build the Docker 
 image on-site. To create the Docker image you will need to install Docker 
 on your machine, and include it in the path.
 
 Once Docker is installed, open a shell prompt and navigate to the TIBCO 
-Business Studio Cloud BPM Edition Docker installer folder 
+Business Studio - Cloud BPM Edition Docker installer folder 
 (<TIBCO Studio Home>/docker_cicd).
 
 You will require the Linux x86_64 version of the TIBCO Business Studio Cloud 
-BPM Edition Installer
+BPM Edition Installer 
 (e.g. TIB_business-studio-cloud-bpm-edition_5.0.0_linux24gl23_x86_64.zip).
 
-You can copy the TIBCO Business Studio Cloud BPM Edition installer to the folder 
-    <TIBCO Studio Home>/docker_cicd/image_template
-or pass its full file path to the build script.
+You can copy the TIBCO Business Studio - Cloud BPM Edition installer to the 
+folder <TIBCO Studio Home>/docker_cicd/image_template or pass its full file path 
+to the build script.
 
 To build the Docker image use the following command:
 
@@ -30,10 +30,10 @@ Linux:
 ./build-image.sh [<studio-installer>]
 
 where:
-  <studio-installer> is the full path of the Linux TIBCO Business Studio Cloud 
+  <studio-installer> is the full path of the Linux TIBCO Business Studio - Cloud 
   BPM Edition Installer file. This is optional if you have already copied the 
   file to the image_template folder.
 ================================================================================
 
-Copyright (C) 2005-2019 TIBCO Software Inc. All rights reserved.
+Copyright (C) 2004-2019 TIBCO Software Inc. All rights reserved.
 TIBCO Software Inc. Confidential Information
