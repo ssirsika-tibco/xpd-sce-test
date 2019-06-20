@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: __4WYAIkTEem40pYcsbaLuA
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 6/7/19 5:11 PM
+Save-Time: 6/19/19 5:37 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,7 +15,7 @@ Entry-Name: .ecl.context
 //Create a participant.
 proc "createParticipant"[val participantLabel][val Type][val type] {
 get-view "Project Explorer" | get-tree 
-    | select [concat $PROJECT_NAME"/Process Packages/"$PROJECT_NAME".xpdl/"$PROJECT_NAME" ("$PROJECT_NAME")/Participants" ]
+    | select [concat $PROCESS_PROJECT_NAME"/Process Packages/"$PROCESS_PROJECT_NAME".xpdl/"$PROCESS_PROJECT_NAME" ("$PROCESS_PROJECT_NAME")/Participants" ]
     | get-menu -path "New/Participant" | click
 with [get-window "New Participant"] {
 	
@@ -29,5 +29,200 @@ with [get-window "New Participant"] {
 }
 }
 
-
+//Create Process
+proc "createProcess" [val projectName] [val startEvent] [val endEvent] [val taskType]{
+with [get-view Palette | get-palette] {
+    with [get-palette-entry "Start Events"] {
+        mouse-move 23 10 button1 -height 22 -width 1430
+        mouse-press 23 10 button1 -height 22 -width 1430
+        mouse-release 23 10 button1 524288 -height 22 -width 1430
+        mouse-hover 23 105 -height 117 -width 1430
+    }
+    with [get-palette-entry $startEvent -index 1] {
+        mouse-move 8 16 button1 -height 23 -width 33
+        mouse-press 8 16 button1 -height 23 -width 33
+        get-figure -path "0/0" | drag-start 4 12
+    }
+}
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"]] {
+    drag-enter 1 321 -detail move
+    drag-over 1 321 -detail move
+    with [get-edit-part -name Pool] {
+        drag-over 21 305
+        get-figure -path 0 | drag-over 28 301
+        with [get-edit-part -name Lane] {
+            get-figure -path 0 | drag-over 26 281
+            get-figure -path 1 | drag-over 86 124 -detail copy
+        }
+    }
+    drag-exit
+    get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 87 125 -detail copy
+}
+get-view Palette | get-palette | drag-set-data
+get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 
+    | drop 87 125 -detail copy
+with [get-view Palette | get-palette] {
+    drag-end -detail move
+    with [get-palette-entry Tasks] {
+        mouse-hover 29 14 -height 22 -width 1430
+        mouse-move 28 12 button1 -height 22 -width 1430
+        mouse-press 28 12 button1 -height 22 -width 1430
+        mouse-release 28 12 button1 524288 -height 22 -width 1430
+        mouse-hover 28 80 -height 90 -width 1430
+    }
+ 
+    with [get-palette-entry $taskType -index 1] {
+        mouse-move 8 18 button1 -height 23 -width 33
+        mouse-press 8 18 button1 -height 23 -width 33
+        get-figure -path "0/0" | drag-start 4 14
+    }
+}
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"]] {
+    drag-enter 3 350 -detail move
+    drag-over 227 324 -detail copy
+    with [get-edit-part -name Pool] {
+        drag-over 286 303 -detail copy
+        get-edit-part -name Lane | get-figure -path 1 | drag-over 229 103 -detail copy
+    }
+    drag-exit
+    get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 230 104 -detail copy
+}
+get-view Palette | get-palette | drag-set-data
+get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 
+    | drop 230 104 -detail copy
+get-view Palette | get-palette | drag-end -detail move
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane] {
+    mouse-move 272 259 button1 -height 300 -width 668
+    mouse-press 272 259 button1 -height 300 -width 668
+    mouse-release 272 259 button1 524288 -height 300 -width 668
+}
+with [get-view Palette | get-palette] {
+    get-palette-entry $startEvent | mouse-move 20 16 -height 23 -width 33
+    with [get-palette-entry $endEvent] {
+        mouse-move 19 13 button1 -height 22 -width 1430
+        mouse-press 19 13 button1 -height 22 -width 1430
+        mouse-release 19 13 button1 524288 -height 22 -width 1430
+    }
+    with [get-palette-entry $endEvent -index 1] {
+        mouse-move 13 16 button1 -height 23 -width 33
+        mouse-press 13 16 button1 -height 23 -width 33
+        get-figure -path "0/0" | drag-start 9 12
+    }
+}
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"]] {
+    drag-enter 2 404 -detail move
+    with [get-edit-part -name Pool] {
+        drag-over 191 304 -detail copy
+        get-edit-part -name Lane | get-figure -path 1 | drag-over 474 117 -detail copy
+    }
+    drag-exit
+    get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 475 117 -detail copy
+}
+get-view Palette | get-palette | drag-set-data
+get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram | get-edit-part 
+    -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 
+    | drop 475 117 -detail copy
+get-view Palette | get-palette | drag-end -detail move
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"] | get-diagram] {
+    mouse-move 123 390 button1 -height 530 -width 1430
+    mouse-press 123 390 button1 -height 530 -width 1430
+    mouse-release 123 390 button1 524288 -height 530 -width 1430
+    mouse-hover 123 390 -height 530 -width 1430
+}
+with [get-view Palette | get-palette] {
+    with [get-palette-entry Connections] {
+        mouse-move 42 16 button1 -height 22 -width 1430
+        mouse-press 42 16 button1 -height 22 -width 1430
+        mouse-release 42 16 button1 524288 -height 22 -width 1430
+    }
+    with [get-palette-entry "Sequence Flow" -index 1] {
+        mouse-move 18 14 button1 -height 23 -width 33
+        mouse-press 18 14 button1 -height 23 -width 33
+        mouse-release 18 14 button1 524288 -height 23 -width 33
+        mouse-move 7 2 -height 23 -width 33
+    }
+}
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"]] {
+    with [get-diagram | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
+        -name Lane] {
+        with [get-edit-part -name StartEvent] {
+            mouse-move 47 16 button1 -height 47 -width 58
+            mouse-press 47 16 button1 -height 47 -width 58
+            mouse-release 47 16 button1 524288 -height 47 -width 58
+        }
+        with [get-edit-part -name $taskType] {
+            mouse-move "-6" 35 -height 64 -width 96
+            mouse-hover "-6" 35 -height 64 -width 96
+            mouse-move "-6" 35 button1 -height 64 -width 96
+            mouse-press "-6" 35 button1 -height 64 -width 96
+        }
+    }
+    get-diagram | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
+        -name Lane | get-edit-part -name $taskType | mouse-release "-6" 35 button1 524288 -height 64 -width 96
+}
+with [get-view Palette | get-palette | get-palette-entry "Sequence Flow" -index 1] {
+    mouse-move 3 13 button1 -height 23 -width 33
+    mouse-press 3 13 button1 -height 23 -width 33
+    mouse-release 3 13 button1 524288 -height 23 -width 33
+}
+with [get-editor [concat $projectName"-Process ("$projectName"Process)"]] {
+    with [get-diagram | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
+        -name Lane] {
+        with [get-edit-part -name $taskType] {
+            mouse-move 101 34 -height 64 -width 96
+            mouse-hover 101 34 -height 64 -width 96
+            mouse-move 100 34 button1 -height 64 -width 96
+            mouse-press 100 34 button1 -height 64 -width 96
+            mouse-release 100 34 button1 524288 -height 64 -width 96
+            mouse-move 104 34 -height 64 -width 96
+        }
+        with [get-edit-part -name EndEvent] {
+            mouse-hover 13 19 -height 47 -width 54
+            mouse-move 13 19 button1 -height 47 -width 54
+            mouse-press 13 19 button1 -height 47 -width 54
+            
+            mouse-press 13 19 button1 -height 47 -width 54
+        }
+    }
+		 with [get-diagram] {
+       	 with [get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane] {
+            get-edit-part -name EndEvent | mouse-release 18 16 button1 524288 -height 47 -width 54
+            mouse-move 446 277 button1 -height 300 -width 668
+            mouse-press 446 277 button1 -height 300 -width 668
+            mouse-release 446 277 button1 524288 -height 300 -width 668
+            mouse-hover 446 277 -height 300 -width 668
+            
+            mouse-press 446 277 button1 -height 300 -width 668
+        }
+        key-type "M1+s"
+    }
+}
+get-window "Save Package" | get-button OK | click
+ }
+ 
+ 
+//Change Task Type
+proc "changeTaskType" [val newTaskType]{
+with [get-editor [concat $PROCESS_PROJECT_NAME"-Process ("$PROCESS_PROJECT_NAME"Process)"] | get-diagram | get-edit-part 
+    -name [concat $PROCESS_PROJECT_NAME"Process"] | get-edit-part -name Pool | get-edit-part -name Lane | get-edit-part 
+    -name Task] {
+    mouse-move 40 48 button1 -height 64 -width 96
+    mouse-press 40 48 button1 -height 64 -width 96
+    mouse-release 40 48 button1 524288 -height 64 -width 96
+    mouse-hover 40 48 -height 64 -width 96
+    mouse-move 39 69 -height 64 -width 96
+}
+with [get-view Properties] {
+    get-combo -after [get-label "Activity Type:"] | select $newTaskType
+    
+}
+get-view Properties | key-type "M1+s"
+get-window "Save Package" | get-button OK | click
+}
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

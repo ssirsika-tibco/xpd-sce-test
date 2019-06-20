@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _7CRdYH3wEembhM5KGYhVkg
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 6/2/19 11:12 PM
+Save-Time: 6/19/19 3:50 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -38,18 +38,46 @@ proc openCaseClassProperties{
     -name $CASE_CLASS_PROPERTIES
 }
 //verify Quick Fix 
-proc quickFixMsg [val error]{
+proc quickFixMsg [val error][val numberItems]{
 
 	with [get-view Problems] {
     click
     get-tree 
-        | select [concat "Errors (1 item)/"$error" ("$ERROR_ELEMENT_1" ("$CASE_CLASS_PROPERTIES"))"]
+        | select [concat "Errors ("$numberItems")/"$error" ("$ERROR_ELEMENT_1" ("$CASE_CLASS_PROPERTIES"))"]
 	}
 	get-view Problems | get-tree | get-item 
-    -path [concat "Errors \\(1 item\\)/"$error" \\("$ERROR_ELEMENT_1" \\("$CASE_CLASS_PROPERTIES"\\)\\)"]
+    -path [concat "Errors \\("$numberItems"\\)/"$error" \\("$ERROR_ELEMENT_1" \\("$CASE_CLASS_PROPERTIES"\\)\\)"]
     | get-property "getText()" 
     | equals [concat $error" ("$ERROR_ELEMENT_1" ("$CASE_CLASS_PROPERTIES"))"] 
     | verify-true
+	
+}
+
+//verify Error Message Details in Problems tab
+proc verifyErrorMessageProblem [val error] [val numberItems] [val project]{
+
+	with [get-view Problems] {
+    click
+    get-tree | select [get-item -path [concat"Errors ("$numberItems")"] | get-item 
+        -path $error] | get-menu -path Properties | click
+	}
+	with [get-window "Properties for"] {
+    with [get-editbox -after [get-label "Description:"]] {
+        get-property text 
+            | equals $error
+            | verify-true
+        get-property "isEnabled()" | equals true | verify-true
+    }
+    get-editbox -after [get-label "Severity:"] | get-property text | equals Error | verify-true
+    get-editbox -after [get-label "On element:"] | get-property text | equals $project | verify-true
+    get-editbox -after [get-label "Location:"] | get-property text | equals [concat "/"$project] | verify-true
+    with [get-button "Apply and Close"] {
+        get-property "getText()" | equals "Apply and Close" | verify-true
+        get-property "isEnabled()" | equals true | verify-true
+        
+    }
+    get-button "Apply and Close" | click
+	}
 	
 }
 

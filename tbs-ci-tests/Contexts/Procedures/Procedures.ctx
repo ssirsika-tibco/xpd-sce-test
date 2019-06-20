@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _sokeoOnpEeSK-v-ghnuP9g
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 5/28/19 5:20 PM
+Save-Time: 6/19/19 5:30 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -36,168 +36,6 @@ proc "projectExportStatus" [val project] [val status]{
        get-label $project | get-property caption | equals $project | verify-true
        get-label $status -after [get-label $project] 
     }
-
-
-//Make a simple Process in a project
-
-proc "createProcess" [val projectName] [val startEvent] [val endEvent] [val taskType]{
-with [get-editor [concat $projectName"-Process ("$projectName"Process)"]] {
-    with [get-palette] {
-
-        with [get-palette-entry $startEvent] {
-            mouse-move 16 16 button1 -height 23 -width 33
-            mouse-press 16 16 button1 -height 23 -width 33
-            get-figure -path "0/0" | drag-start 12 12
-        }
-    }
-    with [get-diagram | get-edit-part -name [concat $projectName"Process"]] {
-        drag-enter 865 65 -detail move
-        drag-over 865 65 -detail move
-        get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-over 125 124 -detail copy
-        drag-exit
-        get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 126 124 -detail copy
-    }
-    get-palette | drag-set-data
-    get-diagram | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane 
-        | get-figure -path 1 | drop 126 124 -detail copy
-    with [get-palette] {
-        drag-end -detail move
-        with [get-palette-entry "Start Events"] {
-            mouse-move 51 16 button1 -height 22 -width 125
-            mouse-press 51 16 button1 -height 22 -width 125
-            mouse-release 51 16 button1 524288 -height 22 -width 125
-        }
-        with [get-palette-entry "End Events"] {
-            mouse-move 32 18 button1 -height 22 -width 125
-            mouse-press 32 18 button1 -height 22 -width 125
-            mouse-release 32 18 button1 524288 -height 22 -width 125
-        }
-
-        with [get-palette-entry $endEvent -index 1] {
-            mouse-move 13 13 button1 -height 23 -width 33
-            mouse-press 13 13 button1 -height 23 -width 33
-            mouse-release 13 13 button1 524288 -height 23 -width 33
-            mouse-move 16 14 -height 23 -width 33
-            mouse-hover 16 14 -height 23 -width 33
-            mouse-move 16 14 button1 -height 23 -width 33
-            mouse-press 16 14 button1 -height 23 -width 33
-            get-figure -path "0/0" | drag-start 12 10
-        }
-    }
-    with [get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"]] {
-        drag-enter 1286 302 -detail move
-        drag-over 705 182 -detail copy
-        get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-over 442 131 -detail copy
-        drag-exit
-        get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 443 131 -detail copy
-    }
-    get-palette | drag-set-data
-    get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
-        -name Lane | get-figure -path 1 | drop 443 131 -detail copy
-    with [get-palette] {
-        drag-end -detail move
-        with [get-palette-entry Tasks] {
-            mouse-move 82 7 button1 -height 22 -width 125
-            mouse-press 82 7 button1 -height 22 -width 125
-            mouse-release 82 7 button1 524288 -height 22 -width 125
-        }
-
-        with [get-palette-entry Task -index 1] {
-            mouse-move 20 14 button1 -height 23 -width 33
-            mouse-press 20 14 button1 -height 23 -width 33
-            get-figure -path 0 | drag-start 20 14
-        }
-    }
-    with [get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"]] {
-        drag-enter 1271 297 -detail move
-        drag-over 727 133 -detail copy
-        with [get-edit-part -name Pool] {
-            drag-over 699 126 -detail copy
-            get-edit-part -name Lane | get-figure -path 1 | drag-over 260 107 -detail copy
-        }
-        drag-exit
-        get-edit-part -name Pool | get-edit-part -name Lane | get-figure -path 1 | drag-accept 260 108 -detail copy
-    }
-    get-palette | drag-set-data
-    get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
-        -name Lane | get-figure -path 1 | drop 260 108 -detail copy
-    with [get-palette] {
-        drag-end -detail move
-        with [get-palette-entry "Sequence Flow"] {
-            mouse-move 14 9 button1 -height 23 -width 33
-            mouse-press 14 9 button1 -height 23 -width 33
-            mouse-release 14 9 button1 524288 -height 23 -width 33
-            mouse-move 2 11 -height 23 -width 33
-        }
-
-    }
-    with [get-diagram -index 1] {
-        with [get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane] {
-            get-edit-part -name Task | mouse-move "-9" 36 -height 64 -width 96
-            with [get-edit-part -name StartEvent] {
-                mouse-move 43 17 button1 -height 47 -width 58
-                mouse-press 43 17 button1 -height 47 -width 58
-                get-figure -path 1 | drag-start 28 16
-            }
-            mouse-move 207 139 -mask 524288 -height 300 -width 668
-        }
-        mouse-drag 248 151 -mask 524288 -height 530 -width 1302
-        with [get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part -name Lane 
-            | get-edit-part -name Task | get-handle ResizeHandle -index 3] {
-            mouse-drag 0 0 button1 524288 -height 7 -width 7
-            mouse-release 0 0 button1 524288 -height 7 -width 7
-        }
-    }
-    get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
-        -name Lane | get-edit-part -name Task | mouse-move 102 33 -height 64 -width 96
-
-    
-   
-    
-     with [get-palette] {
-        with [get-palette-entry "Sequence Flow"] {
-            mouse-move 7 11 button1 -height 23 -width 33
-            mouse-press 7 11 button1 -height 23 -width 33
-            mouse-release 7 11 button1 524288 -height 23 -width 33
-            mouse-move 3 11 -height 23 -width 33
-        }
-
-    }
-    
-    with [get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
-        -name Lane] {
-        with [get-edit-part -name Task] {
-            mouse-move 101 31 -height 64 -width 96
-            mouse-hover 101 31 -height 64 -width 96
-            mouse-move 101 31 button1 -height 64 -width 96
-            mouse-press 101 31 button1 -height 64 -width 96
-            mouse-release 101 31 button1 524288 -height 64 -width 96
-            mouse-move 105 31 -height 64 -width 96
-        }
-        with [get-edit-part -name EndEvent] {
-            mouse-hover 13 14 -height 47 -width 54
-            mouse-move 13 14 button1 -height 47 -width 54
-            mouse-press 13 14 button1 -height 47 -width 54
-        }
-    }
-    with [get-diagram -index 1 | get-edit-part -name [concat $projectName"Process"] | get-edit-part -name Pool | get-edit-part 
-        -name Lane] {
-        with [get-edit-part -name EndEvent] {
-            mouse-release 13 14 button1 524288 -height 47 -width 54
-            
-        }
-        mouse-move 459 157 button1 -height 300 -width 668
-        mouse-press 459 157 button1 -height 300 -width 668
-        mouse-release 459 157 button1 524288 -height 300 -width 668
-        mouse-hover 459 157 -height 300 -width 668
-        get-edit-part -name Task | mouse-move "-6" 57 -height 64 -width 96
-        key-type "M1+s"
-    }
-     
-     
-}
-}
-
 
 //Create Project
 proc "createProject" [val projectType] [val projectName] {
@@ -259,4 +97,69 @@ proc "importArchiveFile" [val archiveName] [val projectLocation]{
      }
  }
  
+ //Delete Project
+proc "deleteProject" [val projectName]{
+    with [get-view "Project Explorer" | get-tree] {
+    //select "ACE-443_DestEnv_BPM" | key-type "M2+ARROW_DOWN"
+    select $projectName
+    get-menu -path Delete | click
+	}
+	with [get-window "Delete Resources"] {
+    get-button "Delete project contents on disk (cannot be undone)" | check
+    get-button OK | click
+	}
+
+ }
+ 
+
+//Verify a Property if present in Window >>Preference
+proc verifyPropertyWinPreferenceNotPresent [val property]{
+
+    get-preferences-menu | click
+	with [get-window Preferences] {
+    with [get-editbox] {
+        set-text ""
+        set-text Des
+    }
+    get-tree | select "Form Designer"
+    get-editbox | set-text $property
+	}
+	with [get-window Preferences | get-tree] {
+    get-property "getItemCount()" | equals 0 | verify-true
+    get-property "toString()" | equals "Tree {}" | verify-true
+	}
+	get-window Preferences | get-button Cancel | click
+}
+
+//Export the RASC.
+proc "exportRASCProjectLocation" [val projectName]{
+with [get-view "Project Explorer" | get-tree] {
+    select $projectName 
+    | get-menu 
+    -path "Export/Export Deployment Artifacts" | click
+}
+
+with [get-window "Export Deployment Artifacts"] {
+    get-label "Export Deployment Artifacts" | get-property caption | equals "Export Deployment Artifacts" | verify-true
+    with [get-group Destination] {
+        get-label "(Location: Exports/Deployment Artifacts)" | get-property caption 
+            | equals "(Location: Exports/Deployment Artifacts)" | verify-true
+        with [get-button Project] {
+            get-property caption | equals Project | verify-true
+            get-property selected | equals true | verify-true
+        }
+    }
+}
+exec-with-options {
+    get-window "Export Deployment Artifacts" | get-button Export | click
+    
+} -allowStatusDialog
+with [get-window "Export Deployment Artifacts" | get-control Any 
+    -after [get-label "Deployment artifacts successfully created. You can launch the administrator to deploy these."]] {
+    get-property className | equals "org.eclipse.swt.widgets.ProgressBar" | verify-true
+    get-property enablement | equals true | verify-true
+}
+get-window "Export Deployment Artifacts" | get-button Close | click
+
+}
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
