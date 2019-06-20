@@ -388,6 +388,20 @@ public class AceMigratedProcessValidationsTest
                                 "BPM  : Multi-throw events are not supported. (EventsProcess:ThrowMultipleEvent)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$
 
+                         new ValidationsTestProblemMarkerInfo(
+                         "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bpmn.interfaceMessageEventNotSsupported", //$NON-NLS-1$
+                         "_MGmd9ZMiEemI2epaudLVnA", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message events. Use 'type none' instead and invoke these thru run-time API if required. (IntermediateEvent)", //$NON-NLS-1$
+                         ""), //$NON-NLS-1$
+                        
+                         new ValidationsTestProblemMarkerInfo(
+                                "/BPMProjectMigration_ProcessValidation/Process Packages/OtherUnsupportedObjects.xpdl", //$NON-NLS-1$
+                                "bpmn.interfaceMessageEventNotSsupported", //$NON-NLS-1$
+                         "_MGmd9JMiEemI2epaudLVnA", //$NON-NLS-1$
+                                "BPM  : Incoming web-service message events. Use 'type none' instead and invoke these thru run-time API if required. (StartEvent)", //$NON-NLS-1$
+                         ""), //$NON-NLS-1$
+
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceConsumer.xpdl", //$NON-NLS-1$
                                 "ace.system.participant.must.have.type.set", //$NON-NLS-1$
