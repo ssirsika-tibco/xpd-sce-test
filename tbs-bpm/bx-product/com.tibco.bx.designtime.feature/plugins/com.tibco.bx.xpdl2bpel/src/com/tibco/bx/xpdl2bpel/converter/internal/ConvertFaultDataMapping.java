@@ -432,54 +432,6 @@ public class ConvertFaultDataMapping {
         return null;
 	}
 
-	/*
-	private org.eclipse.bpel.model.To createToExpressionWithCDS(String expression, boolean mappingInbound) throws ConversionException {
-    	StringBuffer script = new StringBuffer();
-    	
-    	int pos = expression.indexOf("."); //$NON-NLS-1$
-    	if (pos > 0) {
-    		if (mappingInbound) {
-        		String varName = expression.substring(0, pos);
-
-    			ProcessRelevantData processRelevantData = null;
-                for (ProcessRelevantData prd : allPrds) {
-                    if (prd.getName().equals(varName)) {
-                        processRelevantData = prd;
-                        break;
-                    }
-                }
-                if (processRelevantData == null) {
-                	throw new ConversionException("Cannot find the corresponding ProcessRelevantData for " + varName);
-                }
-                
-            	String cdsFactoryMethodName = CDSUtils.getCDSFactoryMethodName(processRelevantData);
-            	String cdsPackageName = CDSUtils.getCDSPackageName(processRelevantData);
-            	String cdsFactoryClassName = cdsPackageName.replaceAll("\\.", "_").concat("_Factory"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-
-    			script.append("if (").append(varName).append(" == null) ");
-    			script.append(varName).append(" = ").append(cdsFactoryClassName).append(".").append(cdsFactoryMethodName).append("();\n");
-    		} else {
-        		String partName = expression.substring(0, pos);
-        		String query = expression.substring(pos+1).replace('.', '/'); //$NON-NLS-1$  //$NON-NLS-2
-    			toPartMappings.addMapping(partName, query);
-
-    			expression = N2PEConstants.MESSAGE_PREFIX + expression;
-    		}
-    	}
-		
-    	script.append(expression);
-		script.append(" = fromReturn;");
-
-    	org.eclipse.bpel.model.Expression expr = BPELFactory.eINSTANCE.createExpression();
-    	expr.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
-    	expr.setBody(script.toString());
-    	
-    	org.eclipse.bpel.model.To to = BPELFactory.eINSTANCE.createTo();
-		to.setExpression(expr);
-    	return to;
-	}
-	*/
-	
 	private org.eclipse.bpel.model.To createToExpressionWithCDS(String expression, boolean mappingInbound) throws ConversionException {
 		String enumTypeName = null; 
 		boolean isArray = false;

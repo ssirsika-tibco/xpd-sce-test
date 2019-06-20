@@ -440,7 +440,11 @@ public class CDSBOMIndexer implements WorkingCopyIndexProvider {
         String factoryName = null;
 
         if (packageName != null) {
-            factoryName = packageName.replaceAll("\\.", "_").concat("_Factory"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+            /*
+             * Sid ACE-542 BOM factories are now in factory.com_xxx_yyy class
+             */
+            factoryName = packageName.replaceAll("\\.", "_"); //$NON-NLS-1$ //$NON-NLS-2$
+
         }
 
         return factoryName;

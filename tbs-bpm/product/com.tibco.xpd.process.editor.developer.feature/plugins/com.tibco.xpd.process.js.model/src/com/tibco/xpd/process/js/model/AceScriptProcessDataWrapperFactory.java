@@ -46,18 +46,15 @@ public class AceScriptProcessDataWrapperFactory {
     private static final AceScriptProcessDataWrapperFactory DEFAULT =
             new AceScriptProcessDataWrapperFactory();
 
-    /**
-     * The prefix for the type name and id used for the data wrapper object
-     * (will be suffixed with specific wrapper object name used to construct the
-     * wrapper object e.g. "data").
-     */
-    public static final String PROCESS_DATA_WRAPPER_TYPE_PREFIX =
-            "_$_PROCESS_DATA_WRAPPER_"; //$NON-NLS-1$
-
+    /*
+     * Sid ACE-542 removed the _$_PROCESS_DATA_WRAPPER_ prefix from "data"
+     * object type as this will appear to user in problem marker if they do try
+     * and assign something to the "data" object.
+     */    
+    
     public static AceScriptProcessDataWrapperFactory getDefault() {
         return DEFAULT;
     }
-
 
     /**
      * Keep a permanent resource set. As we load the primitive type definitions
@@ -120,8 +117,7 @@ public class AceScriptProcessDataWrapperFactory {
              * each process data.
              */
             Class wrapperClass = UMLFactory.eINSTANCE.createClass();
-            wrapperClass.setName(
-                    PROCESS_DATA_WRAPPER_TYPE_PREFIX + wrapperObjectName);
+            wrapperClass.setName(wrapperObjectName);
 
             wrapperPackage.getPackagedElements().add(wrapperClass);
 
@@ -149,8 +145,7 @@ public class AceScriptProcessDataWrapperFactory {
 
             DefaultUMLScriptRelevantData scriptData =
                     new DefaultUMLScriptRelevantData(wrapperObjectName,
-                            PROCESS_DATA_WRAPPER_TYPE_PREFIX
-                                    + wrapperObjectName,
+                            wrapperObjectName,
                             false, jsClass);
 
             scriptData.setIcon(

@@ -23,6 +23,18 @@ public class ReservedWords {
      */
     public static final String PROCESS_DATA_WRAPPER_OBJECT_NAME = "data"; //$NON-NLS-1$
 
+    /**
+     * Sid ACE-542 the name of the BOM class factory wrapper object introduced
+     * for ACE.
+     */
+    public static final String BOM_FACTORY_WRAPPER_OBJECT_NAME = "factory"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-542 the name of the BOM package wrapper object introduced for
+     * ACE.
+     */
+    public static final String BOM_PACKAGE_WRAPPER_OBJECT_NAME = "pkg"; //$NON-NLS-1$
+
     private static List<String> symbolTableKeyWords;
 
     public static List<String> getSymbolTableKeyWords() {
@@ -120,6 +132,9 @@ public class ReservedWords {
              * called "data" therefore this is a reserved word.
              */
             symbolTableKeyWords.add(PROCESS_DATA_WRAPPER_OBJECT_NAME);
+
+            symbolTableKeyWords.add(BOM_FACTORY_WRAPPER_OBJECT_NAME);
+            symbolTableKeyWords.add(BOM_PACKAGE_WRAPPER_OBJECT_NAME);
 
         }
     }
