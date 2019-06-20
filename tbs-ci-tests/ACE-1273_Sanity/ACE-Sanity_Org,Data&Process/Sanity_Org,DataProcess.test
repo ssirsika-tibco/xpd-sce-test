@@ -1,0 +1,243 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _O76nAItHEem40pYcsbaLuA,_7CRdYH3wEembhM5KGYhVkg,_ig0eEIwYEemUwpqwuCnqfg,__4WYAIkTEem40pYcsbaLuA,_pwGaIIwWEemUwpqwuCnqfg
+Element-Name: Sanity_Org,DataProcess
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Wy6YcItHEem40pYcsbaLuA
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 6/20/19 10:15 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-eclipse-window | maximize
+
+//Import an Org project to the workspace
+importArchiveFile -archiveName $ORG_PROJECT_NAME -projectLocation [concat $PROJECT_IMPORT_LOCATION$ORG_PROJECT_NAME".zip"]
+
+//Create a project
+createProject -projectType $PROJECT_TYPE -projectName $PROCESS_PROJECT_NAME 
+//Create Participant in Process project
+createParticipant -participantLabel "ParticipantProcess" -Type "Basic Type" -type "Organization Model Query"
+//In Process Model create a process using drag and drop
+createProcess -projectName $PROCESS_PROJECT_NAME -startEvent "Start Event" -endEvent "End Event" -taskType "Task"
+
+//Data Project already exists in the workspace.
+//ACE-535_CaseClass_1efg.zip
+
+//Change Task to User Task
+changeTaskType -newTaskType "User Task"
+
+//Assign a participant using drag and drop
+get-view "Project Explorer" | get-tree 
+    | select "SanityBusinessProcess/Process Packages/SanityBusinessProcess.xpdl/SanityBusinessProcess (SanityBusinessProcess)/Participants/ParticipantProcess (ParticipantProcess)" 
+    | get-item 
+    -path "SanityBusinessProcess/Process Packages/SanityBusinessProcess.xpdl/SanityBusinessProcess \\(SanityBusinessProcess\\)/Participants/ParticipantProcess \\(ParticipantProcess\\)" 
+    | drag-start 147 14
+with [get-editor "SanityBusinessProcess-Process (SanityBusinessProcessProcess)" | get-diagram | get-edit-part 
+    -name SanityBusinessProcessProcess] {
+    drag-enter 1 154 -detail move
+    drag-over 1 154 -detail move
+    with [get-edit-part -name Pool] {
+        get-figure -path 0 | drag-over 3 147 -detail copy
+        get-edit-part -name Lane | get-edit-part -name UserTask | drag-over 59 47 -detail move
+    }
+    drag-exit
+    get-edit-part -name Pool | get-edit-part -name Lane | get-edit-part -name UserTask | drag-accept 59 48 -detail move
+}
+get-view "Project Explorer" | get-tree | drag-set-data
+get-editor "SanityBusinessProcess-Process (SanityBusinessProcessProcess)" | get-diagram | get-edit-part 
+    -name SanityBusinessProcessProcess | get-edit-part -name Pool | get-edit-part -name Lane | get-edit-part 
+    -name UserTask | drop 59 48 -detail move
+get-view "Project Explorer" | get-tree | drag-end -detail move
+with [get-editor "SanityBusinessProcess-Process (SanityBusinessProcessProcess)" | get-diagram] {
+    get-edit-part -name SanityBusinessProcessProcess | get-edit-part -name Pool | get-edit-part -name Lane 
+        | get-edit-part -name UserTask | mouse-move 59 48 -height 64 -width 96
+    key-type "M1+s"
+}
+get-window "Save Package" | get-button OK | click
+
+
+//Form NOT WORKING
+//get-editor "SanityBusinessProcess-Process (SanityBusinessProcessProcess)" | get-diagram | mouse-hover 488 348 
+//    -height 422 -width 1190
+//get-view Properties | get-link Open | click
+//get-editor "UserTask.form" | get-diagram | get-edit-part -className FormEditPart | mouse-move 725 397 -height 402 
+//    -width 1190
+//with [get-view Palette] {
+//    click
+//    with [get-palette] {
+//        get-palette-entry Marquee | mouse-move 0 21 -height 23 -width 33
+//        with [get-palette-entry Text] {
+//            mouse-move 3 8 button1 -height 23 -width 33
+//            mouse-press 3 8 button1 -height 23 -width 33
+//            get-figure -path 0 | drag-start 3 8
+//        }
+//    }
+//}
+//with [get-editor "UserTask.form" | get-diagram | get-edit-part -className FormEditPart] {
+//    drag-enter 1 325 -detail move
+//    drag-over 22 217 -detail copy
+//    get-edit-part -name "pane.toolbar" | get-figure -path "0/0" | drag-over 1 58 -detail copy
+//    get-figure -path 1 | drag-over 32 65 -detail copy
+//    with [get-edit-part -name "pane.content"] {
+//        get-figure -path "0/0" | drag-over 33 62 -detail copy
+//        get-figure -path "0/0/1/0" | drag-over 44 33 -detail copy
+//    }
+//    drag-exit
+//    get-edit-part -name "pane.content" | get-figure -path "0/0" | drag-accept 56 61 -detail copy
+//}
+//get-view Palette | get-palette | drag-set-data
+//with [get-editor "UserTask.form"] {
+//    get-diagram | get-edit-part -className FormEditPart | get-edit-part -name "pane.content" | get-figure -path "0/0" 
+//        | drop 56 61 -detail copy
+//    with [get-diagram] {
+//        get-edit-part -className FormEditPart | get-edit-part -name "pane.content" | get-edit-part 
+//            -name "control.textinput1" | activate-direct-edit
+//        commit-direct-edit
+//    }
+//}
+//get-view Palette | get-palette | drag-end -detail move
+//with [get-editor "UserTask.form" | get-diagram | get-edit-part -className FormEditPart] {
+//    with [get-edit-part -name "pane.content" | get-edit-part -name "control.textinput1"] {
+//        mouse-move 43 10 button1 -height 35 -width 280
+//        mouse-press 43 10 button1 -height 35 -width 280
+//        mouse-release 43 10 button1 524288 -height 35 -width 280
+//        mouse-press 43 10 button1 -height 35 -width 280
+//        mouse-double-click 43 10 button1 -height 35 -width 280
+//        mouse-release 43 10 button1 524288 -height 35 -width 280
+//        mouse-hover 43 10 -height 35 -width 280
+//    }
+//    mouse-move 472 392 -height 402 -width 1190
+//}
+//with [get-view Properties | get-editbox -after [get-label "Label:"]] {
+//    set-text Name
+//    key-type "M1+s" -times 3
+//}
+//Not able to identify Problem Occured Window while GWT Preview
+//get-editor "UserTask.form" | get-tab-folder | get-tab-item Design | click
+//exec-with-options {
+//    get-editor "UserTask.form" | get-tab-folder | get-tab-item "GWT Preview" | click
+//    get-window "Problem Occurred" | get-button "Details >>" | click
+//    get-window "Problem Occurred" | get-editbox 
+//        -after [get-label "An internal error occurred during: \"Build Form 'UserTask.form'\"."] | set-text-offset 64 0
+//    get-window "Problem Occurred" | get-button OK | click
+//} -allowStatusDialog
+
+//Assign Capability in org Model.
+get-view "Project Explorer" | get-tree | select "APITestingOrgModel/Organization/APITestingOrgModel.om" | double-click
+with [get-view "Project Explorer" | get-tree] {
+    select "APITestingOrgModel/Organization/APITestingOrgModel.om/APITestingOrgModel \\(APITestingOrgModel\\)/Capabilities/QACapabilities \\(QACapabilities\\)" 
+        | double-click
+    select "APITestingOrgModel/Organization/APITestingOrgModel.om/APITestingOrgModel (APITestingOrgModel)/Capabilities/QACapabilities (QACapabilities)"
+}
+
+with [get-view Properties] {
+    get-button "Add a Capability to the selected parent (INS)" | click
+    with [get-tree] {
+        select Capability1 | activate-cell-edit -type MouseClickSelection
+        get-editbox | set-text Protractor
+        apply-cell-edit -deactivate
+		//Remove Capability in Org Model.
+        select JMeter | activate-cell-edit -type MouseClickSelection
+        get-editbox | click-text 1 7
+    }
+    get-button "Delete selected items (DEL)" | click
+    with [get-tree] {
+        cancel-cell-edit
+        deactivate-cell-edit
+    
+    }
+}
+with [get-view Properties | get-tree] {
+    get-item -path Protractor | get-property caption | equals Protractor | verify-true
+    get-item -path Protractor | get-property enablement | equals false | verify-true
+	   key-type "M1+s"
+    }
+
+//Interact with Class elements
+get-view "Project Explorer" | get-tree | select "ACE-535_CaseClass_1efg/Business Objects/ACE535_CaseClass_1efg.bom" 
+    | double-click
+get-editor "ACE535_CaseClass_1efg.bom" | get-diagram | get-edit-part -name "com.example.ace528_caseclass_1efg" 
+    | mouse-move 144 390 -height 405 -width 1173
+
+with [get-editor "ACE535_CaseClass_1efg.bom" | get-diagram | get-edit-part -name "com.example.ace528_caseclass_1efg"] {
+    mouse-move 469 203 -height 409 -width 1177
+    with [get-edit-part -name ACE535CaseClass | get-edit-part 
+        -text "autoCaseIdentifier1 : TextcaseState1 : CaseStates"] {
+        with [get-edit-part -name caseState1] {
+            mouse-move 38 9 button1 -height 17 -width 155
+            mouse-press 38 9 button1 -height 17 -width 155
+            mouse-release 38 9 button1 524288 -height 17 -width 155
+            mouse-press 38 9 button1 -height 17 -width 155
+            mouse-double-click 38 9 button1 -height 17 -width 155
+            mouse-release 38 9 button1 524288 -height 17 -width 155
+            mouse-hover 38 9 -height 17 -width 155
+        }
+        mouse-move 32 80 -height 81 -width 176
+    }
+    mouse-move 1 348 -height 405 -width 1173
+}
+with [get-view Properties] {
+    get-property-tab Description | click
+    get-property-tab Stereotypes | click
+    get-property-tab "Terminal States" | click
+    with [get-table] {
+        get-item -path State2 | check
+        get-item -path State3 | check
+        get-item -path State4 | check
+        key-type "M1+s"
+    }
+}
+get-control Any -index 178 | key-type "M1+s"
+with [get-editor "ACE535_CaseClass_1efg.bom"] {
+    with [get-diagram] {
+        with [get-edit-part -name "com.example.ace528_caseclass_1efg"] {
+            mouse-move 883 194 -height 405 -width 1173
+            with [get-edit-part -name ACE535LocalClass | get-edit-part -text "attribute1 : Textattribute2 : Text"] {
+                mouse-move 58 63 button3 -height 81 -width 133
+                mouse-press 58 63 button3 -height 81 -width 133
+                mouse-release 58 63 button3 2097152 -height 81 -width 133
+            }
+        }
+        get-menu -path Attribute | click
+    }
+    with [get-diagram | get-edit-part -name "com.example.ace528_caseclass_1efg"] {
+        mouse-move 914 186 -height 405 -width 1173
+        mouse-hover 914 186 -height 405 -width 1173
+        mouse-move 914 183 -height 405 -width 1173
+        with [get-edit-part -name ACE535LocalClass | get-edit-part 
+            -text "attribute1 : Textattribute2 : Textattribute3 : Text" | get-edit-part -name attribute3] {
+            mouse-move 95 12 button1 -height 17 -width 110
+            mouse-press 95 12 button1 -height 17 -width 110
+            mouse-release 95 12 button1 524288 -height 17 -width 110
+            mouse-press 95 12 button1 -height 17 -width 110
+            mouse-double-click 95 12 button1 -height 17 -width 110
+            mouse-release 95 12 button1 524288 -height 17 -width 110
+            mouse-hover 95 12 -height 17 -width 110
+        }
+        mouse-move 1 360 -height 405 -width 1173
+    }
+}
+with [get-view Properties] {
+    get-property-tab General | click
+    get-button "..." | click
+}
+with [get-window "Select Type"] {
+    get-table | select "Number - Bom Primitive Types"
+    get-button OK | click
+}
+get-view Properties | get-button "..." | key-type "M1+s"
+get-editor "ACE535_CaseClass_1efg.bom" | get-diagram | get-edit-part -name "com.example.ace528_caseclass_1efg" 
+    | mouse-move 1126 375 -height 405 -width 1173
+
+//Export the RASC.
+exportRASCProjectLocation -projectName "APITestingOrgModel"
+//exportRASCProjectLocation -projectName "SanityBusinessProcess"
+//exportRASCProjectLocation -projectName "ACE-535_CaseClass_1efg"
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
