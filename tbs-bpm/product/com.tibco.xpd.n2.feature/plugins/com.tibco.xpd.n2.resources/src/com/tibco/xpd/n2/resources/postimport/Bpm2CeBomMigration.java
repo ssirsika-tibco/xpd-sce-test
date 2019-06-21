@@ -6,9 +6,12 @@ package com.tibco.xpd.n2.resources.postimport;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Model;
@@ -17,7 +20,10 @@ import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
+import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager.StereotypeKind;
+import com.tibco.xpd.bom.modeler.diagram.part.custom.utils.ClassHeaderColourUtil;
 import com.tibco.xpd.bom.resources.migration.IBOMMigration;
+import com.tibco.xpd.bom.resources.ui.bomnotation.ShapeGradientStyle;
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.resources.internal.Messages;
@@ -74,6 +80,14 @@ public class Bpm2CeBomMigration implements IBOMMigration {
          * Remove class operations.
          */
         c = removeClassOperations(domain, model);
+        if (c != null) {
+            cmd.append(c);
+        }
+
+        /*
+         * Convert any Global Classes to Local Classes
+         */
+        c = convertGlobalClassesToLocal(domain, model);
         if (c != null) {
             cmd.append(c);
         }
@@ -287,12 +301,10 @@ public class Bpm2CeBomMigration implements IBOMMigration {
                          * @param decimalType
                          */
                         private void moveConstraint(PrimitiveType primitiveType,
-                                String srcConstraint,
-                                String tgtConstraint,
+                                String srcConstraint, String tgtConstraint,
                                 PrimitiveType decimalType) {
-                            Object srcValue =
-                                    PrimitivesUtil.getFacetPropertyValue(
-                                            primitiveType,
+                            Object srcValue = PrimitivesUtil
+                                    .getFacetPropertyValue(primitiveType,
                                             srcConstraint);
 
                             if (srcValue != null) {
@@ -364,7 +376,7 @@ public class Bpm2CeBomMigration implements IBOMMigration {
                     if (element instanceof org.eclipse.uml2.uml.Class) {
                         org.eclipse.uml2.uml.Class clazz =
                                 (org.eclipse.uml2.uml.Class) element;
-                        
+
                         clazz.getOwnedOperations().clear();
                     }
                 }
@@ -372,4 +384,53 @@ public class Bpm2CeBomMigration implements IBOMMigration {
         };
     }
 
+    /**
+     * Converts Global Classes to Local Classes
+     * 
+     * @param domain
+     *            The editing domain.
+     * @param model
+     *            The BOM UML model.
+     * @return The command to convert the classes.
+     */
+    private Command convertGlobalClassesToLocal(
+            TransactionalEditingDomain domain, Model model) {
+        return new RecordingCommand(domain) {
+            @Override
+            protected void doExecute() {
+                EList<Element> allOwnedElements = model.allOwnedElements();
+                EList<EObject> contents = model.eResource().getContents();
+                Diagram diagram = null;
+                for (EObject content : contents) {
+                    if (content instanceof Diagram) {
+                        diagram = (Diagram) content;
+                    }
+                }
+
+                for (Element element : allOwnedElements) {
+                    if (element instanceof org.eclipse.uml2.uml.Class) {
+                        org.eclipse.uml2.uml.Class clazz =
+                                (org.eclipse.uml2.uml.Class) element;
+                        GlobalDataProfileManager pm =
+                                GlobalDataProfileManager.getInstance();
+                        if (pm.isGlobal(clazz)) {
+                            ClassHeaderColourUtil chcu =
+                                    new ClassHeaderColourUtil();
+                            ShapeGradientStyle sgs =
+                                    chcu.getShapeGradientStyleForClass(clazz,
+                                            diagram);
+                            boolean resetColour =
+                                    chcu.isDefaultColour(clazz, sgs);
+                            pm.remove(clazz, StereotypeKind.GLOBAL);
+                            if (resetColour) {
+                                sgs.setGradStartColor(
+                                        FigureUtilities.RGBToInteger(
+                                                chcu.getDefaultColour(clazz)));
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
 }
