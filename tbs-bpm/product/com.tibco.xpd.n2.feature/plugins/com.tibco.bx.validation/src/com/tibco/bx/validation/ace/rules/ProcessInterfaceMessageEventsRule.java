@@ -32,8 +32,8 @@ public class ProcessInterfaceMessageEventsRule extends InterfaceBaseValidationRu
         List<StartMethod> allStartMethods = processInterface.getStartMethods();
         if (null != allStartMethods && !allStartMethods.isEmpty()) {
             for (StartMethod eachStartMethod : allStartMethods) {
-                if (TriggerType.MESSAGE_LITERAL == eachStartMethod
-                        .getTrigger()) {
+                if (TriggerType.MESSAGE_LITERAL
+                        .equals(eachStartMethod.getTrigger())) {
                     addIssue(ID_IFC_MSG_EVENTS_NOT_SUPPORTED, eachStartMethod);
                 }
             }
@@ -47,8 +47,8 @@ public class ProcessInterfaceMessageEventsRule extends InterfaceBaseValidationRu
         if (null != allIntermediateMethods
                 && !allIntermediateMethods.isEmpty()) {
             for (IntermediateMethod eachIntermediateMethod : allIntermediateMethods) {
-                if (TriggerType.MESSAGE_LITERAL == eachIntermediateMethod
-                        .getTrigger()) {
+                if (TriggerType.MESSAGE_LITERAL
+                        .equals(eachIntermediateMethod.getTrigger())) {
                     addIssue(ID_IFC_MSG_EVENTS_NOT_SUPPORTED,
                             eachIntermediateMethod);
                 }
