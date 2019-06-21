@@ -1,7 +1,7 @@
 /*
  * Copyright (c) TIBCO Software Inc 2004, 2007. All rights reserved.
  */
-package com.tibco.xpd.validation.bpmn.rules;
+package com.tibco.bx.validation.ace.rules;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import com.tibco.xpd.xpdl2.TriggerType;
 public class ProcessInterfaceMessageEventsRule extends InterfaceBaseValidationRule{
 
     private static final String ID_IFC_MSG_EVENTS_NOT_SUPPORTED =
-            "bpmn.interfaceMessageEventNotSsupported"; //$NON-NLS-1$
+            "ace.interface.message.event.not.supported"; //$NON-NLS-1$
 	
 	@Override
 	public void validate(ProcessInterface processInterface) {

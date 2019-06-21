@@ -4939,6 +4939,9 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.AceProcessTemporalDefaultValueRule">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.ProcessInterfaceMessageEventsRule">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -5011,6 +5014,11 @@ s         <scriptContribution
                 canApplyToMultiple="true"
                 id="resolution.bpmn.removeDefaultValue">>
           </resolution>
+      </issue>
+      <issue
+            id="ace.interface.message.event.not.supported"
+            message="%ace.interface.message.event.not.supported"
+            severity="ERROR">
       </issue>
 	</extension>
 

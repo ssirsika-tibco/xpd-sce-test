@@ -281,9 +281,6 @@
          <rule
                class="com.tibco.xpd.validation.bpmn.rules.MessageEventParamRule">
          </rule>
-         <rule
-               class="com.tibco.xpd.validation.bpmn.rules.ProcessInterfaceMessageEventsRule">
-         </rule>
       </provider>
       <issue
             id="bpmn.activityName"
@@ -725,11 +722,6 @@
       <issue
             id="bpmn.signalEventNameMandatory2"
             message="%bpmn.signalEventNameMandatory2"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bpmn.interfaceMessageEventNotSsupported"
-            message="%bpmn.interfaceMessageEventNotSsupported"
             severity="ERROR">
       </issue>
 
