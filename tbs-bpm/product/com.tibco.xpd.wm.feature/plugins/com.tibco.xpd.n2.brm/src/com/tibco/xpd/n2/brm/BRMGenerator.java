@@ -59,6 +59,7 @@ import com.tibco.n2.common.organisation.api.XmlResourceQuery;
 import com.tibco.n2.common.worktype.DocumentRoot;
 import com.tibco.n2.common.worktype.WorktypeFactory;
 import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
@@ -802,16 +803,27 @@ public class BRMGenerator {
                 // for each mapping check the association of data with the
                 // activity and handle it accordingly
 
-                String mappingSource = dataAttributeMapping.getProcessData();
+                /*
+                 * Sid ACE-580 All process data is now wrapped in a "data"
+                 * object.
+                 */
+                String mappingSource =
+                        ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
+                                + dataAttributeMapping.getProcessData();
 
                 ProcessRelevantData associatedActivityData = null;
 
                 String[] sourcePath = mappingSource.split("\\."); //$NON-NLS-1$
+
                 // This will handle the complex Type [parent.child.nameText]
                 // as well as the Primitive type [nameText]
-                if (sourcePath.length > 0) {
+                /*
+                 * Sid ACE-580 always prefixed with "data" so get send element
+                 * as process field name.
+                 */
+                if (sourcePath.length > 1) {
                     associatedActivityData =
-                            activityInterfaceData.get(sourcePath[0]);
+                            activityInterfaceData.get(sourcePath[1]);
                 }
 
                 if (associatedActivityData != null) {
