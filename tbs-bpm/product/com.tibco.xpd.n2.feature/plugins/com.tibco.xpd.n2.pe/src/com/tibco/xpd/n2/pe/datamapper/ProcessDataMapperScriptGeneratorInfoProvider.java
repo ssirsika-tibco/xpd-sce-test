@@ -15,7 +15,6 @@ import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
-import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
@@ -40,6 +39,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getAssignmentStatement(Object object,
             String rhsObjectStatement, String jsVarAlias) {
         String assignment = null;
@@ -66,61 +66,15 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             /* Sid XPD-7996 Allow subclass to adjust final path */
             jsVarAlias = internalFinaliseObjectPath(cp, jsVarAlias);
 
-            if (isEnumeration(cp)) {
-                Enumeration e = (Enumeration) cp.getType();
-                /*
-                 * Sid XPD-7742 Created shared function that wraps the original
-                 * 'value setter' statement, with an appropriate enum
-                 * conversion.
-                 */
-                rhsObjectStatement =
-                        getEnumConversionAssignStatement(rhsObjectStatement, e);
-            }
+            /*
+             * Sid ACE-564 Enumerations (even enumeration literals) and just string properties now.
+             * 
+             * So we can just do straight assigns - removed special enum stuff from here.
+             */
+
             assignment = jsVarAlias + " = " + rhsObjectStatement + ";"; //$NON-NLS-1$ //$NON-NLS-2$
         }
         return assignment;
-    }
-
-    /**
-     * shared function that wraps the original 'value setter' statement, with an
-     * appropriate enum conversion.
-     * 
-     * @param assignStatement
-     * @param enumerationType
-     * 
-     * @return The assignMent statement that would do a normal straight
-     *         assignment converted to do a conversion from the appropriate
-     *         primitive non-enum type
-     */
-    private String getEnumConversionAssignStatement(String assignStatement,
-            Enumeration enumerationType) {
-        /*
-         * Sid XPD-8194: If the RHS object is "null" then don't try and run enum
-         * conversion on it (because it's the 'else' clause to the null source
-         * check and you cannot do enum.get(null))
-         */
-        if ("null".equals(assignStatement)) { //$NON-NLS-1$
-            return assignStatement;
-        }
-
-        String qn = enumerationType.getQualifiedName();
-        PrimitiveType pt = EnumLitValueUtil.getBaseType(enumerationType);
-        BasicType basic = BasicTypeConverterFactory.INSTANCE.getBasicType(pt);
-        BasicTypeType base = basic.getType();
-        switch (base) {
-        case DATE_LITERAL:
-        case DATETIME_LITERAL:
-            assignStatement =
-                    NameUtil.formatQualifiedNameForScripting(qn) + ".get(" //$NON-NLS-1$
-                            + assignStatement + ".toXMLFormat())"; //$NON-NLS-1$
-            break;
-        case TIME_LITERAL:
-        default:
-            assignStatement = NameUtil.formatQualifiedNameForScripting(qn)
-                    + ".get(String(" //$NON-NLS-1$
-                    + assignStatement + "))"; //$NON-NLS-1$
-        }
-        return assignStatement;
     }
 
     /**
@@ -131,6 +85,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getGetterStatement(Object object, String jsVarAlias) {
         String getter = null;
         if (object instanceof ConceptPath) {
@@ -155,18 +110,14 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             /* Sid XPD-7996 Allow subclass to adjust final path */
             jsVarAlias = internalFinaliseObjectPath(cp, jsVarAlias);
 
-            if (isSimpleType(cp)) {
+            /*
+             * Sid ACE-564 Enumerations (even enumeration literals) and just
+             * string properties now.
+             * 
+             * So we can just treat them the same as simple type
+             */
+            if (isSimpleType(cp) || isEnumeration(cp)) {
                 getter = jsVarAlias;
-
-            } else if (isEnumeration(cp)) {
-                Enumeration e = (Enumeration) cp.getType();
-
-                /*
-                 * Sid XPD-7742 Created shared function that wraps the original
-                 * 'value getter' statement, with an appropriate enum
-                 * conversion.
-                 */
-                getter = getEnumConversionGetterStatement(jsVarAlias, e);
 
             } else {
                 /*
@@ -295,6 +246,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * 
      * @return null, no scripts to append.
      */
+    @Override
     public String getScriptsToAppend(ScriptDataMapper container,
             boolean isSource) {
         return null;
@@ -305,6 +257,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * 
      * @return null, no scripts to prepend.
      */
+    @Override
     public String getScriptsToPrepend(ScriptDataMapper container,
             boolean isSource) {
         return null;
@@ -317,6 +270,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param object
      * @return
      */
+    @Override
     public String getCollectionSizeScript(Object object,
             String objectParentJsVar) {
         if (object instanceof ConceptPath) {
@@ -357,20 +311,10 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param complexObject
      * @return
      */
+    @Override
     public String getComplexObjectCreationScript(Object complexObject) {
         if (complexObject instanceof ConceptPath) {
             ConceptPath cp = (ConceptPath) complexObject;
-
-            /*
-             * Sid XPD-7660: This method can be called for target single
-             * instance objects and also target elements within arrays. So we
-             * don't care if target is an array or not.
-             * 
-             * Specific Array creation is handled via getArrayCreationScript()
-             */
-            // if (cp.isArray()) {
-            // return null;
-            // }
 
             if (cp.getType() != null
                     && cp.getType().getNearestPackage() != null) {
@@ -383,7 +327,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
                         && factoryForPackage.length() > 0) {
                     String clazzName = cp.getType().getName();
 
-                    return factoryForPackage + ".create" + clazzName + "()"; //$NON-NLS-1$ //$NON-NLS-2$
+                    /*
+                     * Sid ACE-564 BOM JS class factories are now wrapped in a
+                     * "factory" class.
+                     */
+                    return ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
+                            + factoryForPackage + ".create" + clazzName + "()"; //$NON-NLS-1$//$NON-NLS-2$
                 }
             }
         }
@@ -398,10 +347,15 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param complexObject
      * @return
      */
+    @Override
     public String getArrayCreationScript(Object complexObject) {
         /*
          * Process data arrays (array fields and Bom.childArray) are statically
          * created (always available) so we don't need to create.
+         * 
+         * In fact we MUST NOT because these are now special objects created by
+         * the dataField descriptor script and must not be initialised as
+         * generic JavaScript arrays.
          */
         return null;
     }
@@ -499,17 +453,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             }
 
             /*
-             * Sid XPD-7742 - For enumerations, need to create an
-             * enum-conversion statement to surround the getter.
+             * Sid ACE-564 Enumerations (even enumeration literals) and just
+             * string properties now.
+             * 
+             * So we can just treat them the same as simple type
              */
-            String getter = script.toString();
-
-            if (isEnumeration(cp)) {
-                getter = getEnumConversionGetterStatement(getter,
-                        (Enumeration) cp.getType());
-            }
-
-            return getter;
+            return script.toString();
         }
 
         return null;
@@ -523,6 +472,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param indexVarName
      * @return
      */
+    @Override
     public String getCollectionElementScript(Object collection,
             String indexVarName, String objectParentJsVar) {
         /*
@@ -545,6 +495,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param objectParentJsVar
      * @return
      */
+    @Override
     public String getCollectionElementScriptForTargetMerge(Object collection,
             String indexVarName, String objectParentJsVar) {
         return internalGetCollectionElementScript(collection,
@@ -561,6 +512,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param jsVarName
      * @return
      */
+    @Override
     public String getCollectionAddElementScript(Object collection,
             String jsVarName, String objectParentJsVar) {
         if (collection instanceof ConceptPath) {
@@ -591,16 +543,12 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             script.append(".push("); //$NON-NLS-1$
 
             /*
-             * Sid XPD-7742 wrap the original 'value setter' statement, with an
-             * appropriate enum conversion.
+             * Sid ACE-564 Enumerations (even enumeration literals) and just
+             * string properties now.
+             * 
+             * So we can just treat them the same as simple type
              */
-            if (isEnumeration(cp)) {
-                script.append(getEnumConversionAssignStatement(jsVarName,
-                        (Enumeration) cp.getType()));
-
-            } else {
-                script.append(jsVarName);
-            }
+            script.append(jsVarName);
 
             script.append(");"); //$NON-NLS-1$
 
@@ -620,6 +568,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param loopIndexJsVar
      * @return
      */
+    @Override
     public String getCollectionSetElementScript(Object collection,
             String jsVarName, String objectParentJsVar, String loopIndexJsVar) {
         if (collection instanceof ConceptPath) {
@@ -664,6 +613,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param collectionObject
      * @return
      */
+    @Override
     public String getClearCollectionScript(Object collectionObject,
             String jsVarAlias) {
         if (collectionObject instanceof ConceptPath) {
@@ -711,6 +661,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param checkType
      * @return
      */
+    @Override
     public String getCheckNullTreeExpression(Object object, String jsVarAlias,
             CheckNullTreeExpressionType checkType) {
 
@@ -764,18 +715,14 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
 
         if (CheckNullTreeExpressionType.SINGLE_INSTANCE_MAPPING
                 .equals(checkType)) {
-            /*
-             * Sid XPD-8194. When dealing with source of enum type we perform
-             * operations on the enum type and therefore we should guard against
-             * null ion the actual enum leaf-node).
-             */
-            if ((object instanceof ConceptPath)
-                    && isEnumeration((ConceptPath) object)) {
-                checkLastElementInPath = true;
 
-            } else {
-                checkLastElementInPath = false;
-            }
+            /*
+             * Sid ACE-564 Enumerations (even enumeration literals) and just
+             * string properties now.
+             * 
+             * So we can just treat them the same as simple type
+             */
+            checkLastElementInPath = false;
         }
 
         String pathToCheck = null;
@@ -877,6 +824,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param path
      * @return
      */
+    @Override
     public String resolvePath(Object object, String path) {
         /*
          * Sid XPD-7996. Give the sub-class an opportunity to fiddle with the
@@ -900,6 +848,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
      * @param jsVarAlias
      * @return
      */
+    @Override
     public String getSingleToMultiInstanceAssignmentStatement(Object targetItem,
             String rhsObjectStatement, String jsVarAlias) {
         // TODO Auto-generated method stub

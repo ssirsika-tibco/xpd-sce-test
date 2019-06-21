@@ -4,10 +4,6 @@
 
 package com.tibco.xpd.sce.tests.javascript;
 
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
-
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
@@ -130,7 +126,28 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         assertTrue(context
                 + ": Should do direct assignment of complex types when merging lists (without ScriptUtil.copy().", //$NON-NLS-1$
                 script.contains(
-                        "data.Copy_Of_MergingComplexListField[i5] = $sVi5")); //$NON-NLS-1$
+                        "data.Copy_Of_MergingComplexListField[i6] = $sVi6")); //$NON-NLS-1$
+
+        /*
+         * Sid ACE-564 - Check that new BOM JS Class factories are used,
+         * enumerations are treated as simple text properties (because that is
+         * what they are at run-time).
+         */
+        assertTrue(context
+                + ": Should use new BOM JS factories wrapped in the 'factory' object.", //$NON-NLS-1$
+                script.contains(
+                        "data.Copy_Of_ClassFieldtoInflate = factory.com_example_data.createDataTypes()")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Enumerations are just text properties at run-time now, so should just do direct assign.", //$NON-NLS-1$
+                script.contains(
+                        "data.Copy_Of_ClassFieldtoInflate.enum1 = data.ClassFieldtoInflate.enum1")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Enumerations are just text properties at run-time now, so should just do push into target arrays.", //$NON-NLS-1$
+                script.contains(
+                        "data.Copy_Of_ClassFieldtoInflate.enumList.push($sVi2);")); //$NON-NLS-1$
+
     }
 
     /**
@@ -334,6 +351,20 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                                 "var $sVi1 = data.Copy_Of_ClassField.complexList[i1];")); //$NON-NLS-1$
 
         /*
+         * Sid ACE-564 - enumerations are treated as simple text properties
+         * (because that is what they are at run-time).
+         */
+        assertTrue(
+                context + ": Should treat input enumerations as simple text values.", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "REST_PAYLOAD['textToFromEnum'] = (data.Copy_Of_ClassField.enum1 != null) ? new String(data.Copy_Of_ClassField.enum1) : null;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should treat input enumeration lists as simple text lists.", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "REST_PAYLOAD['textToFromEnumList'].push(($sVi3 != null) ? new String($sVi3) : null);")); //$NON-NLS-1$
+
+        /*
          * Generate the output mapping script for the activity.
          */
         String outputMappingsScript =
@@ -365,8 +396,26 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
 
         assertTrue(context + ": Should use array push() to add array items.", //$NON-NLS-1$
                 outputMappingsScript
-                        .contains("data.ClassField.textList.push($sVi2);")); //$NON-NLS-1$
+                        .contains("data.ClassField.textList.push($sVi3);")); //$NON-NLS-1$
 
+        /*
+         * Sid ACE-564 - Check that new BOM JS Class factories are used,
+         * enumerations are treated as simple text properties (because that is
+         * what they are at run-time).
+         */
+        assertTrue(context
+                + ": Should treat output enumerations as simple text values.", //$NON-NLS-1$
+                outputMappingsScript.contains(
+                        "data.ClassField.enum1 = REST_PAYLOAD['textToFromEnum'];")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": (1) Should treat output enumeration lists as simple text lists.", //$NON-NLS-1$
+                outputMappingsScript.contains(
+                        "var $sVi2 = REST_PAYLOAD['textToFromEnumList'][i2]")); //$NON-NLS-1$
+        assertTrue(context
+                + ": (2) Should treat output enumeration lists as simple text lists.", //$NON-NLS-1$
+                outputMappingsScript
+                        .contains("data.ClassField.enumList.push($sVi2);")); //$NON-NLS-1$
     }
 
     /**
@@ -423,34 +472,5 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         return projectImporter;
     }
 
-    /**
-     * 
-     * @param resource
-     * @param markerId
-     * @return <code>true</code> if given resource has given problem marker
-     *         raised on it.
-     */
-    private boolean hasErrorProblemMarker(IResource resource) {
-        try {
-            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
-                    true,
-                    IResource.DEPTH_INFINITE);
-
-            if (markers != null) {
-                for (IMarker marker : markers) {
-                    if (marker.getAttribute(IMarker.SEVERITY,
-                            -1) == IMarker.SEVERITY_ERROR) {
-                        return true;
-                    }
-                }
-
-            }
-
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
-
-        return false;
-    }
 
 }
