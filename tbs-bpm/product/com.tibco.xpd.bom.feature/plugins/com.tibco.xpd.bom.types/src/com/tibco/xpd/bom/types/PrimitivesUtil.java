@@ -114,6 +114,12 @@ public class PrimitivesUtil {
     /** Name of Decimal type. */
     public static final String BOM_PRIMITIVE_DECIMAL_NAME = "Decimal"; //$NON-NLS-1$
 
+    /**
+     * Name of Number type. Please note that logically Number type is the same
+     * as Decimal type.
+     */
+    public static final String BOM_PRIMITIVE_NUMBER_NAME = "Number"; //$NON-NLS-1$
+
     /** Name of DateTime type. */
     public static final String BOM_PRIMITIVE_DATETIME_NAME = "DateTime"; //$NON-NLS-1$
 

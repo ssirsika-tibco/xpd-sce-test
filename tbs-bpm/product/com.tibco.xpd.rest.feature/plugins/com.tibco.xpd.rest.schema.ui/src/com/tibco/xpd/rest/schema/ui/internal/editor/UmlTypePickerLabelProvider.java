@@ -50,6 +50,9 @@ public class UmlTypePickerLabelProvider extends BasePickerLabelProvider {
             case PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME:
                 key = RestSchemaImage.JSON_NUMBER_PROPERTY;
                 break;
+            case PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME:
+                key = RestSchemaImage.JSON_NUMBER_PROPERTY;
+                break;
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:
                 key = RestSchemaImage.JSON_INTEGER_PROPERTY;
                 break;

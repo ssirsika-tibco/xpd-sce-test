@@ -109,7 +109,7 @@ public class RestMapperLabelProvider extends LabelProvider {
             type = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
             break;
         case DECIMAL:
-            type = PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME;
+            type = PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
             break;
         case BOOLEAN:
             type = PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME;

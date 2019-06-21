@@ -29,7 +29,7 @@ public class PrimitiveFilter implements IFilter {
         included.add(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME);
         included.add("Date Time and Time Zone"); //$NON-NLS-1$
-        included.add(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
+        included.add(PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME);
     }

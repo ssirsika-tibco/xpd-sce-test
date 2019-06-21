@@ -16,6 +16,7 @@ import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.ui.components.AbstractColumn;
 import com.tibco.xpd.rsd.DataType;
@@ -89,7 +90,13 @@ public class ParamDataTypeColumn extends AbstractColumn {
     protected String getText(Object element) {
         Object value = getValueForEditor(element);
         if (value instanceof DataType) {
-            return ((DataType) value).getName();
+            DataType dataType = (DataType) value;
+            if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
+                    .equals(dataType.getName())) {
+                return PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
+            } else {
+                return dataType.getName();
+            }
         }
         return null;
     }
@@ -140,7 +147,13 @@ public class ParamDataTypeColumn extends AbstractColumn {
         @Override
         public String getText(Object element) {
             if (element instanceof DataType) {
-                return ((DataType) element).getName();
+                DataType dataType = (DataType) element;
+                if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
+                        .equals(dataType.getName())) {
+                    return PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
+                } else {
+                    return dataType.getName();
+                }
             }
             return super.getText(element);
         }
