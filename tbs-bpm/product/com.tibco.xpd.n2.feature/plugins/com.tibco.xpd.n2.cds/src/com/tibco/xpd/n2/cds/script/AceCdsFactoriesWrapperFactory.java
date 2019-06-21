@@ -153,6 +153,7 @@ public class AceCdsFactoriesWrapperFactory {
                 String factoryName = CDSBOMIndexerService.getInstance()
                         .getCDSFactoryForPackage(bomPackage);
                 factoryPkgProperty.setName(factoryName);
+                factoryPkgProperty.setIsReadOnly(true);
 
                 factoryWrapperClass.getOwnedAttributes()
                         .add(factoryPkgProperty);
@@ -170,6 +171,7 @@ public class AceCdsFactoriesWrapperFactory {
                 Property enumPkgProperty =
                         UMLFactory.eINSTANCE.createProperty();
                 enumPkgProperty.setName(factoryName);
+                enumPkgProperty.setIsReadOnly(true);
 
                 packageWrapperClass.getOwnedAttributes().add(enumPkgProperty);
 
@@ -223,6 +225,8 @@ public class AceCdsFactoriesWrapperFactory {
 
         scriptData.setIcon(Xpdl2ResourcesPlugin.getDefault().getImageRegistry()
                 .get(Xpdl2ResourcesConsts.IMG_DATAFIELD_EXTERNALREFERENCE));
+
+        scriptData.setReadOnly(true);
         return scriptData;
     }
 
@@ -301,8 +305,8 @@ public class AceCdsFactoriesWrapperFactory {
 
                 Property enumProperty = UMLFactory.eINSTANCE.createProperty();
                 enumProperty.setName(enumeration.getName());
-
                 enumProperty.setType(enumClass);
+                enumProperty.setIsReadOnly(true);
 
                 pkgEnumsClass.getOwnedAttributes().add(enumProperty);
 
@@ -317,11 +321,10 @@ public class AceCdsFactoriesWrapperFactory {
 
                     enumLiteralProperty
                             .setName(enumLiteral.getName().toUpperCase());
-
                     enumLiteralProperty.setType(enumeration);
+                    enumLiteralProperty.setIsReadOnly(true);
 
                     enumClass.getOwnedAttributes().add(enumLiteralProperty);
-
                 }
             }
         }

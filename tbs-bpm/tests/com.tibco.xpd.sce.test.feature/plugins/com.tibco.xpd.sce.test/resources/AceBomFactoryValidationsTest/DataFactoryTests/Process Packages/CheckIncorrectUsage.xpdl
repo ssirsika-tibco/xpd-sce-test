@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_ds5DoJJ8EemsHsINLISM4w" xpdExt:DisplayName="CheckIncorrectUsage" Name="CheckIncorrectUsage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-06-19</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_sixYQJN4Eem5T98uS32IsA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_siiuwJN4Eem5T98uS32IsA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_sixYQZN4Eem5T98uS32IsA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_d_9JkpJ8EemsHsINLISM4w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_dtCNkJJ8EemsHsINLISM4w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_d_9Jk5J8EemsHsINLISM4w" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_dtCNkJJ8EemsHsINLISM4w" xpdExt:DisplayName="CheckIncorrectUsage-Process" Name="CheckIncorrectUsageProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_iZQcgJN2Eem5T98uS32IsA" Name="Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_tVdegJJ9EemsHsINLISM4w" xpdExt:DisplayName="DataType1" Name="DataType1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData1.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3ckt4JJ8EemsHsINLISM4w"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_xDa-AJJ9EemsHsINLISM4w" xpdExt:DisplayName="DataType2" Name="DataType2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData2.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_7UJckZJ8EemsHsINLISM4w"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zkudIJJ9EemsHsINLISM4w" xpdExt:DisplayName="Text" Name="Text">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ri9-QJKZEemUW6AeypY1xA" xpdExt:DisplayName="data_type_field" Name="data_type_field">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData1.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_OvWAEJKZEemUW6AeypY1xA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hkKnkJN2Eem5T98uS32IsA" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_d_9JlJJ8EemsHsINLISM4w" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_d_9Jk5J8EemsHsINLISM4w" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="58.0" YCoordinate="100.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_d_9JlZJ8EemsHsINLISM4w" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_d_9Jk5J8EemsHsINLISM4w" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="554.0" YCoordinate="100.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_C75Q4ZJ9EemsHsINLISM4w" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Old factory methods contributions should have been removed.&#xD;
+data.DataType1 = com_example_datafactorytestsdata1_Factory.createDataTypes1();&#xD;
+data.DataType1.coloursEnum = com_example_datafactorytestsdata1_Colours.RED;&#xD;
+&#xD;
+// Should not be able to assign anything to the dynamically created classes.&#xD;
+data = &quot;&quot;;&#xD;
+factory = &quot;&quot;;&#xD;
+pkg = &quot;&quot;;&#xD;
+pkg.com_example_datafactorytestsdata1.Colours.BLUE = data.DataType1.coloursEnum;&#xD;
+&#xD;
+// Should not be able to Assign an enum from an Enumeation Class (only enum literals&#xD;
+data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata1.Colours;&#xD;
+&#xD;
+// Should not be able to use enum literals nside an enum literal or get methods&#xD;
+data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata1.Colours.BLUE.RED;&#xD;
+data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata1.Colours.get(&quot;RED&quot;);&#xD;
+&#xD;
+// Should correctly validate against mixing same name classes / enums from different packages&#xD;
+data.DataType1.coloursEnum = pkg.com_example_datafactorytestsdata2.Colours.RED;&#xD;
+data.data_type_field = factory.com_example_datafactorytestsdata2.createdata();&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_d_9Jk5J8EemsHsINLISM4w" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="253.0" YCoordinate="100.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_0I74YZN4Eem5T98uS32IsA" Name="Subprocess" xpdExt:Visibility="Private" xpdExt:DisplayName="Sub-process">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_siiuwJN4Eem5T98uS32IsA" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="DataType2param">
+                    <xpdExt:ScriptInformation Id="_0qYYkJN4Eem5T98uS32IsA" Name="Script1">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return factory.com_example_datafactorytestsdata1.createDataTypes1();</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="DataType1param.coloursEnum">
+                    <xpdExt:ScriptInformation Id="_AurQ4JN5Eem5T98uS32IsA" Name="Script2">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return pkg.com_example_datafactorytestsdata2.Colours.BLUE;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:InputMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_d_9Jk5J8EemsHsINLISM4w" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="431.0" YCoordinate="100.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_C79iUJJ9EemsHsINLISM4w" xpdExt:DisplayName="" Name="" From="_d_9JlJJ8EemsHsINLISM4w" To="_C75Q4ZJ9EemsHsINLISM4w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_y-N54JNFEemqjYnsRj1mPg" Name="" From="_0I74YZN4Eem5T98uS32IsA" To="_d_9JlZJ8EemsHsINLISM4w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_0I-7sJN4Eem5T98uS32IsA" xpdExt:DisplayName="" Name="" From="_C75Q4ZJ9EemsHsINLISM4w" To="_0I74YZN4Eem5T98uS32IsA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_siiuwJN4Eem5T98uS32IsA" xpdExt:DisplayName="Sub-process" Name="Subprocess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_tiUwwJN4Eem5T98uS32IsA" Name="DataType1param" Mode="INOUT" Required="true" xpdExt:DisplayName="DataType 1 param">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData1.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3ckt4JJ8EemsHsINLISM4w"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_wiKmAJN4Eem5T98uS32IsA" Name="DataType2param" Mode="INOUT" Required="true" xpdExt:DisplayName="DataType 2 param">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataFactoryTestsData2.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_7UJckZJ8EemsHsINLISM4w"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_sixYQpN4Eem5T98uS32IsA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_sixYQZN4Eem5T98uS32IsA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_sixYQ5N4Eem5T98uS32IsA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_sixYQZN4Eem5T98uS32IsA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_sixYRJN4Eem5T98uS32IsA" xpdExt:DisplayName="" Name="" From="_sixYQpN4Eem5T98uS32IsA" To="_sixYQ5N4Eem5T98uS32IsA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

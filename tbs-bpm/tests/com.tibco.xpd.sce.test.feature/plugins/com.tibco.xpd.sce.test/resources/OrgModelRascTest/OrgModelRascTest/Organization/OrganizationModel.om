@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:om="http://www.tibco.com/om/1.0" xmlns:omnotation="http://www.tibco.com/models/omnotation">
-  <om:OrgModel xmi:id="_Omiz0Eo0EeCUmv-_qS7aRQ" name="OrganizationModelName" displayName="Organization Model Label" version="3.0.0.0" author="aspencer" dateCreated="1299668499980" humanResourceType="_Omiz5Uo0EeCUmv-_qS7aRQ" consumableResourceType="_Omiz5ko0EeCUmv-_qS7aRQ" durableResourceType="_Omiz50o0EeCUmv-_qS7aRQ">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:om="http://www.tibco.com/om/1.0" xmlns:omnotation="http://www.tibco.com/models/omnotation">
+  <om:OrgModel xmi:id="_Omiz0Eo0EeCUmv-_qS7aRQ" name="OrganizationModelName" displayName="Organization Model Label" author="aspencer" dateCreated="1299668499980" humanResourceType="_Omiz5Uo0EeCUmv-_qS7aRQ" consumableResourceType="_Omiz5ko0EeCUmv-_qS7aRQ" durableResourceType="_Omiz50o0EeCUmv-_qS7aRQ">
     <groups xmi:type="om:Group" xmi:id="_aIRKkEo0EeCUmv-_qS7aRQ" name="MAINGROUP001" displayName="Test Main Group 001">
       <subGroups xmi:type="om:Group" xmi:id="_aIRKkUo0EeCUmv-_qS7aRQ" name="SUBGROUP001" displayName="Test Sub Group 001" allocationMethod="NEXT">
         <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_QP5LsEo-EeCUmv-_qS7aRQ" privilege="_4z3VMEo0EeCUmv-_qS7aRQ"/>
@@ -16,8 +16,8 @@
     <capabilities xmi:type="om:Capability" xmi:id="_mr5DMUo0EeCUmv-_qS7aRQ" name="Capability2" displayName="Capability2"/>
     <capabilities xmi:type="om:Capability" xmi:id="_osGncEo0EeCUmv-_qS7aRQ" name="SubCat" displayName="SubCat" category="_kHSYcEo0EeCUmv-_qS7aRQ"/>
     <capabilities xmi:type="om:Capability" xmi:id="_osGncUo0EeCUmv-_qS7aRQ" name="SubCat2" displayName="SubCat2" category="_kHSYcEo0EeCUmv-_qS7aRQ"/>
-    <organizations xmi:type="om:Organization" xmi:id="_Omiz0Uo0EeCUmv-_qS7aRQ" name="1Organization" displayName="1Organization" organizationType="_Omiz2Uo0EeCUmv-_qS7aRQ">
-      <units xmi:type="om:OrgUnit" xmi:id="_BM9uIEo1EeCUmv-_qS7aRQ" name="UNIT001" displayName="Test Organization Unit 001" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" incomingRelationships="_O1NTMEo6EeCUmv-_qS7aRQ">
+    <organizations xmi:type="om:Organization" xmi:id="_Omiz0Uo0EeCUmv-_qS7aRQ" name="1Organization" displayName="1Organization" allocationMethod="NEXT" organizationType="_Omiz2Uo0EeCUmv-_qS7aRQ">
+      <units xmi:type="om:OrgUnit" xmi:id="_BM9uIEo1EeCUmv-_qS7aRQ" name="UNIT001" displayName="Test Organization Unit 001" allocationMethod="NEXT" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" incomingRelationships="_O1NTMEo6EeCUmv-_qS7aRQ">
         <positions xmi:type="om:Position" xmi:id="_FYJ8MEo1EeCUmv-_qS7aRQ" name="POSITION001" displayName="Test Position 001" feature="_Omiz4Eo0EeCUmv-_qS7aRQ">
           <capabilitiesAssociations xmi:type="om:CapabilityAssociation" xmi:id="_OI4qoEo4EeCUmv-_qS7aRQ" capability="_osGncEo0EeCUmv-_qS7aRQ"/>
         </positions>
@@ -25,13 +25,13 @@
           <privilegeAssociations xmi:type="om:PrivilegeAssociation" xmi:id="_4jAuYEo3EeCUmv-_qS7aRQ" privilege="_00_E0Eo0EeCUmv-_qS7aRQ"/>
         </positions>
       </units>
-      <units xmi:type="om:OrgUnit" xmi:id="_duBB4Eo3EeCUmv-_qS7aRQ" name="UNIT002Sub001" displayName="Test Organization Unit 002 Sub1" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" incomingRelationships="_Tt_nEEo6EeCUmv-_qS7aRQ">
+      <units xmi:type="om:OrgUnit" xmi:id="_duBB4Eo3EeCUmv-_qS7aRQ" name="UNIT002Sub001" displayName="Test Organization Unit 002 Sub1" allocationMethod="NEXT" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" incomingRelationships="_Tt_nEEo6EeCUmv-_qS7aRQ">
         <positions xmi:type="om:Position" xmi:id="_mr8mMEo3EeCUmv-_qS7aRQ" name="POSITION003" displayName="Test Position 003" location="__5ksQEo3EeCUmv-_qS7aRQ" feature="_Omiz4Eo0EeCUmv-_qS7aRQ"/>
         <positions xmi:type="om:Position" xmi:id="_neePUEo3EeCUmv-_qS7aRQ" name="POSITION004" displayName="Test Position 004" feature="_Omiz4Eo0EeCUmv-_qS7aRQ"/>
         <positions xmi:type="om:Position" xmi:id="_oPPk8Eo3EeCUmv-_qS7aRQ" name="POSITION005" displayName="Test Position 005" feature="_Omiz4Eo0EeCUmv-_qS7aRQ"/>
       </units>
-      <units xmi:type="om:OrgUnit" xmi:id="_6eTrgEo5EeCUmv-_qS7aRQ" name="Department" displayName="Department" feature="_Omiz2ko0EeCUmv-_qS7aRQ" outgoingRelationships="_IJYUYUo6EeCUmv-_qS7aRQ _O1NTMEo6EeCUmv-_qS7aRQ"/>
-      <units xmi:type="om:OrgUnit" xmi:id="_IJYUYEo6EeCUmv-_qS7aRQ" name="UNIT002" displayName="Test Organization Unit 002" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" outgoingRelationships="_Tt_nEEo6EeCUmv-_qS7aRQ" incomingRelationships="_IJYUYUo6EeCUmv-_qS7aRQ"/>
+      <units xmi:type="om:OrgUnit" xmi:id="_6eTrgEo5EeCUmv-_qS7aRQ" name="Department" displayName="Department" allocationMethod="NEXT" feature="_Omiz2ko0EeCUmv-_qS7aRQ" outgoingRelationships="_IJYUYUo6EeCUmv-_qS7aRQ _O1NTMEo6EeCUmv-_qS7aRQ"/>
+      <units xmi:type="om:OrgUnit" xmi:id="_IJYUYEo6EeCUmv-_qS7aRQ" name="UNIT002" displayName="Test Organization Unit 002" allocationMethod="NEXT" feature="_Omiz3Uo0EeCUmv-_qS7aRQ" outgoingRelationships="_Tt_nEEo6EeCUmv-_qS7aRQ" incomingRelationships="_IJYUYUo6EeCUmv-_qS7aRQ"/>
       <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_IJYUYUo6EeCUmv-_qS7aRQ" name="DepartmentUNIT002" displayName="Department-UNIT002" from="_6eTrgEo5EeCUmv-_qS7aRQ" to="_IJYUYEo6EeCUmv-_qS7aRQ" isHierarchical="true"/>
       <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_O1NTMEo6EeCUmv-_qS7aRQ" name="DepartmentTestOrganizationUnit001" displayName="Department-Test Organization Unit 001" from="_6eTrgEo5EeCUmv-_qS7aRQ" to="_BM9uIEo1EeCUmv-_qS7aRQ" isHierarchical="true"/>
       <orgUnitRelationships xmi:type="om:OrgUnitRelationship" xmi:id="_Tt_nEEo6EeCUmv-_qS7aRQ" name="UNIT002TestOrganizationUnit002Sub1" displayName="UNIT002-Test Organization Unit 002 Sub1" from="_IJYUYEo6EeCUmv-_qS7aRQ" to="_duBB4Eo3EeCUmv-_qS7aRQ" isHierarchical="true"/>

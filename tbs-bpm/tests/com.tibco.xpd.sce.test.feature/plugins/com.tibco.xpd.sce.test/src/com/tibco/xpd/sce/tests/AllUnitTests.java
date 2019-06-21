@@ -27,6 +27,7 @@ import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
 import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
+import com.tibco.xpd.sce.tests.validation.AceBomFactoryValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
@@ -102,6 +103,7 @@ public class AllUnitTests {
         suite.addTestSuite(AceDecPlacesValidationTest.class);
         suite.addTestSuite(AceDateTimeResolutionTest.class);
         suite.addTestSuite(AceCaseCompositionValidationTest.class);
+        suite.addTestSuite(AceBomFactoryValidationsTest.class);
 
         /*
          * Miscellaneous
