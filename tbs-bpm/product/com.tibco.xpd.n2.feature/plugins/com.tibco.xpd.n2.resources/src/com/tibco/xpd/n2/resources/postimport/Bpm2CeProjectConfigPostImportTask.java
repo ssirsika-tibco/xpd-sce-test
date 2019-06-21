@@ -59,7 +59,13 @@ import com.tibco.xpd.resources.util.XpdConsts;
  * <li>Replaces all destination environments with the "CE" destination</i>
  * <li>Remove all AMX-BPM build folders: .bpm, .bom2Xsd, .bomJars, .processOut,
  * .deModulesOutput</li>
- * <li>TODO: Watch this space for more to come later...</li>
+ * <li>Resets all project versions to 1.0.0</li>
+ * <li>Moves generated BOMs to user defined BOM folders</li>
+ * <li>Removes unwanted user-visible special folders (Service Descriptors
+ * etc)</li>
+ * <li>Removes unwanted project asset configurations</li>
+ * <li>Removes unwanted project natures and builders</li>
+ * <li>Removes unsupported presentation channels</li>
  * 
  * @author aallway
  * @since 04 April 2019
