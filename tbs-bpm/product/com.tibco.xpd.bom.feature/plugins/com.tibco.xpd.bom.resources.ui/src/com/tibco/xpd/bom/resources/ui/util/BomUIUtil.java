@@ -210,6 +210,7 @@ public class BomUIUtil {
             query =
                     new BOMTypeQuery(BOMTypeQuery.PRIMITIVE_TYPE,
                             BOMTypeQuery.BASE_PRIMITIVE_TYPE);
+            filtersList.add(new BOMBasePrimitiveTypesFilter());
         } else if (context instanceof Property) {
             Property prop = (Property) context;
 

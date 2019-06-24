@@ -18,6 +18,7 @@ import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Generalization;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 
@@ -44,8 +45,10 @@ public class ClassifierSection extends AbstractGeneralSection {
                 // This section should be shown for an AssociationClass but not
                 // for Association
                 return false;
+            } else if (eo instanceof PrimitiveType) {
+                return true;
             }
-            return true;
+            return false;
         }
         return false;
     }
@@ -54,16 +57,10 @@ public class ClassifierSection extends AbstractGeneralSection {
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        // createLabel(root, toolkit,
-        // Messages.ClassifierSection_superclass_label);
+        createLabel(root, toolkit, Messages.ClassifierSection_superclass_label);
         superClassCtrl =
                 new SuperclassPickerControl(root, toolkit, getEditingDomain());
         superClassCtrl.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        /*
-         * ACE-481: Saket: Need to hide the superclass control as we don't
-         * support generalization in ACE.
-         */
-        superClassCtrl.setVisible(false);
 
         return root;
     }
