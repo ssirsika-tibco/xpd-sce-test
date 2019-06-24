@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.20190621181325810">
+  <workmodel:WorkModel workModelUID="WM__APHj0JQ5EemDnPS3BM6Yfw">
+    <BaseModelInfo description="User Task" name="UserTask" priority="50"/>
+    <WorkModelSpecification>
+      <inouts array="true" name="MergingPartialComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="MergingSimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="TextField2" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="Copy_Of_ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+      <inouts array="true" name="ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="MergingComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts array="true" name="ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts array="true" name="Copy_Of_SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_ClassFieldtoInflate" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingSimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="Copy_Of_FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="ClassFieldtoInflate" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingPartialComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="ORGANIZATIONAL_UNIT" guid="_0CnxwJQ4EemDnPS3BM6Yfw"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.20190621181325810,1.0.0.20190621181325810]" workTypeID="WT__APHj0JQ5EemDnPS3BM6Yfw">
+        <WorkModelMapping>
+          <TypeParamName>MergingPartialComplexListField</TypeParamName>
+          <ModelParamName>MergingPartialComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>MergingSimpleListField</TypeParamName>
+          <ModelParamName>MergingSimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TextField2</TypeParamName>
+          <ModelParamName>TextField2</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>BooleanField</TypeParamName>
+          <ModelParamName>BooleanField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_DateTimeField</TypeParamName>
+          <ModelParamName>Copy_Of_DateTimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateField</TypeParamName>
+          <ModelParamName>DateField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_TimeField</TypeParamName>
+          <ModelParamName>Copy_Of_TimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_NumberField</TypeParamName>
+          <ModelParamName>Copy_Of_NumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_ComplexListField</TypeParamName>
+          <ModelParamName>Copy_Of_ComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TimeField</TypeParamName>
+          <ModelParamName>TimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>TextField</TypeParamName>
+          <ModelParamName>TextField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_ClassField</TypeParamName>
+          <ModelParamName>Copy_Of_ClassField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedPointNumberField</TypeParamName>
+          <ModelParamName>FixedPointNumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ComplexListField</TypeParamName>
+          <ModelParamName>ComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ClassField</TypeParamName>
+          <ModelParamName>ClassField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_DateField</TypeParamName>
+          <ModelParamName>Copy_Of_DateField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_PerformerField</TypeParamName>
+          <ModelParamName>Copy_Of_PerformerField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_TextField</TypeParamName>
+          <ModelParamName>Copy_Of_TextField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>DateTimeField</TypeParamName>
+          <ModelParamName>DateTimeField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>SimpleListField</TypeParamName>
+          <ModelParamName>SimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>MergingComplexListField</TypeParamName>
+          <ModelParamName>MergingComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_ListFixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>Copy_Of_ListFixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ListFixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>ListFixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_SimpleListField</TypeParamName>
+          <ModelParamName>Copy_Of_SimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_MergingComplexListField</TypeParamName>
+          <ModelParamName>Copy_Of_MergingComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_ClassFieldtoInflate</TypeParamName>
+          <ModelParamName>Copy_Of_ClassFieldtoInflate</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>NumberField</TypeParamName>
+          <ModelParamName>NumberField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_BooleanField</TypeParamName>
+          <ModelParamName>Copy_Of_BooleanField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>FixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>FixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>PerformerField</TypeParamName>
+          <ModelParamName>PerformerField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_MergingSimpleListField</TypeParamName>
+          <ModelParamName>Copy_Of_MergingSimpleListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_FixedNumberTypeDecl</TypeParamName>
+          <ModelParamName>Copy_Of_FixedNumberTypeDecl</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>ClassFieldtoInflate</TypeParamName>
+          <ModelParamName>ClassFieldtoInflate</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_MergingPartialComplexListField</TypeParamName>
+          <ModelParamName>Copy_Of_MergingPartialComplexListField</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>Copy_Of_FixedPointNumberField</TypeParamName>
+          <ModelParamName>Copy_Of_FixedPointNumberField</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+    <WorkModelScripts>
+      <WorkModelScript scriptBody="//&#xA;// Auto-Generated Process DataTo Work Item Attribute Script&#xA;// &#xA;// This script is derived from the process-scope data mappings to work item attributes.&#xA;//&#xA;&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute2` was unset because parent element `data` of source path `data.ClassField.text` is null.&quot;);&#xD;&#xA;}else if(data.ClassField == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute2` was unset because parent element `data.ClassField` of source path `data.ClassField.text` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = data.ClassField.text; &#xD;&#xA;}&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `data` of source path `data.ClassField.complexChild.attribute1` is null.&quot;);&#xD;&#xA;}else if(data.ClassField == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `data.ClassField` of source path `data.ClassField.complexChild.attribute1` is null.&quot;);&#xD;&#xA;}else if(data.ClassField.complexChild == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `data.ClassField.complexChild` of source path `data.ClassField.complexChild.attribute1` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1; &#xD;&#xA;}&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `data` of source path `data.ClassField.complexChild.attribute2` is null.&quot;);&#xD;&#xA;}else if(data.ClassField == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `data.ClassField` of source path `data.ClassField.complexChild.attribute2` is null.&quot;);&#xD;&#xA;}else if(data.ClassField.complexChild == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute4` was unset because parent element `data.ClassField.complexChild` of source path `data.ClassField.complexChild.attribute2` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute4 = data.ClassField.complexChild.attribute2; &#xD;&#xA;}&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute5 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute5` was unset because parent element `data` of source path `data.ClassField.fixed` is null.&quot;);&#xD;&#xA;}else if(data.ClassField == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute5 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute5` was unset because parent element `data.ClassField` of source path `data.ClassField.fixed` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute5 = data.ClassField.fixed; &#xD;&#xA;}&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute6 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute6` was unset because parent element `data` of source path `data.ClassField.dateTimeTz` is null.&quot;);&#xD;&#xA;}else if(data.ClassField == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute6 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute6` was unset because parent element `data.ClassField` of source path `data.ClassField.dateTimeTz` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute6 = data.ClassField.dateTimeTz; &#xD;&#xA;}&#xA;&#xA;if(data == null) {&#xD;&#xA; &#x9;WorkManagerFactory.getWorkItem().workItemAttributes.attribute7 = null; &#xD;&#xA; &#x9;Log.write(&quot;DataWrappingMappingsTestsProcess/UserTask: Info: Work item attribute mapping: mapping from attribute `attribute7` was unset because parent element `data` of source path `data.DateTimeField` is null.&quot;);&#xD;&#xA;}else {&#xA;&#x9; WorkManagerFactory.getWorkItem().workItemAttributes.attribute7 = data.DateTimeField; &#xD;&#xA;}&#xA;&#xA;" scriptLanguage="JSCRIPT" scriptLanguageExtension="js" scriptLanguageVersion="1.5" scriptOperation="SYSAPPEND" scriptTypeID="_9JPIoIheEemL0JNuli1Mqw"/>
+    </WorkModelScripts>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

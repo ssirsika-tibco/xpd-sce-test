@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="1.0.0.20190621181325810">
+  <worktype:WorkType>
+    <workTypeUID>WT__APHj0JQ5EemDnPS3BM6Yfw</workTypeUID>
+    <workTypeDescription>UserTask</workTypeDescription>
+    <dataModel>
+      <inouts array="true" name="MergingPartialComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="MergingSimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="TextField2" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="TimeField" optional="true" type="Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="Copy_Of_ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+      <inouts array="true" name="ComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="ClassField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_DateField" optional="true" type="Date">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_TextField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="DateTimeField" optional="true" type="Date Time">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="MergingComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts array="true" name="ListFixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts array="true" name="Copy_Of_SimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_ClassFieldtoInflate" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="NumberField" optional="true" type="Decimal Number">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="Copy_Of_BooleanField" optional="true" type="Boolean">
+        <simpleSpec/>
+      </inouts>
+      <inouts name="FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="PerformerField" optional="true" type="Performer">
+        <simpleSpec/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingSimpleListField" optional="true" type="String">
+        <simpleSpec length="50"/>
+      </inouts>
+      <inouts name="Copy_Of_FixedNumberTypeDecl" optional="true" type="String"/>
+      <inouts name="ClassFieldtoInflate" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts array="true" name="Copy_Of_MergingPartialComplexListField" optional="true" type="Complex">
+        <complexSpec className="com.example.data.DataTypes"/>
+      </inouts>
+      <inouts name="Copy_Of_FixedPointNumberField" optional="true" type="Decimal Number">
+        <simpleSpec decimal="2" length="10"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

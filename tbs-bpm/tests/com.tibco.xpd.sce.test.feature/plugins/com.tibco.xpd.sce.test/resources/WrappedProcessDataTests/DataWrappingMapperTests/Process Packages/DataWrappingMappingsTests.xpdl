@@ -27,6 +27,10 @@
         <xpdExt:RestService resourceName="DataWrappingREST-Service"/>
       </xpdExt:ParticipantSharedResource>
     </xpdl2:Participant>
+    <xpdl2:Participant Id="_aqSLIJaWEempqeJCl3Qq9A" xpdExt:DisplayName="Dynamic Org Participant" Name="Dynamic Org Participant">
+      <xpdl2:ParticipantType Type="RESOURCE"/>
+      <xpdl2:ExternalReference location="DataWrappingOrganisation.om" namespace="http://www.tibco.com/om/1.0" xref="_0CnxwJQ4EemDnPS3BM6Yfw"/>
+    </xpdl2:Participant>
   </xpdl2:Participants>
   <xpdl2:Pools>
     <xpdl2:Pool Id="_B6VgIIhfEemL0JNuli1Mqw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_B6NkUIhfEemL0JNuli1Mqw">
@@ -274,6 +278,13 @@
           </xpdl2:DataType>
           <xpdl2:InitialValue/>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_MdMqQJQ5EemDnPS3BM6Yfw" xpdExt:DisplayName="Text Field 2" Name="TextField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="__f-9koheEemL0JNuli1Mqw" Name="StartEvent" xpdExt:DisplayName="Start Event">
@@ -516,333 +527,327 @@
             <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
           </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
-        <xpdl2:Activity Id="_y7TLkIk7EembeLH2VJH52Q" Name="Whatitusedtolooklike" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="What it used to look like">
+        <xpdl2:Activity Id="_y7TLkIk7EembeLH2VJH52Q" Name="Whatitusedtolooklikeseedescription" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="What it used to look like (see description)" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Description>// Map from 'BooleanField' to 'Copy_Of_BooleanField'&#xD;
+Copy_Of_BooleanField = BooleanField;&#xD;
+&#xD;
+// Map from 'ClassField' to 'Copy_Of_ClassField'&#xD;
+Copy_Of_ClassField = ScriptUtil.copy(ClassField);&#xD;
+&#xD;
+// Create target 'Copy_Of_ClassFieldtoInflate' if it doesn't exist.&#xD;
+if (Copy_Of_ClassFieldtoInflate == null) {&#xD;
+    Copy_Of_ClassFieldtoInflate = com_example_data_Factory.createDataTypes();&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.URI' to 'Copy_Of_ClassFieldtoInflate.URI'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.URI = ClassFieldtoInflate.URI;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.URI = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.boolean1' to 'Copy_Of_ClassFieldtoInflate.boolean1'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.boolean1 = ClassFieldtoInflate.boolean1;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.boolean1 = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.date' to 'Copy_Of_ClassFieldtoInflate.date'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.date = ClassFieldtoInflate.date;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.date = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.dateTimeTz' to 'Copy_Of_ClassFieldtoInflate.dateTimeTz'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.dateTimeTz = ClassFieldtoInflate.dateTimeTz;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.dateTimeTz = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.enum1' to 'Copy_Of_ClassFieldtoInflate.enum1'&#xD;
+if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.enum1 != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.enum1 = com_example_data_Enumeration1.get(String(String(ClassFieldtoInflate.enum1)));&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.enum1 = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.fixed' to 'Copy_Of_ClassFieldtoInflate.fixed'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.fixed = ClassFieldtoInflate.fixed;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.fixed = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.float1' to 'Copy_Of_ClassFieldtoInflate.float1'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.float1 = ClassFieldtoInflate.float1;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.float1 = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.text' to 'Copy_Of_ClassFieldtoInflate.text'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.text = ClassFieldtoInflate.text;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.text = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.time' to 'Copy_Of_ClassFieldtoInflate.time'&#xD;
+if (ClassFieldtoInflate != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.time = ClassFieldtoInflate.time;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.time = null;&#xD;
+}&#xD;
+&#xD;
+// Create target 'Copy_Of_ClassFieldtoInflate.complexChild' if it doesn't exist.&#xD;
+if (Copy_Of_ClassFieldtoInflate.complexChild == null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.complexChild = com_example_data_Factory.createChild();&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.complexChild.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexChild.attribute1'&#xD;
+if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexChild != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.complexChild.attribute1 = ClassFieldtoInflate.complexChild.attribute1;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.complexChild.attribute1 = null;&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.complexChild.attribute2' to 'Copy_Of_ClassFieldtoInflate.complexChild.attribute2'&#xD;
+if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexChild != null) {&#xD;
+    Copy_Of_ClassFieldtoInflate.complexChild.attribute2 = ClassFieldtoInflate.complexChild.attribute2;&#xD;
+} else {&#xD;
+    Copy_Of_ClassFieldtoInflate.complexChild.attribute2 = null;&#xD;
+}&#xD;
+&#xD;
+// Overwrite list: Copy_Of_ClassFieldtoInflate.complexList&#xD;
+Copy_Of_ClassFieldtoInflate.complexList.clear();&#xD;
+&#xD;
+if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexList != null) {&#xD;
+&#xD;
+    for (var i1 = 0; i1 &lt; ClassFieldtoInflate.complexList.size(); i1++) { &#xD;
+        var $sVi1 = ScriptUtil.copy(ClassFieldtoInflate.complexList.get(i1));&#xD;
+        var $tVi1 = com_example_data_Factory.createChild();&#xD;
+&#xD;
+        // Map from 'ClassFieldtoInflate.complexList.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexList.attribute1'&#xD;
+        $tVi1.attribute1 = $sVi1.attribute1;&#xD;
+&#xD;
+        // Map from 'ClassFieldtoInflate.complexList.attribute2' to 'Copy_Of_ClassFieldtoInflate.complexList.attribute2'&#xD;
+        $tVi1.attribute2 = $sVi1.attribute2;&#xD;
+        &#xD;
+        Copy_Of_ClassFieldtoInflate.complexList.add($tVi1);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'ClassFieldtoInflate.textList' to 'Copy_Of_ClassFieldtoInflate.textList'&#xD;
+&#xD;
+// Overwrite list: Copy_Of_ClassFieldtoInflate.textList&#xD;
+Copy_Of_ClassFieldtoInflate.textList.clear();&#xD;
+&#xD;
+if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.textList != null) {&#xD;
+&#xD;
+    for (var i2 = 0; i2 &lt; ClassFieldtoInflate.textList.size(); i2++) { &#xD;
+        var $sVi2 = ClassFieldtoInflate.textList.get(i2);&#xD;
+        &#xD;
+        Copy_Of_ClassFieldtoInflate.textList.add($sVi2);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'ComplexListField' to 'Copy_Of_ComplexListField'&#xD;
+&#xD;
+// Overwrite list: Copy_Of_ComplexListField&#xD;
+Copy_Of_ComplexListField.clear();&#xD;
+&#xD;
+if (ComplexListField != null) {&#xD;
+&#xD;
+    for (var i3 = 0; i3 &lt; ComplexListField.size(); i3++) { &#xD;
+        var $sVi3 = ScriptUtil.copy(ComplexListField.get(i3));&#xD;
+        &#xD;
+        Copy_Of_ComplexListField.add($sVi3);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'DateField' to 'Copy_Of_DateField'&#xD;
+Copy_Of_DateField = DateField;&#xD;
+&#xD;
+// Map from 'DateTimeField' to 'Copy_Of_DateTimeField'&#xD;
+Copy_Of_DateTimeField = DateTimeField;&#xD;
+&#xD;
+// Map from 'FixedNumberTypeDecl' to 'Copy_Of_FixedNumberTypeDecl'&#xD;
+Copy_Of_FixedNumberTypeDecl = FixedNumberTypeDecl;&#xD;
+&#xD;
+// Map from 'FixedPointNumberField' to 'Copy_Of_FixedPointNumberField'&#xD;
+Copy_Of_FixedPointNumberField = FixedPointNumberField;&#xD;
+&#xD;
+// Map from 'ListFixedNumberTypeDecl' to 'Copy_Of_ListFixedNumberTypeDecl'&#xD;
+&#xD;
+// Overwrite list: Copy_Of_ListFixedNumberTypeDecl&#xD;
+Copy_Of_ListFixedNumberTypeDecl.clear();&#xD;
+&#xD;
+if (ListFixedNumberTypeDecl != null) {&#xD;
+&#xD;
+    for (var i4 = 0; i4 &lt; ListFixedNumberTypeDecl.size(); i4++) { &#xD;
+        var $sVi4 = ListFixedNumberTypeDecl.get(i4);&#xD;
+        &#xD;
+        Copy_Of_ListFixedNumberTypeDecl.add($sVi4);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'MergingComplexListField' to 'Copy_Of_MergingComplexListField'&#xD;
+&#xD;
+// Merge list content: Copy_Of_MergingComplexListField&#xD;
+&#xD;
+if (MergingComplexListField != null) {&#xD;
+&#xD;
+    for (var i5 = 0; i5 &lt; MergingComplexListField.size(); i5++) { &#xD;
+        var $sVi5 = ScriptUtil.copy(MergingComplexListField.get(i5));&#xD;
+&#xD;
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)&#xD;
+        if (i5 &lt; Copy_Of_MergingComplexListField.size()) {&#xD;
+            Copy_Of_MergingComplexListField.set(i5, $sVi5);&#xD;
+        } else {&#xD;
+            Copy_Of_MergingComplexListField.add($sVi5);&#xD;
+        }&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Overwrite list: Copy_Of_MergingPartialComplexListField&#xD;
+Copy_Of_MergingPartialComplexListField.clear();&#xD;
+&#xD;
+if (MergingPartialComplexListField != null) {&#xD;
+&#xD;
+    for (var i6 = 0; i6 &lt; MergingPartialComplexListField.size(); i6++) { &#xD;
+        var $sVi6 = ScriptUtil.copy(MergingPartialComplexListField.get(i6));&#xD;
+        var $tVi6 = com_example_data_Factory.createDataTypes();&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.URI' to 'Copy_Of_MergingPartialComplexListField.URI'&#xD;
+        $tVi6.URI = $sVi6.URI;&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.date' to 'Copy_Of_MergingPartialComplexListField.date'&#xD;
+        $tVi6.date = $sVi6.date;&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.enum1' to 'Copy_Of_MergingPartialComplexListField.enum1'&#xD;
+        if ($sVi6.enum1 != null) {&#xD;
+            $tVi6.enum1 = com_example_data_Enumeration1.get(String(String($sVi6.enum1)));&#xD;
+        } else {&#xD;
+            $tVi6.enum1 = null;&#xD;
+        }&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.float1' to 'Copy_Of_MergingPartialComplexListField.float1'&#xD;
+        $tVi6.float1 = $sVi6.float1;&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.time' to 'Copy_Of_MergingPartialComplexListField.time'&#xD;
+        $tVi6.time = $sVi6.time;&#xD;
+&#xD;
+        // Create target 'Copy_Of_MergingPartialComplexListField.complexChild' if it doesn't exist.&#xD;
+        if ($tVi6.complexChild == null) {&#xD;
+            $tVi6.complexChild = com_example_data_Factory.createChild();&#xD;
+        }&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.complexChild.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexChild.attribute1'&#xD;
+        if ($sVi6.complexChild != null) {&#xD;
+            $tVi6.complexChild.attribute1 = $sVi6.complexChild.attribute1;&#xD;
+        } else {&#xD;
+            $tVi6.complexChild.attribute1 = null;&#xD;
+        }&#xD;
+&#xD;
+        // Merge list content: Copy_Of_MergingPartialComplexListField.complexList&#xD;
+        &#xD;
+        if ($sVi6.complexList != null) {&#xD;
+        &#xD;
+            for (var i7 = 0; i7 &lt; $sVi6.complexList.size(); i7++) { &#xD;
+                var $sVi7 = ScriptUtil.copy($sVi6.complexList.get(i7));&#xD;
+&#xD;
+                // Map to existing target elements from source with same index (else append new targets when there are additional source elements)&#xD;
+                var $tVi7;&#xD;
+                if (i7 &lt; $tVi6.complexList.size()) {&#xD;
+                    $tVi7 = $tVi6.complexList.get(i7);&#xD;
+                } else {&#xD;
+                    $tVi7 = com_example_data_Factory.createChild();&#xD;
+                }&#xD;
+&#xD;
+                // Map from 'MergingPartialComplexListField.complexList.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexList.attribute1'&#xD;
+                $tVi7.attribute1 = $sVi7.attribute1;&#xD;
+                &#xD;
+                if (i7 >= $tVi6.complexList.size()) {&#xD;
+                    $tVi6.complexList.add($tVi7);&#xD;
+                }&#xD;
+            }&#xD;
+        }&#xD;
+&#xD;
+        // Map from 'MergingPartialComplexListField.textList' to 'Copy_Of_MergingPartialComplexListField.textList'&#xD;
+&#xD;
+        // Append to list: Copy_Of_MergingPartialComplexListField.textList&#xD;
+        &#xD;
+        if ($sVi6.textList != null) {&#xD;
+        &#xD;
+            for (var i8 = 0; i8 &lt; $sVi6.textList.size(); i8++) { &#xD;
+                var $sVi8 = $sVi6.textList.get(i8);&#xD;
+                &#xD;
+                $tVi6.textList.add($sVi8);&#xD;
+            }&#xD;
+        }&#xD;
+        &#xD;
+        Copy_Of_MergingPartialComplexListField.add($tVi6);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'MergingSimpleListField' to 'Copy_Of_MergingSimpleListField'&#xD;
+&#xD;
+// Merge list content: Copy_Of_MergingSimpleListField&#xD;
+&#xD;
+if (MergingSimpleListField != null) {&#xD;
+&#xD;
+    for (var i9 = 0; i9 &lt; MergingSimpleListField.size(); i9++) { &#xD;
+        var $sVi9 = MergingSimpleListField.get(i9);&#xD;
+&#xD;
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)&#xD;
+        if (i9 &lt; Copy_Of_MergingSimpleListField.size()) {&#xD;
+            Copy_Of_MergingSimpleListField.set(i9, $sVi9);&#xD;
+        } else {&#xD;
+            Copy_Of_MergingSimpleListField.add($sVi9);&#xD;
+        }&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'NumberField' to 'Copy_Of_NumberField'&#xD;
+Copy_Of_NumberField = NumberField;&#xD;
+&#xD;
+// Map from 'PerformerField' to 'Copy_Of_PerformerField'&#xD;
+Copy_Of_PerformerField = PerformerField;&#xD;
+&#xD;
+// Map from 'SimpleListField' to 'Copy_Of_SimpleListField'&#xD;
+&#xD;
+// Overwrite list: Copy_Of_SimpleListField&#xD;
+Copy_Of_SimpleListField.clear();&#xD;
+&#xD;
+if (SimpleListField != null) {&#xD;
+&#xD;
+    for (var i10 = 0; i10 &lt; SimpleListField.size(); i10++) { &#xD;
+        var $sVi10 = SimpleListField.get(i10);&#xD;
+        &#xD;
+        Copy_Of_SimpleListField.add($sVi10);&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+// Map from 'TextField' to 'Copy_Of_TextField'&#xD;
+Copy_Of_TextField = TextField;&#xD;
+&#xD;
+// Map from 'TimeField' to 'Copy_Of_TimeField'&#xD;
+Copy_Of_TimeField = TimeField;&#xD;
+&#xD;
+&#xD;
+</xpdl2:Description>
           <xpdl2:Implementation>
-            <xpdl2:Task>
-              <xpdl2:TaskScript>
-                <xpdl2:Script ScriptGrammar="JavaScript">// Map from 'BooleanField' to 'Copy_Of_BooleanField'
-Copy_Of_BooleanField = BooleanField;
-
-// Map from 'ClassField' to 'Copy_Of_ClassField'
-Copy_Of_ClassField = ScriptUtil.copy(ClassField);
-
-// Create target 'Copy_Of_ClassFieldtoInflate' if it doesn't exist.
-if (Copy_Of_ClassFieldtoInflate == null) {
-    Copy_Of_ClassFieldtoInflate = com_example_data_Factory.createDataTypes();
-}
-
-// Map from 'ClassFieldtoInflate.URI' to 'Copy_Of_ClassFieldtoInflate.URI'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.URI = ClassFieldtoInflate.URI;
-} else {
-    Copy_Of_ClassFieldtoInflate.URI = null;
-}
-
-// Map from 'ClassFieldtoInflate.boolean1' to 'Copy_Of_ClassFieldtoInflate.boolean1'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.boolean1 = ClassFieldtoInflate.boolean1;
-} else {
-    Copy_Of_ClassFieldtoInflate.boolean1 = null;
-}
-
-// Map from 'ClassFieldtoInflate.date' to 'Copy_Of_ClassFieldtoInflate.date'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.date = ClassFieldtoInflate.date;
-} else {
-    Copy_Of_ClassFieldtoInflate.date = null;
-}
-
-// Map from 'ClassFieldtoInflate.dateTimeTz' to 'Copy_Of_ClassFieldtoInflate.dateTimeTz'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.dateTimeTz = ClassFieldtoInflate.dateTimeTz;
-} else {
-    Copy_Of_ClassFieldtoInflate.dateTimeTz = null;
-}
-
-// Map from 'ClassFieldtoInflate.enum1' to 'Copy_Of_ClassFieldtoInflate.enum1'
-if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.enum1 != null) {
-    Copy_Of_ClassFieldtoInflate.enum1 = com_example_data_Enumeration1.get(String(String(ClassFieldtoInflate.enum1)));
-} else {
-    Copy_Of_ClassFieldtoInflate.enum1 = null;
-}
-
-// Map from 'ClassFieldtoInflate.fixed' to 'Copy_Of_ClassFieldtoInflate.fixed'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.fixed = ClassFieldtoInflate.fixed;
-} else {
-    Copy_Of_ClassFieldtoInflate.fixed = null;
-}
-
-// Map from 'ClassFieldtoInflate.float1' to 'Copy_Of_ClassFieldtoInflate.float1'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.float1 = ClassFieldtoInflate.float1;
-} else {
-    Copy_Of_ClassFieldtoInflate.float1 = null;
-}
-
-// Map from 'ClassFieldtoInflate.text' to 'Copy_Of_ClassFieldtoInflate.text'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.text = ClassFieldtoInflate.text;
-} else {
-    Copy_Of_ClassFieldtoInflate.text = null;
-}
-
-// Map from 'ClassFieldtoInflate.time' to 'Copy_Of_ClassFieldtoInflate.time'
-if (ClassFieldtoInflate != null) {
-    Copy_Of_ClassFieldtoInflate.time = ClassFieldtoInflate.time;
-} else {
-    Copy_Of_ClassFieldtoInflate.time = null;
-}
-
-// Create target 'Copy_Of_ClassFieldtoInflate.complexChild' if it doesn't exist.
-if (Copy_Of_ClassFieldtoInflate.complexChild == null) {
-    Copy_Of_ClassFieldtoInflate.complexChild = com_example_data_Factory.createChild();
-}
-
-// Map from 'ClassFieldtoInflate.complexChild.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexChild.attribute1'
-if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexChild != null) {
-    Copy_Of_ClassFieldtoInflate.complexChild.attribute1 = ClassFieldtoInflate.complexChild.attribute1;
-} else {
-    Copy_Of_ClassFieldtoInflate.complexChild.attribute1 = null;
-}
-
-// Map from 'ClassFieldtoInflate.complexChild.attribute2' to 'Copy_Of_ClassFieldtoInflate.complexChild.attribute2'
-if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexChild != null) {
-    Copy_Of_ClassFieldtoInflate.complexChild.attribute2 = ClassFieldtoInflate.complexChild.attribute2;
-} else {
-    Copy_Of_ClassFieldtoInflate.complexChild.attribute2 = null;
-}
-
-// Overwrite list: Copy_Of_ClassFieldtoInflate.complexList
-Copy_Of_ClassFieldtoInflate.complexList.clear();
-
-if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.complexList != null) {
-
-    for (var i1 = 0; i1 &lt; ClassFieldtoInflate.complexList.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(ClassFieldtoInflate.complexList.get(i1));
-        var $tVi1 = com_example_data_Factory.createChild();
-
-        // Map from 'ClassFieldtoInflate.complexList.attribute1' to 'Copy_Of_ClassFieldtoInflate.complexList.attribute1'
-        $tVi1.attribute1 = $sVi1.attribute1;
-
-        // Map from 'ClassFieldtoInflate.complexList.attribute2' to 'Copy_Of_ClassFieldtoInflate.complexList.attribute2'
-        $tVi1.attribute2 = $sVi1.attribute2;
-        
-        Copy_Of_ClassFieldtoInflate.complexList.add($tVi1);
-    }
-}
-
-// Map from 'ClassFieldtoInflate.textList' to 'Copy_Of_ClassFieldtoInflate.textList'
-
-// Overwrite list: Copy_Of_ClassFieldtoInflate.textList
-Copy_Of_ClassFieldtoInflate.textList.clear();
-
-if (ClassFieldtoInflate != null &amp;&amp; ClassFieldtoInflate.textList != null) {
-
-    for (var i2 = 0; i2 &lt; ClassFieldtoInflate.textList.size(); i2++) { 
-        var $sVi2 = ClassFieldtoInflate.textList.get(i2);
-        
-        Copy_Of_ClassFieldtoInflate.textList.add($sVi2);
-    }
-}
-
-// Map from 'ComplexListField' to 'Copy_Of_ComplexListField'
-
-// Overwrite list: Copy_Of_ComplexListField
-Copy_Of_ComplexListField.clear();
-
-if (ComplexListField != null) {
-
-    for (var i3 = 0; i3 &lt; ComplexListField.size(); i3++) { 
-        var $sVi3 = ScriptUtil.copy(ComplexListField.get(i3));
-        
-        Copy_Of_ComplexListField.add($sVi3);
-    }
-}
-
-// Map from 'DateField' to 'Copy_Of_DateField'
-Copy_Of_DateField = DateField;
-
-// Map from 'DateTimeField' to 'Copy_Of_DateTimeField'
-Copy_Of_DateTimeField = DateTimeField;
-
-// Map from 'FixedNumberTypeDecl' to 'Copy_Of_FixedNumberTypeDecl'
-Copy_Of_FixedNumberTypeDecl = FixedNumberTypeDecl;
-
-// Map from 'FixedPointNumberField' to 'Copy_Of_FixedPointNumberField'
-Copy_Of_FixedPointNumberField = FixedPointNumberField;
-
-// Map from 'ListFixedNumberTypeDecl' to 'Copy_Of_ListFixedNumberTypeDecl'
-
-// Overwrite list: Copy_Of_ListFixedNumberTypeDecl
-Copy_Of_ListFixedNumberTypeDecl.clear();
-
-if (ListFixedNumberTypeDecl != null) {
-
-    for (var i4 = 0; i4 &lt; ListFixedNumberTypeDecl.size(); i4++) { 
-        var $sVi4 = ListFixedNumberTypeDecl.get(i4);
-        
-        Copy_Of_ListFixedNumberTypeDecl.add($sVi4);
-    }
-}
-
-// Map from 'MergingComplexListField' to 'Copy_Of_MergingComplexListField'
-
-// Merge list content: Copy_Of_MergingComplexListField
-
-if (MergingComplexListField != null) {
-
-    for (var i5 = 0; i5 &lt; MergingComplexListField.size(); i5++) { 
-        var $sVi5 = ScriptUtil.copy(MergingComplexListField.get(i5));
-
-        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i5 &lt; Copy_Of_MergingComplexListField.size()) {
-            Copy_Of_MergingComplexListField.set(i5, $sVi5);
-        } else {
-            Copy_Of_MergingComplexListField.add($sVi5);
-        }
-    }
-}
-
-// Overwrite list: Copy_Of_MergingPartialComplexListField
-Copy_Of_MergingPartialComplexListField.clear();
-
-if (MergingPartialComplexListField != null) {
-
-    for (var i6 = 0; i6 &lt; MergingPartialComplexListField.size(); i6++) { 
-        var $sVi6 = ScriptUtil.copy(MergingPartialComplexListField.get(i6));
-        var $tVi6 = com_example_data_Factory.createDataTypes();
-
-        // Map from 'MergingPartialComplexListField.URI' to 'Copy_Of_MergingPartialComplexListField.URI'
-        $tVi6.URI = $sVi6.URI;
-
-        // Map from 'MergingPartialComplexListField.date' to 'Copy_Of_MergingPartialComplexListField.date'
-        $tVi6.date = $sVi6.date;
-
-        // Map from 'MergingPartialComplexListField.enum1' to 'Copy_Of_MergingPartialComplexListField.enum1'
-        if ($sVi6.enum1 != null) {
-            $tVi6.enum1 = com_example_data_Enumeration1.get(String(String($sVi6.enum1)));
-        } else {
-            $tVi6.enum1 = null;
-        }
-
-        // Map from 'MergingPartialComplexListField.float1' to 'Copy_Of_MergingPartialComplexListField.float1'
-        $tVi6.float1 = $sVi6.float1;
-
-        // Map from 'MergingPartialComplexListField.time' to 'Copy_Of_MergingPartialComplexListField.time'
-        $tVi6.time = $sVi6.time;
-
-        // Create target 'Copy_Of_MergingPartialComplexListField.complexChild' if it doesn't exist.
-        if ($tVi6.complexChild == null) {
-            $tVi6.complexChild = com_example_data_Factory.createChild();
-        }
-
-        // Map from 'MergingPartialComplexListField.complexChild.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexChild.attribute1'
-        if ($sVi6.complexChild != null) {
-            $tVi6.complexChild.attribute1 = $sVi6.complexChild.attribute1;
-        } else {
-            $tVi6.complexChild.attribute1 = null;
-        }
-
-        // Merge list content: Copy_Of_MergingPartialComplexListField.complexList
-        
-        if ($sVi6.complexList != null) {
-        
-            for (var i7 = 0; i7 &lt; $sVi6.complexList.size(); i7++) { 
-                var $sVi7 = ScriptUtil.copy($sVi6.complexList.get(i7));
-
-                // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
-                var $tVi7;
-                if (i7 &lt; $tVi6.complexList.size()) {
-                    $tVi7 = $tVi6.complexList.get(i7);
-                } else {
-                    $tVi7 = com_example_data_Factory.createChild();
-                }
-
-                // Map from 'MergingPartialComplexListField.complexList.attribute1' to 'Copy_Of_MergingPartialComplexListField.complexList.attribute1'
-                $tVi7.attribute1 = $sVi7.attribute1;
-                
-                if (i7 >= $tVi6.complexList.size()) {
-                    $tVi6.complexList.add($tVi7);
-                }
-            }
-        }
-
-        // Map from 'MergingPartialComplexListField.textList' to 'Copy_Of_MergingPartialComplexListField.textList'
-
-        // Append to list: Copy_Of_MergingPartialComplexListField.textList
-        
-        if ($sVi6.textList != null) {
-        
-            for (var i8 = 0; i8 &lt; $sVi6.textList.size(); i8++) { 
-                var $sVi8 = $sVi6.textList.get(i8);
-                
-                $tVi6.textList.add($sVi8);
-            }
-        }
-        
-        Copy_Of_MergingPartialComplexListField.add($tVi6);
-    }
-}
-
-// Map from 'MergingSimpleListField' to 'Copy_Of_MergingSimpleListField'
-
-// Merge list content: Copy_Of_MergingSimpleListField
-
-if (MergingSimpleListField != null) {
-
-    for (var i9 = 0; i9 &lt; MergingSimpleListField.size(); i9++) { 
-        var $sVi9 = MergingSimpleListField.get(i9);
-
-        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i9 &lt; Copy_Of_MergingSimpleListField.size()) {
-            Copy_Of_MergingSimpleListField.set(i9, $sVi9);
-        } else {
-            Copy_Of_MergingSimpleListField.add($sVi9);
-        }
-    }
-}
-
-// Map from 'NumberField' to 'Copy_Of_NumberField'
-Copy_Of_NumberField = NumberField;
-
-// Map from 'PerformerField' to 'Copy_Of_PerformerField'
-Copy_Of_PerformerField = PerformerField;
-
-// Map from 'SimpleListField' to 'Copy_Of_SimpleListField'
-
-// Overwrite list: Copy_Of_SimpleListField
-Copy_Of_SimpleListField.clear();
-
-if (SimpleListField != null) {
-
-    for (var i10 = 0; i10 &lt; SimpleListField.size(); i10++) { 
-        var $sVi10 = SimpleListField.get(i10);
-        
-        Copy_Of_SimpleListField.add($sVi10);
-    }
-}
-
-// Map from 'TextField' to 'Copy_Of_TextField'
-Copy_Of_TextField = TextField;
-
-// Map from 'TimeField' to 'Copy_Of_TimeField'
-Copy_Of_TimeField = TimeField;
-
-
-</xpdl2:Script>
-              </xpdl2:TaskScript>
-            </xpdl2:Task>
+            <xpdl2:No/>
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
-            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__f-9kYheEemL0JNuli1Mqw" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="1004.0" YCoordinate="155.0"/>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="__f-9kYheEemL0JNuli1Mqw" Width="107.0">
+              <xpdl2:Coordinates XCoordinate="924.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
-          <xpdExt:ActivityResourcePatterns>
-            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
-          </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
         <xpdl2:Activity Id="_BgIzAIt2EemO5bbkB2KC9w" Name="Inflatesubprocessmappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate sub-process mappings">
           <xpdl2:Implementation>
@@ -1123,6 +1128,16 @@ Copy_Of_TimeField = TimeField;
           <xpdl2:Performers>
             <xpdl2:Performer>_FBDUB4uBEemO5bbkB2KC9w</xpdl2:Performer>
           </xpdl2:Performers>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Inclusive">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_SuO7IIhfEemL0JNuli1Mqw"/>
+                  <xpdl2:TransitionRef Id="_fsReUJaWEempqeJCl3Qq9A"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__f-9kYheEemL0JNuli1Mqw" Width="96.0">
               <xpdl2:Coordinates XCoordinate="174.0" YCoordinate="155.0"/>
@@ -1525,12 +1540,38 @@ if (data != null) {
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__f-9kYheEemL0JNuli1Mqw" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="797.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="784.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
           <xpdExt:ActivityResourcePatterns>
             <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_fAv1EJaWEempqeJCl3Qq9A" Name="DynamicOrgParticipant" xpdExt:Visibility="Private" xpdExt:DisplayName="Dynamic Org Participant">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_fAv1EZaWEempqeJCl3Qq9A"/>
+                <xpdl2:MessageOut Id="_fAv1EpaWEempqeJCl3Qq9A"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_aqSLIJaWEempqeJCl3Qq9A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__f-9kYheEemL0JNuli1Mqw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="174.0" YCoordinate="265.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
           </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
       </xpdl2:Activities>
@@ -1568,10 +1609,56 @@ if (data != null) {
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
+        <xpdl2:Transition Id="_fsReUJaWEempqeJCl3Qq9A" xpdExt:DisplayName="" Name="" From="_FBDUBIuBEemO5bbkB2KC9w" To="_fAv1EJaWEempqeJCl3Qq9A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
       </xpdl2:Transitions>
       <xpdl2:ExtendedAttributes>
         <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
       </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:DynamicOrganizationMappings>
+        <xpdExt:DynamicOrganizationMapping>
+          <xpdExt:SourcePath>TextField</xpdExt:SourcePath>
+          <xpdExt:DynamicOrgIdentifierRef IdentifierName="Identifier1" DynamicOrgId="_vrG-8JQ4EemDnPS3BM6Yfw" OrgModelPath="DataWrappingOrganisation.om"/>
+        </xpdExt:DynamicOrganizationMapping>
+        <xpdExt:DynamicOrganizationMapping>
+          <xpdExt:SourcePath>TextField2</xpdExt:SourcePath>
+          <xpdExt:DynamicOrgIdentifierRef IdentifierName="Identifier2" DynamicOrgId="_vrG-8JQ4EemDnPS3BM6Yfw" OrgModelPath="DataWrappingOrganisation.om"/>
+        </xpdExt:DynamicOrganizationMapping>
+      </xpdExt:DynamicOrganizationMappings>
+      <xpdExt:ProcessDataWorkItemAttributeMappings>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute2</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>ClassField.text</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute3</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>ClassField.complexChild.attribute1</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute4</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>ClassField.complexChild.attribute2</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute5</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>ClassField.fixed</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute6</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>ClassField.dateTimeTz</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute7</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>DateTimeField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+      </xpdExt:ProcessDataWorkItemAttributeMappings>
     </xpdl2:WorkflowProcess>
     <xpdl2:WorkflowProcess Id="_B6NkUIhfEemL0JNuli1Mqw" xpdExt:DisplayName="DataWrappingMappingsTests-SubProcess" Name="DataWrappingMappingsTestsSubProcess">
       <xpdl2:ProcessHeader/>

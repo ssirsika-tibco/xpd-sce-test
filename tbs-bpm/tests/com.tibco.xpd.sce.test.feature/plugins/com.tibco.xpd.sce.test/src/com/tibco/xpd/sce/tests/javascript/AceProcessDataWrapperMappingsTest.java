@@ -4,9 +4,20 @@
 
 package com.tibco.xpd.sce.tests.javascript;
 
+import java.util.Map;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.ecore.resource.Resource;
+
+import com.tibco.n2.brm.api.WorkItemScriptOperation;
+import com.tibco.n2.brm.api.WorkModel;
+import com.tibco.n2.brm.api.WorkModelScript;
+import com.tibco.n2.brm.workmodel.DocumentRoot;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
+import com.tibco.xpd.n2.brm.BRMGenerator;
 import com.tibco.xpd.resources.util.ProjectImporter;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -41,6 +52,9 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
     // @Test
     public void testDataIsWrappedInAllScriptScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
+        
+        IProject mapperProject = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject("DataWrappingMapperTests"); //$NON-NLS-1$
 
         Process process =
                 ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
@@ -56,9 +70,12 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         checkInflateSubProcessInvokeDataMapperScriptGeneration(process);
 
         checkRESTInvokeDataMapperScriptGeneration(process);
+        
+        checkWorkItemAttributeMapperScriptGeneration(mapperProject);
 
         projectImporter.performDelete();
     }
+
 
     /**
      * Test process data mapper script task. (checking that the various changes
@@ -442,6 +459,72 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
     }
 
     /**
+     * Check that the work item attribute data mapping script generation is
+     * working correctly (all process data is wrapped in the "data" object)
+     * 
+     * @param mapperProject
+     */
+    private void checkWorkItemAttributeMapperScriptGeneration(
+            IProject mapperProject) {
+
+        Map<String, Resource> brmModels = BRMGenerator.getInstance()
+                .generateBRMModels(mapperProject, "1.0.0.123456789"); //$NON-NLS-1$
+
+        Resource workModelResource =
+                brmModels.get(BRMGenerator.WORKMODEL_ARTIFACT_NAME);
+
+        assertNotNull("workmodel.wm should have been generated", //$NON-NLS-1$
+                workModelResource);
+
+        com.tibco.n2.brm.workmodel.DocumentRoot documentRoot =
+                (DocumentRoot) workModelResource.getContents().get(0);
+
+        com.tibco.n2.brm.workmodel.WorkModel workModel = documentRoot.getWorkModels();
+        WorkModel taskWorkModel = null;
+        for (WorkModel wm : workModel.getWorkModel()) {
+            if ("WM__fAv1EJaWEempqeJCl3Qq9A".equals(wm.getWorkModelUID())) { //$NON-NLS-1$
+                taskWorkModel = wm;
+                break;
+            }
+        }
+        
+        assertNotNull(
+                "workmodel.wm should have a WorkModel with UUID 'WM__fAv1EJaWEempqeJCl3Qq9A'", //$NON-NLS-1$
+                taskWorkModel);
+
+        WorkModelScript workModelScript = null;
+        
+        for (WorkModelScript script : taskWorkModel.getWorkModelScripts()
+                .getWorkModelScript()) {
+            if (WorkItemScriptOperation.SYSAPPEND.equals(script.getScriptOperation())) {
+                workModelScript = script;
+                break;
+            }
+        }
+        
+        assertNotNull(
+                "WorkModel 'WM__fAv1EJaWEempqeJCl3Qq9A' should have a work WorkModelScript", //$NON-NLS-1$
+                workModelScript);
+                
+        /*
+         * Check content of script.
+         */
+        String scriptText = workModelScript.getScriptBody();
+
+        assertTrue("Data used in conditions is wrapped in 'data' object", //$NON-NLS-1$
+                scriptText.contains("if(data.ClassField == null)")); //$NON-NLS-1$
+
+        assertTrue("Data used in logging is wrapped in 'data' object", //$NON-NLS-1$
+                scriptText.contains(
+                        "\"DataWrappingMappingsTestsProcess/DynamicOrgParticipant: Info: Work item attribute mapping: mapping from attribute `attribute3` was unset because parent element `data.ClassField.complexChild` of source path `data.ClassField.complexChild.attribute1` is null.\"")); //$NON-NLS-1$
+
+        assertTrue("Data used in assignments is wrapped in 'data' object", //$NON-NLS-1$
+                scriptText.contains(
+                        "workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
+
+    }
+
+    /**
      * Import all projects from test plugin resources for the main test
      * 
      * @return the project importer
@@ -457,10 +540,12 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                         "resources/WrappedProcessDataTests/DataWrappingData/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWappingGlobalSignal/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingREST/", //$NON-NLS-1$
+                        "resources/WrappedProcessDataTests/DataWrappingOrganisation/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingMapperTests/" }, //$NON-NLS-1$
                 new String[] { "DataWrappingData", //$NON-NLS-1$
                         "DataWappingGlobalSignal", //$NON-NLS-1$
                         "DataWrappingREST", //$NON-NLS-1$
+                        "DataWrappingOrganisation", //$NON-NLS-1$
                         "DataWrappingMapperTests" }); //$NON-NLS-1$
 
         assertTrue(
