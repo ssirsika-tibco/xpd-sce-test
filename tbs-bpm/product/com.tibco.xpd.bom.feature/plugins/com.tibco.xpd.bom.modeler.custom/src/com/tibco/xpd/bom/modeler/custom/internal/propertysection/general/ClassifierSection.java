@@ -57,7 +57,7 @@ public class ClassifierSection extends AbstractGeneralSection {
     protected Control doCreateControls(Composite parent, XpdFormToolkit toolkit) {
         Composite root = (Composite) super.doCreateControls(parent, toolkit);
 
-        createLabel(root, toolkit, Messages.ClassifierSection_superclass_label);
+        createLabel(root, toolkit, Messages.ClassifierSection_baseType_label);
         superClassCtrl =
                 new SuperclassPickerControl(root, toolkit, getEditingDomain());
         superClassCtrl.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));

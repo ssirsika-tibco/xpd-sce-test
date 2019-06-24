@@ -175,6 +175,8 @@ public class Messages extends NLS {
 
     public static String ClassifierSection_superclass_label;
 
+    public static String ClassifierSection_baseType_label;
+
     public static String ClassifierSection_invalidValue_error_shortdesc;
 
     public static String CreateBOMElementDiagramAction_Attribute_label;
