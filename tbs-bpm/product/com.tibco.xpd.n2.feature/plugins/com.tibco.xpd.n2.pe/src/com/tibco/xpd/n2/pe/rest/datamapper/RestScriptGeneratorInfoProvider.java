@@ -199,10 +199,28 @@ public class RestScriptGeneratorInfoProvider
             jsVarAlias =
                     convertPath(jsVarAlias) + "['" + getName(object) + "']"; //$NON-NLS-1$ //$NON-NLS-2$
         }
+        if (object instanceof ConceptPath) {
+            ConceptPath cp = (ConceptPath) object;
+            Classifier type = cp.getType();
+            if (type instanceof PrimitiveType) {
+                PrimitiveType pt = (PrimitiveType) type;
+                PrimitiveType basePt = PrimitivesUtil.getBasePrimitiveType(pt);
+                String name = basePt.getName();
+                if (PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME.equals(name)
+                        || PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME
+                                .equals(name)
+                        || PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME
+                                .equals(name)) {
+                    suffix = " ? new Date(" + jsVarAlias //$NON-NLS-1$
+                            + ") : null"; //$NON-NLS-1$
+                }
+            }
+        }
+
         if (isSimpleType(object)) {
             statement = jsVarAlias + suffix;
         } else {
-            statement = "ScriptUtil.copy(" + jsVarAlias + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+            statement = "JSON.parse(JSON.stringify(" + jsVarAlias + "))"; //$NON-NLS-1$ //$NON-NLS-2$
         }
         return statement;
     }

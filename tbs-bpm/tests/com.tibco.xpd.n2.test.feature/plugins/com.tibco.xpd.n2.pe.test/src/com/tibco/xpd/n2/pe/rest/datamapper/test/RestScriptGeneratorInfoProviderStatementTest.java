@@ -144,10 +144,11 @@ public class RestScriptGeneratorInfoProviderStatementTest extends TestCase {
         when(primitive.getName())
                 .thenReturn(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME);
         when(primitive.getGenerals()).thenReturn(new BasicEList<>());
-        String statement = "var lhs = " //$NON-NLS-1$
-                + generator.getGetterStatement(conceptPath, null) + ".toJSON()"; //$NON-NLS-1$
+        String statement = "var lhs = (" //$NON-NLS-1$
+                + generator.getGetterStatement(conceptPath, null)
+                + ").toJSON()"; //$NON-NLS-1$
         String expected = "2019-06-18T15:39:42.088Z"; //$NON-NLS-1$
-        String paramScript = "var data = {time: new Date('" + expected + "')};"; //$NON-NLS-1$ //$NON-NLS-2$
+        String paramScript = "var data = {time: '" + expected + "'};"; //$NON-NLS-1$ //$NON-NLS-2$
         executor.verifyScript(statement, paramScript, "lhs", expected); //$NON-NLS-1$
     }
 
