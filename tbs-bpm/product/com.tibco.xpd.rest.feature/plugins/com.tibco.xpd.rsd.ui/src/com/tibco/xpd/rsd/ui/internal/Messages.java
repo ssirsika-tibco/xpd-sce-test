@@ -254,6 +254,8 @@ public class Messages extends NLS {
 
     public static String RestServicePathValidator_resourcePathContainsEncoded_message;
 
+    public static String RestServiceDataType_Number_Label;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

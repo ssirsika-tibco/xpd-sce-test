@@ -48,9 +48,7 @@ public class UmlTypePickerLabelProvider extends BasePickerLabelProvider {
                 key = RestSchemaImage.JSON_DATE_TIME_PROPERTY;
                 break;
             case PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME:
-                key = RestSchemaImage.JSON_NUMBER_PROPERTY;
-                break;
-            case PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME:
+            case "Number": //$NON-NLS-1$
                 key = RestSchemaImage.JSON_NUMBER_PROPERTY;
                 break;
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:

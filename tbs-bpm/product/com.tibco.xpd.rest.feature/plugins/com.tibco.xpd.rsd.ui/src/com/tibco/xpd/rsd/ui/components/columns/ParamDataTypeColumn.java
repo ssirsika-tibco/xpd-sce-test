@@ -91,12 +91,7 @@ public class ParamDataTypeColumn extends AbstractColumn {
         Object value = getValueForEditor(element);
         if (value instanceof DataType) {
             DataType dataType = (DataType) value;
-            if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
-                    .equals(dataType.getName())) {
-                return PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
-            } else {
-                return dataType.getName();
-            }
+            return RestDataTypeUtil.getDisplayLabelForDataType(dataType);
         }
         return null;
     }
@@ -148,14 +143,42 @@ public class ParamDataTypeColumn extends AbstractColumn {
         public String getText(Object element) {
             if (element instanceof DataType) {
                 DataType dataType = (DataType) element;
-                if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
-                        .equals(dataType.getName())) {
-                    return PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
-                } else {
-                    return dataType.getName();
-                }
+                return RestDataTypeUtil.getDisplayLabelForDataType(dataType);
             }
             return super.getText(element);
+        }
+    }
+
+    /**
+     * Utility class to facilitate RSD data type operations.
+     * 
+     * @author sajain
+     * @since Jun 25, 2019
+     */
+    public static class RestDataTypeUtil {
+
+        /**
+         * Display name for "Decimal" type RSD data types.
+         */
+        public static String REST_NUMBER_DATA_TYPE_LABEL =
+                Messages.RestServiceDataType_Number_Label;
+
+        /**
+         * Return display label for the specified data type.
+         * 
+         * @param dataType
+         * @return
+         */
+        private static String getDisplayLabelForDataType(DataType dataType) {
+
+            String label = dataType.getName();
+            if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
+                    .equals(dataType.getName())) {
+                label = REST_NUMBER_DATA_TYPE_LABEL;
+            }
+
+            return label;
+
         }
     }
 }

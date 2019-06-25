@@ -19,6 +19,7 @@ import com.tibco.xpd.rest.schema.ui.internal.editor.UmlJsonSchemaLabelProvider;
 import com.tibco.xpd.rsd.DataType;
 import com.tibco.xpd.rsd.Parameter;
 import com.tibco.xpd.rsd.ui.RsdImage;
+import com.tibco.xpd.rsd.ui.components.columns.ParamDataTypeColumn.RestDataTypeUtil;
 
 /**
  * Label provider for REST Data Mapper tree items.
@@ -65,6 +66,16 @@ public class RestMapperLabelProvider extends LabelProvider {
 
                     String primitiveType = getPrimitiveType(dataType);
 
+                    /*
+                     * ACE-1486: Need to make sure that we display "Number" in
+                     * the data mapper UI for "Decimal" type mapper items.
+                     */
+                    if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
+                            .equals(primitiveType)) {
+                        primitiveType =
+                                RestDataTypeUtil.REST_NUMBER_DATA_TYPE_LABEL;
+                    }
+
                     if (primitiveType != null) {
 
                         text += " : " + primitiveType; //$NON-NLS-1$
@@ -109,7 +120,7 @@ public class RestMapperLabelProvider extends LabelProvider {
             type = PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME;
             break;
         case DECIMAL:
-            type = PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME;
+            type = PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME;
             break;
         case BOOLEAN:
             type = PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME;

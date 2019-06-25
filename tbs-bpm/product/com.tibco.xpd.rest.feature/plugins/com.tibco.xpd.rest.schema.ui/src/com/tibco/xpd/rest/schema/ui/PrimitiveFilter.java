@@ -7,10 +7,14 @@ package com.tibco.xpd.rest.schema.ui;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.IFilter;
+import org.eclipse.uml2.uml.PrimitiveType;
 
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.ui.picker.PickerItem;
 
 /**
@@ -28,8 +32,8 @@ public class PrimitiveFilter implements IFilter {
         included.add(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME);
-        included.add("Date Time and Time Zone"); //$NON-NLS-1$
-        included.add(PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME);
+        included.add(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME); // $NON-NLS-1$
+        included.add(PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
         included.add(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME);
     }
@@ -49,7 +53,21 @@ public class PrimitiveFilter implements IFilter {
             String type = item.getType();
             if (BOMTypeQuery.BASE_PRIMITIVE_TYPE.equals(type)) {
                 ok = false;
-                String name = item.getName();
+
+                String name = ""; //$NON-NLS-1$
+
+                String struri = item.getURI();
+                URI uri = URI.createURI(struri);
+
+                if (uri != null) {
+                    EObject eObject =
+                            XpdResourcesPlugin.getDefault().getEditingDomain()
+                                    .getResourceSet().getEObject(uri, true);
+                    if (eObject instanceof PrimitiveType) {
+                        name = ((PrimitiveType) eObject).getName();
+                    }
+                }
+
                 if (included.contains(name)) {
                     ok = true;
                 }

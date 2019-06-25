@@ -168,14 +168,9 @@ public class UmlJsonSchemaLabelProvider implements ILabelProvider {
         StringBuilder text = new StringBuilder();
         if (el instanceof NamedElement) {
             NamedElement ne = (NamedElement) el;
-            /*
-             * ACE-1486: "Decimal" is termed as "Number" in ACE.
-             */
-            if (PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME
-                    .equals(ne.getName())) {
-                text.append(PrimitivesUtil.BOM_PRIMITIVE_NUMBER_NAME);
-            } else {
-                text.append(ne.getName());
+            String neLabel = PrimitivesUtil.getDisplayLabel(ne);
+            if (null != neLabel) {
+                text.append(neLabel);
             }
 
             if (ne instanceof TypedElement) {
