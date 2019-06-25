@@ -1,10 +1,14 @@
 package com.tibco.xpd.rest.schema.ui.internal.editor;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.PrimitiveType;
 
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.ui.picker.BasePickerLabelProvider;
 import com.tibco.xpd.resources.ui.picker.PickerItem;
 import com.tibco.xpd.rest.schema.JsonSchemaUtil;
@@ -34,7 +38,19 @@ public class UmlTypePickerLabelProvider extends BasePickerLabelProvider {
         RestSchemaUiPlugin plugin = RestSchemaUiPlugin.getDefault();
         String type = pickerItem.getType();
         if (BOMTypeQuery.BASE_PRIMITIVE_TYPE.equals(type)) {
-            String name = pickerItem.getName();
+            String name = ""; //$NON-NLS-1$
+
+            String struri = pickerItem.getURI();
+            URI uri = URI.createURI(struri);
+
+            if (uri != null) {
+                EObject eObject =
+                        XpdResourcesPlugin.getDefault().getEditingDomain()
+                                .getResourceSet().getEObject(uri, true);
+                if (eObject instanceof PrimitiveType) {
+                    name = ((PrimitiveType) eObject).getName();
+                }
+            }
             switch (name) {
             case PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME:
                 key = RestSchemaImage.JSON_STRING_PROPERTY;
@@ -43,12 +59,11 @@ public class UmlTypePickerLabelProvider extends BasePickerLabelProvider {
                 key = RestSchemaImage.JSON_BOOLEAN_PROPERTY;
                 break;
             case PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME:
-            case "Date Time and Time Zone": //$NON-NLS-1$
+            case PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME:
             case PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME:
                 key = RestSchemaImage.JSON_DATE_TIME_PROPERTY;
                 break;
             case PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME:
-            case "Number": //$NON-NLS-1$
                 key = RestSchemaImage.JSON_NUMBER_PROPERTY;
                 break;
             case PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME:
