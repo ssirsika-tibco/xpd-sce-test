@@ -23,4 +23,4 @@ if [[ ! -e .\image_template\TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.z
 fi
 
 # Building Docker Image
-docker build -t tibco/sce-studio:5.0.0 ./image_template
+docker build -t tibco/sce-studio ./image_template
