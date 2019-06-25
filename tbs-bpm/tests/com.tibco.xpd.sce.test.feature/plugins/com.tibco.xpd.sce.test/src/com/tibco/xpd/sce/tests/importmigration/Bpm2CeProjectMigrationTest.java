@@ -786,6 +786,43 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
     }
 
     /**
+     * Test that Global classes are converted to Local classes.
+     */
+    @Test
+    public void testGlobalClassDataProjectMigration() {
+        String projectName = "ProjectMigrationTest_GlobalClass"; //$NON-NLS-1$
+        ProjectImporter projectImporter = doTestProject(projectName);
+
+        // Check that we have a Local class
+        IProject project = ResourcesPlugin.getWorkspace().getRoot()
+                .getProject(projectName);
+
+        Collection<IResource> bomFiles = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(project,
+                        BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                        BOMResourcesPlugin.BOM_FILE_EXTENSION,
+                        false);
+
+        // Should only be one
+        assertEquals(1, bomFiles.size());
+
+        // Get the model
+        IResource bomFile = bomFiles.iterator().next();
+        WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(bomFile);
+        Model model = (Model) wc.getRootElement();
+
+        // Check that we don't have any global classes
+        for (Element element : model.allOwnedElements()) {
+            if (element instanceof Class) {
+                Class clazz = (Class) element;
+                assertFalse(BOMGlobalDataUtils.isGlobalClass(clazz));
+            }
+        }
+
+        projectImporter.performDelete();
+    }
+
+    /**
      * Test the given project.
      * 
      * @param projectName
@@ -1254,7 +1291,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                                 + "' should have been converted from Integer to Decimal, FixedPoint with Zero decimals", //$NON-NLS-1$
                                 !(integerType.equals(general)));
                     }
-                    
+
                 } else if (element instanceof Class) {
                     Class clazz = (Class) element;
 
