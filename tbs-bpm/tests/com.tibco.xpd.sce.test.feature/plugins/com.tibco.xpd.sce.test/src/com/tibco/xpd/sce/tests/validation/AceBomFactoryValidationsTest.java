@@ -80,8 +80,8 @@ public class AceBomFactoryValidationsTest extends AbstractN2BaseValidationTest {
         doTestValidations();
 
         /*
-         * Check that the BOM that has valid use of class factories and enum
-         * packages i free from error markers.
+         * Check that the XPDL that has valid use of class factories and enum
+         * packages is free from error markers.
          */
         IFile noErrorsXpdl = ResourcesPlugin.getWorkspace().getRoot()
                 .getProject("DataFactoryTests").getFolder("Process Packages") //$NON-NLS-1$ //$NON-NLS-2$

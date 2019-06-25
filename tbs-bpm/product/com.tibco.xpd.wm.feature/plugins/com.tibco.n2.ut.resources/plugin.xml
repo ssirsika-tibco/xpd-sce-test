@@ -154,6 +154,15 @@
             message="%wm.atosmCannotBeUsedWithSODChainingRF"
             severity="ERROR">
       </issue>
+      <issue
+            id="wlf.mapping.numberToInteger"
+            message="%wlf.mapping.numberToInteger"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="resolution.bpmn.removeDataMapping">
+         </resolution>
+      </issue>
    </extension>
 
    <extension point="com.tibco.xpd.validation.resolution">

@@ -63,8 +63,15 @@ public class WorkItemAttributeMappingRuleInfoProvider extends
             WorkItemAttributeConceptPath workItemAliasItemPath =
                     (WorkItemAttributeConceptPath) objectFromMappingOrContent;
 
-            return (workItemAliasItemPath.getPhysicalAttribute() != null) ? workItemAliasItemPath
-                    .getPhysicalAttribute().getName() : null;
+            /*
+             * Sid ACE-1755 Improve validation output (include the WLF defined
+             * name if available).
+             */
+            return workItemAliasItemPath.getLabel();
+
+            // return (workItemAliasItemPath.getPhysicalAttribute() != null) ?
+            // workItemAliasItemPath
+            // .getPhysicalAttribute().getName() : null;
 
         }
         return null;

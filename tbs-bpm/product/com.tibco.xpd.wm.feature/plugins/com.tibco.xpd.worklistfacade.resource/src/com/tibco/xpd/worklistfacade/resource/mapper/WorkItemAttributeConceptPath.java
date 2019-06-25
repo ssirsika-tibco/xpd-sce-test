@@ -77,10 +77,17 @@ public class WorkItemAttributeConceptPath {
          * Return label for WorkItemAttribute or 'Unresolved Reference' if
          * displayAttribute is null.
          */
-        if (displayAttribute != null) {
-            StringBuffer label = new StringBuffer();
-            label.append(displayAttribute.getDisplayLabel());
 
+        /*
+         * Sid ACE-1755 Improve validation output (include the WLF defined name
+         * if available) - used to always return unresolved in any case!!
+         */
+        if (displayAttribute != null && physicalAttribute != null) {
+            return String.format("%s (%s)",
+                    displayAttribute.getDisplayLabel(),
+                    physicalAttribute.getName());
+        } else if (physicalAttribute != null) {
+            return physicalAttribute.getName();
         }
         return Messages.WLFAttributeAliasConceptPath_UnresolvedReference;
     }

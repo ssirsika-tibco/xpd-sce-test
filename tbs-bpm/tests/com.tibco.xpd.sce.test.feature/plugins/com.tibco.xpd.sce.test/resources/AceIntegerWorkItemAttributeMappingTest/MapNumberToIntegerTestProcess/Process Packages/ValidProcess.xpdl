@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_8EgngJdMEemIAfN7F1gBcw" xpdExt:DisplayName="MapNumberToIntegerTestProcess" Name="MapNumberToIntegerTestProcess">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-06-25</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:TypeDeclarations>
+    <xpdl2:TypeDeclaration Id="_KLIj8JdNEemIAfN7F1gBcw" xpdExt:DisplayName="Float Type" Name="FloatType">
+      <xpdl2:BasicType Type="FLOAT"/>
+    </xpdl2:TypeDeclaration>
+    <xpdl2:TypeDeclaration Id="_MqmQAJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed Point 10_2 Type" Name="FixedPoint10_2Type">
+      <xpdl2:BasicType Type="FLOAT">
+        <xpdl2:Precision>10</xpdl2:Precision>
+        <xpdl2:Scale>2</xpdl2:Scale>
+      </xpdl2:BasicType>
+    </xpdl2:TypeDeclaration>
+    <xpdl2:TypeDeclaration Id="_OcAjQJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed Point 10_0 Type" Name="FixedPoint10_0Type">
+      <xpdl2:BasicType Type="FLOAT">
+        <xpdl2:Precision>10</xpdl2:Precision>
+        <xpdl2:Scale>0</xpdl2:Scale>
+      </xpdl2:BasicType>
+    </xpdl2:TypeDeclaration>
+  </xpdl2:TypeDeclarations>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_I9_l9JdOEemIAfN7F1gBcw" xpdExt:DisplayName="MapNumberToIntegerTestRESTService_Consumer" Name="MapNumberToIntegerTestRESTService_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:RestService resourceName="MapNumberToIntegerTestREST-Service"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_vleegJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_vlP1AJdNEemIAfN7F1gBcw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_vleegZdNEemIAfN7F1gBcw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_9lIFsJdMEemIAfN7F1gBcw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_8En8QJdMEemIAfN7F1gBcw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_9lIFsZdMEemIAfN7F1gBcw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_8En8QJdMEemIAfN7F1gBcw" xpdExt:DisplayName="ValidProcess_ProcessFields" Name="ValidProcess_ProcessFields">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_AKdJMJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Float Process Field" Name="FloatProcessField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_DpifMJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed Point 10_2 Process Field" Name="FixedPoint10_2ProcessField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_F3CRgJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed Point 10_0 Process Field" Name="FixedPoint10_0ProcessField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>0</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_QlYDgJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Type Float Process Field" Name="TypeFloatProcessField">
+          <xpdl2:DataType>
+            <xpdl2:DeclaredType Id="_KLIj8JdNEemIAfN7F1gBcw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_S66-kJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed 10_2 Type Process Field" Name="Fixed10_2TypeProcessField">
+          <xpdl2:DataType>
+            <xpdl2:DeclaredType Id="_MqmQAJdNEemIAfN7F1gBcw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_V5zxkJdNEemIAfN7F1gBcw" xpdExt:DisplayName="Fixed 10_0 Type Process Field" Name="Fixed10_0TypeProcessField">
+          <xpdl2:DataType>
+            <xpdl2:DeclaredType Id="_OcAjQJdNEemIAfN7F1gBcw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_RvDDgJdcEemUPbhXBdrQ1A" xpdExt:DisplayName="DateTime Process Field" Name="DateTimeProcessField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZoYXQJdcEemUPbhXBdrQ1A" xpdExt:DisplayName="Text Process Field" Name="TextProcessField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_9lIFspdMEemIAfN7F1gBcw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_9lIFsZdMEemIAfN7F1gBcw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_9lIFs5dMEemIAfN7F1gBcw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_9lIFsZdMEemIAfN7F1gBcw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_9lIFtJdMEemIAfN7F1gBcw" xpdExt:DisplayName="" Name="" From="_9lIFspdMEemIAfN7F1gBcw" To="_9lIFs5dMEemIAfN7F1gBcw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ProcessDataWorkItemAttributeMappings>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute1</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>Fixed10_0TypeProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute5</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>Fixed10_2TypeProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute15</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>FixedPoint10_0ProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute16</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>FixedPoint10_2ProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute17</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>FloatProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute18</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>TypeFloatProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute6</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>DateTimeProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute2</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>TextProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute8</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>DateTimeProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute9</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>Fixed10_2TypeProcessField</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+      </xpdExt:ProcessDataWorkItemAttributeMappings>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_vlP1AJdNEemIAfN7F1gBcw" xpdExt:DisplayName="ValidProcess_BOMAttributes" Name="ValidProcess_BOMAttributes">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_zVhBoJdNEemIAfN7F1gBcw" xpdExt:DisplayName="BOMField" Name="BOMField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MapNumberToIntegerTestData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_tQ--QJdLEemIAfN7F1gBcw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_vleegpdNEemIAfN7F1gBcw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_vleegZdNEemIAfN7F1gBcw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vleeg5dNEemIAfN7F1gBcw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_vleegZdNEemIAfN7F1gBcw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_I9_l8ZdOEemIAfN7F1gBcw" Name="Method1PUTResource1" xpdExt:Visibility="Private" xpdExt:DisplayName="Method1 - PUT Resource1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="RESTService" Implementation="Other">
+                <xpdl2:MessageIn Id="_I9_l8pdOEemIAfN7F1gBcw">
+                  <xpdExt:ScriptDataMapper MapperContext="ProcessToRestService" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="REST_PATH_integerPathParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.fixedPoint10_0Attrib</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PATH_numberPathParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.fixedPoint10_2Attrib</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_QUERY_IntegerQueryParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.primFixed10_0</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_QUERY_NumberQueryParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.floatAttrib</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_HEADER_NumberHeaderParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.primFixed10_2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_HEADER_IntegerHeaderParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.fixedPoint10_0Attrib</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.integerProperty">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.fixedPoint10_0Attrib</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToRestService.DataMapperContent" Direction="IN" Formal="REST_PAYLOAD.integerProperty2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">BOMField.primFixed10_0</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_I9_l85dOEemIAfN7F1gBcw">
+                  <xpdExt:ScriptDataMapper MapperContext="RestServiceToProcess" MappingDirection="OUT">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.fixedPoint10_0Attrib">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.integerProperty</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.fixedPoint10_2Attrib">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.integerProperty2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.floatAttrib">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.integerProperty3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.primFixed10_0">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.integerProperty4</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.primFixed10_2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.numberProperty</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.primFloat">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.numberProperty2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BOMField.textAttrib">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.numberProperty3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="RestServiceToProcess.DataMapperContent" xpdExt:TargetContributorId="ProcessManager.DataMapperContent" Direction="IN" Formal="Process_priority$">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">REST_PAYLOAD.numberProperty4</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+                </xpdl2:MessageOut>
+                <xpdExt:RestServiceOperation xpdExt:Location="MapNumberToIntegerTestREST.rsd" xpdExt:MethodId="_X8NjopdMEemIAfN7F1gBcw"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_I9_l9JdOEemIAfN7F1gBcw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_vleegZdNEemIAfN7F1gBcw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="218.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_vleehJdNEemIAfN7F1gBcw" Name="" From="_I9_l8ZdOEemIAfN7F1gBcw" To="_vleeg5dNEemIAfN7F1gBcw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_I-CCMJdOEemIAfN7F1gBcw" xpdExt:DisplayName="" Name="" From="_vleegpdNEemIAfN7F1gBcw" To="_I9_l8ZdOEemIAfN7F1gBcw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ProcessDataWorkItemAttributeMappings>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute1</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.fixedPoint10_0Attrib</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute5</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.fixedPoint10_2Attrib</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute16</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.floatAttrib</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute15</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.primFixed10_0</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute17</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.primFixed10_2</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute18</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.primFloat</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute2</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.textAttrib</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute6</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.dateTimeAttrib</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute3</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>BOMField.enumAttribute</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+      </xpdExt:ProcessDataWorkItemAttributeMappings>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

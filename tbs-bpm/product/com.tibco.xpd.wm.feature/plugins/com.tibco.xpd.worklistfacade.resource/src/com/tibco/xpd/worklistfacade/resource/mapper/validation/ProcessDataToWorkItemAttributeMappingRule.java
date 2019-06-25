@@ -7,6 +7,7 @@ package com.tibco.xpd.worklistfacade.resource.mapper.validation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -43,11 +44,14 @@ import com.tibco.xpd.xpdl2.Process;
  * @author aprasad
  * @since 14-Nov-2013
  */
-public class ProcessDataToWorkItemAttributeMappingRule extends
-        AbstractMappingRuleBase {
+public class ProcessDataToWorkItemAttributeMappingRule
+        extends AbstractMappingRuleBase {
 
     private static final String ISSUE_WRONGSIZE =
             "bpmn.subProcessWrongSizeParameter"; //$NON-NLS-1$
+
+    private static final String ISSUE_NUMBER_TO_INTEGER =
+            "wlf.mapping.numberToInteger"; //$NON-NLS-1$
 
     /**
      * Result of invocation of
@@ -60,6 +64,10 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
             null;
 
     private Process currentProcess;
+
+    private WorkItemAttributeMappingRuleInfoProvider targetInfoProvider;
+
+    private ProcessDataMappingRuleInfoProvider sourceInfoProvider;
 
     /**
      * @param o
@@ -82,7 +90,8 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
      * @return
      */
     @Override
-    protected Collection<? extends EObject> getObjectsToValidate(Process process) {
+    protected Collection<? extends EObject> getObjectsToValidate(
+            Process process) {
         // Validate Mappings for Process
         return Collections.singletonList(process);
     }
@@ -112,7 +121,10 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
         ITreeContentProvider contentProvider =
                 new ProcessScopeDataConceptPathProvider();
 
-        return new ProcessDataMappingRuleInfoProvider(contentProvider);
+        sourceInfoProvider =
+                new ProcessDataMappingRuleInfoProvider(contentProvider);
+
+        return sourceInfoProvider;
 
     }
 
@@ -129,8 +141,10 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
         ITreeContentProvider contentProvider =
                 new WorkListFacadeMapperContentProvider();
 
-        return new WorkItemAttributeMappingRuleInfoProvider(contentProvider);
+        targetInfoProvider =
+                new WorkItemAttributeMappingRuleInfoProvider(contentProvider);
 
+        return targetInfoProvider;
     }
 
     /**
@@ -237,7 +251,8 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
      * @return
      */
     @Override
-    protected boolean isMappingToTargetLevelSupported(Object targetObjectInTree) {
+    protected boolean isMappingToTargetLevelSupported(
+            Object targetObjectInTree) {
         // ONLY to Work Item Attribute
         return (targetObjectInTree instanceof WorkItemAttributeConceptPath);
     }
@@ -259,9 +274,8 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
                 && targetObjectInTree instanceof WorkItemAttributeConceptPath) {
             ConceptPath srcdata = (ConceptPath) sourceObjectInTree;
 
-            Object sourceType =
-                    BasicTypeConverterFactory.INSTANCE.getBaseType(srcdata
-                            .getItem(), true);
+            Object sourceType = BasicTypeConverterFactory.INSTANCE
+                    .getBaseType(srcdata.getItem(), true);
 
             WorkItemAttributeConceptPath targetPath =
                     (WorkItemAttributeConceptPath) targetObjectInTree;
@@ -277,6 +291,10 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
                 // mapping when the length of source process data is exceeding
                 // length of target WI attribute.
                 BasicType targetType = (BasicType) attributeType;
+
+                BasicType sourceBasicType = (BasicType) sourceType;
+
+                String issueId = null;
 
                 // XPD-7677: Allow any basic types to be mapped to String
                 // targets.
@@ -296,30 +314,39 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
                     if (MappingTypeCompatibility.WRONGSIZE
                             .equals(currentMappingTypeCompatibilityResult)) {
                         // add issue
-                        ArrayList<String> messages = new ArrayList<String>();
-
-                        messages.add(targetPath.getPath());
-                        messages.add(srcdata.getPath());
-
-                        Map<String, String> additionalInfo =
-                                Collections
-                                        .singletonMap(MapperContentProvider.DATAMAPPING_TARGET_URI_ISSUEINFO,
-                                                targetPath.getPath());
-
-                        Object issueTarget = null;
-                        if (mapping instanceof Mapping) {
-                            issueTarget = ((Mapping) mapping).getMappingModel();
-                        }
-
-                        if (!(issueTarget instanceof EObject)) {
-                            issueTarget = currentProcess;
-                        }
-
-                        addIssue(ISSUE_WRONGSIZE,
-                                (EObject) issueTarget,
-                                messages,
-                                additionalInfo);
+                        addIssue(ISSUE_WRONGSIZE, mapping, srcdata, targetPath);
                     }
+                    return true;
+
+                } else if (BasicTypeType.INTEGER_LITERAL
+                        .equals(targetType.getType())
+                        && BasicTypeType.FLOAT_LITERAL
+                                .equals(sourceBasicType.getType())) {
+                    /*
+                     * Sid ACE-1755
+                     * 
+                     * Support Mapping of fixed point zero places to integer.
+                     */
+                    boolean isFixedPointZeroDecimals = false;
+
+                    if (sourceBasicType.getScale() != null
+                            && sourceBasicType.getScale().getValue() == 0) {
+                        isFixedPointZeroDecimals = true;
+                    }
+
+                    if (!isFixedPointZeroDecimals) {
+                        addIssue(ISSUE_NUMBER_TO_INTEGER,
+                                mapping,
+                                srcdata,
+                                targetPath);
+                    }
+
+                    /*
+                     * Either way, we've either already raised a more specific
+                     * specific issue than returning false would cause OR there
+                     * is no issue. To return true to prevent default
+                     * incompatible issue from being raised.
+                     */
                     return true;
                 }
 
@@ -330,11 +357,12 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
              */
             else if ((sourceType instanceof BasicType
                     && BasicTypeType.STRING_LITERAL
-                            .equals(((BasicType) sourceType).getType()) && attributeType instanceof Enumeration)
+                            .equals(((BasicType) sourceType).getType())
+                    && attributeType instanceof Enumeration)
                     || (attributeType instanceof BasicType
-                            && BasicTypeType.STRING_LITERAL
-                                    .equals(((BasicType) attributeType)
-                                            .getType()) && sourceType instanceof Enumeration)) {
+                            && BasicTypeType.STRING_LITERAL.equals(
+                                    ((BasicType) attributeType).getType())
+                            && sourceType instanceof Enumeration)) {
 
                 return true;
 
@@ -342,6 +370,43 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
         }
         return false;
 
+    }
+
+    /**
+     * Add a validation issue for the given mapping.
+     * 
+     * @param issueId
+     * @param mapping
+     * @param srcPath
+     * @param targetPath
+     */
+    protected void addIssue(String issueId, Object mapping, ConceptPath srcPath,
+            WorkItemAttributeConceptPath targetPath) {
+        ArrayList<String> messages = new ArrayList<String>();
+
+        messages.add(getTargetPathDescription(targetInfoProvider, mapping));
+        messages.add(getSourcePathDescription(sourceInfoProvider, mapping));
+
+        Map<String, String> additionalInfo = new HashMap<String, String>();
+
+        additionalInfo.put(
+                MapperContentProvider.DATAMAPPING_SOURCE_URI_ISSUEINFO,
+                srcPath.getPath());
+
+        additionalInfo.put(
+                MapperContentProvider.DATAMAPPING_TARGET_URI_ISSUEINFO,
+                targetPath.getPath());
+
+        Object issueTarget = null;
+        if (mapping instanceof Mapping) {
+            issueTarget = ((Mapping) mapping).getMappingModel();
+        }
+
+        if (!(issueTarget instanceof EObject)) {
+            issueTarget = currentProcess;
+        }
+
+        addIssue(issueId, (EObject) issueTarget, messages, additionalInfo);
     }
 
     /**
@@ -483,9 +548,8 @@ public class ProcessDataToWorkItemAttributeMappingRule extends
 
         if (attribute != null) {
 
-            Object targetType =
-                    BasicTypeConverterFactory.INSTANCE.getBaseType(attribute,
-                            true);
+            Object targetType = BasicTypeConverterFactory.INSTANCE
+                    .getBaseType(attribute, true);
 
             if (targetType instanceof BasicType) {
                 return (BasicType) targetType;

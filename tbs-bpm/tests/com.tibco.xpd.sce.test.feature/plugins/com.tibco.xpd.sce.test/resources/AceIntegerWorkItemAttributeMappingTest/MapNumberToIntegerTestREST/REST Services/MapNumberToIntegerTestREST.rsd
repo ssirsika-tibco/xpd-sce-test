@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rsd:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsd="http://com.tibco.xpd/rsd" xmi:id="_X8NjoJdMEemIAfN7F1gBcw" name="MapNumberToIntegerTestREST-Service">
+  <resources xmi:id="_X8NjoZdMEemIAfN7F1gBcw" name="Resource1" pathTemplate="resource{integerPathParam}/item{numberPathParam}">
+    <parameters xmi:id="_Vm0usJdOEemIAfN7F1gBcw" name="integerPathParam" style="PATH" dataType="DECIMAL" mandatory="true">
+      <defaultValue xsi:nil="true"/>
+    </parameters>
+    <parameters xmi:id="_Xdn4QJdOEemIAfN7F1gBcw" name="numberPathParam" style="PATH" dataType="DECIMAL" mandatory="true">
+      <defaultValue xsi:nil="true"/>
+    </parameters>
+    <methods xmi:id="_X8NjopdMEemIAfN7F1gBcw" name="Method1" httpMethod="PUT">
+      <request xmi:id="_X8Njo5dMEemIAfN7F1gBcw">
+        <parameters xmi:id="_ZmbCsJdMEemIAfN7F1gBcw" name="IntegerQueryParam" dataType="INTEGER">
+          <defaultValue xsi:nil="true"/>
+        </parameters>
+        <parameters xmi:id="_csteMJdMEemIAfN7F1gBcw" name="NumberQueryParam" dataType="DECIMAL">
+          <defaultValue xsi:nil="true"/>
+        </parameters>
+        <parameters xmi:id="_gouAwJdMEemIAfN7F1gBcw" name="IntegerHeaderParam" style="HEADER" dataType="INTEGER">
+          <defaultValue xsi:nil="true"/>
+        </parameters>
+        <parameters xmi:id="_grGmYJdMEemIAfN7F1gBcw" name="NumberHeaderParam" style="HEADER" dataType="DECIMAL">
+          <defaultValue xsi:nil="true"/>
+        </parameters>
+        <payloadReference xmi:id="_5CXsMJdMEemIAfN7F1gBcw" namespace="http://xpd.tibco.com/jsd/1.0" ref="_leRac5dMEemIAfN7F1gBcw" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_X8NjpJdMEemIAfN7F1gBcw">
+        <payloadReference xmi:id="_6CGD0JdMEemIAfN7F1gBcw" namespace="http://xpd.tibco.com/jsd/1.0" ref="_leRac5dMEemIAfN7F1gBcw" location="NewJsonSchema.jsd" mediaType="application/json"/>
+      </response>
+    </methods>
+  </resources>
+</rsd:Service>
