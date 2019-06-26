@@ -5,24 +5,11 @@ To make a class static in this uml, its attributes and methods must be made stat
 
 The classes defined in this uml are:
 
-DataUtil
-PaginatedList
-Criteria
+Log
 
-The class that is required in content assist is DataUtil class. So only DataUtil class will be declared as static.
-DataUtil class has 3 methods. These 3 methods are declared as static.
+Following are the methods that will be listed in content assist when Log class is used.
+1. write(String)  - Writes a log message
 
-Following are the methods that will be listed in content assist when DataUtil class is used.
-1. createList() : List<Object> - creates a list for use in scripting
-2. createCriteria(String) : Criteria - create criteria object for the given string
-3. createCriteria(String, int, int) : Criteria - create criteria for given string with zero based start index and pagesize 
-
-The other 2 classes - PaginatedList and Criteria are available when their objects are available (in content assist).
-So they are not declared as static.
-For instance, Criteria object will be available when DataUtil.createCriteria(String) is called.
-Once the criteria object is available the attributes and methods on it will be available in the content assist.
-
-Js classes, Js attributes, Js methods will be created for each of the classes, attributes and methods.
 
 Java Doc binding to the classes/methods/attributes defined in this uml:
 ----------------------------------------------------------------------
