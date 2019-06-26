@@ -14,8 +14,16 @@ import com.tibco.bpm.dt.rasc.Version;
  */
 public interface RascContext {
     /**
+     * Returns summary information regarding the application being deployed.
+     * 
+     * @return the summary of the application being deployed.
+     */
+    public RascAppSummary getAppSummary();
+
+    /**
      * Returns the OSGi version of the deployed Application for which the RASC
-     * is being generated.
+     * is being generated. This is a convenience method to provide the value
+     * that can be obtained by {@link #getAppSummary()#getVersion()}.
      * 
      * @return the version number of the deployed Application.
      */

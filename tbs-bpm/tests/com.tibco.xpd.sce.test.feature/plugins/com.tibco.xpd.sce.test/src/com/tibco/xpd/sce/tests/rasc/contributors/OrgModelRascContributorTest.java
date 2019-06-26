@@ -13,6 +13,7 @@ import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.Version;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.om.transform.de.OrgModelRascContributor;
+import com.tibco.xpd.rasc.core.RascAppSummary;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.resources.util.ProjectImporter;
@@ -82,6 +83,11 @@ public class OrgModelRascContributorTest extends TestCase {
             @Override
             public Version getVersion() {
                 return version;
+            }
+
+            @Override
+            public RascAppSummary getAppSummary() {
+                return null;
             }
         };
         fixture.process(project, rascContext, null, writer);

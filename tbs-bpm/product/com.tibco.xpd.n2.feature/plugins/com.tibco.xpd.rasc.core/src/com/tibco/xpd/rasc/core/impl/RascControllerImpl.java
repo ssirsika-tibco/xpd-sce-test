@@ -9,7 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -31,10 +33,12 @@ import com.tibco.bpm.dt.rasc.exception.RuntimeApplicationException;
 import com.tibco.bpm.dt.rasc.impl.DeploymentFactoryImpl;
 import com.tibco.xpd.rasc.core.Messages;
 import com.tibco.xpd.rasc.core.RascActivator;
+import com.tibco.xpd.rasc.core.RascAppSummary;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
 import com.tibco.xpd.rasc.core.RascContributorLocator;
 import com.tibco.xpd.rasc.core.RascController;
+import com.tibco.xpd.rasc.core.RascDependency;
 import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.rasc.core.exception.RascContributionException;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
@@ -225,7 +229,7 @@ public class RascControllerImpl implements RascController {
                         return;
                     }
 
-                    AppSummary appSummary = new AppSummary(aProject);
+                    RascContext context = new RascContextImpl(aProject);
 
                     // call each contributor in the given order
                     for (RascContributor contributor : contributors) {
@@ -235,7 +239,7 @@ public class RascControllerImpl implements RascController {
                                     contributor.getClass().getName()));
 
                             contributor.process(aProject,
-                                    appSummary,
+                                    context,
                                     monitor.split(1),
                                     writer);
                         } catch (OperationCanceledException e) {
@@ -247,7 +251,7 @@ public class RascControllerImpl implements RascController {
                     }
 
                     // write manifest and close stream
-                    setManifest(deployment, appSummary);
+                    setManifest(deployment, context.getAppSummary());
                     deployment.close();
 
                     logger.debug(RascControllerImpl.LOG_GENERATION_COMPLETE);
@@ -274,7 +278,8 @@ public class RascControllerImpl implements RascController {
      * @throws RascGenerationException
      *             if the project cannot be introspected for some reason.
      */
-    private void setManifest(DeploymentWriter aManifest, AppSummary aAppSummary)
+    private void setManifest(DeploymentWriter aManifest,
+            RascAppSummary aAppSummary)
             throws RascGenerationException {
         try {
             aManifest.setApplicationName(aAppSummary.getName());
@@ -282,11 +287,10 @@ public class RascControllerImpl implements RascController {
             aManifest.setAppVersion(aAppSummary.getVersion());
             aManifest.setGovernanceState(GovernanceState.DRAFT);
 
-            for (IProject dependency : aAppSummary.getReferencedProjects()) {
-                AppSummary summary = new AppSummary(dependency);
-
-                aManifest.addDependency(summary.getInternalName(),
-                        summary.getDependencyRange());
+            for (RascDependency dependency : aAppSummary
+                    .getReferencedProjects()) {
+                aManifest.addDependency(dependency.getInternalName(),
+                        dependency.getDependencyRange());
             }
         } catch (CoreException e) {
             throw new RascInternalException(e.getMessage(), e);
@@ -294,22 +298,46 @@ public class RascControllerImpl implements RascController {
     }
 
     /**
-     * A simple data class that retrieves the summary application information
+     * An implementation of the RascContext that is based on a given IProject
+     * reference.
+     */
+    private static class RascContextImpl implements RascContext {
+        private final RascAppSummary summary;
+
+        public RascContextImpl(IProject aProject) {
+            summary = new AppSummary(aProject);
+        }
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascContext#getAppSummary()
+         */
+        @Override
+        public RascAppSummary getAppSummary() {
+            return summary;
+        }
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascContext#getVersion()
+         */
+        @Override
+        public Version getVersion() {
+            return summary.getVersion();
+        }
+    }
+
+    /**
+     * Implements RascAppSummary to provide the summary application information
      * from a given IProject reference.
      */
-    private static class AppSummary implements RascContext {
+    private static class AppSummary implements RascAppSummary {
         private final IProject project;
-
+        private final ProjectConfig projectConfig;
         private final ProjectDetails details;
-
         private final Version version;
-
-        private final VersionRange dependencyRange;
-
-        private IProject[] referencedProjects = null;
+        private Collection<RascDependency> referencedProjects = null;
 
         public AppSummary(IProject aProject) {
-            ProjectConfig projectConfig =
+            projectConfig =
                     XpdResourcesPlugin.getDefault().getProjectConfig(aProject);
 
             project = aProject;
@@ -327,30 +355,34 @@ public class RascControllerImpl implements RascController {
             } else {
                 version = null;
             }
-
-            // calculate a version range based on the application's version
-            dependencyRange = (appVersion == null)
-                    ? RascControllerImpl.NULL_RANGE
-                    : new VersionRange(Endpoint.INCLUSIVE,
-                            new Version(appVersion.getMajor(),
-                                    appVersion.getMinor(),
-                                    appVersion.getMicro(), null),
-                            new Version(appVersion.getMajor() + 1, 0, 0, null),
-                            Endpoint.EXCLUSIVE);
         }
 
         /**
-         * Returns the name of the application. This is it's user friendly name.
+         * Allows sub-classes access to the ProjectConfig.
          */
+        protected ProjectConfig getProjectConfig() {
+            return projectConfig;
+        }
+
+        /**
+         * Allows sub-classes access to the ProjectDetails.
+         */
+        protected ProjectDetails getDetails() {
+            return details;
+        }
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascContext#getName()
+         */
+        @Override
         public String getName() {
             return project.getName();
         }
 
         /**
-         * Returns the internal, namespaced name of the application. This is
-         * used to uniquely identify the application. Together With the version
-         * number, this will identify a version of the same application.
+         * @see com.tibco.xpd.rasc.core.RascContext#getInternalName()
          */
+        @Override
         public String getInternalName() {
             return details.getId();
         }
@@ -364,31 +396,99 @@ public class RascControllerImpl implements RascController {
         }
 
         /**
-         * Returns the range that should be applied to dependencies on this
-         * application. This is used when iterating the applications on which
-         * the deployed application depends.
-         * 
-         * @return the application dependency range
+         * @see com.tibco.xpd.rasc.core.RascContext#hasAssetType(java.lang.String)
          */
-        public VersionRange getDependencyRange() {
-            return dependencyRange;
+        @Override
+        public boolean hasAssetType(String aAssetTypeId) {
+            if (getProjectConfig() != null) {
+                return getProjectConfig().hasAssetType(aAssetTypeId);
+            }
+
+            return false;
         }
 
         /**
-         * Returns the projects referenced by the deployed application. This
-         * includes both the static and dynamic references. The returned
-         * projects need not exist in the workspace. The result will not contain
-         * duplicates. Returns an empty array if there are no referenced
-         * projects.
-         * 
-         * @return this projects referenced by the deployed application.
-         * @throws CoreException
+         * @see com.tibco.xpd.rasc.core.RascContext#getReferencedProjects()
          */
-        public IProject[] getReferencedProjects() throws CoreException {
+        @Override
+        public Collection<RascDependency> getReferencedProjects()
+                throws CoreException {
             if (referencedProjects == null) {
-                referencedProjects = project.getReferencedProjects();
+                referencedProjects = new ArrayList<>();
+                for (IProject reference : project.getReferencedProjects()) {
+                    referencedProjects
+                            .add(new RascDependencyImpl(reference));
+                }
             }
             return referencedProjects;
+        }
+
+        /**
+         * @see java.lang.Object#hashCode()
+         */
+        @Override
+        public int hashCode() {
+            return getInternalName().hashCode();
+        }
+
+        /**
+         * @see java.lang.Object#equals(java.lang.Object)
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == this) {
+                return true;
+            }
+
+            if (!(obj instanceof AppSummary)) {
+                return false;
+            }
+
+            AppSummary other = (AppSummary) obj;
+            return Objects.equals(getInternalName(), other.getInternalName());
+        }
+    }
+
+    /**
+     * A summary of an application on which the deployed application depends.
+     * Based on AppSummary, it provides the additional information of the
+     * version range on which the dependency relies.
+     */
+    private static class RascDependencyImpl extends AppSummary
+            implements RascDependency {
+        private final VersionRange dependencyRange;
+
+        /**
+         * Constructs a summary of the given IProject reference.
+         * 
+         * @param aProject
+         *            the project to be summarized.
+         */
+        public RascDependencyImpl(IProject aProject) {
+            super(aProject);
+
+            // get the actual application version
+            String versionNum = getDetails().getVersion();
+            Version appVersion =
+                    (versionNum == null) ? null : new Version(versionNum);
+
+            // calculate a version range based on the application's version
+            dependencyRange = (appVersion == null)
+                    ? RascControllerImpl.NULL_RANGE
+                    : new VersionRange(Endpoint.INCLUSIVE,
+                            new Version(appVersion.getMajor(),
+                                    appVersion.getMinor(),
+                                    appVersion.getMicro(), null),
+                            new Version(appVersion.getMajor() + 1, 0, 0, null),
+                            Endpoint.EXCLUSIVE);
+        }
+
+        /**
+         * @see com.tibco.xpd.rasc.core.RascDependency#getDependencyRange()
+         */
+        @Override
+        public VersionRange getDependencyRange() {
+            return dependencyRange;
         }
     }
 }
