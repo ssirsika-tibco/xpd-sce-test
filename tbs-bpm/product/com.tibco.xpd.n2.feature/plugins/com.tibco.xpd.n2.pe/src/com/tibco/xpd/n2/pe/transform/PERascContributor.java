@@ -10,16 +10,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IContainer;
@@ -32,6 +32,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 
+import com.google.gson.Gson;
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.PropertyValue;
 import com.tibco.bpm.dt.rasc.Version;
@@ -45,13 +46,11 @@ import com.tibco.xpd.n2.pe.internal.Messages;
 import com.tibco.xpd.rasc.core.RascAppSummary;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
-import com.tibco.xpd.rasc.core.RascDependency;
 import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.ondemand.BuildTargetSet;
 import com.tibco.xpd.resources.logger.Logger;
-import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.xpdExtension.EmailResource;
 import com.tibco.xpd.xpdExtension.ParticipantSharedResource;
@@ -160,12 +159,7 @@ public class PERascContributor implements RascContributor {
             return true;
         }
 
-        try {
-            // are there any BOM asset references
-            return hasBomDependencies(aProject, null);
-        } catch (CoreException e) {
-            return false;
-        }
+        return false;
     }
 
     /**
@@ -645,8 +639,8 @@ public class PERascContributor implements RascContributor {
     private void addBomDependencies(RascWriter aWriter,
             RascAppSummary aAppSummary) throws Exception {
         // look for any direct/indirect dependencies containing BOMs
-        Collection<RascDependency> bomDependencies =
-                getBomDependencies(aAppSummary.getReferencedProjects(), null);
+        Collection<RascAppSummary> bomDependencies =
+                getBomDependencies(aAppSummary, null);
 
         // if none found
         if (bomDependencies.isEmpty()) {
@@ -659,7 +653,7 @@ public class PERascContributor implements RascContributor {
                 "dataInfo.di", //$NON-NLS-1$
                 PERascContributor.BOM_DATAINFO_SERVICES);
         try {
-            write(bomDependencies, output);
+            write(aAppSummary, bomDependencies, output);
         } finally {
             output.close();
         }
@@ -677,29 +671,32 @@ public class PERascContributor implements RascContributor {
      * @return the collection of dependencies with BOM assets.
      * @throws CoreException
      */
-    private Collection<RascDependency> getBomDependencies(
-            Collection<RascDependency> aDependencies,
-            Collection<RascDependency> aVisited) throws CoreException {
-        Collection<RascDependency> result = new ArrayList<>();
+    private Collection<RascAppSummary> getBomDependencies(
+            RascAppSummary aApplication,
+            Collection<RascAppSummary> aVisited) throws CoreException {
         if (aVisited == null) {
             aVisited = new HashSet<>();
         }
 
-        for (RascDependency dependency : aDependencies) {
-            // if we've already visited this one
-            if (!aVisited.add(dependency)) {
-                continue;
-            }
+        // if we've already seen this application
+        else if (!aVisited.add(aApplication)) {
+            // don't bother checking it again
+            return Collections.emptyList();
+        }
 
-            // if it contains a BOM - include it in result
-            if (dependency.hasAssetType(
-                    com.tibco.xpd.bom.resources.ui.Activator.BOM_ASSET_ID)) {
-                result.add(dependency);
-            }
+        Collection<RascAppSummary> result = new ArrayList<>();
 
+        // if the application has BOM assets
+        if (aApplication.hasAssetType(
+                com.tibco.xpd.bom.resources.ui.Activator.BOM_ASSET_ID)) {
+            // add it to the result
+            result.add(aApplication);
+        }
+
+        // check all nested projects
+        for (RascAppSummary dependency : aApplication.getReferencedProjects()) {
             // visit nested dependencies
-            result.addAll(getBomDependencies(dependency.getReferencedProjects(),
-                    aVisited));
+            result.addAll(getBomDependencies(dependency, aVisited));
         }
 
         return result;
@@ -707,74 +704,32 @@ public class PERascContributor implements RascContributor {
 
     /**
      * Writes the given project dependency references, as a JSON packet, to the
-     * given PrintStream.
+     * given OutputStream.
      * 
      * @param aDependencies
      *            the project dependency references.
-     * @param printer
-     *            the PrintStream to which to write the references.
-     * @throws UnsupportedEncodingException
-     *             if UTF8 is not supported.
+     * @param aOutput
+     *            the OutputStream to which to write the references.
+     * @throws IOException
      */
-    private void write(Collection<RascDependency> aDependencies,
-            OutputStream aOutput) throws UnsupportedEncodingException {
+    private void write(RascAppSummary aAppSummary,
+            Collection<RascAppSummary> aDependencies,
+            OutputStream aOutput) throws IOException {
+        // build a collection of the dependency references
+        Collection<Map<String, String>> references = new ArrayList<>();
+        for (RascAppSummary dependency : aDependencies) {
+            Map<String, String> entry = new HashMap<>();
+            entry.put("projectId", dependency.getInternalName()); //$NON-NLS-1$
+            entry.put("version", dependency.getDependencyRange().toString()); //$NON-NLS-1$
 
-        PrintStream printer =
-                new PrintStream(aOutput, false, StandardCharsets.UTF_8.name());
-        printer.print("{\"dataProjectDependencies\":["); //$NON-NLS-1$
-
-        boolean first = true;
-        for (RascDependency dependency : aDependencies) {
-            if (!first) {
-                printer.print(',');
-                first = false;
-            }
-            printer.print("\"projectId\":\""); //$NON-NLS-1$
-            printer.print(dependency.getInternalName());
-            printer.print("\",\"version\":\""); //$NON-NLS-1$
-            printer.print(dependency.getDependencyRange());
-            printer.print("\"}"); //$NON-NLS-1$
-        }
-        printer.print("]}"); //$NON-NLS-1$
-    }
-
-    /**
-     * Recursively checks the project dependency to see if any contains a BOM
-     * asset.
-     * 
-     * @param aProject
-     *            the project whose dependencies are to be searched.
-     * @return true if any project in the dependency hierarchy contains a BOM
-     *         asset. Otherwise false.
-     * @throws CoreException
-     */
-    private boolean hasBomDependencies(IProject aProject,
-            Collection<IProject> aVisited) throws CoreException {
-        // keep a record of those we've visited
-        if (aVisited == null) {
-            aVisited = new HashSet<>();
+            references.add(entry);
         }
 
-        // have we've already seen this project
-        else if (!aVisited.add(aProject)) {
-            return false;
-        }
+        // put within a Map for JSON marshalling
+        Map<String, Collection<?>> jsonMap = new HashMap<>();
+        jsonMap.put("dataProjectDependencies", references); //$NON-NLS-1$
 
-        for (IProject reference : aProject.getReferencedProjects()) {
-            // if it contains a BOM asset
-            ProjectConfig projectConfig =
-                    XpdResourcesPlugin.getDefault().getProjectConfig(reference);
-            if (projectConfig.hasAssetType(
-                    com.tibco.xpd.bom.resources.ui.Activator.BOM_ASSET_ID)) {
-                return true;
-            }
-
-            // if nested dependencies contain BOM reference
-            if (hasBomDependencies(reference, aVisited)) {
-                return true;
-            }
-        }
-
-        return false;
+        String json = new Gson().toJson(jsonMap);
+        aOutput.write(json.getBytes(StandardCharsets.UTF_8));
     }
 }

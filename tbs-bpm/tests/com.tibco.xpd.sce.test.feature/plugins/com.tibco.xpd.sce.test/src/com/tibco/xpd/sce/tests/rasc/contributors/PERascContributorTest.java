@@ -19,13 +19,13 @@ import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.Version;
+import com.tibco.bpm.dt.rasc.VersionRange;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.n2.pe.transform.PERascContributor;
 import com.tibco.xpd.n2.test.core.AbstractN2BaseResourceTest;
 import com.tibco.xpd.rasc.core.RascAppSummary;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
-import com.tibco.xpd.rasc.core.RascDependency;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.sce.tests.rasc.contributors.MockRascWriter.WriterContent;
 
@@ -121,7 +121,7 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
             }
 
             @Override
-            public Collection<RascDependency> getReferencedProjects()
+            public Collection<RascAppSummary> getReferencedProjects()
                     throws CoreException {
                 return Collections.emptyList();
             }
@@ -129,6 +129,11 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
             @Override
             public boolean hasAssetType(String aAssetTypeId) {
                 return false;
+            }
+
+            @Override
+            public VersionRange getDependencyRange() {
+                return null;
             }
         };
 

@@ -7,6 +7,8 @@ package com.tibco.xpd.sce.tests.rasc.contributors;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,6 +67,25 @@ public class MockRascWriter implements RascWriter {
     }
 
     /**
+     * Returns the first artifact whose {@link WriterContent#getArtifactName()
+     * artifact name} equals the given value. If no artifact of the given name
+     * can be found, the return value will be null.
+     * 
+     * @param aName
+     *            the artifact name to be searched for.
+     * @return the artifact with the given name.
+     */
+    public WriterContent getArtifact(String aName) {
+        for (WriterContent artifact : artifacts) {
+            if (aName.equals(artifact.getArtifactName())) {
+                return artifact;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Allows the test to retrieve any PropertyValues that have been assigned to
      * the named manifest attribute by the RascContributors.
      * 
@@ -117,6 +138,20 @@ public class MockRascWriter implements RascWriter {
 
         public ByteArrayOutputStream getContent() {
             return content;
+        }
+
+        /**
+         * Returns the artifact content as a String, using the given character
+         * encoding.
+         * 
+         * @param aCharset
+         *            the encoding to use to decode the content.
+         * @return the artifact content.
+         * @throws UnsupportedEncodingException
+         */
+        public String getContent(Charset aCharset)
+                throws UnsupportedEncodingException {
+            return content.toString(aCharset.name());
         }
     }
 }

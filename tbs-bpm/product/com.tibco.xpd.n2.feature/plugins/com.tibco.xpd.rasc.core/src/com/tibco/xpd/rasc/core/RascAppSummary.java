@@ -9,6 +9,7 @@ import java.util.Collection;
 import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.bpm.dt.rasc.Version;
+import com.tibco.bpm.dt.rasc.VersionRange;
 
 /**
  * Provides summary information about the application being deployed.
@@ -39,6 +40,15 @@ public interface RascAppSummary {
     public Version getVersion();
 
     /**
+     * Returns the range that should be applied to dependencies on this
+     * application. This is used when iterating the applications on which the
+     * deployed application depends.
+     * 
+     * @return the application dependency range
+     */
+    public VersionRange getDependencyRange();
+
+    /**
      * Returns the projects referenced by the deployed application. This
      * includes both the static and dynamic references. The returned projects
      * need not exist in the workspace. The result will not contain duplicates.
@@ -47,7 +57,7 @@ public interface RascAppSummary {
      * @return this projects referenced by the deployed application.
      * @throws CoreException
      */
-    public Collection<RascDependency> getReferencedProjects()
+    public Collection<RascAppSummary> getReferencedProjects()
             throws CoreException;
 
     /**
