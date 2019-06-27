@@ -69,6 +69,11 @@ public class RascControllerImpl implements RascController {
             "Calling RascContributor: %1$s."; //$NON-NLS-1$
 
     /**
+     * The ID of the model asset type for Rest Serice projects.
+     */
+    private static final String REST_ASSET_TYPE = "com.tibco.xpd.rest.asset"; //$NON-NLS-1$
+
+    /**
      * Used to look-up the implementations of the RascContributor interface.
      */
     private final static RascContributorLocator contributorlocator =
@@ -278,8 +283,7 @@ public class RascControllerImpl implements RascController {
      *             if the project cannot be introspected for some reason.
      */
     private void setManifest(DeploymentWriter aManifest,
-            RascAppSummary aAppSummary)
-            throws RascGenerationException {
+            RascAppSummary aAppSummary) throws RascGenerationException {
         try {
             aManifest.setApplicationName(aAppSummary.getName());
             aManifest.setApplicationInternalName(aAppSummary.getInternalName());
@@ -288,6 +292,13 @@ public class RascControllerImpl implements RascController {
 
             for (RascAppSummary dependency : aAppSummary
                     .getReferencedProjects()) {
+
+                // ignore REST service projects
+                if (dependency
+                        .hasAssetType(RascControllerImpl.REST_ASSET_TYPE)) {
+                    continue;
+                }
+
                 aManifest.addDependency(dependency.getInternalName(),
                         dependency.getDependencyRange());
             }
@@ -330,10 +341,15 @@ public class RascControllerImpl implements RascController {
      */
     private static class AppSummary implements RascAppSummary {
         private final IProject project;
+
         private final ProjectConfig projectConfig;
+
         private final ProjectDetails details;
+
         private final Version version;
+
         private final VersionRange dependencyRange;
+
         private Collection<RascAppSummary> referencedProjects = null;
 
         public AppSummary(IProject aProject) {
@@ -419,8 +435,7 @@ public class RascControllerImpl implements RascController {
             if (referencedProjects == null) {
                 referencedProjects = new ArrayList<>();
                 for (IProject reference : project.getReferencedProjects()) {
-                    referencedProjects
-                            .add(new AppSummary(reference));
+                    referencedProjects.add(new AppSummary(reference));
                 }
             }
             return referencedProjects;
