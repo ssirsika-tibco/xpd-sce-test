@@ -1,5 +1,9 @@
 package com.tibco.xpd.rasc.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -31,6 +35,11 @@ public class RascUiActivator extends AbstractUIPlugin {
      * admin URL dialog on launch.
      */
     public static final String HIDE_ADMIN_BASE_URL = "hideAdminBaseUrl"; //$NON-NLS-1$
+
+    /**
+     * The maximum number of entries to record in the Admin URL history.
+     */
+    private static final int URL_HISTORY_SIZE = 10;
 
     // The shared instance
     private static RascUiActivator plugin;
@@ -92,13 +101,70 @@ public class RascUiActivator extends AbstractUIPlugin {
     }
 
     /**
-     * Sets the admin base URL.
+     * Sets the admin base URL; and adds the entry to the history.
      * 
      * @param url
      *            The admin base URL.
      */
     public void setAdminBaseUrl(String url) {
         getPreferenceStore().setValue(ADMIN_BASE_URL, url);
+        addAdminBaseHistory(url);
+    }
+
+    /**
+     * Returns the Admin URL history as an array of String. The entries will be
+     * ordered with the most recent entry first.
+     * 
+     * @return the history of Admin URL entries.
+     */
+    public String[] getAdminBaseHistory() {
+        List<String> result = _getAdminBaseHistory();
+        return result.toArray(new String[result.size()]);
+    }
+
+    /**
+     * Returns the history of collection admin url entries as a List. This
+     * allows for easier manipulation when adding new entries.
+     */
+    private List<String> _getAdminBaseHistory() {
+        IPreferenceStore preferences = getPreferenceStore();
+
+        List<String> result = new ArrayList<>();
+        for (int i = 1; i <= URL_HISTORY_SIZE; i++) {
+            String value = preferences.getString(ADMIN_BASE_URL + i);
+            if ((value != null) && (value.length() > 0)) {
+                result.add(value);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Adds the given Admin URL to the history. The given entry will be placed
+     * at the head of the list. If the resulting list exceeds URL_HISTORY_SIZE,
+     * the list will be truncated.
+     * 
+     * @param url
+     *            the URL to be added to the Admin URL history.
+     */
+    private void addAdminBaseHistory(String url) {
+        List<String> history = _getAdminBaseHistory();
+
+        // remove any previous entry of the same name
+        history.remove(url);
+
+        // add new entry at the top
+        if (history.isEmpty())
+            history.add(url);
+        else
+            history.add(0, url);
+
+        IPreferenceStore preferences = getPreferenceStore();
+        int count = Math.min(URL_HISTORY_SIZE, history.size());
+        for (int i = 1; i <= count; i++) {
+            preferences.setValue(ADMIN_BASE_URL + i, history.get(i - 1));
+        }
     }
 
     /**

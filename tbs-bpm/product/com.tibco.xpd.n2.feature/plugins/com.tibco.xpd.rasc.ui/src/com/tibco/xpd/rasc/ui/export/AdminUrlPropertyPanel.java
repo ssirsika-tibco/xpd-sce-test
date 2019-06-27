@@ -7,13 +7,14 @@ package com.tibco.xpd.rasc.ui.export;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
+import com.tibco.xpd.resources.ui.components.XpdToolkit;
 
 /**
  * Property panel for setting the admin base URL.
@@ -24,9 +25,9 @@ import com.tibco.xpd.resources.ui.components.BaseXpdToolkit;
 public class AdminUrlPropertyPanel extends Composite {
 
     private static final String DEFUALT_URL =
-            "https://<domain>/admin-app/index.html"; //$NON-NLS-1$
+            "http://<domain>/apps/login"; //$NON-NLS-1$
 
-    private Text adminUrl;
+    private Combo adminUrl;
 
     private Label warning;
 
@@ -46,6 +47,7 @@ public class AdminUrlPropertyPanel extends Composite {
         panelLayout.marginWidth = 0;
         panelLayout.marginBottom = 5;
         setLayout(panelLayout);
+
         Label adminUrlLabel = toolkit.createLabel(this,
                 Messages.AdminUrlPropertyPanel_BaseUrlLabel);
         adminUrlLabel.setLayoutData(
@@ -54,9 +56,15 @@ public class AdminUrlPropertyPanel extends Composite {
         if (defaultText == null || defaultText.length() == 0) {
             defaultText = DEFUALT_URL;
         }
-        adminUrl = toolkit
-                .createText(this, defaultText, RascUiActivator.ADMIN_BASE_URL);
-        adminUrl.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+
+        adminUrl = new Combo(this, SWT.BORDER);
+        adminUrl.setData(XpdToolkit.INSTRUMENTATION_DATA_NAME,
+                "combo" + RascUiActivator.ADMIN_BASE_URL); //$NON-NLS-1$
+        GridData gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+        adminUrl.setLayoutData(gridData);
+
+        adminUrl.setItems(RascUiActivator.getDefault().getAdminBaseHistory());
+        adminUrl.setText(defaultText);
 
         warning = toolkit.createLabel(this, ""); //$NON-NLS-1$
         warning.setLayoutData(
