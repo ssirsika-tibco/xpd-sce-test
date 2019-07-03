@@ -17,6 +17,7 @@ import org.eclipse.uml2.uml.Type;
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.bom.globaldata.resources.GlobalDataProfileManager;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
+import com.tibco.xpd.n2.pe.util.PEN2Utils;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -212,79 +213,124 @@ public class N2JScriptAssignmentExpressionValidator
     protected void validateProcessPriorityAssignment(
             IValidateResult lhsValidateResult,
             IValidateResult rhsValidateResult, Token token) {
-        IExpr expr = lhsValidateResult.getExpr();
-        if (expr.getExpr() instanceof AST) {
-            AST astExp = (AST) expr.getExpr();
-            if (astExp.getType() == JScriptTokenTypes.DOT) {
-                AST firstChild = astExp.getFirstChild();
-                if (firstChild != null
-                        && firstChild.getType() == JScriptTokenTypes.IDENT
-                        && firstChild.getText() != null
-                        && firstChild.getText().equals("Process")) {//$NON-NLS-1$
-                    AST nextSibling = firstChild.getNextSibling();
-                    if (nextSibling != null
-                            && nextSibling.getType() == JScriptTokenTypes.IDENT
-                            && nextSibling.getText() != null
-                            && nextSibling.getText().equals("priority")) {//$NON-NLS-1$
-                        IExpr rhsExpr = rhsValidateResult.getExpr();
-                        if (rhsExpr.getExpr() instanceof AST) {
-                            AST rhsAstExp = (AST) rhsExpr.getExpr();
-                            if (isNumericDataType(rhsAstExp.getType())) {
-                                String text = rhsAstExp.getText();
-                                if (text != null) {
-                                    /*
-                                     * XPD-5475: Now we allow any value between
-                                     * minimum and maximum (100 - 400) or "" =
-                                     * server default
-                                     */
-                                    boolean validValue = false;
-                                    try {
-                                        int intPriority =
-                                                Integer.parseInt(text);
-                                        if (intPriority >= 100
-                                                && intPriority <= 400) {
-                                            validValue = true;
-                                        }
 
-                                    } catch (NumberFormatException e) {
-                                    }
+        /*
+         * Sid ACE-552 - Extracted check for 'is assign process priority'to make
+         * it easier.
+         */
+        if (isProcessPriorityLhsAssigment(lhsValidateResult)) {
 
-                                    if (!validValue) {
-                                        // Not allowed value
-                                        addErrorMessage(token,
-                                                Messages.N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2);
-                                    }
-                                }
-                            } else if (rhsAstExp
-                                    .getType() == JScriptTokenTypes.IDENT
-                                    || rhsAstExp
-                                            .getType() == JScriptTokenTypes.DOT) {
-                                /*
-                                 * XPD-5469. All Process.priority to be set from
-                                 * variable data now.
-                                 * 
-                                 * Sid XPD-7663 - Just checking IDENT didn't
-                                 * allow for
-                                 * "Process.priority = Class.intProperty" so we
-                                 * need to check for "." above else we'll
-                                 * complian.
-                                 * 
-                                 * So don't complain if it is.
-                                 */
-
-                            } else {
-                                /*
-                                 * XPD-4334: Add a warning if the priority is
-                                 * negative.
-                                 */
-                                addErrorMessage(token,
-                                        Messages.N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2);
+            IExpr rhsExpr = rhsValidateResult.getExpr();
+            if (rhsExpr.getExpr() instanceof AST) {
+                AST rhsAstExp = (AST) rhsExpr.getExpr();
+                if (isNumericDataType(rhsAstExp.getType())) {
+                    String text = rhsAstExp.getText();
+                    if (text != null) {
+                        /*
+                         * XPD-5475: Now we allow any value between minimum and
+                         * maximum (100 - 400) or "" = server default
+                         */
+                        boolean validValue = false;
+                        try {
+                            int intPriority = Integer.parseInt(text);
+                            if (intPriority >= 100 && intPriority <= 400) {
+                                validValue = true;
                             }
+
+                        } catch (NumberFormatException e) {
+                        }
+
+                        if (!validValue) {
+                            // Not allowed value
+                            addErrorMessage(token,
+                                    Messages.N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2);
                         }
                     }
+                } else if (rhsAstExp.getType() == JScriptTokenTypes.IDENT
+                        || rhsAstExp.getType() == JScriptTokenTypes.DOT) {
+                    /*
+                     * XPD-5469. All Process.priority to be set from variable
+                     * data now.
+                     * 
+                     * Sid XPD-7663 - Just checking IDENT didn't allow for
+                     * "Process.priority = Class.intProperty" so we need to
+                     * check for "." above else we'll complian.
+                     * 
+                     * So don't complain if it is.
+                     */
+
+                } else {
+                    /*
+                     * XPD-4334: Add a warning if the priority is negative.
+                     */
+                    addErrorMessage(token,
+                            Messages.N2JScriptAssignmentExpressionValidator_NotAllowedValueForProcessPriority2);
                 }
             }
         }
+    }
+
+
+    /**
+     * Check whether the given LHS of expression is an assign to
+     * bpm.process.priority
+     * 
+     * @param lhsValidateResult
+     * @return <code>true</code>if this is an assign to bpm.process.priority
+     */
+    @SuppressWarnings("restriction")
+    private boolean isProcessPriorityLhsAssigment(IValidateResult lhsValidateResult) {
+
+        IExpr expr = lhsValidateResult.getExpr();
+        if (expr.getExpr() instanceof AST) {
+            AST astExp = (AST) expr.getExpr();
+
+            if (astExp.getType() == JScriptTokenTypes.DOT) {
+                AST firstChild = astExp.getFirstChild();
+
+                if (firstChild != null && firstChild.getType() == JScriptTokenTypes.DOT) {
+
+                    /*
+                     * Is the thing in front of initial 'dot' is the top level
+                     * "bpm" object?
+                     */
+                    AST maybeBpmNode = firstChild.getFirstChild();
+
+                    if (maybeBpmNode != null && maybeBpmNode.getType() == JScriptTokenTypes.IDENT
+                            && maybeBpmNode.getFirstChild() == null
+                            && PEN2Utils.PE_BPM_CLASS_OBJECT_NAME.equals(maybeBpmNode.getText())) {
+
+                        /*
+                         * Is the thing after the dot after "bpm" the "process"
+                         * object
+                         */
+                        AST maybeProcessNode = maybeBpmNode.getNextSibling();
+
+                        if (maybeProcessNode != null && maybeProcessNode.getType() == JScriptTokenTypes.IDENT
+                                && PEN2Utils.PE_BPM_PROCESS_OBJECT_NAME.equals(maybeProcessNode.getText())) {
+
+                            /*
+                             * Is the thing after the dot after "bpm.process."
+                             * the "priority" object
+                             */
+                            AST maybePriorityNode = firstChild.getNextSibling();
+
+                            if (maybePriorityNode != null && maybePriorityNode.getType() == JScriptTokenTypes.IDENT
+                                    && maybePriorityNode.getNextSibling() == null
+                                    && PEN2Utils.PE_BPM_PROCESS_PRIORITY_OBJECT_NAME
+                                            .equals(maybePriorityNode.getText())) {
+
+                                return true;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        return false;
     }
 
     @SuppressWarnings("restriction")

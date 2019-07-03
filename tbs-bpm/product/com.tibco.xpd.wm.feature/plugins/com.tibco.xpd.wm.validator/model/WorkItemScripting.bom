@@ -110,17 +110,17 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_ujXD4E37Ed-W0OGLPv2IyQ" name="WorkManagerFactory">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_xNZBME37Ed-W0OGLPv2IyQ" name="getOrgModel" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xNZBME37Ed-W0OGLPv2IyQ" name="getOrgModel">
         <ownedComment xmi:type="uml:Comment" xmi:id="_5rUAwGl7Ed-zvudmuhz-xQ" body="JavaScript getOrgModel() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getOrgModel method returns an OrgModel object for the default version of the Organization Model,&#xD;&#xA;this will normally be the latest version.&#xD;&#xA;To return a specific version of the Organization Model use getOrgModelByVersion.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getOrgModel();&#xD;&#xA;@return OrgModel&#xD;&#xA;"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_9HwhcE37Ed-W0OGLPv2IyQ" direction="return">
           <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.xpd.n2.pe/model/OrgModelScripting.bom#_kePhQGriEeK5l7gdajX-Jw?com.tibco.n2.de.script%3a%3aOrgModel?"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_zLKVcE37Ed-W0OGLPv2IyQ" name="getWorkItem" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_zLKVcE37Ed-W0OGLPv2IyQ" name="getWorkItem">
         <ownedComment xmi:type="uml:Comment" xmi:id="_4WkrILA3Ed-tjIKq2oOe3A" body="JavaScript getWorkItem() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getWorkItem method returns a WorkItem object for the current opened WorkItem.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getWorkItem();&#xD;&#xA;@return WorkItem&#xD;&#xA;"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ROD4E37Ed-W0OGLPv2IyQ" type="_I9RxcHtXEd6js_XbMFf3Kg?com.tibco.n2.brm.script%3a%3aWorkItem?" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_CW1b4Gl7Ed-zvudmuhz-xQ" name="getOrgModelByVersion" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_CW1b4Gl7Ed-zvudmuhz-xQ" name="getOrgModelByVersion">
         <ownedComment xmi:type="uml:Comment" xmi:id="_0Iq3kGl7Ed-zvudmuhz-xQ" body="JavaScript getOrgModelByVersion() Method&#xD;&#xA;&#xD;&#xA;Definition and Usage:&#xD;&#xA;&#xD;&#xA;The getOrgModelByVersion method returns an OrgModel object for the specified version of the Organization Model.&#xD;&#xA;If -1 is specified the latest version will be returned similar to the getOrgModel method.&#xD;&#xA;&#xD;&#xA;Syntax:&#xD;&#xA;WorkManagerFactory.getOrgModel(majorVersion);&#xD;&#xA;@return OrgModel&#xD;&#xA;@param majorVersion: Required. The model version to return or -1 for the latest available version.&#xD;&#xA;"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L0Q_oGl7Ed-zvudmuhz-xQ" name="majorVersion">
           <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>

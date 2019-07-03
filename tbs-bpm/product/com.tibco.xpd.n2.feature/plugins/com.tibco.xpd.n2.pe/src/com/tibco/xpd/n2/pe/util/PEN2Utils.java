@@ -35,7 +35,20 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 public class PEN2Utils {
 
-    public static final String PE_MODEL_FILE_NAME = "/model/PEJavaScript.uml"; //$NON-NLS-1$
+    /*
+     * Sid ACE-552 Process static JS class is now wrapped as the "bpm.process"
+     * property.
+     */
+    public static final String PE_MODEL_FILE_NAME = "/model/ProcessBpmJsClass.bom"; //$NON-NLS-1$
+
+    /*
+     * Sid ACE-552 and some static strings for some special validaiton rules.
+     */
+    public static final String PE_BPM_CLASS_OBJECT_NAME = "bpm"; //$NON-NLS-1$
+
+    public static final String PE_BPM_PROCESS_OBJECT_NAME = "process"; //$NON-NLS-1$
+
+    public static final String PE_BPM_PROCESS_PRIORITY_OBJECT_NAME = "priority"; //$NON-NLS-1$
 
     public static final String CASE_SIGNAL_MODEL_FILE_NAME =
             "/model/CaseSignalAttributes.uml"; //$NON-NLS-1$
