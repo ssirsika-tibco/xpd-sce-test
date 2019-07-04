@@ -16,4 +16,87 @@
       <ownedParameter xmi:id="_eZ-M8PuSEd6Q9p1yYiMS_w" name="msg" type="_L0lAYOANEd6NV_VD55whVg"/>
     </ownedOperation>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_spzh4JzPEemr1ID0Ylv5Mg" name="CaseData">
+    <ownedOperation xmi:id="_2QpAkJ2QEemozZwHH8sXfA" name="findAll" isStatic="true">
+      <ownedParameter xmi:id="_r4MwoJ2REemozZwHH8sXfA" name="caseType" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_sudDMJ2REemozZwHH8sXfA" name="majorVersion" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_taWf4J2REemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_uE0ZMJ2REemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_uyzgkJ2REemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_679qwJ2REemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7a6QkJ2REemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_090GwJ2QEemozZwHH8sXfA" name="findByCaseIdentifier" isStatic="true">
+      <ownedParameter xmi:id="_gnaY4J2REemozZwHH8sXfA" name="cid" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_hZ6z4J2REemozZwHH8sXfA" name="caseType" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_iBoUIJ2REemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_27xoQJ2QEemozZwHH8sXfA" name="findByCriteria" isStatic="true">
+      <ownedParameter xmi:id="_gh7mgJ2SEemozZwHH8sXfA" name="dql" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_hHMPsJ2SEemozZwHH8sXfA" name="caseType" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_huoDIJ2SEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_ibCdMJ2SEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_jFUwUJ2SEemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uu6CkJ2SEemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vFvOMJ2SEemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_i5oAQJzaEemr1ID0Ylv5Mg" name="findBySimpeSearch" isStatic="true">
+      <ownedParameter xmi:id="_t1780JzaEemr1ID0Ylv5Mg" name="searchString" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_uZ_FEJzaEemr1ID0Ylv5Mg" name="caseType" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_vJJRIJzaEemr1ID0Ylv5Mg" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_xvqAYJzaEemr1ID0Ylv5Mg" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_DkLx8JzbEemr1ID0Ylv5Mg" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VYReoJzbEemr1ID0Ylv5Mg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WMg_AJzbEemr1ID0Ylv5Mg" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_wZNL0JzPEemr1ID0Ylv5Mg" name="read" isStatic="true">
+      <ownedParameter xmi:id="_DpslEJzQEemr1ID0Ylv5Mg" name="caseRef" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_bbwsEJzQEemr1ID0Ylv5Mg" type="_eTPKMKHqEd6gj7Xw0shGxA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_0MxrYJ2QEemozZwHH8sXfA" name="readAll" isStatic="true">
+      <ownedParameter xmi:id="_AvBrAJ2REemozZwHH8sXfA" name="caseRefs">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DNhtwJ2REemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DyUc4J2REemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_ElQVsJ2REemozZwHH8sXfA" type="_eTPKMKHqEd6gj7Xw0shGxA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GvgmwJ2REemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HD6wgJ2REemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_wDg-sJ2KEemozZwHH8sXfA" name="navigateAll" isStatic="true">
+      <ownedParameter xmi:id="_gB7YIJ2PEemozZwHH8sXfA" name="caseRef" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_gtIRQJ2PEemozZwHH8sXfA" name="linkName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_hglugJ2PEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_iLtvIJ2PEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_i1-NEJ2PEemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FjCCAJ2QEemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8XIAJ2QEemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="__Dy6gJzbEemr1ID0Ylv5Mg" name="navigateByCriteria" isStatic="true">
+      <ownedParameter xmi:id="_S0i4MJ2MEemozZwHH8sXfA" name="caseRef" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_cGp8wJ2MEemozZwHH8sXfA" name="linkName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_ToHqMJ2MEemozZwHH8sXfA" name="dql" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_USn_wJ2MEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_U54NAJ2MEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_Vs0s4J2MEemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YLK-oJ2MEemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YkA8cJ2MEemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_tXby8J2KEemozZwHH8sXfA" name="navigateBySimpleSearch" isStatic="true">
+      <ownedParameter xmi:id="_rDjZ4J2MEemozZwHH8sXfA" name="caseRef" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_rp7dYJ2MEemozZwHH8sXfA" name="linkName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_sP3cAJ2MEemozZwHH8sXfA" name="searchString" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_s3VEoJ2MEemozZwHH8sXfA" name="fromIndex" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_thL58J2MEemozZwHH8sXfA" name="pageSize" type="_RgOFgIYSEemPmt-F0Us-xg"/>
+      <ownedParameter xmi:id="_uIntYJ2MEemozZwHH8sXfA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wS7BwJ2MEemozZwHH8sXfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wl8rcJ2MEemozZwHH8sXfA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
 </uml:Model>
