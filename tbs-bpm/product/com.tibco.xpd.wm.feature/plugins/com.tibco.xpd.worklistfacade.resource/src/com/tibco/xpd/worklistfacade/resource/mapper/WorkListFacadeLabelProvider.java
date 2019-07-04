@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Property;
 
+import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.processwidget.ProcessWidgetConstants;
 import com.tibco.xpd.processwidget.ProcessWidgetPlugin;
 import com.tibco.xpd.resources.WorkingCopy;
@@ -158,21 +159,29 @@ public class WorkListFacadeLabelProvider implements ILabelProvider {
 
         StringBuffer label = new StringBuffer();
 
+        /*
+         * Sid ACE-1720 Use display label for type name not the internal type
+         * name (so that Number and Date Time and Timezone appear correctly in
+         * work item attribute mappings and datamapper
+         */
+        String typeLabel = PrimitivesUtil.getDisplayLabel(property.getType(), true);
+
         if (displayLabelFromFacade != null) {
 
             if (shouldHaveNameInBrackets) {
                 label.append(String.format("%s (%s) : %s", //$NON-NLS-1$
                         displayLabelFromFacade,
                         property.getName(),
-                        property.getType().getName()));
+                        typeLabel));
             } else {
                 label.append(String.format("%s : %s", //$NON-NLS-1$
                         displayLabelFromFacade,
-                        property.getType().getName()));
+                        typeLabel));
             }
         } else {
-            label.append(String.format("%s : %s", property.getName(), property //$NON-NLS-1$
-                    .getType().getName()));
+            label.append(String.format("%s : %s", //$NON-NLS-1$
+                    property.getName(),
+                    typeLabel));
         }
         return label.toString();
     }

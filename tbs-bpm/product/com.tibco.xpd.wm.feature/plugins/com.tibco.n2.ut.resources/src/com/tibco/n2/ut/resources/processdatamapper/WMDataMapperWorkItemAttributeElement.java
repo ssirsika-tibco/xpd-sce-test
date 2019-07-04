@@ -34,8 +34,9 @@ public class WMDataMapperWorkItemAttributeElement extends
      */
     public WMDataMapperWorkItemAttributeElement(Property workItemAttrProperty,
             ConceptPath parent) {
+        /* Sid ACE-1720 - work manager class now wrapped as "bpm.workManager" object */
         super(getAttributePathModelName(workItemAttrProperty),
-                "WorkManagerFactory.getWorkItem().workItemAttributes." //$NON-NLS-1$
+                WMDataMapperContentProvider.WORK_MANAGER_FACTORY_SCRIPT_OBJECT + ".getWorkItem().workItemAttributes." //$NON-NLS-1$
                         + workItemAttrProperty.getName(),
                 getDataType(workItemAttrProperty), false, parent);
 

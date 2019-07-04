@@ -47,7 +47,7 @@ import junit.framework.TestCase;
  * @author aallway
  * @since 07 Jun 2019
  */
-public class AceProcessDataWrapperMappingsTest extends TestCase {
+public class AceProcessAndWMScriptMappingTest extends TestCase {
 
     // @Test
     public void testDataIsWrappedInAllScriptScenarios() {
@@ -89,7 +89,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 "_cm07cIhgEemL0JNuli1Mqw"); //$NON-NLS-1$
 
         assertNotNull(
-                "Cannot find test activity 'Direct Script Mappings' (_cm07cIhgEemL0JNuli1Mqw)", //$NON-NLS-1$
+                "Cannot find test activity 'Direct Script Mappings' (_9JPIoIheEemL0JNuli1Mqw)", //$NON-NLS-1$
                 activity);
 
         /* Generate the script for the activity. */
@@ -97,14 +97,14 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 ((Task) activity.getImplementation()).getTaskScript();
 
         assertNotNull(
-                "Cannot find test TaskScript in 'Direct Script Mappings' (_cm07cIhgEemL0JNuli1Mqw)", //$NON-NLS-1$
+                "Cannot find test TaskScript in 'Direct Script Mappings' (_9JPIoIheEemL0JNuli1Mqw)", //$NON-NLS-1$
                 taskScript);
 
         String script = new DataMapperJavascriptGenerator()
                 .convertMappingsToJavascript(taskScript.getScript());
 
         assertNotNull(
-                "Script generation failed for 'Direct Script Mappings' (_cm07cIhgEemL0JNuli1Mqw)", //$NON-NLS-1$
+                "Script generation failed for 'Direct Script Mappings' (_9JPIoIheEemL0JNuli1Mqw)", //$NON-NLS-1$
                 script);
 
         /* Do some general 'all scripts must not' checking. */

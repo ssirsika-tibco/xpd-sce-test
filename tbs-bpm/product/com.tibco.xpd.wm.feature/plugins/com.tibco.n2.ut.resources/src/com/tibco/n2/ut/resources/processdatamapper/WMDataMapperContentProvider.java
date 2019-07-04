@@ -24,7 +24,7 @@ import com.tibco.xpd.xpdl2.DataField;
 /**
  * Content provider for {@link WMDataMapperContentContributor} - Data mapper
  * Content Contributor that supports the use of the content of the JavaScript
- * class "WorkManagerFactory" within User Task Work manager Scripts.
+ * class "bpm.workManager" within User Task Work manager Scripts.
  * <p>
  * Contributes the "Work Item" folder and it's content.
  * <p>
@@ -36,6 +36,12 @@ import com.tibco.xpd.xpdl2.DataField;
  */
 class WMDataMapperContentProvider extends
         AbstractStaticDataMapperContentProvider {
+
+    /*
+     * Sid ACE-1720 WorkManagerFactory JavaScript object is now wrapped up in
+     * the bpm.workManager property.
+     */
+    public static final String WORK_MANAGER_FACTORY_SCRIPT_OBJECT = "bpm.workManager"; //$NON-NLS-1$
 
     /**
      * @see com.tibco.xpd.datamapper.staticcontent.AbstractStaticDataMapperContentProvider#createContentCache()
@@ -73,16 +79,16 @@ class WMDataMapperContentProvider extends
 
         children.add(new StaticContentDataMapperElement(
                 "description", //$NON-NLS-1$
-                "WorkItem_Description$", "WorkManagerFactory.getWorkItem().description", //$NON-NLS-1$//$NON-NLS-2$
+                "WorkItem_Description$", WORK_MANAGER_FACTORY_SCRIPT_OBJECT + ".getWorkItem().description", //$NON-NLS-1$//$NON-NLS-2$
                 BasicTypeType.STRING_LITERAL, false, workItemFolder));
 
         children.add(new StaticContentDataMapperElement(
                 "priority", //$NON-NLS-1$
-                "WorkItem_Priority$", "WorkManagerFactory.getWorkItem().priority", //$NON-NLS-1$//$NON-NLS-2$
+                "WorkItem_Priority$", WORK_MANAGER_FACTORY_SCRIPT_OBJECT + ".getWorkItem().priority", //$NON-NLS-1$//$NON-NLS-2$
                 BasicTypeType.INTEGER_LITERAL, false, workItemFolder));
 
         children.add(new StaticContentDataMapperElement("cancel", //$NON-NLS-1$
-                "WorkItem_Cancel$", "WorkManagerFactory.getWorkItem().cancel", //$NON-NLS-1$//$NON-NLS-2$
+                "WorkItem_Cancel$", WORK_MANAGER_FACTORY_SCRIPT_OBJECT + ".getWorkItem().cancel", //$NON-NLS-1$//$NON-NLS-2$
                 BasicTypeType.BOOLEAN_LITERAL, false, workItemFolder));
 
         Collections.sort(children,

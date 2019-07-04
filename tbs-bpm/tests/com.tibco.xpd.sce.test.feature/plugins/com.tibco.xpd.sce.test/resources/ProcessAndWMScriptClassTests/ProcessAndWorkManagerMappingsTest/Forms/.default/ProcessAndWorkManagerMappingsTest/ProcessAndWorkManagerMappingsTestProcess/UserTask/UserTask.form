@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#__QTccZ5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=UserTask?" formatVersion="11.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/ProcessAndWorkManagerMappingsTest/ProcessAndWorkManagerMappingsTestProcess/UserTask/UserTask.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_jiFo8J5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromProcessStartTime?" name="data.FromProcessStartTime" label="FromProcessStartTime" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_p_piQZ5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToProcessPriority?" name="data.ToProcessPriority" label="ToProcessPriority" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_6P-9MZ5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromProcessPriority?" name="data.FromProcessPriority" label="FromProcessPriority" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_FyRUoJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemPriority?" name="data.ToWorkItemPriority" label="ToWorkItemPriority" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_JAHJoJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemCancel?" name="data.ToWorkItemCancel" label="ToWorkItemCancel" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_PJUjkJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemTextAttr?" name="data.ToWorkItemTextAttr" label="ToWorkItemTextAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_Q0aMYZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemNumberAttr?" name="data.ToWorkItemNumberAttr" label="ToWorkItemNumberAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" decimalPlaces="2" length="10" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_TaVFwZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemIntegerAttr?" name="data.ToWorkItemIntegerAttr" label="ToWorkItemIntegerAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_WwMOUJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkitemDateTimeAttr?" name="data.ToWorkitemDateTimeAttr" label="ToWorkitemDateTimeAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7hp5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemIntegerAttr?" name="data.FromWorkItemIntegerAttr" label="FromWorkItemIntegerAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7h55QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkitemDateTimeAttr?" name="data.FromWorkitemDateTimeAttr" label="FromWorkitemDateTimeAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7iJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemTextAttr?" name="data.FromWorkItemTextAttr" label="FromWorkItemTextAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug" length="50" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7iZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemCancel?" name="data.FromWorkItemCancel" label="FromWorkItemCancel" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7ip5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemPriority?" name="data.FromWorkItemPriority" label="FromWorkItemPriority" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" length="15" inout="INOUT"/>
+    <form:parameter generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7i55QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemNumberAttr?" name="data.FromWorkItemNumberAttr" label="FromWorkItemNumberAttr" dataType="uml:PrimitiveType pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g" decimalPlaces="2" length="10" inout="INOUT"/>
+  </form:dataModel>
+  <form:actions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_7FDDUJ5XEemc8sVAXQvGcA">
+      <form:source target="data.FromProcessStartTime" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromProcessStartTime.value"/>
+      <form:destination target="control.FromProcessStartTime" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromProcessStartTime.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FDDUZ5XEemc8sVAXQvGcA">
+      <form:source target="data.ToProcessPriority" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToProcessPriority.value"/>
+      <form:destination target="control.ToProcessPriority" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToProcessPriority.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfkJ5XEemc8sVAXQvGcA">
+      <form:source target="data.FromProcessPriority" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromProcessPriority.value"/>
+      <form:destination target="control.FromProcessPriority" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromProcessPriority.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfkZ5XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkItemPriority" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkItemPriority.value"/>
+      <form:destination target="control.ToWorkItemPriority" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkItemPriority.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfkp5XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkItemCancel" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkItemCancel.value"/>
+      <form:destination target="control.ToWorkItemCancel" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkItemCancel.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfk55XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkItemTextAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkItemTextAttr.value"/>
+      <form:destination target="control.ToWorkItemTextAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkItemTextAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFflJ5XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkItemNumberAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkItemNumberAttr.value"/>
+      <form:destination target="control.ToWorkItemNumberAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkItemNumberAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFflZ5XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkItemIntegerAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkItemIntegerAttr.value"/>
+      <form:destination target="control.ToWorkItemIntegerAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkItemIntegerAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFflp5XEemc8sVAXQvGcA">
+      <form:source target="data.ToWorkitemDateTimeAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ToWorkitemDateTimeAttr.value"/>
+      <form:destination target="control.ToWorkitemDateTimeAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ToWorkitemDateTimeAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfl55XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkItemIntegerAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkItemIntegerAttr.value"/>
+      <form:destination target="control.FromWorkItemIntegerAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkItemIntegerAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfmJ5XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkitemDateTimeAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkitemDateTimeAttr.value"/>
+      <form:destination target="control.FromWorkitemDateTimeAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkitemDateTimeAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfmZ5XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkItemTextAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkItemTextAttr.value"/>
+      <form:destination target="control.FromWorkItemTextAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkItemTextAttr.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FFfmp5XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkItemCancel" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkItemCancel.value"/>
+      <form:destination target="control.FromWorkItemCancel" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkItemCancel.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FH70J5XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkItemPriority" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkItemPriority.value"/>
+      <form:destination target="control.FromWorkItemPriority" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkItemPriority.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_7FH70Z5XEemc8sVAXQvGcA">
+      <form:source target="data.FromWorkItemNumberAttr" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.FromWorkItemNumberAttr.value"/>
+      <form:destination target="control.FromWorkItemNumberAttr" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.FromWorkItemNumberAttr.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>User Task</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="left"/>
+    </form:defaults>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_jiFo8J5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromProcessStartTime?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.FromProcessStartTime">
+      <form:propertySet xsi:type="et:DateTimePropertySet">
+        <et:minRelative>true</et:minRelative>
+        <et:maxRelative>true</et:maxRelative>
+        <et:year min="-20" max="20"/>
+        <et:minute increment="15"/>
+      </form:propertySet>
+      <form:label>FromProcessStartTime</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_p_piQZ5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToProcessPriority?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ToProcessPriority">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>ToProcessPriority</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_6P-9MZ5PEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromProcessPriority?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FromProcessPriority">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>FromProcessPriority</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_FyRUoJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemPriority?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ToWorkItemPriority">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>ToWorkItemPriority</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_JAHJoJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemCancel?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.ToWorkItemCancel">
+      <form:label>ToWorkItemCancel</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_PJUjkJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemTextAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ToWorkItemTextAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>ToWorkItemTextAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_Q0aMYZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemNumberAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ToWorkItemNumberAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>15</et:displayLength>
+        <et:maxLength>10</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+      </form:propertySet>
+      <form:label>ToWorkItemNumberAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_TaVFwZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkItemIntegerAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ToWorkItemIntegerAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>ToWorkItemIntegerAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_WwMOUJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=ToWorkitemDateTimeAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.ToWorkitemDateTimeAttr">
+      <form:propertySet xsi:type="et:DateTimePropertySet">
+        <et:minRelative>true</et:minRelative>
+        <et:maxRelative>true</et:maxRelative>
+        <et:year min="-20" max="20"/>
+        <et:minute increment="15"/>
+      </form:propertySet>
+      <form:label>ToWorkitemDateTimeAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7hp5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemIntegerAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FromWorkItemIntegerAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>FromWorkItemIntegerAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7h55QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkitemDateTimeAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.datetime" controlType="com.tibco.forms.controls.datetime" name="control.FromWorkitemDateTimeAttr">
+      <form:propertySet xsi:type="et:DateTimePropertySet">
+        <et:minRelative>true</et:minRelative>
+        <et:maxRelative>true</et:maxRelative>
+        <et:year min="-20" max="20"/>
+        <et:minute increment="15"/>
+      </form:propertySet>
+      <form:label>FromWorkitemDateTimeAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7iJ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemTextAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FromWorkItemTextAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>40</et:displayLength>
+        <et:maxLength>50</et:maxLength>
+      </form:propertySet>
+      <form:label>FromWorkItemTextAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7iZ5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemCancel?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.checkbox" controlType="com.tibco.forms.controls.checkbox" name="control.FromWorkItemCancel">
+      <form:label>FromWorkItemCancel</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7ip5QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemPriority?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FromWorkItemPriority">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>20</et:displayLength>
+        <et:maxLength>15</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal</et:formatRef>
+      </form:propertySet>
+      <form:label>FromWorkItemPriority</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control generated="true" generatorSource="ProcessAndWorkManagerMappingsTest.xpdl#_bAb7i55QEemBuMq6mmcR8A?p=ProcessAndWorkManagerMappingsTest%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcessAndWorkManagerMappingsTest%3a%3aProcessAndWorkManagerMappingsTestProcess%26n=FromWorkItemNumberAttr?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.FromWorkItemNumberAttr">
+      <form:propertySet xsi:type="et:TextPropertySet">
+        <et:displayLength>15</et:displayLength>
+        <et:maxLength>10</et:maxLength>
+        <et:numeric>true</et:numeric>
+        <et:formatRef>resource.common.format_decimal_2</et:formatRef>
+      </form:propertySet>
+      <form:label>FromWorkItemNumberAttr</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

@@ -4,17 +4,28 @@
 
 package com.tibco.xpd.sce.tests.javascript;
 
-import java.util.List;
+import java.util.Map;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.ecore.resource.Resource;
 
-import com.tibco.xpd.core.test.util.TestResourceInfo;
+import com.tibco.n2.brm.api.WorkItemScriptOperation;
+import com.tibco.n2.brm.api.WorkModel;
+import com.tibco.n2.brm.api.WorkModelScript;
+import com.tibco.n2.brm.workmodel.DocumentRoot;
+import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.core.test.util.TestUtil;
-import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
-import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
+import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
+import com.tibco.xpd.n2.brm.BRMGenerator;
 import com.tibco.xpd.resources.util.ProjectImporter;
+import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.Task;
+import com.tibco.xpd.xpdl2.TaskScript;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
+
+import junit.framework.TestCase;
 
 /**
  * In ACE the old "Process" and "WorkManagerFactory" static JS classes are now
@@ -24,333 +35,167 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  * @author aallway
  * @since 02 Jul 2019
  */
-public class AceProcessAndWMScriptTest extends AbstractN2BaseValidationTest {
+public class AceProcessAndWMScriptTest extends TestCase {
 
-    private ProjectImporter projectImporter;
+    // @Test
+    public void testDataIsWrappedInAllScriptScenarios() {
+        ProjectImporter projectImporter = importMainTestProjects();
 
-    public AceProcessAndWMScriptTest() {
-        super(true);
+        IProject mapperProject =
+                ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessAndWorkManagerMappingsTest"); //$NON-NLS-1$
+
+        Process process = ProcessUIUtil.getProcesById("_QH-ZoJ5PEemBuMq6mmcR8A"); //$NON-NLS-1$
+
+        assertNotNull("Cannot find test process 'ProcessAndWorkManagerMappingsTest-Process' (_QH-ZoJ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
+                process);
+
+        checkProcessDataMapperScriptGeneration(process);
+
+        checkWorkItemAttributeMapperScriptGeneration(mapperProject);
+        projectImporter.performDelete();
+    }
+
+
+
+
+    /**
+     * Test process data mapper script task. (checking that the various changes
+     * from AMX BPM EMF based scripting have been made to deal with the JS based
+     * ACE scripting).
+     * 
+     * @param process
+     */
+    private void checkProcessDataMapperScriptGeneration(Process process) {
+        Activity activity = Xpdl2ModelUtil.getActivityById(process, "_cZl8QZ5PEemBuMq6mmcR8A"); //$NON-NLS-1$
+
+        assertNotNull("Cannot find test activity 'Script Task' (_cZl8QZ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
+                activity);
+
+        /* Generate the script for the activity. */
+        TaskScript taskScript = ((Task) activity.getImplementation()).getTaskScript();
+
+        assertNotNull("Cannot find test TaskScript in 'Script Task' (_cZl8QZ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
+                taskScript);
+
+        String script = new DataMapperJavascriptGenerator().convertMappingsToJavascript(taskScript.getScript());
+
+        assertNotNull("Script generation failed for 'Script Task' (_cZl8QZ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
+                script);
+
+        /* Do some general 'all scripts must not' checking. */
+        String context = "bpm.process mappings"; //$NON-NLS-1$
+
+        /*
+         * Check some specifics of the stuff that ACE-1318 dealt with.
+         */
+        assertTrue(context + ": Map from Process.priority property should be wrapped as 'bpm.process'.", //$NON-NLS-1$
+                script.contains("= bpm.process.priority;")); //$NON-NLS-1$
+
+        assertTrue(context + ": Map from Process.starttime property should be wrapped as 'bpm.process'.", //$NON-NLS-1$
+                script.contains("= bpm.process.getStartTime();")); //$NON-NLS-1$
+
+        assertTrue(context + ": Map to Process.priority property should be wrapped as 'bpm.process'.", //$NON-NLS-1$
+                script.contains("bpm.process.priority =")); //$NON-NLS-1$
+
     }
 
     /**
-     * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#customTestResourceSetup()
-     *
+     * Check that the work item attribute data mapping script generation is
+     * working correctly (all process data is wrapped in the "data" object)
+     * 
+     * @param mapperProject
      */
-    @Override
-    protected void customTestResourceSetup() {
+    private void checkWorkItemAttributeMapperScriptGeneration(IProject mapperProject) {
+
+        Map<String, Resource> brmModels =
+                BRMGenerator.getInstance().generateBRMModels(mapperProject, "1.0.0.123456789"); //$NON-NLS-1$
+
+        Resource workModelResource = brmModels.get(BRMGenerator.WORKMODEL_ARTIFACT_NAME);
+
+        assertNotNull("workmodel.wm should have been generated", //$NON-NLS-1$
+                workModelResource);
+
+        com.tibco.n2.brm.workmodel.DocumentRoot documentRoot = (DocumentRoot) workModelResource.getContents().get(0);
+
+        com.tibco.n2.brm.workmodel.WorkModel workModel = documentRoot.getWorkModels();
+        WorkModel taskWorkModel = null;
+        for (WorkModel wm : workModel.getWorkModel()) {
+            if ("WM___QTccZ5PEemBuMq6mmcR8A".equals(wm.getWorkModelUID())) { //$NON-NLS-1$
+                taskWorkModel = wm;
+                break;
+            }
+        }
+
+        assertNotNull("workmodel.wm should have a WorkModel with UUID 'WM___QTccZ5PEemBuMq6mmcR8A'", //$NON-NLS-1$
+                taskWorkModel);
+
+        WorkModelScript workModelScript = null;
+
+        for (WorkModelScript script : taskWorkModel.getWorkModelScripts().getWorkModelScript()) {
+            if (WorkItemScriptOperation.SCHEDULE.equals(script.getScriptOperation())) {
+                workModelScript = script;
+                break;
+            }
+        }
+
+        assertNotNull("WorkModel 'WM___QTccZ5PEemBuMq6mmcR8A' should have a work WorkModelScript", //$NON-NLS-1$
+                workModelScript);
+
         /*
-         * This test doesn't create files via the normal getTestResources()
-         * because we want to import and migrate a whole project from AMX BPM.
+         * Check content of script.
          */
-        projectImporter = TestUtil.importProjectsFromZip(
-                "com.tibco.xpd.sce.test", //$NON-NLS-1$
-                new String[] {
-                        "resources/ProcessAndWMScriptClassTests/ProcessAndWorkManagerJSClassTest/" }, //$NON-NLS-1$
-                new String[] { "ProcessAndWorkManagerJSClassTest" }); //$NON-NLS-1$
+        String scriptText = workModelScript.getScriptBody();
+
+        /* Do some general 'all scripts must not' checking. */
+        String context = "bpm.workManager mappings"; //$NON-NLS-1$
+
+        /*
+         * Check some specifics of the stuff that ACE-1318 dealt with.
+         */
+        assertTrue(context + ": Map from WorkManager.cancel property should be wrapped as 'bpm.workManager'.", //$NON-NLS-1$
+                scriptText.contains("= bpm.workManager.getWorkItem().cancel;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Map from WorkManager.workItemAttributes.attributes properties should be wrapped as 'bpm.workManager'.", //$NON-NLS-1$
+                scriptText.contains("= bpm.workManager.getWorkItem().workItemAttributes.attribute6;") && //$NON-NLS-1$
+                        scriptText.contains("= bpm.workManager.getWorkItem().workItemAttributes.attribute1;") //$NON-NLS-1$
+                        && scriptText.contains("= bpm.workManager.getWorkItem().workItemAttributes.attribute5;") //$NON-NLS-1$
+                        && scriptText.contains("= bpm.workManager.getWorkItem().workItemAttributes.attribute2;")); //$NON-NLS-1$
+
+        assertTrue(context + ": Map from WorkManager.priority property should be wrapped as 'bpm.workManager'.", //$NON-NLS-1$
+                scriptText.contains("= bpm.workManager.getWorkItem().priority;")); //$NON-NLS-1$
+
+        assertTrue(context + ": Map to WorkManager.priority property should be wrapped as 'bpm.workManager'.", //$NON-NLS-1$
+                scriptText.contains("bpm.workManager.getWorkItem().priority =")); //$NON-NLS-1$
 
         assertTrue(
-                "Failed to load projects from resources/ProcessAndWMScriptClassTests/", //$NON-NLS-1$
+                context + ": Map to WorkManager.workItemAttributes properties should be wrapped as 'bpm.workManager'.", //$NON-NLS-1$
+                scriptText.contains("bpm.workManager.getWorkItem().workItemAttributes.attribute1 =") && //$NON-NLS-1$
+                        scriptText.contains("bpm.workManager.getWorkItem().workItemAttributes.attribute2 =") && //$NON-NLS-1$
+                        scriptText.contains("bpm.workManager.getWorkItem().workItemAttributes.attribute5 =") && //$NON-NLS-1$
+                        scriptText.contains("bpm.workManager.getWorkItem().workItemAttributes.attribute6 =")); //$NON-NLS-1$
+
+    }
+
+    /**
+     * Import all projects from test plugin resources for the main test
+     * 
+     * @return the project importer
+     */
+    private ProjectImporter importMainTestProjects() {
+        /*
+         * Import and migrate the project
+         */
+
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+                new String[] { "resources/ProcessAndWMScriptClassTests/ProcessAndWorkManagerMappingsTest/" }, //$NON-NLS-1$
+                new String[] { "ProcessAndWorkManagerMappingsTest" }); //$NON-NLS-1$
+
+        assertTrue("Failed to load projects from resources/ProcessAndWMScriptClassTests/", //$NON-NLS-1$
                 projectImporter != null);
 
         TestUtil.buildAndWait();
-    }
 
-    /**
-     * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#tearDown()
-     *
-     * @throws Exception
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        projectImporter.performDelete();
-        super.tearDown();
-    }
-
-    /**
-     * AceBomFactoryValidationsTest
-     * 
-     * @throws Exception
-     */
-    public void testAceBomFactoryValidationsTest() throws Exception {
-        cleanProjectAtEnd = false;
-
-        doTestValidations();
-
-        /*
-         * Check that the XPDL that has valid use of class factories and enum
-         * packages is free from error markers.
-         */
-        IFile noErrorsXpdl =
-                ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessAndWorkManagerJSClassTest") //$NON-NLS-1$
-                        .getFolder("Process Packages") //$NON-NLS-1$
-                        .getFile("ValidUsage.xpdl"); //$NON-NLS-1$
-
-        assertTrue("ValidUsage.xpdl should exist.", //$NON-NLS-1$
-                noErrorsXpdl != null && noErrorsXpdl.isAccessible());
-
-        List<ValidationsTestProblemMarkerInfo> problemMarkers = getProblemMarkers(noErrorsXpdl);
-
-        for (ValidationsTestProblemMarkerInfo markerInfo : problemMarkers) {
-            assertFalse("ValidUsage.xpdl should not have error level problem markers (has at least one)", //$NON-NLS-1$
-                    markerInfo.getSourceMarker().getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR);
-
-        }
-
-        return;
-    }
-
-    @Override
-    protected ValidationsTestProblemMarkerInfo[] getValidationProblemMarkerInfos() {
-        ValidationsTestProblemMarkerInfo[] markerInfos = new ValidationsTestProblemMarkerInfo[] {
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateScriptTask", //$NON-NLS-1$
-                        "_68N2kJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:1 column:25, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Mappy:Script1)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateScriptTask", //$NON-NLS-1$
-                        "_68N2kJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:2 column:1, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Mappy:Script1)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateTimerEventScript", //$NON-NLS-1$
-                        "_7piFAJzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : Timer Script::At Line:1 column:18, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:TimerEvent)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateTimerEventScript", //$NON-NLS-1$
-                        "_7piFAJzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : Timer Script::At Line:1 column:23, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:TimerEvent)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateScriptTask", //$NON-NLS-1$
-                        "_B1VqgJzbEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:1 column:24, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Mappy:Script1)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateScriptTask", //$NON-NLS-1$
-                        "_B1VqgJzbEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:2 column:1, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Mappy:Script1)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateStdLoopExpr", //$NON-NLS-1$
-                        "_bqwl0JzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : Std Loop Expr::At Line:1 column:19, Numeric Unary Operators should be only on Numeric values (InvalidUsageProcess:Loopy)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateStdLoopExpr", //$NON-NLS-1$
-                        "_bqwl0JzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : Std Loop Expr::At Line:1 column:19, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Loopy)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskCancelScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : CancelScript::At Line:1 column:25, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskCancelScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : CancelScript::At Line:2 column:40, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskCompleteScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : CompleteScript::At Line:1 column:25, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskCompleteScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : CompleteScript::At Line:2 column:40, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskInitiateScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : InitiateScript::At Line:10 column:58, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskInitiateScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : InitiateScript::At Line:2 column:25, The process priority property must be in the range 100 to 400 (or null for system default). (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskInitiateScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : InitiateScript::At Line:5 column:61, Property workManager is invalid for the current context (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskInitiateScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : InitiateScript::At Line:7 column:25, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskInitiateScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : InitiateScript::At Line:8 column:40, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskTimoutScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : TimeoutScript::At Line:1 column:25, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.taskTimoutScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : TimeoutScript::At Line:2 column:40, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskCloseScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : CloseScript::At Line:1 column:72, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskOpenScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : OpenScript::At Line:1 column:72, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskRescheduleScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : RescheduleScript::At Line:1 column:72, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskScheduleScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : ScheduleScript::At Line:2 column:27, Property process is invalid for the current context (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskScheduleScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : ScheduleScript::At Line:5 column:72, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskScheduleScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : ScheduleScript::At Line:7 column:64, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.error.userTaskSubmitScript", //$NON-NLS-1$
-                        "_hhYQYZzZEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : SubmitScript::At Line:1 column:72, Variable WorkManagerFactory not defined or is not associated in the task interface. (InvalidUsageProcess:UserTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateScriptTask", //$NON-NLS-1$
-                        "_J7UIkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:1 column:51, Variable Process not defined or is not associated in the task interface. (InvalidUsagePageflowProcess:ScriptTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateMIAdditionalInstancesExpr", //$NON-NLS-1$
-                        "_kFqVkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : MI Additional Instances Expr::At Line:1 column:27, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Loopy2)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateMIComplexExitExpr", //$NON-NLS-1$
-                        "_kFqVkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : MI Complex Exit Expr::At Line:1 column:23, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Loopy2)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateMIComplexExitExpr", //$NON-NLS-1$
-                        "_kFqVkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : MI Complex Exit Expr::At Line:2 column:1, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Loopy2)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateMILoopExpr", //$NON-NLS-1$
-                        "_kFqVkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : MI Loop Expr::At Line:1 column:19, Numeric Unary Operators should be only on Numeric values (InvalidUsageProcess:Loopy2)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/InvalidUsage.xpdl", //$NON-NLS-1$
-                        "bx.validateMILoopExpr", //$NON-NLS-1$
-                        "_kFqVkJzaEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : MI Loop Expr::At Line:1 column:19, Variable Process not defined or is not associated in the task interface. (InvalidUsageProcess:Loopy2)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-
-                new ValidationsTestProblemMarkerInfo(
-                        "/ProcessAndWorkManagerJSClassTest/Process Packages/ValidUsage.xpdl", //$NON-NLS-1$
-                        "bx.warning.validateScriptTask", //$NON-NLS-1$
-                        "_RKblTpzbEem6BdVd2XfGcQ", //$NON-NLS-1$
-                        "BPM  : At Line:1 column:55, The method auditLog is not available in Pageflows/Business Services. (ValidUsagePageflowProcess:ScriptTask)", //$NON-NLS-1$
-                        ""), //$NON-NLS-1$
-        };
-        return markerInfos;
-    }
-
-    @Override
-    protected String getTestName() {
-        return "AceProcessAndWMScriptTest"; //$NON-NLS-1$
-    }
-
-    @Override
-    protected String getTestPlugInId() {
-        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
-    }
-
-    @Override
-    protected TestResourceInfo[] getTestResources() {
-        TestResourceInfo[] testResources = new TestResourceInfo[] {};
-
-        return testResources;
+        return projectImporter;
     }
 }
