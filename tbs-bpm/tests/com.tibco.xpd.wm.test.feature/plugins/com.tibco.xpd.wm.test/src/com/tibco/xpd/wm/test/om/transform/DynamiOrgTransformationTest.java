@@ -3,14 +3,14 @@
  */
 package com.tibco.xpd.wm.test.om.transform;
 
-import junit.framework.Assert;
-
 import com.tibco.n2.directory.model.de.AllocationMethod;
 import com.tibco.n2.directory.model.de.ModelOrgUnit;
 import com.tibco.n2.directory.model.de.ModelTemplate;
 import com.tibco.n2.directory.model.de.ModelType;
 import com.tibco.n2.directory.model.de.Position;
 import com.tibco.xpd.om.core.om.OrgModel;
+
+import junit.framework.Assert;
 
 /**
  * Test to validate the transformed DynamicOrgModel and DynamicOrgUnit. This

@@ -10,8 +10,6 @@ package com.tibco.xpd.xpdl2.resources;
 
 import java.util.Collection;
 
-import javax.transaction.TransactionRolledbackException;
-
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;

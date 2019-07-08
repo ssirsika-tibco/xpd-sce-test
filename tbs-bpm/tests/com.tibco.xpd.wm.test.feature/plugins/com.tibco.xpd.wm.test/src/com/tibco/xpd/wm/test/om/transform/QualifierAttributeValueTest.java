@@ -6,8 +6,6 @@ package com.tibco.xpd.wm.test.om.transform;
 
 import java.math.BigDecimal;
 
-import javax.xml.bind.DatatypeConverter;
-
 import com.tibco.n2.directory.model.de.DataType;
 import com.tibco.n2.directory.model.de.ModelOrgUnit;
 import com.tibco.n2.directory.model.de.ModelTemplate;
@@ -282,16 +280,15 @@ public class QualifierAttributeValueTest extends AbstractDETransformationTest {
             assertNotNull("ModelOrgUnit - qualifier value missing",
                     quafiliedHolding.getTime());
             assertEquals(String.format("Qualifier value does not match for %1s",
-                    DatatypeConverter.parseTime(qualifierValue)),
-                    DatatypeConverter.parseTime(qualifierValue),
+                    qualifierValue),
+                    qualifierValue,
                     quafiliedHolding.getTime());
             break;
         case DATE:
             assertNotNull("ModelOrgUnit - qualifier value missing",
                     quafiliedHolding.getDate());
             assertEquals(String.format("Qualifier value does not match for %1s",
-                    DatatypeConverter.parseDate(qualifierValue)),
-                    DatatypeConverter.parseDate(qualifierValue),
+                    qualifierValue), qualifierValue,
                     quafiliedHolding.getDate());
             break;
         case DATE_TIME:
@@ -299,7 +296,7 @@ public class QualifierAttributeValueTest extends AbstractDETransformationTest {
                     quafiliedHolding.getDateTime());
             assertEquals(String.format("Qualifier value does not match for %1s",
                     qualifierValue),
-                    DatatypeConverter.parseDateTime(qualifierValue),
+                    qualifierValue,
                     quafiliedHolding.getDateTime());
             break;
         case DECIMAL:
