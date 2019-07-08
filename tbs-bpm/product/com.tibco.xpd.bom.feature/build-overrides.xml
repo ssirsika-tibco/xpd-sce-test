@@ -5,8 +5,8 @@
 	 -->
 	<property name="autobuild.obfuscator.style" value="none" />
 
-	<property name="autobuild.version.eclipse" value="4.7"/>
-	<property name="autobuild.version.eclipse-host" value="4.7"/>
+	<property name="autobuild.version.eclipse" value="4.11"/>
+	<property name="autobuild.version.eclipse-host" value="4.11"/>
 
 	<!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
@@ -42,6 +42,8 @@
    
 	<updatesites id="autobuild.workspace.update-sites.list">
 		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml" />
+		<!-- TODO: Remove -->
+		<updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
 	</updatesites>
 
 </project>

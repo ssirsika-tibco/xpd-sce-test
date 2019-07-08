@@ -64,11 +64,13 @@ public class InstallSampleProjectOperation implements IRunnableWithProgress {
 	this.structureProvider = null;
     }
 
+    @Override
     public void run(IProgressMonitor monitor) throws InvocationTargetException,
 	    InterruptedException {
 	try {
 	    IWorkspaceRunnable op = new IWorkspaceRunnable() {
-		public void run(IProgressMonitor monitor) throws CoreException {
+		@Override
+        public void run(IProgressMonitor monitor) throws CoreException {
 		    try {
 			monitor.beginTask(
 			        Messages.InstallSampleProjectOperation_CreatingProjects,
@@ -230,7 +232,8 @@ public class InstallSampleProjectOperation implements IRunnableWithProgress {
 	final int[] result = { IDialogConstants.CANCEL_ID };
 
 	Display.getDefault().syncExec(new Runnable() {
-	    public void run() {
+	    @Override
+        public void run() {
 		String title = Messages.InstallSampleProjectOperation_SampleWizard;
 		String msg = String
 		        .format(Messages.InstallSampleProjectOperation_ProjectAlreadyExists,
@@ -270,7 +273,8 @@ public class InstallSampleProjectOperation implements IRunnableWithProgress {
 	        0, monitor);
 
 	for (ProjectRecord pr : lstProjs) {
-	    List<Object> fileSystemObjects = structureProvider
+            List<?> fileSystemObjects =
+                    structureProvider
 		    .getChildren(pr.parent);
 	    IPath pt = new Path(pr.getProjectName());
 
@@ -313,7 +317,8 @@ public class InstallSampleProjectOperation implements IRunnableWithProgress {
      * @author rgreen
      */
     private class ImportOverwriteQuery implements IOverwriteQuery {
-	public String queryOverwrite(String file) {
+	@Override
+    public String queryOverwrite(String file) {
 	    String[] returnCodes = { YES, NO, ALL, CANCEL };
 
 	    int returnVal = openDialogProjectExists(file);
@@ -525,7 +530,7 @@ public class InstallSampleProjectOperation implements IRunnableWithProgress {
 		uri.append(c);
 	    } else if (c <= 0x007f) {
 		uri.append("%");
-		uri.append(Integer.toHexString((int) c));
+		uri.append(Integer.toHexString(c));
 	    } else {
 		try {
 		    uri.append(URLEncoder.encode(Character.toString(c), "UTF-8"));

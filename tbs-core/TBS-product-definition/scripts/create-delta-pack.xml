@@ -23,7 +23,7 @@
 		</tstamp>
 		<property name="projectDir" value="${basedir}" />
 		<!--property name="buildLabel" value="latestIBuild" /-->
-		<property name="buildLabel" value="471a-${timestamp}" />
+		<property name="buildLabel" value="411-${timestamp}" />
 		<property name="resultsDir" value="${projectDir}/results" />
 		<property name="buildlogs" value="${resultsDir}/buildlogs" />
 		<property name="checksum" value="${resultsDir}/checksum" />
@@ -33,7 +33,7 @@
 		<echo>${buildlogs}/deltaPack-${buildLabel}-log.txt</echo>
 		<record name="${buildlogs}/deltaPack-latestIBuild-log.txt" action="start" />
 
-		<property name="buildRepo" value="http://download.eclipse.org/eclipse/updates/4.7" />
+		<property name="buildRepo" value="http://download.eclipse.org/eclipse/updates/4.11" />
 		<property name="projectDir" value="${basedir}" />
 		<property name="archivePrefix" value="eclipse" />
 

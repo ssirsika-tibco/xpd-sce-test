@@ -8,6 +8,17 @@
 1. Follow the instructions  (you need to provide user and password for reldist (your domain user and password)).
 1. Refresh the project in eclipse.
 
+######################
+
+Note:
+If you are using an xxx.product file to configure the RCP check the 'Start Levels' section of the 'Configuration' tab. Use the 'Add Recommended' button to add the recommended start configuration which includes org.eclipse.equinox.ds.
+
+**For Eclipse 2018-09 onwards org.apache.felix.scr replaces org.eclipse.equinox.ds and requires similar start level configuration.**
+
+See also: https://stackoverflow.com/questions/52207542/rcp-application-run-from-eclipse-runs-fine-exporting-it-throws-injectionexcepti
+
+######################
+
 ## Script to create a delta pack
 
 1. Modify properties if needed in the (for example you may want to change 'buildRepo' property to point to a specific source repository, and also 'buildLabel').
@@ -23,4 +34,4 @@ The zip then you should unpack it in the resources folder (and commit this folde
 
 The unpacked delta-pack should be used in the 'tbs-product-tp.target' to build a product repository assembly.
 
-See also: <https://wiki.eclipse.org/A_Brief_Overview_of_Building_at_Eclipse#Preferred_way_of_doing_multi-platform_builds>
+See also: [Multi-platform eclipse build](https://wiki.eclipse.org/A_Brief_Overview_of_Building_at_Eclipse#Preferred_way_of_doing_multi-platform_builds)

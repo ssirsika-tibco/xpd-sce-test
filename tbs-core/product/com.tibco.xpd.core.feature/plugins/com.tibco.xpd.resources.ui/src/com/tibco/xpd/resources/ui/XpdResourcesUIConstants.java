@@ -6,10 +6,10 @@ package com.tibco.xpd.resources.ui;
 public class XpdResourcesUIConstants {
     /** type of factory for ProcessDiagram adapters */
 
-    public static final String NAVIGATOR_PROJECT = "icons/Project 16 n p.gif"; //$NON-NLS-1$
+    public static final String NAVIGATOR_PROJECT = "icons/Project16np.gif"; //$NON-NLS-1$
 
     public static final String NAVIGATOR_PROJECT_CLOSE =
-            "icons/Project 16 d p.gif"; //$NON-NLS-1$
+            "icons/Project16dp.gif"; //$NON-NLS-1$
 
     public static final String QUICKFIX_ACTION_ICON =
             "icons/errorwarning_tab.gif"; //$NON-NLS-1$
@@ -29,16 +29,16 @@ public class XpdResourcesUIConstants {
     public static final String STAGE_FILE = "icons/StageFile.gif"; //$NON-NLS-1$
 
     public static final String BUSINESS_RULES =
-            "icons/Business Rule 16 n p.png"; //$NON-NLS-1$
+            "icons/BusinessRule16np.png"; //$NON-NLS-1$
 
-    public static final String SIMULATION = "icons/Simulation 16 n p.gif"; //$NON-NLS-1$
+    public static final String SIMULATION = "icons/Simulation16np.gif"; //$NON-NLS-1$
 
     /*
      * Don't think these are used anymore. Sid 06/02/07 public static final
      * String FOLDER = "icons/FolderIcon.png";
      */
 
-    public static final String DOMAIN_MODEL = "icons/Domain Model 16 n p.png"; //$NON-NLS-1$
+    public static final String DOMAIN_MODEL = "icons/DomainModel16np.png"; //$NON-NLS-1$
 
     public static final String ERROR_OVERLAY = "icons/overlay/error.gif"; //$NON-NLS-1$
 

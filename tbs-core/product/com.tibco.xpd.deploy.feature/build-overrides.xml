@@ -6,8 +6,8 @@
     <!-- <property name="autobuild.obfuscator.style" value="package" /> -->
 	<property name="autobuild.obfuscator.style" value="none" />
 
-    <property name="autobuild.version.eclipse" value="4.7"/>
-	<property name="autobuild.version.eclipse-host" value="4.7"/>
+    <property name="autobuild.version.eclipse" value="4.11"/>
+	<property name="autobuild.version.eclipse-host" value="4.11"/>
 
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
@@ -45,6 +45,8 @@
 		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>
 		<updatesite url="http://spin.tibco.com/eclipse-4.4/thirdparty/site.xml"/>
 		<updatesite url="http://spin.tibco.com/eclipse-3.7/thirdparty/site.xml"/>
+          <!-- TODO: Remove -->
+		<updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
 		<!-- <updatesite url="http://studiobuild.emea.tibco.com/userContent/oxygen-update-site-2/site.xml"/> -->
 		<!-- <updatesite url="file:///C:/src/ws/ws-oxygen-local-update-site/oxygen-update-site/site.xml"/> -->
    </updatesites>

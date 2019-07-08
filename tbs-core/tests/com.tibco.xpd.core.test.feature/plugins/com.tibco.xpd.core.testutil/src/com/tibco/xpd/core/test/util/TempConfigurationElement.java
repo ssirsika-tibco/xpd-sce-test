@@ -285,4 +285,9 @@ public class TempConfigurationElement implements IConfigurationElement {
 
     }
 
+	@Override
+	public int getHandleId() {
+		return 0;
+	}
+
 }

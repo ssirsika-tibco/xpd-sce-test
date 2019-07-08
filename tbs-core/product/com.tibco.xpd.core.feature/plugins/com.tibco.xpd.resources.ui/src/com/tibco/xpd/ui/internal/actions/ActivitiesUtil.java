@@ -281,7 +281,7 @@ public class ActivitiesUtil {
 
         Map<String, Set<String>> activityCategories =
                 new HashMap<String, Set<String>>();
-        for (String catId : (Set<String>) activityManager
+        for (String catId : activityManager
                 .getDefinedCategoryIds()) {
             ICategory category = activityManager.getCategory(catId);
             Set<ICategoryActivityBinding> catBindings =
@@ -351,7 +351,7 @@ public class ActivitiesUtil {
         // maps activity id to set of categories id
         Map<String, Set<String>> activityCategories =
                 new HashMap<String, Set<String>>();
-        for (String catId : (Set<String>) activityManager
+        for (String catId : activityManager
                 .getDefinedCategoryIds()) {
             ICategory category = activityManager.getCategory(catId);
             Set<ICategoryActivityBinding> catBindings =
@@ -371,7 +371,7 @@ public class ActivitiesUtil {
         Set<String> activitiesOfCategory = getCategoryActivities(categoryId);
 
         Set<String> result = new HashSet<String>();
-        for (String activityId : (Set<String>) activityManager
+        for (String activityId : activityManager
                 .getDefinedActivityIds()) {
             IActivity activity = activityManager.getActivity(activityId);
             Set<IActivityRequirementBinding> reqBindings =
@@ -480,7 +480,7 @@ public class ActivitiesUtil {
      */
     @SuppressWarnings("unchecked")
     public static boolean isCategoryEmpty(ICategory category) {
-        Set<Object> activities = category.getCategoryActivityBindings();
+        Set<?> activities = category.getCategoryActivityBindings();
         if (activities.isEmpty()) {
             return true;
         }
@@ -508,12 +508,12 @@ public class ActivitiesUtil {
             IActivityManager activityManager =
                     activitySupport.getActivityManager();
             IActivity activity = activityManager.getActivity(activityId);
-            Set<IActivity> requiredActivities =
+            Set<IActivityRequirementBinding> requiredActivities =
                     activity.getActivityRequirementBindings();
             String[] result = new String[requiredActivities.size()];
             int i = 0;
-            for (IActivity activity2 : requiredActivities) {
-                result[i++] = activity2.getId();
+            for (IActivityRequirementBinding activity2 : requiredActivities) {
+                result[i++] = activity2.getActivityId();
             }
             return result;
         }

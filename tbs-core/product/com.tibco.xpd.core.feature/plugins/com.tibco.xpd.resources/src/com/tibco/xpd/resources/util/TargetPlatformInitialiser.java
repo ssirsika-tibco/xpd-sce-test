@@ -108,10 +108,9 @@ public class TargetPlatformInitialiser {
                 try {
                     // load from a file
                     ITargetPlatformService ser =
-                            (ITargetPlatformService) PDECore
-                                    .getDefault()
-                                    .acquireService(ITargetPlatformService.class
-                                            .getName());
+                            PDECore
+                            .getDefault()
+                            .acquireService(ITargetPlatformService.class);
 
                     // SDS-6005 targetFile URL is returned with spaces by
                     // TargetDefinitionManager.getResourceURL(symbolicName,

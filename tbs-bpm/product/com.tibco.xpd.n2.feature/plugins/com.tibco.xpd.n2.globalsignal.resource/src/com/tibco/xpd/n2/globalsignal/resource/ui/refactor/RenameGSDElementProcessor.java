@@ -14,7 +14,7 @@ import org.eclipse.ltk.core.refactoring.participants.ParticipantManager;
 import org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant;
 import org.eclipse.ltk.core.refactoring.participants.RenameProcessor;
 import org.eclipse.ltk.core.refactoring.participants.SharableParticipants;
-import org.eclipse.ltk.internal.core.refactoring.Resources;
+import org.eclipse.ltk.core.refactoring.resource.Resources;
 
 import com.tibco.xpd.globalSignalDefinition.GlobalSignal;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;

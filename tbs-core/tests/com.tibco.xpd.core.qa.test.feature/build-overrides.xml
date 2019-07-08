@@ -2,8 +2,8 @@
 <project name="com.tibco.xpd.core.qa.test.feature Overrides">
 
     <property name="autobuild.obfuscator.style" value="none" />
-    <property name="autobuild.version.eclipse" value="4.7"/>
-	<property name="autobuild.version.eclipse-host" value="4.7"/>
+    <property name="autobuild.version.eclipse" value="4.11"/>
+	<property name="autobuild.version.eclipse-host" value="4.11"/>
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
     <property name="release-unit" value="com.tibco.xpd.core.qa.test.feature" />
@@ -42,6 +42,7 @@
         
         <!-- Added for eclipse test feature dependency - TODO remove when one is added on the 4.4 spin. -->
 		<updatesite url="http://spin.tibco.com/eclipse-3.7/thirdparty/site.xml"/>
+        <updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
    </updatesites>
 
 </project>

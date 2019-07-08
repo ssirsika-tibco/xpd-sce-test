@@ -14,7 +14,7 @@ import org.eclipse.ltk.core.refactoring.participants.ParticipantManager;
 import org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant;
 import org.eclipse.ltk.core.refactoring.participants.RenameProcessor;
 import org.eclipse.ltk.core.refactoring.participants.SharableParticipants;
-import org.eclipse.ltk.internal.core.refactoring.Resources;
+import org.eclipse.ltk.core.refactoring.resource.Resources;
 import org.eclipse.uml2.uml.NamedElement;
 
 import com.tibco.xpd.bom.resources.ui.internal.Messages;

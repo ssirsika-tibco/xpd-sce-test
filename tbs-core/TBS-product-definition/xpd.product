@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.0.0" useFeatures="true" includeLaunchers="true">
+<product name="TIBCO Business Studio" uid="com.tibco.xpd.branding.prod" id="com.tibco.xpd.branding.prod" application="org.eclipse.ui.ide.workbench" version="11.1.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about_image.png"/>
@@ -22,7 +22,6 @@
 -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser
 -Djavax.xml.accessExternalSchema=all 
 -XX:+UnlockDiagnosticVMOptions
--XX:+UnsyncloadClass
 -XX:+UseParallelGC
 -XX:ReservedCodeCacheSize=240m
 -Xms512m
@@ -46,12 +45,14 @@
       </win>
    </launcher>
 
+
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
       <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</solaris>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -614,32 +615,36 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.sdk" version="4.7.1.v20171009-0537"/>
-      <feature id="org.eclipse.cvs" version="1.4.401.v20171009-0410"/>
-      <feature id="org.eclipse.e4.rcp" version="1.6.1.v20170928-1359"/>
-      <feature id="org.eclipse.ecf.core.feature" version="1.4.0.v20170516-2248"/>
-      <feature id="org.eclipse.ecf.core.ssl.feature" version="1.1.0.v20170110-1317"/>
-      <feature id="org.eclipse.ecf.filetransfer.feature" version="3.13.7.v20170516-2248"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" version="3.13.7.v20170516-2248"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" version="1.1.0.v20170110-1317"/>
-      <feature id="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.0.v20170110-1317"/>
-      <feature id="org.eclipse.emf.common" version="2.13.0.v20170609-0707"/>
-      <feature id="org.eclipse.emf.ecore" version="2.13.0.v20170609-0707"/>
-      <feature id="org.eclipse.equinox.executable" version="3.7.1.v20170928-1359"/>
-      <feature id="org.eclipse.equinox.p2.core.feature" version="1.4.1.v20170928-1405"/>
-      <feature id="org.eclipse.equinox.p2.extras.feature" version="1.3.1.v20170928-1405"/>
-      <feature id="org.eclipse.equinox.p2.rcp.feature" version="1.3.1.v20170928-1405"/>
-      <feature id="org.eclipse.equinox.p2.user.ui" version="2.3.1.v20170928-1405"/>
-      <feature id="org.eclipse.help" version="2.2.101.v20171009-0410"/>
-      <feature id="org.eclipse.jdt" version="3.13.1.v20171009-0410"/>
-      <feature id="org.eclipse.pde" version="3.13.1.v20171009-0537"/>
-      <feature id="org.eclipse.platform" version="4.7.1.v20171009-0410"/>
-      <feature id="org.eclipse.rcp" version="4.7.1.v20171009-0410"/>
-      <feature id="org.eclipse.rcp.configuration" version="1.1.1.v20171009-0410"/>
       <feature id="com.tibco.xpd.product.feature" version="11.0.0.002"/>
+      <feature id="org.eclipse.e4.rcp" installMode="root"/>
+      <feature id="org.eclipse.ecf.core.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" installMode="root"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature" installMode="root"/>
+      <feature id="org.eclipse.emf.common" installMode="root"/>
+      <feature id="org.eclipse.emf.ecore" installMode="root"/>
+      <feature id="org.eclipse.equinox.executable" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.core.feature" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.user.ui" installMode="root"/>
+      <feature id="org.eclipse.help" installMode="root"/>
+      <feature id="org.eclipse.jdt" installMode="root"/>
+      <feature id="org.eclipse.pde" installMode="root"/>
+      <feature id="org.eclipse.platform" installMode="root"/>
+      <feature id="org.eclipse.rcp" installMode="root"/>
+      <feature id="org.eclipse.rcp.configuration" installMode="root"/>
+      <feature id="org.eclipse.tips.feature" installMode="root"/>
    </features>
 
    <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <property name="osgi.instance.area.default" value="@user.home/workspace" />
       <property name="osgi.splashPath" value="platform:/base/plugins/com.tibco.xpd.branding,file:../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.xpd.branding" />
    </configurations>

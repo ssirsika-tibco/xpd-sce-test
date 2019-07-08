@@ -76,7 +76,7 @@ import com.tibco.xpd.resources.ui.internal.Messages;
  * com.tibco.xpd.asset.businessProcess, com.tibco.xpd.asset.cm,
  * com.tibco.xpd.asset.wsdl"<br/> </b>
  * &nbsp;&nbsp;finalPerspective="com.tibco.xpd.branding.perspective"<br/>
- * &nbsp;&nbsp;icon="icons/Project 16 n p.png"<br/>
+ * &nbsp;&nbsp;icon="icons/Project16np.png"<br/>
  * &nbsp;&nbsp;id="com.tibco.xpd.resources.ui.newDeveloperProject.wizard"<br/>
  * &nbsp;&nbsp;name="BPM/SOA Developer Project"<br/>
  * &nbsp;&nbsp;preferredPerspectives="com.tibco.xpd.branding.perspective"<br/>
@@ -94,7 +94,7 @@ import com.tibco.xpd.resources.ui.internal.Messages;
  * &lt;wizard<br/>
  * &nbsp;&nbsp;category="com.tibco.xpd.resources.ui.category.tibco"<br/>
  * &nbsp;&nbsp;finalPerspective="com.tibco.xpd.branding.perspective"<br/>
- * &nbsp;&nbsp;icon="icons/Project 16 n p.png"<br/>
+ * &nbsp;&nbsp;icon="icons/Project16np.png"<br/>
  * &nbsp;&nbsp;id="com.tibco.xpd.resources.ui.newDeveloperProject.wizard"<br/>
  * &nbsp;&nbsp;name="BPM/SOA Developer Project"<br/>
  * &nbsp;&nbsp;preferredPerspectives="com.tibco.xpd.branding.perspective"<br/>

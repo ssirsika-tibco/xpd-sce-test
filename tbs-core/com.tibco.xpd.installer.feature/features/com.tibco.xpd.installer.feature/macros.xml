@@ -90,9 +90,9 @@
     <!-- Copy Eclipse SDK over the gathered set of features (TP). -->
 	<!-- TODO do the smarter TP unsing p2 -->
     <target name="-copy-eclipse" unless="skip.copy-eclipse">
-    	<echo>Coping Eclipse SDK to TP from: ${autobuild.dir.eclipse-4.7}</echo>
+    	<echo>Coping Eclipse SDK to TP from: ${autobuild.dir.eclipse-default}</echo>
     	<copy todir="${installation.root}/components/eclipse">
-    		<fileset dir="${autobuild.dir.eclipse-4.7}">
+    		<fileset dir="${autobuild.dir.eclipse-default}">
     		</fileset>
     	</copy>
     </target>

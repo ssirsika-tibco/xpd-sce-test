@@ -31,18 +31,15 @@ public class ValidationTestJavaClassGenerator
   protected final String TEXT_14 = "() throws Exception {" + NL + "\t\tdoTestValidations();        " + NL + "        return;" + NL + "\t}" + NL + "" + NL + "\t@Override" + NL + "    protected ValidationsTestProblemMarkerInfo[] getValidationProblemMarkerInfos() {" + NL + "        ValidationsTestProblemMarkerInfo[] markerInfos = new ValidationsTestProblemMarkerInfo[] { " + NL + "\t\t\t";
   protected final String TEXT_15 = NL + "\t\t\t    new ValidationsTestProblemMarkerInfo(" + NL + "\t\t\t    \t\t\"";
   protected final String TEXT_16 = "\", //$NON-NLS-1$ " + NL + "\t\t\t    \t\t\"";
-  protected final String TEXT_17 = "\", //$NON-NLS-1$ " + NL + "\t\t\t    \t\t\"";
-  protected final String TEXT_18 = "\", //$NON-NLS-1$ " + NL + "\t\t\t    \t\t\"";
-  protected final String TEXT_19 = "\", //$NON-NLS-1$ " + NL + "\t\t\t    \t\t\"";
-  protected final String TEXT_20 = "\"), //$NON-NLS-1$ " + NL + "\t\t\t    \t\t" + NL + "\t\t\t";
-  protected final String TEXT_21 = "                " + NL + "        };" + NL + "        return markerInfos;" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected String getTestName() {" + NL + "        return \"";
-  protected final String TEXT_22 = "\"; //$NON-NLS-1$" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected String getTestPlugInId() {" + NL + "        return \"";
-  protected final String TEXT_23 = "\"; //$NON-NLS-1$" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected TestResourceInfo[] getTestResources() {" + NL + "        TestResourceInfo[] testResources = new TestResourceInfo[] {";
-  protected final String TEXT_24 = NL + "            new TestResourceInfo(\"";
-  protected final String TEXT_25 = "\", \"";
-  protected final String TEXT_26 = "\"), //$NON-NLS-1$ //$NON-NLS-2$";
-  protected final String TEXT_27 = NL + "        };" + NL + "    " + NL + "        return testResources;" + NL + "    }" + NL + "" + NL + "}";
-  protected final String TEXT_28 = NL;
+  protected final String TEXT_17 = "\"), //$NON-NLS-1$ " + NL + "\t\t\t    \t\t" + NL + "\t\t\t";
+  protected final String TEXT_18 = "                " + NL + "        };" + NL + "        return markerInfos;" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected String getTestName() {" + NL + "        return \"";
+  protected final String TEXT_19 = "\"; //$NON-NLS-1$" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected String getTestPlugInId() {" + NL + "        return \"";
+  protected final String TEXT_20 = "\"; //$NON-NLS-1$" + NL + "    }" + NL + "" + NL + "    @Override" + NL + "    protected TestResourceInfo[] getTestResources() {" + NL + "        TestResourceInfo[] testResources = new TestResourceInfo[] {";
+  protected final String TEXT_21 = NL + "            new TestResourceInfo(\"";
+  protected final String TEXT_22 = "\", \"";
+  protected final String TEXT_23 = "\"), //$NON-NLS-1$ //$NON-NLS-2$";
+  protected final String TEXT_24 = NL + "        };" + NL + "    " + NL + "        return testResources;" + NL + "    }" + NL + "" + NL + "}";
+  protected final String TEXT_25 = NL;
 
   public String generate(Object argument)
   {
@@ -79,28 +76,28 @@ public class ValidationTestJavaClassGenerator
     stringBuffer.append(markerInfo.getResourceURI());
     stringBuffer.append(TEXT_16);
     stringBuffer.append(markerInfo.getProblemId());
-    stringBuffer.append(TEXT_17);
+    stringBuffer.append(TEXT_16);
     stringBuffer.append(markerInfo.getLocationURI());
-    stringBuffer.append(TEXT_18);
+    stringBuffer.append(TEXT_16);
     stringBuffer.append(markerInfo.getProblemText());
-    stringBuffer.append(TEXT_19);
+    stringBuffer.append(TEXT_16);
     stringBuffer.append(markerInfo.getQuickFixLabel());
-    stringBuffer.append(TEXT_20);
+    stringBuffer.append(TEXT_17);
      } 
-    stringBuffer.append(TEXT_21);
+    stringBuffer.append(TEXT_18);
     stringBuffer.append(data.testName);
-    stringBuffer.append(TEXT_22);
+    stringBuffer.append(TEXT_19);
     stringBuffer.append(data.testPluginId);
-    stringBuffer.append(TEXT_23);
+    stringBuffer.append(TEXT_20);
      for (String testResourcePath : data.testResourcePaths) { 
-    stringBuffer.append(TEXT_24);
+    stringBuffer.append(TEXT_21);
     stringBuffer.append(data.baseResourcePath);
-    stringBuffer.append(TEXT_25);
+    stringBuffer.append(TEXT_22);
     stringBuffer.append(testResourcePath);
-    stringBuffer.append(TEXT_26);
+    stringBuffer.append(TEXT_23);
      } 
-    stringBuffer.append(TEXT_27);
-    stringBuffer.append(TEXT_28);
+    stringBuffer.append(TEXT_24);
+    stringBuffer.append(TEXT_25);
     return stringBuffer.toString();
   }
 }

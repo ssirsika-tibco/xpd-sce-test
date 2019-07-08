@@ -41,8 +41,8 @@
 
     <target name="default" depends="build-product, clean-product" description="Default task: builds and then clean all product features." />
 
-    <target name="build-all" depends="build-product, build-tests" description="Builds all product and test features." />
-    <target name="clean-all" depends="clean-product, clean-tests" description="Builds all product features." />
+    <target name="build-all" depends="build-product, build-bx-product, build-tests" description="Builds all product, bx-product and test features." />
+    <target name="clean-all" depends="clean-product, clean-bx-product, clean-tests" description="Cleans all product, bx-product and test features." />
 
     <target name="build-product" depends="init" description="Builds all product features.">
         <antcall target="-build">
@@ -50,7 +50,7 @@
             <param name="feature.type" value="product" />
         </antcall> 
     </target>
-	<target name="build-bx-product" depends="init" description="Builds all product features.">
+	<target name="build-bx-product" depends="init" description="Builds all bx-product features.">
         <antcall target="-build">
             <param name="features" value="${bx.product.features}" />
             <param name="feature.type" value="bx-product" />
@@ -71,6 +71,18 @@
         </antcall>
         <delete>
             <fileset dir="../product">
+                <include name="**/@dot.log" />
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="clean-bx-product" depends="init" description="Cleans all bx-product features.">
+        <antcall target="-clean">
+            <param name="features" value="${bx.product.features}" />
+            <param name="feature.type" value="bx-product" />
+        </antcall>
+        <delete>
+            <fileset dir="../bx-product">
                 <include name="**/@dot.log" />
             </fileset>
         </delete>

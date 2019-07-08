@@ -12,9 +12,6 @@
 		<!-- Eclipse Test Features and also mockito.-->
 		<import feature="org.eclipse.test" version="3.7.200" match="compatible" />
         <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
-
-		<!--Oxygen dependencies. -->
-		<import feature="com.tibco.xpd.tpcl.oxygen.dependencies.feature" version="1.0.1.001" match="compatible" />
 		
 		<!-- PE Design time features Features (aka BX wned by us and stored in the Studio  REPO) -->
 		<import feature="com.tibco.bx.design.model.feature" version="11.0.0" match="compatible" />
@@ -41,22 +38,24 @@
 
 
 		<!-- Extra Features - explicitly requested. -->
-		<import feature="org.eclipse.platform" version="4.7.0" match="compatible" />
-		<import feature="org.eclipse.emf" version="2.13.0" match="compatible" />
-		<import feature="org.eclipse.emf.workspace" version="1.11.0" match="compatible"/>	
-		<import feature="org.eclipse.emf.transaction" version="1.11.0" match="compatible" />
-		<import feature="org.eclipse.emf.validation" version="1.11.0" match="compatible" />
+		<import feature="org.eclipse.platform" version="4.11.0" match="compatible" />
+		<import feature="org.eclipse.emf" version="2.17.0" match="compatible" />
+		<import feature="org.eclipse.emf.workspace" version="1.12.0" match="compatible"/>	
+		<import feature="org.eclipse.emf.transaction" version="1.12.0" match="compatible" />
+		<import feature="org.eclipse.emf.validation" version="1.12.1" match="compatible" />
 		<import feature="org.eclipse.gef" version="3.11.0" match="compatible" />
-		<import feature="org.eclipse.uml2" version="5.3.0" match="compatible"/>
-		<import feature="org.eclipse.ocl" version="3.7.0" match="compatible"/>
-		<import feature="org.eclipse.gmf" version="1.10.0" match="compatible" />
+		<import feature="org.eclipse.uml2" version="5.5.0" match="compatible"/>
+		<import feature="org.eclipse.ocl" version="3.12.0" match="compatible"/>
+		<import feature="org.eclipse.gmf" version="1.12.0" match="compatible" />
+		<!--  Not provided by new 4.11 based TP
 		<import feature="org.eclipse.datatools.connectivity.feature" version="1.14.0" match="compatible" />
 		<import feature="org.eclipse.datatools.sqldevtools.feature" version="1.14.0" match="compatible" />
 		<import feature="org.eclipse.datatools.modelbase.feature" version="1.14.0" match="compatible" />
-		<import feature="org.eclipse.wst.ws_ui.feature" version="3.8.1" match="compatible" />
+		<import feature="org.eclipse.wst.ws_ui.feature" version="3.8.100" match="compatible" />>
+		-->
 		<!-- Extra Features - script dependencies -->
-		<import feature="org.eclipse.wst.web_core.feature" version="3.9.1" match="compatible"/>
-		<import feature="org.eclipse.wst.jsdt.feature" version="2.1.0" match="compatible"/>
+		<import feature="org.eclipse.wst.web_core.feature" version="3.13.0" match="compatible"/>
+		<import feature="org.eclipse.wst.jsdt.feature" version="2.1.1" match="compatible"/>
 		<import feature="org.eclipse.wst.common.fproj" version="3.7.1" match="compatible"/>
 		<import feature="com.tibco.tpcl.antlr.feature.eclipse" version="2.7.300" match="compatible"/>
 		<import feature="com.tibco.tpcl.org.jaxen.feature.eclipse" version="1.1.500" match="compatible"/>

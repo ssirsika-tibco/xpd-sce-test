@@ -2,8 +2,8 @@
 <project name="com.tibco.xpd.proc.dev.test.feature Overrides">
 
     <property name="autobuild.obfuscator.style" value="none" />
-    <property name="autobuild.version.eclipse" value="4.7"/>
-	<property name="autobuild.version.eclipse-host" value="4.7"/>
+    <property name="autobuild.version.eclipse" value="4.11"/>
+	<property name="autobuild.version.eclipse-host" value="4.11"/>
     <!-- Each Release Unit should change the project name above and the two
          property definitions below. -->
     <property name="release-unit" value="com.tibco.xpd.process.developer.test.feature" />
@@ -38,7 +38,6 @@
 		<updatesite url="http://spin.tibco.com/milestones/thirdparty/site.xml"/>
 		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>					
 		<updatesite url="http://studiobuild/userContent/eclipse-test-framework-4.7.2/site.xml"/>
+          <updatesite url="http://spin.tibco.com/eclipse-4.7/thirdparty/site.xml"/>
    </updatesites>
-   <property name="autobuild.workspace.extra-feature" location="m2-v4.xml"/>
-
 </project>
