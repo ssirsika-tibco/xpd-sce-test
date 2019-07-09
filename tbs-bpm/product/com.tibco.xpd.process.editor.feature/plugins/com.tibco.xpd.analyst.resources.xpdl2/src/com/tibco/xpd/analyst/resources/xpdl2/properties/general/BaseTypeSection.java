@@ -133,13 +133,6 @@ public abstract class BaseTypeSection extends
 
     private static final String DECLAREDIDPREFIX = "ID"; //$NON-NLS-1$
 
-    private static final short DEF_STRING_LENGTH = 50;
-
-    private static final short DEF_FLOAT_PRECISION = 10;
-
-    private static final short DEF_FLOAT_SCALE = 2;
-
-    private static final short DEF_INTEGER_PRECISION = 9;
 
     // External reference controls
     private CLabel labelExternalRef = null;
@@ -153,8 +146,7 @@ public abstract class BaseTypeSection extends
 
     private ComplexDataTypeReference complexDataTypeRef = null;
 
-    protected LinkedHashMap<BasicTypeType, String> typeNameMap =
-            new LinkedHashMap<BasicTypeType, String>();
+    protected LinkedHashMap<UIBasicTypes, String> typeNameMap = new LinkedHashMap<UIBasicTypes, String>();
 
     private ComplexDataTypesMergedInfo _complexTypesInfo = null;
 
@@ -388,10 +380,22 @@ public abstract class BaseTypeSection extends
             return cmd;
 
         } else if (modelBasicType.getScale() != null) {
+            /*
+             * Sid ACE-1094 Don't want to allow decimals to be unset because
+             * that would cause it to switch to a FloatingPoint number
+             * unexpectedly.
+             * 
+             * So instead we will set a scale to zero
+             */
+            Scale scale = Xpdl2Factory.eINSTANCE.createScale();
+            scale.setValue((short) 0);
+
             CompoundCommand cmd = new CompoundCommand();
             cmd.setLabel(Messages.BaseTypeSection_SetFieldDecimals_menu);
-            cmd.append(RemoveCommand.create(getEditingDomain(),
-                    modelBasicType.getScale()));
+            cmd.append(SetCommand.create(getEditingDomain(),
+                    modelBasicType,
+                    Xpdl2Package.eINSTANCE.getBasicType_Scale(),
+                    scale));
             return cmd;
         }
         return null;
@@ -748,11 +752,13 @@ public abstract class BaseTypeSection extends
                 }
 
                 // Select the basic type
+                UIBasicTypes uiBasicType = UIBasicTypes.fromBasicType(basicType);
                 updateCCombo(cmbBasicTypes,
-                        typeNameMap.get(basicType.getType()));
+                        typeNameMap.get(uiBasicType));
+
                 // For numeric types length is stored in precision field.
                 if (!isImplementedType()) {
-                    enableBasicLengthFields(basicType.getType());
+                    enableBasicLengthFields(uiBasicType);
                 }
                 if (txtBasicLength.isEnabled() || isImplementedType()) {
                     if (basicType.getType()
@@ -919,33 +925,45 @@ public abstract class BaseTypeSection extends
     /**
      * Enable/disable length, presion and scale field dependent on type.
      * 
-     * @param type
+     * @param uiBasicType
      */
-    private void enableBasicLengthFields(BasicTypeType type) {
-        switch (type.getValue()) {
-        case BasicTypeType.FLOAT:
+    private void enableBasicLengthFields(UIBasicTypes uiBasicType) {
+        
+        if (UIBasicTypes.FixedPointNumber.equals(uiBasicType)) {
             txtBasicLength.setEnabled(true);
             txtBasicLength
                     .setToolTipText(Messages.BaseTypeSection_FloatLength_tooltip);
             txtBasicScale.setEnabled(true);
-            break;
-        case BasicTypeType.INTEGER:
+            
+        } else if (UIBasicTypes.FloatingPointNumber.equals(uiBasicType)) {
+            updateText(txtBasicLength,
+                    Messages.BaseTypeSection_NotApplicable_text);
+            txtBasicLength.setEnabled(false);
+            
+            updateText(txtBasicScale,
+                    Messages.BaseTypeSection_NotApplicable_text);
+            txtBasicScale.setEnabled(false);
+            
+        } else if (UIBasicTypes.Integer.equals(uiBasicType)) {
+            
             txtBasicLength.setEnabled(true);
             txtBasicLength
                     .setToolTipText(Messages.BaseTypeSection_IntegerLength_tooltip);
             updateText(txtBasicScale,
                     Messages.BaseTypeSection_NotApplicable_text);
             txtBasicScale.setEnabled(false);
-            break;
-        case BasicTypeType.STRING:
+            
+        } else if (UIBasicTypes.String.equals(uiBasicType)) {
+            
             txtBasicLength.setEnabled(true);
             txtBasicLength
                     .setToolTipText(Messages.BaseTypeSection_StringLength_tooltip);
             updateText(txtBasicScale,
                     Messages.BaseTypeSection_NotApplicable_text);
             txtBasicScale.setEnabled(false);
-            break;
-        default:
+
+        } else {
+
             updateText(txtBasicLength,
                     Messages.BaseTypeSection_NotApplicable_text);
             txtBasicLength.setEnabled(false);
@@ -953,7 +971,6 @@ public abstract class BaseTypeSection extends
             updateText(txtBasicScale,
                     Messages.BaseTypeSection_NotApplicable_text);
             txtBasicScale.setEnabled(false);
-            break;
         }
 
     }
@@ -1215,36 +1232,44 @@ public abstract class BaseTypeSection extends
          * .getBasicTypeLabel() so that they can be consistently used at all
          * places.
          */
-        typeNameMap
-                .put(BasicTypeType.STRING_LITERAL, ProcessDataUtil
-                        .getBasicTypeLabel(BasicTypeType.STRING_LITERAL));
+        /*
+         * Sid ACE-1094 - use UIBasicTypes so that we can distinguish betwen
+         * fixed and floating point numbers.
+         * 
+         * Also, re-ordered the list into something more sensible (alphabetic
+         * basic types - then with BOM/CaseRef/TypeDecl tagged on) = matches
+         * data folder table editor ordering.
+         */
+        typeNameMap.put(UIBasicTypes.Boolean,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Boolean.getDefaultBasicType()));
 
-        typeNameMap.put(BasicTypeType.FLOAT_LITERAL,
-                ProcessDataUtil.getBasicTypeLabel(BasicTypeType.FLOAT_LITERAL));
+        typeNameMap.put(UIBasicTypes.Date, ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Date.getDefaultBasicType()));
+
+        typeNameMap.put(UIBasicTypes.DateTime,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.DateTime.getDefaultBasicType()));
+
+        typeNameMap.put(UIBasicTypes.FixedPointNumber,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.FixedPointNumber.getDefaultBasicType()));
+
+        typeNameMap.put(UIBasicTypes.FloatingPointNumber,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.FloatingPointNumber.getDefaultBasicType()));
 
         /*
          * Sid ACE-484 suppress Integer type for ACE.
          */
         if (!suppressAceUnsupportedTypes) {
-            typeNameMap.put(BasicTypeType.INTEGER_LITERAL,
-                    ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));
+            typeNameMap.put(UIBasicTypes.Integer,
+                    ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Integer.getDefaultBasicType()));
         }
 
-        typeNameMap.put(BasicTypeType.BOOLEAN_LITERAL, ProcessDataUtil
-                .getBasicTypeLabel(BasicTypeType.BOOLEAN_LITERAL));
+        typeNameMap.put(UIBasicTypes.Performer,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Performer.getDefaultBasicType()));
 
-        typeNameMap.put(BasicTypeType.DATE_LITERAL,
-                ProcessDataUtil.getBasicTypeLabel(BasicTypeType.DATE_LITERAL));
+        typeNameMap.put(UIBasicTypes.String,
+                ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.String.getDefaultBasicType()));
 
-        typeNameMap.put(BasicTypeType.TIME_LITERAL,
-                ProcessDataUtil.getBasicTypeLabel(BasicTypeType.TIME_LITERAL));
+        typeNameMap.put(UIBasicTypes.Time, ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Time.getDefaultBasicType()));
 
-        typeNameMap.put(BasicTypeType.DATETIME_LITERAL, ProcessDataUtil
-                .getBasicTypeLabel(BasicTypeType.DATETIME_LITERAL));
-
-        typeNameMap.put(BasicTypeType.PERFORMER_LITERAL, ProcessDataUtil
-                .getBasicTypeLabel(BasicTypeType.PERFORMER_LITERAL));
 
         // ***********************************************************
         // NOTE: THE ABOVE TYPE NAMES ARE DELIBERATLY NON TRANSLATEABLE
@@ -1253,7 +1278,7 @@ public abstract class BaseTypeSection extends
         // Sid / Tim 14/01/2009
         // ***********************************************************
 
-        for (Map.Entry<BasicTypeType, String> entry : typeNameMap.entrySet()) {
+        for (Map.Entry<UIBasicTypes, String> entry : typeNameMap.entrySet()) {
             cmbBasicTypes.add(entry.getValue());
             cmbBasicTypes.setData(entry.getValue(), entry.getKey());
         }
@@ -1446,41 +1471,17 @@ public abstract class BaseTypeSection extends
      * @return The BasicType
      */
     private BasicType getBasicType() {
-        BasicType basicType = Xpdl2Factory.eINSTANCE.createBasicType();
+        /*
+         * Sid ACE-1094 - new UIBasicType enum makes life a bit easier to set
+         * type.
+         */
+        UIBasicTypes uiBasicType = (UIBasicTypes) cmbBasicTypes.getData(cmbBasicTypes.getText());
 
-        // Get the basic type setting
-        BasicTypeType literal =
-                (BasicTypeType) cmbBasicTypes.getData(cmbBasicTypes.getText());
-
-        if (literal == null) {
-            literal =
-                    (BasicTypeType) cmbBasicTypes.getData(cmbBasicTypes
-                            .getItem(0));
+        if (uiBasicType == null) {
+            uiBasicType = UIBasicTypes.String;
         }
-        if (literal != null) {
-            basicType.setType(literal);
-            if (literal.equals(BasicTypeType.STRING_LITERAL)) {
-                // Set default length
-                Length defLength = Xpdl2Factory.eINSTANCE.createLength();
-                defLength.setValue(Short.toString(DEF_STRING_LENGTH));
-                basicType.setLength(defLength);
-            } else if (literal.equals(BasicTypeType.FLOAT_LITERAL)) {
-                // Set default precision and scale
-                Precision defPrec = Xpdl2Factory.eINSTANCE.createPrecision();
-                defPrec.setValue(DEF_FLOAT_PRECISION);
-                basicType.setPrecision(defPrec);
-                Scale defScale = Xpdl2Factory.eINSTANCE.createScale();
-                defScale.setValue(DEF_FLOAT_SCALE);
-                basicType.setScale(defScale);
-            } else if (literal.equals(BasicTypeType.INTEGER_LITERAL)) {
-                // Set default precision and scale
-                Precision defPrec = Xpdl2Factory.eINSTANCE.createPrecision();
-                defPrec.setValue(DEF_INTEGER_PRECISION);
-                basicType.setPrecision(defPrec);
-            }
-        }
-
-        return basicType;
+        
+        return uiBasicType.cloneDefaultBasicType();
     }
 
     /**

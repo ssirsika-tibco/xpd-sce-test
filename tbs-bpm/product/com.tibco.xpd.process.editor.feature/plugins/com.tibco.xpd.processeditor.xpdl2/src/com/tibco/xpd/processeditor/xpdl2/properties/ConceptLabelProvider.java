@@ -248,7 +248,7 @@ public class ConceptLabelProvider implements ILabelProvider {
             BasicType dataType = (BasicType) baseType;
 
             resolvedType =
-                    ProcessDataUtil.getBasicTypeLabel(dataType.getType());
+                    ProcessDataUtil.getBasicTypeLabel(dataType);
 
         } else if (baseType instanceof Classifier) {
             Classifier classifier = (Classifier) baseType;

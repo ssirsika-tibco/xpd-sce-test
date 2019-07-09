@@ -61,6 +61,7 @@ import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Precision;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
+import com.tibco.xpd.xpdl2.RecordType;
 import com.tibco.xpd.xpdl2.Scale;
 import com.tibco.xpd.xpdl2.TypeDeclaration;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
@@ -702,6 +703,12 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                             ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE;
                 } else if (dataType instanceof DeclaredType) {
                     currentType = ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE;
+                } else if (dataType instanceof RecordType) {
+                    /*
+                     * Sid ACE-1094 - didn't used to be able to change from Case
+                     * Ref to anything else in table view.
+                     */
+                    currentType = ProcessRelevantDataUtil.CASE_REFERENCE_TYPE;
                 }
 
                 int typeIndex = getTypeIndex((String) value);
@@ -712,9 +719,7 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                                     Messages.DataFieldsSection_createDataType_menu);
                     String newType = getTypeValue(typeIndex);
                     if (newType != null && !newType.equals(currentType)) {
-                        DataType newDataType =
-                                ProcessRelevantDataUtil
-                                        .createNewDataType(newType);
+                        DataType newDataType = createNewDataType(newType);
                         cmd.append(SetCommand.create(editingDomain,
                                 prd,
                                 Xpdl2Package.eINSTANCE

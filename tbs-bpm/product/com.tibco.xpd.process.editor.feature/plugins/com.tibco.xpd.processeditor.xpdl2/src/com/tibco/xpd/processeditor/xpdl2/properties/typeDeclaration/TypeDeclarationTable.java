@@ -52,6 +52,7 @@ import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Length;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.Precision;
+import com.tibco.xpd.xpdl2.RecordType;
 import com.tibco.xpd.xpdl2.Scale;
 import com.tibco.xpd.xpdl2.TypeDeclaration;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
@@ -352,6 +353,13 @@ public class TypeDeclarationTable extends AbstractProcessRelevantDataTable {
                             ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE;
                 } else if (typeDeclaration.getDeclaredType() != null) {
                     currentType = ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE;
+
+                } else if (typeDeclaration.getRecordType() != null) {
+                    /*
+                     * Sid ACE-1094 - didn't used to be able to change from Case
+                     * Ref to anything else in table view.
+                     */
+                    currentType = ProcessRelevantDataUtil.CASE_REFERENCE_TYPE;
                 }
                 int typeIndex = getTypeIndex((String) value);
 
@@ -361,9 +369,7 @@ public class TypeDeclarationTable extends AbstractProcessRelevantDataTable {
                                     Messages.DataFieldsSection_createDataType_menu);
                     String newType = getTypeValue(typeIndex);
                     if (newType != null && !newType.equals(currentType)) {
-                        DataType newDataType =
-                                ProcessRelevantDataUtil
-                                        .createNewDataType(newType);
+                        DataType newDataType = createNewDataType(newType);
 
                         cmd.append(TypeDeclarationPropertySection
                                 .getClearTypeDeclarationTypeCommand(getEditingDomain(),
@@ -395,6 +401,17 @@ public class TypeDeclarationTable extends AbstractProcessRelevantDataTable {
                                     Xpdl2Package.eINSTANCE
                                             .getTypeDeclaration_DeclaredType(),
                                     declaredType));
+
+                        } else if (newDataType instanceof RecordType) {
+                            /*
+                             * Sid ACE-1094 - didn't used to be able to change
+                             * to Case Ref type
+                             */
+                            cmd.append(SetCommand.create(editingDomain,
+                                    typeDeclaration,
+                                    Xpdl2Package.eINSTANCE.getTypeDeclaration_RecordType(),
+                                    newDataType));
+
                         }
                     }
                 }

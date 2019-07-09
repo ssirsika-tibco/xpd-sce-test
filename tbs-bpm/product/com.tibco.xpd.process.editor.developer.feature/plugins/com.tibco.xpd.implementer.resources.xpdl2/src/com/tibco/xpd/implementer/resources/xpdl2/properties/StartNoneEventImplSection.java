@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.uml2.uml.Classifier;
 
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
@@ -44,7 +45,6 @@ import com.tibco.xpd.ui.properties.ExpandableSectionStacker.ISectionContentCreat
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.BasicType;
-import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.ModeType;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
@@ -188,7 +188,7 @@ public class StartNoneEventImplSection extends
             if (toTest instanceof EObject) {
                 eo = (EObject) toTest;
             } else if (toTest instanceof IAdaptable) {
-                eo = (EObject) ((IAdaptable) toTest).getAdapter(EObject.class);
+                eo = ((IAdaptable) toTest).getAdapter(EObject.class);
             }
 
             if (eo != null && eo instanceof Activity) {
@@ -277,7 +277,7 @@ public class StartNoneEventImplSection extends
                                     com.tibco.xpd.processeditor.xpdl2.internal.Messages.StandardMappingUtil_MappingContentProcessId_label;
                             paramData.paramType =
                                     ProcessDataUtil
-                                            .getBasicTypeLabel(BasicTypeType.STRING_LITERAL);
+                                            .getBasicTypeLabel(UIBasicTypes.String.getDefaultBasicType());
 
                             paramsList.add(paramData);
                         } else if (ModeType.IN_LITERAL.getLiteral()
@@ -323,8 +323,7 @@ public class StartNoneEventImplSection extends
 
                                         paramType =
                                                 ProcessDataUtil
-                                                        .getBasicTypeLabel(dataType
-                                                                .getType());
+                                                        .getBasicTypeLabel(dataType);
 
                                     } else if (baseType instanceof Classifier) {
                                         /*

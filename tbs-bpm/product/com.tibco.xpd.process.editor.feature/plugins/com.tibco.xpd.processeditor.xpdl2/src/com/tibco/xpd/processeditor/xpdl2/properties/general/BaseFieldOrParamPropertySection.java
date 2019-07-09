@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
@@ -228,9 +229,16 @@ public abstract class BaseFieldOrParamPropertySection extends BaseTypeSection {
     protected Command setBasicTypeCmd(BasicType basicType) {
         boolean doIt = false;
 
-        BasicType bt = getModelBasicType();
-        if (bt != null) {
-            if (!bt.getType().equals(basicType.getType())) {
+        /*
+         * Sid ACE-1094 - use the UIBasicType a this takes into account the
+         * difference between FixedPoint and FLoatingPoint numbers and hence
+         * will allow the types not to be considered as equal.
+         */
+        UIBasicTypes newBasicType = UIBasicTypes.fromBasicType(basicType);
+
+        UIBasicTypes currentBasicType = UIBasicTypes.fromBasicType(getModelBasicType());
+        if (currentBasicType != null) {
+            if (!currentBasicType.equals(newBasicType)) {
                 // type is changing.
                 doIt = true;
             }

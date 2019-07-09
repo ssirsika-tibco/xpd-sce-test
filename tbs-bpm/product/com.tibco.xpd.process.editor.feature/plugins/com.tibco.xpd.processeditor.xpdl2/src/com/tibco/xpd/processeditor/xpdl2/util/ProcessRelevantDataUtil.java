@@ -27,11 +27,9 @@ import com.tibco.xpd.xpdl2.Member;
 import com.tibco.xpd.xpdl2.Package;
 import com.tibco.xpd.xpdl2.ParticipantType;
 import com.tibco.xpd.xpdl2.ParticipantTypeElem;
-import com.tibco.xpd.xpdl2.Precision;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 import com.tibco.xpd.xpdl2.RecordType;
-import com.tibco.xpd.xpdl2.Scale;
 import com.tibco.xpd.xpdl2.TypeDeclaration;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
@@ -57,88 +55,6 @@ public class ProcessRelevantDataUtil {
 
     public static final String CASE_REFERENCE_TYPE = "Case Ref Type"; //$NON-NLS-1$
 
-    public static DataType createNewDataType(String type) {
-        DataType dataType = null;
-        if (type != null) {
-            if (type.equals(BasicTypeType.STRING_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.STRING_LITERAL);
-                Length length = Xpdl2Factory.eINSTANCE.createLength();
-                length.setValue(DEFAULT_STRINGTYPE_LENGTH);
-                newBasicType.setLength(length);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.FLOAT_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.FLOAT_LITERAL);
-                Precision precision = Xpdl2Factory.eINSTANCE.createPrecision();
-                precision.setValue(DEFAULT_FLOATTYPE_PRECISION);
-                newBasicType.setPrecision(precision);
-                Scale scale = Xpdl2Factory.eINSTANCE.createScale();
-                scale.setValue(DEFAULT_FLOATTYPE_SCALE);
-                newBasicType.setScale(scale);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.INTEGER_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.INTEGER_LITERAL);
-                Precision precision = Xpdl2Factory.eINSTANCE.createPrecision();
-                precision.setValue(DEFAULT_NUMBERTYPE_PRECISION);
-                newBasicType.setPrecision(precision);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.DATE_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.DATE_LITERAL);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.TIME_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.TIME_LITERAL);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.DATETIME_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.DATETIME_LITERAL);
-                dataType = newBasicType;
-            } else if (type.equals(BasicTypeType.BOOLEAN_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.BOOLEAN_LITERAL);
-                dataType = newBasicType;
-            } else if (type
-                    .equals(BasicTypeType.PERFORMER_LITERAL.getLiteral())) {
-                BasicType newBasicType =
-                        Xpdl2Factory.eINSTANCE.createBasicType();
-                newBasicType.setType(BasicTypeType.PERFORMER_LITERAL);
-                dataType = newBasicType;
-            } else if (type
-                    .equals(ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE)) {
-                ExternalReference externalReference =
-                        Xpdl2Factory.eINSTANCE.createExternalReference();
-                externalReference.setLocation("");//$NON-NLS-1$
-                dataType = externalReference;
-            } else if (ProcessRelevantDataUtil.CASE_REFERENCE_TYPE.equals(type)) {
-                ExternalReference externalReference =
-                        Xpdl2Factory.eINSTANCE.createExternalReference();
-                externalReference.setLocation("");//$NON-NLS-1$
-                RecordType caseRefType =
-                        Xpdl2Factory.eINSTANCE.createRecordType();
-                Member member = Xpdl2Factory.eINSTANCE.createMember();
-                member.setExternalReference(externalReference);
-                caseRefType.getMember().add(member);
-                dataType = caseRefType;
-            } else if (type
-                    .equals(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE)) {
-                DeclaredType declaredType =
-                        Xpdl2Factory.eINSTANCE.createDeclaredType();
-                declaredType.setTypeDeclarationId("");//$NON-NLS-1$
-                dataType = declaredType;
-            }
-        }
-        return dataType;
-    }
 
     public static EObject createNewParticipantType(String type) {
         EObject dataType = null;

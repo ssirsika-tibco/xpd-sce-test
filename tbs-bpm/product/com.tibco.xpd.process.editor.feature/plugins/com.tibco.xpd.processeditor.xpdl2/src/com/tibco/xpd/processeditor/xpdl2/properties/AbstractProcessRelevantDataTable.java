@@ -52,6 +52,7 @@ import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.bom.resources.ui.commonpicker.BOMTypeQuery;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
@@ -74,6 +75,7 @@ import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
+import com.tibco.xpd.xpdl2.DataType;
 import com.tibco.xpd.xpdl2.DeclaredType;
 import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.Length;
@@ -153,6 +155,55 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             valuesArr[i] = iterator.next();
         }
         return valuesArr;
+    }
+
+    /**
+     * Create the data type model object according to the selection in the data
+     * type selection cell drop down.
+     * 
+     * Sid ACE-1094 - moved from {@link ProcessRelevantDataUtil} as it should
+     * have been here in the first place.
+     * 
+     * @param type
+     * @return The DataType definition (with default configuration set up.
+     */
+    protected static DataType createNewDataType(String type) {
+        if (type == null) {
+            return null;
+        }
+
+        DataType dataType = null;
+
+
+        if (type.equals(ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE)) {
+            ExternalReference externalReference = Xpdl2Factory.eINSTANCE.createExternalReference();
+            externalReference.setLocation("");//$NON-NLS-1$
+            dataType = externalReference;
+        } else if (ProcessRelevantDataUtil.CASE_REFERENCE_TYPE.equals(type)) {
+            ExternalReference externalReference = Xpdl2Factory.eINSTANCE.createExternalReference();
+            externalReference.setLocation("");//$NON-NLS-1$
+            RecordType caseRefType = Xpdl2Factory.eINSTANCE.createRecordType();
+            Member member = Xpdl2Factory.eINSTANCE.createMember();
+            member.setExternalReference(externalReference);
+            caseRefType.getMember().add(member);
+            dataType = caseRefType;
+        } else if (type.equals(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE)) {
+            DeclaredType declaredType = Xpdl2Factory.eINSTANCE.createDeclaredType();
+            declaredType.setTypeDeclarationId("");//$NON-NLS-1$
+            dataType = declaredType;
+            
+        } else {
+            /*
+             * Sid ACE-1094 We now use UIBasicTypes for all basic types so creatign data type is
+             * easy.
+             */
+            UIBasicTypes uiBasicTypes = UIBasicTypes.valueOf(type);
+            
+            if (uiBasicTypes != null) {
+                return uiBasicTypes.cloneDefaultBasicType();
+            }
+        }
+        return dataType;
     }
 
     protected class LabelColumn extends AbstractColumn {
@@ -845,21 +896,54 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
              * ProcessDataUtil.getBasicTypeLabel() so that they can be
              * consistently used at all places.
              */
-            typeNameMap.put(BasicTypeType.BOOLEAN_LITERAL.getLiteral(),
-                    ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.BOOLEAN_LITERAL));
+            /*
+             * Sid ACE-1094 - use UIBasicTypes so that we can distinguish betwen
+             * fixed and floating point numbers.
+             * 
+             * Also, re-ordered the list into something more sensible
+             * (alphabetic basic types - then with BOM/CaseRef/TypeDecl tagged
+             * on)
+             */
 
-            typeNameMap.put(BasicTypeType.DATE_LITERAL.getLiteral(),
+            typeNameMap.put(UIBasicTypes.Boolean.name(),
                     ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.DATE_LITERAL));
+                            .getBasicTypeLabel(UIBasicTypes.Boolean.getDefaultBasicType()));
 
-            typeNameMap.put(BasicTypeType.DATETIME_LITERAL.getLiteral(),
+            typeNameMap.put(UIBasicTypes.Date.name(),
                     ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.DATETIME_LITERAL));
+                            .getBasicTypeLabel(UIBasicTypes.Date.getDefaultBasicType()));
 
-            typeNameMap.put(BasicTypeType.FLOAT_LITERAL.getLiteral(),
+            typeNameMap.put(UIBasicTypes.DateTime.name(),
+                    ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.DateTime.getDefaultBasicType()));
+
+            typeNameMap.put(UIBasicTypes.FixedPointNumber.name(),
                     ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.FLOAT_LITERAL));
+                            .getBasicTypeLabel(UIBasicTypes.FixedPointNumber.getDefaultBasicType()));
+
+            typeNameMap.put(UIBasicTypes.FloatingPointNumber.name(),
+                    ProcessDataUtil
+                            .getBasicTypeLabel(UIBasicTypes.FloatingPointNumber.getDefaultBasicType()));
+
+
+            /*
+             * Sid ACE-484 - suppress Integer type for ACE.
+             */
+            if (!BaseTypeSection.suppressAceUnsupportedTypes) {
+                typeNameMap.put(UIBasicTypes.Integer.name(),
+                        ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Integer.getDefaultBasicType()));
+            }
+
+
+            typeNameMap.put(UIBasicTypes.Performer.name(),
+                    ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Performer.getDefaultBasicType()));
+
+
+            typeNameMap.put(UIBasicTypes.String.name(),
+                    ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.String.getDefaultBasicType()));
+
+            typeNameMap.put(UIBasicTypes.Time.name(),
+                    ProcessDataUtil
+                            .getBasicTypeLabel(UIBasicTypes.Time.getDefaultBasicType()));
 
             typeName = "BOM Type"; //$NON-NLS-1$
             typeLit = ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE;
@@ -869,31 +953,10 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             typeLit = ProcessRelevantDataUtil.CASE_REFERENCE_TYPE;
             typeNameMap.put(typeLit, typeName);
 
-            /*
-             * Sid ACE-484 - suppress Integer type for ACE.
-             */
-            if (!BaseTypeSection.suppressAceUnsupportedTypes) {
-                typeNameMap.put(BasicTypeType.INTEGER_LITERAL.getLiteral(),
-                    ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.INTEGER_LITERAL));
-            }
-
-            typeNameMap
-                    .put(BasicTypeType.PERFORMER_LITERAL.getLiteral(),
-                            ProcessDataUtil
-                                    .getBasicTypeLabel(BasicTypeType.PERFORMER_LITERAL));
-
-            typeNameMap.put(BasicTypeType.STRING_LITERAL.getLiteral(),
-                    ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.STRING_LITERAL));
-
-            typeNameMap.put(BasicTypeType.TIME_LITERAL.getLiteral(),
-                    ProcessDataUtil
-                            .getBasicTypeLabel(BasicTypeType.TIME_LITERAL));
-
             typeName = "Type Declaration"; //$NON-NLS-1$
             typeLit = ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE;
             typeNameMap.put(typeLit, typeName);
+
             // ***********************************************************
             // NOTE: THE ABOVE TYPE NAMES ARE DELIBERATLY NON TRANSLATEABLE
             // It is currently intentional that all languages use the same type
@@ -935,20 +998,30 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                 TypeDeclaration typeDeclaration = (TypeDeclaration) element;
                 if (typeDeclaration.getBasicType() != null) {
                     BasicType basicType = typeDeclaration.getBasicType();
-                    text = getTypeName(basicType.getType().getName());
+                    text = ProcessDataUtil.getBasicTypeLabel(basicType);
+
                 } else if (typeDeclaration.getExternalReference() != null) {
                     text =
                             getTypeName(ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE);
                 } else if (typeDeclaration.getDeclaredType() != null) {
                     text =
                             getTypeName(ProcessRelevantDataUtil.TYPE_DECLARATION_TYPE);
+
+                } else if (typeDeclaration.getRecordType() != null) {
+                    /*
+                     * Sid ACE-1094 - didn't used to handled case ref's for type
+                     * declaration.
+                     */
+                    text = getTypeName(ProcessRelevantDataUtil.CASE_REFERENCE_TYPE);
+
                 }
             }
             if (element instanceof ProcessRelevantData) {
                 ProcessRelevantData prd = (ProcessRelevantData) element;
                 if (prd.getDataType() instanceof BasicType) {
                     BasicType basicType = (BasicType) prd.getDataType();
-                    text = getTypeName(basicType.getType().getName());
+                    text = ProcessDataUtil.getBasicTypeLabel(basicType);
+
                 } else if (prd.getDataType() instanceof ExternalReference) {
                     text =
                             getTypeName(ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE);
@@ -963,7 +1036,7 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             return text != null ? text : ""; //$NON-NLS-1$
         }
 
-        protected String getTypeName(String id) {
+        private String getTypeName(String id) {
             String typeName = null;
             if (typeNameMap != null) {
                 typeName = typeNameMap.get(id);

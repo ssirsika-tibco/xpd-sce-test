@@ -30,6 +30,7 @@ import org.eclipse.uml2.uml.Enumeration;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.internal.Messages;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdProjectResourceFactory;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
@@ -375,6 +376,9 @@ public class ProcessDataUtil {
     }
 
     /**
+     * Sid ACE-1094 Now takes complete BasicType object so that we can
+     * distingguish between XPDL FLOAT that is a FixedPoint Numebr and XPDL
+     * FLOAT that is a Floating Point number
      * 
      * @param basicTypeType
      *            the {@link BasicTypeType} for which the Human Readable strings
@@ -383,28 +387,34 @@ public class ProcessDataUtil {
      *         {@link BasicTypeType}
      * @since TBS 4.0.0
      */
-    public static String getBasicTypeLabel(BasicTypeType basicTypeType) {
+    public static String getBasicTypeLabel(BasicType basicType) {
 
-        String uIReadableBasicTypeLabel = null;
+        String uIReadableBasicTypeLabel = ""; //$NON-NLS-1$
 
-        if (BasicTypeType.STRING_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Text"; //$NON-NLS-1$
-        } else if (BasicTypeType.FLOAT_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Number";//$NON-NLS-1$
-        } else if (BasicTypeType.INTEGER_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Integer";//$NON-NLS-1$
-        } else if (BasicTypeType.BOOLEAN_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Boolean";//$NON-NLS-1$
-        } else if (BasicTypeType.DATE_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Date";//$NON-NLS-1$
-        } else if (BasicTypeType.TIME_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Time";//$NON-NLS-1$
-        } else if (BasicTypeType.DATETIME_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Date Time and Timezone";//$NON-NLS-1$
-        } else if (BasicTypeType.PERFORMER_LITERAL.equals(basicTypeType)) {
-            uIReadableBasicTypeLabel = "Performer";//$NON-NLS-1$
-        } else {
-            uIReadableBasicTypeLabel = basicTypeType.toString();
+        UIBasicTypes uiBasicType = UIBasicTypes.fromBasicType(basicType);
+
+        if (uiBasicType != null) {
+
+            if (UIBasicTypes.String.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Text"; //$NON-NLS-1$
+            } else if (UIBasicTypes.FixedPointNumber.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Fixed Point Number";//$NON-NLS-1$
+            } else if (UIBasicTypes.FloatingPointNumber.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Floating Point Number";//$NON-NLS-1$
+            } else if (UIBasicTypes.Integer.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Integer";//$NON-NLS-1$
+            } else if (UIBasicTypes.Boolean.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Boolean";//$NON-NLS-1$
+            } else if (UIBasicTypes.Date.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Date";//$NON-NLS-1$
+            } else if (UIBasicTypes.Time.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Time";//$NON-NLS-1$
+            } else if (UIBasicTypes.DateTime.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Date Time and Timezone";//$NON-NLS-1$
+            } else if (UIBasicTypes.Performer.equals(uiBasicType)) {
+                uIReadableBasicTypeLabel = "Performer";//$NON-NLS-1$
+            }
+
         }
 
         return uIReadableBasicTypeLabel;
