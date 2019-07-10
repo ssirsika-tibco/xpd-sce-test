@@ -33,8 +33,15 @@
          <validationProvider
                id="com.tibco.ace.validation.provider.process">
          </validationProvider>
-         
       </destination>
+   </extension>
+
+   <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.bx.transform.BxRascContributor"
+            id="com.tibco.bx.transform.contributor">
+      </contributor>
    </extension>
 
    <extension

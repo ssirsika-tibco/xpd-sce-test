@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.sce.tests;
+package com.tibco.xpd.sce.mock.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
