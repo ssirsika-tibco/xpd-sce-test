@@ -95,7 +95,7 @@ public class WorkListFacadeGenTest extends AbstractBuildingBaseResourceTest {
      */
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.wm.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
     }
 
     public void testGenerateWlfModel() throws Exception {
