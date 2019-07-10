@@ -170,15 +170,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * end-user-doc -->
  * @generated
  */
-public class XpdExtensionPackageImpl extends EPackageImpl
-        implements XpdExtensionPackage {
+public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensionPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1118,15 +1116,14 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     public static XpdExtensionPackage init() {
         if (isInited)
-            return (XpdExtensionPackage) EPackage.Registry.INSTANCE
-                    .getEPackage(XpdExtensionPackage.eNS_URI);
+            return (XpdExtensionPackage) EPackage.Registry.INSTANCE.getEPackage(XpdExtensionPackage.eNS_URI);
 
         // Obtain or create and register package
+        Object registeredXpdExtensionPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
         XpdExtensionPackageImpl theXpdExtensionPackage =
-                (XpdExtensionPackageImpl) (EPackage.Registry.INSTANCE
-                        .get(eNS_URI) instanceof XpdExtensionPackageImpl
-                                ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                                : new XpdExtensionPackageImpl());
+                registeredXpdExtensionPackage instanceof XpdExtensionPackageImpl
+                        ? (XpdExtensionPackageImpl) registeredXpdExtensionPackage
+                        : new XpdExtensionPackageImpl();
 
         isInited = true;
 
@@ -1144,8 +1141,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         theXpdExtensionPackage.freeze();
 
         // Update the registry and return the package
-        EPackage.Registry.INSTANCE.put(XpdExtensionPackage.eNS_URI,
-                theXpdExtensionPackage);
+        EPackage.Registry.INSTANCE.put(XpdExtensionPackage.eNS_URI, theXpdExtensionPackage);
         return theXpdExtensionPackage;
     }
 
@@ -1182,8 +1178,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getActivityResourcePatterns_AllocationStrategy() {
-        return (EReference) activityResourcePatternsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) activityResourcePatternsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1192,8 +1187,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getActivityResourcePatterns_Piling() {
-        return (EReference) activityResourcePatternsEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) activityResourcePatternsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1202,8 +1196,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getActivityResourcePatterns_WorkItemPriority() {
-        return (EReference) activityResourcePatternsEClass
-                .getEStructuralFeatures().get(2);
+        return (EReference) activityResourcePatternsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1221,8 +1214,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAllocationStrategy_Offer() {
-        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1231,8 +1223,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAllocationStrategy_Strategy() {
-        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1241,8 +1232,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAllocationStrategy_ReOfferOnClose() {
-        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1251,8 +1241,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAllocationStrategy_ReOfferOnCancel() {
-        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1261,8 +1250,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getAllocationStrategy_AllocateToOfferSetMemberIdentifier() {
-        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) allocationStrategyEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1280,8 +1268,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getAssociatedCorrelationFields_AssociatedCorrelationField() {
-        return (EReference) associatedCorrelationFieldsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) associatedCorrelationFieldsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1290,8 +1277,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedCorrelationFields_DisableImplicitAssociation() {
-        return (EAttribute) associatedCorrelationFieldsEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) associatedCorrelationFieldsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1309,8 +1295,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedCorrelationField_Name() {
-        return (EAttribute) associatedCorrelationFieldEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) associatedCorrelationFieldEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1319,8 +1304,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedCorrelationField_CorrelationMode() {
-        return (EAttribute) associatedCorrelationFieldEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) associatedCorrelationFieldEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2139,8 +2123,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDocumentRoot_NonInterruptingEvent() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(100);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(100);
     }
 
     /**
@@ -2149,8 +2132,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_CorrelateImmediately() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(101);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(101);
     }
 
     /**
@@ -2159,8 +2141,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_AsyncExecutionMode() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(102);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(102);
     }
 
     /**
@@ -2169,8 +2150,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_SignalType() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(103);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(103);
     }
 
     /**
@@ -2179,8 +2159,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_ServiceProcessConfiguration() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(104);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(104);
     }
 
     /**
@@ -2189,8 +2168,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_LikeMapping() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(105);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(105);
     }
 
     /**
@@ -2199,8 +2177,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_ScriptDataMapper() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(106);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(106);
     }
 
     /**
@@ -2209,8 +2186,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_LikeMappingExclusions() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(107);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(107);
     }
 
     /**
@@ -2219,8 +2195,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_SourceContributorId() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(108);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(108);
     }
 
     /**
@@ -2229,8 +2204,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_TargetContributorId() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(109);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(109);
     }
 
     /**
@@ -2239,8 +2213,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_RestServiceOperation() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(110);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(110);
     }
 
     /**
@@ -2249,8 +2222,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_InputMappings() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(111);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(111);
     }
 
     /**
@@ -2259,8 +2231,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getDocumentRoot_OutputMappings() {
-        return (EReference) documentRootEClass.getEStructuralFeatures()
-                .get(112);
+        return (EReference) documentRootEClass.getEStructuralFeatures().get(112);
     }
 
     /**
@@ -2269,8 +2240,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_BusinessServicePublishType() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(113);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(113);
     }
 
     /**
@@ -2279,8 +2249,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDocumentRoot_SuppressMaxMappingsError() {
-        return (EAttribute) documentRootEClass.getEStructuralFeatures()
-                .get(114);
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(114);
     }
 
     /**
@@ -2397,8 +2366,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Years() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2407,8 +2375,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Months() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2417,8 +2384,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Weeks() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2427,8 +2393,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Days() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2437,8 +2402,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Hours() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(4);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2447,8 +2411,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Minutes() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(5);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -2457,8 +2420,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Seconds() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(6);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -2467,8 +2429,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDurationCalculation_Microseconds() {
-        return (EReference) durationCalculationEClass.getEStructuralFeatures()
-                .get(7);
+        return (EReference) durationCalculationEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -2486,8 +2447,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDynamicOrganizationMappings_DynamicOrganizationMapping() {
-        return (EReference) dynamicOrganizationMappingsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) dynamicOrganizationMappingsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2505,8 +2465,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDynamicOrganizationMapping_SourcePath() {
-        return (EAttribute) dynamicOrganizationMappingEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) dynamicOrganizationMappingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2515,8 +2474,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDynamicOrganizationMapping_DynamicOrgIdentifierRef() {
-        return (EReference) dynamicOrganizationMappingEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) dynamicOrganizationMappingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2534,8 +2492,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDynamicOrgIdentifierRef_IdentifierName() {
-        return (EAttribute) dynamicOrgIdentifierRefEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) dynamicOrgIdentifierRefEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2544,8 +2501,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDynamicOrgIdentifierRef_DynamicOrgId() {
-        return (EAttribute) dynamicOrgIdentifierRefEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) dynamicOrgIdentifierRefEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2554,8 +2510,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDynamicOrgIdentifierRef_OrgModelPath() {
-        return (EAttribute) dynamicOrgIdentifierRefEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) dynamicOrgIdentifierRefEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2591,8 +2546,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtDataObjectAttributes_Description() {
-        return (EAttribute) xpdExtDataObjectAttributesEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) xpdExtDataObjectAttributesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2601,8 +2555,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtDataObjectAttributes_ExternalReference() {
-        return (EAttribute) xpdExtDataObjectAttributesEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) xpdExtDataObjectAttributesEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2611,8 +2564,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getXpdExtDataObjectAttributes_Properties() {
-        return (EReference) xpdExtDataObjectAttributesEClass
-                .getEStructuralFeatures().get(2);
+        return (EReference) xpdExtDataObjectAttributesEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2630,8 +2582,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtProperty_Name() {
-        return (EAttribute) xpdExtPropertyEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) xpdExtPropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2640,8 +2591,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtProperty_Value() {
-        return (EAttribute) xpdExtPropertyEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) xpdExtPropertyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2659,8 +2609,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtAttribute_Mixed() {
-        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2669,8 +2618,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtAttribute_Group() {
-        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2679,8 +2627,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtAttribute_Any() {
-        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2689,8 +2636,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtAttribute_Name() {
-        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2699,8 +2645,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getXpdExtAttribute_Value() {
-        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) xpdExtAttributeEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2718,8 +2663,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getXpdExtAttributes_Attributes() {
-        return (EReference) xpdExtAttributesEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) xpdExtAttributesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2737,8 +2681,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getUpdateCaseOperationType_FromFieldPath() {
-        return (EAttribute) updateCaseOperationTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) updateCaseOperationTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2756,8 +2699,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAddLinkAssociationsType_AddCaseRefField() {
-        return (EAttribute) addLinkAssociationsTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) addLinkAssociationsTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2766,8 +2708,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAddLinkAssociationsType_AssociationName() {
-        return (EAttribute) addLinkAssociationsTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) addLinkAssociationsTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2785,8 +2726,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getRemoveLinkAssociationsType_AssociationName() {
-        return (EAttribute) removeLinkAssociationsTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) removeLinkAssociationsTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2795,8 +2735,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getRemoveLinkAssociationsType_RemoveCaseRefField() {
-        return (EAttribute) removeLinkAssociationsTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) removeLinkAssociationsTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2814,8 +2753,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseReferenceOperationsType_CaseRefField() {
-        return (EAttribute) caseReferenceOperationsTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2824,8 +2762,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseReferenceOperationsType_Update() {
-        return (EReference) caseReferenceOperationsTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2834,8 +2771,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseReferenceOperationsType_Delete() {
-        return (EReference) caseReferenceOperationsTypeEClass
-                .getEStructuralFeatures().get(2);
+        return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2844,8 +2780,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseReferenceOperationsType_AddLinkAssociations() {
-        return (EReference) caseReferenceOperationsTypeEClass
-                .getEStructuralFeatures().get(3);
+        return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2854,8 +2789,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseReferenceOperationsType_RemoveLinkAssociations() {
-        return (EReference) caseReferenceOperationsTypeEClass
-                .getEStructuralFeatures().get(4);
+        return (EReference) caseReferenceOperationsTypeEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2873,8 +2807,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getGlobalDataOperation_CaseAccessOperations() {
-        return (EReference) globalDataOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) globalDataOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2883,8 +2816,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getGlobalDataOperation_CaseReferenceOperations() {
-        return (EReference) globalDataOperationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) globalDataOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2902,8 +2834,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDeleteByCaseIdentifierType_FieldPath() {
-        return (EAttribute) deleteByCaseIdentifierTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) deleteByCaseIdentifierTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2912,8 +2843,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDeleteByCaseIdentifierType_IdentifierName() {
-        return (EAttribute) deleteByCaseIdentifierTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) deleteByCaseIdentifierTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2931,8 +2861,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCompositeIdentifierType_FieldPath() {
-        return (EAttribute) compositeIdentifierTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) compositeIdentifierTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2941,8 +2870,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCompositeIdentifierType_Identifiername() {
-        return (EAttribute) compositeIdentifierTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) compositeIdentifierTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2969,8 +2897,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDeleteByCompositeIdentifiersType_Group() {
-        return (EAttribute) deleteByCompositeIdentifiersTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) deleteByCompositeIdentifiersTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2979,8 +2906,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDeleteByCompositeIdentifiersType_CompositeIdentifier() {
-        return (EReference) deleteByCompositeIdentifiersTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) deleteByCompositeIdentifiersTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2998,8 +2924,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCreateCaseOperationType_FromFieldPath() {
-        return (EAttribute) createCaseOperationTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) createCaseOperationTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3008,8 +2933,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCreateCaseOperationType_ToCaseRefField() {
-        return (EAttribute) createCaseOperationTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) createCaseOperationTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3027,8 +2951,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseAccessOperationsType_CaseClassExternalReference() {
-        return (EReference) caseAccessOperationsTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) caseAccessOperationsTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3037,8 +2960,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseAccessOperationsType_Create() {
-        return (EReference) caseAccessOperationsTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) caseAccessOperationsTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3047,8 +2969,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseAccessOperationsType_DeleteByCaseIdentifier() {
-        return (EReference) caseAccessOperationsTypeEClass
-                .getEStructuralFeatures().get(2);
+        return (EReference) caseAccessOperationsTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3057,8 +2978,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseAccessOperationsType_DeleteByCompositeIdentifiers() {
-        return (EReference) caseAccessOperationsTypeEClass
-                .getEStructuralFeatures().get(3);
+        return (EReference) caseAccessOperationsTypeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3076,8 +2996,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDataWorkItemAttributeMapping_Attribute() {
-        return (EAttribute) dataWorkItemAttributeMappingEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) dataWorkItemAttributeMappingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3086,8 +3005,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getDataWorkItemAttributeMapping_ProcessData() {
-        return (EAttribute) dataWorkItemAttributeMappingEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) dataWorkItemAttributeMappingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3105,8 +3023,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping() {
-        return (EReference) processDataWorkItemAttributeMappingsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) processDataWorkItemAttributeMappingsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3124,8 +3041,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getBpmRuntimeConfiguration_IncomingRequestTimeout() {
-        return (EAttribute) bpmRuntimeConfigurationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) bpmRuntimeConfigurationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3143,8 +3059,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getEnablementType_InitializerActivities() {
-        return (EReference) enablementTypeEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) enablementTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3153,8 +3068,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getEnablementType_PreconditionExpression() {
-        return (EReference) enablementTypeEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) enablementTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3172,8 +3086,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getInitializerActivitiesType_ActivityRef() {
-        return (EReference) initializerActivitiesTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) initializerActivitiesTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3191,8 +3104,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getAdHocTaskConfigurationType_Enablement() {
-        return (EReference) adHocTaskConfigurationTypeEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) adHocTaskConfigurationTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3201,8 +3113,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAdHocTaskConfigurationType_AdHocExecutionType() {
-        return (EAttribute) adHocTaskConfigurationTypeEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) adHocTaskConfigurationTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3211,8 +3122,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAdHocTaskConfigurationType_SuspendMainFlow() {
-        return (EAttribute) adHocTaskConfigurationTypeEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) adHocTaskConfigurationTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3221,8 +3131,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAdHocTaskConfigurationType_AllowMultipleInvocations() {
-        return (EAttribute) adHocTaskConfigurationTypeEClass
-                .getEStructuralFeatures().get(3);
+        return (EAttribute) adHocTaskConfigurationTypeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3231,8 +3140,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getAdHocTaskConfigurationType_RequiredAccessPrivileges() {
-        return (EReference) adHocTaskConfigurationTypeEClass
-                .getEStructuralFeatures().get(4);
+        return (EReference) adHocTaskConfigurationTypeEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3250,8 +3158,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getRequiredAccessPrivileges_PrivilegeReference() {
-        return (EReference) requiredAccessPrivilegesEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) requiredAccessPrivilegesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3269,8 +3176,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getVisibleForCaseStates_VisibleForUnsetCaseState() {
-        return (EAttribute) visibleForCaseStatesEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) visibleForCaseStatesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3279,8 +3185,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getVisibleForCaseStates_CaseState() {
-        return (EReference) visibleForCaseStatesEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) visibleForCaseStatesEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3325,8 +3230,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDocumentOperation_CaseDocRefOperation() {
-        return (EReference) documentOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) documentOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3335,8 +3239,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDocumentOperation_CaseDocFindOperations() {
-        return (EReference) documentOperationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) documentOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3345,8 +3248,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getDocumentOperation_LinkSystemDocumentOperation() {
-        return (EReference) documentOperationEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) documentOperationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3364,8 +3266,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocRefOperations_MoveCaseDocOperation() {
-        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3374,8 +3275,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocRefOperations_UnlinkCaseDocOperation() {
-        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3384,8 +3284,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocRefOperations_LinkCaseDocOperation() {
-        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3394,8 +3293,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocRefOperations_DeleteCaseDocOperation() {
-        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) caseDocRefOperationsEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3404,8 +3302,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocRefOperations_CaseDocumentRefField() {
-        return (EAttribute) caseDocRefOperationsEClass.getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) caseDocRefOperationsEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3423,8 +3320,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocFindOperations_FindByFileNameOperation() {
-        return (EReference) caseDocFindOperationsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) caseDocFindOperationsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3433,8 +3329,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCaseDocFindOperations_FindByQueryOperation() {
-        return (EReference) caseDocFindOperationsEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) caseDocFindOperationsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3443,8 +3338,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocFindOperations_ReturnCaseDocRefsField() {
-        return (EAttribute) caseDocFindOperationsEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) caseDocFindOperationsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3453,8 +3347,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocFindOperations_CaseRefField() {
-        return (EAttribute) caseDocFindOperationsEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) caseDocFindOperationsEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3472,8 +3365,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getMoveCaseDocOperation_SourceCaseRefField() {
-        return (EAttribute) moveCaseDocOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) moveCaseDocOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3482,8 +3374,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getMoveCaseDocOperation_TargetCaseRefField() {
-        return (EAttribute) moveCaseDocOperationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) moveCaseDocOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3501,8 +3392,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getUnlinkCaseDocOperation_SourceCaseRefField() {
-        return (EAttribute) unlinkCaseDocOperationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) unlinkCaseDocOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3520,8 +3410,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getLinkCaseDocOperation_TargetCaseRefField() {
-        return (EAttribute) linkCaseDocOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) linkCaseDocOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3539,8 +3428,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getLinkSystemDocumentOperation_DocumentId() {
-        return (EAttribute) linkSystemDocumentOperationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) linkSystemDocumentOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3549,8 +3437,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getLinkSystemDocumentOperation_ReturnCaseDocRefField() {
-        return (EAttribute) linkSystemDocumentOperationEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) linkSystemDocumentOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3559,8 +3446,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getLinkSystemDocumentOperation_CaseRefField() {
-        return (EAttribute) linkSystemDocumentOperationEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) linkSystemDocumentOperationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3587,8 +3473,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getFindByFileNameOperation_FileNameField() {
-        return (EAttribute) findByFileNameOperationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) findByFileNameOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3606,8 +3491,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getFindByQueryOperation_CaseDocumentQueryExpression() {
-        return (EReference) findByQueryOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) findByQueryOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3625,8 +3509,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocumentQueryExpression_QueryExpressionJoinType() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3635,8 +3518,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getCaseDocumentQueryExpression_OpenBracketCount() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3645,8 +3527,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocumentQueryExpression_Operator() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(3);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3655,8 +3536,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocumentQueryExpression_CmisProperty() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3665,8 +3545,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCaseDocumentQueryExpression_ProcessDataField() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(4);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3675,8 +3554,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getCaseDocumentQueryExpression_CloseBracketCount() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(5);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -3685,8 +3563,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getCaseDocumentQueryExpression_CmisDocumentPropertySelected() {
-        return (EAttribute) caseDocumentQueryExpressionEClass
-                .getEStructuralFeatures().get(6);
+        return (EAttribute) caseDocumentQueryExpressionEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -3704,8 +3581,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getServiceProcessConfiguration_DeployToProcessRuntime() {
-        return (EAttribute) serviceProcessConfigurationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) serviceProcessConfigurationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3714,8 +3590,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getServiceProcessConfiguration_DeployToPageflowRuntime() {
-        return (EAttribute) serviceProcessConfigurationEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) serviceProcessConfigurationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3733,8 +3608,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getScriptDataMapper_MapperContext() {
-        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3743,8 +3617,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getScriptDataMapper_MappingDirection() {
-        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) scriptDataMapperEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3753,8 +3626,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getScriptDataMapper_DataMappings() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3763,8 +3635,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getScriptDataMapper_UnmappedScripts() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3773,8 +3644,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getScriptDataMapper_ArrayInflationType() {
-        return (EReference) scriptDataMapperEClass.getEStructuralFeatures()
-                .get(4);
+        return (EReference) scriptDataMapperEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3792,8 +3662,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDataMapperArrayInflation_Path() {
-        return (EAttribute) dataMapperArrayInflationEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) dataMapperArrayInflationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3802,8 +3671,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDataMapperArrayInflation_MappingType() {
-        return (EAttribute) dataMapperArrayInflationEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) dataMapperArrayInflationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3812,8 +3680,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getDataMapperArrayInflation_ContributorId() {
-        return (EAttribute) dataMapperArrayInflationEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) dataMapperArrayInflationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3831,8 +3698,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getLikeMappingExclusions_Exclusions() {
-        return (EReference) likeMappingExclusionsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) likeMappingExclusionsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3850,8 +3716,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceOperation_Location() {
-        return (EAttribute) restServiceOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) restServiceOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3860,8 +3725,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceOperation_MethodId() {
-        return (EAttribute) restServiceOperationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) restServiceOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3879,8 +3743,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getLikeMappingExclusion_Path() {
-        return (EAttribute) likeMappingExclusionEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) likeMappingExclusionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3916,8 +3779,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getRestServiceResource_SecurityPolicy() {
-        return (EReference) restServiceResourceEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) restServiceResourceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3926,8 +3788,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceResource_ResourceName() {
-        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3936,8 +3797,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceResource_ResourceType() {
-        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3946,8 +3806,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceResource_Description() {
-        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) restServiceResourceEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3965,8 +3824,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getRestServiceResourceSecurity_PolicyType() {
-        return (EAttribute) restServiceResourceSecurityEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) restServiceResourceSecurityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3984,8 +3842,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsdlGeneration_SoapBindingStyle() {
-        return (EAttribute) wsdlGenerationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) wsdlGenerationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4048,8 +3905,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getParticipantSharedResource_Email() {
-        return (EReference) participantSharedResourceEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) participantSharedResourceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4058,8 +3914,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getParticipantSharedResource_Jdbc() {
-        return (EReference) participantSharedResourceEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) participantSharedResourceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4068,8 +3923,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getParticipantSharedResource_WebService() {
-        return (EReference) participantSharedResourceEClass
-                .getEStructuralFeatures().get(2);
+        return (EReference) participantSharedResourceEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4078,8 +3932,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getParticipantSharedResource_RestService() {
-        return (EReference) participantSharedResourceEClass
-                .getEStructuralFeatures().get(3);
+        return (EReference) participantSharedResourceEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4223,8 +4076,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSecurityPolicy_GovernanceApplicationName() {
-        return (EAttribute) wsSecurityPolicyEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) wsSecurityPolicyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4233,8 +4085,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSecurityPolicy_Type() {
-        return (EAttribute) wsSecurityPolicyEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) wsSecurityPolicyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4288,8 +4139,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getWsSoapHttpInboundBinding_InboundSecurity() {
-        return (EReference) wsSoapHttpInboundBindingEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) wsSoapHttpInboundBindingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4298,8 +4148,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapHttpInboundBinding_EndpointUrlPath() {
-        return (EAttribute) wsSoapHttpInboundBindingEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) wsSoapHttpInboundBindingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4308,8 +4157,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapHttpInboundBinding_HttpConnectorInstanceName() {
-        return (EAttribute) wsSoapHttpInboundBindingEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) wsSoapHttpInboundBindingEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4327,8 +4175,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getWsSoapHttpOutboundBinding_OutboundSecurity() {
-        return (EReference) wsSoapHttpOutboundBindingEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) wsSoapHttpOutboundBindingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4337,8 +4184,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapHttpOutboundBinding_HttpClientInstanceName() {
-        return (EAttribute) wsSoapHttpOutboundBindingEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) wsSoapHttpOutboundBindingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4356,8 +4202,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsInboundBinding_OutboundConnectionFactory() {
-        return (EAttribute) wsSoapJmsInboundBindingEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) wsSoapJmsInboundBindingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4366,8 +4211,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration() {
-        return (EAttribute) wsSoapJmsInboundBindingEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) wsSoapJmsInboundBindingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4376,8 +4220,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsInboundBinding_InboundDestination() {
-        return (EAttribute) wsSoapJmsInboundBindingEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) wsSoapJmsInboundBindingEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4386,8 +4229,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getWsSoapJmsInboundBinding_InboundSecurity() {
-        return (EReference) wsSoapJmsInboundBindingEClass
-                .getEStructuralFeatures().get(3);
+        return (EReference) wsSoapJmsInboundBindingEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4405,8 +4247,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsOutboundBinding_OutboundConnectionFactory() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4415,8 +4256,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsOutboundBinding_InboundDestination() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4425,8 +4265,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getWsSoapJmsOutboundBinding_DeliveryMode() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(4);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -4435,8 +4274,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getWsSoapJmsOutboundBinding_Priority() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(5);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -4445,8 +4283,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getWsSoapJmsOutboundBinding_MessageExpiration() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(6);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -4455,8 +4292,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getWsSoapJmsOutboundBinding_InvocationTimeout() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(7);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -4465,8 +4301,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsSoapJmsOutboundBinding_OutboundDestination() {
-        return (EAttribute) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(2);
+        return (EAttribute) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4475,8 +4310,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getWsSoapJmsOutboundBinding_OutboundSecurity() {
-        return (EReference) wsSoapJmsOutboundBindingEClass
-                .getEStructuralFeatures().get(3);
+        return (EReference) wsSoapJmsOutboundBindingEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4494,8 +4328,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getWsSoapSecurity_SecurityPolicy() {
-        return (EReference) wsSoapSecurityEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) wsSoapSecurityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4522,8 +4355,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getBusinessProcess_ProcessId() {
-        return (EAttribute) businessProcessEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) businessProcessEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4532,8 +4364,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getBusinessProcess_ActivityId() {
-        return (EAttribute) businessProcessEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) businessProcessEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4542,8 +4373,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getBusinessProcess_PackageRefId() {
-        return (EAttribute) businessProcessEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) businessProcessEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4561,8 +4391,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCalendarReference_Alias() {
-        return (EAttribute) calendarReferenceEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) calendarReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4571,8 +4400,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getCalendarReference_DataFieldId() {
-        return (EAttribute) calendarReferenceEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) calendarReferenceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4590,8 +4418,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getStructuredDiscriminator_WaitForIncomingPath() {
-        return (EAttribute) structuredDiscriminatorEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) structuredDiscriminatorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4600,8 +4427,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getStructuredDiscriminator_UpStreamParallelSplit() {
-        return (EAttribute) structuredDiscriminatorEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) structuredDiscriminatorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4619,8 +4445,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getTaskLibraryReference_TaskLibraryId() {
-        return (EAttribute) taskLibraryReferenceEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) taskLibraryReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4629,8 +4454,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getTaskLibraryReference_PackageRef() {
-        return (EAttribute) taskLibraryReferenceEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) taskLibraryReferenceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4675,8 +4499,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getTransformScript_DataMappings() {
-        return (EReference) transformScriptEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) transformScriptEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4685,8 +4508,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getTransformScript_InputDom() {
-        return (EAttribute) transformScriptEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) transformScriptEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4695,8 +4517,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getTransformScript_OutputDom() {
-        return (EAttribute) transformScriptEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) transformScriptEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4714,8 +4535,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getConditionalParticipant_PerformerScript() {
-        return (EReference) conditionalParticipantEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) conditionalParticipantEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4733,8 +4553,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getReplyImmediateDataMappings_DataMappings() {
-        return (EReference) replyImmediateDataMappingsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) replyImmediateDataMappingsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4761,8 +4580,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getInitialParameterValue_Name() {
-        return (EAttribute) initialParameterValueEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) initialParameterValueEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4771,8 +4589,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getInitialParameterValue_Value() {
-        return (EAttribute) initialParameterValueEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) initialParameterValueEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4790,8 +4607,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getInterfaceMethod_Trigger() {
-        return (EAttribute) interfaceMethodEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) interfaceMethodEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4800,8 +4616,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getInterfaceMethod_TriggerResultMessage() {
-        return (EReference) interfaceMethodEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) interfaceMethodEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4810,8 +4625,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getInterfaceMethod_Visibility() {
-        return (EAttribute) interfaceMethodEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) interfaceMethodEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4820,8 +4634,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getInterfaceMethod_ErrorMethods() {
-        return (EReference) interfaceMethodEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) interfaceMethodEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4839,8 +4652,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Days() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4849,8 +4661,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Hours() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4859,8 +4670,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_MicroSeconds() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4869,8 +4679,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Minutes() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4879,8 +4688,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Months() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -4889,8 +4697,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Seconds() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(5);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -4899,8 +4706,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Weeks() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(6);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -4909,8 +4715,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getConstantPeriod_Years() {
-        return (EAttribute) constantPeriodEClass.getEStructuralFeatures()
-                .get(7);
+        return (EAttribute) constantPeriodEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -4928,8 +4733,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCorrelationDataMappings_DataMappings() {
-        return (EReference) correlationDataMappingsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) correlationDataMappingsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4947,8 +4751,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getUserTaskScripts_OpenScript() {
-        return (EReference) userTaskScriptsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) userTaskScriptsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4957,8 +4760,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getUserTaskScripts_CloseScript() {
-        return (EReference) userTaskScriptsEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) userTaskScriptsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4967,8 +4769,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getUserTaskScripts_SubmitScript() {
-        return (EReference) userTaskScriptsEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) userTaskScriptsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4977,8 +4778,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getUserTaskScripts_ScheduleScript() {
-        return (EReference) userTaskScriptsEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) userTaskScriptsEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4987,8 +4787,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getUserTaskScripts_RescheduleScript() {
-        return (EReference) userTaskScriptsEClass.getEStructuralFeatures()
-                .get(4);
+        return (EReference) userTaskScriptsEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -5006,8 +4805,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getValidationControl_ValidationIssueOverrides() {
-        return (EReference) validationControlEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) validationControlEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5025,8 +4823,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getValidationIssueOverride_ValidationIssueId() {
-        return (EAttribute) validationIssueOverrideEClass
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) validationIssueOverrideEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5035,8 +4832,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getValidationIssueOverride_OverrideType() {
-        return (EAttribute) validationIssueOverrideEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) validationIssueOverrideEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5081,8 +4877,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getCatchErrorMappings_Message() {
-        return (EReference) catchErrorMappingsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) catchErrorMappingsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5100,8 +4895,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getErrorThrowerInfo_ThrowerId() {
-        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5110,8 +4904,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getErrorThrowerInfo_ThrowerContainerId() {
-        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5120,8 +4913,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getErrorThrowerInfo_ThrowerType() {
-        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) errorThrowerInfoEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -5139,8 +4931,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getEventHandlerInitialisers_ActivityRef() {
-        return (EReference) eventHandlerInitialisersEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) eventHandlerInitialisersEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5167,8 +4958,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getFormImplementation_FormType() {
-        return (EAttribute) formImplementationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) formImplementationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5177,8 +4967,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getFormImplementation_FormURI() {
-        return (EAttribute) formImplementationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) formImplementationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5223,8 +5012,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getScriptInformation_Expression() {
-        return (EReference) scriptInformationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) scriptInformationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5233,8 +5021,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getScriptInformation_Direction() {
-        return (EAttribute) scriptInformationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) scriptInformationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5243,8 +5030,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getScriptInformation_Activity() {
-        return (EReference) scriptInformationEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) scriptInformationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -5253,8 +5039,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getScriptInformation_Reference() {
-        return (EAttribute) scriptInformationEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) scriptInformationEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -5299,8 +5084,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getImplementedInterface_PackageRef() {
-        return (EAttribute) implementedInterfaceEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) implementedInterfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5309,8 +5093,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getImplementedInterface_ProcessInterfaceId() {
-        return (EAttribute) implementedInterfaceEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) implementedInterfaceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5328,8 +5111,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getAssociatedParametersContainer_AssociatedParameters() {
-        return (EReference) associatedParametersContainerEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) associatedParametersContainerEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5338,8 +5120,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedParametersContainer_DisableImplicitAssociation() {
-        return (EAttribute) associatedParametersContainerEClass
-                .getEStructuralFeatures().get(1);
+        return (EAttribute) associatedParametersContainerEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5357,8 +5138,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedParameter_FormalParam() {
-        return (EAttribute) associatedParameterEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) associatedParameterEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5367,8 +5147,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedParameter_Mode() {
-        return (EAttribute) associatedParameterEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) associatedParameterEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5377,8 +5156,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedParameter_Mandatory() {
-        return (EAttribute) associatedParameterEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) associatedParameterEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -5396,8 +5174,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getAssociatedParameters_AssociatedParameter() {
-        return (EReference) associatedParametersEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) associatedParametersEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5406,8 +5183,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getAssociatedParameters_DisableImplicitAssociation() {
-        return (EAttribute) associatedParametersEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) associatedParametersEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5425,8 +5201,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessInterfaces_ProcessInterface() {
-        return (EReference) processInterfacesEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) processInterfacesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5444,8 +5219,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessResourcePatterns_SeparationOfDutiesActivities() {
-        return (EReference) processResourcePatternsEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) processResourcePatternsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5454,8 +5228,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessResourcePatterns_RetainFamiliarActivities() {
-        return (EReference) processResourcePatternsEClass
-                .getEStructuralFeatures().get(1);
+        return (EReference) processResourcePatternsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5473,8 +5246,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getRescheduleTimerScript_DurationRelativeTo() {
-        return (EAttribute) rescheduleTimerScriptEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) rescheduleTimerScriptEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5492,8 +5264,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getRescheduleTimers_TimerSelectionType() {
-        return (EAttribute) rescheduleTimersEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) rescheduleTimersEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5502,8 +5273,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getRescheduleTimers_TimerEvents() {
-        return (EReference) rescheduleTimersEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) rescheduleTimersEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5521,8 +5291,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getSeparationOfDutiesActivities_ActivityRef() {
-        return (EReference) separationOfDutiesActivitiesEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) separationOfDutiesActivitiesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5562,6 +5331,24 @@ public class XpdExtensionPackageImpl extends EPackageImpl
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSignalData_InputScriptDataMapper() {
+        return (EReference) signalDataEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSignalData_OutputScriptDataMapper() {
+        return (EReference) signalDataEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -5576,8 +5363,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getRetainFamiliarActivities_ActivityRef() {
-        return (EReference) retainFamiliarActivitiesEClass
-                .getEStructuralFeatures().get(0);
+        return (EReference) retainFamiliarActivitiesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5649,8 +5435,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessInterface_StartMethods() {
-        return (EReference) processInterfaceEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) processInterfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5659,8 +5444,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getProcessInterface_IntermediateMethods() {
-        return (EReference) processInterfaceEClass.getEStructuralFeatures()
-                .get(1);
+        return (EReference) processInterfaceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5669,8 +5453,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EAttribute getProcessInterface_XpdInterfaceType() {
-        return (EAttribute) processInterfaceEClass.getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) processInterfaceEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -5679,8 +5462,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     public EReference getProcessInterface_ServiceProcessConfiguration() {
-        return (EReference) processInterfaceEClass.getEStructuralFeatures()
-                .get(3);
+        return (EReference) processInterfaceEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -5698,8 +5480,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getMultiInstanceScripts_AdditionalInstances() {
-        return (EReference) multiInstanceScriptsEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) multiInstanceScriptsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5717,8 +5498,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getNamespacePrefixMap_NamespaceEntries() {
-        return (EReference) namespacePrefixMapEClass.getEStructuralFeatures()
-                .get(0);
+        return (EReference) namespacePrefixMapEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5727,8 +5507,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getNamespacePrefixMap_PrefixMappingDisabled() {
-        return (EAttribute) namespacePrefixMapEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) namespacePrefixMapEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5746,8 +5525,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getNamespaceMapEntry_Prefix() {
-        return (EAttribute) namespaceMapEntryEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) namespaceMapEntryEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5756,8 +5534,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getNamespaceMapEntry_Namespace() {
-        return (EAttribute) namespaceMapEntryEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) namespaceMapEntryEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5775,8 +5552,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWorkItemPriority_InitialPriority() {
-        return (EAttribute) workItemPriorityEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) workItemPriorityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5821,8 +5597,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getPortTypeOperation_PortTypeName() {
-        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5831,8 +5606,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getPortTypeOperation_OperationName() {
-        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5841,8 +5615,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EReference getPortTypeOperation_ExternalReference() {
-        return (EReference) portTypeOperationEClass.getEStructuralFeatures()
-                .get(2);
+        return (EReference) portTypeOperationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -5851,8 +5624,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getPortTypeOperation_Transport() {
-        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) portTypeOperationEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -5870,8 +5642,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      */
     @Override
     public EAttribute getWsdlEventAssociation_EventId() {
-        return (EAttribute) wsdlEventAssociationEClass.getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) wsdlEventAssociationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -6166,57 +5937,39 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         activityRefEClass = createEClass(ACTIVITY_REF);
         createEAttribute(activityRefEClass, ACTIVITY_REF__ID_REF);
 
-        activityResourcePatternsEClass =
-                createEClass(ACTIVITY_RESOURCE_PATTERNS);
-        createEReference(activityResourcePatternsEClass,
-                ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY);
-        createEReference(activityResourcePatternsEClass,
-                ACTIVITY_RESOURCE_PATTERNS__PILING);
-        createEReference(activityResourcePatternsEClass,
-                ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY);
+        activityResourcePatternsEClass = createEClass(ACTIVITY_RESOURCE_PATTERNS);
+        createEReference(activityResourcePatternsEClass, ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY);
+        createEReference(activityResourcePatternsEClass, ACTIVITY_RESOURCE_PATTERNS__PILING);
+        createEReference(activityResourcePatternsEClass, ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY);
 
         allocationStrategyEClass = createEClass(ALLOCATION_STRATEGY);
         createEAttribute(allocationStrategyEClass, ALLOCATION_STRATEGY__OFFER);
-        createEAttribute(allocationStrategyEClass,
-                ALLOCATION_STRATEGY__STRATEGY);
-        createEAttribute(allocationStrategyEClass,
-                ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE);
-        createEAttribute(allocationStrategyEClass,
-                ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL);
-        createEAttribute(allocationStrategyEClass,
-                ALLOCATION_STRATEGY__ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER);
+        createEAttribute(allocationStrategyEClass, ALLOCATION_STRATEGY__STRATEGY);
+        createEAttribute(allocationStrategyEClass, ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE);
+        createEAttribute(allocationStrategyEClass, ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL);
+        createEAttribute(allocationStrategyEClass, ALLOCATION_STRATEGY__ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER);
 
-        associatedCorrelationFieldsEClass =
-                createEClass(ASSOCIATED_CORRELATION_FIELDS);
+        associatedCorrelationFieldsEClass = createEClass(ASSOCIATED_CORRELATION_FIELDS);
         createEReference(associatedCorrelationFieldsEClass,
                 ASSOCIATED_CORRELATION_FIELDS__ASSOCIATED_CORRELATION_FIELD);
         createEAttribute(associatedCorrelationFieldsEClass,
                 ASSOCIATED_CORRELATION_FIELDS__DISABLE_IMPLICIT_ASSOCIATION);
 
-        associatedCorrelationFieldEClass =
-                createEClass(ASSOCIATED_CORRELATION_FIELD);
-        createEAttribute(associatedCorrelationFieldEClass,
-                ASSOCIATED_CORRELATION_FIELD__NAME);
-        createEAttribute(associatedCorrelationFieldEClass,
-                ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE);
+        associatedCorrelationFieldEClass = createEClass(ASSOCIATED_CORRELATION_FIELD);
+        createEAttribute(associatedCorrelationFieldEClass, ASSOCIATED_CORRELATION_FIELD__NAME);
+        createEAttribute(associatedCorrelationFieldEClass, ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE);
 
         associatedParameterEClass = createEClass(ASSOCIATED_PARAMETER);
-        createEAttribute(associatedParameterEClass,
-                ASSOCIATED_PARAMETER__FORMAL_PARAM);
+        createEAttribute(associatedParameterEClass, ASSOCIATED_PARAMETER__FORMAL_PARAM);
         createEAttribute(associatedParameterEClass, ASSOCIATED_PARAMETER__MODE);
-        createEAttribute(associatedParameterEClass,
-                ASSOCIATED_PARAMETER__MANDATORY);
+        createEAttribute(associatedParameterEClass, ASSOCIATED_PARAMETER__MANDATORY);
 
         associatedParametersEClass = createEClass(ASSOCIATED_PARAMETERS);
-        createEReference(associatedParametersEClass,
-                ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER);
-        createEAttribute(associatedParametersEClass,
-                ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION);
+        createEReference(associatedParametersEClass, ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER);
+        createEAttribute(associatedParametersEClass, ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION);
 
-        associatedParametersContainerEClass =
-                createEClass(ASSOCIATED_PARAMETERS_CONTAINER);
-        createEReference(associatedParametersContainerEClass,
-                ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
+        associatedParametersContainerEClass = createEClass(ASSOCIATED_PARAMETERS_CONTAINER);
+        createEReference(associatedParametersContainerEClass, ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
         createEAttribute(associatedParametersContainerEClass,
                 ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION);
 
@@ -6230,18 +5983,15 @@ public class XpdExtensionPackageImpl extends EPackageImpl
 
         businessProcessEClass = createEClass(BUSINESS_PROCESS);
         createEAttribute(businessProcessEClass, BUSINESS_PROCESS__PROCESS_ID);
-        createEAttribute(businessProcessEClass,
-                BUSINESS_PROCESS__PACKAGE_REF_ID);
+        createEAttribute(businessProcessEClass, BUSINESS_PROCESS__PACKAGE_REF_ID);
         createEAttribute(businessProcessEClass, BUSINESS_PROCESS__ACTIVITY_ID);
 
         calendarReferenceEClass = createEClass(CALENDAR_REFERENCE);
         createEAttribute(calendarReferenceEClass, CALENDAR_REFERENCE__ALIAS);
-        createEAttribute(calendarReferenceEClass,
-                CALENDAR_REFERENCE__DATA_FIELD_ID);
+        createEAttribute(calendarReferenceEClass, CALENDAR_REFERENCE__DATA_FIELD_ID);
 
         catchErrorMappingsEClass = createEClass(CATCH_ERROR_MAPPINGS);
-        createEReference(catchErrorMappingsEClass,
-                CATCH_ERROR_MAPPINGS__MESSAGE);
+        createEReference(catchErrorMappingsEClass, CATCH_ERROR_MAPPINGS__MESSAGE);
 
         constantPeriodEClass = createEClass(CONSTANT_PERIOD);
         createEAttribute(constantPeriodEClass, CONSTANT_PERIOD__DAYS);
@@ -6254,36 +6004,25 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(constantPeriodEClass, CONSTANT_PERIOD__YEARS);
 
         conditionalParticipantEClass = createEClass(CONDITIONAL_PARTICIPANT);
-        createEReference(conditionalParticipantEClass,
-                CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT);
+        createEReference(conditionalParticipantEClass, CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT);
 
-        replyImmediateDataMappingsEClass =
-                createEClass(REPLY_IMMEDIATE_DATA_MAPPINGS);
-        createEReference(replyImmediateDataMappingsEClass,
-                REPLY_IMMEDIATE_DATA_MAPPINGS__DATA_MAPPINGS);
+        replyImmediateDataMappingsEClass = createEClass(REPLY_IMMEDIATE_DATA_MAPPINGS);
+        createEReference(replyImmediateDataMappingsEClass, REPLY_IMMEDIATE_DATA_MAPPINGS__DATA_MAPPINGS);
 
         correlationDataMappingsEClass = createEClass(CORRELATION_DATA_MAPPINGS);
-        createEReference(correlationDataMappingsEClass,
-                CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS);
+        createEReference(correlationDataMappingsEClass, CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS);
 
         discriminatorEClass = createEClass(DISCRIMINATOR);
-        createEAttribute(discriminatorEClass,
-                DISCRIMINATOR__DISCRIMINATOR_TYPE);
-        createEReference(discriminatorEClass,
-                DISCRIMINATOR__STRUCTURED_DISCRIMINATOR);
+        createEAttribute(discriminatorEClass, DISCRIMINATOR__DISCRIMINATOR_TYPE);
+        createEReference(discriminatorEClass, DISCRIMINATOR__STRUCTURED_DISCRIMINATOR);
 
         documentRootEClass = createEClass(DOCUMENT_ROOT);
         createEReference(documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__IMPLEMENTATION_TYPE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__EXTENDED_ATTRIBUTES);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__IMPLEMENTATION_TYPE);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__EXTENDED_ATTRIBUTES);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__ALIAS);
         createEReference(documentRootEClass, DOCUMENT_ROOT__CONSTANT_PERIOD);
         createEReference(documentRootEClass, DOCUMENT_ROOT__USER_TASK_SCRIPTS);
@@ -6291,206 +6030,131 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEReference(documentRootEClass, DOCUMENT_ROOT__SCRIPT);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__REPLY_IMMEDIATELY);
         createEReference(documentRootEClass, DOCUMENT_ROOT__INITIAL_VALUES);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__ASSOCIATED_PARAMETERS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__ASSOCIATED_PARAMETERS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
         createEReference(documentRootEClass, DOCUMENT_ROOT__PROCESS_INTERFACES);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__INLINE_SUB_PROCESS);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__DOCUMENTATION_URL);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__IMPLEMENTS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD);
         createEReference(documentRootEClass, DOCUMENT_ROOT__EXPRESSION);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__VISIBILITY);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__SECURITY_PROFILE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__LANGUAGE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__INITIAL_VALUE_MAPPING);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__PORT_TYPE_OPERATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__INITIAL_VALUE_MAPPING);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__PORT_TYPE_OPERATION);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__TRANSPORT);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__IS_CHAINED);
         createEReference(documentRootEClass, DOCUMENT_ROOT__EXTERNAL_REFERENCE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION);
         createEReference(documentRootEClass, DOCUMENT_ROOT__DOCUMENT_OPERATION);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__DURATION_CALCULATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__DURATION_CALCULATION);
         createEReference(documentRootEClass, DOCUMENT_ROOT__DISCRIMINATOR);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__DISPLAY_NAME);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__CATCH_THROW);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__IS_REMOTE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
         createEReference(documentRootEClass, DOCUMENT_ROOT__TRANSFORM_SCRIPT);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY);
         createEReference(documentRootEClass, DOCUMENT_ROOT__ERROR_THROWER_INFO);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__GENERATED);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__FORM_IMPLEMENTATION);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__FORM_IMPLEMENTATION);
         createEReference(documentRootEClass, DOCUMENT_ROOT__PARTICIPANT_QUERY);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__API_END_POINT_PARTICIPANT);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__API_END_POINT_PARTICIPANT);
         createEReference(documentRootEClass, DOCUMENT_ROOT__FAULT_MESSAGE);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__REQUEST_ACTIVITY_ID);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__REQUEST_ACTIVITY_ID);
         createEReference(documentRootEClass, DOCUMENT_ROOT__BUSINESS_PROCESS);
         createEReference(documentRootEClass, DOCUMENT_ROOT__WSDL_GENERATION);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY);
         createEReference(documentRootEClass, DOCUMENT_ROOT__DECISION_SERVICE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__XPD_MODEL_TYPE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__FLOW_ROUTING_STYLE);
         createEReference(documentRootEClass, DOCUMENT_ROOT__CALENDAR_REFERENCE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__NON_CANCELLING);
         createEReference(documentRootEClass, DOCUMENT_ROOT__SIGNAL_DATA);
         createEReference(documentRootEClass, DOCUMENT_ROOT__RETRY);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__START_STRATEGY);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SYSTEM_ERROR_ACTION);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__CORRELATION_TIMEOUT);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SYSTEM_ERROR_ACTION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__CORRELATION_TIMEOUT);
         createEReference(documentRootEClass, DOCUMENT_ROOT__VALIDATION_CONTROL);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES);
         createEReference(documentRootEClass, DOCUMENT_ROOT__CASE_REF_TYPE);
         createEReference(documentRootEClass, DOCUMENT_ROOT__REST_SERVICES);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__REST_ACTIVITY_ID);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__IS_CASE_SERVICE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES);
         createEReference(documentRootEClass, DOCUMENT_ROOT__CASE_SERVICE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__NON_INTERRUPTING_EVENT);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__CORRELATE_IMMEDIATELY);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__ASYNC_EXECUTION_MODE);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__NON_INTERRUPTING_EVENT);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__CORRELATE_IMMEDIATELY);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__ASYNC_EXECUTION_MODE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__SIGNAL_TYPE);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__LIKE_MAPPING);
         createEReference(documentRootEClass, DOCUMENT_ROOT__SCRIPT_DATA_MAPPER);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID);
-        createEReference(documentRootEClass,
-                DOCUMENT_ROOT__REST_SERVICE_OPERATION);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID);
+        createEReference(documentRootEClass, DOCUMENT_ROOT__REST_SERVICE_OPERATION);
         createEReference(documentRootEClass, DOCUMENT_ROOT__INPUT_MAPPINGS);
         createEReference(documentRootEClass, DOCUMENT_ROOT__OUTPUT_MAPPINGS);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE);
-        createEAttribute(documentRootEClass,
-                DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR);
 
         durationCalculationEClass = createEClass(DURATION_CALCULATION);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__YEARS);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__MONTHS);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__WEEKS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__YEARS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__MONTHS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__WEEKS);
         createEReference(durationCalculationEClass, DURATION_CALCULATION__DAYS);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__HOURS);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__MINUTES);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__SECONDS);
-        createEReference(durationCalculationEClass,
-                DURATION_CALCULATION__MICROSECONDS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__HOURS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__MINUTES);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__SECONDS);
+        createEReference(durationCalculationEClass, DURATION_CALCULATION__MICROSECONDS);
 
-        dynamicOrganizationMappingsEClass =
-                createEClass(DYNAMIC_ORGANIZATION_MAPPINGS);
+        dynamicOrganizationMappingsEClass = createEClass(DYNAMIC_ORGANIZATION_MAPPINGS);
         createEReference(dynamicOrganizationMappingsEClass,
                 DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING);
 
-        dynamicOrganizationMappingEClass =
-                createEClass(DYNAMIC_ORGANIZATION_MAPPING);
-        createEAttribute(dynamicOrganizationMappingEClass,
-                DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH);
-        createEReference(dynamicOrganizationMappingEClass,
-                DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF);
+        dynamicOrganizationMappingEClass = createEClass(DYNAMIC_ORGANIZATION_MAPPING);
+        createEAttribute(dynamicOrganizationMappingEClass, DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH);
+        createEReference(dynamicOrganizationMappingEClass, DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF);
 
-        dynamicOrgIdentifierRefEClass =
-                createEClass(DYNAMIC_ORG_IDENTIFIER_REF);
-        createEAttribute(dynamicOrgIdentifierRefEClass,
-                DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME);
-        createEAttribute(dynamicOrgIdentifierRefEClass,
-                DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID);
-        createEAttribute(dynamicOrgIdentifierRefEClass,
-                DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH);
+        dynamicOrgIdentifierRefEClass = createEClass(DYNAMIC_ORG_IDENTIFIER_REF);
+        createEAttribute(dynamicOrgIdentifierRefEClass, DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME);
+        createEAttribute(dynamicOrgIdentifierRefEClass, DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID);
+        createEAttribute(dynamicOrgIdentifierRefEClass, DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH);
 
         emailResourceEClass = createEClass(EMAIL_RESOURCE);
         createEAttribute(emailResourceEClass, EMAIL_RESOURCE__INSTANCE_NAME);
@@ -6499,48 +6163,35 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(errorMethodEClass, ERROR_METHOD__ERROR_CODE);
 
         errorThrowerInfoEClass = createEClass(ERROR_THROWER_INFO);
-        createEAttribute(errorThrowerInfoEClass,
-                ERROR_THROWER_INFO__THROWER_ID);
-        createEAttribute(errorThrowerInfoEClass,
-                ERROR_THROWER_INFO__THROWER_CONTAINER_ID);
-        createEAttribute(errorThrowerInfoEClass,
-                ERROR_THROWER_INFO__THROWER_TYPE);
+        createEAttribute(errorThrowerInfoEClass, ERROR_THROWER_INFO__THROWER_ID);
+        createEAttribute(errorThrowerInfoEClass, ERROR_THROWER_INFO__THROWER_CONTAINER_ID);
+        createEAttribute(errorThrowerInfoEClass, ERROR_THROWER_INFO__THROWER_TYPE);
 
-        eventHandlerInitialisersEClass =
-                createEClass(EVENT_HANDLER_INITIALISERS);
-        createEReference(eventHandlerInitialisersEClass,
-                EVENT_HANDLER_INITIALISERS__ACTIVITY_REF);
+        eventHandlerInitialisersEClass = createEClass(EVENT_HANDLER_INITIALISERS);
+        createEReference(eventHandlerInitialisersEClass, EVENT_HANDLER_INITIALISERS__ACTIVITY_REF);
 
         faultMessageEClass = createEClass(FAULT_MESSAGE);
 
         formImplementationEClass = createEClass(FORM_IMPLEMENTATION);
-        createEAttribute(formImplementationEClass,
-                FORM_IMPLEMENTATION__FORM_TYPE);
-        createEAttribute(formImplementationEClass,
-                FORM_IMPLEMENTATION__FORM_URI);
+        createEAttribute(formImplementationEClass, FORM_IMPLEMENTATION__FORM_TYPE);
+        createEAttribute(formImplementationEClass, FORM_IMPLEMENTATION__FORM_URI);
 
         implementedInterfaceEClass = createEClass(IMPLEMENTED_INTERFACE);
-        createEAttribute(implementedInterfaceEClass,
-                IMPLEMENTED_INTERFACE__PACKAGE_REF);
-        createEAttribute(implementedInterfaceEClass,
-                IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID);
+        createEAttribute(implementedInterfaceEClass, IMPLEMENTED_INTERFACE__PACKAGE_REF);
+        createEAttribute(implementedInterfaceEClass, IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID);
 
         initialValuesEClass = createEClass(INITIAL_VALUES);
         createEAttribute(initialValuesEClass, INITIAL_VALUES__VALUE);
 
         initialParameterValueEClass = createEClass(INITIAL_PARAMETER_VALUE);
-        createEAttribute(initialParameterValueEClass,
-                INITIAL_PARAMETER_VALUE__NAME);
-        createEAttribute(initialParameterValueEClass,
-                INITIAL_PARAMETER_VALUE__VALUE);
+        createEAttribute(initialParameterValueEClass, INITIAL_PARAMETER_VALUE__NAME);
+        createEAttribute(initialParameterValueEClass, INITIAL_PARAMETER_VALUE__VALUE);
 
         interfaceMethodEClass = createEClass(INTERFACE_METHOD);
         createEAttribute(interfaceMethodEClass, INTERFACE_METHOD__TRIGGER);
-        createEReference(interfaceMethodEClass,
-                INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE);
+        createEReference(interfaceMethodEClass, INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE);
         createEAttribute(interfaceMethodEClass, INTERFACE_METHOD__VISIBILITY);
-        createEReference(interfaceMethodEClass,
-                INTERFACE_METHOD__ERROR_METHODS);
+        createEReference(interfaceMethodEClass, INTERFACE_METHOD__ERROR_METHODS);
 
         intermediateMethodEClass = createEClass(INTERMEDIATE_METHOD);
 
@@ -6549,97 +6200,66 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(jdbcResourceEClass, JDBC_RESOURCE__JDBC_PROFILE_NAME);
 
         multiInstanceScriptsEClass = createEClass(MULTI_INSTANCE_SCRIPTS);
-        createEReference(multiInstanceScriptsEClass,
-                MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES);
+        createEReference(multiInstanceScriptsEClass, MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES);
 
         namespacePrefixMapEClass = createEClass(NAMESPACE_PREFIX_MAP);
-        createEReference(namespacePrefixMapEClass,
-                NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES);
-        createEAttribute(namespacePrefixMapEClass,
-                NAMESPACE_PREFIX_MAP__PREFIX_MAPPING_DISABLED);
+        createEReference(namespacePrefixMapEClass, NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES);
+        createEAttribute(namespacePrefixMapEClass, NAMESPACE_PREFIX_MAP__PREFIX_MAPPING_DISABLED);
 
         namespaceMapEntryEClass = createEClass(NAMESPACE_MAP_ENTRY);
         createEAttribute(namespaceMapEntryEClass, NAMESPACE_MAP_ENTRY__PREFIX);
-        createEAttribute(namespaceMapEntryEClass,
-                NAMESPACE_MAP_ENTRY__NAMESPACE);
+        createEAttribute(namespaceMapEntryEClass, NAMESPACE_MAP_ENTRY__NAMESPACE);
 
-        participantSharedResourceEClass =
-                createEClass(PARTICIPANT_SHARED_RESOURCE);
-        createEReference(participantSharedResourceEClass,
-                PARTICIPANT_SHARED_RESOURCE__EMAIL);
-        createEReference(participantSharedResourceEClass,
-                PARTICIPANT_SHARED_RESOURCE__JDBC);
-        createEReference(participantSharedResourceEClass,
-                PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE);
-        createEReference(participantSharedResourceEClass,
-                PARTICIPANT_SHARED_RESOURCE__REST_SERVICE);
+        participantSharedResourceEClass = createEClass(PARTICIPANT_SHARED_RESOURCE);
+        createEReference(participantSharedResourceEClass, PARTICIPANT_SHARED_RESOURCE__EMAIL);
+        createEReference(participantSharedResourceEClass, PARTICIPANT_SHARED_RESOURCE__JDBC);
+        createEReference(participantSharedResourceEClass, PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE);
+        createEReference(participantSharedResourceEClass, PARTICIPANT_SHARED_RESOURCE__REST_SERVICE);
 
         pilingInfoEClass = createEClass(PILING_INFO);
         createEAttribute(pilingInfoEClass, PILING_INFO__PILING_ALLOWED);
         createEAttribute(pilingInfoEClass, PILING_INFO__MAX_PILIABLE_ITEMS);
 
         portTypeOperationEClass = createEClass(PORT_TYPE_OPERATION);
-        createEAttribute(portTypeOperationEClass,
-                PORT_TYPE_OPERATION__PORT_TYPE_NAME);
-        createEAttribute(portTypeOperationEClass,
-                PORT_TYPE_OPERATION__OPERATION_NAME);
-        createEReference(portTypeOperationEClass,
-                PORT_TYPE_OPERATION__EXTERNAL_REFERENCE);
-        createEAttribute(portTypeOperationEClass,
-                PORT_TYPE_OPERATION__TRANSPORT);
+        createEAttribute(portTypeOperationEClass, PORT_TYPE_OPERATION__PORT_TYPE_NAME);
+        createEAttribute(portTypeOperationEClass, PORT_TYPE_OPERATION__OPERATION_NAME);
+        createEReference(portTypeOperationEClass, PORT_TYPE_OPERATION__EXTERNAL_REFERENCE);
+        createEAttribute(portTypeOperationEClass, PORT_TYPE_OPERATION__TRANSPORT);
 
         processInterfaceEClass = createEClass(PROCESS_INTERFACE);
-        createEReference(processInterfaceEClass,
-                PROCESS_INTERFACE__START_METHODS);
-        createEReference(processInterfaceEClass,
-                PROCESS_INTERFACE__INTERMEDIATE_METHODS);
-        createEAttribute(processInterfaceEClass,
-                PROCESS_INTERFACE__XPD_INTERFACE_TYPE);
-        createEReference(processInterfaceEClass,
-                PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION);
+        createEReference(processInterfaceEClass, PROCESS_INTERFACE__START_METHODS);
+        createEReference(processInterfaceEClass, PROCESS_INTERFACE__INTERMEDIATE_METHODS);
+        createEAttribute(processInterfaceEClass, PROCESS_INTERFACE__XPD_INTERFACE_TYPE);
+        createEReference(processInterfaceEClass, PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION);
 
         processInterfacesEClass = createEClass(PROCESS_INTERFACES);
-        createEReference(processInterfacesEClass,
-                PROCESS_INTERFACES__PROCESS_INTERFACE);
+        createEReference(processInterfacesEClass, PROCESS_INTERFACES__PROCESS_INTERFACE);
 
         processResourcePatternsEClass = createEClass(PROCESS_RESOURCE_PATTERNS);
-        createEReference(processResourcePatternsEClass,
-                PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES);
-        createEReference(processResourcePatternsEClass,
-                PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES);
+        createEReference(processResourcePatternsEClass, PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES);
+        createEReference(processResourcePatternsEClass, PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES);
 
         rescheduleTimerScriptEClass = createEClass(RESCHEDULE_TIMER_SCRIPT);
-        createEAttribute(rescheduleTimerScriptEClass,
-                RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO);
+        createEAttribute(rescheduleTimerScriptEClass, RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO);
 
         rescheduleTimersEClass = createEClass(RESCHEDULE_TIMERS);
-        createEAttribute(rescheduleTimersEClass,
-                RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE);
-        createEReference(rescheduleTimersEClass,
-                RESCHEDULE_TIMERS__TIMER_EVENTS);
+        createEAttribute(rescheduleTimersEClass, RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE);
+        createEReference(rescheduleTimersEClass, RESCHEDULE_TIMERS__TIMER_EVENTS);
 
         restServicesEClass = createEClass(REST_SERVICES);
         createEReference(restServicesEClass, REST_SERVICES__REST_SERVICES);
 
         restServiceResourceEClass = createEClass(REST_SERVICE_RESOURCE);
-        createEReference(restServiceResourceEClass,
-                REST_SERVICE_RESOURCE__SECURITY_POLICY);
-        createEAttribute(restServiceResourceEClass,
-                REST_SERVICE_RESOURCE__RESOURCE_NAME);
-        createEAttribute(restServiceResourceEClass,
-                REST_SERVICE_RESOURCE__RESOURCE_TYPE);
-        createEAttribute(restServiceResourceEClass,
-                REST_SERVICE_RESOURCE__DESCRIPTION);
+        createEReference(restServiceResourceEClass, REST_SERVICE_RESOURCE__SECURITY_POLICY);
+        createEAttribute(restServiceResourceEClass, REST_SERVICE_RESOURCE__RESOURCE_NAME);
+        createEAttribute(restServiceResourceEClass, REST_SERVICE_RESOURCE__RESOURCE_TYPE);
+        createEAttribute(restServiceResourceEClass, REST_SERVICE_RESOURCE__DESCRIPTION);
 
-        restServiceResourceSecurityEClass =
-                createEClass(REST_SERVICE_RESOURCE_SECURITY);
-        createEAttribute(restServiceResourceSecurityEClass,
-                REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE);
+        restServiceResourceSecurityEClass = createEClass(REST_SERVICE_RESOURCE_SECURITY);
+        createEAttribute(restServiceResourceSecurityEClass, REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE);
 
-        retainFamiliarActivitiesEClass =
-                createEClass(RETAIN_FAMILIAR_ACTIVITIES);
-        createEReference(retainFamiliarActivitiesEClass,
-                RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF);
+        retainFamiliarActivitiesEClass = createEClass(RETAIN_FAMILIAR_ACTIVITIES);
+        createEReference(retainFamiliarActivitiesEClass, RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF);
 
         retryEClass = createEClass(RETRY);
         createEAttribute(retryEClass, RETRY__MAX);
@@ -6648,76 +6268,58 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(retryEClass, RETRY__MAX_RETRY_ACTION);
 
         scriptInformationEClass = createEClass(SCRIPT_INFORMATION);
-        createEReference(scriptInformationEClass,
-                SCRIPT_INFORMATION__EXPRESSION);
-        createEAttribute(scriptInformationEClass,
-                SCRIPT_INFORMATION__DIRECTION);
+        createEReference(scriptInformationEClass, SCRIPT_INFORMATION__EXPRESSION);
+        createEAttribute(scriptInformationEClass, SCRIPT_INFORMATION__DIRECTION);
         createEReference(scriptInformationEClass, SCRIPT_INFORMATION__ACTIVITY);
-        createEAttribute(scriptInformationEClass,
-                SCRIPT_INFORMATION__REFERENCE);
+        createEAttribute(scriptInformationEClass, SCRIPT_INFORMATION__REFERENCE);
 
-        separationOfDutiesActivitiesEClass =
-                createEClass(SEPARATION_OF_DUTIES_ACTIVITIES);
-        createEReference(separationOfDutiesActivitiesEClass,
-                SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF);
+        separationOfDutiesActivitiesEClass = createEClass(SEPARATION_OF_DUTIES_ACTIVITIES);
+        createEReference(separationOfDutiesActivitiesEClass, SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF);
 
         signalDataEClass = createEClass(SIGNAL_DATA);
         createEReference(signalDataEClass, SIGNAL_DATA__CORRELATION_MAPPINGS);
         createEReference(signalDataEClass, SIGNAL_DATA__DATA_MAPPINGS);
         createEReference(signalDataEClass, SIGNAL_DATA__RESCHEDULE_TIMERS);
+        createEReference(signalDataEClass, SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER);
+        createEReference(signalDataEClass, SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER);
 
         startMethodEClass = createEClass(START_METHOD);
 
         structuredDiscriminatorEClass = createEClass(STRUCTURED_DISCRIMINATOR);
-        createEAttribute(structuredDiscriminatorEClass,
-                STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH);
-        createEAttribute(structuredDiscriminatorEClass,
-                STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT);
+        createEAttribute(structuredDiscriminatorEClass, STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH);
+        createEAttribute(structuredDiscriminatorEClass, STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT);
 
         taskLibraryReferenceEClass = createEClass(TASK_LIBRARY_REFERENCE);
-        createEAttribute(taskLibraryReferenceEClass,
-                TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID);
-        createEAttribute(taskLibraryReferenceEClass,
-                TASK_LIBRARY_REFERENCE__PACKAGE_REF);
+        createEAttribute(taskLibraryReferenceEClass, TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID);
+        createEAttribute(taskLibraryReferenceEClass, TASK_LIBRARY_REFERENCE__PACKAGE_REF);
 
         transformScriptEClass = createEClass(TRANSFORM_SCRIPT);
-        createEReference(transformScriptEClass,
-                TRANSFORM_SCRIPT__DATA_MAPPINGS);
+        createEReference(transformScriptEClass, TRANSFORM_SCRIPT__DATA_MAPPINGS);
         createEAttribute(transformScriptEClass, TRANSFORM_SCRIPT__INPUT_DOM);
         createEAttribute(transformScriptEClass, TRANSFORM_SCRIPT__OUTPUT_DOM);
 
         userTaskScriptsEClass = createEClass(USER_TASK_SCRIPTS);
         createEReference(userTaskScriptsEClass, USER_TASK_SCRIPTS__OPEN_SCRIPT);
-        createEReference(userTaskScriptsEClass,
-                USER_TASK_SCRIPTS__CLOSE_SCRIPT);
-        createEReference(userTaskScriptsEClass,
-                USER_TASK_SCRIPTS__SUBMIT_SCRIPT);
-        createEReference(userTaskScriptsEClass,
-                USER_TASK_SCRIPTS__SCHEDULE_SCRIPT);
-        createEReference(userTaskScriptsEClass,
-                USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT);
+        createEReference(userTaskScriptsEClass, USER_TASK_SCRIPTS__CLOSE_SCRIPT);
+        createEReference(userTaskScriptsEClass, USER_TASK_SCRIPTS__SUBMIT_SCRIPT);
+        createEReference(userTaskScriptsEClass, USER_TASK_SCRIPTS__SCHEDULE_SCRIPT);
+        createEReference(userTaskScriptsEClass, USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT);
 
         validationControlEClass = createEClass(VALIDATION_CONTROL);
-        createEReference(validationControlEClass,
-                VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES);
+        createEReference(validationControlEClass, VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES);
 
         validationIssueOverrideEClass = createEClass(VALIDATION_ISSUE_OVERRIDE);
-        createEAttribute(validationIssueOverrideEClass,
-                VALIDATION_ISSUE_OVERRIDE__VALIDATION_ISSUE_ID);
-        createEAttribute(validationIssueOverrideEClass,
-                VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE);
+        createEAttribute(validationIssueOverrideEClass, VALIDATION_ISSUE_OVERRIDE__VALIDATION_ISSUE_ID);
+        createEAttribute(validationIssueOverrideEClass, VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE);
 
         wsdlEventAssociationEClass = createEClass(WSDL_EVENT_ASSOCIATION);
-        createEAttribute(wsdlEventAssociationEClass,
-                WSDL_EVENT_ASSOCIATION__EVENT_ID);
+        createEAttribute(wsdlEventAssociationEClass, WSDL_EVENT_ASSOCIATION__EVENT_ID);
 
         workItemPriorityEClass = createEClass(WORK_ITEM_PRIORITY);
-        createEAttribute(workItemPriorityEClass,
-                WORK_ITEM_PRIORITY__INITIAL_PRIORITY);
+        createEAttribute(workItemPriorityEClass, WORK_ITEM_PRIORITY__INITIAL_PRIORITY);
 
         wsdlGenerationEClass = createEClass(WSDL_GENERATION);
-        createEAttribute(wsdlGenerationEClass,
-                WSDL_GENERATION__SOAP_BINDING_STYLE);
+        createEAttribute(wsdlGenerationEClass, WSDL_GENERATION__SOAP_BINDING_STYLE);
 
         wsBindingEClass = createEClass(WS_BINDING);
         createEAttribute(wsBindingEClass, WS_BINDING__NAME);
@@ -6738,8 +6340,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEReference(wsResourceEClass, WS_RESOURCE__OUTBOUND);
 
         wsSecurityPolicyEClass = createEClass(WS_SECURITY_POLICY);
-        createEAttribute(wsSecurityPolicyEClass,
-                WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME);
+        createEAttribute(wsSecurityPolicyEClass, WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME);
         createEAttribute(wsSecurityPolicyEClass, WS_SECURITY_POLICY__TYPE);
 
         wsSoapBindingEClass = createEClass(WS_SOAP_BINDING);
@@ -6747,66 +6348,41 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(wsSoapBindingEClass, WS_SOAP_BINDING__SOAP_VERSION);
         createEReference(wsSoapBindingEClass, WS_SOAP_BINDING__SOAP_SECURITY);
 
-        wsSoapHttpInboundBindingEClass =
-                createEClass(WS_SOAP_HTTP_INBOUND_BINDING);
-        createEReference(wsSoapHttpInboundBindingEClass,
-                WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY);
-        createEAttribute(wsSoapHttpInboundBindingEClass,
-                WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH);
-        createEAttribute(wsSoapHttpInboundBindingEClass,
-                WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME);
+        wsSoapHttpInboundBindingEClass = createEClass(WS_SOAP_HTTP_INBOUND_BINDING);
+        createEReference(wsSoapHttpInboundBindingEClass, WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY);
+        createEAttribute(wsSoapHttpInboundBindingEClass, WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH);
+        createEAttribute(wsSoapHttpInboundBindingEClass, WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME);
 
-        wsSoapHttpOutboundBindingEClass =
-                createEClass(WS_SOAP_HTTP_OUTBOUND_BINDING);
-        createEReference(wsSoapHttpOutboundBindingEClass,
-                WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY);
-        createEAttribute(wsSoapHttpOutboundBindingEClass,
-                WS_SOAP_HTTP_OUTBOUND_BINDING__HTTP_CLIENT_INSTANCE_NAME);
+        wsSoapHttpOutboundBindingEClass = createEClass(WS_SOAP_HTTP_OUTBOUND_BINDING);
+        createEReference(wsSoapHttpOutboundBindingEClass, WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY);
+        createEAttribute(wsSoapHttpOutboundBindingEClass, WS_SOAP_HTTP_OUTBOUND_BINDING__HTTP_CLIENT_INSTANCE_NAME);
 
-        wsSoapJmsInboundBindingEClass =
-                createEClass(WS_SOAP_JMS_INBOUND_BINDING);
-        createEAttribute(wsSoapJmsInboundBindingEClass,
-                WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY);
+        wsSoapJmsInboundBindingEClass = createEClass(WS_SOAP_JMS_INBOUND_BINDING);
+        createEAttribute(wsSoapJmsInboundBindingEClass, WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY);
         createEAttribute(wsSoapJmsInboundBindingEClass,
                 WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION);
-        createEAttribute(wsSoapJmsInboundBindingEClass,
-                WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION);
-        createEReference(wsSoapJmsInboundBindingEClass,
-                WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY);
+        createEAttribute(wsSoapJmsInboundBindingEClass, WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION);
+        createEReference(wsSoapJmsInboundBindingEClass, WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY);
 
-        wsSoapJmsOutboundBindingEClass =
-                createEClass(WS_SOAP_JMS_OUTBOUND_BINDING);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION);
-        createEReference(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION);
-        createEAttribute(wsSoapJmsOutboundBindingEClass,
-                WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT);
+        wsSoapJmsOutboundBindingEClass = createEClass(WS_SOAP_JMS_OUTBOUND_BINDING);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION);
+        createEReference(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION);
+        createEAttribute(wsSoapJmsOutboundBindingEClass, WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT);
 
         wsSoapSecurityEClass = createEClass(WS_SOAP_SECURITY);
-        createEReference(wsSoapSecurityEClass,
-                WS_SOAP_SECURITY__SECURITY_POLICY);
+        createEReference(wsSoapSecurityEClass, WS_SOAP_SECURITY__SECURITY_POLICY);
 
         wsVirtualBindingEClass = createEClass(WS_VIRTUAL_BINDING);
 
-        xpdExtDataObjectAttributesEClass =
-                createEClass(XPD_EXT_DATA_OBJECT_ATTRIBUTES);
-        createEAttribute(xpdExtDataObjectAttributesEClass,
-                XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION);
-        createEAttribute(xpdExtDataObjectAttributesEClass,
-                XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE);
-        createEReference(xpdExtDataObjectAttributesEClass,
-                XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES);
+        xpdExtDataObjectAttributesEClass = createEClass(XPD_EXT_DATA_OBJECT_ATTRIBUTES);
+        createEAttribute(xpdExtDataObjectAttributesEClass, XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION);
+        createEAttribute(xpdExtDataObjectAttributesEClass, XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE);
+        createEReference(xpdExtDataObjectAttributesEClass, XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES);
 
         xpdExtPropertyEClass = createEClass(XPD_EXT_PROPERTY);
         createEAttribute(xpdExtPropertyEClass, XPD_EXT_PROPERTY__NAME);
@@ -6820,266 +6396,167 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         createEAttribute(xpdExtAttributeEClass, XPD_EXT_ATTRIBUTE__VALUE);
 
         xpdExtAttributesEClass = createEClass(XPD_EXT_ATTRIBUTES);
-        createEReference(xpdExtAttributesEClass,
-                XPD_EXT_ATTRIBUTES__ATTRIBUTES);
+        createEReference(xpdExtAttributesEClass, XPD_EXT_ATTRIBUTES__ATTRIBUTES);
 
-        updateCaseOperationTypeEClass =
-                createEClass(UPDATE_CASE_OPERATION_TYPE);
-        createEAttribute(updateCaseOperationTypeEClass,
-                UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH);
+        updateCaseOperationTypeEClass = createEClass(UPDATE_CASE_OPERATION_TYPE);
+        createEAttribute(updateCaseOperationTypeEClass, UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH);
 
-        addLinkAssociationsTypeEClass =
-                createEClass(ADD_LINK_ASSOCIATIONS_TYPE);
-        createEAttribute(addLinkAssociationsTypeEClass,
-                ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD);
-        createEAttribute(addLinkAssociationsTypeEClass,
-                ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME);
+        addLinkAssociationsTypeEClass = createEClass(ADD_LINK_ASSOCIATIONS_TYPE);
+        createEAttribute(addLinkAssociationsTypeEClass, ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD);
+        createEAttribute(addLinkAssociationsTypeEClass, ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME);
 
-        removeLinkAssociationsTypeEClass =
-                createEClass(REMOVE_LINK_ASSOCIATIONS_TYPE);
-        createEAttribute(removeLinkAssociationsTypeEClass,
-                REMOVE_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME);
-        createEAttribute(removeLinkAssociationsTypeEClass,
-                REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD);
+        removeLinkAssociationsTypeEClass = createEClass(REMOVE_LINK_ASSOCIATIONS_TYPE);
+        createEAttribute(removeLinkAssociationsTypeEClass, REMOVE_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME);
+        createEAttribute(removeLinkAssociationsTypeEClass, REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD);
 
-        caseReferenceOperationsTypeEClass =
-                createEClass(CASE_REFERENCE_OPERATIONS_TYPE);
-        createEAttribute(caseReferenceOperationsTypeEClass,
-                CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD);
-        createEReference(caseReferenceOperationsTypeEClass,
-                CASE_REFERENCE_OPERATIONS_TYPE__UPDATE);
-        createEReference(caseReferenceOperationsTypeEClass,
-                CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
-        createEReference(caseReferenceOperationsTypeEClass,
-                CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
-        createEReference(caseReferenceOperationsTypeEClass,
-                CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
+        caseReferenceOperationsTypeEClass = createEClass(CASE_REFERENCE_OPERATIONS_TYPE);
+        createEAttribute(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD);
+        createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__UPDATE);
+        createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
+        createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
+        createEReference(caseReferenceOperationsTypeEClass, CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
 
         globalDataOperationEClass = createEClass(GLOBAL_DATA_OPERATION);
-        createEReference(globalDataOperationEClass,
-                GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS);
-        createEReference(globalDataOperationEClass,
-                GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS);
+        createEReference(globalDataOperationEClass, GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS);
+        createEReference(globalDataOperationEClass, GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS);
 
-        deleteByCaseIdentifierTypeEClass =
-                createEClass(DELETE_BY_CASE_IDENTIFIER_TYPE);
-        createEAttribute(deleteByCaseIdentifierTypeEClass,
-                DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH);
-        createEAttribute(deleteByCaseIdentifierTypeEClass,
-                DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME);
+        deleteByCaseIdentifierTypeEClass = createEClass(DELETE_BY_CASE_IDENTIFIER_TYPE);
+        createEAttribute(deleteByCaseIdentifierTypeEClass, DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH);
+        createEAttribute(deleteByCaseIdentifierTypeEClass, DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME);
 
         compositeIdentifierTypeEClass = createEClass(COMPOSITE_IDENTIFIER_TYPE);
-        createEAttribute(compositeIdentifierTypeEClass,
-                COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH);
-        createEAttribute(compositeIdentifierTypeEClass,
-                COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME);
+        createEAttribute(compositeIdentifierTypeEClass, COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH);
+        createEAttribute(compositeIdentifierTypeEClass, COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME);
 
-        deleteCaseReferenceOperationTypeEClass =
-                createEClass(DELETE_CASE_REFERENCE_OPERATION_TYPE);
+        deleteCaseReferenceOperationTypeEClass = createEClass(DELETE_CASE_REFERENCE_OPERATION_TYPE);
 
-        deleteByCompositeIdentifiersTypeEClass =
-                createEClass(DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE);
-        createEAttribute(deleteByCompositeIdentifiersTypeEClass,
-                DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP);
+        deleteByCompositeIdentifiersTypeEClass = createEClass(DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE);
+        createEAttribute(deleteByCompositeIdentifiersTypeEClass, DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP);
         createEReference(deleteByCompositeIdentifiersTypeEClass,
                 DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER);
 
-        createCaseOperationTypeEClass =
-                createEClass(CREATE_CASE_OPERATION_TYPE);
-        createEAttribute(createCaseOperationTypeEClass,
-                CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH);
-        createEAttribute(createCaseOperationTypeEClass,
-                CREATE_CASE_OPERATION_TYPE__TO_CASE_REF_FIELD);
+        createCaseOperationTypeEClass = createEClass(CREATE_CASE_OPERATION_TYPE);
+        createEAttribute(createCaseOperationTypeEClass, CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH);
+        createEAttribute(createCaseOperationTypeEClass, CREATE_CASE_OPERATION_TYPE__TO_CASE_REF_FIELD);
 
-        caseAccessOperationsTypeEClass =
-                createEClass(CASE_ACCESS_OPERATIONS_TYPE);
-        createEReference(caseAccessOperationsTypeEClass,
-                CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE);
-        createEReference(caseAccessOperationsTypeEClass,
-                CASE_ACCESS_OPERATIONS_TYPE__CREATE);
-        createEReference(caseAccessOperationsTypeEClass,
-                CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER);
-        createEReference(caseAccessOperationsTypeEClass,
-                CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS);
+        caseAccessOperationsTypeEClass = createEClass(CASE_ACCESS_OPERATIONS_TYPE);
+        createEReference(caseAccessOperationsTypeEClass, CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE);
+        createEReference(caseAccessOperationsTypeEClass, CASE_ACCESS_OPERATIONS_TYPE__CREATE);
+        createEReference(caseAccessOperationsTypeEClass, CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER);
+        createEReference(caseAccessOperationsTypeEClass, CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS);
 
-        dataWorkItemAttributeMappingEClass =
-                createEClass(DATA_WORK_ITEM_ATTRIBUTE_MAPPING);
-        createEAttribute(dataWorkItemAttributeMappingEClass,
-                DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE);
-        createEAttribute(dataWorkItemAttributeMappingEClass,
-                DATA_WORK_ITEM_ATTRIBUTE_MAPPING__PROCESS_DATA);
+        dataWorkItemAttributeMappingEClass = createEClass(DATA_WORK_ITEM_ATTRIBUTE_MAPPING);
+        createEAttribute(dataWorkItemAttributeMappingEClass, DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE);
+        createEAttribute(dataWorkItemAttributeMappingEClass, DATA_WORK_ITEM_ATTRIBUTE_MAPPING__PROCESS_DATA);
 
-        processDataWorkItemAttributeMappingsEClass =
-                createEClass(PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
+        processDataWorkItemAttributeMappingsEClass = createEClass(PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
         createEReference(processDataWorkItemAttributeMappingsEClass,
                 PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS__DATA_WORK_ITEM_ATTRIBUTE_MAPPING);
 
         bpmRuntimeConfigurationEClass = createEClass(BPM_RUNTIME_CONFIGURATION);
-        createEAttribute(bpmRuntimeConfigurationEClass,
-                BPM_RUNTIME_CONFIGURATION__INCOMING_REQUEST_TIMEOUT);
+        createEAttribute(bpmRuntimeConfigurationEClass, BPM_RUNTIME_CONFIGURATION__INCOMING_REQUEST_TIMEOUT);
 
         enablementTypeEClass = createEClass(ENABLEMENT_TYPE);
-        createEReference(enablementTypeEClass,
-                ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES);
-        createEReference(enablementTypeEClass,
-                ENABLEMENT_TYPE__PRECONDITION_EXPRESSION);
+        createEReference(enablementTypeEClass, ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES);
+        createEReference(enablementTypeEClass, ENABLEMENT_TYPE__PRECONDITION_EXPRESSION);
 
-        initializerActivitiesTypeEClass =
-                createEClass(INITIALIZER_ACTIVITIES_TYPE);
-        createEReference(initializerActivitiesTypeEClass,
-                INITIALIZER_ACTIVITIES_TYPE__ACTIVITY_REF);
+        initializerActivitiesTypeEClass = createEClass(INITIALIZER_ACTIVITIES_TYPE);
+        createEReference(initializerActivitiesTypeEClass, INITIALIZER_ACTIVITIES_TYPE__ACTIVITY_REF);
 
-        adHocTaskConfigurationTypeEClass =
-                createEClass(AD_HOC_TASK_CONFIGURATION_TYPE);
-        createEReference(adHocTaskConfigurationTypeEClass,
-                AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT);
-        createEAttribute(adHocTaskConfigurationTypeEClass,
-                AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE);
-        createEAttribute(adHocTaskConfigurationTypeEClass,
-                AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW);
-        createEAttribute(adHocTaskConfigurationTypeEClass,
-                AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS);
-        createEReference(adHocTaskConfigurationTypeEClass,
-                AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES);
+        adHocTaskConfigurationTypeEClass = createEClass(AD_HOC_TASK_CONFIGURATION_TYPE);
+        createEReference(adHocTaskConfigurationTypeEClass, AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT);
+        createEAttribute(adHocTaskConfigurationTypeEClass, AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE);
+        createEAttribute(adHocTaskConfigurationTypeEClass, AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW);
+        createEAttribute(adHocTaskConfigurationTypeEClass, AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS);
+        createEReference(adHocTaskConfigurationTypeEClass, AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES);
 
-        requiredAccessPrivilegesEClass =
-                createEClass(REQUIRED_ACCESS_PRIVILEGES);
-        createEReference(requiredAccessPrivilegesEClass,
-                REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE);
+        requiredAccessPrivilegesEClass = createEClass(REQUIRED_ACCESS_PRIVILEGES);
+        createEReference(requiredAccessPrivilegesEClass, REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE);
 
         visibleForCaseStatesEClass = createEClass(VISIBLE_FOR_CASE_STATES);
-        createEAttribute(visibleForCaseStatesEClass,
-                VISIBLE_FOR_CASE_STATES__VISIBLE_FOR_UNSET_CASE_STATE);
-        createEReference(visibleForCaseStatesEClass,
-                VISIBLE_FOR_CASE_STATES__CASE_STATE);
+        createEAttribute(visibleForCaseStatesEClass, VISIBLE_FOR_CASE_STATES__VISIBLE_FOR_UNSET_CASE_STATE);
+        createEReference(visibleForCaseStatesEClass, VISIBLE_FOR_CASE_STATES__CASE_STATE);
 
         caseServiceEClass = createEClass(CASE_SERVICE);
         createEReference(caseServiceEClass, CASE_SERVICE__CASE_CLASS_TYPE);
-        createEReference(caseServiceEClass,
-                CASE_SERVICE__VISIBLE_FOR_CASE_STATES);
+        createEReference(caseServiceEClass, CASE_SERVICE__VISIBLE_FOR_CASE_STATES);
 
         documentOperationEClass = createEClass(DOCUMENT_OPERATION);
-        createEReference(documentOperationEClass,
-                DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION);
-        createEReference(documentOperationEClass,
-                DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS);
-        createEReference(documentOperationEClass,
-                DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION);
+        createEReference(documentOperationEClass, DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION);
+        createEReference(documentOperationEClass, DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS);
+        createEReference(documentOperationEClass, DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION);
 
         caseDocRefOperationsEClass = createEClass(CASE_DOC_REF_OPERATIONS);
-        createEReference(caseDocRefOperationsEClass,
-                CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION);
-        createEReference(caseDocRefOperationsEClass,
-                CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION);
-        createEReference(caseDocRefOperationsEClass,
-                CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION);
-        createEReference(caseDocRefOperationsEClass,
-                CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION);
-        createEAttribute(caseDocRefOperationsEClass,
-                CASE_DOC_REF_OPERATIONS__CASE_DOCUMENT_REF_FIELD);
+        createEReference(caseDocRefOperationsEClass, CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION);
+        createEReference(caseDocRefOperationsEClass, CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION);
+        createEReference(caseDocRefOperationsEClass, CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION);
+        createEReference(caseDocRefOperationsEClass, CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION);
+        createEAttribute(caseDocRefOperationsEClass, CASE_DOC_REF_OPERATIONS__CASE_DOCUMENT_REF_FIELD);
 
         caseDocFindOperationsEClass = createEClass(CASE_DOC_FIND_OPERATIONS);
-        createEReference(caseDocFindOperationsEClass,
-                CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION);
-        createEReference(caseDocFindOperationsEClass,
-                CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION);
-        createEAttribute(caseDocFindOperationsEClass,
-                CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD);
-        createEAttribute(caseDocFindOperationsEClass,
-                CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD);
+        createEReference(caseDocFindOperationsEClass, CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION);
+        createEReference(caseDocFindOperationsEClass, CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION);
+        createEAttribute(caseDocFindOperationsEClass, CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD);
+        createEAttribute(caseDocFindOperationsEClass, CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD);
 
         moveCaseDocOperationEClass = createEClass(MOVE_CASE_DOC_OPERATION);
-        createEAttribute(moveCaseDocOperationEClass,
-                MOVE_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD);
-        createEAttribute(moveCaseDocOperationEClass,
-                MOVE_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD);
+        createEAttribute(moveCaseDocOperationEClass, MOVE_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD);
+        createEAttribute(moveCaseDocOperationEClass, MOVE_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD);
 
         unlinkCaseDocOperationEClass = createEClass(UNLINK_CASE_DOC_OPERATION);
-        createEAttribute(unlinkCaseDocOperationEClass,
-                UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD);
+        createEAttribute(unlinkCaseDocOperationEClass, UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD);
 
         linkCaseDocOperationEClass = createEClass(LINK_CASE_DOC_OPERATION);
-        createEAttribute(linkCaseDocOperationEClass,
-                LINK_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD);
+        createEAttribute(linkCaseDocOperationEClass, LINK_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD);
 
-        linkSystemDocumentOperationEClass =
-                createEClass(LINK_SYSTEM_DOCUMENT_OPERATION);
-        createEAttribute(linkSystemDocumentOperationEClass,
-                LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID);
-        createEAttribute(linkSystemDocumentOperationEClass,
-                LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD);
-        createEAttribute(linkSystemDocumentOperationEClass,
-                LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD);
+        linkSystemDocumentOperationEClass = createEClass(LINK_SYSTEM_DOCUMENT_OPERATION);
+        createEAttribute(linkSystemDocumentOperationEClass, LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID);
+        createEAttribute(linkSystemDocumentOperationEClass, LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD);
+        createEAttribute(linkSystemDocumentOperationEClass, LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD);
 
         deleteCaseDocOperationEClass = createEClass(DELETE_CASE_DOC_OPERATION);
 
-        findByFileNameOperationEClass =
-                createEClass(FIND_BY_FILE_NAME_OPERATION);
-        createEAttribute(findByFileNameOperationEClass,
-                FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD);
+        findByFileNameOperationEClass = createEClass(FIND_BY_FILE_NAME_OPERATION);
+        createEAttribute(findByFileNameOperationEClass, FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD);
 
         findByQueryOperationEClass = createEClass(FIND_BY_QUERY_OPERATION);
-        createEReference(findByQueryOperationEClass,
-                FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION);
+        createEReference(findByQueryOperationEClass, FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION);
 
-        caseDocumentQueryExpressionEClass =
-                createEClass(CASE_DOCUMENT_QUERY_EXPRESSION);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__QUERY_EXPRESSION_JOIN_TYPE);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD);
-        createEAttribute(caseDocumentQueryExpressionEClass,
-                CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT);
+        caseDocumentQueryExpressionEClass = createEClass(CASE_DOCUMENT_QUERY_EXPRESSION);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__QUERY_EXPRESSION_JOIN_TYPE);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD);
+        createEAttribute(caseDocumentQueryExpressionEClass, CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT);
         createEAttribute(caseDocumentQueryExpressionEClass,
                 CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_DOCUMENT_PROPERTY_SELECTED);
 
-        serviceProcessConfigurationEClass =
-                createEClass(SERVICE_PROCESS_CONFIGURATION);
-        createEAttribute(serviceProcessConfigurationEClass,
-                SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME);
-        createEAttribute(serviceProcessConfigurationEClass,
-                SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME);
+        serviceProcessConfigurationEClass = createEClass(SERVICE_PROCESS_CONFIGURATION);
+        createEAttribute(serviceProcessConfigurationEClass, SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME);
+        createEAttribute(serviceProcessConfigurationEClass, SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME);
 
         scriptDataMapperEClass = createEClass(SCRIPT_DATA_MAPPER);
-        createEAttribute(scriptDataMapperEClass,
-                SCRIPT_DATA_MAPPER__MAPPER_CONTEXT);
-        createEAttribute(scriptDataMapperEClass,
-                SCRIPT_DATA_MAPPER__MAPPING_DIRECTION);
-        createEReference(scriptDataMapperEClass,
-                SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
-        createEReference(scriptDataMapperEClass,
-                SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
-        createEReference(scriptDataMapperEClass,
-                SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
+        createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__MAPPER_CONTEXT);
+        createEAttribute(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__MAPPING_DIRECTION);
+        createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
+        createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
+        createEReference(scriptDataMapperEClass, SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
 
-        dataMapperArrayInflationEClass =
-                createEClass(DATA_MAPPER_ARRAY_INFLATION);
-        createEAttribute(dataMapperArrayInflationEClass,
-                DATA_MAPPER_ARRAY_INFLATION__PATH);
-        createEAttribute(dataMapperArrayInflationEClass,
-                DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE);
-        createEAttribute(dataMapperArrayInflationEClass,
-                DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID);
+        dataMapperArrayInflationEClass = createEClass(DATA_MAPPER_ARRAY_INFLATION);
+        createEAttribute(dataMapperArrayInflationEClass, DATA_MAPPER_ARRAY_INFLATION__PATH);
+        createEAttribute(dataMapperArrayInflationEClass, DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE);
+        createEAttribute(dataMapperArrayInflationEClass, DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID);
 
         likeMappingExclusionEClass = createEClass(LIKE_MAPPING_EXCLUSION);
-        createEAttribute(likeMappingExclusionEClass,
-                LIKE_MAPPING_EXCLUSION__PATH);
+        createEAttribute(likeMappingExclusionEClass, LIKE_MAPPING_EXCLUSION__PATH);
 
         likeMappingExclusionsEClass = createEClass(LIKE_MAPPING_EXCLUSIONS);
-        createEReference(likeMappingExclusionsEClass,
-                LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS);
+        createEReference(likeMappingExclusionsEClass, LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS);
 
         restServiceOperationEClass = createEClass(REST_SERVICE_OPERATION);
-        createEAttribute(restServiceOperationEClass,
-                REST_SERVICE_OPERATION__LOCATION);
-        createEAttribute(restServiceOperationEClass,
-                REST_SERVICE_OPERATION__METHOD_ID);
+        createEAttribute(restServiceOperationEClass, REST_SERVICE_OPERATION__LOCATION);
+        createEAttribute(restServiceOperationEClass, REST_SERVICE_OPERATION__METHOD_ID);
 
         // Create enums
         allocationStrategyTypeEEnum = createEEnum(ALLOCATION_STRATEGY_TYPE);
@@ -7087,20 +6564,17 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         auditEventTypeEEnum = createEEnum(AUDIT_EVENT_TYPE);
         correlationModeEEnum = createEEnum(CORRELATION_MODE);
         errorThrowerTypeEEnum = createEEnum(ERROR_THROWER_TYPE);
-        eventHandlerFlowStrategyEEnum =
-                createEEnum(EVENT_HANDLER_FLOW_STRATEGY);
+        eventHandlerFlowStrategyEEnum = createEEnum(EVENT_HANDLER_FLOW_STRATEGY);
         flowRoutingStyleEEnum = createEEnum(FLOW_ROUTING_STYLE);
         formImplementationTypeEEnum = createEEnum(FORM_IMPLEMENTATION_TYPE);
         maxRetryActionTypeEEnum = createEEnum(MAX_RETRY_ACTION_TYPE);
         rescheduleDurationTypeEEnum = createEEnum(RESCHEDULE_DURATION_TYPE);
-        rescheduleTimerSelectionTypeEEnum =
-                createEEnum(RESCHEDULE_TIMER_SELECTION_TYPE);
+        rescheduleTimerSelectionTypeEEnum = createEEnum(RESCHEDULE_TIMER_SELECTION_TYPE);
         securityPolicyEEnum = createEEnum(SECURITY_POLICY);
         soapBindingStyleEEnum = createEEnum(SOAP_BINDING_STYLE);
         subProcessStartStrategyEEnum = createEEnum(SUB_PROCESS_START_STRATEGY);
         systemErrorActionTypeEEnum = createEEnum(SYSTEM_ERROR_ACTION_TYPE);
-        validationIssueOverrideTypeEEnum =
-                createEEnum(VALIDATION_ISSUE_OVERRIDE_TYPE);
+        validationIssueOverrideTypeEEnum = createEEnum(VALIDATION_ISSUE_OVERRIDE_TYPE);
         visibilityEEnum = createEEnum(VISIBILITY);
         deliveryModeEEnum = createEEnum(DELIVERY_MODE);
         xpdModelTypeEEnum = createEEnum(XPD_MODEL_TYPE);
@@ -7110,17 +6584,13 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         asyncExecutionModeEEnum = createEEnum(ASYNC_EXECUTION_MODE);
         signalTypeEEnum = createEEnum(SIGNAL_TYPE);
         xpdInterfaceTypeEEnum = createEEnum(XPD_INTERFACE_TYPE);
-        dataMapperArrayInflationTypeEEnum =
-                createEEnum(DATA_MAPPER_ARRAY_INFLATION_TYPE);
-        businessServicePublishTypeEEnum =
-                createEEnum(BUSINESS_SERVICE_PUBLISH_TYPE);
+        dataMapperArrayInflationTypeEEnum = createEEnum(DATA_MAPPER_ARRAY_INFLATION_TYPE);
+        businessServicePublishTypeEEnum = createEEnum(BUSINESS_SERVICE_PUBLISH_TYPE);
 
         // Create data types
-        auditEventTypeObjectEDataType =
-                createEDataType(AUDIT_EVENT_TYPE_OBJECT);
+        auditEventTypeObjectEDataType = createEDataType(AUDIT_EVENT_TYPE_OBJECT);
         securityPolicyObjectEDataType = createEDataType(SECURITY_POLICY_OBJECT);
-        soapBindingStyleObjectEDataType =
-                createEDataType(SOAP_BINDING_STYLE_OBJECT);
+        soapBindingStyleObjectEDataType = createEDataType(SOAP_BINDING_STYLE_OBJECT);
     }
 
     /**
@@ -7147,79 +6617,48 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        Xpdl2Package theXpdl2Package = (Xpdl2Package) EPackage.Registry.INSTANCE
-                .getEPackage(Xpdl2Package.eNS_URI);
+        Xpdl2Package theXpdl2Package = (Xpdl2Package) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI);
         XMLTypePackage theXMLTypePackage =
-                (XMLTypePackage) EPackage.Registry.INSTANCE
-                        .getEPackage(XMLTypePackage.eNS_URI);
+                (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        associatedCorrelationFieldEClass.getESuperTypes()
-                .add(theXpdl2Package.getDescribedElement());
-        associatedParameterEClass.getESuperTypes()
-                .add(theXpdl2Package.getDescribedElement());
-        errorMethodEClass.getESuperTypes()
-                .add(theXpdl2Package.getUniqueIdElement());
-        errorMethodEClass.getESuperTypes()
-                .add(this.getAssociatedParametersContainer());
-        eventHandlerInitialisersEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
+        associatedCorrelationFieldEClass.getESuperTypes().add(theXpdl2Package.getDescribedElement());
+        associatedParameterEClass.getESuperTypes().add(theXpdl2Package.getDescribedElement());
+        errorMethodEClass.getESuperTypes().add(theXpdl2Package.getUniqueIdElement());
+        errorMethodEClass.getESuperTypes().add(this.getAssociatedParametersContainer());
+        eventHandlerInitialisersEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
         faultMessageEClass.getESuperTypes().add(theXpdl2Package.getMessage());
-        interfaceMethodEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
-        interfaceMethodEClass.getESuperTypes()
-                .add(theXpdl2Package.getDescribedElement());
-        interfaceMethodEClass.getESuperTypes()
-                .add(this.getAssociatedParametersContainer());
-        intermediateMethodEClass.getESuperTypes()
-                .add(this.getInterfaceMethod());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getDescribedElement());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getExtendedAttributesContainer());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getFormalParametersContainer());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getOtherAttributesContainer());
-        processInterfaceEClass.getESuperTypes()
-                .add(theXpdl2Package.getOtherElementsContainer());
-        rescheduleTimerScriptEClass.getESuperTypes()
-                .add(theXpdl2Package.getExpression());
-        restServiceResourceSecurityEClass.getESuperTypes()
-                .add(theXpdl2Package.getExtendedAttributesContainer());
-        retainFamiliarActivitiesEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
-        scriptInformationEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
-        separationOfDutiesActivitiesEClass.getESuperTypes()
-                .add(theXpdl2Package.getNamedElement());
+        interfaceMethodEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
+        interfaceMethodEClass.getESuperTypes().add(theXpdl2Package.getDescribedElement());
+        interfaceMethodEClass.getESuperTypes().add(this.getAssociatedParametersContainer());
+        intermediateMethodEClass.getESuperTypes().add(this.getInterfaceMethod());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getDescribedElement());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getExtendedAttributesContainer());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getFormalParametersContainer());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getOtherAttributesContainer());
+        processInterfaceEClass.getESuperTypes().add(theXpdl2Package.getOtherElementsContainer());
+        rescheduleTimerScriptEClass.getESuperTypes().add(theXpdl2Package.getExpression());
+        restServiceResourceSecurityEClass.getESuperTypes().add(theXpdl2Package.getExtendedAttributesContainer());
+        retainFamiliarActivitiesEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
+        scriptInformationEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
+        separationOfDutiesActivitiesEClass.getESuperTypes().add(theXpdl2Package.getNamedElement());
         startMethodEClass.getESuperTypes().add(this.getInterfaceMethod());
-        transformScriptEClass.getESuperTypes()
-                .add(theXpdl2Package.getExtendedAttributesContainer());
-        wsSecurityPolicyEClass.getESuperTypes()
-                .add(theXpdl2Package.getExtendedAttributesContainer());
+        transformScriptEClass.getESuperTypes().add(theXpdl2Package.getExtendedAttributesContainer());
+        wsSecurityPolicyEClass.getESuperTypes().add(theXpdl2Package.getExtendedAttributesContainer());
         wsSoapBindingEClass.getESuperTypes().add(this.getWsBinding());
-        wsSoapHttpInboundBindingEClass.getESuperTypes()
-                .add(this.getWsSoapBinding());
-        wsSoapHttpOutboundBindingEClass.getESuperTypes()
-                .add(this.getWsSoapBinding());
-        wsSoapJmsInboundBindingEClass.getESuperTypes()
-                .add(this.getWsSoapBinding());
-        wsSoapJmsOutboundBindingEClass.getESuperTypes()
-                .add(this.getWsSoapBinding());
+        wsSoapHttpInboundBindingEClass.getESuperTypes().add(this.getWsSoapBinding());
+        wsSoapHttpOutboundBindingEClass.getESuperTypes().add(this.getWsSoapBinding());
+        wsSoapJmsInboundBindingEClass.getESuperTypes().add(this.getWsSoapBinding());
+        wsSoapJmsOutboundBindingEClass.getESuperTypes().add(this.getWsSoapBinding());
         wsVirtualBindingEClass.getESuperTypes().add(this.getWsBinding());
-        caseServiceEClass.getESuperTypes()
-                .add(theXpdl2Package.getOtherElementsContainer());
-        scriptDataMapperEClass.getESuperTypes()
-                .add(theXpdl2Package.getOtherElementsContainer());
-        scriptDataMapperEClass.getESuperTypes()
-                .add(theXpdl2Package.getOtherAttributesContainer());
+        caseServiceEClass.getESuperTypes().add(theXpdl2Package.getOtherElementsContainer());
+        scriptDataMapperEClass.getESuperTypes().add(theXpdl2Package.getOtherElementsContainer());
+        scriptDataMapperEClass.getESuperTypes().add(theXpdl2Package.getOtherAttributesContainer());
 
         // Initialize classes and features; add operations and parameters
         initEClass(activityRefEClass,
@@ -7244,13 +6683,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        addEOperation(activityRefEClass,
-                theXpdl2Package.getActivity(),
-                "getActivity", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(activityRefEClass, theXpdl2Package.getActivity(), "getActivity", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(activityResourcePatternsEClass,
                 ActivityResourcePatterns.class,
@@ -7376,8 +6809,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getAllocationStrategy_AllocateToOfferSetMemberIdentifier(),
+        initEAttribute(getAllocationStrategy_AllocateToOfferSetMemberIdentifier(),
                 theXMLTypePackage.getString(),
                 "allocateToOfferSetMemberIdentifier", //$NON-NLS-1$
                 null,
@@ -7399,8 +6831,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_ABSTRACT,
                 !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getAssociatedCorrelationFields_AssociatedCorrelationField(),
+        initEReference(getAssociatedCorrelationFields_AssociatedCorrelationField(),
                 this.getAssociatedCorrelationField(),
                 null,
                 "associatedCorrelationField", //$NON-NLS-1$
@@ -7417,8 +6848,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getAssociatedCorrelationFields_DisableImplicitAssociation(),
+        initEAttribute(getAssociatedCorrelationFields_DisableImplicitAssociation(),
                 theXMLTypePackage.getBoolean(),
                 "disableImplicitAssociation", //$NON-NLS-1$
                 null,
@@ -7585,8 +7015,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getAssociatedParametersContainer_DisableImplicitAssociation(),
+        initEAttribute(getAssociatedParametersContainer_DisableImplicitAssociation(),
                 theXMLTypePackage.getBoolean(),
                 "disableImplicitAssociation", //$NON-NLS-1$
                 null,
@@ -7602,12 +7031,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        initEClass(auditEClass,
-                Audit.class,
-                "Audit", //$NON-NLS-1$
-                !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+        initEClass(auditEClass, Audit.class, "Audit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEReference(getAudit_AuditEvent(),
                 this.getAuditEvent(),
                 null,
@@ -9534,8 +8958,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getDocumentRoot_AllowUnqualifiedSubProcessIdentification(),
+        initEAttribute(getDocumentRoot_AllowUnqualifiedSubProcessIdentification(),
                 theXMLTypePackage.getBoolean(),
                 "allowUnqualifiedSubProcessIdentification", //$NON-NLS-1$
                 null,
@@ -10035,8 +9458,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_ABSTRACT,
                 !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getDynamicOrganizationMappings_DynamicOrganizationMapping(),
+        initEReference(getDynamicOrganizationMappings_DynamicOrganizationMapping(),
                 this.getDynamicOrganizationMapping(),
                 null,
                 "dynamicOrganizationMapping", //$NON-NLS-1$
@@ -10703,20 +10125,9 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 IS_ORDERED);
 
-        EOperation op = addEOperation(participantSharedResourceEClass,
-                null,
-                "setSharedResource", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                ecorePackage.getEObject(),
-                "sharedResource", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        EOperation op =
+                addEOperation(participantSharedResourceEClass, null, "setSharedResource", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, ecorePackage.getEObject(), "sharedResource", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(pilingInfoEClass,
                 PilingInfo.class,
@@ -10927,8 +10338,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_ABSTRACT,
                 !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getProcessResourcePatterns_SeparationOfDutiesActivities(),
+        initEReference(getProcessResourcePatterns_SeparationOfDutiesActivities(),
                 this.getSeparationOfDutiesActivities(),
                 null,
                 "separationOfDutiesActivities", //$NON-NLS-1$
@@ -11163,12 +10573,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        initEClass(retryEClass,
-                Retry.class,
-                "Retry", //$NON-NLS-1$
-                !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+        initEClass(retryEClass, Retry.class, "Retry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getRetry_Max(),
                 theXMLTypePackage.getInt(),
                 "max", //$NON-NLS-1$
@@ -11369,6 +10774,40 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 this.getRescheduleTimers(),
                 null,
                 "rescheduleTimers", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                SignalData.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEReference(getSignalData_InputScriptDataMapper(),
+                this.getScriptDataMapper(),
+                null,
+                "inputScriptDataMapper", //$NON-NLS-1$
+                null,
+                0,
+                1,
+                SignalData.class,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE,
+                IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEReference(getSignalData_OutputScriptDataMapper(),
+                this.getScriptDataMapper(),
+                null,
+                "outputScriptDataMapper", //$NON-NLS-1$
                 null,
                 0,
                 1,
@@ -11834,13 +11273,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        addEOperation(wsInboundEClass,
-                this.getWsBinding(),
-                "getAllBindings", //$NON-NLS-1$
-                0,
-                -1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(wsInboundEClass, this.getWsBinding(), "getAllBindings", 0, -1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(wsOutboundEClass,
                 WsOutbound.class,
@@ -11900,28 +11333,10 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_DERIVED,
                 IS_ORDERED);
 
-        addEOperation(wsOutboundEClass,
-                this.getWsBinding(),
-                "getBinding", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        addEOperation(wsOutboundEClass, this.getWsBinding(), "getBinding", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-        op = addEOperation(wsOutboundEClass,
-                null,
-                "setBinding", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op,
-                this.getWsBinding(),
-                "inboundBinding", //$NON-NLS-1$
-                0,
-                1,
-                IS_UNIQUE,
-                IS_ORDERED);
+        op = addEOperation(wsOutboundEClass, null, "setBinding", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, this.getWsBinding(), "inboundBinding", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(wsResourceEClass,
                 WsResource.class,
@@ -12169,8 +11584,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration(),
+        initEAttribute(getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration(),
                 theXMLTypePackage.getString(),
                 "inboundConnectionFactoryConfiguration", //$NON-NLS-1$
                 null,
@@ -12904,8 +12318,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEReference(
-                getDeleteByCompositeIdentifiersType_CompositeIdentifier(),
+        initEReference(getDeleteByCompositeIdentifiersType_CompositeIdentifier(),
                 this.getCompositeIdentifierType(),
                 null,
                 "compositeIdentifier", //$NON-NLS-1$
@@ -13017,8 +12430,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEReference(
-                getCaseAccessOperationsType_DeleteByCompositeIdentifiers(),
+        initEReference(getCaseAccessOperationsType_DeleteByCompositeIdentifiers(),
                 this.getDeleteByCompositeIdentifiersType(),
                 null,
                 "deleteByCompositeIdentifiers", //$NON-NLS-1$
@@ -13079,8 +12491,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 !IS_ABSTRACT,
                 !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping(),
+        initEReference(getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping(),
                 this.getDataWorkItemAttributeMapping(),
                 null,
                 "dataWorkItemAttributeMapping", //$NON-NLS-1$
@@ -13876,8 +13287,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_UNIQUE,
                 !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(
-                getCaseDocumentQueryExpression_CmisDocumentPropertySelected(),
+        initEAttribute(getCaseDocumentQueryExpression_CmisDocumentPropertySelected(),
                 theXMLTypePackage.getBoolean(),
                 "cmisDocumentPropertySelected", //$NON-NLS-1$
                 null,
@@ -14154,97 +13564,61 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 IS_ORDERED);
 
         // Initialize enums and add enum literals
-        initEEnum(allocationStrategyTypeEEnum,
-                AllocationStrategyType.class,
-                "AllocationStrategyType"); //$NON-NLS-1$
-        addEEnumLiteral(allocationStrategyTypeEEnum,
-                AllocationStrategyType.SYSTEM_DETERMINED);
-        addEEnumLiteral(allocationStrategyTypeEEnum,
-                AllocationStrategyType.RANDOM);
-        addEEnumLiteral(allocationStrategyTypeEEnum,
-                AllocationStrategyType.ROUND_ROBIN);
+        initEEnum(allocationStrategyTypeEEnum, AllocationStrategyType.class, "AllocationStrategyType"); //$NON-NLS-1$
+        addEEnumLiteral(allocationStrategyTypeEEnum, AllocationStrategyType.SYSTEM_DETERMINED);
+        addEEnumLiteral(allocationStrategyTypeEEnum, AllocationStrategyType.RANDOM);
+        addEEnumLiteral(allocationStrategyTypeEEnum, AllocationStrategyType.ROUND_ROBIN);
 
         initEEnum(allocationTypeEEnum, AllocationType.class, "AllocationType"); //$NON-NLS-1$
         addEEnumLiteral(allocationTypeEEnum, AllocationType.OFFER_ALL);
         addEEnumLiteral(allocationTypeEEnum, AllocationType.OFFER_ONE);
         addEEnumLiteral(allocationTypeEEnum, AllocationType.ALLOCATE_ONE);
-        addEEnumLiteral(allocationTypeEEnum,
-                AllocationType.ALLOCATE_OFFER_SET_MEMBER);
+        addEEnumLiteral(allocationTypeEEnum, AllocationType.ALLOCATE_OFFER_SET_MEMBER);
 
         initEEnum(auditEventTypeEEnum, AuditEventType.class, "AuditEventType"); //$NON-NLS-1$
         addEEnumLiteral(auditEventTypeEEnum, AuditEventType.INITIATED_LITERAL);
         addEEnumLiteral(auditEventTypeEEnum, AuditEventType.COMPLETED_LITERAL);
-        addEEnumLiteral(auditEventTypeEEnum,
-                AuditEventType.DEADLINE_EXPIRED_LITERAL);
+        addEEnumLiteral(auditEventTypeEEnum, AuditEventType.DEADLINE_EXPIRED_LITERAL);
         addEEnumLiteral(auditEventTypeEEnum, AuditEventType.CANCELLED_LITERAL);
 
-        initEEnum(correlationModeEEnum,
-                CorrelationMode.class,
-                "CorrelationMode"); //$NON-NLS-1$
+        initEEnum(correlationModeEEnum, CorrelationMode.class, "CorrelationMode"); //$NON-NLS-1$
         addEEnumLiteral(correlationModeEEnum, CorrelationMode.INITIALIZE);
         addEEnumLiteral(correlationModeEEnum, CorrelationMode.CORRELATE);
         addEEnumLiteral(correlationModeEEnum, CorrelationMode.JOIN);
 
-        initEEnum(errorThrowerTypeEEnum,
-                ErrorThrowerType.class,
-                "ErrorThrowerType"); //$NON-NLS-1$
-        addEEnumLiteral(errorThrowerTypeEEnum,
-                ErrorThrowerType.PROCESS_ACTIVITY);
-        addEEnumLiteral(errorThrowerTypeEEnum,
-                ErrorThrowerType.INTERFACE_EVENT);
+        initEEnum(errorThrowerTypeEEnum, ErrorThrowerType.class, "ErrorThrowerType"); //$NON-NLS-1$
+        addEEnumLiteral(errorThrowerTypeEEnum, ErrorThrowerType.PROCESS_ACTIVITY);
+        addEEnumLiteral(errorThrowerTypeEEnum, ErrorThrowerType.INTERFACE_EVENT);
         addEEnumLiteral(errorThrowerTypeEEnum, ErrorThrowerType.OTHER);
 
-        initEEnum(eventHandlerFlowStrategyEEnum,
-                EventHandlerFlowStrategy.class,
-                "EventHandlerFlowStrategy"); //$NON-NLS-1$
-        addEEnumLiteral(eventHandlerFlowStrategyEEnum,
-                EventHandlerFlowStrategy.SERIALIZE_CONCURRENT);
-        addEEnumLiteral(eventHandlerFlowStrategyEEnum,
-                EventHandlerFlowStrategy.ALLOW_CONCURRENT);
+        initEEnum(eventHandlerFlowStrategyEEnum, EventHandlerFlowStrategy.class, "EventHandlerFlowStrategy"); //$NON-NLS-1$
+        addEEnumLiteral(eventHandlerFlowStrategyEEnum, EventHandlerFlowStrategy.SERIALIZE_CONCURRENT);
+        addEEnumLiteral(eventHandlerFlowStrategyEEnum, EventHandlerFlowStrategy.ALLOW_CONCURRENT);
 
-        initEEnum(flowRoutingStyleEEnum,
-                FlowRoutingStyle.class,
-                "FlowRoutingStyle"); //$NON-NLS-1$
-        addEEnumLiteral(flowRoutingStyleEEnum,
-                FlowRoutingStyle.UNCENTERED_ON_TASKS);
-        addEEnumLiteral(flowRoutingStyleEEnum,
-                FlowRoutingStyle.SINGLE_ENTRY_EXIT);
-        addEEnumLiteral(flowRoutingStyleEEnum,
-                FlowRoutingStyle.MULTI_ENTRY_EXIT);
+        initEEnum(flowRoutingStyleEEnum, FlowRoutingStyle.class, "FlowRoutingStyle"); //$NON-NLS-1$
+        addEEnumLiteral(flowRoutingStyleEEnum, FlowRoutingStyle.UNCENTERED_ON_TASKS);
+        addEEnumLiteral(flowRoutingStyleEEnum, FlowRoutingStyle.SINGLE_ENTRY_EXIT);
+        addEEnumLiteral(flowRoutingStyleEEnum, FlowRoutingStyle.MULTI_ENTRY_EXIT);
 
-        initEEnum(formImplementationTypeEEnum,
-                FormImplementationType.class,
-                "FormImplementationType"); //$NON-NLS-1$
-        addEEnumLiteral(formImplementationTypeEEnum,
-                FormImplementationType.USER_DEFINED);
-        addEEnumLiteral(formImplementationTypeEEnum,
-                FormImplementationType.FORM);
-        addEEnumLiteral(formImplementationTypeEEnum,
-                FormImplementationType.PAGEFLOW);
+        initEEnum(formImplementationTypeEEnum, FormImplementationType.class, "FormImplementationType"); //$NON-NLS-1$
+        addEEnumLiteral(formImplementationTypeEEnum, FormImplementationType.USER_DEFINED);
+        addEEnumLiteral(formImplementationTypeEEnum, FormImplementationType.FORM);
+        addEEnumLiteral(formImplementationTypeEEnum, FormImplementationType.PAGEFLOW);
 
-        initEEnum(maxRetryActionTypeEEnum,
-                MaxRetryActionType.class,
-                "MaxRetryActionType"); //$NON-NLS-1$
+        initEEnum(maxRetryActionTypeEEnum, MaxRetryActionType.class, "MaxRetryActionType"); //$NON-NLS-1$
         addEEnumLiteral(maxRetryActionTypeEEnum, MaxRetryActionType.HALT);
         addEEnumLiteral(maxRetryActionTypeEEnum, MaxRetryActionType.ERROR);
 
-        initEEnum(rescheduleDurationTypeEEnum,
-                RescheduleDurationType.class,
-                "RescheduleDurationType"); //$NON-NLS-1$
-        addEEnumLiteral(rescheduleDurationTypeEEnum,
-                RescheduleDurationType.RESCHEDULE_TIME);
-        addEEnumLiteral(rescheduleDurationTypeEEnum,
-                RescheduleDurationType.EXISTING_TIMEOUT);
+        initEEnum(rescheduleDurationTypeEEnum, RescheduleDurationType.class, "RescheduleDurationType"); //$NON-NLS-1$
+        addEEnumLiteral(rescheduleDurationTypeEEnum, RescheduleDurationType.RESCHEDULE_TIME);
+        addEEnumLiteral(rescheduleDurationTypeEEnum, RescheduleDurationType.EXISTING_TIMEOUT);
 
         initEEnum(rescheduleTimerSelectionTypeEEnum,
                 RescheduleTimerSelectionType.class,
                 "RescheduleTimerSelectionType"); //$NON-NLS-1$
-        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum,
-                RescheduleTimerSelectionType.ALL);
-        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum,
-                RescheduleTimerSelectionType.DEADLINE);
-        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum,
-                RescheduleTimerSelectionType.SELECTED);
+        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum, RescheduleTimerSelectionType.ALL);
+        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum, RescheduleTimerSelectionType.DEADLINE);
+        addEEnumLiteral(rescheduleTimerSelectionTypeEEnum, RescheduleTimerSelectionType.SELECTED);
 
         initEEnum(securityPolicyEEnum, SecurityPolicy.class, "SecurityPolicy"); //$NON-NLS-1$
         addEEnumLiteral(securityPolicyEEnum, SecurityPolicy.USERNAME_TOKEN);
@@ -14253,33 +13627,20 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         addEEnumLiteral(securityPolicyEEnum, SecurityPolicy.CUSTOM);
         addEEnumLiteral(securityPolicyEEnum, SecurityPolicy.BASIC);
 
-        initEEnum(soapBindingStyleEEnum,
-                SoapBindingStyle.class,
-                "SoapBindingStyle"); //$NON-NLS-1$
+        initEEnum(soapBindingStyleEEnum, SoapBindingStyle.class, "SoapBindingStyle"); //$NON-NLS-1$
         addEEnumLiteral(soapBindingStyleEEnum, SoapBindingStyle.RPC_LITERAL);
-        addEEnumLiteral(soapBindingStyleEEnum,
-                SoapBindingStyle.DOCUMENT_LITERAL);
+        addEEnumLiteral(soapBindingStyleEEnum, SoapBindingStyle.DOCUMENT_LITERAL);
 
-        initEEnum(subProcessStartStrategyEEnum,
-                SubProcessStartStrategy.class,
-                "SubProcessStartStrategy"); //$NON-NLS-1$
-        addEEnumLiteral(subProcessStartStrategyEEnum,
-                SubProcessStartStrategy.START_IMMEDIATELY);
-        addEEnumLiteral(subProcessStartStrategyEEnum,
-                SubProcessStartStrategy.SCHEDULE_START);
+        initEEnum(subProcessStartStrategyEEnum, SubProcessStartStrategy.class, "SubProcessStartStrategy"); //$NON-NLS-1$
+        addEEnumLiteral(subProcessStartStrategyEEnum, SubProcessStartStrategy.START_IMMEDIATELY);
+        addEEnumLiteral(subProcessStartStrategyEEnum, SubProcessStartStrategy.SCHEDULE_START);
 
-        initEEnum(systemErrorActionTypeEEnum,
-                SystemErrorActionType.class,
-                "SystemErrorActionType"); //$NON-NLS-1$
+        initEEnum(systemErrorActionTypeEEnum, SystemErrorActionType.class, "SystemErrorActionType"); //$NON-NLS-1$
         addEEnumLiteral(systemErrorActionTypeEEnum, SystemErrorActionType.HALT);
-        addEEnumLiteral(systemErrorActionTypeEEnum,
-                SystemErrorActionType.ERROR);
+        addEEnumLiteral(systemErrorActionTypeEEnum, SystemErrorActionType.ERROR);
 
-        initEEnum(validationIssueOverrideTypeEEnum,
-                ValidationIssueOverrideType.class,
-                "ValidationIssueOverrideType"); //$NON-NLS-1$
-        addEEnumLiteral(validationIssueOverrideTypeEEnum,
-                ValidationIssueOverrideType.SUPPRESS_UNTIL_NEXT_FLOW_CHANGE);
+        initEEnum(validationIssueOverrideTypeEEnum, ValidationIssueOverrideType.class, "ValidationIssueOverrideType"); //$NON-NLS-1$
+        addEEnumLiteral(validationIssueOverrideTypeEEnum, ValidationIssueOverrideType.SUPPRESS_UNTIL_NEXT_FLOW_CHANGE);
         addEEnumLiteral(validationIssueOverrideTypeEEnum,
                 ValidationIssueOverrideType.SUPPRESS_UNTIL_MANUAL_REACTIVATION);
 
@@ -14297,33 +13658,21 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         addEEnumLiteral(xpdModelTypeEEnum, XpdModelType.DECISION_FLOW);
         addEEnumLiteral(xpdModelTypeEEnum, XpdModelType.SERVICE_PROCESS);
 
-        initEEnum(adHocExecutionTypeTypeEEnum,
-                AdHocExecutionTypeType.class,
-                "AdHocExecutionTypeType"); //$NON-NLS-1$
-        addEEnumLiteral(adHocExecutionTypeTypeEEnum,
-                AdHocExecutionTypeType.AUTOMATIC);
-        addEEnumLiteral(adHocExecutionTypeTypeEEnum,
-                AdHocExecutionTypeType.MANUAL);
+        initEEnum(adHocExecutionTypeTypeEEnum, AdHocExecutionTypeType.class, "AdHocExecutionTypeType"); //$NON-NLS-1$
+        addEEnumLiteral(adHocExecutionTypeTypeEEnum, AdHocExecutionTypeType.AUTOMATIC);
+        addEEnumLiteral(adHocExecutionTypeTypeEEnum, AdHocExecutionTypeType.MANUAL);
 
-        initEEnum(queryExpressionJoinTypeEEnum,
-                QueryExpressionJoinType.class,
-                "QueryExpressionJoinType"); //$NON-NLS-1$
-        addEEnumLiteral(queryExpressionJoinTypeEEnum,
-                QueryExpressionJoinType.AND);
-        addEEnumLiteral(queryExpressionJoinTypeEEnum,
-                QueryExpressionJoinType.OR);
+        initEEnum(queryExpressionJoinTypeEEnum, QueryExpressionJoinType.class, "QueryExpressionJoinType"); //$NON-NLS-1$
+        addEEnumLiteral(queryExpressionJoinTypeEEnum, QueryExpressionJoinType.AND);
+        addEEnumLiteral(queryExpressionJoinTypeEEnum, QueryExpressionJoinType.OR);
 
-        initEEnum(cmisQueryOperatorEEnum,
-                CMISQueryOperator.class,
-                "CMISQueryOperator"); //$NON-NLS-1$
+        initEEnum(cmisQueryOperatorEEnum, CMISQueryOperator.class, "CMISQueryOperator"); //$NON-NLS-1$
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.EQUAL);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.NOT_EQUAL);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.GREATER_THAN);
-        addEEnumLiteral(cmisQueryOperatorEEnum,
-                CMISQueryOperator.GREATER_THAN_EQUAL);
+        addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.GREATER_THAN_EQUAL);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.LESS_THAN);
-        addEEnumLiteral(cmisQueryOperatorEEnum,
-                CMISQueryOperator.LESS_THAN_EQUAL);
+        addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.LESS_THAN_EQUAL);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.IN);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.NOT_IN);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.CONTAINS);
@@ -14333,9 +13682,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.NULL);
         addEEnumLiteral(cmisQueryOperatorEEnum, CMISQueryOperator.NOT_NULL);
 
-        initEEnum(asyncExecutionModeEEnum,
-                AsyncExecutionMode.class,
-                "AsyncExecutionMode"); //$NON-NLS-1$
+        initEEnum(asyncExecutionModeEEnum, AsyncExecutionMode.class, "AsyncExecutionMode"); //$NON-NLS-1$
         addEEnumLiteral(asyncExecutionModeEEnum, AsyncExecutionMode.ATTACHED);
         addEEnumLiteral(asyncExecutionModeEEnum, AsyncExecutionMode.DETACHED);
 
@@ -14344,29 +13691,19 @@ public class XpdExtensionPackageImpl extends EPackageImpl
         addEEnumLiteral(signalTypeEEnum, SignalType.GLOBAL);
         addEEnumLiteral(signalTypeEEnum, SignalType.CASE_DATA);
 
-        initEEnum(xpdInterfaceTypeEEnum,
-                XpdInterfaceType.class,
-                "XpdInterfaceType"); //$NON-NLS-1$
-        addEEnumLiteral(xpdInterfaceTypeEEnum,
-                XpdInterfaceType.PROCESS_INTERFACE);
-        addEEnumLiteral(xpdInterfaceTypeEEnum,
-                XpdInterfaceType.SERVICE_PROCESS_INTERFACE);
+        initEEnum(xpdInterfaceTypeEEnum, XpdInterfaceType.class, "XpdInterfaceType"); //$NON-NLS-1$
+        addEEnumLiteral(xpdInterfaceTypeEEnum, XpdInterfaceType.PROCESS_INTERFACE);
+        addEEnumLiteral(xpdInterfaceTypeEEnum, XpdInterfaceType.SERVICE_PROCESS_INTERFACE);
 
         initEEnum(dataMapperArrayInflationTypeEEnum,
                 DataMapperArrayInflationType.class,
                 "DataMapperArrayInflationType"); //$NON-NLS-1$
-        addEEnumLiteral(dataMapperArrayInflationTypeEEnum,
-                DataMapperArrayInflationType.APPEND_LIST);
-        addEEnumLiteral(dataMapperArrayInflationTypeEEnum,
-                DataMapperArrayInflationType.MERGE_LIST);
+        addEEnumLiteral(dataMapperArrayInflationTypeEEnum, DataMapperArrayInflationType.APPEND_LIST);
+        addEEnumLiteral(dataMapperArrayInflationTypeEEnum, DataMapperArrayInflationType.MERGE_LIST);
 
-        initEEnum(businessServicePublishTypeEEnum,
-                BusinessServicePublishType.class,
-                "BusinessServicePublishType"); //$NON-NLS-1$
-        addEEnumLiteral(businessServicePublishTypeEEnum,
-                BusinessServicePublishType.DESKTOP);
-        addEEnumLiteral(businessServicePublishTypeEEnum,
-                BusinessServicePublishType.MOBILE);
+        initEEnum(businessServicePublishTypeEEnum, BusinessServicePublishType.class, "BusinessServicePublishType"); //$NON-NLS-1$
+        addEEnumLiteral(businessServicePublishTypeEEnum, BusinessServicePublishType.DESKTOP);
+        addEEnumLiteral(businessServicePublishTypeEEnum, BusinessServicePublishType.MOBILE);
 
         // Initialize data types
         initEDataType(auditEventTypeObjectEDataType,
@@ -14403,7 +13740,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
      * @generated
      */
     protected void createExtendedMetaDataAnnotations() {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$
         addAnnotation(this, source, new String[] { "qualified", "true" //$NON-NLS-1$ //$NON-NLS-2$
         });
         addAnnotation(activityRefEClass,
@@ -14469,31 +13806,26 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "ReOfferOnCancel", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getAllocationStrategy_AllocateToOfferSetMemberIdentifier(),
+        addAnnotation(getAllocationStrategy_AllocateToOfferSetMemberIdentifier(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "AllocateToOfferSetMemberIdentifier", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(allocationStrategyTypeEEnum,
-                source,
-                new String[] { "name", "AllocationStrategyType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(allocationStrategyTypeEEnum, source, new String[] { "name", "AllocationStrategyType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(associatedCorrelationFieldsEClass,
                 source,
                 new String[] { "name", "AssociatedCorrelationFields", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getAssociatedCorrelationFields_AssociatedCorrelationField(),
+        addAnnotation(getAssociatedCorrelationFields_AssociatedCorrelationField(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "AssociatedCorrelationField", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getAssociatedCorrelationFields_DisableImplicitAssociation(),
+        addAnnotation(getAssociatedCorrelationFields_DisableImplicitAssociation(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DisableImplicitAssociation" //$NON-NLS-1$ //$NON-NLS-2$
@@ -14556,8 +13888,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
                         "wrap", "AssociatedParameters" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getAssociatedParametersContainer_DisableImplicitAssociation(),
+        addAnnotation(getAssociatedParametersContainer_DisableImplicitAssociation(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DisableImplicitAssociation" //$NON-NLS-1$ //$NON-NLS-2$
@@ -14596,10 +13927,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "Information", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(auditEventTypeEEnum,
-                source,
-                new String[] { "name", "Type_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(auditEventTypeEEnum, source, new String[] { "name", "Type_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(auditEventTypeObjectEDataType,
                 source,
                 new String[] { "name", "Type_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
@@ -14642,7 +13971,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 });
         addAnnotation(catchErrorMappingsEClass,
                 source,
-                new String[] { "name", "CatchErrorMappings\r\n", //$NON-NLS-1$ //$NON-NLS-2$
+                new String[] { "name", "CatchErrorMappings", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(getCatchErrorMappings_Message(),
@@ -14729,10 +14058,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "DataMapping", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(correlationModeEEnum,
-                source,
-                new String[] { "name", "CorrelationMode_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(correlationModeEEnum, source, new String[] { "name", "CorrelationMode_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(getDiscriminator_DiscriminatorType(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15299,8 +14626,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getDocumentRoot_AllowUnqualifiedSubProcessIdentification(),
+        addAnnotation(getDocumentRoot_AllowUnqualifiedSubProcessIdentification(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "AllowUnqualifiedSubProcessIdentification", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15490,8 +14816,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "name", "DynamicOrganizationMappings", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getDynamicOrganizationMappings_DynamicOrganizationMapping(),
+        addAnnotation(getDynamicOrganizationMappings_DynamicOrganizationMapping(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DynamicOrganizationMapping", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15574,10 +14899,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "ThrowerType" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(eventHandlerFlowStrategyEEnum,
-                source,
-                new String[] { "name", "EventHandlerFlowStrategy_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(eventHandlerFlowStrategyEEnum, source, new String[] { "name", "EventHandlerFlowStrategy_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(eventHandlerInitialisersEClass,
                 source,
                 new String[] { "name", "EventHandlerInitialisers", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15594,10 +14917,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "name", "FaultMessage", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(flowRoutingStyleEEnum,
-                source,
-                new String[] { "name", "FlowRoutingStyle_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(flowRoutingStyleEEnum, source, new String[] { "name", "FlowRoutingStyle_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(getFormImplementation_FormType(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15811,8 +15132,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 source,
                 new String[] { "name", "ProcessInterface", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly", //$NON-NLS-1$ //$NON-NLS-2$
-                        "features-order", //$NON-NLS-1$
-                        "startMethods intermediateMethods extendedAttributes" //$NON-NLS-1$
+                        "features-order", "startMethods intermediateMethods extendedAttributes" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(getProcessInterface_StartMethods(),
                 source,
@@ -15878,10 +15198,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DurationRelativeTo" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(rescheduleDurationTypeEEnum,
-                source,
-                new String[] { "name", "DurationRelativeToType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(rescheduleDurationTypeEEnum, source, new String[] { "name", "DurationRelativeToType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(rescheduleTimersEClass,
                 source,
                 new String[] { "name", "RescheduleTimers", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15904,10 +15222,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 source,
                 new String[] { "name", "RescheduleTimerSelectionType_._type" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(restServicesEClass,
-                source,
-                new String[] { "name", "RESTServices" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(restServicesEClass, source, new String[] { "name", "RESTServices" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(getRESTServices_RESTServices(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16008,10 +15324,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "Reference" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(securityPolicyEEnum,
-                source,
-                new String[] { "name", "SecurityPolicy" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(securityPolicyEEnum, source, new String[] { "name", "SecurityPolicy" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(securityPolicyObjectEDataType,
                 source,
                 new String[] { "name", "SecurityPolicy:Object", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16052,15 +15366,25 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
+        addAnnotation(getSignalData_InputScriptDataMapper(),
+                source,
+                new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "InputScriptDataMapper", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(getSignalData_OutputScriptDataMapper(),
+                source,
+                new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "OutputScriptDataMapper", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
         addAnnotation(startMethodEClass,
                 source,
                 new String[] { "name", "StartMethod", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(soapBindingStyleEEnum,
-                source,
-                new String[] { "name", "SoapBindingStyle" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(soapBindingStyleEEnum, source, new String[] { "name", "SoapBindingStyle" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(soapBindingStyleEEnum,
                 1,
                 "http:///org/eclipse/emf/ecore/util/ExtendedMetaData", //$NON-NLS-1$
@@ -16089,14 +15413,10 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "UpStreamParallelSplit", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(subProcessStartStrategyEEnum,
-                source,
-                new String[] { "name", "SubProcessStartStrategy_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
-        addAnnotation(systemErrorActionTypeEEnum,
-                source,
-                new String[] { "name", "SystemErrorActionType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(subProcessStartStrategyEEnum, source, new String[] { "name", "SubProcessStartStrategy_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+        addAnnotation(systemErrorActionTypeEEnum, source, new String[] { "name", "SystemErrorActionType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(taskLibraryReferenceEClass,
                 source,
                 new String[] { "name", "TaskLibraryReference", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16202,10 +15522,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 source,
                 new String[] { "name", "ValidationIssueOverrideType_._type" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(visibilityEEnum,
-                source,
-                new String[] { "name", "Visibility_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(visibilityEEnum, source, new String[] { "name", "Visibility_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(wsdlEventAssociationEClass,
                 source,
                 new String[] { "name", "WsdlEventAssociation", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16387,8 +15705,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "ConnectionFactory" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration(),
+        addAnnotation(getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "ConnectionFactoryConfigurator" //$NON-NLS-1$ //$NON-NLS-2$
@@ -16438,10 +15755,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "InvocationTimeout" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(deliveryModeEEnum,
-                source,
-                new String[] { "name", "Delivery_._Mode" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(deliveryModeEEnum, source, new String[] { "name", "Delivery_._Mode" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(wsSoapSecurityEClass,
                 source,
                 new String[] { "name", "WsSoapSecurity", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16458,10 +15773,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "name", "WsVirtualBinding", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(xpdExtDataObjectAttributesEClass,
-                source,
-                new String[] { "name", "DataObjectAttributes" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(xpdExtDataObjectAttributesEClass, source, new String[] { "name", "DataObjectAttributes" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(getXpdExtDataObjectAttributes_Description(),
                 source,
                 new String[] { "name", "Description", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16524,10 +15837,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "Value" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(xpdExtAttributesEClass,
-                source,
-                new String[] { "name", "ExtendedAttributes" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(xpdExtAttributesEClass, source, new String[] { "name", "ExtendedAttributes" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(getXpdExtAttributes_Attributes(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16545,10 +15856,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "FromFieldPath" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(xpdModelTypeEEnum,
-                source,
-                new String[] { "name", "XpdModelType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(xpdModelTypeEEnum, source, new String[] { "name", "XpdModelType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(addLinkAssociationsTypeEClass,
                 source,
                 new String[] { "name", "AddLinkAssociations_._type", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16722,8 +16031,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "DeleteByCaseIdentifier", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getCaseAccessOperationsType_DeleteByCompositeIdentifiers(),
+        addAnnotation(getCaseAccessOperationsType_DeleteByCompositeIdentifiers(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DeleteByCompositeIdentifiers", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16748,12 +16056,10 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 });
         addAnnotation(processDataWorkItemAttributeMappingsEClass,
                 source,
-                new String[] { "name", //$NON-NLS-1$
-                        "ProcessDataWorkItemAttributeMappings_._type", //$NON-NLS-1$
+                new String[] { "name", "ProcessDataWorkItemAttributeMappings_._type", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping(),
+        addAnnotation(getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping(),
                 source,
                 new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "DataWorkItemAttributeMapping", //$NON-NLS-1$ //$NON-NLS-2$
@@ -16829,10 +16135,8 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                         "name", "RequiredAccessPrivileges", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(adHocExecutionTypeTypeEEnum,
-                source,
-                new String[] { "name", "AdHocExecutionType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(adHocExecutionTypeTypeEEnum, source, new String[] { "name", "AdHocExecutionType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(requiredAccessPrivilegesEClass,
                 source,
                 new String[] { "name", "RequiredAccessPrivileges", //$NON-NLS-1$ //$NON-NLS-2$
@@ -17067,24 +16371,17 @@ public class XpdExtensionPackageImpl extends EPackageImpl
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "CloseBracketCount" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(
-                getCaseDocumentQueryExpression_CmisDocumentPropertySelected(),
+        addAnnotation(getCaseDocumentQueryExpression_CmisDocumentPropertySelected(),
                 source,
                 new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "CmisDocumentPropertySelected" //$NON-NLS-1$ //$NON-NLS-2$
                 });
-        addAnnotation(asyncExecutionModeEEnum,
-                source,
-                new String[] { "name", "AsyncExecutionMode_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
-        addAnnotation(signalTypeEEnum,
-                source,
-                new String[] { "name", "SignalType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
-        addAnnotation(xpdInterfaceTypeEEnum,
-                source,
-                new String[] { "name", "XpdInterfaceType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-                });
+        addAnnotation(asyncExecutionModeEEnum, source, new String[] { "name", "AsyncExecutionMode_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+        addAnnotation(signalTypeEEnum, source, new String[] { "name", "SignalType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+        addAnnotation(xpdInterfaceTypeEEnum, source, new String[] { "name", "XpdInterfaceType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+        });
         addAnnotation(serviceProcessConfigurationEClass,
                 source,
                 new String[] { "name", "ServiceProcessConfiguration", //$NON-NLS-1$ //$NON-NLS-2$

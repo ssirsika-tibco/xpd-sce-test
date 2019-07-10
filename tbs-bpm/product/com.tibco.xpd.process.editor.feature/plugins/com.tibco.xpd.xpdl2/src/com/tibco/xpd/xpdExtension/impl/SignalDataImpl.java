@@ -5,6 +5,7 @@ package com.tibco.xpd.xpdExtension.impl;
 
 import com.tibco.xpd.xpdExtension.CorrelationDataMappings;
 import com.tibco.xpd.xpdExtension.RescheduleTimers;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 
@@ -18,12 +19,14 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,6 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl#getCorrelationMappings <em>Correlation Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl#getDataMappings <em>Data Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl#getRescheduleTimers <em>Reschedule Timers</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl#getInputScriptDataMapper <em>Input Script Data Mapper</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl#getOutputScriptDataMapper <em>Output Script Data Mapper</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,8 +52,7 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCorrelationMappings() <em>Correlation Mappings</em>}' containment reference.
@@ -79,6 +83,26 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * @ordered
      */
     protected RescheduleTimers rescheduleTimers;
+
+    /**
+     * The cached value of the '{@link #getInputScriptDataMapper() <em>Input Script Data Mapper</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInputScriptDataMapper()
+     * @generated
+     * @ordered
+     */
+    protected ScriptDataMapper inputScriptDataMapper;
+
+    /**
+     * The cached value of the '{@link #getOutputScriptDataMapper() <em>Output Script Data Mapper</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOutputScriptDataMapper()
+     * @generated
+     * @ordered
+     */
+    protected ScriptDataMapper outputScriptDataMapper;
 
     /**
      * <!-- begin-user-doc -->
@@ -113,16 +137,14 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCorrelationMappings(
-            CorrelationDataMappings newCorrelationMappings,
+    public NotificationChain basicSetCorrelationMappings(CorrelationDataMappings newCorrelationMappings,
             NotificationChain msgs) {
         CorrelationDataMappings oldCorrelationMappings = correlationMappings;
         correlationMappings = newCorrelationMappings;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
-                    oldCorrelationMappings, newCorrelationMappings);
+            ENotificationImpl notification =
+                    new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
+                            oldCorrelationMappings, newCorrelationMappings);
             if (msgs == null)
                 msgs = notification;
             else
@@ -136,30 +158,24 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCorrelationMappings(
-            CorrelationDataMappings newCorrelationMappings) {
+    public void setCorrelationMappings(CorrelationDataMappings newCorrelationMappings) {
         if (newCorrelationMappings != correlationMappings) {
             NotificationChain msgs = null;
             if (correlationMappings != null)
-                msgs = ((InternalEObject) correlationMappings).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
+                msgs = ((InternalEObject) correlationMappings).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
                         null,
                         msgs);
             if (newCorrelationMappings != null)
-                msgs = ((InternalEObject) newCorrelationMappings).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
+                msgs = ((InternalEObject) newCorrelationMappings).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
                         null,
                         msgs);
             msgs = basicSetCorrelationMappings(newCorrelationMappings, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS,
                     newCorrelationMappings, newCorrelationMappings));
     }
 
@@ -170,8 +186,7 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings = new EObjectContainmentEList<DataMapping>(
-                    DataMapping.class, this,
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
                     XpdExtensionPackage.SIGNAL_DATA__DATA_MAPPINGS);
         }
         return dataMappings;
@@ -191,15 +206,12 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRescheduleTimers(
-            RescheduleTimers newRescheduleTimers, NotificationChain msgs) {
+    public NotificationChain basicSetRescheduleTimers(RescheduleTimers newRescheduleTimers, NotificationChain msgs) {
         RescheduleTimers oldRescheduleTimers = rescheduleTimers;
         rescheduleTimers = newRescheduleTimers;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
-                            oldRescheduleTimers, newRescheduleTimers);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS, oldRescheduleTimers, newRescheduleTimers);
             if (msgs == null)
                 msgs = notification;
             else
@@ -218,22 +230,19 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
             NotificationChain msgs = null;
             if (rescheduleTimers != null)
                 msgs = ((InternalEObject) rescheduleTimers).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
                         null,
                         msgs);
             if (newRescheduleTimers != null)
                 msgs = ((InternalEObject) newRescheduleTimers).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
                         null,
                         msgs);
             msgs = basicSetRescheduleTimers(newRescheduleTimers, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS,
                     newRescheduleTimers, newRescheduleTimers));
     }
 
@@ -242,17 +251,133 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
      * <!-- end-user-doc -->
      * @generated
      */
+    public ScriptDataMapper getInputScriptDataMapper() {
+        return inputScriptDataMapper;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetInputScriptDataMapper(ScriptDataMapper newInputScriptDataMapper,
+            NotificationChain msgs) {
+        ScriptDataMapper oldInputScriptDataMapper = inputScriptDataMapper;
+        inputScriptDataMapper = newInputScriptDataMapper;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER, oldInputScriptDataMapper,
+                    newInputScriptDataMapper);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInputScriptDataMapper(ScriptDataMapper newInputScriptDataMapper) {
+        if (newInputScriptDataMapper != inputScriptDataMapper) {
+            NotificationChain msgs = null;
+            if (inputScriptDataMapper != null)
+                msgs = ((InternalEObject) inputScriptDataMapper).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER,
+                        null,
+                        msgs);
+            if (newInputScriptDataMapper != null)
+                msgs = ((InternalEObject) newInputScriptDataMapper).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER,
+                        null,
+                        msgs);
+            msgs = basicSetInputScriptDataMapper(newInputScriptDataMapper, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER, newInputScriptDataMapper,
+                    newInputScriptDataMapper));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptDataMapper getOutputScriptDataMapper() {
+        return outputScriptDataMapper;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetOutputScriptDataMapper(ScriptDataMapper newOutputScriptDataMapper,
+            NotificationChain msgs) {
+        ScriptDataMapper oldOutputScriptDataMapper = outputScriptDataMapper;
+        outputScriptDataMapper = newOutputScriptDataMapper;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER, oldOutputScriptDataMapper,
+                    newOutputScriptDataMapper);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOutputScriptDataMapper(ScriptDataMapper newOutputScriptDataMapper) {
+        if (newOutputScriptDataMapper != outputScriptDataMapper) {
+            NotificationChain msgs = null;
+            if (outputScriptDataMapper != null)
+                msgs = ((InternalEObject) outputScriptDataMapper).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER,
+                        null,
+                        msgs);
+            if (newOutputScriptDataMapper != null)
+                msgs = ((InternalEObject) newOutputScriptDataMapper).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER,
+                        null,
+                        msgs);
+            msgs = basicSetOutputScriptDataMapper(newOutputScriptDataMapper, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER, newOutputScriptDataMapper,
+                    newOutputScriptDataMapper));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS:
             return basicSetCorrelationMappings(null, msgs);
         case XpdExtensionPackage.SIGNAL_DATA__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
             return basicSetRescheduleTimers(null, msgs);
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+            return basicSetInputScriptDataMapper(null, msgs);
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            return basicSetOutputScriptDataMapper(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -271,6 +396,10 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
             return getDataMappings();
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
             return getRescheduleTimers();
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+            return getInputScriptDataMapper();
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            return getOutputScriptDataMapper();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -289,11 +418,16 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
             return;
         case XpdExtensionPackage.SIGNAL_DATA__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
             setRescheduleTimers((RescheduleTimers) newValue);
+            return;
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+            setInputScriptDataMapper((ScriptDataMapper) newValue);
+            return;
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            setOutputScriptDataMapper((ScriptDataMapper) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -316,6 +450,12 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
             setRescheduleTimers((RescheduleTimers) null);
             return;
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+            setInputScriptDataMapper((ScriptDataMapper) null);
+            return;
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            setOutputScriptDataMapper((ScriptDataMapper) null);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -334,6 +474,10 @@ public class SignalDataImpl extends EObjectImpl implements SignalData {
             return dataMappings != null && !dataMappings.isEmpty();
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
             return rescheduleTimers != null;
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+            return inputScriptDataMapper != null;
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            return outputScriptDataMapper != null;
         }
         return super.eIsSet(featureID);
     }

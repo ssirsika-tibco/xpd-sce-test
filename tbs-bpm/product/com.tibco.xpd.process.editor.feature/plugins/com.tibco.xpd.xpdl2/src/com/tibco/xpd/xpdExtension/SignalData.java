@@ -5,6 +5,7 @@ package com.tibco.xpd.xpdExtension;
 
 import com.tibco.xpd.xpdl2.DataMapping;
 
+import com.tibco.xpd.xpdl2.OtherElementsContainer;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdExtension.SignalData#getCorrelationMappings <em>Correlation Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.SignalData#getDataMappings <em>Data Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.SignalData#getRescheduleTimers <em>Reschedule Timers</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.SignalData#getInputScriptDataMapper <em>Input Script Data Mapper</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.SignalData#getOutputScriptDataMapper <em>Output Script Data Mapper</em>}</li>
  * </ul>
  *
  * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getSignalData()
@@ -37,8 +40,7 @@ public interface SignalData extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Correlation Mappings</b></em>' containment reference.
@@ -110,5 +112,51 @@ public interface SignalData extends EObject {
      * @generated
      */
     void setRescheduleTimers(RescheduleTimers value);
+
+    /**
+     * Returns the value of the '<em><b>Input Script Data Mapper</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Input Script Data Mapper</em>' containment reference.
+     * @see #setInputScriptDataMapper(ScriptDataMapper)
+     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getSignalData_InputScriptDataMapper()
+     * @model containment="true"
+     *        extendedMetaData="kind='element' name='InputScriptDataMapper' namespace='##targetNamespace'"
+     * @generated
+     */
+    ScriptDataMapper getInputScriptDataMapper();
+
+    /**
+     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.SignalData#getInputScriptDataMapper <em>Input Script Data Mapper</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Input Script Data Mapper</em>' containment reference.
+     * @see #getInputScriptDataMapper()
+     * @generated
+     */
+    void setInputScriptDataMapper(ScriptDataMapper value);
+
+    /**
+     * Returns the value of the '<em><b>Output Script Data Mapper</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Output Script Data Mapper</em>' containment reference.
+     * @see #setOutputScriptDataMapper(ScriptDataMapper)
+     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getSignalData_OutputScriptDataMapper()
+     * @model containment="true"
+     *        extendedMetaData="kind='element' name='OutputScriptDataMapper' namespace='##targetNamespace'"
+     * @generated
+     */
+    ScriptDataMapper getOutputScriptDataMapper();
+
+    /**
+     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.SignalData#getOutputScriptDataMapper <em>Output Script Data Mapper</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Output Script Data Mapper</em>' containment reference.
+     * @see #getOutputScriptDataMapper()
+     * @generated
+     */
+    void setOutputScriptDataMapper(ScriptDataMapper value);
 
 } // SignalData

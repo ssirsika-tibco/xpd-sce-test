@@ -76,8 +76,7 @@ public class XpdExtensionSwitch<T> {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package
@@ -122,8 +121,7 @@ public class XpdExtensionSwitch<T> {
             return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
             List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject)
-                    : doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -144,35 +142,29 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS: {
-            ActivityResourcePatterns activityResourcePatterns =
-                    (ActivityResourcePatterns) theEObject;
+            ActivityResourcePatterns activityResourcePatterns = (ActivityResourcePatterns) theEObject;
             T result = caseActivityResourcePatterns(activityResourcePatterns);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.ALLOCATION_STRATEGY: {
-            AllocationStrategy allocationStrategy =
-                    (AllocationStrategy) theEObject;
+            AllocationStrategy allocationStrategy = (AllocationStrategy) theEObject;
             T result = caseAllocationStrategy(allocationStrategy);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELDS: {
-            AssociatedCorrelationFields associatedCorrelationFields =
-                    (AssociatedCorrelationFields) theEObject;
-            T result = caseAssociatedCorrelationFields(
-                    associatedCorrelationFields);
+            AssociatedCorrelationFields associatedCorrelationFields = (AssociatedCorrelationFields) theEObject;
+            T result = caseAssociatedCorrelationFields(associatedCorrelationFields);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD: {
-            AssociatedCorrelationField associatedCorrelationField =
-                    (AssociatedCorrelationField) theEObject;
-            T result =
-                    caseAssociatedCorrelationField(associatedCorrelationField);
+            AssociatedCorrelationField associatedCorrelationField = (AssociatedCorrelationField) theEObject;
+            T result = caseAssociatedCorrelationField(associatedCorrelationField);
             if (result == null)
                 result = caseDescribedElement(associatedCorrelationField);
             if (result == null)
@@ -180,8 +172,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.ASSOCIATED_PARAMETER: {
-            AssociatedParameter associatedParameter =
-                    (AssociatedParameter) theEObject;
+            AssociatedParameter associatedParameter = (AssociatedParameter) theEObject;
             T result = caseAssociatedParameter(associatedParameter);
             if (result == null)
                 result = caseDescribedElement(associatedParameter);
@@ -190,18 +181,15 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS: {
-            AssociatedParameters associatedParameters =
-                    (AssociatedParameters) theEObject;
+            AssociatedParameters associatedParameters = (AssociatedParameters) theEObject;
             T result = caseAssociatedParameters(associatedParameters);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS_CONTAINER: {
-            AssociatedParametersContainer associatedParametersContainer =
-                    (AssociatedParametersContainer) theEObject;
-            T result = caseAssociatedParametersContainer(
-                    associatedParametersContainer);
+            AssociatedParametersContainer associatedParametersContainer = (AssociatedParametersContainer) theEObject;
+            T result = caseAssociatedParametersContainer(associatedParametersContainer);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -228,16 +216,14 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.CALENDAR_REFERENCE: {
-            CalendarReference calendarReference =
-                    (CalendarReference) theEObject;
+            CalendarReference calendarReference = (CalendarReference) theEObject;
             T result = caseCalendarReference(calendarReference);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CATCH_ERROR_MAPPINGS: {
-            CatchErrorMappings catchErrorMappings =
-                    (CatchErrorMappings) theEObject;
+            CatchErrorMappings catchErrorMappings = (CatchErrorMappings) theEObject;
             T result = caseCatchErrorMappings(catchErrorMappings);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -251,25 +237,21 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.CONDITIONAL_PARTICIPANT: {
-            ConditionalParticipant conditionalParticipant =
-                    (ConditionalParticipant) theEObject;
+            ConditionalParticipant conditionalParticipant = (ConditionalParticipant) theEObject;
             T result = caseConditionalParticipant(conditionalParticipant);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.REPLY_IMMEDIATE_DATA_MAPPINGS: {
-            ReplyImmediateDataMappings replyImmediateDataMappings =
-                    (ReplyImmediateDataMappings) theEObject;
-            T result =
-                    caseReplyImmediateDataMappings(replyImmediateDataMappings);
+            ReplyImmediateDataMappings replyImmediateDataMappings = (ReplyImmediateDataMappings) theEObject;
+            T result = caseReplyImmediateDataMappings(replyImmediateDataMappings);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CORRELATION_DATA_MAPPINGS: {
-            CorrelationDataMappings correlationDataMappings =
-                    (CorrelationDataMappings) theEObject;
+            CorrelationDataMappings correlationDataMappings = (CorrelationDataMappings) theEObject;
             T result = caseCorrelationDataMappings(correlationDataMappings);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -290,34 +272,28 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.DURATION_CALCULATION: {
-            DurationCalculation durationCalculation =
-                    (DurationCalculation) theEObject;
+            DurationCalculation durationCalculation = (DurationCalculation) theEObject;
             T result = caseDurationCalculation(durationCalculation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPINGS: {
-            DynamicOrganizationMappings dynamicOrganizationMappings =
-                    (DynamicOrganizationMappings) theEObject;
-            T result = caseDynamicOrganizationMappings(
-                    dynamicOrganizationMappings);
+            DynamicOrganizationMappings dynamicOrganizationMappings = (DynamicOrganizationMappings) theEObject;
+            T result = caseDynamicOrganizationMappings(dynamicOrganizationMappings);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING: {
-            DynamicOrganizationMapping dynamicOrganizationMapping =
-                    (DynamicOrganizationMapping) theEObject;
-            T result =
-                    caseDynamicOrganizationMapping(dynamicOrganizationMapping);
+            DynamicOrganizationMapping dynamicOrganizationMapping = (DynamicOrganizationMapping) theEObject;
+            T result = caseDynamicOrganizationMapping(dynamicOrganizationMapping);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF: {
-            DynamicOrgIdentifierRef dynamicOrgIdentifierRef =
-                    (DynamicOrgIdentifierRef) theEObject;
+            DynamicOrgIdentifierRef dynamicOrgIdentifierRef = (DynamicOrgIdentifierRef) theEObject;
             T result = caseDynamicOrgIdentifierRef(dynamicOrgIdentifierRef);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -349,8 +325,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS: {
-            EventHandlerInitialisers eventHandlerInitialisers =
-                    (EventHandlerInitialisers) theEObject;
+            EventHandlerInitialisers eventHandlerInitialisers = (EventHandlerInitialisers) theEObject;
             T result = caseEventHandlerInitialisers(eventHandlerInitialisers);
             if (result == null)
                 result = caseNamedElement(eventHandlerInitialisers);
@@ -380,16 +355,14 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.FORM_IMPLEMENTATION: {
-            FormImplementation formImplementation =
-                    (FormImplementation) theEObject;
+            FormImplementation formImplementation = (FormImplementation) theEObject;
             T result = caseFormImplementation(formImplementation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.IMPLEMENTED_INTERFACE: {
-            ImplementedInterface implementedInterface =
-                    (ImplementedInterface) theEObject;
+            ImplementedInterface implementedInterface = (ImplementedInterface) theEObject;
             T result = caseImplementedInterface(implementedInterface);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -403,8 +376,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.INITIAL_PARAMETER_VALUE: {
-            InitialParameterValue initialParameterValue =
-                    (InitialParameterValue) theEObject;
+            InitialParameterValue initialParameterValue = (InitialParameterValue) theEObject;
             T result = caseInitialParameterValue(initialParameterValue);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -428,8 +400,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.INTERMEDIATE_METHOD: {
-            IntermediateMethod intermediateMethod =
-                    (IntermediateMethod) theEObject;
+            IntermediateMethod intermediateMethod = (IntermediateMethod) theEObject;
             T result = caseIntermediateMethod(intermediateMethod);
             if (result == null)
                 result = caseInterfaceMethod(intermediateMethod);
@@ -455,32 +426,28 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS: {
-            MultiInstanceScripts multiInstanceScripts =
-                    (MultiInstanceScripts) theEObject;
+            MultiInstanceScripts multiInstanceScripts = (MultiInstanceScripts) theEObject;
             T result = caseMultiInstanceScripts(multiInstanceScripts);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.NAMESPACE_PREFIX_MAP: {
-            NamespacePrefixMap namespacePrefixMap =
-                    (NamespacePrefixMap) theEObject;
+            NamespacePrefixMap namespacePrefixMap = (NamespacePrefixMap) theEObject;
             T result = caseNamespacePrefixMap(namespacePrefixMap);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.NAMESPACE_MAP_ENTRY: {
-            NamespaceMapEntry namespaceMapEntry =
-                    (NamespaceMapEntry) theEObject;
+            NamespaceMapEntry namespaceMapEntry = (NamespaceMapEntry) theEObject;
             T result = caseNamespaceMapEntry(namespaceMapEntry);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE: {
-            ParticipantSharedResource participantSharedResource =
-                    (ParticipantSharedResource) theEObject;
+            ParticipantSharedResource participantSharedResource = (ParticipantSharedResource) theEObject;
             T result = caseParticipantSharedResource(participantSharedResource);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -494,8 +461,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.PORT_TYPE_OPERATION: {
-            PortTypeOperation portTypeOperation =
-                    (PortTypeOperation) theEObject;
+            PortTypeOperation portTypeOperation = (PortTypeOperation) theEObject;
             T result = casePortTypeOperation(portTypeOperation);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -523,24 +489,21 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.PROCESS_INTERFACES: {
-            ProcessInterfaces processInterfaces =
-                    (ProcessInterfaces) theEObject;
+            ProcessInterfaces processInterfaces = (ProcessInterfaces) theEObject;
             T result = caseProcessInterfaces(processInterfaces);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS: {
-            ProcessResourcePatterns processResourcePatterns =
-                    (ProcessResourcePatterns) theEObject;
+            ProcessResourcePatterns processResourcePatterns = (ProcessResourcePatterns) theEObject;
             T result = caseProcessResourcePatterns(processResourcePatterns);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.RESCHEDULE_TIMER_SCRIPT: {
-            RescheduleTimerScript rescheduleTimerScript =
-                    (RescheduleTimerScript) theEObject;
+            RescheduleTimerScript rescheduleTimerScript = (RescheduleTimerScript) theEObject;
             T result = caseRescheduleTimerScript(rescheduleTimerScript);
             if (result == null)
                 result = caseExpression(rescheduleTimerScript);
@@ -563,28 +526,23 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.REST_SERVICE_RESOURCE: {
-            RestServiceResource restServiceResource =
-                    (RestServiceResource) theEObject;
+            RestServiceResource restServiceResource = (RestServiceResource) theEObject;
             T result = caseRestServiceResource(restServiceResource);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY: {
-            RestServiceResourceSecurity restServiceResourceSecurity =
-                    (RestServiceResourceSecurity) theEObject;
-            T result = caseRestServiceResourceSecurity(
-                    restServiceResourceSecurity);
+            RestServiceResourceSecurity restServiceResourceSecurity = (RestServiceResourceSecurity) theEObject;
+            T result = caseRestServiceResourceSecurity(restServiceResourceSecurity);
             if (result == null)
-                result = caseExtendedAttributesContainer(
-                        restServiceResourceSecurity);
+                result = caseExtendedAttributesContainer(restServiceResourceSecurity);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.RETAIN_FAMILIAR_ACTIVITIES: {
-            RetainFamiliarActivities retainFamiliarActivities =
-                    (RetainFamiliarActivities) theEObject;
+            RetainFamiliarActivities retainFamiliarActivities = (RetainFamiliarActivities) theEObject;
             T result = caseRetainFamiliarActivities(retainFamiliarActivities);
             if (result == null)
                 result = caseNamedElement(retainFamiliarActivities);
@@ -604,8 +562,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.SCRIPT_INFORMATION: {
-            ScriptInformation scriptInformation =
-                    (ScriptInformation) theEObject;
+            ScriptInformation scriptInformation = (ScriptInformation) theEObject;
             T result = caseScriptInformation(scriptInformation);
             if (result == null)
                 result = caseNamedElement(scriptInformation);
@@ -618,17 +575,14 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.SEPARATION_OF_DUTIES_ACTIVITIES: {
-            SeparationOfDutiesActivities separationOfDutiesActivities =
-                    (SeparationOfDutiesActivities) theEObject;
-            T result = caseSeparationOfDutiesActivities(
-                    separationOfDutiesActivities);
+            SeparationOfDutiesActivities separationOfDutiesActivities = (SeparationOfDutiesActivities) theEObject;
+            T result = caseSeparationOfDutiesActivities(separationOfDutiesActivities);
             if (result == null)
                 result = caseNamedElement(separationOfDutiesActivities);
             if (result == null)
                 result = caseUniqueIdElement(separationOfDutiesActivities);
             if (result == null)
-                result = caseOtherAttributesContainer(
-                        separationOfDutiesActivities);
+                result = caseOtherAttributesContainer(separationOfDutiesActivities);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -660,16 +614,14 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.STRUCTURED_DISCRIMINATOR: {
-            StructuredDiscriminator structuredDiscriminator =
-                    (StructuredDiscriminator) theEObject;
+            StructuredDiscriminator structuredDiscriminator = (StructuredDiscriminator) theEObject;
             T result = caseStructuredDiscriminator(structuredDiscriminator);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.TASK_LIBRARY_REFERENCE: {
-            TaskLibraryReference taskLibraryReference =
-                    (TaskLibraryReference) theEObject;
+            TaskLibraryReference taskLibraryReference = (TaskLibraryReference) theEObject;
             T result = caseTaskLibraryReference(taskLibraryReference);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -692,24 +644,21 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.VALIDATION_CONTROL: {
-            ValidationControl validationControl =
-                    (ValidationControl) theEObject;
+            ValidationControl validationControl = (ValidationControl) theEObject;
             T result = caseValidationControl(validationControl);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE: {
-            ValidationIssueOverride validationIssueOverride =
-                    (ValidationIssueOverride) theEObject;
+            ValidationIssueOverride validationIssueOverride = (ValidationIssueOverride) theEObject;
             T result = caseValidationIssueOverride(validationIssueOverride);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION: {
-            WsdlEventAssociation wsdlEventAssociation =
-                    (WsdlEventAssociation) theEObject;
+            WsdlEventAssociation wsdlEventAssociation = (WsdlEventAssociation) theEObject;
             T result = caseWsdlEventAssociation(wsdlEventAssociation);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -776,8 +725,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING: {
-            WsSoapHttpInboundBinding wsSoapHttpInboundBinding =
-                    (WsSoapHttpInboundBinding) theEObject;
+            WsSoapHttpInboundBinding wsSoapHttpInboundBinding = (WsSoapHttpInboundBinding) theEObject;
             T result = caseWsSoapHttpInboundBinding(wsSoapHttpInboundBinding);
             if (result == null)
                 result = caseWsSoapBinding(wsSoapHttpInboundBinding);
@@ -788,8 +736,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING: {
-            WsSoapHttpOutboundBinding wsSoapHttpOutboundBinding =
-                    (WsSoapHttpOutboundBinding) theEObject;
+            WsSoapHttpOutboundBinding wsSoapHttpOutboundBinding = (WsSoapHttpOutboundBinding) theEObject;
             T result = caseWsSoapHttpOutboundBinding(wsSoapHttpOutboundBinding);
             if (result == null)
                 result = caseWsSoapBinding(wsSoapHttpOutboundBinding);
@@ -800,8 +747,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING: {
-            WsSoapJmsInboundBinding wsSoapJmsInboundBinding =
-                    (WsSoapJmsInboundBinding) theEObject;
+            WsSoapJmsInboundBinding wsSoapJmsInboundBinding = (WsSoapJmsInboundBinding) theEObject;
             T result = caseWsSoapJmsInboundBinding(wsSoapJmsInboundBinding);
             if (result == null)
                 result = caseWsSoapBinding(wsSoapJmsInboundBinding);
@@ -812,8 +758,7 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING: {
-            WsSoapJmsOutboundBinding wsSoapJmsOutboundBinding =
-                    (WsSoapJmsOutboundBinding) theEObject;
+            WsSoapJmsOutboundBinding wsSoapJmsOutboundBinding = (WsSoapJmsOutboundBinding) theEObject;
             T result = caseWsSoapJmsOutboundBinding(wsSoapJmsOutboundBinding);
             if (result == null)
                 result = caseWsSoapBinding(wsSoapJmsOutboundBinding);
@@ -840,10 +785,8 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES: {
-            XpdExtDataObjectAttributes xpdExtDataObjectAttributes =
-                    (XpdExtDataObjectAttributes) theEObject;
-            T result =
-                    caseXpdExtDataObjectAttributes(xpdExtDataObjectAttributes);
+            XpdExtDataObjectAttributes xpdExtDataObjectAttributes = (XpdExtDataObjectAttributes) theEObject;
+            T result = caseXpdExtDataObjectAttributes(xpdExtDataObjectAttributes);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -870,59 +813,49 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.UPDATE_CASE_OPERATION_TYPE: {
-            UpdateCaseOperationType updateCaseOperationType =
-                    (UpdateCaseOperationType) theEObject;
+            UpdateCaseOperationType updateCaseOperationType = (UpdateCaseOperationType) theEObject;
             T result = caseUpdateCaseOperationType(updateCaseOperationType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE: {
-            AddLinkAssociationsType addLinkAssociationsType =
-                    (AddLinkAssociationsType) theEObject;
+            AddLinkAssociationsType addLinkAssociationsType = (AddLinkAssociationsType) theEObject;
             T result = caseAddLinkAssociationsType(addLinkAssociationsType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE: {
-            RemoveLinkAssociationsType removeLinkAssociationsType =
-                    (RemoveLinkAssociationsType) theEObject;
-            T result =
-                    caseRemoveLinkAssociationsType(removeLinkAssociationsType);
+            RemoveLinkAssociationsType removeLinkAssociationsType = (RemoveLinkAssociationsType) theEObject;
+            T result = caseRemoveLinkAssociationsType(removeLinkAssociationsType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE: {
-            CaseReferenceOperationsType caseReferenceOperationsType =
-                    (CaseReferenceOperationsType) theEObject;
-            T result = caseCaseReferenceOperationsType(
-                    caseReferenceOperationsType);
+            CaseReferenceOperationsType caseReferenceOperationsType = (CaseReferenceOperationsType) theEObject;
+            T result = caseCaseReferenceOperationsType(caseReferenceOperationsType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.GLOBAL_DATA_OPERATION: {
-            GlobalDataOperation globalDataOperation =
-                    (GlobalDataOperation) theEObject;
+            GlobalDataOperation globalDataOperation = (GlobalDataOperation) theEObject;
             T result = caseGlobalDataOperation(globalDataOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE: {
-            DeleteByCaseIdentifierType deleteByCaseIdentifierType =
-                    (DeleteByCaseIdentifierType) theEObject;
-            T result =
-                    caseDeleteByCaseIdentifierType(deleteByCaseIdentifierType);
+            DeleteByCaseIdentifierType deleteByCaseIdentifierType = (DeleteByCaseIdentifierType) theEObject;
+            T result = caseDeleteByCaseIdentifierType(deleteByCaseIdentifierType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE: {
-            CompositeIdentifierType compositeIdentifierType =
-                    (CompositeIdentifierType) theEObject;
+            CompositeIdentifierType compositeIdentifierType = (CompositeIdentifierType) theEObject;
             T result = caseCompositeIdentifierType(compositeIdentifierType);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -931,8 +864,7 @@ public class XpdExtensionSwitch<T> {
         case XpdExtensionPackage.DELETE_CASE_REFERENCE_OPERATION_TYPE: {
             DeleteCaseReferenceOperationType deleteCaseReferenceOperationType =
                     (DeleteCaseReferenceOperationType) theEObject;
-            T result = caseDeleteCaseReferenceOperationType(
-                    deleteCaseReferenceOperationType);
+            T result = caseDeleteCaseReferenceOperationType(deleteCaseReferenceOperationType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -940,33 +872,28 @@ public class XpdExtensionSwitch<T> {
         case XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE: {
             DeleteByCompositeIdentifiersType deleteByCompositeIdentifiersType =
                     (DeleteByCompositeIdentifiersType) theEObject;
-            T result = caseDeleteByCompositeIdentifiersType(
-                    deleteByCompositeIdentifiersType);
+            T result = caseDeleteByCompositeIdentifiersType(deleteByCompositeIdentifiersType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CREATE_CASE_OPERATION_TYPE: {
-            CreateCaseOperationType createCaseOperationType =
-                    (CreateCaseOperationType) theEObject;
+            CreateCaseOperationType createCaseOperationType = (CreateCaseOperationType) theEObject;
             T result = caseCreateCaseOperationType(createCaseOperationType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE: {
-            CaseAccessOperationsType caseAccessOperationsType =
-                    (CaseAccessOperationsType) theEObject;
+            CaseAccessOperationsType caseAccessOperationsType = (CaseAccessOperationsType) theEObject;
             T result = caseCaseAccessOperationsType(caseAccessOperationsType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING: {
-            DataWorkItemAttributeMapping dataWorkItemAttributeMapping =
-                    (DataWorkItemAttributeMapping) theEObject;
-            T result = caseDataWorkItemAttributeMapping(
-                    dataWorkItemAttributeMapping);
+            DataWorkItemAttributeMapping dataWorkItemAttributeMapping = (DataWorkItemAttributeMapping) theEObject;
+            T result = caseDataWorkItemAttributeMapping(dataWorkItemAttributeMapping);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -974,15 +901,13 @@ public class XpdExtensionSwitch<T> {
         case XpdExtensionPackage.PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS: {
             ProcessDataWorkItemAttributeMappings processDataWorkItemAttributeMappings =
                     (ProcessDataWorkItemAttributeMappings) theEObject;
-            T result = caseProcessDataWorkItemAttributeMappings(
-                    processDataWorkItemAttributeMappings);
+            T result = caseProcessDataWorkItemAttributeMappings(processDataWorkItemAttributeMappings);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.BPM_RUNTIME_CONFIGURATION: {
-            BpmRuntimeConfiguration bpmRuntimeConfiguration =
-                    (BpmRuntimeConfiguration) theEObject;
+            BpmRuntimeConfiguration bpmRuntimeConfiguration = (BpmRuntimeConfiguration) theEObject;
             T result = caseBpmRuntimeConfiguration(bpmRuntimeConfiguration);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -996,33 +921,28 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.INITIALIZER_ACTIVITIES_TYPE: {
-            InitializerActivitiesType initializerActivitiesType =
-                    (InitializerActivitiesType) theEObject;
+            InitializerActivitiesType initializerActivitiesType = (InitializerActivitiesType) theEObject;
             T result = caseInitializerActivitiesType(initializerActivitiesType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE: {
-            AdHocTaskConfigurationType adHocTaskConfigurationType =
-                    (AdHocTaskConfigurationType) theEObject;
-            T result =
-                    caseAdHocTaskConfigurationType(adHocTaskConfigurationType);
+            AdHocTaskConfigurationType adHocTaskConfigurationType = (AdHocTaskConfigurationType) theEObject;
+            T result = caseAdHocTaskConfigurationType(adHocTaskConfigurationType);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.REQUIRED_ACCESS_PRIVILEGES: {
-            RequiredAccessPrivileges requiredAccessPrivileges =
-                    (RequiredAccessPrivileges) theEObject;
+            RequiredAccessPrivileges requiredAccessPrivileges = (RequiredAccessPrivileges) theEObject;
             T result = caseRequiredAccessPrivileges(requiredAccessPrivileges);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.VISIBLE_FOR_CASE_STATES: {
-            VisibleForCaseStates visibleForCaseStates =
-                    (VisibleForCaseStates) theEObject;
+            VisibleForCaseStates visibleForCaseStates = (VisibleForCaseStates) theEObject;
             T result = caseVisibleForCaseStates(visibleForCaseStates);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1038,100 +958,85 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.DOCUMENT_OPERATION: {
-            DocumentOperation documentOperation =
-                    (DocumentOperation) theEObject;
+            DocumentOperation documentOperation = (DocumentOperation) theEObject;
             T result = caseDocumentOperation(documentOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CASE_DOC_REF_OPERATIONS: {
-            CaseDocRefOperations caseDocRefOperations =
-                    (CaseDocRefOperations) theEObject;
+            CaseDocRefOperations caseDocRefOperations = (CaseDocRefOperations) theEObject;
             T result = caseCaseDocRefOperations(caseDocRefOperations);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS: {
-            CaseDocFindOperations caseDocFindOperations =
-                    (CaseDocFindOperations) theEObject;
+            CaseDocFindOperations caseDocFindOperations = (CaseDocFindOperations) theEObject;
             T result = caseCaseDocFindOperations(caseDocFindOperations);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.MOVE_CASE_DOC_OPERATION: {
-            MoveCaseDocOperation moveCaseDocOperation =
-                    (MoveCaseDocOperation) theEObject;
+            MoveCaseDocOperation moveCaseDocOperation = (MoveCaseDocOperation) theEObject;
             T result = caseMoveCaseDocOperation(moveCaseDocOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.UNLINK_CASE_DOC_OPERATION: {
-            UnlinkCaseDocOperation unlinkCaseDocOperation =
-                    (UnlinkCaseDocOperation) theEObject;
+            UnlinkCaseDocOperation unlinkCaseDocOperation = (UnlinkCaseDocOperation) theEObject;
             T result = caseUnlinkCaseDocOperation(unlinkCaseDocOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.LINK_CASE_DOC_OPERATION: {
-            LinkCaseDocOperation linkCaseDocOperation =
-                    (LinkCaseDocOperation) theEObject;
+            LinkCaseDocOperation linkCaseDocOperation = (LinkCaseDocOperation) theEObject;
             T result = caseLinkCaseDocOperation(linkCaseDocOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION: {
-            LinkSystemDocumentOperation linkSystemDocumentOperation =
-                    (LinkSystemDocumentOperation) theEObject;
-            T result = caseLinkSystemDocumentOperation(
-                    linkSystemDocumentOperation);
+            LinkSystemDocumentOperation linkSystemDocumentOperation = (LinkSystemDocumentOperation) theEObject;
+            T result = caseLinkSystemDocumentOperation(linkSystemDocumentOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.DELETE_CASE_DOC_OPERATION: {
-            DeleteCaseDocOperation deleteCaseDocOperation =
-                    (DeleteCaseDocOperation) theEObject;
+            DeleteCaseDocOperation deleteCaseDocOperation = (DeleteCaseDocOperation) theEObject;
             T result = caseDeleteCaseDocOperation(deleteCaseDocOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.FIND_BY_FILE_NAME_OPERATION: {
-            FindByFileNameOperation findByFileNameOperation =
-                    (FindByFileNameOperation) theEObject;
+            FindByFileNameOperation findByFileNameOperation = (FindByFileNameOperation) theEObject;
             T result = caseFindByFileNameOperation(findByFileNameOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.FIND_BY_QUERY_OPERATION: {
-            FindByQueryOperation findByQueryOperation =
-                    (FindByQueryOperation) theEObject;
+            FindByQueryOperation findByQueryOperation = (FindByQueryOperation) theEObject;
             T result = caseFindByQueryOperation(findByQueryOperation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION: {
-            CaseDocumentQueryExpression caseDocumentQueryExpression =
-                    (CaseDocumentQueryExpression) theEObject;
-            T result = caseCaseDocumentQueryExpression(
-                    caseDocumentQueryExpression);
+            CaseDocumentQueryExpression caseDocumentQueryExpression = (CaseDocumentQueryExpression) theEObject;
+            T result = caseCaseDocumentQueryExpression(caseDocumentQueryExpression);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION: {
-            ServiceProcessConfiguration serviceProcessConfiguration =
-                    (ServiceProcessConfiguration) theEObject;
-            T result = caseServiceProcessConfiguration(
-                    serviceProcessConfiguration);
+            ServiceProcessConfiguration serviceProcessConfiguration = (ServiceProcessConfiguration) theEObject;
+            T result = caseServiceProcessConfiguration(serviceProcessConfiguration);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -1148,32 +1053,28 @@ public class XpdExtensionSwitch<T> {
             return result;
         }
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION: {
-            DataMapperArrayInflation dataMapperArrayInflation =
-                    (DataMapperArrayInflation) theEObject;
+            DataMapperArrayInflation dataMapperArrayInflation = (DataMapperArrayInflation) theEObject;
             T result = caseDataMapperArrayInflation(dataMapperArrayInflation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSION: {
-            LikeMappingExclusion likeMappingExclusion =
-                    (LikeMappingExclusion) theEObject;
+            LikeMappingExclusion likeMappingExclusion = (LikeMappingExclusion) theEObject;
             T result = caseLikeMappingExclusion(likeMappingExclusion);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS: {
-            LikeMappingExclusions likeMappingExclusions =
-                    (LikeMappingExclusions) theEObject;
+            LikeMappingExclusions likeMappingExclusions = (LikeMappingExclusions) theEObject;
             T result = caseLikeMappingExclusions(likeMappingExclusions);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case XpdExtensionPackage.REST_SERVICE_OPERATION: {
-            RestServiceOperation restServiceOperation =
-                    (RestServiceOperation) theEObject;
+            RestServiceOperation restServiceOperation = (RestServiceOperation) theEObject;
             T result = caseRestServiceOperation(restServiceOperation);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1240,8 +1141,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAssociatedCorrelationFields(
-            AssociatedCorrelationFields object) {
+    public T caseAssociatedCorrelationFields(AssociatedCorrelationFields object) {
         return null;
     }
 
@@ -1301,8 +1201,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAssociatedParametersContainer(
-            AssociatedParametersContainer object) {
+    public T caseAssociatedParametersContainer(AssociatedParametersContainer object) {
         return null;
     }
 
@@ -1497,8 +1396,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDynamicOrganizationMappings(
-            DynamicOrganizationMappings object) {
+    public T caseDynamicOrganizationMappings(DynamicOrganizationMappings object) {
         return null;
     }
 
@@ -1888,8 +1786,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSeparationOfDutiesActivities(
-            SeparationOfDutiesActivities object) {
+    public T caseSeparationOfDutiesActivities(SeparationOfDutiesActivities object) {
         return null;
     }
 
@@ -2159,8 +2056,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCaseReferenceOperationsType(
-            CaseReferenceOperationsType object) {
+    public T caseCaseReferenceOperationsType(CaseReferenceOperationsType object) {
         return null;
     }
 
@@ -2220,8 +2116,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDeleteCaseReferenceOperationType(
-            DeleteCaseReferenceOperationType object) {
+    public T caseDeleteCaseReferenceOperationType(DeleteCaseReferenceOperationType object) {
         return null;
     }
 
@@ -2236,8 +2131,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDeleteByCompositeIdentifiersType(
-            DeleteByCompositeIdentifiersType object) {
+    public T caseDeleteByCompositeIdentifiersType(DeleteByCompositeIdentifiersType object) {
         return null;
     }
 
@@ -2282,8 +2176,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDataWorkItemAttributeMapping(
-            DataWorkItemAttributeMapping object) {
+    public T caseDataWorkItemAttributeMapping(DataWorkItemAttributeMapping object) {
         return null;
     }
 
@@ -2298,8 +2191,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProcessDataWorkItemAttributeMappings(
-            ProcessDataWorkItemAttributeMappings object) {
+    public T caseProcessDataWorkItemAttributeMappings(ProcessDataWorkItemAttributeMappings object) {
         return null;
     }
 
@@ -2509,8 +2401,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLinkSystemDocumentOperation(
-            LinkSystemDocumentOperation object) {
+    public T caseLinkSystemDocumentOperation(LinkSystemDocumentOperation object) {
         return null;
     }
 
@@ -2570,8 +2461,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCaseDocumentQueryExpression(
-            CaseDocumentQueryExpression object) {
+    public T caseCaseDocumentQueryExpression(CaseDocumentQueryExpression object) {
         return null;
     }
 
@@ -2586,8 +2476,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseServiceProcessConfiguration(
-            ServiceProcessConfiguration object) {
+    public T caseServiceProcessConfiguration(ServiceProcessConfiguration object) {
         return null;
     }
 
@@ -2707,8 +2596,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRestServiceResourceSecurity(
-            RestServiceResourceSecurity object) {
+    public T caseRestServiceResourceSecurity(RestServiceResourceSecurity object) {
         return null;
     }
 
@@ -3053,8 +2941,7 @@ public class XpdExtensionSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseExtendedAttributesContainer(
-            ExtendedAttributesContainer object) {
+    public T caseExtendedAttributesContainer(ExtendedAttributesContainer object) {
         return null;
     }
 

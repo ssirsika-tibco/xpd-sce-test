@@ -8,6 +8,7 @@ import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
+import com.tibco.xpd.xpdl2.Xpdl2Package;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -36,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SignalDataItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SignalDataItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,16 +80,14 @@ public class SignalDataItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SIGNAL_DATA__CORRELATION_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SIGNAL_DATA__DATA_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SIGNAL_DATA__RESCHEDULE_TIMERS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SIGNAL_DATA__CORRELATION_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SIGNAL_DATA__DATA_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SIGNAL_DATA__RESCHEDULE_TIMERS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER);
         }
         return childrenFeatures;
     }
@@ -116,8 +113,7 @@ public class SignalDataItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/SignalData")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SignalData")); //$NON-NLS-1$
     }
 
     /**
@@ -146,8 +142,9 @@ public class SignalDataItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.SIGNAL_DATA__CORRELATION_MAPPINGS:
         case XpdExtensionPackage.SIGNAL_DATA__DATA_MAPPINGS:
         case XpdExtensionPackage.SIGNAL_DATA__RESCHEDULE_TIMERS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+        case XpdExtensionPackage.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER:
+        case XpdExtensionPackage.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -161,21 +158,45 @@ public class SignalDataItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SIGNAL_DATA__CORRELATION_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SIGNAL_DATA__CORRELATION_MAPPINGS,
                 XpdExtensionFactory.eINSTANCE.createCorrelationDataMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SIGNAL_DATA__DATA_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SIGNAL_DATA__DATA_MAPPINGS,
                 Xpdl2Factory.eINSTANCE.createDataMapping()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SIGNAL_DATA__RESCHEDULE_TIMERS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SIGNAL_DATA__RESCHEDULE_TIMERS,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimers()));
+
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER,
+                XpdExtensionFactory.eINSTANCE.createScriptDataMapper()));
+
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER,
+                        XpdExtensionFactory.eINSTANCE.createScriptDataMapper()));
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify = childFeature == XpdExtensionPackage.Literals.SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER
+                || childFeature == XpdExtensionPackage.Literals.SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER;
+
+        if (qualify) {
+            return getString("_UI_CreateChild_text2", //$NON-NLS-1$
+                    new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+        }
+        return super.getCreateChildText(owner, feature, child, selection);
     }
 
     /**

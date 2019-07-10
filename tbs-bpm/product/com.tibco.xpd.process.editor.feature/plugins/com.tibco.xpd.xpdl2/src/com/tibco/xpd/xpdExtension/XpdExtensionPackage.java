@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +35,7 @@ public interface XpdExtensionPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The package name.
@@ -67,8 +67,7 @@ public interface XpdExtensionPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    XpdExtensionPackage eINSTANCE =
-            com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl.init();
+    XpdExtensionPackage eINSTANCE = com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl.init();
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.ActivityRefImpl <em>Activity Ref</em>}' class.
@@ -262,8 +261,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_CORRELATION_FIELD__DESCRIPTION =
-            Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION;
+    int ASSOCIATED_CORRELATION_FIELD__DESCRIPTION = Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -272,8 +270,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_CORRELATION_FIELD__NAME =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
+    int ASSOCIATED_CORRELATION_FIELD__NAME = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Correlation Mode</b></em>' attribute.
@@ -282,8 +279,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 1;
+    int ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Associated Correlation Field</em>' class.
@@ -292,8 +288,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_CORRELATION_FIELD_FEATURE_COUNT =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 2;
+    int ASSOCIATED_CORRELATION_FIELD_FEATURE_COUNT = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.AssociatedParameterImpl <em>Associated Parameter</em>}' class.
@@ -312,8 +307,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_PARAMETER__DESCRIPTION =
-            Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION;
+    int ASSOCIATED_PARAMETER__DESCRIPTION = Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Formal Param</b></em>' attribute.
@@ -322,8 +316,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_PARAMETER__FORMAL_PARAM =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
+    int ASSOCIATED_PARAMETER__FORMAL_PARAM = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -332,8 +325,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_PARAMETER__MODE =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 1;
+    int ASSOCIATED_PARAMETER__MODE = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Mandatory</b></em>' attribute.
@@ -342,8 +334,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_PARAMETER__MANDATORY =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 2;
+    int ASSOCIATED_PARAMETER__MANDATORY = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Associated Parameter</em>' class.
@@ -352,8 +343,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATED_PARAMETER_FEATURE_COUNT =
-            Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 3;
+    int ASSOCIATED_PARAMETER_FEATURE_COUNT = Xpdl2Package.DESCRIBED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.AssociatedParametersImpl <em>Associated Parameters</em>}' class.
@@ -2136,8 +2126,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ERROR_METHOD__ASSOCIATED_PARAMETERS =
-            Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 0;
+    int ERROR_METHOD__ASSOCIATED_PARAMETERS = Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Disable Implicit Association</b></em>' attribute.
@@ -2146,8 +2135,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION =
-            Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 1;
+    int ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION = Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Error Code</b></em>' attribute.
@@ -2156,8 +2144,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ERROR_METHOD__ERROR_CODE =
-            Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 2;
+    int ERROR_METHOD__ERROR_CODE = Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Error Method</em>' class.
@@ -2166,8 +2153,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ERROR_METHOD_FEATURE_COUNT =
-            Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 3;
+    int ERROR_METHOD_FEATURE_COUNT = Xpdl2Package.UNIQUE_ID_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.ErrorThrowerInfoImpl <em>Error Thrower Info</em>}' class.
@@ -2241,8 +2227,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EVENT_HANDLER_INITIALISERS__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int EVENT_HANDLER_INITIALISERS__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2260,8 +2245,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EVENT_HANDLER_INITIALISERS__ACTIVITY_REF =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int EVENT_HANDLER_INITIALISERS__ACTIVITY_REF = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Event Handler Initialisers</em>' class.
@@ -2270,8 +2254,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EVENT_HANDLER_INITIALISERS_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int EVENT_HANDLER_INITIALISERS_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.FaultMessageImpl <em>Fault Message</em>}' class.
@@ -2299,8 +2282,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FAULT_MESSAGE__OTHER_ATTRIBUTES =
-            Xpdl2Package.MESSAGE__OTHER_ATTRIBUTES;
+    int FAULT_MESSAGE__OTHER_ATTRIBUTES = Xpdl2Package.MESSAGE__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2327,8 +2309,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FAULT_MESSAGE__ACTUAL_PARAMETERS =
-            Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS;
+    int FAULT_MESSAGE__ACTUAL_PARAMETERS = Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS;
 
     /**
      * The feature id for the '<em><b>Data Mappings</b></em>' containment reference list.
@@ -2540,8 +2521,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int INTERFACE_METHOD__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2559,8 +2539,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__DESCRIPTION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int INTERFACE_METHOD__DESCRIPTION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Associated Parameters</b></em>' containment reference list.
@@ -2569,8 +2548,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__ASSOCIATED_PARAMETERS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int INTERFACE_METHOD__ASSOCIATED_PARAMETERS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Disable Implicit Association</b></em>' attribute.
@@ -2579,8 +2557,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
+    int INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Trigger</b></em>' attribute.
@@ -2589,8 +2566,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__TRIGGER =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
+    int INTERFACE_METHOD__TRIGGER = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Trigger Result Message</b></em>' containment reference.
@@ -2599,8 +2575,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
+    int INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2609,8 +2584,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__VISIBILITY =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 5;
+    int INTERFACE_METHOD__VISIBILITY = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Error Methods</b></em>' containment reference list.
@@ -2619,8 +2593,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD__ERROR_METHODS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 6;
+    int INTERFACE_METHOD__ERROR_METHODS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Interface Method</em>' class.
@@ -2629,8 +2602,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_METHOD_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 7;
+    int INTERFACE_METHOD_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.IntermediateMethodImpl <em>Intermediate Method</em>}' class.
@@ -2658,8 +2630,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_METHOD__OTHER_ATTRIBUTES =
-            INTERFACE_METHOD__OTHER_ATTRIBUTES;
+    int INTERMEDIATE_METHOD__OTHER_ATTRIBUTES = INTERFACE_METHOD__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2686,8 +2657,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_METHOD__ASSOCIATED_PARAMETERS =
-            INTERFACE_METHOD__ASSOCIATED_PARAMETERS;
+    int INTERMEDIATE_METHOD__ASSOCIATED_PARAMETERS = INTERFACE_METHOD__ASSOCIATED_PARAMETERS;
 
     /**
      * The feature id for the '<em><b>Disable Implicit Association</b></em>' attribute.
@@ -2696,8 +2666,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_METHOD__DISABLE_IMPLICIT_ASSOCIATION =
-            INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION;
+    int INTERMEDIATE_METHOD__DISABLE_IMPLICIT_ASSOCIATION = INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION;
 
     /**
      * The feature id for the '<em><b>Trigger</b></em>' attribute.
@@ -2715,8 +2684,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_METHOD__TRIGGER_RESULT_MESSAGE =
-            INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE;
+    int INTERMEDIATE_METHOD__TRIGGER_RESULT_MESSAGE = INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE;
 
     /**
      * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -3057,8 +3025,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int PROCESS_INTERFACE__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3076,8 +3043,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__DESCRIPTION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int PROCESS_INTERFACE__DESCRIPTION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Extended Attributes</b></em>' containment reference list.
@@ -3086,8 +3052,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__EXTENDED_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int PROCESS_INTERFACE__EXTENDED_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Formal Parameters</b></em>' containment reference list.
@@ -3096,8 +3061,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__FORMAL_PARAMETERS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
+    int PROCESS_INTERFACE__FORMAL_PARAMETERS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -3106,8 +3070,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__OTHER_ELEMENTS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
+    int PROCESS_INTERFACE__OTHER_ELEMENTS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Start Methods</b></em>' containment reference list.
@@ -3116,8 +3079,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__START_METHODS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
+    int PROCESS_INTERFACE__START_METHODS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Intermediate Methods</b></em>' containment reference list.
@@ -3126,8 +3088,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__INTERMEDIATE_METHODS =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 5;
+    int PROCESS_INTERFACE__INTERMEDIATE_METHODS = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Xpd Interface Type</b></em>' attribute.
@@ -3136,8 +3097,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__XPD_INTERFACE_TYPE =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 6;
+    int PROCESS_INTERFACE__XPD_INTERFACE_TYPE = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Service Process Configuration</b></em>' containment reference.
@@ -3146,8 +3106,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 7;
+    int PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Process Interface</em>' class.
@@ -3156,8 +3115,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_INTERFACE_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 8;
+    int PROCESS_INTERFACE_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.ProcessInterfacesImpl <em>Process Interfaces</em>}' class.
@@ -3268,8 +3226,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESCHEDULE_TIMER_SCRIPT__SCRIPT_GRAMMAR =
-            Xpdl2Package.EXPRESSION__SCRIPT_GRAMMAR;
+    int RESCHEDULE_TIMER_SCRIPT__SCRIPT_GRAMMAR = Xpdl2Package.EXPRESSION__SCRIPT_GRAMMAR;
 
     /**
      * The feature id for the '<em><b>Duration Relative To</b></em>' attribute.
@@ -3278,8 +3235,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO =
-            Xpdl2Package.EXPRESSION_FEATURE_COUNT + 0;
+    int RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO = Xpdl2Package.EXPRESSION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Reschedule Timer Script</em>' class.
@@ -3288,8 +3244,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESCHEDULE_TIMER_SCRIPT_FEATURE_COUNT =
-            Xpdl2Package.EXPRESSION_FEATURE_COUNT + 1;
+    int RESCHEDULE_TIMER_SCRIPT_FEATURE_COUNT = Xpdl2Package.EXPRESSION_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RescheduleTimersImpl <em>Reschedule Timers</em>}' class.
@@ -3438,8 +3393,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Rest Service Resource Security</em>' class.
@@ -3448,8 +3402,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REST_SERVICE_RESOURCE_SECURITY_FEATURE_COUNT =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int REST_SERVICE_RESOURCE_SECURITY_FEATURE_COUNT = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RetainFamiliarActivitiesImpl <em>Retain Familiar Activities</em>}' class.
@@ -3477,8 +3430,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RETAIN_FAMILIAR_ACTIVITIES__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int RETAIN_FAMILIAR_ACTIVITIES__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3496,8 +3448,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Retain Familiar Activities</em>' class.
@@ -3506,8 +3457,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RETAIN_FAMILIAR_ACTIVITIES_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int RETAIN_FAMILIAR_ACTIVITIES_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.RetryImpl <em>Retry</em>}' class.
@@ -3590,8 +3540,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int SCRIPT_INFORMATION__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3609,8 +3558,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION__EXPRESSION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int SCRIPT_INFORMATION__EXPRESSION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -3619,8 +3567,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION__DIRECTION =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int SCRIPT_INFORMATION__DIRECTION = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Activity</b></em>' reference.
@@ -3629,8 +3576,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION__ACTIVITY =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
+    int SCRIPT_INFORMATION__ACTIVITY = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -3639,8 +3585,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION__REFERENCE =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
+    int SCRIPT_INFORMATION__REFERENCE = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Script Information</em>' class.
@@ -3649,8 +3594,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_INFORMATION_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
+    int SCRIPT_INFORMATION_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.SeparationOfDutiesActivitiesImpl <em>Separation Of Duties Activities</em>}' class.
@@ -3678,8 +3622,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEPARATION_OF_DUTIES_ACTIVITIES__OTHER_ATTRIBUTES =
-            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int SEPARATION_OF_DUTIES_ACTIVITIES__OTHER_ATTRIBUTES = Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3688,8 +3631,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEPARATION_OF_DUTIES_ACTIVITIES__NAME =
-            Xpdl2Package.NAMED_ELEMENT__NAME;
+    int SEPARATION_OF_DUTIES_ACTIVITIES__NAME = Xpdl2Package.NAMED_ELEMENT__NAME;
 
     /**
      * The feature id for the '<em><b>Activity Ref</b></em>' containment reference list.
@@ -3698,8 +3640,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Separation Of Duties Activities</em>' class.
@@ -3708,8 +3649,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEPARATION_OF_DUTIES_ACTIVITIES_FEATURE_COUNT =
-            Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+    int SEPARATION_OF_DUTIES_ACTIVITIES_FEATURE_COUNT = Xpdl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.SignalDataImpl <em>Signal Data</em>}' class.
@@ -3749,13 +3689,31 @@ public interface XpdExtensionPackage extends EPackage {
     int SIGNAL_DATA__RESCHEDULE_TIMERS = 2;
 
     /**
+     * The feature id for the '<em><b>Input Script Data Mapper</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER = 3;
+
+    /**
+     * The feature id for the '<em><b>Output Script Data Mapper</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER = 4;
+
+    /**
      * The number of structural features of the '<em>Signal Data</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIGNAL_DATA_FEATURE_COUNT = 3;
+    int SIGNAL_DATA_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.StartMethodImpl <em>Start Method</em>}' class.
@@ -3810,8 +3768,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int START_METHOD__ASSOCIATED_PARAMETERS =
-            INTERFACE_METHOD__ASSOCIATED_PARAMETERS;
+    int START_METHOD__ASSOCIATED_PARAMETERS = INTERFACE_METHOD__ASSOCIATED_PARAMETERS;
 
     /**
      * The feature id for the '<em><b>Disable Implicit Association</b></em>' attribute.
@@ -3820,8 +3777,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int START_METHOD__DISABLE_IMPLICIT_ASSOCIATION =
-            INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION;
+    int START_METHOD__DISABLE_IMPLICIT_ASSOCIATION = INTERFACE_METHOD__DISABLE_IMPLICIT_ASSOCIATION;
 
     /**
      * The feature id for the '<em><b>Trigger</b></em>' attribute.
@@ -3839,8 +3795,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int START_METHOD__TRIGGER_RESULT_MESSAGE =
-            INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE;
+    int START_METHOD__TRIGGER_RESULT_MESSAGE = INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE;
 
     /**
      * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -3960,8 +3915,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TRANSFORM_SCRIPT__EXTENDED_ATTRIBUTES =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES;
+    int TRANSFORM_SCRIPT__EXTENDED_ATTRIBUTES = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Data Mappings</b></em>' containment reference list.
@@ -3970,8 +3924,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TRANSFORM_SCRIPT__DATA_MAPPINGS =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRANSFORM_SCRIPT__DATA_MAPPINGS = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Input Dom</b></em>' attribute list.
@@ -3980,8 +3933,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TRANSFORM_SCRIPT__INPUT_DOM =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRANSFORM_SCRIPT__INPUT_DOM = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Output Dom</b></em>' attribute list.
@@ -3990,8 +3942,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TRANSFORM_SCRIPT__OUTPUT_DOM =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRANSFORM_SCRIPT__OUTPUT_DOM = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Transform Script</em>' class.
@@ -4000,8 +3951,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TRANSFORM_SCRIPT_FEATURE_COUNT =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TRANSFORM_SCRIPT_FEATURE_COUNT = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.UserTaskScriptsImpl <em>User Task Scripts</em>}' class.
@@ -4399,8 +4349,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES;
+    int WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Governance Application Name</b></em>' attribute.
@@ -4409,8 +4358,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -4419,8 +4367,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SECURITY_POLICY__TYPE =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int WS_SECURITY_POLICY__TYPE = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Ws Security Policy</em>' class.
@@ -4429,8 +4376,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SECURITY_POLICY_FEATURE_COUNT =
-            Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int WS_SECURITY_POLICY_FEATURE_COUNT = Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapBindingImpl <em>Ws Soap Binding</em>}' class.
@@ -4522,8 +4468,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__EXTENDED_PROPERTIES =
-            WS_SOAP_BINDING__EXTENDED_PROPERTIES;
+    int WS_SOAP_HTTP_INBOUND_BINDING__EXTENDED_PROPERTIES = WS_SOAP_BINDING__EXTENDED_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Binding Style</b></em>' attribute.
@@ -4532,8 +4477,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__BINDING_STYLE =
-            WS_SOAP_BINDING__BINDING_STYLE;
+    int WS_SOAP_HTTP_INBOUND_BINDING__BINDING_STYLE = WS_SOAP_BINDING__BINDING_STYLE;
 
     /**
      * The feature id for the '<em><b>Soap Version</b></em>' attribute.
@@ -4542,8 +4486,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__SOAP_VERSION =
-            WS_SOAP_BINDING__SOAP_VERSION;
+    int WS_SOAP_HTTP_INBOUND_BINDING__SOAP_VERSION = WS_SOAP_BINDING__SOAP_VERSION;
 
     /**
      * The feature id for the '<em><b>Soap Security</b></em>' reference.
@@ -4552,8 +4495,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__SOAP_SECURITY =
-            WS_SOAP_BINDING__SOAP_SECURITY;
+    int WS_SOAP_HTTP_INBOUND_BINDING__SOAP_SECURITY = WS_SOAP_BINDING__SOAP_SECURITY;
 
     /**
      * The feature id for the '<em><b>Inbound Security</b></em>' containment reference.
@@ -4562,8 +4504,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 0;
+    int WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY = WS_SOAP_BINDING_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Endpoint Url Path</b></em>' attribute.
@@ -4572,8 +4513,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH =
-            WS_SOAP_BINDING_FEATURE_COUNT + 1;
+    int WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH = WS_SOAP_BINDING_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Http Connector Instance Name</b></em>' attribute.
@@ -4582,8 +4522,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME =
-            WS_SOAP_BINDING_FEATURE_COUNT + 2;
+    int WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME = WS_SOAP_BINDING_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Ws Soap Http Inbound Binding</em>' class.
@@ -4592,8 +4531,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_INBOUND_BINDING_FEATURE_COUNT =
-            WS_SOAP_BINDING_FEATURE_COUNT + 3;
+    int WS_SOAP_HTTP_INBOUND_BINDING_FEATURE_COUNT = WS_SOAP_BINDING_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapHttpOutboundBindingImpl <em>Ws Soap Http Outbound Binding</em>}' class.
@@ -4621,8 +4559,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__EXTENDED_PROPERTIES =
-            WS_SOAP_BINDING__EXTENDED_PROPERTIES;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__EXTENDED_PROPERTIES = WS_SOAP_BINDING__EXTENDED_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Binding Style</b></em>' attribute.
@@ -4631,8 +4568,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__BINDING_STYLE =
-            WS_SOAP_BINDING__BINDING_STYLE;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__BINDING_STYLE = WS_SOAP_BINDING__BINDING_STYLE;
 
     /**
      * The feature id for the '<em><b>Soap Version</b></em>' attribute.
@@ -4641,8 +4577,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__SOAP_VERSION =
-            WS_SOAP_BINDING__SOAP_VERSION;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__SOAP_VERSION = WS_SOAP_BINDING__SOAP_VERSION;
 
     /**
      * The feature id for the '<em><b>Soap Security</b></em>' reference.
@@ -4651,8 +4586,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__SOAP_SECURITY =
-            WS_SOAP_BINDING__SOAP_SECURITY;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__SOAP_SECURITY = WS_SOAP_BINDING__SOAP_SECURITY;
 
     /**
      * The feature id for the '<em><b>Outbound Security</b></em>' containment reference.
@@ -4661,8 +4595,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 0;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY = WS_SOAP_BINDING_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Http Client Instance Name</b></em>' attribute.
@@ -4671,8 +4604,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING__HTTP_CLIENT_INSTANCE_NAME =
-            WS_SOAP_BINDING_FEATURE_COUNT + 1;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING__HTTP_CLIENT_INSTANCE_NAME = WS_SOAP_BINDING_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Ws Soap Http Outbound Binding</em>' class.
@@ -4681,8 +4613,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_HTTP_OUTBOUND_BINDING_FEATURE_COUNT =
-            WS_SOAP_BINDING_FEATURE_COUNT + 2;
+    int WS_SOAP_HTTP_OUTBOUND_BINDING_FEATURE_COUNT = WS_SOAP_BINDING_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapJmsInboundBindingImpl <em>Ws Soap Jms Inbound Binding</em>}' class.
@@ -4710,8 +4641,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__EXTENDED_PROPERTIES =
-            WS_SOAP_BINDING__EXTENDED_PROPERTIES;
+    int WS_SOAP_JMS_INBOUND_BINDING__EXTENDED_PROPERTIES = WS_SOAP_BINDING__EXTENDED_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Binding Style</b></em>' attribute.
@@ -4720,8 +4650,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__BINDING_STYLE =
-            WS_SOAP_BINDING__BINDING_STYLE;
+    int WS_SOAP_JMS_INBOUND_BINDING__BINDING_STYLE = WS_SOAP_BINDING__BINDING_STYLE;
 
     /**
      * The feature id for the '<em><b>Soap Version</b></em>' attribute.
@@ -4730,8 +4659,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__SOAP_VERSION =
-            WS_SOAP_BINDING__SOAP_VERSION;
+    int WS_SOAP_JMS_INBOUND_BINDING__SOAP_VERSION = WS_SOAP_BINDING__SOAP_VERSION;
 
     /**
      * The feature id for the '<em><b>Soap Security</b></em>' reference.
@@ -4740,8 +4668,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__SOAP_SECURITY =
-            WS_SOAP_BINDING__SOAP_SECURITY;
+    int WS_SOAP_JMS_INBOUND_BINDING__SOAP_SECURITY = WS_SOAP_BINDING__SOAP_SECURITY;
 
     /**
      * The feature id for the '<em><b>Outbound Connection Factory</b></em>' attribute.
@@ -4750,8 +4677,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 0;
+    int WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY = WS_SOAP_BINDING_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Inbound Connection Factory Configuration</b></em>' attribute.
@@ -4760,8 +4686,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION =
-            WS_SOAP_BINDING_FEATURE_COUNT + 1;
+    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION = WS_SOAP_BINDING_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Inbound Destination</b></em>' attribute.
@@ -4770,8 +4695,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION =
-            WS_SOAP_BINDING_FEATURE_COUNT + 2;
+    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION = WS_SOAP_BINDING_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Inbound Security</b></em>' containment reference.
@@ -4780,8 +4704,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 3;
+    int WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY = WS_SOAP_BINDING_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Ws Soap Jms Inbound Binding</em>' class.
@@ -4790,8 +4713,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_INBOUND_BINDING_FEATURE_COUNT =
-            WS_SOAP_BINDING_FEATURE_COUNT + 4;
+    int WS_SOAP_JMS_INBOUND_BINDING_FEATURE_COUNT = WS_SOAP_BINDING_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapJmsOutboundBindingImpl <em>Ws Soap Jms Outbound Binding</em>}' class.
@@ -4819,8 +4741,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__EXTENDED_PROPERTIES =
-            WS_SOAP_BINDING__EXTENDED_PROPERTIES;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__EXTENDED_PROPERTIES = WS_SOAP_BINDING__EXTENDED_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Binding Style</b></em>' attribute.
@@ -4829,8 +4750,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__BINDING_STYLE =
-            WS_SOAP_BINDING__BINDING_STYLE;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__BINDING_STYLE = WS_SOAP_BINDING__BINDING_STYLE;
 
     /**
      * The feature id for the '<em><b>Soap Version</b></em>' attribute.
@@ -4839,8 +4759,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__SOAP_VERSION =
-            WS_SOAP_BINDING__SOAP_VERSION;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__SOAP_VERSION = WS_SOAP_BINDING__SOAP_VERSION;
 
     /**
      * The feature id for the '<em><b>Soap Security</b></em>' reference.
@@ -4849,8 +4768,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__SOAP_SECURITY =
-            WS_SOAP_BINDING__SOAP_SECURITY;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__SOAP_SECURITY = WS_SOAP_BINDING__SOAP_SECURITY;
 
     /**
      * The feature id for the '<em><b>Outbound Connection Factory</b></em>' attribute.
@@ -4859,8 +4777,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 0;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY = WS_SOAP_BINDING_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Inbound Destination</b></em>' attribute.
@@ -4869,8 +4786,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION =
-            WS_SOAP_BINDING_FEATURE_COUNT + 1;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION = WS_SOAP_BINDING_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Outbound Destination</b></em>' attribute.
@@ -4879,8 +4795,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION =
-            WS_SOAP_BINDING_FEATURE_COUNT + 2;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION = WS_SOAP_BINDING_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Outbound Security</b></em>' containment reference.
@@ -4889,8 +4804,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 3;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY = WS_SOAP_BINDING_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Delivery Mode</b></em>' attribute.
@@ -4899,8 +4813,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE =
-            WS_SOAP_BINDING_FEATURE_COUNT + 4;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE = WS_SOAP_BINDING_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -4909,8 +4822,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY =
-            WS_SOAP_BINDING_FEATURE_COUNT + 5;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY = WS_SOAP_BINDING_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Message Expiration</b></em>' attribute.
@@ -4919,8 +4831,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION =
-            WS_SOAP_BINDING_FEATURE_COUNT + 6;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION = WS_SOAP_BINDING_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Invocation Timeout</b></em>' attribute.
@@ -4929,8 +4840,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT =
-            WS_SOAP_BINDING_FEATURE_COUNT + 7;
+    int WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT = WS_SOAP_BINDING_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Ws Soap Jms Outbound Binding</em>' class.
@@ -4939,8 +4849,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_SOAP_JMS_OUTBOUND_BINDING_FEATURE_COUNT =
-            WS_SOAP_BINDING_FEATURE_COUNT + 8;
+    int WS_SOAP_JMS_OUTBOUND_BINDING_FEATURE_COUNT = WS_SOAP_BINDING_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapSecurityImpl <em>Ws Soap Security</em>}' class.
@@ -4996,8 +4905,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int WS_VIRTUAL_BINDING__EXTENDED_PROPERTIES =
-            WS_BINDING__EXTENDED_PROPERTIES;
+    int WS_VIRTUAL_BINDING__EXTENDED_PROPERTIES = WS_BINDING__EXTENDED_PROPERTIES;
 
     /**
      * The number of structural features of the '<em>Ws Virtual Binding</em>' class.
@@ -5662,8 +5570,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS__DATA_WORK_ITEM_ATTRIBUTE_MAPPING =
-            0;
+    int PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS__DATA_WORK_ITEM_ATTRIBUTE_MAPPING = 0;
 
     /**
      * The number of structural features of the '<em>Process Data Work Item Attribute Mappings</em>' class.
@@ -5913,8 +5820,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CASE_SERVICE__OTHER_ELEMENTS =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
+    int CASE_SERVICE__OTHER_ELEMENTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Case Class Type</b></em>' containment reference.
@@ -5923,8 +5829,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CASE_SERVICE__CASE_CLASS_TYPE =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int CASE_SERVICE__CASE_CLASS_TYPE = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Visible For Case States</b></em>' containment reference.
@@ -5933,8 +5838,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CASE_SERVICE__VISIBLE_FOR_CASE_STATES =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
+    int CASE_SERVICE__VISIBLE_FOR_CASE_STATES = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Case Service</em>' class.
@@ -5943,8 +5847,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CASE_SERVICE_FEATURE_COUNT =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
+    int CASE_SERVICE_FEATURE_COUNT = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.DocumentOperationImpl <em>Document Operation</em>}' class.
@@ -6461,8 +6364,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__OTHER_ELEMENTS =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
+    int SCRIPT_DATA_MAPPER__OTHER_ELEMENTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
@@ -6471,8 +6373,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Mapper Context</b></em>' attribute.
@@ -6481,8 +6382,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__MAPPER_CONTEXT =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
+    int SCRIPT_DATA_MAPPER__MAPPER_CONTEXT = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Mapping Direction</b></em>' attribute.
@@ -6491,8 +6391,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__MAPPING_DIRECTION =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
+    int SCRIPT_DATA_MAPPER__MAPPING_DIRECTION = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Data Mappings</b></em>' containment reference list.
@@ -6501,8 +6400,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__DATA_MAPPINGS =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
+    int SCRIPT_DATA_MAPPER__DATA_MAPPINGS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Unmapped Scripts</b></em>' containment reference list.
@@ -6511,8 +6409,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
+    int SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Array Inflation Type</b></em>' containment reference list.
@@ -6521,8 +6418,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
+    int SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Script Data Mapper</em>' class.
@@ -6531,8 +6427,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SCRIPT_DATA_MAPPER_FEATURE_COUNT =
-            Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
+    int SCRIPT_DATA_MAPPER_FEATURE_COUNT = Xpdl2Package.OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.DataMapperArrayInflationImpl <em>Data Mapper Array Inflation</em>}' class.
@@ -10099,6 +9994,28 @@ public interface XpdExtensionPackage extends EPackage {
     EReference getSignalData_RescheduleTimers();
 
     /**
+     * Returns the meta object for the containment reference '{@link com.tibco.xpd.xpdExtension.SignalData#getInputScriptDataMapper <em>Input Script Data Mapper</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Input Script Data Mapper</em>'.
+     * @see com.tibco.xpd.xpdExtension.SignalData#getInputScriptDataMapper()
+     * @see #getSignalData()
+     * @generated
+     */
+    EReference getSignalData_InputScriptDataMapper();
+
+    /**
+     * Returns the meta object for the containment reference '{@link com.tibco.xpd.xpdExtension.SignalData#getOutputScriptDataMapper <em>Output Script Data Mapper</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Output Script Data Mapper</em>'.
+     * @see com.tibco.xpd.xpdExtension.SignalData#getOutputScriptDataMapper()
+     * @see #getSignalData()
+     * @generated
+     */
+    EReference getSignalData_OutputScriptDataMapper();
+
+    /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.StartMethod <em>Start Method</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12677,8 +12594,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getActivityResourcePatterns()
          * @generated
          */
-        EClass ACTIVITY_RESOURCE_PATTERNS =
-                eINSTANCE.getActivityResourcePatterns();
+        EClass ACTIVITY_RESOURCE_PATTERNS = eINSTANCE.getActivityResourcePatterns();
 
         /**
          * The meta object literal for the '<em><b>Allocation Strategy</b></em>' containment reference feature.
@@ -12695,8 +12611,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY_RESOURCE_PATTERNS__PILING =
-                eINSTANCE.getActivityResourcePatterns_Piling();
+        EReference ACTIVITY_RESOURCE_PATTERNS__PILING = eINSTANCE.getActivityResourcePatterns_Piling();
 
         /**
          * The meta object literal for the '<em><b>Work Item Priority</b></em>' containment reference feature.
@@ -12723,8 +12638,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ALLOCATION_STRATEGY__OFFER =
-                eINSTANCE.getAllocationStrategy_Offer();
+        EAttribute ALLOCATION_STRATEGY__OFFER = eINSTANCE.getAllocationStrategy_Offer();
 
         /**
          * The meta object literal for the '<em><b>Strategy</b></em>' attribute feature.
@@ -12732,8 +12646,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ALLOCATION_STRATEGY__STRATEGY =
-                eINSTANCE.getAllocationStrategy_Strategy();
+        EAttribute ALLOCATION_STRATEGY__STRATEGY = eINSTANCE.getAllocationStrategy_Strategy();
 
         /**
          * The meta object literal for the '<em><b>Re Offer On Close</b></em>' attribute feature.
@@ -12741,8 +12654,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE =
-                eINSTANCE.getAllocationStrategy_ReOfferOnClose();
+        EAttribute ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE = eINSTANCE.getAllocationStrategy_ReOfferOnClose();
 
         /**
          * The meta object literal for the '<em><b>Re Offer On Cancel</b></em>' attribute feature.
@@ -12750,8 +12662,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL =
-                eINSTANCE.getAllocationStrategy_ReOfferOnCancel();
+        EAttribute ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL = eINSTANCE.getAllocationStrategy_ReOfferOnCancel();
 
         /**
          * The meta object literal for the '<em><b>Allocate To Offer Set Member Identifier</b></em>' attribute feature.
@@ -12760,8 +12671,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute ALLOCATION_STRATEGY__ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER =
-                eINSTANCE
-                        .getAllocationStrategy_AllocateToOfferSetMemberIdentifier();
+                eINSTANCE.getAllocationStrategy_AllocateToOfferSetMemberIdentifier();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AssociatedCorrelationFieldsImpl <em>Associated Correlation Fields</em>}' class.
@@ -12771,8 +12681,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAssociatedCorrelationFields()
          * @generated
          */
-        EClass ASSOCIATED_CORRELATION_FIELDS =
-                eINSTANCE.getAssociatedCorrelationFields();
+        EClass ASSOCIATED_CORRELATION_FIELDS = eINSTANCE.getAssociatedCorrelationFields();
 
         /**
          * The meta object literal for the '<em><b>Associated Correlation Field</b></em>' containment reference list feature.
@@ -12781,8 +12690,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference ASSOCIATED_CORRELATION_FIELDS__ASSOCIATED_CORRELATION_FIELD =
-                eINSTANCE
-                        .getAssociatedCorrelationFields_AssociatedCorrelationField();
+                eINSTANCE.getAssociatedCorrelationFields_AssociatedCorrelationField();
 
         /**
          * The meta object literal for the '<em><b>Disable Implicit Association</b></em>' attribute feature.
@@ -12791,8 +12699,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute ASSOCIATED_CORRELATION_FIELDS__DISABLE_IMPLICIT_ASSOCIATION =
-                eINSTANCE
-                        .getAssociatedCorrelationFields_DisableImplicitAssociation();
+                eINSTANCE.getAssociatedCorrelationFields_DisableImplicitAssociation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AssociatedCorrelationFieldImpl <em>Associated Correlation Field</em>}' class.
@@ -12802,8 +12709,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAssociatedCorrelationField()
          * @generated
          */
-        EClass ASSOCIATED_CORRELATION_FIELD =
-                eINSTANCE.getAssociatedCorrelationField();
+        EClass ASSOCIATED_CORRELATION_FIELD = eINSTANCE.getAssociatedCorrelationField();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -12811,8 +12717,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSOCIATED_CORRELATION_FIELD__NAME =
-                eINSTANCE.getAssociatedCorrelationField_Name();
+        EAttribute ASSOCIATED_CORRELATION_FIELD__NAME = eINSTANCE.getAssociatedCorrelationField_Name();
 
         /**
          * The meta object literal for the '<em><b>Correlation Mode</b></em>' attribute feature.
@@ -12839,8 +12744,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSOCIATED_PARAMETER__FORMAL_PARAM =
-                eINSTANCE.getAssociatedParameter_FormalParam();
+        EAttribute ASSOCIATED_PARAMETER__FORMAL_PARAM = eINSTANCE.getAssociatedParameter_FormalParam();
 
         /**
          * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
@@ -12848,8 +12752,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSOCIATED_PARAMETER__MODE =
-                eINSTANCE.getAssociatedParameter_Mode();
+        EAttribute ASSOCIATED_PARAMETER__MODE = eINSTANCE.getAssociatedParameter_Mode();
 
         /**
          * The meta object literal for the '<em><b>Mandatory</b></em>' attribute feature.
@@ -12857,8 +12760,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSOCIATED_PARAMETER__MANDATORY =
-                eINSTANCE.getAssociatedParameter_Mandatory();
+        EAttribute ASSOCIATED_PARAMETER__MANDATORY = eINSTANCE.getAssociatedParameter_Mandatory();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AssociatedParametersImpl <em>Associated Parameters</em>}' class.
@@ -12896,8 +12798,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAssociatedParametersContainer()
          * @generated
          */
-        EClass ASSOCIATED_PARAMETERS_CONTAINER =
-                eINSTANCE.getAssociatedParametersContainer();
+        EClass ASSOCIATED_PARAMETERS_CONTAINER = eINSTANCE.getAssociatedParametersContainer();
 
         /**
          * The meta object literal for the '<em><b>Associated Parameters</b></em>' containment reference list feature.
@@ -12906,8 +12807,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS =
-                eINSTANCE
-                        .getAssociatedParametersContainer_AssociatedParameters();
+                eINSTANCE.getAssociatedParametersContainer_AssociatedParameters();
 
         /**
          * The meta object literal for the '<em><b>Disable Implicit Association</b></em>' attribute feature.
@@ -12916,8 +12816,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION =
-                eINSTANCE
-                        .getAssociatedParametersContainer_DisableImplicitAssociation();
+                eINSTANCE.getAssociatedParametersContainer_DisableImplicitAssociation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AuditImpl <em>Audit</em>}' class.
@@ -12969,8 +12868,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference AUDIT_EVENT__INFORMATION =
-                eINSTANCE.getAuditEvent_Information();
+        EReference AUDIT_EVENT__INFORMATION = eINSTANCE.getAuditEvent_Information();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.BusinessProcessImpl <em>Business Process</em>}' class.
@@ -12988,8 +12886,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUSINESS_PROCESS__PROCESS_ID =
-                eINSTANCE.getBusinessProcess_ProcessId();
+        EAttribute BUSINESS_PROCESS__PROCESS_ID = eINSTANCE.getBusinessProcess_ProcessId();
 
         /**
          * The meta object literal for the '<em><b>Package Ref Id</b></em>' attribute feature.
@@ -12997,8 +12894,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUSINESS_PROCESS__PACKAGE_REF_ID =
-                eINSTANCE.getBusinessProcess_PackageRefId();
+        EAttribute BUSINESS_PROCESS__PACKAGE_REF_ID = eINSTANCE.getBusinessProcess_PackageRefId();
 
         /**
          * The meta object literal for the '<em><b>Activity Id</b></em>' attribute feature.
@@ -13006,8 +12902,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUSINESS_PROCESS__ACTIVITY_ID =
-                eINSTANCE.getBusinessProcess_ActivityId();
+        EAttribute BUSINESS_PROCESS__ACTIVITY_ID = eINSTANCE.getBusinessProcess_ActivityId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.CalendarReferenceImpl <em>Calendar Reference</em>}' class.
@@ -13025,8 +12920,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CALENDAR_REFERENCE__ALIAS =
-                eINSTANCE.getCalendarReference_Alias();
+        EAttribute CALENDAR_REFERENCE__ALIAS = eINSTANCE.getCalendarReference_Alias();
 
         /**
          * The meta object literal for the '<em><b>Data Field Id</b></em>' attribute feature.
@@ -13034,8 +12928,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CALENDAR_REFERENCE__DATA_FIELD_ID =
-                eINSTANCE.getCalendarReference_DataFieldId();
+        EAttribute CALENDAR_REFERENCE__DATA_FIELD_ID = eINSTANCE.getCalendarReference_DataFieldId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.CatchErrorMappingsImpl <em>Catch Error Mappings</em>}' class.
@@ -13053,8 +12946,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CATCH_ERROR_MAPPINGS__MESSAGE =
-                eINSTANCE.getCatchErrorMappings_Message();
+        EReference CATCH_ERROR_MAPPINGS__MESSAGE = eINSTANCE.getCatchErrorMappings_Message();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ConstantPeriodImpl <em>Constant Period</em>}' class.
@@ -13088,8 +12980,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONSTANT_PERIOD__MICRO_SECONDS =
-                eINSTANCE.getConstantPeriod_MicroSeconds();
+        EAttribute CONSTANT_PERIOD__MICRO_SECONDS = eINSTANCE.getConstantPeriod_MicroSeconds();
 
         /**
          * The meta object literal for the '<em><b>Minutes</b></em>' attribute feature.
@@ -13097,8 +12988,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONSTANT_PERIOD__MINUTES =
-                eINSTANCE.getConstantPeriod_Minutes();
+        EAttribute CONSTANT_PERIOD__MINUTES = eINSTANCE.getConstantPeriod_Minutes();
 
         /**
          * The meta object literal for the '<em><b>Months</b></em>' attribute feature.
@@ -13106,8 +12996,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONSTANT_PERIOD__MONTHS =
-                eINSTANCE.getConstantPeriod_Months();
+        EAttribute CONSTANT_PERIOD__MONTHS = eINSTANCE.getConstantPeriod_Months();
 
         /**
          * The meta object literal for the '<em><b>Seconds</b></em>' attribute feature.
@@ -13115,8 +13004,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONSTANT_PERIOD__SECONDS =
-                eINSTANCE.getConstantPeriod_Seconds();
+        EAttribute CONSTANT_PERIOD__SECONDS = eINSTANCE.getConstantPeriod_Seconds();
 
         /**
          * The meta object literal for the '<em><b>Weeks</b></em>' attribute feature.
@@ -13150,8 +13038,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT =
-                eINSTANCE.getConditionalParticipant_PerformerScript();
+        EReference CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT = eINSTANCE.getConditionalParticipant_PerformerScript();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ReplyImmediateDataMappingsImpl <em>Reply Immediate Data Mappings</em>}' class.
@@ -13161,8 +13048,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getReplyImmediateDataMappings()
          * @generated
          */
-        EClass REPLY_IMMEDIATE_DATA_MAPPINGS =
-                eINSTANCE.getReplyImmediateDataMappings();
+        EClass REPLY_IMMEDIATE_DATA_MAPPINGS = eINSTANCE.getReplyImmediateDataMappings();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -13181,8 +13067,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCorrelationDataMappings()
          * @generated
          */
-        EClass CORRELATION_DATA_MAPPINGS =
-                eINSTANCE.getCorrelationDataMappings();
+        EClass CORRELATION_DATA_MAPPINGS = eINSTANCE.getCorrelationDataMappings();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -13190,8 +13075,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS =
-                eINSTANCE.getCorrelationDataMappings_DataMappings();
+        EReference CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS = eINSTANCE.getCorrelationDataMappings_DataMappings();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DiscriminatorImpl <em>Discriminator</em>}' class.
@@ -13209,8 +13093,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DISCRIMINATOR__DISCRIMINATOR_TYPE =
-                eINSTANCE.getDiscriminator_DiscriminatorType();
+        EAttribute DISCRIMINATOR__DISCRIMINATOR_TYPE = eINSTANCE.getDiscriminator_DiscriminatorType();
 
         /**
          * The meta object literal for the '<em><b>Structured Discriminator</b></em>' containment reference feature.
@@ -13218,8 +13101,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DISCRIMINATOR__STRUCTURED_DISCRIMINATOR =
-                eINSTANCE.getDiscriminator_StructuredDiscriminator();
+        EReference DISCRIMINATOR__STRUCTURED_DISCRIMINATOR = eINSTANCE.getDiscriminator_StructuredDiscriminator();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DocumentRootImpl <em>Document Root</em>}' class.
@@ -13237,8 +13119,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP =
-                eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
+        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
 
         /**
          * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
@@ -13246,8 +13127,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION =
-                eINSTANCE.getDocumentRoot_XSISchemaLocation();
+        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
 
         /**
          * The meta object literal for the '<em><b>Implementation Type</b></em>' attribute feature.
@@ -13255,8 +13135,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IMPLEMENTATION_TYPE =
-                eINSTANCE.getDocumentRoot_ImplementationType();
+        EAttribute DOCUMENT_ROOT__IMPLEMENTATION_TYPE = eINSTANCE.getDocumentRoot_ImplementationType();
 
         /**
          * The meta object literal for the '<em><b>Data Object Attributes</b></em>' containment reference list feature.
@@ -13264,8 +13143,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES =
-                eINSTANCE.getDocumentRoot_DataObjectAttributes();
+        EReference DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES = eINSTANCE.getDocumentRoot_DataObjectAttributes();
 
         /**
          * The meta object literal for the '<em><b>Extended Attributes</b></em>' containment reference list feature.
@@ -13273,8 +13151,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__EXTENDED_ATTRIBUTES =
-                eINSTANCE.getDocumentRoot_ExtendedAttributes();
+        EReference DOCUMENT_ROOT__EXTENDED_ATTRIBUTES = eINSTANCE.getDocumentRoot_ExtendedAttributes();
 
         /**
          * The meta object literal for the '<em><b>Continue On Timeout</b></em>' attribute feature.
@@ -13282,8 +13159,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT =
-                eINSTANCE.getDocumentRoot_ContinueOnTimeout();
+        EAttribute DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT = eINSTANCE.getDocumentRoot_ContinueOnTimeout();
 
         /**
          * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
@@ -13299,8 +13175,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CONSTANT_PERIOD =
-                eINSTANCE.getDocumentRoot_ConstantPeriod();
+        EReference DOCUMENT_ROOT__CONSTANT_PERIOD = eINSTANCE.getDocumentRoot_ConstantPeriod();
 
         /**
          * The meta object literal for the '<em><b>User Task Scripts</b></em>' containment reference list feature.
@@ -13308,8 +13183,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__USER_TASK_SCRIPTS =
-                eINSTANCE.getDocumentRoot_UserTaskScripts();
+        EReference DOCUMENT_ROOT__USER_TASK_SCRIPTS = eINSTANCE.getDocumentRoot_UserTaskScripts();
 
         /**
          * The meta object literal for the '<em><b>Audit</b></em>' containment reference list feature.
@@ -13333,8 +13207,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__REPLY_IMMEDIATELY =
-                eINSTANCE.getDocumentRoot_ReplyImmediately();
+        EAttribute DOCUMENT_ROOT__REPLY_IMMEDIATELY = eINSTANCE.getDocumentRoot_ReplyImmediately();
 
         /**
          * The meta object literal for the '<em><b>Initial Values</b></em>' containment reference list feature.
@@ -13342,8 +13215,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__INITIAL_VALUES =
-                eINSTANCE.getDocumentRoot_InitialValues();
+        EReference DOCUMENT_ROOT__INITIAL_VALUES = eINSTANCE.getDocumentRoot_InitialValues();
 
         /**
          * The meta object literal for the '<em><b>Associated Correlation Fields</b></em>' containment reference list feature.
@@ -13360,8 +13232,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__ASSOCIATED_PARAMETERS =
-                eINSTANCE.getDocumentRoot_AssociatedParameters();
+        EReference DOCUMENT_ROOT__ASSOCIATED_PARAMETERS = eINSTANCE.getDocumentRoot_AssociatedParameters();
 
         /**
          * The meta object literal for the '<em><b>Implemented Interface</b></em>' containment reference list feature.
@@ -13369,8 +13240,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__IMPLEMENTED_INTERFACE =
-                eINSTANCE.getDocumentRoot_ImplementedInterface();
+        EReference DOCUMENT_ROOT__IMPLEMENTED_INTERFACE = eINSTANCE.getDocumentRoot_ImplementedInterface();
 
         /**
          * The meta object literal for the '<em><b>Process Interfaces</b></em>' containment reference list feature.
@@ -13378,8 +13248,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PROCESS_INTERFACES =
-                eINSTANCE.getDocumentRoot_ProcessInterfaces();
+        EReference DOCUMENT_ROOT__PROCESS_INTERFACES = eINSTANCE.getDocumentRoot_ProcessInterfaces();
 
         /**
          * The meta object literal for the '<em><b>Wsdl Event Association</b></em>' containment reference list feature.
@@ -13387,8 +13256,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION =
-                eINSTANCE.getDocumentRoot_WsdlEventAssociation();
+        EReference DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION = eINSTANCE.getDocumentRoot_WsdlEventAssociation();
 
         /**
          * The meta object literal for the '<em><b>Inline Sub Process</b></em>' attribute feature.
@@ -13396,8 +13264,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__INLINE_SUB_PROCESS =
-                eINSTANCE.getDocumentRoot_InlineSubProcess();
+        EAttribute DOCUMENT_ROOT__INLINE_SUB_PROCESS = eINSTANCE.getDocumentRoot_InlineSubProcess();
 
         /**
          * The meta object literal for the '<em><b>Documentation URL</b></em>' attribute feature.
@@ -13405,8 +13272,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__DOCUMENTATION_URL =
-                eINSTANCE.getDocumentRoot_DocumentationURL();
+        EAttribute DOCUMENT_ROOT__DOCUMENTATION_URL = eINSTANCE.getDocumentRoot_DocumentationURL();
 
         /**
          * The meta object literal for the '<em><b>Implements</b></em>' attribute feature.
@@ -13414,8 +13280,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IMPLEMENTS =
-                eINSTANCE.getDocumentRoot_Implements();
+        EAttribute DOCUMENT_ROOT__IMPLEMENTS = eINSTANCE.getDocumentRoot_Implements();
 
         /**
          * The meta object literal for the '<em><b>Multi Instance Scripts</b></em>' containment reference list feature.
@@ -13423,8 +13288,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS =
-                eINSTANCE.getDocumentRoot_MultiInstanceScripts();
+        EReference DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS = eINSTANCE.getDocumentRoot_MultiInstanceScripts();
 
         /**
          * The meta object literal for the '<em><b>Process Identifier Field</b></em>' attribute feature.
@@ -13432,8 +13296,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD =
-                eINSTANCE.getDocumentRoot_ProcessIdentifierField();
+        EAttribute DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD = eINSTANCE.getDocumentRoot_ProcessIdentifierField();
 
         /**
          * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
@@ -13441,8 +13304,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__EXPRESSION =
-                eINSTANCE.getDocumentRoot_Expression();
+        EReference DOCUMENT_ROOT__EXPRESSION = eINSTANCE.getDocumentRoot_Expression();
 
         /**
          * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
@@ -13450,8 +13312,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__VISIBILITY =
-                eINSTANCE.getDocumentRoot_Visibility();
+        EAttribute DOCUMENT_ROOT__VISIBILITY = eINSTANCE.getDocumentRoot_Visibility();
 
         /**
          * The meta object literal for the '<em><b>Security Profile</b></em>' attribute feature.
@@ -13459,8 +13320,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SECURITY_PROFILE =
-                eINSTANCE.getDocumentRoot_SecurityProfile();
+        EAttribute DOCUMENT_ROOT__SECURITY_PROFILE = eINSTANCE.getDocumentRoot_SecurityProfile();
 
         /**
          * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
@@ -13468,8 +13328,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__LANGUAGE =
-                eINSTANCE.getDocumentRoot_Language();
+        EAttribute DOCUMENT_ROOT__LANGUAGE = eINSTANCE.getDocumentRoot_Language();
 
         /**
          * The meta object literal for the '<em><b>Initial Parameter Value</b></em>' containment reference list feature.
@@ -13477,8 +13336,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE =
-                eINSTANCE.getDocumentRoot_InitialParameterValue();
+        EReference DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE = eINSTANCE.getDocumentRoot_InitialParameterValue();
 
         /**
          * The meta object literal for the '<em><b>Initial Value Mapping</b></em>' attribute feature.
@@ -13486,8 +13344,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__INITIAL_VALUE_MAPPING =
-                eINSTANCE.getDocumentRoot_InitialValueMapping();
+        EAttribute DOCUMENT_ROOT__INITIAL_VALUE_MAPPING = eINSTANCE.getDocumentRoot_InitialValueMapping();
 
         /**
          * The meta object literal for the '<em><b>Port Type Operation</b></em>' containment reference list feature.
@@ -13495,8 +13352,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PORT_TYPE_OPERATION =
-                eINSTANCE.getDocumentRoot_PortTypeOperation();
+        EReference DOCUMENT_ROOT__PORT_TYPE_OPERATION = eINSTANCE.getDocumentRoot_PortTypeOperation();
 
         /**
          * The meta object literal for the '<em><b>Transport</b></em>' attribute feature.
@@ -13504,8 +13360,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__TRANSPORT =
-                eINSTANCE.getDocumentRoot_Transport();
+        EAttribute DOCUMENT_ROOT__TRANSPORT = eINSTANCE.getDocumentRoot_Transport();
 
         /**
          * The meta object literal for the '<em><b>Is Chained</b></em>' attribute feature.
@@ -13513,8 +13368,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IS_CHAINED =
-                eINSTANCE.getDocumentRoot_IsChained();
+        EAttribute DOCUMENT_ROOT__IS_CHAINED = eINSTANCE.getDocumentRoot_IsChained();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' containment reference list feature.
@@ -13522,8 +13376,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__EXTERNAL_REFERENCE =
-                eINSTANCE.getDocumentRoot_ExternalReference();
+        EReference DOCUMENT_ROOT__EXTERNAL_REFERENCE = eINSTANCE.getDocumentRoot_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Process Resource Patterns</b></em>' containment reference list feature.
@@ -13531,8 +13384,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS =
-                eINSTANCE.getDocumentRoot_ProcessResourcePatterns();
+        EReference DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS = eINSTANCE.getDocumentRoot_ProcessResourcePatterns();
 
         /**
          * The meta object literal for the '<em><b>Event Handler Initialisers</b></em>' containment reference list feature.
@@ -13540,8 +13392,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS =
-                eINSTANCE.getDocumentRoot_EventHandlerInitialisers();
+        EReference DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS = eINSTANCE.getDocumentRoot_EventHandlerInitialisers();
 
         /**
          * The meta object literal for the '<em><b>Activity Resource Patterns</b></em>' containment reference list feature.
@@ -13549,8 +13400,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS =
-                eINSTANCE.getDocumentRoot_ActivityResourcePatterns();
+        EReference DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS = eINSTANCE.getDocumentRoot_ActivityResourcePatterns();
 
         /**
          * The meta object literal for the '<em><b>Require New Transaction</b></em>' attribute feature.
@@ -13558,8 +13408,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION =
-                eINSTANCE.getDocumentRoot_RequireNewTransaction();
+        EAttribute DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION = eINSTANCE.getDocumentRoot_RequireNewTransaction();
 
         /**
          * The meta object literal for the '<em><b>Document Operation</b></em>' containment reference list feature.
@@ -13567,8 +13416,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__DOCUMENT_OPERATION =
-                eINSTANCE.getDocumentRoot_DocumentOperation();
+        EReference DOCUMENT_ROOT__DOCUMENT_OPERATION = eINSTANCE.getDocumentRoot_DocumentOperation();
 
         /**
          * The meta object literal for the '<em><b>Duration Calculation</b></em>' containment reference list feature.
@@ -13576,8 +13424,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__DURATION_CALCULATION =
-                eINSTANCE.getDocumentRoot_DurationCalculation();
+        EReference DOCUMENT_ROOT__DURATION_CALCULATION = eINSTANCE.getDocumentRoot_DurationCalculation();
 
         /**
          * The meta object literal for the '<em><b>Discriminator</b></em>' containment reference list feature.
@@ -13585,8 +13432,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__DISCRIMINATOR =
-                eINSTANCE.getDocumentRoot_Discriminator();
+        EReference DOCUMENT_ROOT__DISCRIMINATOR = eINSTANCE.getDocumentRoot_Discriminator();
 
         /**
          * The meta object literal for the '<em><b>Display Name</b></em>' attribute feature.
@@ -13594,8 +13440,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__DISPLAY_NAME =
-                eINSTANCE.getDocumentRoot_DisplayName();
+        EAttribute DOCUMENT_ROOT__DISPLAY_NAME = eINSTANCE.getDocumentRoot_DisplayName();
 
         /**
          * The meta object literal for the '<em><b>Catch Throw</b></em>' attribute feature.
@@ -13603,8 +13448,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__CATCH_THROW =
-                eINSTANCE.getDocumentRoot_CatchThrow();
+        EAttribute DOCUMENT_ROOT__CATCH_THROW = eINSTANCE.getDocumentRoot_CatchThrow();
 
         /**
          * The meta object literal for the '<em><b>Is Remote</b></em>' attribute feature.
@@ -13612,8 +13456,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IS_REMOTE =
-                eINSTANCE.getDocumentRoot_IsRemote();
+        EAttribute DOCUMENT_ROOT__IS_REMOTE = eINSTANCE.getDocumentRoot_IsRemote();
 
         /**
          * The meta object literal for the '<em><b>Correlation Data Mappings</b></em>' containment reference list feature.
@@ -13621,8 +13464,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS =
-                eINSTANCE.getDocumentRoot_CorrelationDataMappings();
+        EReference DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS = eINSTANCE.getDocumentRoot_CorrelationDataMappings();
 
         /**
          * The meta object literal for the '<em><b>Transform Script</b></em>' containment reference list feature.
@@ -13630,8 +13472,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__TRANSFORM_SCRIPT =
-                eINSTANCE.getDocumentRoot_TransformScript();
+        EReference DOCUMENT_ROOT__TRANSFORM_SCRIPT = eINSTANCE.getDocumentRoot_TransformScript();
 
         /**
          * The meta object literal for the '<em><b>Publish As Business Service</b></em>' attribute feature.
@@ -13639,8 +13480,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE =
-                eINSTANCE.getDocumentRoot_PublishAsBusinessService();
+        EAttribute DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE = eINSTANCE.getDocumentRoot_PublishAsBusinessService();
 
         /**
          * The meta object literal for the '<em><b>Business Service Category</b></em>' attribute feature.
@@ -13648,8 +13488,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY =
-                eINSTANCE.getDocumentRoot_BusinessServiceCategory();
+        EAttribute DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY = eINSTANCE.getDocumentRoot_BusinessServiceCategory();
 
         /**
          * The meta object literal for the '<em><b>Error Thrower Info</b></em>' containment reference list feature.
@@ -13657,8 +13496,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__ERROR_THROWER_INFO =
-                eINSTANCE.getDocumentRoot_ErrorThrowerInfo();
+        EReference DOCUMENT_ROOT__ERROR_THROWER_INFO = eINSTANCE.getDocumentRoot_ErrorThrowerInfo();
 
         /**
          * The meta object literal for the '<em><b>Catch Error Mappings</b></em>' containment reference list feature.
@@ -13666,8 +13504,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS =
-                eINSTANCE.getDocumentRoot_CatchErrorMappings();
+        EReference DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS = eINSTANCE.getDocumentRoot_CatchErrorMappings();
 
         /**
          * The meta object literal for the '<em><b>Conditional Participant</b></em>' containment reference list feature.
@@ -13675,8 +13512,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT =
-                eINSTANCE.getDocumentRoot_ConditionalParticipant();
+        EReference DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT = eINSTANCE.getDocumentRoot_ConditionalParticipant();
 
         /**
          * The meta object literal for the '<em><b>Generated</b></em>' attribute feature.
@@ -13684,8 +13520,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__GENERATED =
-                eINSTANCE.getDocumentRoot_Generated();
+        EAttribute DOCUMENT_ROOT__GENERATED = eINSTANCE.getDocumentRoot_Generated();
 
         /**
          * The meta object literal for the '<em><b>Reply To Activity Id</b></em>' attribute feature.
@@ -13693,8 +13528,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID =
-                eINSTANCE.getDocumentRoot_ReplyToActivityId();
+        EAttribute DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID = eINSTANCE.getDocumentRoot_ReplyToActivityId();
 
         /**
          * The meta object literal for the '<em><b>Task Library Reference</b></em>' containment reference list feature.
@@ -13702,8 +13536,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE =
-                eINSTANCE.getDocumentRoot_TaskLibraryReference();
+        EReference DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE = eINSTANCE.getDocumentRoot_TaskLibraryReference();
 
         /**
          * The meta object literal for the '<em><b>Set Performer In Process</b></em>' attribute feature.
@@ -13711,8 +13544,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS =
-                eINSTANCE.getDocumentRoot_SetPerformerInProcess();
+        EAttribute DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS = eINSTANCE.getDocumentRoot_SetPerformerInProcess();
 
         /**
          * The meta object literal for the '<em><b>Emb Subproc Other State Height</b></em>' attribute feature.
@@ -13729,8 +13561,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH =
-                eINSTANCE.getDocumentRoot_EmbSubprocOtherStateWidth();
+        EAttribute DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH = eINSTANCE.getDocumentRoot_EmbSubprocOtherStateWidth();
 
         /**
          * The meta object literal for the '<em><b>Form Implementation</b></em>' containment reference list feature.
@@ -13738,8 +13569,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__FORM_IMPLEMENTATION =
-                eINSTANCE.getDocumentRoot_FormImplementation();
+        EReference DOCUMENT_ROOT__FORM_IMPLEMENTATION = eINSTANCE.getDocumentRoot_FormImplementation();
 
         /**
          * The meta object literal for the '<em><b>Participant Query</b></em>' containment reference list feature.
@@ -13747,8 +13577,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PARTICIPANT_QUERY =
-                eINSTANCE.getDocumentRoot_ParticipantQuery();
+        EReference DOCUMENT_ROOT__PARTICIPANT_QUERY = eINSTANCE.getDocumentRoot_ParticipantQuery();
 
         /**
          * The meta object literal for the '<em><b>Api End Point Participant</b></em>' attribute feature.
@@ -13756,8 +13585,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__API_END_POINT_PARTICIPANT =
-                eINSTANCE.getDocumentRoot_ApiEndPointParticipant();
+        EAttribute DOCUMENT_ROOT__API_END_POINT_PARTICIPANT = eINSTANCE.getDocumentRoot_ApiEndPointParticipant();
 
         /**
          * The meta object literal for the '<em><b>Fault Message</b></em>' containment reference list feature.
@@ -13765,8 +13593,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__FAULT_MESSAGE =
-                eINSTANCE.getDocumentRoot_FaultMessage();
+        EReference DOCUMENT_ROOT__FAULT_MESSAGE = eINSTANCE.getDocumentRoot_FaultMessage();
 
         /**
          * The meta object literal for the '<em><b>Request Activity Id</b></em>' attribute feature.
@@ -13774,8 +13601,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__REQUEST_ACTIVITY_ID =
-                eINSTANCE.getDocumentRoot_RequestActivityId();
+        EAttribute DOCUMENT_ROOT__REQUEST_ACTIVITY_ID = eINSTANCE.getDocumentRoot_RequestActivityId();
 
         /**
          * The meta object literal for the '<em><b>Business Process</b></em>' containment reference list feature.
@@ -13783,8 +13609,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__BUSINESS_PROCESS =
-                eINSTANCE.getDocumentRoot_BusinessProcess();
+        EReference DOCUMENT_ROOT__BUSINESS_PROCESS = eINSTANCE.getDocumentRoot_BusinessProcess();
 
         /**
          * The meta object literal for the '<em><b>Wsdl Generation</b></em>' containment reference list feature.
@@ -13792,8 +13617,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__WSDL_GENERATION =
-                eINSTANCE.getDocumentRoot_WsdlGeneration();
+        EReference DOCUMENT_ROOT__WSDL_GENERATION = eINSTANCE.getDocumentRoot_WsdlGeneration();
 
         /**
          * The meta object literal for the '<em><b>Target Primitive Property</b></em>' attribute feature.
@@ -13801,8 +13625,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY =
-                eINSTANCE.getDocumentRoot_TargetPrimitiveProperty();
+        EAttribute DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY = eINSTANCE.getDocumentRoot_TargetPrimitiveProperty();
 
         /**
          * The meta object literal for the '<em><b>Source Primitive Property</b></em>' attribute feature.
@@ -13810,8 +13633,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY =
-                eINSTANCE.getDocumentRoot_SourcePrimitiveProperty();
+        EAttribute DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY = eINSTANCE.getDocumentRoot_SourcePrimitiveProperty();
 
         /**
          * The meta object literal for the '<em><b>Decision Service</b></em>' containment reference list feature.
@@ -13819,8 +13641,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__DECISION_SERVICE =
-                eINSTANCE.getDocumentRoot_DecisionService();
+        EReference DOCUMENT_ROOT__DECISION_SERVICE = eINSTANCE.getDocumentRoot_DecisionService();
 
         /**
          * The meta object literal for the '<em><b>Participant Shared Resource</b></em>' containment reference list feature.
@@ -13828,8 +13649,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE =
-                eINSTANCE.getDocumentRoot_ParticipantSharedResource();
+        EReference DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE = eINSTANCE.getDocumentRoot_ParticipantSharedResource();
 
         /**
          * The meta object literal for the '<em><b>Xpd Model Type</b></em>' attribute feature.
@@ -13837,8 +13657,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__XPD_MODEL_TYPE =
-                eINSTANCE.getDocumentRoot_XpdModelType();
+        EAttribute DOCUMENT_ROOT__XPD_MODEL_TYPE = eINSTANCE.getDocumentRoot_XpdModelType();
 
         /**
          * The meta object literal for the '<em><b>Flow Routing Style</b></em>' attribute feature.
@@ -13846,8 +13665,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__FLOW_ROUTING_STYLE =
-                eINSTANCE.getDocumentRoot_FlowRoutingStyle();
+        EAttribute DOCUMENT_ROOT__FLOW_ROUTING_STYLE = eINSTANCE.getDocumentRoot_FlowRoutingStyle();
 
         /**
          * The meta object literal for the '<em><b>Calendar Reference</b></em>' containment reference list feature.
@@ -13855,8 +13673,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CALENDAR_REFERENCE =
-                eINSTANCE.getDocumentRoot_CalendarReference();
+        EReference DOCUMENT_ROOT__CALENDAR_REFERENCE = eINSTANCE.getDocumentRoot_CalendarReference();
 
         /**
          * The meta object literal for the '<em><b>Non Cancelling</b></em>' attribute feature.
@@ -13864,8 +13681,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__NON_CANCELLING =
-                eINSTANCE.getDocumentRoot_NonCancelling();
+        EAttribute DOCUMENT_ROOT__NON_CANCELLING = eINSTANCE.getDocumentRoot_NonCancelling();
 
         /**
          * The meta object literal for the '<em><b>Signal Data</b></em>' containment reference list feature.
@@ -13873,8 +13689,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__SIGNAL_DATA =
-                eINSTANCE.getDocumentRoot_SignalData();
+        EReference DOCUMENT_ROOT__SIGNAL_DATA = eINSTANCE.getDocumentRoot_SignalData();
 
         /**
          * The meta object literal for the '<em><b>Retry</b></em>' containment reference list feature.
@@ -13890,8 +13705,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID =
-                eINSTANCE.getDocumentRoot_ActivityDeadlineEventId();
+        EAttribute DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID = eINSTANCE.getDocumentRoot_ActivityDeadlineEventId();
 
         /**
          * The meta object literal for the '<em><b>Start Strategy</b></em>' attribute feature.
@@ -13899,8 +13713,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__START_STRATEGY =
-                eINSTANCE.getDocumentRoot_StartStrategy();
+        EAttribute DOCUMENT_ROOT__START_STRATEGY = eINSTANCE.getDocumentRoot_StartStrategy();
 
         /**
          * The meta object literal for the '<em><b>Overwrite Already Modified Task Data</b></em>' attribute feature.
@@ -13917,8 +13730,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY =
-                eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy();
+        EAttribute DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY = eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy();
 
         /**
          * The meta object literal for the '<em><b>Namespace Prefix Map</b></em>' containment reference list feature.
@@ -13926,8 +13738,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP =
-                eINSTANCE.getDocumentRoot_NamespacePrefixMap();
+        EReference DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP = eINSTANCE.getDocumentRoot_NamespacePrefixMap();
 
         /**
          * The meta object literal for the '<em><b>Suspend Resume With Parent</b></em>' attribute feature.
@@ -13935,8 +13746,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT =
-                eINSTANCE.getDocumentRoot_SuspendResumeWithParent();
+        EAttribute DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT = eINSTANCE.getDocumentRoot_SuspendResumeWithParent();
 
         /**
          * The meta object literal for the '<em><b>System Error Action</b></em>' attribute feature.
@@ -13944,8 +13754,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SYSTEM_ERROR_ACTION =
-                eINSTANCE.getDocumentRoot_SystemErrorAction();
+        EAttribute DOCUMENT_ROOT__SYSTEM_ERROR_ACTION = eINSTANCE.getDocumentRoot_SystemErrorAction();
 
         /**
          * The meta object literal for the '<em><b>Correlation Timeout</b></em>' containment reference list feature.
@@ -13953,8 +13762,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CORRELATION_TIMEOUT =
-                eINSTANCE.getDocumentRoot_CorrelationTimeout();
+        EReference DOCUMENT_ROOT__CORRELATION_TIMEOUT = eINSTANCE.getDocumentRoot_CorrelationTimeout();
 
         /**
          * The meta object literal for the '<em><b>Validation Control</b></em>' containment reference list feature.
@@ -13962,8 +13770,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__VALIDATION_CONTROL =
-                eINSTANCE.getDocumentRoot_ValidationControl();
+        EReference DOCUMENT_ROOT__VALIDATION_CONTROL = eINSTANCE.getDocumentRoot_ValidationControl();
 
         /**
          * The meta object literal for the '<em><b>Reply Immediate Data Mappings</b></em>' containment reference list feature.
@@ -13989,8 +13796,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CASE_REF_TYPE =
-                eINSTANCE.getDocumentRoot_CaseRefType();
+        EReference DOCUMENT_ROOT__CASE_REF_TYPE = eINSTANCE.getDocumentRoot_CaseRefType();
 
         /**
          * The meta object literal for the '<em><b>REST Services</b></em>' containment reference list feature.
@@ -13998,8 +13804,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__REST_SERVICES =
-                eINSTANCE.getDocumentRoot_RESTServices();
+        EReference DOCUMENT_ROOT__REST_SERVICES = eINSTANCE.getDocumentRoot_RESTServices();
 
         /**
          * The meta object literal for the '<em><b>Publish As Rest Service</b></em>' attribute feature.
@@ -14007,8 +13812,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE =
-                eINSTANCE.getDocumentRoot_PublishAsRestService();
+        EAttribute DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE = eINSTANCE.getDocumentRoot_PublishAsRestService();
 
         /**
          * The meta object literal for the '<em><b>Rest Activity Id</b></em>' attribute feature.
@@ -14016,8 +13820,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__REST_ACTIVITY_ID =
-                eINSTANCE.getDocumentRoot_RestActivityId();
+        EAttribute DOCUMENT_ROOT__REST_ACTIVITY_ID = eINSTANCE.getDocumentRoot_RestActivityId();
 
         /**
          * The meta object literal for the '<em><b>Reschedule Timer Script</b></em>' containment reference list feature.
@@ -14025,8 +13828,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT =
-                eINSTANCE.getDocumentRoot_RescheduleTimerScript();
+        EReference DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT = eINSTANCE.getDocumentRoot_RescheduleTimerScript();
 
         /**
          * The meta object literal for the '<em><b>Dynamic Organization Mappings</b></em>' containment reference list feature.
@@ -14043,8 +13845,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS =
-                eINSTANCE.getDocumentRoot_SignalHandlerAsynchronous();
+        EAttribute DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS = eINSTANCE.getDocumentRoot_SignalHandlerAsynchronous();
 
         /**
          * The meta object literal for the '<em><b>Global Data Operation</b></em>' containment reference list feature.
@@ -14052,8 +13853,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__GLOBAL_DATA_OPERATION =
-                eINSTANCE.getDocumentRoot_GlobalDataOperation();
+        EReference DOCUMENT_ROOT__GLOBAL_DATA_OPERATION = eINSTANCE.getDocumentRoot_GlobalDataOperation();
 
         /**
          * The meta object literal for the '<em><b>Process Data Work Item Attribute Mappings</b></em>' containment reference list feature.
@@ -14062,8 +13862,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS =
-                eINSTANCE
-                        .getDocumentRoot_ProcessDataWorkItemAttributeMappings();
+                eINSTANCE.getDocumentRoot_ProcessDataWorkItemAttributeMappings();
 
         /**
          * The meta object literal for the '<em><b>Allow Unqualified Sub Process Identification</b></em>' attribute feature.
@@ -14072,8 +13871,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION =
-                eINSTANCE
-                        .getDocumentRoot_AllowUnqualifiedSubProcessIdentification();
+                eINSTANCE.getDocumentRoot_AllowUnqualifiedSubProcessIdentification();
 
         /**
          * The meta object literal for the '<em><b>Bpm Runtime Configuration</b></em>' containment reference list feature.
@@ -14081,8 +13879,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION =
-                eINSTANCE.getDocumentRoot_BpmRuntimeConfiguration();
+        EReference DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION = eINSTANCE.getDocumentRoot_BpmRuntimeConfiguration();
 
         /**
          * The meta object literal for the '<em><b>Is Case Service</b></em>' attribute feature.
@@ -14090,8 +13887,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IS_CASE_SERVICE =
-                eINSTANCE.getDocumentRoot_IsCaseService();
+        EAttribute DOCUMENT_ROOT__IS_CASE_SERVICE = eINSTANCE.getDocumentRoot_IsCaseService();
 
         /**
          * The meta object literal for the '<em><b>Required Access Privileges</b></em>' containment reference list feature.
@@ -14099,8 +13895,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES =
-                eINSTANCE.getDocumentRoot_RequiredAccessPrivileges();
+        EReference DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES = eINSTANCE.getDocumentRoot_RequiredAccessPrivileges();
 
         /**
          * The meta object literal for the '<em><b>Case Service</b></em>' containment reference list feature.
@@ -14108,8 +13903,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__CASE_SERVICE =
-                eINSTANCE.getDocumentRoot_CaseService();
+        EReference DOCUMENT_ROOT__CASE_SERVICE = eINSTANCE.getDocumentRoot_CaseService();
 
         /**
          * The meta object literal for the '<em><b>Ad Hoc Task Configuration</b></em>' containment reference list feature.
@@ -14117,8 +13911,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION =
-                eINSTANCE.getDocumentRoot_AdHocTaskConfiguration();
+        EReference DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION = eINSTANCE.getDocumentRoot_AdHocTaskConfiguration();
 
         /**
          * The meta object literal for the '<em><b>Is Event Sub Process</b></em>' attribute feature.
@@ -14126,8 +13919,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS =
-                eINSTANCE.getDocumentRoot_IsEventSubProcess();
+        EAttribute DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS = eINSTANCE.getDocumentRoot_IsEventSubProcess();
 
         /**
          * The meta object literal for the '<em><b>Non Interrupting Event</b></em>' attribute feature.
@@ -14135,8 +13927,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__NON_INTERRUPTING_EVENT =
-                eINSTANCE.getDocumentRoot_NonInterruptingEvent();
+        EAttribute DOCUMENT_ROOT__NON_INTERRUPTING_EVENT = eINSTANCE.getDocumentRoot_NonInterruptingEvent();
 
         /**
          * The meta object literal for the '<em><b>Correlate Immediately</b></em>' attribute feature.
@@ -14144,8 +13935,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__CORRELATE_IMMEDIATELY =
-                eINSTANCE.getDocumentRoot_CorrelateImmediately();
+        EAttribute DOCUMENT_ROOT__CORRELATE_IMMEDIATELY = eINSTANCE.getDocumentRoot_CorrelateImmediately();
 
         /**
          * The meta object literal for the '<em><b>Async Execution Mode</b></em>' attribute feature.
@@ -14153,8 +13943,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__ASYNC_EXECUTION_MODE =
-                eINSTANCE.getDocumentRoot_AsyncExecutionMode();
+        EAttribute DOCUMENT_ROOT__ASYNC_EXECUTION_MODE = eINSTANCE.getDocumentRoot_AsyncExecutionMode();
 
         /**
          * The meta object literal for the '<em><b>Signal Type</b></em>' attribute feature.
@@ -14162,8 +13951,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SIGNAL_TYPE =
-                eINSTANCE.getDocumentRoot_SignalType();
+        EAttribute DOCUMENT_ROOT__SIGNAL_TYPE = eINSTANCE.getDocumentRoot_SignalType();
 
         /**
          * The meta object literal for the '<em><b>Service Process Configuration</b></em>' containment reference list feature.
@@ -14180,8 +13968,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__LIKE_MAPPING =
-                eINSTANCE.getDocumentRoot_LikeMapping();
+        EAttribute DOCUMENT_ROOT__LIKE_MAPPING = eINSTANCE.getDocumentRoot_LikeMapping();
 
         /**
          * The meta object literal for the '<em><b>Script Data Mapper</b></em>' containment reference list feature.
@@ -14189,8 +13976,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__SCRIPT_DATA_MAPPER =
-                eINSTANCE.getDocumentRoot_ScriptDataMapper();
+        EReference DOCUMENT_ROOT__SCRIPT_DATA_MAPPER = eINSTANCE.getDocumentRoot_ScriptDataMapper();
 
         /**
          * The meta object literal for the '<em><b>Like Mapping Exclusions</b></em>' containment reference list feature.
@@ -14198,8 +13984,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS =
-                eINSTANCE.getDocumentRoot_LikeMappingExclusions();
+        EReference DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS = eINSTANCE.getDocumentRoot_LikeMappingExclusions();
 
         /**
          * The meta object literal for the '<em><b>Source Contributor Id</b></em>' attribute feature.
@@ -14207,8 +13992,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID =
-                eINSTANCE.getDocumentRoot_SourceContributorId();
+        EAttribute DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID = eINSTANCE.getDocumentRoot_SourceContributorId();
 
         /**
          * The meta object literal for the '<em><b>Target Contributor Id</b></em>' attribute feature.
@@ -14216,8 +14000,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID =
-                eINSTANCE.getDocumentRoot_TargetContributorId();
+        EAttribute DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID = eINSTANCE.getDocumentRoot_TargetContributorId();
 
         /**
          * The meta object literal for the '<em><b>Rest Service Operation</b></em>' containment reference list feature.
@@ -14225,8 +14008,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__REST_SERVICE_OPERATION =
-                eINSTANCE.getDocumentRoot_RestServiceOperation();
+        EReference DOCUMENT_ROOT__REST_SERVICE_OPERATION = eINSTANCE.getDocumentRoot_RestServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Input Mappings</b></em>' containment reference list feature.
@@ -14234,8 +14016,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__INPUT_MAPPINGS =
-                eINSTANCE.getDocumentRoot_InputMappings();
+        EReference DOCUMENT_ROOT__INPUT_MAPPINGS = eINSTANCE.getDocumentRoot_InputMappings();
 
         /**
          * The meta object literal for the '<em><b>Output Mappings</b></em>' containment reference list feature.
@@ -14243,8 +14024,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__OUTPUT_MAPPINGS =
-                eINSTANCE.getDocumentRoot_OutputMappings();
+        EReference DOCUMENT_ROOT__OUTPUT_MAPPINGS = eINSTANCE.getDocumentRoot_OutputMappings();
 
         /**
          * The meta object literal for the '<em><b>Business Service Publish Type</b></em>' attribute feature.
@@ -14261,8 +14041,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR =
-                eINSTANCE.getDocumentRoot_SuppressMaxMappingsError();
+        EAttribute DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR = eINSTANCE.getDocumentRoot_SuppressMaxMappingsError();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DurationCalculationImpl <em>Duration Calculation</em>}' class.
@@ -14280,8 +14059,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__YEARS =
-                eINSTANCE.getDurationCalculation_Years();
+        EReference DURATION_CALCULATION__YEARS = eINSTANCE.getDurationCalculation_Years();
 
         /**
          * The meta object literal for the '<em><b>Months</b></em>' containment reference feature.
@@ -14289,8 +14067,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__MONTHS =
-                eINSTANCE.getDurationCalculation_Months();
+        EReference DURATION_CALCULATION__MONTHS = eINSTANCE.getDurationCalculation_Months();
 
         /**
          * The meta object literal for the '<em><b>Weeks</b></em>' containment reference feature.
@@ -14298,8 +14075,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__WEEKS =
-                eINSTANCE.getDurationCalculation_Weeks();
+        EReference DURATION_CALCULATION__WEEKS = eINSTANCE.getDurationCalculation_Weeks();
 
         /**
          * The meta object literal for the '<em><b>Days</b></em>' containment reference feature.
@@ -14307,8 +14083,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__DAYS =
-                eINSTANCE.getDurationCalculation_Days();
+        EReference DURATION_CALCULATION__DAYS = eINSTANCE.getDurationCalculation_Days();
 
         /**
          * The meta object literal for the '<em><b>Hours</b></em>' containment reference feature.
@@ -14316,8 +14091,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__HOURS =
-                eINSTANCE.getDurationCalculation_Hours();
+        EReference DURATION_CALCULATION__HOURS = eINSTANCE.getDurationCalculation_Hours();
 
         /**
          * The meta object literal for the '<em><b>Minutes</b></em>' containment reference feature.
@@ -14325,8 +14099,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__MINUTES =
-                eINSTANCE.getDurationCalculation_Minutes();
+        EReference DURATION_CALCULATION__MINUTES = eINSTANCE.getDurationCalculation_Minutes();
 
         /**
          * The meta object literal for the '<em><b>Seconds</b></em>' containment reference feature.
@@ -14334,8 +14107,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__SECONDS =
-                eINSTANCE.getDurationCalculation_Seconds();
+        EReference DURATION_CALCULATION__SECONDS = eINSTANCE.getDurationCalculation_Seconds();
 
         /**
          * The meta object literal for the '<em><b>Microseconds</b></em>' containment reference feature.
@@ -14343,8 +14115,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DURATION_CALCULATION__MICROSECONDS =
-                eINSTANCE.getDurationCalculation_Microseconds();
+        EReference DURATION_CALCULATION__MICROSECONDS = eINSTANCE.getDurationCalculation_Microseconds();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DynamicOrganizationMappingsImpl <em>Dynamic Organization Mappings</em>}' class.
@@ -14354,8 +14125,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDynamicOrganizationMappings()
          * @generated
          */
-        EClass DYNAMIC_ORGANIZATION_MAPPINGS =
-                eINSTANCE.getDynamicOrganizationMappings();
+        EClass DYNAMIC_ORGANIZATION_MAPPINGS = eINSTANCE.getDynamicOrganizationMappings();
 
         /**
          * The meta object literal for the '<em><b>Dynamic Organization Mapping</b></em>' containment reference list feature.
@@ -14364,8 +14134,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING =
-                eINSTANCE
-                        .getDynamicOrganizationMappings_DynamicOrganizationMapping();
+                eINSTANCE.getDynamicOrganizationMappings_DynamicOrganizationMapping();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DynamicOrganizationMappingImpl <em>Dynamic Organization Mapping</em>}' class.
@@ -14375,8 +14144,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDynamicOrganizationMapping()
          * @generated
          */
-        EClass DYNAMIC_ORGANIZATION_MAPPING =
-                eINSTANCE.getDynamicOrganizationMapping();
+        EClass DYNAMIC_ORGANIZATION_MAPPING = eINSTANCE.getDynamicOrganizationMapping();
 
         /**
          * The meta object literal for the '<em><b>Source Path</b></em>' attribute feature.
@@ -14384,8 +14152,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH =
-                eINSTANCE.getDynamicOrganizationMapping_SourcePath();
+        EAttribute DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH = eINSTANCE.getDynamicOrganizationMapping_SourcePath();
 
         /**
          * The meta object literal for the '<em><b>Dynamic Org Identifier Ref</b></em>' containment reference feature.
@@ -14394,8 +14161,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF =
-                eINSTANCE
-                        .getDynamicOrganizationMapping_DynamicOrgIdentifierRef();
+                eINSTANCE.getDynamicOrganizationMapping_DynamicOrgIdentifierRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DynamicOrgIdentifierRefImpl <em>Dynamic Org Identifier Ref</em>}' class.
@@ -14405,8 +14171,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDynamicOrgIdentifierRef()
          * @generated
          */
-        EClass DYNAMIC_ORG_IDENTIFIER_REF =
-                eINSTANCE.getDynamicOrgIdentifierRef();
+        EClass DYNAMIC_ORG_IDENTIFIER_REF = eINSTANCE.getDynamicOrgIdentifierRef();
 
         /**
          * The meta object literal for the '<em><b>Identifier Name</b></em>' attribute feature.
@@ -14414,8 +14179,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME =
-                eINSTANCE.getDynamicOrgIdentifierRef_IdentifierName();
+        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME = eINSTANCE.getDynamicOrgIdentifierRef_IdentifierName();
 
         /**
          * The meta object literal for the '<em><b>Dynamic Org Id</b></em>' attribute feature.
@@ -14423,8 +14187,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID =
-                eINSTANCE.getDynamicOrgIdentifierRef_DynamicOrgId();
+        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID = eINSTANCE.getDynamicOrgIdentifierRef_DynamicOrgId();
 
         /**
          * The meta object literal for the '<em><b>Org Model Path</b></em>' attribute feature.
@@ -14432,8 +14195,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH =
-                eINSTANCE.getDynamicOrgIdentifierRef_OrgModelPath();
+        EAttribute DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH = eINSTANCE.getDynamicOrgIdentifierRef_OrgModelPath();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.EmailResourceImpl <em>Email Resource</em>}' class.
@@ -14451,8 +14213,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EMAIL_RESOURCE__INSTANCE_NAME =
-                eINSTANCE.getEmailResource_InstanceName();
+        EAttribute EMAIL_RESOURCE__INSTANCE_NAME = eINSTANCE.getEmailResource_InstanceName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ErrorMethodImpl <em>Error Method</em>}' class.
@@ -14470,8 +14231,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ERROR_METHOD__ERROR_CODE =
-                eINSTANCE.getErrorMethod_ErrorCode();
+        EAttribute ERROR_METHOD__ERROR_CODE = eINSTANCE.getErrorMethod_ErrorCode();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ErrorThrowerInfoImpl <em>Error Thrower Info</em>}' class.
@@ -14489,8 +14249,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ERROR_THROWER_INFO__THROWER_ID =
-                eINSTANCE.getErrorThrowerInfo_ThrowerId();
+        EAttribute ERROR_THROWER_INFO__THROWER_ID = eINSTANCE.getErrorThrowerInfo_ThrowerId();
 
         /**
          * The meta object literal for the '<em><b>Thrower Container Id</b></em>' attribute feature.
@@ -14498,8 +14257,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ERROR_THROWER_INFO__THROWER_CONTAINER_ID =
-                eINSTANCE.getErrorThrowerInfo_ThrowerContainerId();
+        EAttribute ERROR_THROWER_INFO__THROWER_CONTAINER_ID = eINSTANCE.getErrorThrowerInfo_ThrowerContainerId();
 
         /**
          * The meta object literal for the '<em><b>Thrower Type</b></em>' attribute feature.
@@ -14507,8 +14265,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ERROR_THROWER_INFO__THROWER_TYPE =
-                eINSTANCE.getErrorThrowerInfo_ThrowerType();
+        EAttribute ERROR_THROWER_INFO__THROWER_TYPE = eINSTANCE.getErrorThrowerInfo_ThrowerType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.EventHandlerInitialisersImpl <em>Event Handler Initialisers</em>}' class.
@@ -14518,8 +14275,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getEventHandlerInitialisers()
          * @generated
          */
-        EClass EVENT_HANDLER_INITIALISERS =
-                eINSTANCE.getEventHandlerInitialisers();
+        EClass EVENT_HANDLER_INITIALISERS = eINSTANCE.getEventHandlerInitialisers();
 
         /**
          * The meta object literal for the '<em><b>Activity Ref</b></em>' containment reference list feature.
@@ -14527,8 +14283,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference EVENT_HANDLER_INITIALISERS__ACTIVITY_REF =
-                eINSTANCE.getEventHandlerInitialisers_ActivityRef();
+        EReference EVENT_HANDLER_INITIALISERS__ACTIVITY_REF = eINSTANCE.getEventHandlerInitialisers_ActivityRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.FaultMessageImpl <em>Fault Message</em>}' class.
@@ -14556,8 +14311,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORM_IMPLEMENTATION__FORM_TYPE =
-                eINSTANCE.getFormImplementation_FormType();
+        EAttribute FORM_IMPLEMENTATION__FORM_TYPE = eINSTANCE.getFormImplementation_FormType();
 
         /**
          * The meta object literal for the '<em><b>Form URI</b></em>' attribute feature.
@@ -14565,8 +14319,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORM_IMPLEMENTATION__FORM_URI =
-                eINSTANCE.getFormImplementation_FormURI();
+        EAttribute FORM_IMPLEMENTATION__FORM_URI = eINSTANCE.getFormImplementation_FormURI();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ImplementedInterfaceImpl <em>Implemented Interface</em>}' class.
@@ -14584,8 +14337,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute IMPLEMENTED_INTERFACE__PACKAGE_REF =
-                eINSTANCE.getImplementedInterface_PackageRef();
+        EAttribute IMPLEMENTED_INTERFACE__PACKAGE_REF = eINSTANCE.getImplementedInterface_PackageRef();
 
         /**
          * The meta object literal for the '<em><b>Process Interface Id</b></em>' attribute feature.
@@ -14593,8 +14345,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID =
-                eINSTANCE.getImplementedInterface_ProcessInterfaceId();
+        EAttribute IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID = eINSTANCE.getImplementedInterface_ProcessInterfaceId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.InitialValuesImpl <em>Initial Values</em>}' class.
@@ -14630,8 +14381,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INITIAL_PARAMETER_VALUE__NAME =
-                eINSTANCE.getInitialParameterValue_Name();
+        EAttribute INITIAL_PARAMETER_VALUE__NAME = eINSTANCE.getInitialParameterValue_Name();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -14639,8 +14389,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INITIAL_PARAMETER_VALUE__VALUE =
-                eINSTANCE.getInitialParameterValue_Value();
+        EAttribute INITIAL_PARAMETER_VALUE__VALUE = eINSTANCE.getInitialParameterValue_Value();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.InterfaceMethod <em>Interface Method</em>}' class.
@@ -14658,8 +14407,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERFACE_METHOD__TRIGGER =
-                eINSTANCE.getInterfaceMethod_Trigger();
+        EAttribute INTERFACE_METHOD__TRIGGER = eINSTANCE.getInterfaceMethod_Trigger();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Message</b></em>' containment reference feature.
@@ -14667,8 +14415,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE =
-                eINSTANCE.getInterfaceMethod_TriggerResultMessage();
+        EReference INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE = eINSTANCE.getInterfaceMethod_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
@@ -14676,8 +14423,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERFACE_METHOD__VISIBILITY =
-                eINSTANCE.getInterfaceMethod_Visibility();
+        EAttribute INTERFACE_METHOD__VISIBILITY = eINSTANCE.getInterfaceMethod_Visibility();
 
         /**
          * The meta object literal for the '<em><b>Error Methods</b></em>' containment reference list feature.
@@ -14685,8 +14431,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERFACE_METHOD__ERROR_METHODS =
-                eINSTANCE.getInterfaceMethod_ErrorMethods();
+        EReference INTERFACE_METHOD__ERROR_METHODS = eINSTANCE.getInterfaceMethod_ErrorMethods();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.IntermediateMethodImpl <em>Intermediate Method</em>}' class.
@@ -14714,8 +14459,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute JDBC_RESOURCE__INSTANCE_NAME =
-                eINSTANCE.getJdbcResource_InstanceName();
+        EAttribute JDBC_RESOURCE__INSTANCE_NAME = eINSTANCE.getJdbcResource_InstanceName();
 
         /**
          * The meta object literal for the '<em><b>Jdbc Profile Name</b></em>' attribute feature.
@@ -14723,8 +14467,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute JDBC_RESOURCE__JDBC_PROFILE_NAME =
-                eINSTANCE.getJdbcResource_JdbcProfileName();
+        EAttribute JDBC_RESOURCE__JDBC_PROFILE_NAME = eINSTANCE.getJdbcResource_JdbcProfileName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.MultiInstanceScriptsImpl <em>Multi Instance Scripts</em>}' class.
@@ -14761,8 +14504,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES =
-                eINSTANCE.getNamespacePrefixMap_NamespaceEntries();
+        EReference NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES = eINSTANCE.getNamespacePrefixMap_NamespaceEntries();
 
         /**
          * The meta object literal for the '<em><b>Prefix Mapping Disabled</b></em>' attribute feature.
@@ -14789,8 +14531,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NAMESPACE_MAP_ENTRY__PREFIX =
-                eINSTANCE.getNamespaceMapEntry_Prefix();
+        EAttribute NAMESPACE_MAP_ENTRY__PREFIX = eINSTANCE.getNamespaceMapEntry_Prefix();
 
         /**
          * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
@@ -14798,8 +14539,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NAMESPACE_MAP_ENTRY__NAMESPACE =
-                eINSTANCE.getNamespaceMapEntry_Namespace();
+        EAttribute NAMESPACE_MAP_ENTRY__NAMESPACE = eINSTANCE.getNamespaceMapEntry_Namespace();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ParticipantSharedResourceImpl <em>Participant Shared Resource</em>}' class.
@@ -14809,8 +14549,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getParticipantSharedResource()
          * @generated
          */
-        EClass PARTICIPANT_SHARED_RESOURCE =
-                eINSTANCE.getParticipantSharedResource();
+        EClass PARTICIPANT_SHARED_RESOURCE = eINSTANCE.getParticipantSharedResource();
 
         /**
          * The meta object literal for the '<em><b>Email</b></em>' containment reference feature.
@@ -14818,8 +14557,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT_SHARED_RESOURCE__EMAIL =
-                eINSTANCE.getParticipantSharedResource_Email();
+        EReference PARTICIPANT_SHARED_RESOURCE__EMAIL = eINSTANCE.getParticipantSharedResource_Email();
 
         /**
          * The meta object literal for the '<em><b>Jdbc</b></em>' containment reference feature.
@@ -14827,8 +14565,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT_SHARED_RESOURCE__JDBC =
-                eINSTANCE.getParticipantSharedResource_Jdbc();
+        EReference PARTICIPANT_SHARED_RESOURCE__JDBC = eINSTANCE.getParticipantSharedResource_Jdbc();
 
         /**
          * The meta object literal for the '<em><b>Web Service</b></em>' containment reference feature.
@@ -14836,8 +14573,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE =
-                eINSTANCE.getParticipantSharedResource_WebService();
+        EReference PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE = eINSTANCE.getParticipantSharedResource_WebService();
 
         /**
          * The meta object literal for the '<em><b>Rest Service</b></em>' containment reference feature.
@@ -14845,8 +14581,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT_SHARED_RESOURCE__REST_SERVICE =
-                eINSTANCE.getParticipantSharedResource_RestService();
+        EReference PARTICIPANT_SHARED_RESOURCE__REST_SERVICE = eINSTANCE.getParticipantSharedResource_RestService();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.PilingInfoImpl <em>Piling Info</em>}' class.
@@ -14864,8 +14599,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PILING_INFO__PILING_ALLOWED =
-                eINSTANCE.getPilingInfo_PilingAllowed();
+        EAttribute PILING_INFO__PILING_ALLOWED = eINSTANCE.getPilingInfo_PilingAllowed();
 
         /**
          * The meta object literal for the '<em><b>Max Piliable Items</b></em>' attribute feature.
@@ -14873,8 +14607,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PILING_INFO__MAX_PILIABLE_ITEMS =
-                eINSTANCE.getPilingInfo_MaxPiliableItems();
+        EAttribute PILING_INFO__MAX_PILIABLE_ITEMS = eINSTANCE.getPilingInfo_MaxPiliableItems();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.PortTypeOperationImpl <em>Port Type Operation</em>}' class.
@@ -14892,8 +14625,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PORT_TYPE_OPERATION__PORT_TYPE_NAME =
-                eINSTANCE.getPortTypeOperation_PortTypeName();
+        EAttribute PORT_TYPE_OPERATION__PORT_TYPE_NAME = eINSTANCE.getPortTypeOperation_PortTypeName();
 
         /**
          * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
@@ -14901,8 +14633,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PORT_TYPE_OPERATION__OPERATION_NAME =
-                eINSTANCE.getPortTypeOperation_OperationName();
+        EAttribute PORT_TYPE_OPERATION__OPERATION_NAME = eINSTANCE.getPortTypeOperation_OperationName();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' containment reference feature.
@@ -14910,8 +14641,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PORT_TYPE_OPERATION__EXTERNAL_REFERENCE =
-                eINSTANCE.getPortTypeOperation_ExternalReference();
+        EReference PORT_TYPE_OPERATION__EXTERNAL_REFERENCE = eINSTANCE.getPortTypeOperation_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Transport</b></em>' attribute feature.
@@ -14919,8 +14649,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PORT_TYPE_OPERATION__TRANSPORT =
-                eINSTANCE.getPortTypeOperation_Transport();
+        EAttribute PORT_TYPE_OPERATION__TRANSPORT = eINSTANCE.getPortTypeOperation_Transport();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ProcessInterfaceImpl <em>Process Interface</em>}' class.
@@ -14938,8 +14667,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_INTERFACE__START_METHODS =
-                eINSTANCE.getProcessInterface_StartMethods();
+        EReference PROCESS_INTERFACE__START_METHODS = eINSTANCE.getProcessInterface_StartMethods();
 
         /**
          * The meta object literal for the '<em><b>Intermediate Methods</b></em>' containment reference list feature.
@@ -14947,8 +14675,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_INTERFACE__INTERMEDIATE_METHODS =
-                eINSTANCE.getProcessInterface_IntermediateMethods();
+        EReference PROCESS_INTERFACE__INTERMEDIATE_METHODS = eINSTANCE.getProcessInterface_IntermediateMethods();
 
         /**
          * The meta object literal for the '<em><b>Xpd Interface Type</b></em>' attribute feature.
@@ -14956,8 +14683,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS_INTERFACE__XPD_INTERFACE_TYPE =
-                eINSTANCE.getProcessInterface_XpdInterfaceType();
+        EAttribute PROCESS_INTERFACE__XPD_INTERFACE_TYPE = eINSTANCE.getProcessInterface_XpdInterfaceType();
 
         /**
          * The meta object literal for the '<em><b>Service Process Configuration</b></em>' containment reference feature.
@@ -14984,8 +14710,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_INTERFACES__PROCESS_INTERFACE =
-                eINSTANCE.getProcessInterfaces_ProcessInterface();
+        EReference PROCESS_INTERFACES__PROCESS_INTERFACE = eINSTANCE.getProcessInterfaces_ProcessInterface();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ProcessResourcePatternsImpl <em>Process Resource Patterns</em>}' class.
@@ -14995,8 +14720,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getProcessResourcePatterns()
          * @generated
          */
-        EClass PROCESS_RESOURCE_PATTERNS =
-                eINSTANCE.getProcessResourcePatterns();
+        EClass PROCESS_RESOURCE_PATTERNS = eINSTANCE.getProcessResourcePatterns();
 
         /**
          * The meta object literal for the '<em><b>Separation Of Duties Activities</b></em>' containment reference list feature.
@@ -15005,8 +14729,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES =
-                eINSTANCE
-                        .getProcessResourcePatterns_SeparationOfDutiesActivities();
+                eINSTANCE.getProcessResourcePatterns_SeparationOfDutiesActivities();
 
         /**
          * The meta object literal for the '<em><b>Retain Familiar Activities</b></em>' containment reference list feature.
@@ -15052,8 +14775,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE =
-                eINSTANCE.getRescheduleTimers_TimerSelectionType();
+        EAttribute RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE = eINSTANCE.getRescheduleTimers_TimerSelectionType();
 
         /**
          * The meta object literal for the '<em><b>Timer Events</b></em>' containment reference list feature.
@@ -15061,8 +14783,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESCHEDULE_TIMERS__TIMER_EVENTS =
-                eINSTANCE.getRescheduleTimers_TimerEvents();
+        EReference RESCHEDULE_TIMERS__TIMER_EVENTS = eINSTANCE.getRescheduleTimers_TimerEvents();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RESTServicesImpl <em>REST Services</em>}' class.
@@ -15080,8 +14801,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference REST_SERVICES__REST_SERVICES =
-                eINSTANCE.getRESTServices_RESTServices();
+        EReference REST_SERVICES__REST_SERVICES = eINSTANCE.getRESTServices_RESTServices();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceImpl <em>Rest Service Resource</em>}' class.
@@ -15099,8 +14819,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference REST_SERVICE_RESOURCE__SECURITY_POLICY =
-                eINSTANCE.getRestServiceResource_SecurityPolicy();
+        EReference REST_SERVICE_RESOURCE__SECURITY_POLICY = eINSTANCE.getRestServiceResource_SecurityPolicy();
 
         /**
          * The meta object literal for the '<em><b>Resource Name</b></em>' attribute feature.
@@ -15108,8 +14827,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_RESOURCE__RESOURCE_NAME =
-                eINSTANCE.getRestServiceResource_ResourceName();
+        EAttribute REST_SERVICE_RESOURCE__RESOURCE_NAME = eINSTANCE.getRestServiceResource_ResourceName();
 
         /**
          * The meta object literal for the '<em><b>Resource Type</b></em>' attribute feature.
@@ -15117,8 +14835,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_RESOURCE__RESOURCE_TYPE =
-                eINSTANCE.getRestServiceResource_ResourceType();
+        EAttribute REST_SERVICE_RESOURCE__RESOURCE_TYPE = eINSTANCE.getRestServiceResource_ResourceType();
 
         /**
          * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -15126,8 +14843,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_RESOURCE__DESCRIPTION =
-                eINSTANCE.getRestServiceResource_Description();
+        EAttribute REST_SERVICE_RESOURCE__DESCRIPTION = eINSTANCE.getRestServiceResource_Description();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceResourceSecurityImpl <em>Rest Service Resource Security</em>}' class.
@@ -15137,8 +14853,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRestServiceResourceSecurity()
          * @generated
          */
-        EClass REST_SERVICE_RESOURCE_SECURITY =
-                eINSTANCE.getRestServiceResourceSecurity();
+        EClass REST_SERVICE_RESOURCE_SECURITY = eINSTANCE.getRestServiceResourceSecurity();
 
         /**
          * The meta object literal for the '<em><b>Policy Type</b></em>' attribute feature.
@@ -15146,8 +14861,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE =
-                eINSTANCE.getRestServiceResourceSecurity_PolicyType();
+        EAttribute REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE = eINSTANCE.getRestServiceResourceSecurity_PolicyType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RetainFamiliarActivitiesImpl <em>Retain Familiar Activities</em>}' class.
@@ -15157,8 +14871,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRetainFamiliarActivities()
          * @generated
          */
-        EClass RETAIN_FAMILIAR_ACTIVITIES =
-                eINSTANCE.getRetainFamiliarActivities();
+        EClass RETAIN_FAMILIAR_ACTIVITIES = eINSTANCE.getRetainFamiliarActivities();
 
         /**
          * The meta object literal for the '<em><b>Activity Ref</b></em>' containment reference list feature.
@@ -15166,8 +14879,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF =
-                eINSTANCE.getRetainFamiliarActivities_ActivityRef();
+        EReference RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF = eINSTANCE.getRetainFamiliarActivities_ActivityRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RetryImpl <em>Retry</em>}' class.
@@ -15201,8 +14913,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RETRY__PERIOD_INCREMENT =
-                eINSTANCE.getRetry_PeriodIncrement();
+        EAttribute RETRY__PERIOD_INCREMENT = eINSTANCE.getRetry_PeriodIncrement();
 
         /**
          * The meta object literal for the '<em><b>Max Retry Action</b></em>' attribute feature.
@@ -15210,8 +14921,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RETRY__MAX_RETRY_ACTION =
-                eINSTANCE.getRetry_MaxRetryAction();
+        EAttribute RETRY__MAX_RETRY_ACTION = eINSTANCE.getRetry_MaxRetryAction();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ScriptInformationImpl <em>Script Information</em>}' class.
@@ -15229,8 +14939,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_INFORMATION__EXPRESSION =
-                eINSTANCE.getScriptInformation_Expression();
+        EReference SCRIPT_INFORMATION__EXPRESSION = eINSTANCE.getScriptInformation_Expression();
 
         /**
          * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
@@ -15238,8 +14947,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_INFORMATION__DIRECTION =
-                eINSTANCE.getScriptInformation_Direction();
+        EAttribute SCRIPT_INFORMATION__DIRECTION = eINSTANCE.getScriptInformation_Direction();
 
         /**
          * The meta object literal for the '<em><b>Activity</b></em>' reference feature.
@@ -15247,8 +14955,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_INFORMATION__ACTIVITY =
-                eINSTANCE.getScriptInformation_Activity();
+        EReference SCRIPT_INFORMATION__ACTIVITY = eINSTANCE.getScriptInformation_Activity();
 
         /**
          * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
@@ -15256,8 +14963,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_INFORMATION__REFERENCE =
-                eINSTANCE.getScriptInformation_Reference();
+        EAttribute SCRIPT_INFORMATION__REFERENCE = eINSTANCE.getScriptInformation_Reference();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.SeparationOfDutiesActivitiesImpl <em>Separation Of Duties Activities</em>}' class.
@@ -15267,8 +14973,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSeparationOfDutiesActivities()
          * @generated
          */
-        EClass SEPARATION_OF_DUTIES_ACTIVITIES =
-                eINSTANCE.getSeparationOfDutiesActivities();
+        EClass SEPARATION_OF_DUTIES_ACTIVITIES = eINSTANCE.getSeparationOfDutiesActivities();
 
         /**
          * The meta object literal for the '<em><b>Activity Ref</b></em>' containment reference list feature.
@@ -15295,8 +15000,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIGNAL_DATA__CORRELATION_MAPPINGS =
-                eINSTANCE.getSignalData_CorrelationMappings();
+        EReference SIGNAL_DATA__CORRELATION_MAPPINGS = eINSTANCE.getSignalData_CorrelationMappings();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -15304,8 +15008,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIGNAL_DATA__DATA_MAPPINGS =
-                eINSTANCE.getSignalData_DataMappings();
+        EReference SIGNAL_DATA__DATA_MAPPINGS = eINSTANCE.getSignalData_DataMappings();
 
         /**
          * The meta object literal for the '<em><b>Reschedule Timers</b></em>' containment reference feature.
@@ -15313,8 +15016,23 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIGNAL_DATA__RESCHEDULE_TIMERS =
-                eINSTANCE.getSignalData_RescheduleTimers();
+        EReference SIGNAL_DATA__RESCHEDULE_TIMERS = eINSTANCE.getSignalData_RescheduleTimers();
+
+        /**
+         * The meta object literal for the '<em><b>Input Script Data Mapper</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIGNAL_DATA__INPUT_SCRIPT_DATA_MAPPER = eINSTANCE.getSignalData_InputScriptDataMapper();
+
+        /**
+         * The meta object literal for the '<em><b>Output Script Data Mapper</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIGNAL_DATA__OUTPUT_SCRIPT_DATA_MAPPER = eINSTANCE.getSignalData_OutputScriptDataMapper();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.StartMethodImpl <em>Start Method</em>}' class.
@@ -15334,8 +15052,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getStructuredDiscriminator()
          * @generated
          */
-        EClass STRUCTURED_DISCRIMINATOR =
-                eINSTANCE.getStructuredDiscriminator();
+        EClass STRUCTURED_DISCRIMINATOR = eINSTANCE.getStructuredDiscriminator();
 
         /**
          * The meta object literal for the '<em><b>Wait For Incoming Path</b></em>' attribute feature.
@@ -15371,8 +15088,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID =
-                eINSTANCE.getTaskLibraryReference_TaskLibraryId();
+        EAttribute TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID = eINSTANCE.getTaskLibraryReference_TaskLibraryId();
 
         /**
          * The meta object literal for the '<em><b>Package Ref</b></em>' attribute feature.
@@ -15380,8 +15096,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_LIBRARY_REFERENCE__PACKAGE_REF =
-                eINSTANCE.getTaskLibraryReference_PackageRef();
+        EAttribute TASK_LIBRARY_REFERENCE__PACKAGE_REF = eINSTANCE.getTaskLibraryReference_PackageRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.TransformScriptImpl <em>Transform Script</em>}' class.
@@ -15399,8 +15114,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRANSFORM_SCRIPT__DATA_MAPPINGS =
-                eINSTANCE.getTransformScript_DataMappings();
+        EReference TRANSFORM_SCRIPT__DATA_MAPPINGS = eINSTANCE.getTransformScript_DataMappings();
 
         /**
          * The meta object literal for the '<em><b>Input Dom</b></em>' attribute list feature.
@@ -15408,8 +15122,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSFORM_SCRIPT__INPUT_DOM =
-                eINSTANCE.getTransformScript_InputDom();
+        EAttribute TRANSFORM_SCRIPT__INPUT_DOM = eINSTANCE.getTransformScript_InputDom();
 
         /**
          * The meta object literal for the '<em><b>Output Dom</b></em>' attribute list feature.
@@ -15417,8 +15130,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSFORM_SCRIPT__OUTPUT_DOM =
-                eINSTANCE.getTransformScript_OutputDom();
+        EAttribute TRANSFORM_SCRIPT__OUTPUT_DOM = eINSTANCE.getTransformScript_OutputDom();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.UserTaskScriptsImpl <em>User Task Scripts</em>}' class.
@@ -15436,8 +15148,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference USER_TASK_SCRIPTS__OPEN_SCRIPT =
-                eINSTANCE.getUserTaskScripts_OpenScript();
+        EReference USER_TASK_SCRIPTS__OPEN_SCRIPT = eINSTANCE.getUserTaskScripts_OpenScript();
 
         /**
          * The meta object literal for the '<em><b>Close Script</b></em>' containment reference feature.
@@ -15445,8 +15156,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference USER_TASK_SCRIPTS__CLOSE_SCRIPT =
-                eINSTANCE.getUserTaskScripts_CloseScript();
+        EReference USER_TASK_SCRIPTS__CLOSE_SCRIPT = eINSTANCE.getUserTaskScripts_CloseScript();
 
         /**
          * The meta object literal for the '<em><b>Submit Script</b></em>' containment reference feature.
@@ -15454,8 +15164,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference USER_TASK_SCRIPTS__SUBMIT_SCRIPT =
-                eINSTANCE.getUserTaskScripts_SubmitScript();
+        EReference USER_TASK_SCRIPTS__SUBMIT_SCRIPT = eINSTANCE.getUserTaskScripts_SubmitScript();
 
         /**
          * The meta object literal for the '<em><b>Schedule Script</b></em>' containment reference feature.
@@ -15463,8 +15172,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference USER_TASK_SCRIPTS__SCHEDULE_SCRIPT =
-                eINSTANCE.getUserTaskScripts_ScheduleScript();
+        EReference USER_TASK_SCRIPTS__SCHEDULE_SCRIPT = eINSTANCE.getUserTaskScripts_ScheduleScript();
 
         /**
          * The meta object literal for the '<em><b>Reschedule Script</b></em>' containment reference feature.
@@ -15472,8 +15180,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT =
-                eINSTANCE.getUserTaskScripts_RescheduleScript();
+        EReference USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT = eINSTANCE.getUserTaskScripts_RescheduleScript();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ValidationControlImpl <em>Validation Control</em>}' class.
@@ -15502,8 +15209,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getValidationIssueOverride()
          * @generated
          */
-        EClass VALIDATION_ISSUE_OVERRIDE =
-                eINSTANCE.getValidationIssueOverride();
+        EClass VALIDATION_ISSUE_OVERRIDE = eINSTANCE.getValidationIssueOverride();
 
         /**
          * The meta object literal for the '<em><b>Validation Issue Id</b></em>' attribute feature.
@@ -15520,8 +15226,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE =
-                eINSTANCE.getValidationIssueOverride_OverrideType();
+        EAttribute VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE = eINSTANCE.getValidationIssueOverride_OverrideType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsdlEventAssociationImpl <em>Wsdl Event Association</em>}' class.
@@ -15539,8 +15244,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WSDL_EVENT_ASSOCIATION__EVENT_ID =
-                eINSTANCE.getWsdlEventAssociation_EventId();
+        EAttribute WSDL_EVENT_ASSOCIATION__EVENT_ID = eINSTANCE.getWsdlEventAssociation_EventId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WorkItemPriorityImpl <em>Work Item Priority</em>}' class.
@@ -15558,8 +15262,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WORK_ITEM_PRIORITY__INITIAL_PRIORITY =
-                eINSTANCE.getWorkItemPriority_InitialPriority();
+        EAttribute WORK_ITEM_PRIORITY__INITIAL_PRIORITY = eINSTANCE.getWorkItemPriority_InitialPriority();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsdlGenerationImpl <em>Wsdl Generation</em>}' class.
@@ -15577,8 +15280,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WSDL_GENERATION__SOAP_BINDING_STYLE =
-                eINSTANCE.getWsdlGeneration_SoapBindingStyle();
+        EAttribute WSDL_GENERATION__SOAP_BINDING_STYLE = eINSTANCE.getWsdlGeneration_SoapBindingStyle();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsBindingImpl <em>Ws Binding</em>}' class.
@@ -15604,8 +15306,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_BINDING__EXTENDED_PROPERTIES =
-                eINSTANCE.getWsBinding_ExtendedProperties();
+        EReference WS_BINDING__EXTENDED_PROPERTIES = eINSTANCE.getWsBinding_ExtendedProperties();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsInboundImpl <em>Ws Inbound</em>}' class.
@@ -15623,8 +15324,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_INBOUND__VIRTUAL_BINDING =
-                eINSTANCE.getWsInbound_VirtualBinding();
+        EReference WS_INBOUND__VIRTUAL_BINDING = eINSTANCE.getWsInbound_VirtualBinding();
 
         /**
          * The meta object literal for the '<em><b>Soap Http Binding</b></em>' containment reference list feature.
@@ -15632,8 +15332,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_INBOUND__SOAP_HTTP_BINDING =
-                eINSTANCE.getWsInbound_SoapHttpBinding();
+        EReference WS_INBOUND__SOAP_HTTP_BINDING = eINSTANCE.getWsInbound_SoapHttpBinding();
 
         /**
          * The meta object literal for the '<em><b>Soap Jms Binding</b></em>' containment reference list feature.
@@ -15641,8 +15340,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_INBOUND__SOAP_JMS_BINDING =
-                eINSTANCE.getWsInbound_SoapJmsBinding();
+        EReference WS_INBOUND__SOAP_JMS_BINDING = eINSTANCE.getWsInbound_SoapJmsBinding();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsOutboundImpl <em>Ws Outbound</em>}' class.
@@ -15660,8 +15358,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_OUTBOUND__VIRTUAL_BINDING =
-                eINSTANCE.getWsOutbound_VirtualBinding();
+        EReference WS_OUTBOUND__VIRTUAL_BINDING = eINSTANCE.getWsOutbound_VirtualBinding();
 
         /**
          * The meta object literal for the '<em><b>Soap Http Binding</b></em>' containment reference feature.
@@ -15669,8 +15366,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_OUTBOUND__SOAP_HTTP_BINDING =
-                eINSTANCE.getWsOutbound_SoapHttpBinding();
+        EReference WS_OUTBOUND__SOAP_HTTP_BINDING = eINSTANCE.getWsOutbound_SoapHttpBinding();
 
         /**
          * The meta object literal for the '<em><b>Soap Jms Binding</b></em>' containment reference feature.
@@ -15678,8 +15374,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_OUTBOUND__SOAP_JMS_BINDING =
-                eINSTANCE.getWsOutbound_SoapJmsBinding();
+        EReference WS_OUTBOUND__SOAP_JMS_BINDING = eINSTANCE.getWsOutbound_SoapJmsBinding();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsResourceImpl <em>Ws Resource</em>}' class.
@@ -15732,8 +15427,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WS_SECURITY_POLICY__TYPE =
-                eINSTANCE.getWsSecurityPolicy_Type();
+        EAttribute WS_SECURITY_POLICY__TYPE = eINSTANCE.getWsSecurityPolicy_Type();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapBindingImpl <em>Ws Soap Binding</em>}' class.
@@ -15751,8 +15445,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WS_SOAP_BINDING__BINDING_STYLE =
-                eINSTANCE.getWsSoapBinding_BindingStyle();
+        EAttribute WS_SOAP_BINDING__BINDING_STYLE = eINSTANCE.getWsSoapBinding_BindingStyle();
 
         /**
          * The meta object literal for the '<em><b>Soap Version</b></em>' attribute feature.
@@ -15760,8 +15453,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WS_SOAP_BINDING__SOAP_VERSION =
-                eINSTANCE.getWsSoapBinding_SoapVersion();
+        EAttribute WS_SOAP_BINDING__SOAP_VERSION = eINSTANCE.getWsSoapBinding_SoapVersion();
 
         /**
          * The meta object literal for the '<em><b>Soap Security</b></em>' reference feature.
@@ -15769,8 +15461,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_SOAP_BINDING__SOAP_SECURITY =
-                eINSTANCE.getWsSoapBinding_SoapSecurity();
+        EReference WS_SOAP_BINDING__SOAP_SECURITY = eINSTANCE.getWsSoapBinding_SoapSecurity();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapHttpInboundBindingImpl <em>Ws Soap Http Inbound Binding</em>}' class.
@@ -15780,8 +15471,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getWsSoapHttpInboundBinding()
          * @generated
          */
-        EClass WS_SOAP_HTTP_INBOUND_BINDING =
-                eINSTANCE.getWsSoapHttpInboundBinding();
+        EClass WS_SOAP_HTTP_INBOUND_BINDING = eINSTANCE.getWsSoapHttpInboundBinding();
 
         /**
          * The meta object literal for the '<em><b>Inbound Security</b></em>' containment reference feature.
@@ -15808,8 +15498,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME =
-                eINSTANCE
-                        .getWsSoapHttpInboundBinding_HttpConnectorInstanceName();
+                eINSTANCE.getWsSoapHttpInboundBinding_HttpConnectorInstanceName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsSoapHttpOutboundBindingImpl <em>Ws Soap Http Outbound Binding</em>}' class.
@@ -15819,8 +15508,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getWsSoapHttpOutboundBinding()
          * @generated
          */
-        EClass WS_SOAP_HTTP_OUTBOUND_BINDING =
-                eINSTANCE.getWsSoapHttpOutboundBinding();
+        EClass WS_SOAP_HTTP_OUTBOUND_BINDING = eINSTANCE.getWsSoapHttpOutboundBinding();
 
         /**
          * The meta object literal for the '<em><b>Outbound Security</b></em>' containment reference feature.
@@ -15848,8 +15536,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getWsSoapJmsInboundBinding()
          * @generated
          */
-        EClass WS_SOAP_JMS_INBOUND_BINDING =
-                eINSTANCE.getWsSoapJmsInboundBinding();
+        EClass WS_SOAP_JMS_INBOUND_BINDING = eINSTANCE.getWsSoapJmsInboundBinding();
 
         /**
          * The meta object literal for the '<em><b>Outbound Connection Factory</b></em>' attribute feature.
@@ -15858,8 +15545,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY =
-                eINSTANCE
-                        .getWsSoapJmsInboundBinding_OutboundConnectionFactory();
+                eINSTANCE.getWsSoapJmsInboundBinding_OutboundConnectionFactory();
 
         /**
          * The meta object literal for the '<em><b>Inbound Connection Factory Configuration</b></em>' attribute feature.
@@ -15868,8 +15554,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION =
-                eINSTANCE
-                        .getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration();
+                eINSTANCE.getWsSoapJmsInboundBinding_InboundConnectionFactoryConfiguration();
 
         /**
          * The meta object literal for the '<em><b>Inbound Destination</b></em>' attribute feature.
@@ -15897,8 +15582,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getWsSoapJmsOutboundBinding()
          * @generated
          */
-        EClass WS_SOAP_JMS_OUTBOUND_BINDING =
-                eINSTANCE.getWsSoapJmsOutboundBinding();
+        EClass WS_SOAP_JMS_OUTBOUND_BINDING = eINSTANCE.getWsSoapJmsOutboundBinding();
 
         /**
          * The meta object literal for the '<em><b>Outbound Connection Factory</b></em>' attribute feature.
@@ -15907,8 +15591,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY =
-                eINSTANCE
-                        .getWsSoapJmsOutboundBinding_OutboundConnectionFactory();
+                eINSTANCE.getWsSoapJmsOutboundBinding_OutboundConnectionFactory();
 
         /**
          * The meta object literal for the '<em><b>Inbound Destination</b></em>' attribute feature.
@@ -15943,8 +15626,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE =
-                eINSTANCE.getWsSoapJmsOutboundBinding_DeliveryMode();
+        EAttribute WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE = eINSTANCE.getWsSoapJmsOutboundBinding_DeliveryMode();
 
         /**
          * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
@@ -15952,8 +15634,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY =
-                eINSTANCE.getWsSoapJmsOutboundBinding_Priority();
+        EAttribute WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY = eINSTANCE.getWsSoapJmsOutboundBinding_Priority();
 
         /**
          * The meta object literal for the '<em><b>Message Expiration</b></em>' attribute feature.
@@ -15989,8 +15670,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WS_SOAP_SECURITY__SECURITY_POLICY =
-                eINSTANCE.getWsSoapSecurity_SecurityPolicy();
+        EReference WS_SOAP_SECURITY__SECURITY_POLICY = eINSTANCE.getWsSoapSecurity_SecurityPolicy();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.WsVirtualBindingImpl <em>Ws Virtual Binding</em>}' class.
@@ -16010,8 +15690,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getXpdExtDataObjectAttributes()
          * @generated
          */
-        EClass XPD_EXT_DATA_OBJECT_ATTRIBUTES =
-                eINSTANCE.getXpdExtDataObjectAttributes();
+        EClass XPD_EXT_DATA_OBJECT_ATTRIBUTES = eINSTANCE.getXpdExtDataObjectAttributes();
 
         /**
          * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -16019,8 +15698,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION =
-                eINSTANCE.getXpdExtDataObjectAttributes_Description();
+        EAttribute XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION = eINSTANCE.getXpdExtDataObjectAttributes_Description();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' attribute feature.
@@ -16037,8 +15715,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES =
-                eINSTANCE.getXpdExtDataObjectAttributes_Properties();
+        EReference XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES = eINSTANCE.getXpdExtDataObjectAttributes_Properties();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.XpdExtPropertyImpl <em>Xpd Ext Property</em>}' class.
@@ -16064,8 +15741,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_PROPERTY__VALUE =
-                eINSTANCE.getXpdExtProperty_Value();
+        EAttribute XPD_EXT_PROPERTY__VALUE = eINSTANCE.getXpdExtProperty_Value();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.XpdExtAttributeImpl <em>Xpd Ext Attribute</em>}' class.
@@ -16083,8 +15759,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_ATTRIBUTE__MIXED =
-                eINSTANCE.getXpdExtAttribute_Mixed();
+        EAttribute XPD_EXT_ATTRIBUTE__MIXED = eINSTANCE.getXpdExtAttribute_Mixed();
 
         /**
          * The meta object literal for the '<em><b>Group</b></em>' attribute list feature.
@@ -16092,8 +15767,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_ATTRIBUTE__GROUP =
-                eINSTANCE.getXpdExtAttribute_Group();
+        EAttribute XPD_EXT_ATTRIBUTE__GROUP = eINSTANCE.getXpdExtAttribute_Group();
 
         /**
          * The meta object literal for the '<em><b>Any</b></em>' attribute list feature.
@@ -16109,8 +15783,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_ATTRIBUTE__NAME =
-                eINSTANCE.getXpdExtAttribute_Name();
+        EAttribute XPD_EXT_ATTRIBUTE__NAME = eINSTANCE.getXpdExtAttribute_Name();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -16118,8 +15791,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XPD_EXT_ATTRIBUTE__VALUE =
-                eINSTANCE.getXpdExtAttribute_Value();
+        EAttribute XPD_EXT_ATTRIBUTE__VALUE = eINSTANCE.getXpdExtAttribute_Value();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.XpdExtAttributesImpl <em>Xpd Ext Attributes</em>}' class.
@@ -16137,8 +15809,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference XPD_EXT_ATTRIBUTES__ATTRIBUTES =
-                eINSTANCE.getXpdExtAttributes_Attributes();
+        EReference XPD_EXT_ATTRIBUTES__ATTRIBUTES = eINSTANCE.getXpdExtAttributes_Attributes();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.UpdateCaseOperationTypeImpl <em>Update Case Operation Type</em>}' class.
@@ -16148,8 +15819,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getUpdateCaseOperationType()
          * @generated
          */
-        EClass UPDATE_CASE_OPERATION_TYPE =
-                eINSTANCE.getUpdateCaseOperationType();
+        EClass UPDATE_CASE_OPERATION_TYPE = eINSTANCE.getUpdateCaseOperationType();
 
         /**
          * The meta object literal for the '<em><b>From Field Path</b></em>' attribute feature.
@@ -16157,8 +15827,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH =
-                eINSTANCE.getUpdateCaseOperationType_FromFieldPath();
+        EAttribute UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH = eINSTANCE.getUpdateCaseOperationType_FromFieldPath();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AddLinkAssociationsTypeImpl <em>Add Link Associations Type</em>}' class.
@@ -16168,8 +15837,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAddLinkAssociationsType()
          * @generated
          */
-        EClass ADD_LINK_ASSOCIATIONS_TYPE =
-                eINSTANCE.getAddLinkAssociationsType();
+        EClass ADD_LINK_ASSOCIATIONS_TYPE = eINSTANCE.getAddLinkAssociationsType();
 
         /**
          * The meta object literal for the '<em><b>Add Case Ref Field</b></em>' attribute feature.
@@ -16197,8 +15865,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRemoveLinkAssociationsType()
          * @generated
          */
-        EClass REMOVE_LINK_ASSOCIATIONS_TYPE =
-                eINSTANCE.getRemoveLinkAssociationsType();
+        EClass REMOVE_LINK_ASSOCIATIONS_TYPE = eINSTANCE.getRemoveLinkAssociationsType();
 
         /**
          * The meta object literal for the '<em><b>Association Name</b></em>' attribute feature.
@@ -16226,8 +15893,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseReferenceOperationsType()
          * @generated
          */
-        EClass CASE_REFERENCE_OPERATIONS_TYPE =
-                eINSTANCE.getCaseReferenceOperationsType();
+        EClass CASE_REFERENCE_OPERATIONS_TYPE = eINSTANCE.getCaseReferenceOperationsType();
 
         /**
          * The meta object literal for the '<em><b>Case Ref Field</b></em>' attribute feature.
@@ -16244,8 +15910,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CASE_REFERENCE_OPERATIONS_TYPE__UPDATE =
-                eINSTANCE.getCaseReferenceOperationsType_Update();
+        EReference CASE_REFERENCE_OPERATIONS_TYPE__UPDATE = eINSTANCE.getCaseReferenceOperationsType_Update();
 
         /**
          * The meta object literal for the '<em><b>Delete</b></em>' containment reference feature.
@@ -16253,8 +15918,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CASE_REFERENCE_OPERATIONS_TYPE__DELETE =
-                eINSTANCE.getCaseReferenceOperationsType_Delete();
+        EReference CASE_REFERENCE_OPERATIONS_TYPE__DELETE = eINSTANCE.getCaseReferenceOperationsType_Delete();
 
         /**
          * The meta object literal for the '<em><b>Add Link Associations</b></em>' containment reference feature.
@@ -16272,8 +15936,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS =
-                eINSTANCE
-                        .getCaseReferenceOperationsType_RemoveLinkAssociations();
+                eINSTANCE.getCaseReferenceOperationsType_RemoveLinkAssociations();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.GlobalDataOperationImpl <em>Global Data Operation</em>}' class.
@@ -16311,8 +15974,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteByCaseIdentifierType()
          * @generated
          */
-        EClass DELETE_BY_CASE_IDENTIFIER_TYPE =
-                eINSTANCE.getDeleteByCaseIdentifierType();
+        EClass DELETE_BY_CASE_IDENTIFIER_TYPE = eINSTANCE.getDeleteByCaseIdentifierType();
 
         /**
          * The meta object literal for the '<em><b>Field Path</b></em>' attribute feature.
@@ -16320,8 +15982,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH =
-                eINSTANCE.getDeleteByCaseIdentifierType_FieldPath();
+        EAttribute DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH = eINSTANCE.getDeleteByCaseIdentifierType_FieldPath();
 
         /**
          * The meta object literal for the '<em><b>Identifier Name</b></em>' attribute feature.
@@ -16340,8 +16001,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCompositeIdentifierType()
          * @generated
          */
-        EClass COMPOSITE_IDENTIFIER_TYPE =
-                eINSTANCE.getCompositeIdentifierType();
+        EClass COMPOSITE_IDENTIFIER_TYPE = eINSTANCE.getCompositeIdentifierType();
 
         /**
          * The meta object literal for the '<em><b>Field Path</b></em>' attribute feature.
@@ -16349,8 +16009,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH =
-                eINSTANCE.getCompositeIdentifierType_FieldPath();
+        EAttribute COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH = eINSTANCE.getCompositeIdentifierType_FieldPath();
 
         /**
          * The meta object literal for the '<em><b>Identifiername</b></em>' attribute feature.
@@ -16358,8 +16017,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME =
-                eINSTANCE.getCompositeIdentifierType_Identifiername();
+        EAttribute COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME = eINSTANCE.getCompositeIdentifierType_Identifiername();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DeleteCaseReferenceOperationTypeImpl <em>Delete Case Reference Operation Type</em>}' class.
@@ -16369,8 +16027,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteCaseReferenceOperationType()
          * @generated
          */
-        EClass DELETE_CASE_REFERENCE_OPERATION_TYPE =
-                eINSTANCE.getDeleteCaseReferenceOperationType();
+        EClass DELETE_CASE_REFERENCE_OPERATION_TYPE = eINSTANCE.getDeleteCaseReferenceOperationType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DeleteByCompositeIdentifiersTypeImpl <em>Delete By Composite Identifiers Type</em>}' class.
@@ -16380,8 +16037,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteByCompositeIdentifiersType()
          * @generated
          */
-        EClass DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE =
-                eINSTANCE.getDeleteByCompositeIdentifiersType();
+        EClass DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE = eINSTANCE.getDeleteByCompositeIdentifiersType();
 
         /**
          * The meta object literal for the '<em><b>Group</b></em>' attribute list feature.
@@ -16389,8 +16045,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP =
-                eINSTANCE.getDeleteByCompositeIdentifiersType_Group();
+        EAttribute DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP = eINSTANCE.getDeleteByCompositeIdentifiersType_Group();
 
         /**
          * The meta object literal for the '<em><b>Composite Identifier</b></em>' containment reference list feature.
@@ -16399,8 +16054,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER =
-                eINSTANCE
-                        .getDeleteByCompositeIdentifiersType_CompositeIdentifier();
+                eINSTANCE.getDeleteByCompositeIdentifiersType_CompositeIdentifier();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.CreateCaseOperationTypeImpl <em>Create Case Operation Type</em>}' class.
@@ -16410,8 +16064,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCreateCaseOperationType()
          * @generated
          */
-        EClass CREATE_CASE_OPERATION_TYPE =
-                eINSTANCE.getCreateCaseOperationType();
+        EClass CREATE_CASE_OPERATION_TYPE = eINSTANCE.getCreateCaseOperationType();
 
         /**
          * The meta object literal for the '<em><b>From Field Path</b></em>' attribute feature.
@@ -16419,8 +16072,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH =
-                eINSTANCE.getCreateCaseOperationType_FromFieldPath();
+        EAttribute CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH = eINSTANCE.getCreateCaseOperationType_FromFieldPath();
 
         /**
          * The meta object literal for the '<em><b>To Case Ref Field</b></em>' attribute feature.
@@ -16439,8 +16091,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseAccessOperationsType()
          * @generated
          */
-        EClass CASE_ACCESS_OPERATIONS_TYPE =
-                eINSTANCE.getCaseAccessOperationsType();
+        EClass CASE_ACCESS_OPERATIONS_TYPE = eINSTANCE.getCaseAccessOperationsType();
 
         /**
          * The meta object literal for the '<em><b>Case Class External Reference</b></em>' containment reference feature.
@@ -16449,8 +16100,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE =
-                eINSTANCE
-                        .getCaseAccessOperationsType_CaseClassExternalReference();
+                eINSTANCE.getCaseAccessOperationsType_CaseClassExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Create</b></em>' containment reference feature.
@@ -16458,8 +16108,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CASE_ACCESS_OPERATIONS_TYPE__CREATE =
-                eINSTANCE.getCaseAccessOperationsType_Create();
+        EReference CASE_ACCESS_OPERATIONS_TYPE__CREATE = eINSTANCE.getCaseAccessOperationsType_Create();
 
         /**
          * The meta object literal for the '<em><b>Delete By Case Identifier</b></em>' containment reference feature.
@@ -16477,8 +16126,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS =
-                eINSTANCE
-                        .getCaseAccessOperationsType_DeleteByCompositeIdentifiers();
+                eINSTANCE.getCaseAccessOperationsType_DeleteByCompositeIdentifiers();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DataWorkItemAttributeMappingImpl <em>Data Work Item Attribute Mapping</em>}' class.
@@ -16488,8 +16136,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataWorkItemAttributeMapping()
          * @generated
          */
-        EClass DATA_WORK_ITEM_ATTRIBUTE_MAPPING =
-                eINSTANCE.getDataWorkItemAttributeMapping();
+        EClass DATA_WORK_ITEM_ATTRIBUTE_MAPPING = eINSTANCE.getDataWorkItemAttributeMapping();
 
         /**
          * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
@@ -16497,8 +16144,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE =
-                eINSTANCE.getDataWorkItemAttributeMapping_Attribute();
+        EAttribute DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE = eINSTANCE.getDataWorkItemAttributeMapping_Attribute();
 
         /**
          * The meta object literal for the '<em><b>Process Data</b></em>' attribute feature.
@@ -16517,8 +16163,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getProcessDataWorkItemAttributeMappings()
          * @generated
          */
-        EClass PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS =
-                eINSTANCE.getProcessDataWorkItemAttributeMappings();
+        EClass PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS = eINSTANCE.getProcessDataWorkItemAttributeMappings();
 
         /**
          * The meta object literal for the '<em><b>Data Work Item Attribute Mapping</b></em>' containment reference list feature.
@@ -16527,8 +16172,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS__DATA_WORK_ITEM_ATTRIBUTE_MAPPING =
-                eINSTANCE
-                        .getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping();
+                eINSTANCE.getProcessDataWorkItemAttributeMappings_DataWorkItemAttributeMapping();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.BpmRuntimeConfigurationImpl <em>Bpm Runtime Configuration</em>}' class.
@@ -16538,8 +16182,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getBpmRuntimeConfiguration()
          * @generated
          */
-        EClass BPM_RUNTIME_CONFIGURATION =
-                eINSTANCE.getBpmRuntimeConfiguration();
+        EClass BPM_RUNTIME_CONFIGURATION = eINSTANCE.getBpmRuntimeConfiguration();
 
         /**
          * The meta object literal for the '<em><b>Incoming Request Timeout</b></em>' attribute feature.
@@ -16566,8 +16209,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES =
-                eINSTANCE.getEnablementType_InitializerActivities();
+        EReference ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES = eINSTANCE.getEnablementType_InitializerActivities();
 
         /**
          * The meta object literal for the '<em><b>Precondition Expression</b></em>' containment reference feature.
@@ -16575,8 +16217,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENABLEMENT_TYPE__PRECONDITION_EXPRESSION =
-                eINSTANCE.getEnablementType_PreconditionExpression();
+        EReference ENABLEMENT_TYPE__PRECONDITION_EXPRESSION = eINSTANCE.getEnablementType_PreconditionExpression();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.InitializerActivitiesTypeImpl <em>Initializer Activities Type</em>}' class.
@@ -16586,8 +16227,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getInitializerActivitiesType()
          * @generated
          */
-        EClass INITIALIZER_ACTIVITIES_TYPE =
-                eINSTANCE.getInitializerActivitiesType();
+        EClass INITIALIZER_ACTIVITIES_TYPE = eINSTANCE.getInitializerActivitiesType();
 
         /**
          * The meta object literal for the '<em><b>Activity Ref</b></em>' containment reference list feature.
@@ -16595,8 +16235,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INITIALIZER_ACTIVITIES_TYPE__ACTIVITY_REF =
-                eINSTANCE.getInitializerActivitiesType_ActivityRef();
+        EReference INITIALIZER_ACTIVITIES_TYPE__ACTIVITY_REF = eINSTANCE.getInitializerActivitiesType_ActivityRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.AdHocTaskConfigurationTypeImpl <em>Ad Hoc Task Configuration Type</em>}' class.
@@ -16606,8 +16245,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAdHocTaskConfigurationType()
          * @generated
          */
-        EClass AD_HOC_TASK_CONFIGURATION_TYPE =
-                eINSTANCE.getAdHocTaskConfigurationType();
+        EClass AD_HOC_TASK_CONFIGURATION_TYPE = eINSTANCE.getAdHocTaskConfigurationType();
 
         /**
          * The meta object literal for the '<em><b>Enablement</b></em>' containment reference feature.
@@ -16615,8 +16253,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT =
-                eINSTANCE.getAdHocTaskConfigurationType_Enablement();
+        EReference AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT = eINSTANCE.getAdHocTaskConfigurationType_Enablement();
 
         /**
          * The meta object literal for the '<em><b>Ad Hoc Execution Type</b></em>' attribute feature.
@@ -16643,8 +16280,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS =
-                eINSTANCE
-                        .getAdHocTaskConfigurationType_AllowMultipleInvocations();
+                eINSTANCE.getAdHocTaskConfigurationType_AllowMultipleInvocations();
 
         /**
          * The meta object literal for the '<em><b>Required Access Privileges</b></em>' containment reference feature.
@@ -16653,8 +16289,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EReference AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES =
-                eINSTANCE
-                        .getAdHocTaskConfigurationType_RequiredAccessPrivileges();
+                eINSTANCE.getAdHocTaskConfigurationType_RequiredAccessPrivileges();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RequiredAccessPrivilegesImpl <em>Required Access Privileges</em>}' class.
@@ -16664,8 +16299,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRequiredAccessPrivileges()
          * @generated
          */
-        EClass REQUIRED_ACCESS_PRIVILEGES =
-                eINSTANCE.getRequiredAccessPrivileges();
+        EClass REQUIRED_ACCESS_PRIVILEGES = eINSTANCE.getRequiredAccessPrivileges();
 
         /**
          * The meta object literal for the '<em><b>Privilege Reference</b></em>' containment reference list feature.
@@ -16701,8 +16335,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference VISIBLE_FOR_CASE_STATES__CASE_STATE =
-                eINSTANCE.getVisibleForCaseStates_CaseState();
+        EReference VISIBLE_FOR_CASE_STATES__CASE_STATE = eINSTANCE.getVisibleForCaseStates_CaseState();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.CaseServiceImpl <em>Case Service</em>}' class.
@@ -16720,8 +16353,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CASE_SERVICE__CASE_CLASS_TYPE =
-                eINSTANCE.getCaseService_CaseClassType();
+        EReference CASE_SERVICE__CASE_CLASS_TYPE = eINSTANCE.getCaseService_CaseClassType();
 
         /**
          * The meta object literal for the '<em><b>Visible For Case States</b></em>' containment reference feature.
@@ -16729,8 +16361,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CASE_SERVICE__VISIBLE_FOR_CASE_STATES =
-                eINSTANCE.getCaseService_VisibleForCaseStates();
+        EReference CASE_SERVICE__VISIBLE_FOR_CASE_STATES = eINSTANCE.getCaseService_VisibleForCaseStates();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DocumentOperationImpl <em>Document Operation</em>}' class.
@@ -16748,8 +16379,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION =
-                eINSTANCE.getDocumentOperation_CaseDocRefOperation();
+        EReference DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION = eINSTANCE.getDocumentOperation_CaseDocRefOperation();
 
         /**
          * The meta object literal for the '<em><b>Case Doc Find Operations</b></em>' containment reference feature.
@@ -16867,8 +16497,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD =
-                eINSTANCE.getCaseDocFindOperations_CaseRefField();
+        EAttribute CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD = eINSTANCE.getCaseDocFindOperations_CaseRefField();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.MoveCaseDocOperationImpl <em>Move Case Doc Operation</em>}' class.
@@ -16906,8 +16535,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getUnlinkCaseDocOperation()
          * @generated
          */
-        EClass UNLINK_CASE_DOC_OPERATION =
-                eINSTANCE.getUnlinkCaseDocOperation();
+        EClass UNLINK_CASE_DOC_OPERATION = eINSTANCE.getUnlinkCaseDocOperation();
 
         /**
          * The meta object literal for the '<em><b>Source Case Ref Field</b></em>' attribute feature.
@@ -16945,8 +16573,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getLinkSystemDocumentOperation()
          * @generated
          */
-        EClass LINK_SYSTEM_DOCUMENT_OPERATION =
-                eINSTANCE.getLinkSystemDocumentOperation();
+        EClass LINK_SYSTEM_DOCUMENT_OPERATION = eINSTANCE.getLinkSystemDocumentOperation();
 
         /**
          * The meta object literal for the '<em><b>Document Id</b></em>' attribute feature.
@@ -16954,8 +16581,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID =
-                eINSTANCE.getLinkSystemDocumentOperation_DocumentId();
+        EAttribute LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID = eINSTANCE.getLinkSystemDocumentOperation_DocumentId();
 
         /**
          * The meta object literal for the '<em><b>Return Case Doc Ref Field</b></em>' attribute feature.
@@ -16964,8 +16590,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD =
-                eINSTANCE
-                        .getLinkSystemDocumentOperation_ReturnCaseDocRefField();
+                eINSTANCE.getLinkSystemDocumentOperation_ReturnCaseDocRefField();
 
         /**
          * The meta object literal for the '<em><b>Case Ref Field</b></em>' attribute feature.
@@ -16984,8 +16609,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeleteCaseDocOperation()
          * @generated
          */
-        EClass DELETE_CASE_DOC_OPERATION =
-                eINSTANCE.getDeleteCaseDocOperation();
+        EClass DELETE_CASE_DOC_OPERATION = eINSTANCE.getDeleteCaseDocOperation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.FindByFileNameOperationImpl <em>Find By File Name Operation</em>}' class.
@@ -16995,8 +16619,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFindByFileNameOperation()
          * @generated
          */
-        EClass FIND_BY_FILE_NAME_OPERATION =
-                eINSTANCE.getFindByFileNameOperation();
+        EClass FIND_BY_FILE_NAME_OPERATION = eINSTANCE.getFindByFileNameOperation();
 
         /**
          * The meta object literal for the '<em><b>File Name Field</b></em>' attribute feature.
@@ -17004,8 +16627,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD =
-                eINSTANCE.getFindByFileNameOperation_FileNameField();
+        EAttribute FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD = eINSTANCE.getFindByFileNameOperation_FileNameField();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.FindByQueryOperationImpl <em>Find By Query Operation</em>}' class.
@@ -17034,8 +16656,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCaseDocumentQueryExpression()
          * @generated
          */
-        EClass CASE_DOCUMENT_QUERY_EXPRESSION =
-                eINSTANCE.getCaseDocumentQueryExpression();
+        EClass CASE_DOCUMENT_QUERY_EXPRESSION = eINSTANCE.getCaseDocumentQueryExpression();
 
         /**
          * The meta object literal for the '<em><b>Query Expression Join Type</b></em>' attribute feature.
@@ -17044,8 +16665,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute CASE_DOCUMENT_QUERY_EXPRESSION__QUERY_EXPRESSION_JOIN_TYPE =
-                eINSTANCE
-                        .getCaseDocumentQueryExpression_QueryExpressionJoinType();
+                eINSTANCE.getCaseDocumentQueryExpression_QueryExpressionJoinType();
 
         /**
          * The meta object literal for the '<em><b>Open Bracket Count</b></em>' attribute feature.
@@ -17071,8 +16691,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR =
-                eINSTANCE.getCaseDocumentQueryExpression_Operator();
+        EAttribute CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR = eINSTANCE.getCaseDocumentQueryExpression_Operator();
 
         /**
          * The meta object literal for the '<em><b>Process Data Field</b></em>' attribute feature.
@@ -17099,8 +16718,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_DOCUMENT_PROPERTY_SELECTED =
-                eINSTANCE
-                        .getCaseDocumentQueryExpression_CmisDocumentPropertySelected();
+                eINSTANCE.getCaseDocumentQueryExpression_CmisDocumentPropertySelected();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ServiceProcessConfigurationImpl <em>Service Process Configuration</em>}' class.
@@ -17110,8 +16728,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getServiceProcessConfiguration()
          * @generated
          */
-        EClass SERVICE_PROCESS_CONFIGURATION =
-                eINSTANCE.getServiceProcessConfiguration();
+        EClass SERVICE_PROCESS_CONFIGURATION = eINSTANCE.getServiceProcessConfiguration();
 
         /**
          * The meta object literal for the '<em><b>Deploy To Process Runtime</b></em>' attribute feature.
@@ -17120,8 +16737,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME =
-                eINSTANCE
-                        .getServiceProcessConfiguration_DeployToProcessRuntime();
+                eINSTANCE.getServiceProcessConfiguration_DeployToProcessRuntime();
 
         /**
          * The meta object literal for the '<em><b>Deploy To Pageflow Runtime</b></em>' attribute feature.
@@ -17130,8 +16746,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME =
-                eINSTANCE
-                        .getServiceProcessConfiguration_DeployToPageflowRuntime();
+                eINSTANCE.getServiceProcessConfiguration_DeployToPageflowRuntime();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.ScriptDataMapperImpl <em>Script Data Mapper</em>}' class.
@@ -17149,8 +16764,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_DATA_MAPPER__MAPPER_CONTEXT =
-                eINSTANCE.getScriptDataMapper_MapperContext();
+        EAttribute SCRIPT_DATA_MAPPER__MAPPER_CONTEXT = eINSTANCE.getScriptDataMapper_MapperContext();
 
         /**
          * The meta object literal for the '<em><b>Mapping Direction</b></em>' attribute feature.
@@ -17158,8 +16772,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_DATA_MAPPER__MAPPING_DIRECTION =
-                eINSTANCE.getScriptDataMapper_MappingDirection();
+        EAttribute SCRIPT_DATA_MAPPER__MAPPING_DIRECTION = eINSTANCE.getScriptDataMapper_MappingDirection();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -17167,8 +16780,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_DATA_MAPPER__DATA_MAPPINGS =
-                eINSTANCE.getScriptDataMapper_DataMappings();
+        EReference SCRIPT_DATA_MAPPER__DATA_MAPPINGS = eINSTANCE.getScriptDataMapper_DataMappings();
 
         /**
          * The meta object literal for the '<em><b>Unmapped Scripts</b></em>' containment reference list feature.
@@ -17176,8 +16788,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS =
-                eINSTANCE.getScriptDataMapper_UnmappedScripts();
+        EReference SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS = eINSTANCE.getScriptDataMapper_UnmappedScripts();
 
         /**
          * The meta object literal for the '<em><b>Array Inflation Type</b></em>' containment reference list feature.
@@ -17185,8 +16796,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE =
-                eINSTANCE.getScriptDataMapper_ArrayInflationType();
+        EReference SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE = eINSTANCE.getScriptDataMapper_ArrayInflationType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DataMapperArrayInflationImpl <em>Data Mapper Array Inflation</em>}' class.
@@ -17196,8 +16806,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataMapperArrayInflation()
          * @generated
          */
-        EClass DATA_MAPPER_ARRAY_INFLATION =
-                eINSTANCE.getDataMapperArrayInflation();
+        EClass DATA_MAPPER_ARRAY_INFLATION = eINSTANCE.getDataMapperArrayInflation();
 
         /**
          * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -17205,8 +16814,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_MAPPER_ARRAY_INFLATION__PATH =
-                eINSTANCE.getDataMapperArrayInflation_Path();
+        EAttribute DATA_MAPPER_ARRAY_INFLATION__PATH = eINSTANCE.getDataMapperArrayInflation_Path();
 
         /**
          * The meta object literal for the '<em><b>Mapping Type</b></em>' attribute feature.
@@ -17214,8 +16822,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE =
-                eINSTANCE.getDataMapperArrayInflation_MappingType();
+        EAttribute DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE = eINSTANCE.getDataMapperArrayInflation_MappingType();
 
         /**
          * The meta object literal for the '<em><b>Contributor Id</b></em>' attribute feature.
@@ -17223,8 +16830,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID =
-                eINSTANCE.getDataMapperArrayInflation_ContributorId();
+        EAttribute DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID = eINSTANCE.getDataMapperArrayInflation_ContributorId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.LikeMappingExclusionImpl <em>Like Mapping Exclusion</em>}' class.
@@ -17242,8 +16848,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIKE_MAPPING_EXCLUSION__PATH =
-                eINSTANCE.getLikeMappingExclusion_Path();
+        EAttribute LIKE_MAPPING_EXCLUSION__PATH = eINSTANCE.getLikeMappingExclusion_Path();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.LikeMappingExclusionsImpl <em>Like Mapping Exclusions</em>}' class.
@@ -17261,8 +16866,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS =
-                eINSTANCE.getLikeMappingExclusions_Exclusions();
+        EReference LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS = eINSTANCE.getLikeMappingExclusions_Exclusions();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.RestServiceOperationImpl <em>Rest Service Operation</em>}' class.
@@ -17280,8 +16884,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_OPERATION__LOCATION =
-                eINSTANCE.getRestServiceOperation_Location();
+        EAttribute REST_SERVICE_OPERATION__LOCATION = eINSTANCE.getRestServiceOperation_Location();
 
         /**
          * The meta object literal for the '<em><b>Method Id</b></em>' attribute feature.
@@ -17289,8 +16892,7 @@ public interface XpdExtensionPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REST_SERVICE_OPERATION__METHOD_ID =
-                eINSTANCE.getRestServiceOperation_MethodId();
+        EAttribute REST_SERVICE_OPERATION__METHOD_ID = eINSTANCE.getRestServiceOperation_MethodId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.AllocationStrategyType <em>Allocation Strategy Type</em>}' enum.
@@ -17350,8 +16952,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getEventHandlerFlowStrategy()
          * @generated
          */
-        EEnum EVENT_HANDLER_FLOW_STRATEGY =
-                eINSTANCE.getEventHandlerFlowStrategy();
+        EEnum EVENT_HANDLER_FLOW_STRATEGY = eINSTANCE.getEventHandlerFlowStrategy();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.FlowRoutingStyle <em>Flow Routing Style</em>}' enum.
@@ -17401,8 +17002,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getRescheduleTimerSelectionType()
          * @generated
          */
-        EEnum RESCHEDULE_TIMER_SELECTION_TYPE =
-                eINSTANCE.getRescheduleTimerSelectionType();
+        EEnum RESCHEDULE_TIMER_SELECTION_TYPE = eINSTANCE.getRescheduleTimerSelectionType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.SecurityPolicy <em>Security Policy</em>}' enum.
@@ -17432,8 +17032,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSubProcessStartStrategy()
          * @generated
          */
-        EEnum SUB_PROCESS_START_STRATEGY =
-                eINSTANCE.getSubProcessStartStrategy();
+        EEnum SUB_PROCESS_START_STRATEGY = eINSTANCE.getSubProcessStartStrategy();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.SystemErrorActionType <em>System Error Action Type</em>}' enum.
@@ -17453,8 +17052,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getValidationIssueOverrideType()
          * @generated
          */
-        EEnum VALIDATION_ISSUE_OVERRIDE_TYPE =
-                eINSTANCE.getValidationIssueOverrideType();
+        EEnum VALIDATION_ISSUE_OVERRIDE_TYPE = eINSTANCE.getValidationIssueOverrideType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.Visibility <em>Visibility</em>}' enum.
@@ -17494,8 +17092,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAdHocExecutionTypeType()
          * @generated
          */
-        EEnum AD_HOC_EXECUTION_TYPE_TYPE =
-                eINSTANCE.getAdHocExecutionTypeType();
+        EEnum AD_HOC_EXECUTION_TYPE_TYPE = eINSTANCE.getAdHocExecutionTypeType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.QueryExpressionJoinType <em>Query Expression Join Type</em>}' enum.
@@ -17505,8 +17102,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getQueryExpressionJoinType()
          * @generated
          */
-        EEnum QUERY_EXPRESSION_JOIN_TYPE =
-                eINSTANCE.getQueryExpressionJoinType();
+        EEnum QUERY_EXPRESSION_JOIN_TYPE = eINSTANCE.getQueryExpressionJoinType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.CMISQueryOperator <em>CMIS Query Operator</em>}' enum.
@@ -17556,8 +17152,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataMapperArrayInflationType()
          * @generated
          */
-        EEnum DATA_MAPPER_ARRAY_INFLATION_TYPE =
-                eINSTANCE.getDataMapperArrayInflationType();
+        EEnum DATA_MAPPER_ARRAY_INFLATION_TYPE = eINSTANCE.getDataMapperArrayInflationType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.BusinessServicePublishType <em>Business Service Publish Type</em>}' enum.
@@ -17567,8 +17162,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getBusinessServicePublishType()
          * @generated
          */
-        EEnum BUSINESS_SERVICE_PUBLISH_TYPE =
-                eINSTANCE.getBusinessServicePublishType();
+        EEnum BUSINESS_SERVICE_PUBLISH_TYPE = eINSTANCE.getBusinessServicePublishType();
 
         /**
          * The meta object literal for the '<em>Audit Event Type Object</em>' data type.
@@ -17598,8 +17192,7 @@ public interface XpdExtensionPackage extends EPackage {
          * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSoapBindingStyleObject()
          * @generated
          */
-        EDataType SOAP_BINDING_STYLE_OBJECT =
-                eINSTANCE.getSoapBindingStyleObject();
+        EDataType SOAP_BINDING_STYLE_OBJECT = eINSTANCE.getSoapBindingStyleObject();
 
     }
 
