@@ -48,8 +48,7 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -85,21 +84,20 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DescribedElement_description_feature", //$NON-NLS-1$
-                        "_UI_DescribedElement_type"), //$NON-NLS-1$
-                Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
-                true,
-                false,
-                false,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
+                        Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -109,21 +107,20 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addXpdInterfaceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ProcessInterface_xpdInterfaceType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ProcessInterface_xpdInterfaceType_feature", //$NON-NLS-1$
-                        "_UI_ProcessInterface_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PROCESS_INTERFACE__XPD_INTERFACE_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ProcessInterface_xpdInterfaceType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ProcessInterface_xpdInterfaceType_feature", //$NON-NLS-1$
+                                "_UI_ProcessInterface_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PROCESS_INTERFACE__XPD_INTERFACE_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -134,22 +131,15 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PROCESS_INTERFACE__START_METHODS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PROCESS_INTERFACE__INTERMEDIATE_METHODS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.PROCESS_INTERFACE__START_METHODS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.PROCESS_INTERFACE__INTERMEDIATE_METHODS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION);
         }
         return childrenFeatures;
     }
@@ -175,15 +165,11 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
     @Override
     public Object getImage(Object object) {
 
-        if (object instanceof ProcessInterface && Xpdl2ModelUtil
-                .isServiceProcessInterface((ProcessInterface) object)) {
+        if (object instanceof ProcessInterface && Xpdl2ModelUtil.isServiceProcessInterface((ProcessInterface) object)) {
 
-            return overlayImage(object,
-                    getResourceLocator().getImage(
-                            "full/obj16/ServiceProcessInterface.png")); //$NON-NLS-1$
+            return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceProcessInterface.png")); //$NON-NLS-1$
         }
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ProcessInterface")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessInterface")); //$NON-NLS-1$
     }
 
     /**
@@ -211,8 +197,7 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
         switch (notification.getFeatureID(ProcessInterface.class)) {
         case XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION:
         case XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__EXTENDED_ATTRIBUTES:
         case XpdExtensionPackage.PROCESS_INTERFACE__FORMAL_PARAMETERS:
@@ -220,8 +205,7 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
         case XpdExtensionPackage.PROCESS_INTERFACE__START_METHODS:
         case XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS:
         case XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -235,49 +219,39 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES,
-                Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
+        newChildDescriptors
+                .add(createChildParameter(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES,
+                        Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS,
-                Xpdl2Factory.eINSTANCE.createFormalParameter()));
+        newChildDescriptors
+                .add(createChildParameter(Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS,
+                        Xpdl2Factory.eINSTANCE.createFormalParameter()));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                         XpdExtensionFactory.eINSTANCE.createAudit())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                         XpdExtensionFactory.eINSTANCE.createSignalData())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                        XpdExtensionFactory.eINSTANCE
-                                .createRescheduleTimerScript())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.PROCESS_INTERFACE__START_METHODS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.PROCESS_INTERFACE__START_METHODS,
                 XpdExtensionFactory.eINSTANCE.createStartMethod()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.PROCESS_INTERFACE__INTERMEDIATE_METHODS,
-                XpdExtensionFactory.eINSTANCE.createIntermediateMethod()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.PROCESS_INTERFACE__INTERMEDIATE_METHODS,
+                        XpdExtensionFactory.eINSTANCE.createIntermediateMethod()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
-                XpdExtensionFactory.eINSTANCE
-                        .createServiceProcessConfiguration()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
+                        XpdExtensionFactory.eINSTANCE.createServiceProcessConfiguration()));
     }
 
     /**
@@ -292,46 +266,26 @@ public class ProcessInterfaceItemProvider extends NamedElementItemProvider {
     }
 
     @Override
-    protected Command createAddCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection, int index) {
-        Command cmd = super.createAddCommand(domain,
-                owner,
-                feature,
-                collection,
-                index);
-        cmd = CommandsUtils.checkExternalAddWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                collection,
-                index);
+    protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection, int index) {
+        Command cmd = super.createAddCommand(domain, owner, feature, collection, index);
+        cmd = CommandsUtils.checkExternalAddWrappers(cmd, domain, owner, feature, collection, index);
         return cmd;
     }
 
     @Override
-    protected Command createRemoveCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection) {
-        Command cmd =
-                super.createRemoveCommand(domain, owner, feature, collection);
-        cmd = CommandsUtils.checkExternalDeleteWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                collection);
+    protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection) {
+        Command cmd = super.createRemoveCommand(domain, owner, feature, collection);
+        cmd = CommandsUtils.checkExternalDeleteWrappers(cmd, domain, owner, feature, collection);
         return cmd;
     }
 
     @Override
-    protected Command createSetCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Object value, int index) {
-        Command cmd =
-                super.createSetCommand(domain, owner, feature, value, index);
-        cmd = CommandsUtils.checkExternalSetWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                value,
-                index);
+    protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+            int index) {
+        Command cmd = super.createSetCommand(domain, owner, feature, value, index);
+        cmd = CommandsUtils.checkExternalSetWrappers(cmd, domain, owner, feature, value, index);
         return cmd;
     }
 

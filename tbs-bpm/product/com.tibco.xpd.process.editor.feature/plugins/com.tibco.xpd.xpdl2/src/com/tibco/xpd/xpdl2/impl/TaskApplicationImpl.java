@@ -30,6 +30,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskApplicationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskApplicationImpl#getActualParameters <em>Actual Parameters</em>}</li>
@@ -37,7 +38,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskApplicationImpl#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskApplicationImpl#getApplicationId <em>Application Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -47,8 +47,7 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -146,10 +145,8 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
      */
     public EList<Expression> getActualParameters() {
         if (actualParameters == null) {
-            actualParameters =
-                    new EObjectContainmentEList<Expression>(Expression.class,
-                            this,
-                            Xpdl2Package.TASK_APPLICATION__ACTUAL_PARAMETERS);
+            actualParameters = new EObjectContainmentEList<Expression>(Expression.class, this,
+                    Xpdl2Package.TASK_APPLICATION__ACTUAL_PARAMETERS);
         }
         return actualParameters;
     }
@@ -161,9 +158,8 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings =
-                    new EObjectContainmentEList<DataMapping>(DataMapping.class,
-                            this, Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS);
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
+                    Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS);
         }
         return dataMappings;
     }
@@ -182,15 +178,12 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_APPLICATION__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -208,28 +201,21 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
+                        null,
+                        msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_APPLICATION__DESCRIPTION, newDescription,
-                    newDescription));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_APPLICATION__DESCRIPTION,
+                    newDescription, newDescription));
     }
 
     /**
@@ -250,9 +236,8 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
         String oldPackageRef = packageRef;
         packageRef = newPackageRef;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_APPLICATION__PACKAGE_REF, oldPackageRef,
-                    packageRef));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_APPLICATION__PACKAGE_REF,
+                    oldPackageRef, packageRef));
     }
 
     /**
@@ -273,8 +258,7 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
         String oldApplicationId = applicationId;
         applicationId = newApplicationId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_APPLICATION__APPLICATION_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_APPLICATION__APPLICATION_ID,
                     oldApplicationId, applicationId));
     }
 
@@ -284,17 +268,14 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK_APPLICATION__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.TASK_APPLICATION__ACTUAL_PARAMETERS:
-            return ((InternalEList<?>) getActualParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getActualParameters()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -335,13 +316,11 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
             return;
         case Xpdl2Package.TASK_APPLICATION__ACTUAL_PARAMETERS:
             getActualParameters().clear();
-            getActualParameters()
-                    .addAll((Collection<? extends Expression>) newValue);
+            getActualParameters().addAll((Collection<? extends Expression>) newValue);
             return;
         case Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case Xpdl2Package.TASK_APPLICATION__PACKAGE_REF:
             setPackageRef((String) newValue);
@@ -395,8 +374,7 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
         case Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS:
             return dataMappings != null && !dataMappings.isEmpty();
         case Xpdl2Package.TASK_APPLICATION__PACKAGE_REF:
-            return PACKAGE_REF_EDEFAULT == null ? packageRef != null
-                    : !PACKAGE_REF_EDEFAULT.equals(packageRef);
+            return PACKAGE_REF_EDEFAULT == null ? packageRef != null : !PACKAGE_REF_EDEFAULT.equals(packageRef);
         case Xpdl2Package.TASK_APPLICATION__APPLICATION_ID:
             return APPLICATION_ID_EDEFAULT == null ? applicationId != null
                     : !APPLICATION_ID_EDEFAULT.equals(applicationId);
@@ -414,7 +392,7 @@ public class TaskApplicationImpl extends EObjectImpl implements TaskApplication 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (packageRef: "); //$NON-NLS-1$
         result.append(packageRef);
         result.append(", applicationId: "); //$NON-NLS-1$

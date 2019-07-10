@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceApplication#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceApplication#getWebServiceFaultCatch <em>Web Service Fault Catch</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceApplication#getInputMsgName <em>Input Msg Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceApplication#getOutputMsgName <em>Output Msg Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getWebServiceApplication()
  * @model extendedMetaData="name='WebService_._type' kind='elementOnly'"
@@ -34,8 +34,7 @@ public interface WebServiceApplication extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Web Service Operation</b></em>' containment reference.

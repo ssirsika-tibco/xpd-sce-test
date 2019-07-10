@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Condition#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Condition#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Condition#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getCondition()
  * @model extendedMetaData="name='Condition_._type' kind='mixed'"
@@ -32,8 +32,7 @@ public interface Condition extends OtherAttributesContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Mixed</b></em>' attribute list.

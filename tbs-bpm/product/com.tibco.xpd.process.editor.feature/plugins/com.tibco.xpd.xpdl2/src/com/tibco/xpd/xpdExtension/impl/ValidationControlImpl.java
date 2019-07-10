@@ -34,15 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ValidationControlImpl extends EObjectImpl
-        implements ValidationControl {
+public class ValidationControlImpl extends EObjectImpl implements ValidationControl {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getValidationIssueOverrides() <em>Validation Issue Overrides</em>}' containment reference list.
@@ -81,8 +79,7 @@ public class ValidationControlImpl extends EObjectImpl
     public EList<ValidationIssueOverride> getValidationIssueOverrides() {
         if (validationIssueOverrides == null) {
             validationIssueOverrides =
-                    new EObjectContainmentEList<ValidationIssueOverride>(
-                            ValidationIssueOverride.class, this,
+                    new EObjectContainmentEList<ValidationIssueOverride>(ValidationIssueOverride.class, this,
                             XpdExtensionPackage.VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES);
         }
         return validationIssueOverrides;
@@ -94,12 +91,10 @@ public class ValidationControlImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES:
-            return ((InternalEList<?>) getValidationIssueOverrides())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getValidationIssueOverrides()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -129,8 +124,7 @@ public class ValidationControlImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES:
             getValidationIssueOverrides().clear();
-            getValidationIssueOverrides().addAll(
-                    (Collection<? extends ValidationIssueOverride>) newValue);
+            getValidationIssueOverrides().addAll((Collection<? extends ValidationIssueOverride>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -160,8 +154,7 @@ public class ValidationControlImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.VALIDATION_CONTROL__VALIDATION_ISSUE_OVERRIDES:
-            return validationIssueOverrides != null
-                    && !validationIssueOverrides.isEmpty();
+            return validationIssueOverrides != null && !validationIssueOverrides.isEmpty();
         }
         return super.eIsSet(featureID);
     }

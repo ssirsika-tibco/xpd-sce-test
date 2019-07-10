@@ -40,15 +40,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class CatchErrorMappingsImpl extends EObjectImpl
-        implements CatchErrorMappings {
+public class CatchErrorMappingsImpl extends EObjectImpl implements CatchErrorMappings {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
@@ -93,15 +91,12 @@ public class CatchErrorMappingsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessage(Message newMessage,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs) {
         Message oldMessage = message;
         message = newMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
-                            oldMessage, newMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE, oldMessage, newMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -120,22 +115,19 @@ public class CatchErrorMappingsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (message != null)
                 msgs = ((InternalEObject) message).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
                         null,
                         msgs);
             if (newMessage != null)
                 msgs = ((InternalEObject) newMessage).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
                         null,
                         msgs);
             msgs = basicSetMessage(newMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE,
                     newMessage, newMessage));
     }
 
@@ -145,8 +137,7 @@ public class CatchErrorMappingsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE:
             return basicSetMessage(null, msgs);

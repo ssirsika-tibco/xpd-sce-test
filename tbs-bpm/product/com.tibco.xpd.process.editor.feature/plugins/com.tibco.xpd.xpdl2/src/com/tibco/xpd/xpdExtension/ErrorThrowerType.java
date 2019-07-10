@@ -63,8 +63,7 @@ public enum ErrorThrowerType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Process Activity</b></em>' literal value.
@@ -118,8 +117,7 @@ public enum ErrorThrowerType implements Enumerator {
      * @generated
      */
     private static final ErrorThrowerType[] VALUES_ARRAY =
-            new ErrorThrowerType[] { PROCESS_ACTIVITY, INTERFACE_EVENT,
-                    OTHER, };
+            new ErrorThrowerType[] { PROCESS_ACTIVITY, INTERFACE_EVENT, OTHER, };
 
     /**
      * A public read-only list of all the '<em><b>Error Thrower Type</b></em>' enumerators.
@@ -127,8 +125,7 @@ public enum ErrorThrowerType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ErrorThrowerType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ErrorThrowerType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Error Thrower Type</b></em>' literal with the specified literal value.

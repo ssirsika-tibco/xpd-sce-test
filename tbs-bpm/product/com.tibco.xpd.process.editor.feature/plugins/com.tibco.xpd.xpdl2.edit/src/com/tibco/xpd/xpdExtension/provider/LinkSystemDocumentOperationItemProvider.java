@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,8 +46,7 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public LinkSystemDocumentOperationItemProvider(
-            AdapterFactory adapterFactory) {
+    public LinkSystemDocumentOperationItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -78,21 +75,20 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDocumentIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_LinkSystemDocumentOperation_documentId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_documentId_feature", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_LinkSystemDocumentOperation_documentId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_documentId_feature", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -102,22 +98,20 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addReturnCaseDocRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_LinkSystemDocumentOperation_returnCaseDocRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_returnCaseDocRefField_feature", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_LinkSystemDocumentOperation_returnCaseDocRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_returnCaseDocRefField_feature", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,22 +121,20 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_LinkSystemDocumentOperation_caseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_caseRefField_feature", //$NON-NLS-1$
-                        "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_LinkSystemDocumentOperation_caseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_caseRefField_feature", //$NON-NLS-1$
+                                "_UI_LinkSystemDocumentOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -153,9 +145,7 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/LinkSystemDocumentOperation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/LinkSystemDocumentOperation")); //$NON-NLS-1$
     }
 
     /**
@@ -167,9 +157,8 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((LinkSystemDocumentOperation) object).getDocumentId();
-        return label == null || label.length() == 0
-                ? getString("_UI_LinkSystemDocumentOperation_type") //$NON-NLS-1$
-                : getString("_UI_LinkSystemDocumentOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_LinkSystemDocumentOperation_type") : //$NON-NLS-1$
+                getString("_UI_LinkSystemDocumentOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,8 +176,7 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID:
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD:
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -202,8 +190,7 @@ public class LinkSystemDocumentOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

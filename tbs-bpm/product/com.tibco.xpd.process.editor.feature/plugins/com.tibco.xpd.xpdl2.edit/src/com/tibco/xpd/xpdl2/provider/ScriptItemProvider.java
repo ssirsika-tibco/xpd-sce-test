@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScriptItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ScriptItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,19 +79,18 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addGrammarPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Script_grammar_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Script_grammar_feature", "_UI_Script_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.SCRIPT__GRAMMAR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Script_grammar_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Script_grammar_feature", "_UI_Script_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.SCRIPT__GRAMMAR,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -104,8 +101,7 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      */
     protected void addTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Script_type_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Script_type_feature", "_UI_Script_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -125,19 +121,18 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addVersionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Script_version_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Script_version_feature", "_UI_Script_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.SCRIPT__VERSION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Script_version_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Script_version_feature", "_UI_Script_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.SCRIPT__VERSION,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -149,8 +144,7 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.SCRIPT__ANY);
@@ -179,8 +173,7 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Script")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Script")); //$NON-NLS-1$
     }
 
     /**
@@ -211,12 +204,10 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.SCRIPT__GRAMMAR:
         case Xpdl2Package.SCRIPT__TYPE:
         case Xpdl2Package.SCRIPT__VERSION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.SCRIPT__ANY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -230,8 +221,7 @@ public class ScriptItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

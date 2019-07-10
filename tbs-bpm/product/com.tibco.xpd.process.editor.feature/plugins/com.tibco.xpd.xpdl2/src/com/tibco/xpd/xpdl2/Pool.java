@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Pool#getLanes <em>Lanes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Pool#getObject <em>Object</em>}</li>
@@ -25,21 +26,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.Pool#getParentPackage <em>Parent Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Pool#isMainPool <em>Main Pool</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getPool()
  * @model extendedMetaData="name='Pool_._type' kind='elementOnly' features-order='lanes object nodeGraphicsInfos'"
  * @generated
  */
-public interface Pool extends NamedElement, GraphicalNode,
-        OtherElementsContainer {
+public interface Pool extends NamedElement, GraphicalNode, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Lanes</b></em>' containment reference list.

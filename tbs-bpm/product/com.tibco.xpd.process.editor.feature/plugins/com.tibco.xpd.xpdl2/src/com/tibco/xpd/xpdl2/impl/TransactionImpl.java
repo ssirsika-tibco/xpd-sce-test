@@ -21,12 +21,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransactionImpl#getTransactionId <em>Transaction Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransactionImpl#getTransactionMethod <em>Transaction Method</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransactionImpl#getTransactionProtocol <em>Transaction Protocol</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -36,8 +36,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTransactionId() <em>Transaction Id</em>}' attribute.
@@ -67,8 +66,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
      * @generated
      * @ordered
      */
-    protected static final TransactionMethodType TRANSACTION_METHOD_EDEFAULT =
-            TransactionMethodType.COMPENSATE_LITERAL;
+    protected static final TransactionMethodType TRANSACTION_METHOD_EDEFAULT = TransactionMethodType.COMPENSATE_LITERAL;
 
     /**
      * The cached value of the '{@link #getTransactionMethod() <em>Transaction Method</em>}' attribute.
@@ -78,8 +76,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
      * @generated
      * @ordered
      */
-    protected TransactionMethodType transactionMethod =
-            TRANSACTION_METHOD_EDEFAULT;
+    protected TransactionMethodType transactionMethod = TRANSACTION_METHOD_EDEFAULT;
 
     /**
      * This is true if the Transaction Method attribute has been set.
@@ -147,9 +144,8 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
         String oldTransactionId = transactionId;
         transactionId = newTransactionId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSACTION__TRANSACTION_ID, oldTransactionId,
-                    transactionId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSACTION__TRANSACTION_ID,
+                    oldTransactionId, transactionId));
     }
 
     /**
@@ -168,16 +164,12 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
      */
     public void setTransactionMethod(TransactionMethodType newTransactionMethod) {
         TransactionMethodType oldTransactionMethod = transactionMethod;
-        transactionMethod =
-                newTransactionMethod == null ? TRANSACTION_METHOD_EDEFAULT
-                        : newTransactionMethod;
+        transactionMethod = newTransactionMethod == null ? TRANSACTION_METHOD_EDEFAULT : newTransactionMethod;
         boolean oldTransactionMethodESet = transactionMethodESet;
         transactionMethodESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSACTION__TRANSACTION_METHOD,
-                    oldTransactionMethod, transactionMethod,
-                    !oldTransactionMethodESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSACTION__TRANSACTION_METHOD,
+                    oldTransactionMethod, transactionMethod, !oldTransactionMethodESet));
     }
 
     /**
@@ -191,10 +183,8 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
         transactionMethod = TRANSACTION_METHOD_EDEFAULT;
         transactionMethodESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TRANSACTION__TRANSACTION_METHOD,
-                    oldTransactionMethod, TRANSACTION_METHOD_EDEFAULT,
-                    oldTransactionMethodESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TRANSACTION__TRANSACTION_METHOD,
+                    oldTransactionMethod, TRANSACTION_METHOD_EDEFAULT, oldTransactionMethodESet));
     }
 
     /**
@@ -224,8 +214,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
         String oldTransactionProtocol = transactionProtocol;
         transactionProtocol = newTransactionProtocol;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSACTION__TRANSACTION_PROTOCOL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSACTION__TRANSACTION_PROTOCOL,
                     oldTransactionProtocol, transactionProtocol));
     }
 
@@ -304,8 +293,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
             return isSetTransactionMethod();
         case Xpdl2Package.TRANSACTION__TRANSACTION_PROTOCOL:
             return TRANSACTION_PROTOCOL_EDEFAULT == null ? transactionProtocol != null
-                    : !TRANSACTION_PROTOCOL_EDEFAULT
-                            .equals(transactionProtocol);
+                    : !TRANSACTION_PROTOCOL_EDEFAULT.equals(transactionProtocol);
         }
         return super.eIsSet(featureID);
     }
@@ -320,7 +308,7 @@ public class TransactionImpl extends EObjectImpl implements Transaction {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (transactionId: "); //$NON-NLS-1$
         result.append(transactionId);
         result.append(", transactionMethod: "); //$NON-NLS-1$

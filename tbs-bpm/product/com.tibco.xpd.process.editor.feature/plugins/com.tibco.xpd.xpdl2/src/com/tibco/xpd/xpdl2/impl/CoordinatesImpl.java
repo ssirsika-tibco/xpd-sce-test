@@ -20,11 +20,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.CoordinatesImpl#getXCoordinate <em>XCoordinate</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.CoordinatesImpl#getYCoordinate <em>YCoordinate</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,8 +34,7 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getXCoordinate() <em>XCoordinate</em>}' attribute.
@@ -134,8 +133,7 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
         boolean oldXCoordinateESet = xCoordinateESet;
         xCoordinateESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.COORDINATES__XCOORDINATE, oldXCoordinate,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.COORDINATES__XCOORDINATE, oldXCoordinate,
                     xCoordinate, !oldXCoordinateESet));
     }
 
@@ -150,9 +148,8 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
         xCoordinate = XCOORDINATE_EDEFAULT;
         xCoordinateESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.COORDINATES__XCOORDINATE, oldXCoordinate,
-                    XCOORDINATE_EDEFAULT, oldXCoordinateESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.COORDINATES__XCOORDINATE,
+                    oldXCoordinate, XCOORDINATE_EDEFAULT, oldXCoordinateESet));
     }
 
     /**
@@ -184,8 +181,7 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
         boolean oldYCoordinateESet = yCoordinateESet;
         yCoordinateESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.COORDINATES__YCOORDINATE, oldYCoordinate,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.COORDINATES__YCOORDINATE, oldYCoordinate,
                     yCoordinate, !oldYCoordinateESet));
     }
 
@@ -200,9 +196,8 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
         yCoordinate = YCOORDINATE_EDEFAULT;
         yCoordinateESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.COORDINATES__YCOORDINATE, oldYCoordinate,
-                    YCOORDINATE_EDEFAULT, oldYCoordinateESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.COORDINATES__YCOORDINATE,
+                    oldYCoordinate, YCOORDINATE_EDEFAULT, oldYCoordinateESet));
     }
 
     /**
@@ -292,7 +287,7 @@ public class CoordinatesImpl extends EObjectImpl implements Coordinates {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (xCoordinate: "); //$NON-NLS-1$
         if (xCoordinateESet)
             result.append(xCoordinate);

@@ -34,15 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LikeMappingExclusionsImpl extends EObjectImpl
-        implements LikeMappingExclusions {
+public class LikeMappingExclusionsImpl extends EObjectImpl implements LikeMappingExclusions {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' containment reference list.
@@ -80,8 +78,7 @@ public class LikeMappingExclusionsImpl extends EObjectImpl
      */
     public EList<LikeMappingExclusion> getExclusions() {
         if (exclusions == null) {
-            exclusions = new EObjectContainmentEList<LikeMappingExclusion>(
-                    LikeMappingExclusion.class, this,
+            exclusions = new EObjectContainmentEList<LikeMappingExclusion>(LikeMappingExclusion.class, this,
                     XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS);
         }
         return exclusions;
@@ -93,12 +90,10 @@ public class LikeMappingExclusionsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
-            return ((InternalEList<?>) getExclusions()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getExclusions()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -128,8 +123,7 @@ public class LikeMappingExclusionsImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSIONS__EXCLUSIONS:
             getExclusions().clear();
-            getExclusions().addAll(
-                    (Collection<? extends LikeMappingExclusion>) newValue);
+            getExclusions().addAll((Collection<? extends LikeMappingExclusion>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

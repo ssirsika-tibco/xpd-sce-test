@@ -29,6 +29,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataMappingImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataMappingImpl#getOtherAttributes <em>Other Attributes</em>}</li>
@@ -37,7 +38,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataMappingImpl#getFormal <em>Formal</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataMappingImpl#getTestValue <em>Test Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -47,8 +47,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -88,8 +87,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      * @generated
      * @ordered
      */
-    protected static final DirectionType DIRECTION_EDEFAULT =
-            DirectionType.IN_LITERAL;
+    protected static final DirectionType DIRECTION_EDEFAULT = DirectionType.IN_LITERAL;
 
     /**
      * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -166,9 +164,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.DATA_MAPPING__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.DATA_MAPPING__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -180,9 +176,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.DATA_MAPPING__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.DATA_MAPPING__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -201,15 +195,12 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetActual(Expression newActual,
-            NotificationChain msgs) {
+    public NotificationChain basicSetActual(Expression newActual, NotificationChain msgs) {
         Expression oldActual = actual;
         actual = newActual;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_MAPPING__ACTUAL, oldActual,
-                            newActual);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_MAPPING__ACTUAL, oldActual, newActual);
             if (msgs == null)
                 msgs = notification;
             else
@@ -227,25 +218,17 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         if (newActual != actual) {
             NotificationChain msgs = null;
             if (actual != null)
-                msgs =
-                        ((InternalEObject) actual).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_MAPPING__ACTUAL,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) actual)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_MAPPING__ACTUAL, null, msgs);
             if (newActual != null)
-                msgs =
-                        ((InternalEObject) newActual).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_MAPPING__ACTUAL,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newActual)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_MAPPING__ACTUAL, null, msgs);
             msgs = basicSetActual(newActual, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_MAPPING__ACTUAL, newActual, newActual));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_MAPPING__ACTUAL, newActual,
+                    newActual));
     }
 
     /**
@@ -268,8 +251,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         boolean oldDirectionESet = directionESet;
         directionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_MAPPING__DIRECTION, oldDirection,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_MAPPING__DIRECTION, oldDirection,
                     direction, !oldDirectionESet));
     }
 
@@ -284,8 +266,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         direction = DIRECTION_EDEFAULT;
         directionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_MAPPING__DIRECTION, oldDirection,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DATA_MAPPING__DIRECTION, oldDirection,
                     DIRECTION_EDEFAULT, oldDirectionESet));
     }
 
@@ -316,8 +297,8 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         String oldFormal = formal;
         formal = newFormal;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_MAPPING__FORMAL, oldFormal, formal));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_MAPPING__FORMAL, oldFormal,
+                    formal));
     }
 
     /**
@@ -334,15 +315,12 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTestValue(Expression newTestValue,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTestValue(Expression newTestValue, NotificationChain msgs) {
         Expression oldTestValue = testValue;
         testValue = newTestValue;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_MAPPING__TEST_VALUE,
-                            oldTestValue, newTestValue);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_MAPPING__TEST_VALUE, oldTestValue, newTestValue);
             if (msgs == null)
                 msgs = notification;
             else
@@ -360,27 +338,18 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         if (newTestValue != testValue) {
             NotificationChain msgs = null;
             if (testValue != null)
-                msgs =
-                        ((InternalEObject) testValue)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DATA_MAPPING__TEST_VALUE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) testValue).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_MAPPING__TEST_VALUE,
+                        null,
+                        msgs);
             if (newTestValue != null)
-                msgs =
-                        ((InternalEObject) newTestValue)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DATA_MAPPING__TEST_VALUE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTestValue)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_MAPPING__TEST_VALUE, null, msgs);
             msgs = basicSetTestValue(newTestValue, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_MAPPING__TEST_VALUE, newTestValue,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_MAPPING__TEST_VALUE, newTestValue,
                     newTestValue));
     }
 
@@ -401,15 +370,12 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DATA_MAPPING__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DATA_MAPPING__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DATA_MAPPING__ACTUAL:
             return basicSetActual(null, msgs);
         case Xpdl2Package.DATA_MAPPING__TEST_VALUE:
@@ -523,8 +489,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         case Xpdl2Package.DATA_MAPPING__DIRECTION:
             return isSetDirection();
         case Xpdl2Package.DATA_MAPPING__FORMAL:
-            return FORMAL_EDEFAULT == null ? formal != null : !FORMAL_EDEFAULT
-                    .equals(formal);
+            return FORMAL_EDEFAULT == null ? formal != null : !FORMAL_EDEFAULT.equals(formal);
         case Xpdl2Package.DATA_MAPPING__TEST_VALUE:
             return testValue != null;
         }
@@ -577,7 +542,7 @@ public class DataMappingImpl extends EObjectImpl implements DataMapping {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", otherAttributes: "); //$NON-NLS-1$

@@ -13,25 +13,24 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Application#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Application#getExternalReference <em>External Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getApplication()
  * @model extendedMetaData="name='Application_._type' kind='elementOnly' features-order='description type formalParameters externalReference extendedAttributes'"
  * @generated
  */
-public interface Application extends NamedElement, ExtendedAttributesContainer,
-        FormalParametersContainer, DescribedElement {
+public interface Application
+        extends NamedElement, ExtendedAttributesContainer, FormalParametersContainer, DescribedElement {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' containment reference.

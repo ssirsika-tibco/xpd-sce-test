@@ -15,8 +15,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Category</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
@@ -26,8 +24,7 @@ public class CategoryImpl extends NamedElementImpl implements Category {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->

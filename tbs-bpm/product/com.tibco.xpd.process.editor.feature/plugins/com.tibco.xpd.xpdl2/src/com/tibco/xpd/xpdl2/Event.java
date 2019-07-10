@@ -25,8 +25,7 @@ public interface Event extends OtherAttributesContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->

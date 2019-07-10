@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ArrayTypeItemProvider extends DataTypeItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ArrayTypeItemProvider extends DataTypeItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +80,12 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
      */
     protected void addLowerIndexPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ArrayType_lowerIndex_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ArrayType_lowerIndex_feature", "_UI_ArrayType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ArrayType_lowerIndex_feature", //$NON-NLS-1$
+                                "_UI_ArrayType_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ARRAY_TYPE__LOWER_INDEX,
                         true,
                         false,
@@ -105,11 +103,12 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
      */
     protected void addUpperIndexPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ArrayType_upperIndex_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ArrayType_upperIndex_feature", "_UI_ArrayType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ArrayType_upperIndex_feature", //$NON-NLS-1$
+                                "_UI_ArrayType_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ARRAY_TYPE__UPPER_INDEX,
                         true,
                         false,
@@ -128,20 +127,16 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__BASIC_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ARRAY_TYPE__DECLARED_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__DECLARED_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__SCHEMA_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ARRAY_TYPE__EXTERNAL_REFERENCE);
+            childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__EXTERNAL_REFERENCE);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__RECORD_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__UNION_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ARRAY_TYPE__ENUMERATION_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__ENUMERATION_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__ARRAY_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.ARRAY_TYPE__LIST_TYPE);
         }
@@ -169,8 +164,7 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ArrayType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrayType")); //$NON-NLS-1$
     }
 
     /**
@@ -200,8 +194,7 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
         switch (notification.getFeatureID(ArrayType.class)) {
         case Xpdl2Package.ARRAY_TYPE__LOWER_INDEX:
         case Xpdl2Package.ARRAY_TYPE__UPPER_INDEX:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ARRAY_TYPE__BASIC_TYPE:
         case Xpdl2Package.ARRAY_TYPE__DECLARED_TYPE:
@@ -212,8 +205,7 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
         case Xpdl2Package.ARRAY_TYPE__ENUMERATION_TYPE:
         case Xpdl2Package.ARRAY_TYPE__ARRAY_TYPE:
         case Xpdl2Package.ARRAY_TYPE__LIST_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -227,45 +219,35 @@ public class ArrayTypeItemProvider extends DataTypeItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__BASIC_TYPE,
-                        Xpdl2Factory.eINSTANCE.createBasicType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__BASIC_TYPE,
+                Xpdl2Factory.eINSTANCE.createBasicType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__DECLARED_TYPE,
-                        Xpdl2Factory.eINSTANCE.createDeclaredType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__DECLARED_TYPE,
+                Xpdl2Factory.eINSTANCE.createDeclaredType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__SCHEMA_TYPE,
-                        Xpdl2Factory.eINSTANCE.createSchema()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__SCHEMA_TYPE,
+                Xpdl2Factory.eINSTANCE.createSchema()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__EXTERNAL_REFERENCE,
-                        Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__EXTERNAL_REFERENCE,
+                Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__RECORD_TYPE,
-                        Xpdl2Factory.eINSTANCE.createRecordType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__RECORD_TYPE,
+                Xpdl2Factory.eINSTANCE.createRecordType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__UNION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createUnionType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__UNION_TYPE,
+                Xpdl2Factory.eINSTANCE.createUnionType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__ENUMERATION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createEnumerationType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__ENUMERATION_TYPE,
+                Xpdl2Factory.eINSTANCE.createEnumerationType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__ARRAY_TYPE,
-                        Xpdl2Factory.eINSTANCE.createArrayType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__ARRAY_TYPE,
+                Xpdl2Factory.eINSTANCE.createArrayType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__LIST_TYPE,
-                        Xpdl2Factory.eINSTANCE.createListType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARRAY_TYPE__LIST_TYPE,
+                Xpdl2Factory.eINSTANCE.createListType()));
     }
 
 }

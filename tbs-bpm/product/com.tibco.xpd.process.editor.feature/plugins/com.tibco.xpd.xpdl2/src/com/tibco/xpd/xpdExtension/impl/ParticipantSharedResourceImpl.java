@@ -35,14 +35,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class ParticipantSharedResourceImpl extends EObjectImpl
-        implements ParticipantSharedResource {
+public class ParticipantSharedResourceImpl extends EObjectImpl implements ParticipantSharedResource {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getEmail() <em>Email</em>}' containment reference.
@@ -110,15 +108,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEmail(EmailResource newEmail,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEmail(EmailResource newEmail, NotificationChain msgs) {
         EmailResource oldEmail = email;
         email = newEmail;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
-                    oldEmail, newEmail);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL, oldEmail, newEmail);
             if (msgs == null)
                 msgs = notification;
             else
@@ -137,14 +132,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (email != null)
                 msgs = ((InternalEObject) email).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
                         null,
                         msgs);
             if (newEmail != null)
                 msgs = ((InternalEObject) newEmail).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
                         null,
                         msgs);
             msgs = basicSetEmail(newEmail, msgs);
@@ -152,8 +145,7 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL,
-                    newEmail, newEmail));
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL, newEmail, newEmail));
     }
 
     /**
@@ -169,15 +161,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetJdbc(JdbcResource newJdbc,
-            NotificationChain msgs) {
+    public NotificationChain basicSetJdbc(JdbcResource newJdbc, NotificationChain msgs) {
         JdbcResource oldJdbc = jdbc;
         jdbc = newJdbc;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
-                    oldJdbc, newJdbc);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC, oldJdbc, newJdbc);
             if (msgs == null)
                 msgs = notification;
             else
@@ -196,22 +185,19 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (jdbc != null)
                 msgs = ((InternalEObject) jdbc).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
                         null,
                         msgs);
             if (newJdbc != null)
                 msgs = ((InternalEObject) newJdbc).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
                         null,
                         msgs);
             msgs = basicSetJdbc(newJdbc, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__JDBC,
                     newJdbc, newJdbc));
     }
 
@@ -228,15 +214,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebService(WsResource newWebService,
-            NotificationChain msgs) {
+    public NotificationChain basicSetWebService(WsResource newWebService, NotificationChain msgs) {
         WsResource oldWebService = webService;
         webService = newWebService;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
-                    oldWebService, newWebService);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE, oldWebService, newWebService);
             if (msgs == null)
                 msgs = notification;
             else
@@ -255,14 +238,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (webService != null)
                 msgs = ((InternalEObject) webService).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
                         null,
                         msgs);
             if (newWebService != null)
                 msgs = ((InternalEObject) newWebService).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
                         null,
                         msgs);
             msgs = basicSetWebService(newWebService, msgs);
@@ -270,8 +251,7 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE,
-                    newWebService, newWebService));
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__WEB_SERVICE, newWebService, newWebService));
     }
 
     /**
@@ -288,15 +268,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRestService(
-            RestServiceResource newRestService, NotificationChain msgs) {
+    public NotificationChain basicSetRestService(RestServiceResource newRestService, NotificationChain msgs) {
         RestServiceResource oldRestService = restService;
         restService = newRestService;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
-                    oldRestService, newRestService);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE, oldRestService, newRestService);
             if (msgs == null)
                 msgs = notification;
             else
@@ -315,14 +292,12 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (restService != null)
                 msgs = ((InternalEObject) restService).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
                         null,
                         msgs);
             if (newRestService != null)
                 msgs = ((InternalEObject) newRestService).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
                         null,
                         msgs);
             msgs = basicSetRestService(newRestService, msgs);
@@ -330,8 +305,7 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE,
-                    newRestService, newRestService));
+                    XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__REST_SERVICE, newRestService, newRestService));
     }
 
     /**
@@ -387,9 +361,8 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
             setWebService(null);
             setRestService(null);
         } else {
-            throw new IllegalArgumentException(
-                    "SharedResource parameter is incorrect. (" + sharedResource //$NON-NLS-1$
-                            + ")"); //$NON-NLS-1$
+            throw new IllegalArgumentException("SharedResource parameter is incorrect. (" + sharedResource //$NON-NLS-1$
+                    + ")"); //$NON-NLS-1$
         }
     }
 
@@ -398,8 +371,7 @@ public class ParticipantSharedResourceImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.PARTICIPANT_SHARED_RESOURCE__EMAIL:
             return basicSetEmail(null, msgs);

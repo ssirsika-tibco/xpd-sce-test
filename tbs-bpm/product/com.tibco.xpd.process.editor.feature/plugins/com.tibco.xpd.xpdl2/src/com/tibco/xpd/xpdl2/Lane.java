@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Lane#getObject <em>Object</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Lane#getDeprecatedParentLane <em>Deprecated Parent Lane</em>}</li>
@@ -23,21 +24,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.Lane#getPerformers <em>Performers</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Lane#getNestedLane <em>Nested Lane</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getLane()
  * @model extendedMetaData="name='Lane_._type' kind='elementOnly' features-order='object nodeGraphicsInfos'"
  * @generated
  */
-public interface Lane extends NamedElement, GraphicalNode,
-        OtherElementsContainer {
+public interface Lane extends NamedElement, GraphicalNode, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Object</b></em>' containment reference.

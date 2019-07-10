@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Transaction#getTransactionId <em>Transaction Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Transaction#getTransactionMethod <em>Transaction Method</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Transaction#getTransactionProtocol <em>Transaction Protocol</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTransaction()
  * @model extendedMetaData="name='Transaction_._type' kind='elementOnly'"
@@ -32,8 +32,7 @@ public interface Transaction extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Transaction Id</b></em>' attribute.

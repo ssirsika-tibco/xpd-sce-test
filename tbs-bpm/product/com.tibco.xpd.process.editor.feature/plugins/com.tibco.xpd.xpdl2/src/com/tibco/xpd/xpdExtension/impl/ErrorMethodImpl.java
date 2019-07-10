@@ -43,15 +43,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ErrorMethodImpl extends UniqueIdElementImpl
-        implements ErrorMethod {
+public class ErrorMethodImpl extends UniqueIdElementImpl implements ErrorMethod {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAssociatedParameters() <em>Associated Parameters</em>}' containment reference list.
@@ -71,8 +69,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * @generated
      * @ordered
      */
-    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT =
-            false;
+    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isDisableImplicitAssociation() <em>Disable Implicit Association</em>}' attribute.
@@ -82,8 +79,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * @generated
      * @ordered
      */
-    protected boolean disableImplicitAssociation =
-            DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
+    protected boolean disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
 
     /**
      * This is true if the Disable Implicit Association attribute has been set.
@@ -140,10 +136,8 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      */
     public EList<AssociatedParameter> getAssociatedParameters() {
         if (associatedParameters == null) {
-            associatedParameters =
-                    new EObjectContainmentEList<AssociatedParameter>(
-                            AssociatedParameter.class, this,
-                            XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS);
+            associatedParameters = new EObjectContainmentEList<AssociatedParameter>(AssociatedParameter.class, this,
+                    XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS);
         }
         return associatedParameters;
     }
@@ -162,18 +156,15 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDisableImplicitAssociation(
-            boolean newDisableImplicitAssociation) {
+    public void setDisableImplicitAssociation(boolean newDisableImplicitAssociation) {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
         disableImplicitAssociation = newDisableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociationESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation, disableImplicitAssociation,
-                    !oldDisableImplicitAssociationESet));
+                    XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION, oldDisableImplicitAssociation,
+                    disableImplicitAssociation, !oldDisableImplicitAssociationESet));
     }
 
     /**
@@ -183,16 +174,13 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      */
     public void unsetDisableImplicitAssociation() {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
         disableImplicitAssociationESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation,
-                    DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT,
-                    oldDisableImplicitAssociationESet));
+                    XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION, oldDisableImplicitAssociation,
+                    DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT, oldDisableImplicitAssociationESet));
     }
 
     /**
@@ -222,9 +210,8 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
         String oldErrorCode = errorCode;
         errorCode = newErrorCode;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ERROR_METHOD__ERROR_CODE, oldErrorCode,
-                    errorCode));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ERROR_METHOD__ERROR_CODE,
+                    oldErrorCode, errorCode));
     }
 
     /**
@@ -233,12 +220,10 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS:
-            return ((InternalEList<?>) getAssociatedParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssociatedParameters()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -272,8 +257,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
         switch (featureID) {
         case XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS:
             getAssociatedParameters().clear();
-            getAssociatedParameters().addAll(
-                    (Collection<? extends AssociatedParameter>) newValue);
+            getAssociatedParameters().addAll((Collection<? extends AssociatedParameter>) newValue);
             return;
         case XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
             setDisableImplicitAssociation((Boolean) newValue);
@@ -315,13 +299,11 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS:
-            return associatedParameters != null
-                    && !associatedParameters.isEmpty();
+            return associatedParameters != null && !associatedParameters.isEmpty();
         case XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
             return isSetDisableImplicitAssociation();
         case XpdExtensionPackage.ERROR_METHOD__ERROR_CODE:
-            return ERROR_CODE_EDEFAULT == null ? errorCode != null
-                    : !ERROR_CODE_EDEFAULT.equals(errorCode);
+            return ERROR_CODE_EDEFAULT == null ? errorCode != null : !ERROR_CODE_EDEFAULT.equals(errorCode);
         }
         return super.eIsSet(featureID);
     }
@@ -332,8 +314,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID,
-            Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == AssociatedParametersContainer.class) {
             switch (derivedFeatureID) {
             case XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS:
@@ -353,8 +334,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID,
-            Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == AssociatedParametersContainer.class) {
             switch (baseFeatureID) {
             case XpdExtensionPackage.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS:
@@ -378,7 +358,7 @@ public class ErrorMethodImpl extends UniqueIdElementImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (disableImplicitAssociation: "); //$NON-NLS-1$
         if (disableImplicitAssociationESet)
             result.append(disableImplicitAssociation);

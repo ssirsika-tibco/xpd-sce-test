@@ -216,8 +216,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Creates the default factory implementation.
@@ -227,9 +226,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      */
     public static Xpdl2Factory init() {
         try {
-            Xpdl2Factory theXpdl2Factory =
-                    (Xpdl2Factory) EPackage.Registry.INSTANCE
-                            .getEFactory(Xpdl2Package.eNS_URI);
+            Xpdl2Factory theXpdl2Factory = (Xpdl2Factory) EPackage.Registry.INSTANCE.getEFactory(Xpdl2Package.eNS_URI);
             if (theXpdl2Factory != null) {
                 return theXpdl2Factory;
             }
@@ -557,8 +554,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.XSLT_APPLICATION:
             return createXsltApplication();
         default:
-            throw new IllegalArgumentException(
-                    "The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -578,13 +574,11 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.ASSIGN_TIME_TYPE:
             return createAssignTimeTypeFromString(eDataType, initialValue);
         case Xpdl2Package.ASSOCIATION_DIRECTION_TYPE:
-            return createAssociationDirectionTypeFromString(eDataType,
-                    initialValue);
+            return createAssociationDirectionTypeFromString(eDataType, initialValue);
         case Xpdl2Package.BASIC_TYPE_TYPE:
             return createBasicTypeTypeFromString(eDataType, initialValue);
         case Xpdl2Package.BPMN_MODEL_PORTABILITY_CONFORMANCE:
-            return createBPMNModelPortabilityConformanceFromString(eDataType,
-                    initialValue);
+            return createBPMNModelPortabilityConformanceFromString(eDataType, initialValue);
         case Xpdl2Package.CATCH_THROW:
             return createCatchThrowFromString(eDataType, initialValue);
         case Xpdl2Package.CONDITION_TYPE:
@@ -628,8 +622,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.PROCESS_TYPE:
             return createProcessTypeFromString(eDataType, initialValue);
         case Xpdl2Package.PUBLICATION_STATUS_TYPE:
-            return createPublicationStatusTypeFromString(eDataType,
-                    initialValue);
+            return createPublicationStatusTypeFromString(eDataType, initialValue);
         case Xpdl2Package.RESULT_TYPE:
             return createResultTypeFromString(eDataType, initialValue);
         case Xpdl2Package.ROLE_TYPE:
@@ -643,8 +636,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.TEST_TIME_TYPE:
             return createTestTimeTypeFromString(eDataType, initialValue);
         case Xpdl2Package.TRANSACTION_METHOD_TYPE:
-            return createTransactionMethodTypeFromString(eDataType,
-                    initialValue);
+            return createTransactionMethodTypeFromString(eDataType, initialValue);
         case Xpdl2Package.TRIGGER_TYPE:
             return createTriggerTypeFromString(eDataType, initialValue);
         case Xpdl2Package.VIEW_TYPE:
@@ -652,26 +644,21 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.DEPRECATED_XOR_TYPE:
             return createDeprecatedXorTypeFromString(eDataType, initialValue);
         case Xpdl2Package.ACCESS_LEVEL_TYPE_OBJECT:
-            return createAccessLevelTypeObjectFromString(eDataType,
-                    initialValue);
+            return createAccessLevelTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.AD_HOC_ORDERING_TYPE_OBJECT:
-            return createAdHocOrderingTypeObjectFromString(eDataType,
-                    initialValue);
+            return createAdHocOrderingTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ARTIFACT_TYPE_OBJECT:
             return createArtifactTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ASSIGN_TIME_TYPE_OBJECT:
             return createAssignTimeTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ASSOCIATION_DIRECTION_TYPE_OBJECT:
-            return createAssociationDirectionTypeObjectFromString(eDataType,
-                    initialValue);
+            return createAssociationDirectionTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.DIRECTION_TYPE_OBJECT:
             return createDirectionTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.DURATION_UNIT_TYPE_OBJECT:
-            return createDurationUnitTypeObjectFromString(eDataType,
-                    initialValue);
+            return createDurationUnitTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.END_POINT_TYPE_TYPE_OBJECT:
-            return createEndPointTypeTypeObjectFromString(eDataType,
-                    initialValue);
+            return createEndPointTypeTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.EXECUTION_TYPE_OBJECT:
             return createExecutionTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.FINISH_MODE_TYPE_OBJECT:
@@ -679,35 +666,29 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.GATEWAY_TYPE_OBJECT:
             return createGatewayTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.GRAPH_CONFORMANCE_TYPE_OBJECT:
-            return createGraphConformanceTypeObjectFromString(eDataType,
-                    initialValue);
+            return createGraphConformanceTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ID_REFERENCE_STRING:
             return createIdReferenceStringFromString(eDataType, initialValue);
         case Xpdl2Package.IMPLEMENTATION_TYPE_OBJECT:
-            return createImplementationTypeObjectFromString(eDataType,
-                    initialValue);
+            return createImplementationTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.INSTANTIATION_TYPE_OBJECT:
-            return createInstantiationTypeObjectFromString(eDataType,
-                    initialValue);
+            return createInstantiationTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.IS_ARRAY_TYPE_OBJECT:
             return createIsArrayTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.LOOP_TYPE_OBJECT:
             return createLoopTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.MI_FLOW_CONDITION_TYPE_OBJECT:
-            return createMIFlowConditionTypeObjectFromString(eDataType,
-                    initialValue);
+            return createMIFlowConditionTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.MI_ORDERING_TYPE_OBJECT:
             return createMIOrderingTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.MODE_TYPE_OBJECT:
             return createModeTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ORIENTATION_TYPE_OBJECT:
-            return createOrientationTypeObjectFromString(eDataType,
-                    initialValue);
+            return createOrientationTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.PROCESS_TYPE_OBJECT:
             return createProcessTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.PUBLICATION_STATUS_TYPE_OBJECT:
-            return createPublicationStatusTypeObjectFromString(eDataType,
-                    initialValue);
+            return createPublicationStatusTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.RESULT_TYPE_OBJECT:
             return createResultTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.ROLE_TYPE_OBJECT:
@@ -721,13 +702,11 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.TEST_TIME_TYPE_OBJECT:
             return createTestTimeTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.TRANSACTION_METHOD_TYPE_OBJECT:
-            return createTransactionMethodTypeObjectFromString(eDataType,
-                    initialValue);
+            return createTransactionMethodTypeObjectFromString(eDataType, initialValue);
         case Xpdl2Package.TRIGGER_TYPE_OBJECT:
             return createTriggerTypeObjectFromString(eDataType, initialValue);
         default:
-            throw new IllegalArgumentException(
-                    "The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -748,13 +727,11 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.ASSIGN_TIME_TYPE:
             return convertAssignTimeTypeToString(eDataType, instanceValue);
         case Xpdl2Package.ASSOCIATION_DIRECTION_TYPE:
-            return convertAssociationDirectionTypeToString(eDataType,
-                    instanceValue);
+            return convertAssociationDirectionTypeToString(eDataType, instanceValue);
         case Xpdl2Package.BASIC_TYPE_TYPE:
             return convertBasicTypeTypeToString(eDataType, instanceValue);
         case Xpdl2Package.BPMN_MODEL_PORTABILITY_CONFORMANCE:
-            return convertBPMNModelPortabilityConformanceToString(eDataType,
-                    instanceValue);
+            return convertBPMNModelPortabilityConformanceToString(eDataType, instanceValue);
         case Xpdl2Package.CATCH_THROW:
             return convertCatchThrowToString(eDataType, instanceValue);
         case Xpdl2Package.CONDITION_TYPE:
@@ -798,8 +775,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.PROCESS_TYPE:
             return convertProcessTypeToString(eDataType, instanceValue);
         case Xpdl2Package.PUBLICATION_STATUS_TYPE:
-            return convertPublicationStatusTypeToString(eDataType,
-                    instanceValue);
+            return convertPublicationStatusTypeToString(eDataType, instanceValue);
         case Xpdl2Package.RESULT_TYPE:
             return convertResultTypeToString(eDataType, instanceValue);
         case Xpdl2Package.ROLE_TYPE:
@@ -813,8 +789,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.TEST_TIME_TYPE:
             return convertTestTimeTypeToString(eDataType, instanceValue);
         case Xpdl2Package.TRANSACTION_METHOD_TYPE:
-            return convertTransactionMethodTypeToString(eDataType,
-                    instanceValue);
+            return convertTransactionMethodTypeToString(eDataType, instanceValue);
         case Xpdl2Package.TRIGGER_TYPE:
             return convertTriggerTypeToString(eDataType, instanceValue);
         case Xpdl2Package.VIEW_TYPE:
@@ -822,26 +797,21 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.DEPRECATED_XOR_TYPE:
             return convertDeprecatedXorTypeToString(eDataType, instanceValue);
         case Xpdl2Package.ACCESS_LEVEL_TYPE_OBJECT:
-            return convertAccessLevelTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertAccessLevelTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.AD_HOC_ORDERING_TYPE_OBJECT:
-            return convertAdHocOrderingTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertAdHocOrderingTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ARTIFACT_TYPE_OBJECT:
             return convertArtifactTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ASSIGN_TIME_TYPE_OBJECT:
             return convertAssignTimeTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ASSOCIATION_DIRECTION_TYPE_OBJECT:
-            return convertAssociationDirectionTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertAssociationDirectionTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.DIRECTION_TYPE_OBJECT:
             return convertDirectionTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.DURATION_UNIT_TYPE_OBJECT:
-            return convertDurationUnitTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertDurationUnitTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.END_POINT_TYPE_TYPE_OBJECT:
-            return convertEndPointTypeTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertEndPointTypeTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.EXECUTION_TYPE_OBJECT:
             return convertExecutionTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.FINISH_MODE_TYPE_OBJECT:
@@ -849,35 +819,29 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.GATEWAY_TYPE_OBJECT:
             return convertGatewayTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.GRAPH_CONFORMANCE_TYPE_OBJECT:
-            return convertGraphConformanceTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertGraphConformanceTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ID_REFERENCE_STRING:
             return convertIdReferenceStringToString(eDataType, instanceValue);
         case Xpdl2Package.IMPLEMENTATION_TYPE_OBJECT:
-            return convertImplementationTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertImplementationTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.INSTANTIATION_TYPE_OBJECT:
-            return convertInstantiationTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertInstantiationTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.IS_ARRAY_TYPE_OBJECT:
             return convertIsArrayTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.LOOP_TYPE_OBJECT:
             return convertLoopTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.MI_FLOW_CONDITION_TYPE_OBJECT:
-            return convertMIFlowConditionTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertMIFlowConditionTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.MI_ORDERING_TYPE_OBJECT:
             return convertMIOrderingTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.MODE_TYPE_OBJECT:
             return convertModeTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ORIENTATION_TYPE_OBJECT:
-            return convertOrientationTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertOrientationTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.PROCESS_TYPE_OBJECT:
             return convertProcessTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.PUBLICATION_STATUS_TYPE_OBJECT:
-            return convertPublicationStatusTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertPublicationStatusTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.RESULT_TYPE_OBJECT:
             return convertResultTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.ROLE_TYPE_OBJECT:
@@ -891,13 +855,11 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
         case Xpdl2Package.TEST_TIME_TYPE_OBJECT:
             return convertTestTimeTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.TRANSACTION_METHOD_TYPE_OBJECT:
-            return convertTransactionMethodTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertTransactionMethodTypeObjectToString(eDataType, instanceValue);
         case Xpdl2Package.TRIGGER_TYPE_OBJECT:
             return convertTriggerTypeObjectToString(eDataType, instanceValue);
         default:
-            throw new IllegalArgumentException(
-                    "The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -1006,8 +968,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public BusinessRuleApplication createBusinessRuleApplication() {
-        BusinessRuleApplicationImpl businessRuleApplication =
-                new BusinessRuleApplicationImpl();
+        BusinessRuleApplicationImpl businessRuleApplication = new BusinessRuleApplicationImpl();
         return businessRuleApplication;
     }
 
@@ -1061,8 +1022,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public ConnectorGraphicsInfo createConnectorGraphicsInfo() {
-        ConnectorGraphicsInfoImpl connectorGraphicsInfo =
-                new ConnectorGraphicsInfoImpl();
+        ConnectorGraphicsInfoImpl connectorGraphicsInfo = new ConnectorGraphicsInfoImpl();
         return connectorGraphicsInfo;
     }
 
@@ -1163,8 +1123,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public DeprecatedResultCompensation createDeprecatedResultCompensation() {
-        DeprecatedResultCompensationImpl deprecatedResultCompensation =
-                new DeprecatedResultCompensationImpl();
+        DeprecatedResultCompensationImpl deprecatedResultCompensation = new DeprecatedResultCompensationImpl();
         return deprecatedResultCompensation;
     }
 
@@ -1174,8 +1133,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public DeprecatedTriggerRule createDeprecatedTriggerRule() {
-        DeprecatedTriggerRuleImpl deprecatedTriggerRule =
-                new DeprecatedTriggerRuleImpl();
+        DeprecatedTriggerRuleImpl deprecatedTriggerRule = new DeprecatedTriggerRuleImpl();
         return deprecatedTriggerRule;
     }
 
@@ -1632,8 +1590,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public DataFieldsContainer createDataFieldsContainer() {
-        DataFieldsContainerImpl dataFieldsContainer =
-                new DataFieldsContainerImpl();
+        DataFieldsContainerImpl dataFieldsContainer = new DataFieldsContainerImpl();
         return dataFieldsContainer;
     }
 
@@ -1651,8 +1608,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public ParticipantTypeElem createParticipantTypeElem() {
-        ParticipantTypeElemImpl participantTypeElem =
-                new ParticipantTypeElemImpl();
+        ParticipantTypeElemImpl participantTypeElem = new ParticipantTypeElemImpl();
         return participantTypeElem;
     }
 
@@ -1915,8 +1871,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public SimulationInformation createSimulationInformation() {
-        SimulationInformationImpl simulationInformation =
-                new SimulationInformationImpl();
+        SimulationInformationImpl simulationInformation = new SimulationInformationImpl();
         return simulationInformation;
     }
 
@@ -2060,8 +2015,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TransitionRestriction createTransitionRestriction() {
-        TransitionRestrictionImpl transitionRestriction =
-                new TransitionRestrictionImpl();
+        TransitionRestrictionImpl transitionRestriction = new TransitionRestrictionImpl();
         return transitionRestriction;
     }
 
@@ -2079,8 +2033,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerIntermediateMultiple createTriggerIntermediateMultiple() {
-        TriggerIntermediateMultipleImpl triggerIntermediateMultiple =
-                new TriggerIntermediateMultipleImpl();
+        TriggerIntermediateMultipleImpl triggerIntermediateMultiple = new TriggerIntermediateMultipleImpl();
         return triggerIntermediateMultiple;
     }
 
@@ -2099,8 +2052,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerResultCancel createTriggerResultCancel() {
-        TriggerResultCancelImpl triggerResultCancel =
-                new TriggerResultCancelImpl();
+        TriggerResultCancelImpl triggerResultCancel = new TriggerResultCancelImpl();
         return triggerResultCancel;
     }
 
@@ -2110,8 +2062,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerResultCompensation createTriggerResultCompensation() {
-        TriggerResultCompensationImpl triggerResultCompensation =
-                new TriggerResultCompensationImpl();
+        TriggerResultCompensationImpl triggerResultCompensation = new TriggerResultCompensationImpl();
         return triggerResultCompensation;
     }
 
@@ -2121,8 +2072,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerResultSignal createTriggerResultSignal() {
-        TriggerResultSignalImpl triggerResultSignal =
-                new TriggerResultSignalImpl();
+        TriggerResultSignalImpl triggerResultSignal = new TriggerResultSignalImpl();
         return triggerResultSignal;
     }
 
@@ -2140,8 +2090,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerResultMessage createTriggerResultMessage() {
-        TriggerResultMessageImpl triggerResultMessage =
-                new TriggerResultMessageImpl();
+        TriggerResultMessageImpl triggerResultMessage = new TriggerResultMessageImpl();
         return triggerResultMessage;
     }
 
@@ -2151,8 +2100,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public TriggerConditional createTriggerConditional() {
-        TriggerConditionalImpl triggerConditional =
-                new TriggerConditionalImpl();
+        TriggerConditionalImpl triggerConditional = new TriggerConditionalImpl();
         return triggerConditional;
     }
 
@@ -2233,8 +2181,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public WebServiceFaultCatch createWebServiceFaultCatch() {
-        WebServiceFaultCatchImpl webServiceFaultCatch =
-                new WebServiceFaultCatchImpl();
+        WebServiceFaultCatchImpl webServiceFaultCatch = new WebServiceFaultCatchImpl();
         return webServiceFaultCatch;
     }
 
@@ -2243,8 +2190,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public WebServiceOperation createWebServiceOperation() {
-        WebServiceOperationImpl webServiceOperation =
-                new WebServiceOperationImpl();
+        WebServiceOperationImpl webServiceOperation = new WebServiceOperationImpl();
         return webServiceOperation;
     }
 
@@ -2253,8 +2199,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * @generated
      */
     public WebServiceApplication createWebServiceApplication() {
-        WebServiceApplicationImpl webServiceApplication =
-                new WebServiceApplicationImpl();
+        WebServiceApplicationImpl webServiceApplication = new WebServiceApplicationImpl();
         return webServiceApplication;
     }
 
@@ -2290,8 +2235,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AccessLevelType createAccessLevelTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public AccessLevelType createAccessLevelTypeFromString(EDataType eDataType, String initialValue) {
         AccessLevelType result = AccessLevelType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2304,8 +2248,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAccessLevelTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAccessLevelTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2313,8 +2256,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AdHocOrderingType createAdHocOrderingTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public AdHocOrderingType createAdHocOrderingTypeFromString(EDataType eDataType, String initialValue) {
         AdHocOrderingType result = AdHocOrderingType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2327,8 +2269,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAdHocOrderingTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAdHocOrderingTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2336,8 +2277,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ArtifactType createArtifactTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ArtifactType createArtifactTypeFromString(EDataType eDataType, String initialValue) {
         ArtifactType result = ArtifactType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2350,8 +2290,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertArtifactTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2359,8 +2298,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AssignTimeType createAssignTimeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public AssignTimeType createAssignTimeTypeFromString(EDataType eDataType, String initialValue) {
         AssignTimeType result = AssignTimeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2373,8 +2311,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAssignTimeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAssignTimeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2382,10 +2319,8 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AssociationDirectionType createAssociationDirectionTypeFromString(
-            EDataType eDataType, String initialValue) {
-        AssociationDirectionType result =
-                AssociationDirectionType.get(initialValue);
+    public AssociationDirectionType createAssociationDirectionTypeFromString(EDataType eDataType, String initialValue) {
+        AssociationDirectionType result = AssociationDirectionType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
                     "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -2397,8 +2332,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAssociationDirectionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAssociationDirectionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2406,8 +2340,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public DirectionType createDirectionTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public DirectionType createDirectionTypeFromString(EDataType eDataType, String initialValue) {
         DirectionType result = DirectionType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2420,8 +2353,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDirectionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2429,8 +2361,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public DurationUnitType createDurationUnitTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public DurationUnitType createDurationUnitTypeFromString(EDataType eDataType, String initialValue) {
         DurationUnitType result = DurationUnitType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2443,8 +2374,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDurationUnitTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertDurationUnitTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2452,8 +2382,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public EndPointTypeType createEndPointTypeTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public EndPointTypeType createEndPointTypeTypeFromString(EDataType eDataType, String initialValue) {
         EndPointTypeType result = EndPointTypeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2466,8 +2395,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertEndPointTypeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertEndPointTypeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2476,8 +2404,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ExclusiveType createExclusiveTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ExclusiveType createExclusiveTypeFromString(EDataType eDataType, String initialValue) {
         ExclusiveType result = ExclusiveType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2490,8 +2417,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertExclusiveTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertExclusiveTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2499,8 +2425,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ExecutionType createExecutionTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ExecutionType createExecutionTypeFromString(EDataType eDataType, String initialValue) {
         ExecutionType result = ExecutionType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2513,8 +2438,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertExecutionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertExecutionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2522,8 +2446,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public FinishModeType createFinishModeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public FinishModeType createFinishModeTypeFromString(EDataType eDataType, String initialValue) {
         FinishModeType result = FinishModeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2536,8 +2459,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertFinishModeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertFinishModeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2545,8 +2467,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public JoinSplitType createJoinSplitTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public JoinSplitType createJoinSplitTypeFromString(EDataType eDataType, String initialValue) {
         JoinSplitType result = JoinSplitType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2559,8 +2480,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertJoinSplitTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertJoinSplitTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2568,8 +2488,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public GraphConformanceType createGraphConformanceTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public GraphConformanceType createGraphConformanceTypeFromString(EDataType eDataType, String initialValue) {
         GraphConformanceType result = GraphConformanceType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2582,8 +2501,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertGraphConformanceTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertGraphConformanceTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2591,8 +2509,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ImplementationType createImplementationTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public ImplementationType createImplementationTypeFromString(EDataType eDataType, String initialValue) {
         ImplementationType result = ImplementationType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2605,8 +2522,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertImplementationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertImplementationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2614,8 +2530,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public InstantiationType createInstantiationTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public InstantiationType createInstantiationTypeFromString(EDataType eDataType, String initialValue) {
         InstantiationType result = InstantiationType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2628,8 +2543,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertInstantiationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertInstantiationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2637,8 +2551,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public IsArrayType createIsArrayTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public IsArrayType createIsArrayTypeFromString(EDataType eDataType, String initialValue) {
         IsArrayType result = IsArrayType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2651,8 +2564,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertIsArrayTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertIsArrayTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2660,8 +2572,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public LoopType createLoopTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public LoopType createLoopTypeFromString(EDataType eDataType, String initialValue) {
         LoopType result = LoopType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2674,8 +2585,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertLoopTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertLoopTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2683,8 +2593,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public MIFlowConditionType createMIFlowConditionTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public MIFlowConditionType createMIFlowConditionTypeFromString(EDataType eDataType, String initialValue) {
         MIFlowConditionType result = MIFlowConditionType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2697,8 +2606,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertMIFlowConditionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertMIFlowConditionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2706,8 +2614,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public MIOrderingType createMIOrderingTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public MIOrderingType createMIOrderingTypeFromString(EDataType eDataType, String initialValue) {
         MIOrderingType result = MIOrderingType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2720,8 +2627,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertMIOrderingTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertMIOrderingTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2729,8 +2635,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ModeType createModeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ModeType createModeTypeFromString(EDataType eDataType, String initialValue) {
         ModeType result = ModeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2743,8 +2648,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertModeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertModeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2752,8 +2656,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public OrientationType createOrientationTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public OrientationType createOrientationTypeFromString(EDataType eDataType, String initialValue) {
         OrientationType result = OrientationType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2766,8 +2669,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertOrientationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertOrientationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2775,8 +2677,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ProcessType createProcessTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ProcessType createProcessTypeFromString(EDataType eDataType, String initialValue) {
         ProcessType result = ProcessType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2789,8 +2690,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertProcessTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertProcessTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2798,8 +2698,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public PublicationStatusType createPublicationStatusTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public PublicationStatusType createPublicationStatusTypeFromString(EDataType eDataType, String initialValue) {
         PublicationStatusType result = PublicationStatusType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2812,8 +2711,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertPublicationStatusTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertPublicationStatusTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2821,8 +2719,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ResultType createResultTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ResultType createResultTypeFromString(EDataType eDataType, String initialValue) {
         ResultType result = ResultType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2835,8 +2732,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertResultTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertResultTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2844,8 +2740,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public RoleType createRoleTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public RoleType createRoleTypeFromString(EDataType eDataType, String initialValue) {
         RoleType result = RoleType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2858,8 +2753,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertRoleTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertRoleTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2867,8 +2761,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SHAPEType createSHAPETypeFromString(EDataType eDataType,
-            String initialValue) {
+    public SHAPEType createSHAPETypeFromString(EDataType eDataType, String initialValue) {
         SHAPEType result = SHAPEType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2881,8 +2774,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSHAPETypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertSHAPETypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2890,8 +2782,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public StartModeType createStartModeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public StartModeType createStartModeTypeFromString(EDataType eDataType, String initialValue) {
         StartModeType result = StartModeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2904,8 +2795,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertStartModeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertStartModeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2913,8 +2803,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public StatusType createStatusTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public StatusType createStatusTypeFromString(EDataType eDataType, String initialValue) {
         StatusType result = StatusType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2927,8 +2816,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertStatusTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertStatusTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2936,8 +2824,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TestTimeType createTestTimeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public TestTimeType createTestTimeTypeFromString(EDataType eDataType, String initialValue) {
         TestTimeType result = TestTimeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2950,8 +2837,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTestTimeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertTestTimeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2959,8 +2845,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TransactionMethodType createTransactionMethodTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public TransactionMethodType createTransactionMethodTypeFromString(EDataType eDataType, String initialValue) {
         TransactionMethodType result = TransactionMethodType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2973,8 +2858,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTransactionMethodTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertTransactionMethodTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2982,8 +2866,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TriggerType createTriggerTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public TriggerType createTriggerTypeFromString(EDataType eDataType, String initialValue) {
         TriggerType result = TriggerType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -2996,8 +2879,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTriggerTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertTriggerTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3006,8 +2888,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ViewType createViewTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ViewType createViewTypeFromString(EDataType eDataType, String initialValue) {
         ViewType result = ViewType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3020,8 +2901,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertViewTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertViewTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3030,8 +2910,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public DeprecatedXorType createDeprecatedXorTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public DeprecatedXorType createDeprecatedXorTypeFromString(EDataType eDataType, String initialValue) {
         DeprecatedXorType result = DeprecatedXorType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3044,8 +2923,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDeprecatedXorTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertDeprecatedXorTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3053,8 +2931,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ConditionType createConditionTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ConditionType createConditionTypeFromString(EDataType eDataType, String initialValue) {
         ConditionType result = ConditionType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3067,8 +2944,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertConditionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertConditionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3076,8 +2952,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ParticipantType createParticipantTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public ParticipantType createParticipantTypeFromString(EDataType eDataType, String initialValue) {
         ParticipantType result = ParticipantType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3090,8 +2965,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertParticipantTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertParticipantTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3099,8 +2973,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public BasicTypeType createBasicTypeTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public BasicTypeType createBasicTypeTypeFromString(EDataType eDataType, String initialValue) {
         BasicTypeType result = BasicTypeType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3113,8 +2986,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertBasicTypeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertBasicTypeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3123,10 +2995,9 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public BPMNModelPortabilityConformance createBPMNModelPortabilityConformanceFromString(
-            EDataType eDataType, String initialValue) {
-        BPMNModelPortabilityConformance result =
-                BPMNModelPortabilityConformance.get(initialValue);
+    public BPMNModelPortabilityConformance createBPMNModelPortabilityConformanceFromString(EDataType eDataType,
+            String initialValue) {
+        BPMNModelPortabilityConformance result = BPMNModelPortabilityConformance.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
                     "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -3138,8 +3009,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertBPMNModelPortabilityConformanceToString(
-            EDataType eDataType, Object instanceValue) {
+    public String convertBPMNModelPortabilityConformanceToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3148,8 +3018,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public CatchThrow createCatchThrowFromString(EDataType eDataType,
-            String initialValue) {
+    public CatchThrow createCatchThrowFromString(EDataType eDataType, String initialValue) {
         CatchThrow result = CatchThrow.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3162,8 +3031,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertCatchThrowToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertCatchThrowToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3171,8 +3039,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public GatewayType createGatewayTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public GatewayType createGatewayTypeFromString(EDataType eDataType, String initialValue) {
         GatewayType result = GatewayType.get(initialValue);
         if (result == null)
             throw new IllegalArgumentException(
@@ -3185,8 +3052,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertGatewayTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertGatewayTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -3194,10 +3060,8 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AccessLevelType createAccessLevelTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createAccessLevelTypeFromString(Xpdl2Package.Literals.ACCESS_LEVEL_TYPE,
-                initialValue);
+    public AccessLevelType createAccessLevelTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createAccessLevelTypeFromString(Xpdl2Package.Literals.ACCESS_LEVEL_TYPE, initialValue);
     }
 
     /**
@@ -3205,20 +3069,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAccessLevelTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertAccessLevelTypeToString(Xpdl2Package.Literals.ACCESS_LEVEL_TYPE,
-                instanceValue);
+    public String convertAccessLevelTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertAccessLevelTypeToString(Xpdl2Package.Literals.ACCESS_LEVEL_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AdHocOrderingType createAdHocOrderingTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createAdHocOrderingTypeFromString(Xpdl2Package.Literals.AD_HOC_ORDERING_TYPE,
-                initialValue);
+    public AdHocOrderingType createAdHocOrderingTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createAdHocOrderingTypeFromString(Xpdl2Package.Literals.AD_HOC_ORDERING_TYPE, initialValue);
     }
 
     /**
@@ -3226,20 +3086,51 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAdHocOrderingTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertAdHocOrderingTypeToString(Xpdl2Package.Literals.AD_HOC_ORDERING_TYPE,
-                instanceValue);
+    public String convertAdHocOrderingTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertAdHocOrderingTypeToString(Xpdl2Package.Literals.AD_HOC_ORDERING_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ArtifactType createArtifactTypeObjectFromString(EDataType eDataType,
+    public ArtifactType createArtifactTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createArtifactTypeFromString(Xpdl2Package.Literals.ARTIFACT_TYPE, initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertArtifactTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertArtifactTypeToString(Xpdl2Package.Literals.ARTIFACT_TYPE, instanceValue);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    public AssignTimeType createAssignTimeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createAssignTimeTypeFromString(Xpdl2Package.Literals.ASSIGN_TIME_TYPE, initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertAssignTimeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertAssignTimeTypeToString(Xpdl2Package.Literals.ASSIGN_TIME_TYPE, instanceValue);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    public AssociationDirectionType createAssociationDirectionTypeObjectFromString(EDataType eDataType,
             String initialValue) {
-        return createArtifactTypeFromString(Xpdl2Package.Literals.ARTIFACT_TYPE,
-                initialValue);
+        return createAssociationDirectionTypeFromString(Xpdl2Package.Literals.ASSOCIATION_DIRECTION_TYPE, initialValue);
     }
 
     /**
@@ -3247,20 +3138,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertArtifactTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertArtifactTypeToString(Xpdl2Package.Literals.ARTIFACT_TYPE,
-                instanceValue);
+    public String convertAssociationDirectionTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertAssociationDirectionTypeToString(Xpdl2Package.Literals.ASSOCIATION_DIRECTION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AssignTimeType createAssignTimeTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createAssignTimeTypeFromString(Xpdl2Package.Literals.ASSIGN_TIME_TYPE,
-                initialValue);
+    public DirectionType createDirectionTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createDirectionTypeFromString(Xpdl2Package.Literals.DIRECTION_TYPE, initialValue);
     }
 
     /**
@@ -3268,20 +3155,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAssignTimeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertAssignTimeTypeToString(Xpdl2Package.Literals.ASSIGN_TIME_TYPE,
-                instanceValue);
+    public String convertDirectionTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertDirectionTypeToString(Xpdl2Package.Literals.DIRECTION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AssociationDirectionType createAssociationDirectionTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createAssociationDirectionTypeFromString(Xpdl2Package.Literals.ASSOCIATION_DIRECTION_TYPE,
-                initialValue);
+    public DurationUnitType createDurationUnitTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createDurationUnitTypeFromString(Xpdl2Package.Literals.DURATION_UNIT_TYPE, initialValue);
     }
 
     /**
@@ -3289,20 +3172,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAssociationDirectionTypeObjectToString(
-            EDataType eDataType, Object instanceValue) {
-        return convertAssociationDirectionTypeToString(Xpdl2Package.Literals.ASSOCIATION_DIRECTION_TYPE,
-                instanceValue);
+    public String convertDurationUnitTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertDurationUnitTypeToString(Xpdl2Package.Literals.DURATION_UNIT_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public DirectionType createDirectionTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createDirectionTypeFromString(Xpdl2Package.Literals.DIRECTION_TYPE,
-                initialValue);
+    public EndPointTypeType createEndPointTypeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createEndPointTypeTypeFromString(Xpdl2Package.Literals.END_POINT_TYPE_TYPE, initialValue);
     }
 
     /**
@@ -3310,20 +3189,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDirectionTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertDirectionTypeToString(Xpdl2Package.Literals.DIRECTION_TYPE,
-                instanceValue);
+    public String convertEndPointTypeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertEndPointTypeTypeToString(Xpdl2Package.Literals.END_POINT_TYPE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public DurationUnitType createDurationUnitTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createDurationUnitTypeFromString(Xpdl2Package.Literals.DURATION_UNIT_TYPE,
-                initialValue);
+    public ExecutionType createExecutionTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createExecutionTypeFromString(Xpdl2Package.Literals.EXECUTION_TYPE, initialValue);
     }
 
     /**
@@ -3331,20 +3206,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDurationUnitTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertDurationUnitTypeToString(Xpdl2Package.Literals.DURATION_UNIT_TYPE,
-                instanceValue);
+    public String convertExecutionTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertExecutionTypeToString(Xpdl2Package.Literals.EXECUTION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public EndPointTypeType createEndPointTypeTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createEndPointTypeTypeFromString(Xpdl2Package.Literals.END_POINT_TYPE_TYPE,
-                initialValue);
+    public FinishModeType createFinishModeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createFinishModeTypeFromString(Xpdl2Package.Literals.FINISH_MODE_TYPE, initialValue);
     }
 
     /**
@@ -3352,20 +3223,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertEndPointTypeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertEndPointTypeTypeToString(Xpdl2Package.Literals.END_POINT_TYPE_TYPE,
-                instanceValue);
+    public String convertFinishModeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertFinishModeTypeToString(Xpdl2Package.Literals.FINISH_MODE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ExecutionType createExecutionTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createExecutionTypeFromString(Xpdl2Package.Literals.EXECUTION_TYPE,
-                initialValue);
+    public JoinSplitType createGatewayTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createJoinSplitTypeFromString(Xpdl2Package.Literals.JOIN_SPLIT_TYPE, initialValue);
     }
 
     /**
@@ -3373,20 +3240,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertExecutionTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertExecutionTypeToString(Xpdl2Package.Literals.EXECUTION_TYPE,
-                instanceValue);
+    public String convertGatewayTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertJoinSplitTypeToString(Xpdl2Package.Literals.JOIN_SPLIT_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public FinishModeType createFinishModeTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createFinishModeTypeFromString(Xpdl2Package.Literals.FINISH_MODE_TYPE,
-                initialValue);
+    public GraphConformanceType createGraphConformanceTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createGraphConformanceTypeFromString(Xpdl2Package.Literals.GRAPH_CONFORMANCE_TYPE, initialValue);
     }
 
     /**
@@ -3394,60 +3257,15 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertFinishModeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertFinishModeTypeToString(Xpdl2Package.Literals.FINISH_MODE_TYPE,
-                instanceValue);
+    public String convertGraphConformanceTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertGraphConformanceTypeToString(Xpdl2Package.Literals.GRAPH_CONFORMANCE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public JoinSplitType createGatewayTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createJoinSplitTypeFromString(Xpdl2Package.Literals.JOIN_SPLIT_TYPE,
-                initialValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertGatewayTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertJoinSplitTypeToString(Xpdl2Package.Literals.JOIN_SPLIT_TYPE,
-                instanceValue);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public GraphConformanceType createGraphConformanceTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createGraphConformanceTypeFromString(Xpdl2Package.Literals.GRAPH_CONFORMANCE_TYPE,
-                initialValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertGraphConformanceTypeObjectToString(
-            EDataType eDataType, Object instanceValue) {
-        return convertGraphConformanceTypeToString(Xpdl2Package.Literals.GRAPH_CONFORMANCE_TYPE,
-                instanceValue);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public Enumerator createImplementationTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
+    public Enumerator createImplementationTypeObjectFromString(EDataType eDataType, String initialValue) {
         return (Enumerator) super.createFromString(eDataType, initialValue);
     }
 
@@ -3456,8 +3274,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertImplementationTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertImplementationTypeObjectToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -3465,10 +3282,8 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public InstantiationType createInstantiationTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createInstantiationTypeFromString(Xpdl2Package.Literals.INSTANTIATION_TYPE,
-                initialValue);
+    public InstantiationType createInstantiationTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createInstantiationTypeFromString(Xpdl2Package.Literals.INSTANTIATION_TYPE, initialValue);
     }
 
     /**
@@ -3476,20 +3291,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertInstantiationTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertInstantiationTypeToString(Xpdl2Package.Literals.INSTANTIATION_TYPE,
-                instanceValue);
+    public String convertInstantiationTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertInstantiationTypeToString(Xpdl2Package.Literals.INSTANTIATION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public IsArrayType createIsArrayTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createIsArrayTypeFromString(Xpdl2Package.Literals.IS_ARRAY_TYPE,
-                initialValue);
+    public IsArrayType createIsArrayTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createIsArrayTypeFromString(Xpdl2Package.Literals.IS_ARRAY_TYPE, initialValue);
     }
 
     /**
@@ -3497,20 +3308,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertIsArrayTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertIsArrayTypeToString(Xpdl2Package.Literals.IS_ARRAY_TYPE,
-                instanceValue);
+    public String convertIsArrayTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertIsArrayTypeToString(Xpdl2Package.Literals.IS_ARRAY_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public LoopType createLoopTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createLoopTypeFromString(Xpdl2Package.Literals.LOOP_TYPE,
-                initialValue);
+    public LoopType createLoopTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createLoopTypeFromString(Xpdl2Package.Literals.LOOP_TYPE, initialValue);
     }
 
     /**
@@ -3518,20 +3325,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertLoopTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertLoopTypeToString(Xpdl2Package.Literals.LOOP_TYPE,
-                instanceValue);
+    public String convertLoopTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertLoopTypeToString(Xpdl2Package.Literals.LOOP_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public MIFlowConditionType createMIFlowConditionTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createMIFlowConditionTypeFromString(Xpdl2Package.Literals.MI_FLOW_CONDITION_TYPE,
-                initialValue);
+    public MIFlowConditionType createMIFlowConditionTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createMIFlowConditionTypeFromString(Xpdl2Package.Literals.MI_FLOW_CONDITION_TYPE, initialValue);
     }
 
     /**
@@ -3539,20 +3342,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertMIFlowConditionTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertMIFlowConditionTypeToString(Xpdl2Package.Literals.MI_FLOW_CONDITION_TYPE,
-                instanceValue);
+    public String convertMIFlowConditionTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertMIFlowConditionTypeToString(Xpdl2Package.Literals.MI_FLOW_CONDITION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public MIOrderingType createMIOrderingTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createMIOrderingTypeFromString(Xpdl2Package.Literals.MI_ORDERING_TYPE,
-                initialValue);
+    public MIOrderingType createMIOrderingTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createMIOrderingTypeFromString(Xpdl2Package.Literals.MI_ORDERING_TYPE, initialValue);
     }
 
     /**
@@ -3560,20 +3359,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertMIOrderingTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertMIOrderingTypeToString(Xpdl2Package.Literals.MI_ORDERING_TYPE,
-                instanceValue);
+    public String convertMIOrderingTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertMIOrderingTypeToString(Xpdl2Package.Literals.MI_ORDERING_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ModeType createModeTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createModeTypeFromString(Xpdl2Package.Literals.MODE_TYPE,
-                initialValue);
+    public ModeType createModeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createModeTypeFromString(Xpdl2Package.Literals.MODE_TYPE, initialValue);
     }
 
     /**
@@ -3581,20 +3376,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertModeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertModeTypeToString(Xpdl2Package.Literals.MODE_TYPE,
-                instanceValue);
+    public String convertModeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertModeTypeToString(Xpdl2Package.Literals.MODE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public OrientationType createOrientationTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createOrientationTypeFromString(Xpdl2Package.Literals.ORIENTATION_TYPE,
-                initialValue);
+    public OrientationType createOrientationTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createOrientationTypeFromString(Xpdl2Package.Literals.ORIENTATION_TYPE, initialValue);
     }
 
     /**
@@ -3602,20 +3393,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertOrientationTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertOrientationTypeToString(Xpdl2Package.Literals.ORIENTATION_TYPE,
-                instanceValue);
+    public String convertOrientationTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertOrientationTypeToString(Xpdl2Package.Literals.ORIENTATION_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ProcessType createProcessTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createProcessTypeFromString(Xpdl2Package.Literals.PROCESS_TYPE,
-                initialValue);
+    public ProcessType createProcessTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createProcessTypeFromString(Xpdl2Package.Literals.PROCESS_TYPE, initialValue);
     }
 
     /**
@@ -3623,20 +3410,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertProcessTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertProcessTypeToString(Xpdl2Package.Literals.PROCESS_TYPE,
-                instanceValue);
+    public String convertProcessTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertProcessTypeToString(Xpdl2Package.Literals.PROCESS_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public PublicationStatusType createPublicationStatusTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createPublicationStatusTypeFromString(Xpdl2Package.Literals.PUBLICATION_STATUS_TYPE,
-                initialValue);
+    public PublicationStatusType createPublicationStatusTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createPublicationStatusTypeFromString(Xpdl2Package.Literals.PUBLICATION_STATUS_TYPE, initialValue);
     }
 
     /**
@@ -3644,20 +3427,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertPublicationStatusTypeObjectToString(
-            EDataType eDataType, Object instanceValue) {
-        return convertPublicationStatusTypeToString(Xpdl2Package.Literals.PUBLICATION_STATUS_TYPE,
-                instanceValue);
+    public String convertPublicationStatusTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertPublicationStatusTypeToString(Xpdl2Package.Literals.PUBLICATION_STATUS_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ResultType createResultTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createResultTypeFromString(Xpdl2Package.Literals.RESULT_TYPE,
-                initialValue);
+    public ResultType createResultTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createResultTypeFromString(Xpdl2Package.Literals.RESULT_TYPE, initialValue);
     }
 
     /**
@@ -3665,20 +3444,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertResultTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertResultTypeToString(Xpdl2Package.Literals.RESULT_TYPE,
-                instanceValue);
+    public String convertResultTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertResultTypeToString(Xpdl2Package.Literals.RESULT_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public RoleType createRoleTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createRoleTypeFromString(Xpdl2Package.Literals.ROLE_TYPE,
-                initialValue);
+    public RoleType createRoleTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createRoleTypeFromString(Xpdl2Package.Literals.ROLE_TYPE, initialValue);
     }
 
     /**
@@ -3686,20 +3461,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertRoleTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertRoleTypeToString(Xpdl2Package.Literals.ROLE_TYPE,
-                instanceValue);
+    public String convertRoleTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertRoleTypeToString(Xpdl2Package.Literals.ROLE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SHAPEType createSHAPETypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createSHAPETypeFromString(Xpdl2Package.Literals.SHAPE_TYPE,
-                initialValue);
+    public SHAPEType createSHAPETypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createSHAPETypeFromString(Xpdl2Package.Literals.SHAPE_TYPE, initialValue);
     }
 
     /**
@@ -3707,20 +3478,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSHAPETypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertSHAPETypeToString(Xpdl2Package.Literals.SHAPE_TYPE,
-                instanceValue);
+    public String convertSHAPETypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertSHAPETypeToString(Xpdl2Package.Literals.SHAPE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public StartModeType createStartModeTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createStartModeTypeFromString(Xpdl2Package.Literals.START_MODE_TYPE,
-                initialValue);
+    public StartModeType createStartModeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createStartModeTypeFromString(Xpdl2Package.Literals.START_MODE_TYPE, initialValue);
     }
 
     /**
@@ -3728,20 +3495,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertStartModeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertStartModeTypeToString(Xpdl2Package.Literals.START_MODE_TYPE,
-                instanceValue);
+    public String convertStartModeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertStartModeTypeToString(Xpdl2Package.Literals.START_MODE_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public StatusType createStatusTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createStatusTypeFromString(Xpdl2Package.Literals.STATUS_TYPE,
-                initialValue);
+    public StatusType createStatusTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createStatusTypeFromString(Xpdl2Package.Literals.STATUS_TYPE, initialValue);
     }
 
     /**
@@ -3749,20 +3512,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertStatusTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertStatusTypeToString(Xpdl2Package.Literals.STATUS_TYPE,
-                instanceValue);
+    public String convertStatusTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertStatusTypeToString(Xpdl2Package.Literals.STATUS_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TestTimeType createTestTimeTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createTestTimeTypeFromString(Xpdl2Package.Literals.TEST_TIME_TYPE,
-                initialValue);
+    public TestTimeType createTestTimeTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createTestTimeTypeFromString(Xpdl2Package.Literals.TEST_TIME_TYPE, initialValue);
     }
 
     /**
@@ -3770,20 +3529,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTestTimeTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertTestTimeTypeToString(Xpdl2Package.Literals.TEST_TIME_TYPE,
-                instanceValue);
+    public String convertTestTimeTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertTestTimeTypeToString(Xpdl2Package.Literals.TEST_TIME_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TransactionMethodType createTransactionMethodTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createTransactionMethodTypeFromString(Xpdl2Package.Literals.TRANSACTION_METHOD_TYPE,
-                initialValue);
+    public TransactionMethodType createTransactionMethodTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createTransactionMethodTypeFromString(Xpdl2Package.Literals.TRANSACTION_METHOD_TYPE, initialValue);
     }
 
     /**
@@ -3791,20 +3546,16 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTransactionMethodTypeObjectToString(
-            EDataType eDataType, Object instanceValue) {
-        return convertTransactionMethodTypeToString(Xpdl2Package.Literals.TRANSACTION_METHOD_TYPE,
-                instanceValue);
+    public String convertTransactionMethodTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertTransactionMethodTypeToString(Xpdl2Package.Literals.TRANSACTION_METHOD_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public TriggerType createTriggerTypeObjectFromString(EDataType eDataType,
-            String initialValue) {
-        return createTriggerTypeFromString(Xpdl2Package.Literals.TRIGGER_TYPE,
-                initialValue);
+    public TriggerType createTriggerTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createTriggerTypeFromString(Xpdl2Package.Literals.TRIGGER_TYPE, initialValue);
     }
 
     /**
@@ -3812,18 +3563,15 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertTriggerTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertTriggerTypeToString(Xpdl2Package.Literals.TRIGGER_TYPE,
-                instanceValue);
+    public String convertTriggerTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertTriggerTypeToString(Xpdl2Package.Literals.TRIGGER_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String createIdReferenceStringFromString(EDataType eDataType,
-            String initialValue) {
+    public String createIdReferenceStringFromString(EDataType eDataType, String initialValue) {
         return (String) super.createFromString(eDataType, initialValue);
     }
 
@@ -3832,8 +3580,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertIdReferenceStringToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertIdReferenceStringToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -3868,9 +3615,7 @@ public class Xpdl2FactoryImpl extends EFactoryImpl implements Xpdl2Factory {
     public Expression createExpression(String text) {
         Expression exp = createExpression();
 
-        exp.getMixed()
-                .add(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(),
-                        text);
+        exp.getMixed().add(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(), text);
         return exp;
     }
 

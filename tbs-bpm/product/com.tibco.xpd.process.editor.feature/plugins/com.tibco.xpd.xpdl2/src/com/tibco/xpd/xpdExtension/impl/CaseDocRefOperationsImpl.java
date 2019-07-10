@@ -36,15 +36,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CaseDocRefOperationsImpl extends EObjectImpl
-        implements CaseDocRefOperations {
+public class CaseDocRefOperationsImpl extends EObjectImpl implements CaseDocRefOperations {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMoveCaseDocOperation() <em>Move Case Doc Operation</em>}' containment reference.
@@ -139,16 +137,14 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMoveCaseDocOperation(
-            MoveCaseDocOperation newMoveCaseDocOperation,
+    public NotificationChain basicSetMoveCaseDocOperation(MoveCaseDocOperation newMoveCaseDocOperation,
             NotificationChain msgs) {
         MoveCaseDocOperation oldMoveCaseDocOperation = moveCaseDocOperation;
         moveCaseDocOperation = newMoveCaseDocOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
-                    oldMoveCaseDocOperation, newMoveCaseDocOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION, oldMoveCaseDocOperation,
+                    newMoveCaseDocOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -162,22 +158,17 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setMoveCaseDocOperation(
-            MoveCaseDocOperation newMoveCaseDocOperation) {
+    public void setMoveCaseDocOperation(MoveCaseDocOperation newMoveCaseDocOperation) {
         if (newMoveCaseDocOperation != moveCaseDocOperation) {
             NotificationChain msgs = null;
             if (moveCaseDocOperation != null)
-                msgs = ((InternalEObject) moveCaseDocOperation).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
+                msgs = ((InternalEObject) moveCaseDocOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
                         null,
                         msgs);
             if (newMoveCaseDocOperation != null)
-                msgs = ((InternalEObject) newMoveCaseDocOperation).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
+                msgs = ((InternalEObject) newMoveCaseDocOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
                         null,
                         msgs);
             msgs = basicSetMoveCaseDocOperation(newMoveCaseDocOperation, msgs);
@@ -185,8 +176,8 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION,
-                    newMoveCaseDocOperation, newMoveCaseDocOperation));
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION, newMoveCaseDocOperation,
+                    newMoveCaseDocOperation));
     }
 
     /**
@@ -203,17 +194,14 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetUnlinkCaseDocOperation(
-            UnlinkCaseDocOperation newUnlinkCaseDocOperation,
+    public NotificationChain basicSetUnlinkCaseDocOperation(UnlinkCaseDocOperation newUnlinkCaseDocOperation,
             NotificationChain msgs) {
-        UnlinkCaseDocOperation oldUnlinkCaseDocOperation =
-                unlinkCaseDocOperation;
+        UnlinkCaseDocOperation oldUnlinkCaseDocOperation = unlinkCaseDocOperation;
         unlinkCaseDocOperation = newUnlinkCaseDocOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
-                    oldUnlinkCaseDocOperation, newUnlinkCaseDocOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION, oldUnlinkCaseDocOperation,
+                    newUnlinkCaseDocOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -227,32 +215,26 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUnlinkCaseDocOperation(
-            UnlinkCaseDocOperation newUnlinkCaseDocOperation) {
+    public void setUnlinkCaseDocOperation(UnlinkCaseDocOperation newUnlinkCaseDocOperation) {
         if (newUnlinkCaseDocOperation != unlinkCaseDocOperation) {
             NotificationChain msgs = null;
             if (unlinkCaseDocOperation != null)
-                msgs = ((InternalEObject) unlinkCaseDocOperation)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) unlinkCaseDocOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
+                        null,
+                        msgs);
             if (newUnlinkCaseDocOperation != null)
-                msgs = ((InternalEObject) newUnlinkCaseDocOperation)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
-                                null,
-                                msgs);
-            msgs = basicSetUnlinkCaseDocOperation(newUnlinkCaseDocOperation,
-                    msgs);
+                msgs = ((InternalEObject) newUnlinkCaseDocOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
+                        null,
+                        msgs);
+            msgs = basicSetUnlinkCaseDocOperation(newUnlinkCaseDocOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION,
-                    newUnlinkCaseDocOperation, newUnlinkCaseDocOperation));
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__UNLINK_CASE_DOC_OPERATION, newUnlinkCaseDocOperation,
+                    newUnlinkCaseDocOperation));
     }
 
     /**
@@ -269,16 +251,14 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLinkCaseDocOperation(
-            LinkCaseDocOperation newLinkCaseDocOperation,
+    public NotificationChain basicSetLinkCaseDocOperation(LinkCaseDocOperation newLinkCaseDocOperation,
             NotificationChain msgs) {
         LinkCaseDocOperation oldLinkCaseDocOperation = linkCaseDocOperation;
         linkCaseDocOperation = newLinkCaseDocOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
-                    oldLinkCaseDocOperation, newLinkCaseDocOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION, oldLinkCaseDocOperation,
+                    newLinkCaseDocOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -292,22 +272,17 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLinkCaseDocOperation(
-            LinkCaseDocOperation newLinkCaseDocOperation) {
+    public void setLinkCaseDocOperation(LinkCaseDocOperation newLinkCaseDocOperation) {
         if (newLinkCaseDocOperation != linkCaseDocOperation) {
             NotificationChain msgs = null;
             if (linkCaseDocOperation != null)
-                msgs = ((InternalEObject) linkCaseDocOperation).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
+                msgs = ((InternalEObject) linkCaseDocOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
                         null,
                         msgs);
             if (newLinkCaseDocOperation != null)
-                msgs = ((InternalEObject) newLinkCaseDocOperation).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
+                msgs = ((InternalEObject) newLinkCaseDocOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
                         null,
                         msgs);
             msgs = basicSetLinkCaseDocOperation(newLinkCaseDocOperation, msgs);
@@ -315,8 +290,8 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION,
-                    newLinkCaseDocOperation, newLinkCaseDocOperation));
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__LINK_CASE_DOC_OPERATION, newLinkCaseDocOperation,
+                    newLinkCaseDocOperation));
     }
 
     /**
@@ -333,17 +308,14 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeleteCaseDocOperation(
-            DeleteCaseDocOperation newDeleteCaseDocOperation,
+    public NotificationChain basicSetDeleteCaseDocOperation(DeleteCaseDocOperation newDeleteCaseDocOperation,
             NotificationChain msgs) {
-        DeleteCaseDocOperation oldDeleteCaseDocOperation =
-                deleteCaseDocOperation;
+        DeleteCaseDocOperation oldDeleteCaseDocOperation = deleteCaseDocOperation;
         deleteCaseDocOperation = newDeleteCaseDocOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
-                    oldDeleteCaseDocOperation, newDeleteCaseDocOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION, oldDeleteCaseDocOperation,
+                    newDeleteCaseDocOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -357,32 +329,26 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeleteCaseDocOperation(
-            DeleteCaseDocOperation newDeleteCaseDocOperation) {
+    public void setDeleteCaseDocOperation(DeleteCaseDocOperation newDeleteCaseDocOperation) {
         if (newDeleteCaseDocOperation != deleteCaseDocOperation) {
             NotificationChain msgs = null;
             if (deleteCaseDocOperation != null)
-                msgs = ((InternalEObject) deleteCaseDocOperation)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) deleteCaseDocOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
+                        null,
+                        msgs);
             if (newDeleteCaseDocOperation != null)
-                msgs = ((InternalEObject) newDeleteCaseDocOperation)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
-                                null,
-                                msgs);
-            msgs = basicSetDeleteCaseDocOperation(newDeleteCaseDocOperation,
-                    msgs);
+                msgs = ((InternalEObject) newDeleteCaseDocOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
+                        null,
+                        msgs);
+            msgs = basicSetDeleteCaseDocOperation(newDeleteCaseDocOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION,
-                    newDeleteCaseDocOperation, newDeleteCaseDocOperation));
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION, newDeleteCaseDocOperation,
+                    newDeleteCaseDocOperation));
     }
 
     /**
@@ -404,8 +370,8 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
         caseDocumentRefField = newCaseDocumentRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__CASE_DOCUMENT_REF_FIELD,
-                    oldCaseDocumentRefField, caseDocumentRefField));
+                    XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__CASE_DOCUMENT_REF_FIELD, oldCaseDocumentRefField,
+                    caseDocumentRefField));
     }
 
     /**
@@ -414,8 +380,7 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__MOVE_CASE_DOC_OPERATION:
             return basicSetMoveCaseDocOperation(null, msgs);
@@ -522,10 +487,8 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
         case XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__DELETE_CASE_DOC_OPERATION:
             return deleteCaseDocOperation != null;
         case XpdExtensionPackage.CASE_DOC_REF_OPERATIONS__CASE_DOCUMENT_REF_FIELD:
-            return CASE_DOCUMENT_REF_FIELD_EDEFAULT == null
-                    ? caseDocumentRefField != null
-                    : !CASE_DOCUMENT_REF_FIELD_EDEFAULT
-                            .equals(caseDocumentRefField);
+            return CASE_DOCUMENT_REF_FIELD_EDEFAULT == null ? caseDocumentRefField != null
+                    : !CASE_DOCUMENT_REF_FIELD_EDEFAULT.equals(caseDocumentRefField);
         }
         return super.eIsSet(featureID);
     }
@@ -540,7 +503,7 @@ public class CaseDocRefOperationsImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (caseDocumentRefField: "); //$NON-NLS-1$
         result.append(caseDocumentRefField);
         result.append(')');

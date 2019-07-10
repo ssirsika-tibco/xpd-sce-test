@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl
-        implements DeleteByCaseIdentifierType {
+public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl implements DeleteByCaseIdentifierType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFieldPath() <em>Field Path</em>}' attribute.
@@ -115,8 +113,7 @@ public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl
         fieldPath = newFieldPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH,
-                    oldFieldPath, fieldPath));
+                    XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH, oldFieldPath, fieldPath));
     }
 
     /**
@@ -138,8 +135,8 @@ public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl
         identifierName = newIdentifierName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME,
-                    oldIdentifierName, identifierName));
+                    XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME, oldIdentifierName,
+                    identifierName));
     }
 
     /**
@@ -203,8 +200,7 @@ public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH:
-            return FIELD_PATH_EDEFAULT == null ? fieldPath != null
-                    : !FIELD_PATH_EDEFAULT.equals(fieldPath);
+            return FIELD_PATH_EDEFAULT == null ? fieldPath != null : !FIELD_PATH_EDEFAULT.equals(fieldPath);
         case XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME:
             return IDENTIFIER_NAME_EDEFAULT == null ? identifierName != null
                     : !IDENTIFIER_NAME_EDEFAULT.equals(identifierName);
@@ -222,7 +218,7 @@ public class DeleteByCaseIdentifierTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (fieldPath: "); //$NON-NLS-1$
         result.append(fieldPath);
         result.append(", identifierName: "); //$NON-NLS-1$

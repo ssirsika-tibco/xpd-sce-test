@@ -36,8 +36,7 @@ public class WsSoapSecurityImpl extends EObjectImpl implements WsSoapSecurity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getSecurityPolicy()
@@ -74,8 +73,7 @@ public class WsSoapSecurityImpl extends EObjectImpl implements WsSoapSecurity {
     @Override
     public EList<WsSecurityPolicy> getSecurityPolicy() {
         if (securityPolicy == null) {
-            securityPolicy = new EObjectContainmentEList<WsSecurityPolicy>(
-                    WsSecurityPolicy.class, this,
+            securityPolicy = new EObjectContainmentEList<WsSecurityPolicy>(WsSecurityPolicy.class, this,
                     XpdExtensionPackage.WS_SOAP_SECURITY__SECURITY_POLICY);
         }
         return securityPolicy;
@@ -86,12 +84,10 @@ public class WsSoapSecurityImpl extends EObjectImpl implements WsSoapSecurity {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_SECURITY__SECURITY_POLICY:
-            return ((InternalEList<?>) getSecurityPolicy())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSecurityPolicy()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -119,8 +115,7 @@ public class WsSoapSecurityImpl extends EObjectImpl implements WsSoapSecurity {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_SECURITY__SECURITY_POLICY:
             getSecurityPolicy().clear();
-            getSecurityPolicy()
-                    .addAll((Collection<? extends WsSecurityPolicy>) newValue);
+            getSecurityPolicy().addAll((Collection<? extends WsSecurityPolicy>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

@@ -35,15 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FindByQueryOperationImpl extends EObjectImpl
-        implements FindByQueryOperation {
+public class FindByQueryOperationImpl extends EObjectImpl implements FindByQueryOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCaseDocumentQueryExpression() <em>Case Document Query Expression</em>}' containment reference list.
@@ -82,8 +80,7 @@ public class FindByQueryOperationImpl extends EObjectImpl
     public EList<CaseDocumentQueryExpression> getCaseDocumentQueryExpression() {
         if (caseDocumentQueryExpression == null) {
             caseDocumentQueryExpression =
-                    new EObjectContainmentEList<CaseDocumentQueryExpression>(
-                            CaseDocumentQueryExpression.class, this,
+                    new EObjectContainmentEList<CaseDocumentQueryExpression>(CaseDocumentQueryExpression.class, this,
                             XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION);
         }
         return caseDocumentQueryExpression;
@@ -95,12 +92,10 @@ public class FindByQueryOperationImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            return ((InternalEList<?>) getCaseDocumentQueryExpression())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCaseDocumentQueryExpression()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -130,8 +125,7 @@ public class FindByQueryOperationImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
             getCaseDocumentQueryExpression().clear();
-            getCaseDocumentQueryExpression().addAll(
-                    (Collection<? extends CaseDocumentQueryExpression>) newValue);
+            getCaseDocumentQueryExpression().addAll((Collection<? extends CaseDocumentQueryExpression>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -161,8 +155,7 @@ public class FindByQueryOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.FIND_BY_QUERY_OPERATION__CASE_DOCUMENT_QUERY_EXPRESSION:
-            return caseDocumentQueryExpression != null
-                    && !caseDocumentQueryExpression.isEmpty();
+            return caseDocumentQueryExpression != null && !caseDocumentQueryExpression.isEmpty();
         }
         return super.eIsSet(featureID);
     }

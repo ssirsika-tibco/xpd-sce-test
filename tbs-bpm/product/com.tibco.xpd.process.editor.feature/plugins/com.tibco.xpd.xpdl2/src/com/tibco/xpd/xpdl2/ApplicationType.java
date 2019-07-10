@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ApplicationType#getEjb <em>Ejb</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ApplicationType#getPojo <em>Pojo</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link com.tibco.xpd.xpdl2.ApplicationType#getForm <em>Form</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ApplicationType#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getApplicationType()
  * @model extendedMetaData="name='ApplicationType' kind='elementOnly'"
@@ -38,8 +38,7 @@ public interface ApplicationType extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Ejb</b></em>' containment reference.

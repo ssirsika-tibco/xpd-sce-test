@@ -39,15 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RestServiceResourceSecurityImpl extends EObjectImpl
-        implements RestServiceResourceSecurity {
+public class RestServiceResourceSecurityImpl extends EObjectImpl implements RestServiceResourceSecurity {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -67,8 +65,7 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final SecurityPolicy POLICY_TYPE_EDEFAULT =
-            SecurityPolicy.USERNAME_TOKEN;
+    protected static final SecurityPolicy POLICY_TYPE_EDEFAULT = SecurityPolicy.USERNAME_TOKEN;
 
     /**
      * The cached value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
@@ -115,8 +112,7 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(
-                    ExtendedAttribute.class, this,
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
                     XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
@@ -138,14 +134,13 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
      */
     public void setPolicyType(SecurityPolicy newPolicyType) {
         SecurityPolicy oldPolicyType = policyType;
-        policyType =
-                newPolicyType == null ? POLICY_TYPE_EDEFAULT : newPolicyType;
+        policyType = newPolicyType == null ? POLICY_TYPE_EDEFAULT : newPolicyType;
         boolean oldPolicyTypeESet = policyTypeESet;
         policyTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE,
-                    oldPolicyType, policyType, !oldPolicyTypeESet));
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE, oldPolicyType, policyType,
+                    !oldPolicyTypeESet));
     }
 
     /**
@@ -160,8 +155,8 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
         policyTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE,
-                    oldPolicyType, POLICY_TYPE_EDEFAULT, oldPolicyTypeESet));
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE, oldPolicyType,
+                    POLICY_TYPE_EDEFAULT, oldPolicyTypeESet));
     }
 
     /**
@@ -179,12 +174,10 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -216,8 +209,7 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case XpdExtensionPackage.REST_SERVICE_RESOURCE_SECURITY__POLICY_TYPE:
             setPolicyType((SecurityPolicy) newValue);
@@ -270,7 +262,7 @@ public class RestServiceResourceSecurityImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (policyType: "); //$NON-NLS-1$
         if (policyTypeESet)
             result.append(policyType);

@@ -31,6 +31,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndEventImpl#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndEventImpl#getResultError <em>Result Error</em>}</li>
@@ -42,7 +43,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndEventImpl#getDeprecatedTriggerResultLink <em>Deprecated Trigger Result Link</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndEventImpl#getDeprecatedResultCompensation <em>Deprecated Result Compensation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -52,8 +52,7 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getTriggerResultMessage() <em>Trigger Result Message</em>}' containment reference.
@@ -113,8 +112,7 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -217,15 +215,13 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
+            NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
-                            oldTriggerResultMessage, newTriggerResultMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE, oldTriggerResultMessage, newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -239,32 +235,24 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) triggerResultMessage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             if (newTriggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE,
                     newTriggerResultMessage, newTriggerResultMessage));
     }
 
@@ -282,15 +270,12 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetResultError(ResultError newResultError,
-            NotificationChain msgs) {
+    public NotificationChain basicSetResultError(ResultError newResultError, NotificationChain msgs) {
         ResultError oldResultError = resultError;
         resultError = newResultError;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.END_EVENT__RESULT_ERROR,
-                            oldResultError, newResultError);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__RESULT_ERROR, oldResultError, newResultError);
             if (msgs == null)
                 msgs = notification;
             else
@@ -308,25 +293,18 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         if (newResultError != resultError) {
             NotificationChain msgs = null;
             if (resultError != null)
-                msgs =
-                        ((InternalEObject) resultError).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.END_EVENT__RESULT_ERROR,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) resultError).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__RESULT_ERROR,
+                        null,
+                        msgs);
             if (newResultError != null)
-                msgs =
-                        ((InternalEObject) newResultError).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.END_EVENT__RESULT_ERROR,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newResultError)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__RESULT_ERROR, null, msgs);
             msgs = basicSetResultError(newResultError, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__RESULT_ERROR, newResultError,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__RESULT_ERROR, newResultError,
                     newResultError));
     }
 
@@ -344,20 +322,14 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultCompensation(
-            TriggerResultCompensation newTriggerResultCompensation,
+    public NotificationChain basicSetTriggerResultCompensation(TriggerResultCompensation newTriggerResultCompensation,
             NotificationChain msgs) {
-        TriggerResultCompensation oldTriggerResultCompensation =
-                triggerResultCompensation;
+        TriggerResultCompensation oldTriggerResultCompensation = triggerResultCompensation;
         triggerResultCompensation = newTriggerResultCompensation;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
-                            oldTriggerResultCompensation,
-                            newTriggerResultCompensation);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
+                            oldTriggerResultCompensation, newTriggerResultCompensation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -371,34 +343,24 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultCompensation(
-            TriggerResultCompensation newTriggerResultCompensation) {
+    public void setTriggerResultCompensation(TriggerResultCompensation newTriggerResultCompensation) {
         if (newTriggerResultCompensation != triggerResultCompensation) {
             NotificationChain msgs = null;
             if (triggerResultCompensation != null)
-                msgs =
-                        ((InternalEObject) triggerResultCompensation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultCompensation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
+                        null,
+                        msgs);
             if (newTriggerResultCompensation != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultCompensation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetTriggerResultCompensation(newTriggerResultCompensation,
-                            msgs);
+                msgs = ((InternalEObject) newTriggerResultCompensation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
+                        null,
+                        msgs);
+            msgs = basicSetTriggerResultCompensation(newTriggerResultCompensation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__TRIGGER_RESULT_COMPENSATION,
                     newTriggerResultCompensation, newTriggerResultCompensation));
     }
 
@@ -416,15 +378,13 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultSignal(TriggerResultSignal newTriggerResultSignal,
+            NotificationChain msgs) {
         TriggerResultSignal oldTriggerResultSignal = triggerResultSignal;
         triggerResultSignal = newTriggerResultSignal;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
-                            oldTriggerResultSignal, newTriggerResultSignal);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL, oldTriggerResultSignal, newTriggerResultSignal);
             if (msgs == null)
                 msgs = notification;
             else
@@ -438,32 +398,24 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal) {
+    public void setTriggerResultSignal(TriggerResultSignal newTriggerResultSignal) {
         if (newTriggerResultSignal != triggerResultSignal) {
             NotificationChain msgs = null;
             if (triggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) triggerResultSignal)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultSignal).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             if (newTriggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultSignal)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultSignal).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultSignal(newTriggerResultSignal, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__TRIGGER_RESULT_SIGNAL,
                     newTriggerResultSignal, newTriggerResultSignal));
     }
 
@@ -482,19 +434,13 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * @generated
      */
     public NotificationChain basicSetDeprecatedResultCompensation(
-            DeprecatedResultCompensation newDeprecatedResultCompensation,
-            NotificationChain msgs) {
-        DeprecatedResultCompensation oldDeprecatedResultCompensation =
-                deprecatedResultCompensation;
+            DeprecatedResultCompensation newDeprecatedResultCompensation, NotificationChain msgs) {
+        DeprecatedResultCompensation oldDeprecatedResultCompensation = deprecatedResultCompensation;
         deprecatedResultCompensation = newDeprecatedResultCompensation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                            oldDeprecatedResultCompensation,
-                            newDeprecatedResultCompensation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION, oldDeprecatedResultCompensation,
+                    newDeprecatedResultCompensation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -508,35 +454,25 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedResultCompensation(
-            DeprecatedResultCompensation newDeprecatedResultCompensation) {
+    public void setDeprecatedResultCompensation(DeprecatedResultCompensation newDeprecatedResultCompensation) {
         if (newDeprecatedResultCompensation != deprecatedResultCompensation) {
             NotificationChain msgs = null;
             if (deprecatedResultCompensation != null)
-                msgs =
-                        ((InternalEObject) deprecatedResultCompensation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedResultCompensation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
+                        null,
+                        msgs);
             if (newDeprecatedResultCompensation != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedResultCompensation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedResultCompensation(newDeprecatedResultCompensation,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedResultCompensation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedResultCompensation(newDeprecatedResultCompensation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                    newDeprecatedResultCompensation,
+                    Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION, newDeprecatedResultCompensation,
                     newDeprecatedResultCompensation));
     }
 
@@ -554,15 +490,12 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetResultMultiple(
-            ResultMultiple newResultMultiple, NotificationChain msgs) {
+    public NotificationChain basicSetResultMultiple(ResultMultiple newResultMultiple, NotificationChain msgs) {
         ResultMultiple oldResultMultiple = resultMultiple;
         resultMultiple = newResultMultiple;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
-                            oldResultMultiple, newResultMultiple);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__RESULT_MULTIPLE, oldResultMultiple, newResultMultiple);
             if (msgs == null)
                 msgs = notification;
             else
@@ -580,28 +513,21 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         if (newResultMultiple != resultMultiple) {
             NotificationChain msgs = null;
             if (resultMultiple != null)
-                msgs =
-                        ((InternalEObject) resultMultiple)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) resultMultiple).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
+                        null,
+                        msgs);
             if (newResultMultiple != null)
-                msgs =
-                        ((InternalEObject) newResultMultiple)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newResultMultiple).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
+                        null,
+                        msgs);
             msgs = basicSetResultMultiple(newResultMultiple, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__RESULT_MULTIPLE, newResultMultiple,
-                    newResultMultiple));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__RESULT_MULTIPLE,
+                    newResultMultiple, newResultMultiple));
     }
 
     /**
@@ -620,15 +546,12 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__IMPLEMENTATION, oldImplementation,
-                    implementation, !oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__IMPLEMENTATION,
+                    oldImplementation, implementation, !oldImplementationESet));
     }
 
     /**
@@ -642,9 +565,8 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.END_EVENT__IMPLEMENTATION, oldImplementation,
-                    IMPLEMENTATION_EDEFAULT, oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.END_EVENT__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -676,8 +598,7 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         boolean oldResultESet = resultESet;
         resultESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__RESULT, oldResult, result,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_EVENT__RESULT, oldResult, result,
                     !oldResultESet));
     }
 
@@ -692,9 +613,8 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         result = RESULT_EDEFAULT;
         resultESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.END_EVENT__RESULT, oldResult, RESULT_EDEFAULT,
-                    oldResultESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.END_EVENT__RESULT, oldResult,
+                    RESULT_EDEFAULT, oldResultESet));
     }
 
     /**
@@ -720,20 +640,14 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeprecatedTriggerResultLink(
-            TriggerResultLink newDeprecatedTriggerResultLink,
+    public NotificationChain basicSetDeprecatedTriggerResultLink(TriggerResultLink newDeprecatedTriggerResultLink,
             NotificationChain msgs) {
-        TriggerResultLink oldDeprecatedTriggerResultLink =
-                deprecatedTriggerResultLink;
+        TriggerResultLink oldDeprecatedTriggerResultLink = deprecatedTriggerResultLink;
         deprecatedTriggerResultLink = newDeprecatedTriggerResultLink;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                            oldDeprecatedTriggerResultLink,
-                            newDeprecatedTriggerResultLink);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK, oldDeprecatedTriggerResultLink,
+                    newDeprecatedTriggerResultLink);
             if (msgs == null)
                 msgs = notification;
             else
@@ -747,35 +661,25 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedTriggerResultLink(
-            TriggerResultLink newDeprecatedTriggerResultLink) {
+    public void setDeprecatedTriggerResultLink(TriggerResultLink newDeprecatedTriggerResultLink) {
         if (newDeprecatedTriggerResultLink != deprecatedTriggerResultLink) {
             NotificationChain msgs = null;
             if (deprecatedTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) deprecatedTriggerResultLink)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedTriggerResultLink).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             if (newDeprecatedTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedTriggerResultLink)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedTriggerResultLink(newDeprecatedTriggerResultLink,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedTriggerResultLink).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedTriggerResultLink(newDeprecatedTriggerResultLink, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                    newDeprecatedTriggerResultLink,
+                    Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK, newDeprecatedTriggerResultLink,
                     newDeprecatedTriggerResultLink));
     }
 
@@ -785,8 +689,7 @@ public class EndEventImpl extends EventImpl implements EndEvent {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
@@ -954,7 +857,7 @@ public class EndEventImpl extends EventImpl implements EndEvent {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (implementation: "); //$NON-NLS-1$
         if (implementationESet)
             result.append(implementation);

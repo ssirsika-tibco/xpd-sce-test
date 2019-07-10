@@ -26,10 +26,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.OutputSetImpl#getOutput <em>Output</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,8 +39,7 @@ public class OutputSetImpl extends EObjectImpl implements OutputSet {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
@@ -78,9 +77,7 @@ public class OutputSetImpl extends EObjectImpl implements OutputSet {
      */
     public EList<Output> getOutput() {
         if (output == null) {
-            output =
-                    new EObjectContainmentEList<Output>(Output.class, this,
-                            Xpdl2Package.OUTPUT_SET__OUTPUT);
+            output = new EObjectContainmentEList<Output>(Output.class, this, Xpdl2Package.OUTPUT_SET__OUTPUT);
         }
         return output;
     }
@@ -91,8 +88,7 @@ public class OutputSetImpl extends EObjectImpl implements OutputSet {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.OUTPUT_SET__OUTPUT:
             return ((InternalEList<?>) getOutput()).basicRemove(otherEnd, msgs);

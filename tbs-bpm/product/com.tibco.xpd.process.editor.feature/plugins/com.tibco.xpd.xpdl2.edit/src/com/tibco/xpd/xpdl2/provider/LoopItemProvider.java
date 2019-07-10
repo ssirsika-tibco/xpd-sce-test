@@ -38,16 +38,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoopItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LoopItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,8 +81,7 @@ public class LoopItemProvider extends ItemProviderAdapter implements
      */
     protected void addLoopTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Loop_loopType_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Loop_loopType_feature", "_UI_Loop_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -106,13 +103,11 @@ public class LoopItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.LOOP__LOOP_STANDARD);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.LOOP__LOOP_MULTI_INSTANCE);
+            childrenFeatures.add(Xpdl2Package.Literals.LOOP__LOOP_MULTI_INSTANCE);
             childrenFeatures.add(Xpdl2Package.Literals.LOOP__ANY_ATTRIBUTE);
         }
         return childrenFeatures;
@@ -139,8 +134,7 @@ public class LoopItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Loop")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Loop")); //$NON-NLS-1$
     }
 
     /**
@@ -170,14 +164,12 @@ public class LoopItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(Loop.class)) {
         case Xpdl2Package.LOOP__LOOP_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.LOOP__LOOP_STANDARD:
         case Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE:
         case Xpdl2Package.LOOP__ANY_ATTRIBUTE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -191,17 +183,14 @@ public class LoopItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LOOP__LOOP_STANDARD,
-                        Xpdl2Factory.eINSTANCE.createLoopStandard()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LOOP__LOOP_STANDARD,
+                Xpdl2Factory.eINSTANCE.createLoopStandard()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LOOP__LOOP_MULTI_INSTANCE,
-                        Xpdl2Factory.eINSTANCE.createLoopMultiInstance()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LOOP__LOOP_MULTI_INSTANCE,
+                Xpdl2Factory.eINSTANCE.createLoopMultiInstance()));
     }
 
     /**

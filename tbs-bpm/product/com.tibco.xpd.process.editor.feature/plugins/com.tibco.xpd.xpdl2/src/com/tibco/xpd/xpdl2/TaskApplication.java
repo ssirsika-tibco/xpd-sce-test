@@ -15,13 +15,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskApplication#getActualParameters <em>Actual Parameters</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskApplication#getDataMappings <em>Data Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskApplication#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskApplication#getApplicationId <em>Application Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTaskApplication()
  * @model extendedMetaData="name='TaskApplication_._type' kind='elementOnly' features-order='actualParameters dataMappings description'"
@@ -33,8 +33,7 @@ public interface TaskApplication extends DescribedElement {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Actual Parameters</b></em>' containment reference list.

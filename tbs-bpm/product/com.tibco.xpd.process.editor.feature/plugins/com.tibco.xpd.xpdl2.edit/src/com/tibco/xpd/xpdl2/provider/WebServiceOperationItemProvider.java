@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WebServiceOperationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WebServiceOperationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,11 +80,12 @@ public class WebServiceOperationItemProvider extends ItemProviderAdapter
      */
     protected void addOperationNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_WebServiceOperation_operationName_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_WebServiceOperation_operationName_feature", "_UI_WebServiceOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WebServiceOperation_operationName_feature", //$NON-NLS-1$
+                                "_UI_WebServiceOperation_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.WEB_SERVICE_OPERATION__OPERATION_NAME,
                         true,
                         false,
@@ -105,16 +104,12 @@ public class WebServiceOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__PARTNER);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__SERVICE);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__PARTNER);
+            childrenFeatures.add(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__SERVICE);
         }
         return childrenFeatures;
     }
@@ -140,8 +135,7 @@ public class WebServiceOperationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WebServiceOperation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WebServiceOperation")); //$NON-NLS-1$
     }
 
     /**
@@ -170,14 +164,12 @@ public class WebServiceOperationItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(WebServiceOperation.class)) {
         case Xpdl2Package.WEB_SERVICE_OPERATION__OPERATION_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES:
         case Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER:
         case Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -191,17 +183,14 @@ public class WebServiceOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__PARTNER,
-                        Xpdl2Factory.eINSTANCE.createPartner()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__PARTNER,
+                Xpdl2Factory.eINSTANCE.createPartner()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__SERVICE,
-                        Xpdl2Factory.eINSTANCE.createService()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.WEB_SERVICE_OPERATION__SERVICE,
+                Xpdl2Factory.eINSTANCE.createService()));
     }
 
     /**

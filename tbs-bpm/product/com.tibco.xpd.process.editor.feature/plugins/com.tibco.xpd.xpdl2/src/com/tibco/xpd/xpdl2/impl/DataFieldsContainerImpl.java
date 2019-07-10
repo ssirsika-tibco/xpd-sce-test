@@ -27,22 +27,20 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataFieldsContainerImpl#getDataFields <em>Data Fields</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class DataFieldsContainerImpl extends EObjectImpl implements
-        DataFieldsContainer {
+public class DataFieldsContainerImpl extends EObjectImpl implements DataFieldsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDataFields() <em>Data Fields</em>}' containment reference list.
@@ -80,10 +78,8 @@ public class DataFieldsContainerImpl extends EObjectImpl implements
      */
     public EList<DataField> getDataFields() {
         if (dataFields == null) {
-            dataFields =
-                    new EObjectContainmentEList<DataField>(DataField.class,
-                            this,
-                            Xpdl2Package.DATA_FIELDS_CONTAINER__DATA_FIELDS);
+            dataFields = new EObjectContainmentEList<DataField>(DataField.class, this,
+                    Xpdl2Package.DATA_FIELDS_CONTAINER__DATA_FIELDS);
         }
         return dataFields;
     }
@@ -94,9 +90,8 @@ public class DataFieldsContainerImpl extends EObjectImpl implements
      * @generated NOT
      */
     public DataField getDataField(String id) {
-        return (DataField) EMFSearchUtil.findInList(getDataFields(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (DataField) EMFSearchUtil
+                .findInList(getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -105,12 +100,10 @@ public class DataFieldsContainerImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DATA_FIELDS_CONTAINER__DATA_FIELDS:
-            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }

@@ -30,6 +30,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopStandardImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopStandardImpl#getLoopCounter <em>Loop Counter</em>}</li>
@@ -38,7 +39,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopStandardImpl#getAttributeLoopCondition <em>Attribute Loop Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopStandardImpl#getLoopCondition <em>Loop Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -48,8 +48,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -109,8 +108,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
      * @generated
      * @ordered
      */
-    protected static final TestTimeType TEST_TIME_EDEFAULT =
-            TestTimeType.BEFORE_LITERAL;
+    protected static final TestTimeType TEST_TIME_EDEFAULT = TestTimeType.BEFORE_LITERAL;
 
     /**
      * The cached value of the '{@link #getTestTime() <em>Test Time</em>}' attribute.
@@ -187,9 +185,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.LOOP_STANDARD__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.LOOP_STANDARD__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -208,15 +204,12 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLoopCondition(Expression newLoopCondition,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLoopCondition(Expression newLoopCondition, NotificationChain msgs) {
         Expression oldLoopCondition = loopCondition;
         loopCondition = newLoopCondition;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
-                            oldLoopCondition, newLoopCondition);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION, oldLoopCondition, newLoopCondition);
             if (msgs == null)
                 msgs = notification;
             else
@@ -234,27 +227,20 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         if (newLoopCondition != loopCondition) {
             NotificationChain msgs = null;
             if (loopCondition != null)
-                msgs =
-                        ((InternalEObject) loopCondition)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) loopCondition).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
+                        null,
+                        msgs);
             if (newLoopCondition != null)
-                msgs =
-                        ((InternalEObject) newLoopCondition)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newLoopCondition).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
+                        null,
+                        msgs);
             msgs = basicSetLoopCondition(newLoopCondition, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION,
                     newLoopCondition, newLoopCondition));
     }
 
@@ -276,9 +262,8 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         BigInteger oldLoopCounter = loopCounter;
         loopCounter = newLoopCounter;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_STANDARD__LOOP_COUNTER, oldLoopCounter,
-                    loopCounter));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_STANDARD__LOOP_COUNTER,
+                    oldLoopCounter, loopCounter));
     }
 
     /**
@@ -299,9 +284,8 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         BigInteger oldLoopMaximum = loopMaximum;
         loopMaximum = newLoopMaximum;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_STANDARD__LOOP_MAXIMUM, oldLoopMaximum,
-                    loopMaximum));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_STANDARD__LOOP_MAXIMUM,
+                    oldLoopMaximum, loopMaximum));
     }
 
     /**
@@ -324,8 +308,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         boolean oldTestTimeESet = testTimeESet;
         testTimeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_STANDARD__TEST_TIME, oldTestTime,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_STANDARD__TEST_TIME, oldTestTime,
                     testTime, !oldTestTimeESet));
     }
 
@@ -340,8 +323,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         testTime = TEST_TIME_EDEFAULT;
         testTimeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.LOOP_STANDARD__TEST_TIME, oldTestTime,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.LOOP_STANDARD__TEST_TIME, oldTestTime,
                     TEST_TIME_EDEFAULT, oldTestTimeESet));
     }
 
@@ -372,8 +354,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         String oldAttributeLoopCondition = attributeLoopCondition;
         attributeLoopCondition = newAttributeLoopCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION,
                     oldAttributeLoopCondition, attributeLoopCondition));
     }
 
@@ -394,12 +375,10 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LOOP_STANDARD__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION:
             return basicSetLoopCondition(null, msgs);
         }
@@ -503,17 +482,14 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         case Xpdl2Package.LOOP_STANDARD__OTHER_ELEMENTS:
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.LOOP_STANDARD__LOOP_COUNTER:
-            return LOOP_COUNTER_EDEFAULT == null ? loopCounter != null
-                    : !LOOP_COUNTER_EDEFAULT.equals(loopCounter);
+            return LOOP_COUNTER_EDEFAULT == null ? loopCounter != null : !LOOP_COUNTER_EDEFAULT.equals(loopCounter);
         case Xpdl2Package.LOOP_STANDARD__LOOP_MAXIMUM:
-            return LOOP_MAXIMUM_EDEFAULT == null ? loopMaximum != null
-                    : !LOOP_MAXIMUM_EDEFAULT.equals(loopMaximum);
+            return LOOP_MAXIMUM_EDEFAULT == null ? loopMaximum != null : !LOOP_MAXIMUM_EDEFAULT.equals(loopMaximum);
         case Xpdl2Package.LOOP_STANDARD__TEST_TIME:
             return isSetTestTime();
         case Xpdl2Package.LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION:
             return ATTRIBUTE_LOOP_CONDITION_EDEFAULT == null ? attributeLoopCondition != null
-                    : !ATTRIBUTE_LOOP_CONDITION_EDEFAULT
-                            .equals(attributeLoopCondition);
+                    : !ATTRIBUTE_LOOP_CONDITION_EDEFAULT.equals(attributeLoopCondition);
         case Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION:
             return loopCondition != null;
         }
@@ -530,7 +506,7 @@ public class LoopStandardImpl extends EObjectImpl implements LoopStandard {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", loopCounter: "); //$NON-NLS-1$

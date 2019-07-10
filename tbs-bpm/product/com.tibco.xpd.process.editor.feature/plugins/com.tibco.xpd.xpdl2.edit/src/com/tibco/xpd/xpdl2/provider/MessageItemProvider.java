@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MessageItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,19 +80,18 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addFaultNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Message_faultName_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Message_faultName_feature", "_UI_Message_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.MESSAGE__FAULT_NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Message_faultName_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Message_faultName_feature", "_UI_Message_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.MESSAGE__FAULT_NAME,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -106,8 +102,7 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      */
     protected void addFromPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Message_from_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Message_from_feature", "_UI_Message_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -128,8 +123,7 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      */
     protected void addToPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Message_to_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Message_to_feature", "_UI_Message_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -151,14 +145,11 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS);
             childrenFeatures.add(Xpdl2Package.Literals.MESSAGE__DATA_MAPPINGS);
         }
         return childrenFeatures;
@@ -185,8 +176,7 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Message")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Message")); //$NON-NLS-1$
     }
 
     /**
@@ -217,14 +207,12 @@ public class MessageItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.MESSAGE__FAULT_NAME:
         case Xpdl2Package.MESSAGE__FROM:
         case Xpdl2Package.MESSAGE__TO:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.MESSAGE__OTHER_ELEMENTS:
         case Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS:
         case Xpdl2Package.MESSAGE__DATA_MAPPINGS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -238,17 +226,14 @@ public class MessageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS,
-                        Xpdl2Factory.eINSTANCE.createExpression()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS,
+                Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.MESSAGE__DATA_MAPPINGS,
-                        Xpdl2Factory.eINSTANCE.createDataMapping()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.MESSAGE__DATA_MAPPINGS,
+                Xpdl2Factory.eINSTANCE.createDataMapping()));
     }
 
 }

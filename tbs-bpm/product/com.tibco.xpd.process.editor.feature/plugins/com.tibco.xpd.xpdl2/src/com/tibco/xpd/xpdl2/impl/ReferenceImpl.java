@@ -27,12 +27,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ReferenceImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ReferenceImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ReferenceImpl#getActivityId <em>Activity Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,8 +42,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -111,9 +110,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.REFERENCE__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.REFERENCE__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -125,9 +122,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.REFERENCE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.REFERENCE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -150,8 +145,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
         String oldActivityId = activityId;
         activityId = newActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REFERENCE__ACTIVITY_ID, oldActivityId,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REFERENCE__ACTIVITY_ID, oldActivityId,
                     activityId));
     }
 
@@ -172,15 +166,12 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.REFERENCE__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.REFERENCE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -262,8 +253,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
         case Xpdl2Package.REFERENCE__OTHER_ELEMENTS:
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.REFERENCE__ACTIVITY_ID:
-            return ACTIVITY_ID_EDEFAULT == null ? activityId != null
-                    : !ACTIVITY_ID_EDEFAULT.equals(activityId);
+            return ACTIVITY_ID_EDEFAULT == null ? activityId != null : !ACTIVITY_ID_EDEFAULT.equals(activityId);
         }
         return super.eIsSet(featureID);
     }
@@ -330,7 +320,7 @@ public class ReferenceImpl extends ImplementationImpl implements Reference {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

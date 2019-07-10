@@ -19,22 +19,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeprecatedResultCompensationImpl#getActivityId <em>Activity Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class DeprecatedResultCompensationImpl extends EObjectImpl implements
-        DeprecatedResultCompensation {
+public class DeprecatedResultCompensationImpl extends EObjectImpl implements DeprecatedResultCompensation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getActivityId() <em>Activity Id</em>}' attribute.
@@ -94,8 +92,7 @@ public class DeprecatedResultCompensationImpl extends EObjectImpl implements
         activityId = newActivityId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DEPRECATED_RESULT_COMPENSATION__ACTIVITY_ID,
-                    oldActivityId, activityId));
+                    Xpdl2Package.DEPRECATED_RESULT_COMPENSATION__ACTIVITY_ID, oldActivityId, activityId));
     }
 
     /**
@@ -151,8 +148,7 @@ public class DeprecatedResultCompensationImpl extends EObjectImpl implements
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.DEPRECATED_RESULT_COMPENSATION__ACTIVITY_ID:
-            return ACTIVITY_ID_EDEFAULT == null ? activityId != null
-                    : !ACTIVITY_ID_EDEFAULT.equals(activityId);
+            return ACTIVITY_ID_EDEFAULT == null ? activityId != null : !ACTIVITY_ID_EDEFAULT.equals(activityId);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +163,7 @@ public class DeprecatedResultCompensationImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (activityId: "); //$NON-NLS-1$
         result.append(activityId);
         result.append(')');

@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Join#getIncomingCondtion <em>Incoming Condtion</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Join#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Join#getExclusiveType <em>Exclusive Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getJoin()
  * @model extendedMetaData="name='Join_._type' kind='elementOnly'"
@@ -32,8 +32,7 @@ public interface Join extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Incoming Condtion</b></em>' attribute.

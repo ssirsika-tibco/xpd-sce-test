@@ -13,11 +13,11 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ActivitySet#getObject <em>Object</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ActivitySet#getProcess <em>Process</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getActivitySet()
  * @model extendedMetaData="name='ActivitySet_._type' kind='elementOnly' features-order='activities transitions object'"
@@ -29,8 +29,7 @@ public interface ActivitySet extends NamedElement, FlowContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Object</b></em>' containment reference.

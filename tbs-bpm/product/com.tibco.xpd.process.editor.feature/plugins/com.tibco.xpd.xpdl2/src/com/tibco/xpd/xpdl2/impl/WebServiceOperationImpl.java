@@ -27,25 +27,23 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceOperationImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceOperationImpl#getPartner <em>Partner</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceOperationImpl#getService <em>Service</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceOperationImpl#getOperationName <em>Operation Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class WebServiceOperationImpl extends EObjectImpl implements
-        WebServiceOperation {
+public class WebServiceOperationImpl extends EObjectImpl implements WebServiceOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -123,10 +121,7 @@ public class WebServiceOperationImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(
-                            this,
-                            Xpdl2Package.WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -145,15 +140,12 @@ public class WebServiceOperationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPartner(Partner newPartner,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPartner(Partner newPartner, NotificationChain msgs) {
         Partner oldPartner = partner;
         partner = newPartner;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
-                            oldPartner, newPartner);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER, oldPartner, newPartner);
             if (msgs == null)
                 msgs = notification;
             else
@@ -171,28 +163,21 @@ public class WebServiceOperationImpl extends EObjectImpl implements
         if (newPartner != partner) {
             NotificationChain msgs = null;
             if (partner != null)
-                msgs =
-                        ((InternalEObject) partner)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) partner).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
+                        null,
+                        msgs);
             if (newPartner != null)
-                msgs =
-                        ((InternalEObject) newPartner)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newPartner).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
+                        null,
+                        msgs);
             msgs = basicSetPartner(newPartner, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER, newPartner,
-                    newPartner));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER,
+                    newPartner, newPartner));
     }
 
     /**
@@ -209,15 +194,12 @@ public class WebServiceOperationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetService(Service newService,
-            NotificationChain msgs) {
+    public NotificationChain basicSetService(Service newService, NotificationChain msgs) {
         Service oldService = service;
         service = newService;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
-                            oldService, newService);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE, oldService, newService);
             if (msgs == null)
                 msgs = notification;
             else
@@ -235,28 +217,21 @@ public class WebServiceOperationImpl extends EObjectImpl implements
         if (newService != service) {
             NotificationChain msgs = null;
             if (service != null)
-                msgs =
-                        ((InternalEObject) service)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) service).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
+                        null,
+                        msgs);
             if (newService != null)
-                msgs =
-                        ((InternalEObject) newService)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newService).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
+                        null,
+                        msgs);
             msgs = basicSetService(newService, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE, newService,
-                    newService));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE,
+                    newService, newService));
     }
 
     /**
@@ -277,8 +252,7 @@ public class WebServiceOperationImpl extends EObjectImpl implements
         String oldOperationName = operationName;
         operationName = newOperationName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_OPERATION__OPERATION_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_OPERATION__OPERATION_NAME,
                     oldOperationName, operationName));
     }
 
@@ -288,12 +262,10 @@ public class WebServiceOperationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.WEB_SERVICE_OPERATION__PARTNER:
             return basicSetPartner(null, msgs);
         case Xpdl2Package.WEB_SERVICE_OPERATION__SERVICE:
@@ -403,7 +375,7 @@ public class WebServiceOperationImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", operationName: "); //$NON-NLS-1$

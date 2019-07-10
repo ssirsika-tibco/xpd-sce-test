@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,8 +46,7 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public DeleteByCaseIdentifierTypeItemProvider(
-            AdapterFactory adapterFactory) {
+    public DeleteByCaseIdentifierTypeItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -77,21 +74,20 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addFieldPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DeleteByCaseIdentifierType_fieldPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DeleteByCaseIdentifierType_fieldPath_feature", //$NON-NLS-1$
-                        "_UI_DeleteByCaseIdentifierType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DeleteByCaseIdentifierType_fieldPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DeleteByCaseIdentifierType_fieldPath_feature", //$NON-NLS-1$
+                                "_UI_DeleteByCaseIdentifierType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,22 +97,20 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIdentifierNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DeleteByCaseIdentifierType_identifierName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DeleteByCaseIdentifierType_identifierName_feature", //$NON-NLS-1$
-                        "_UI_DeleteByCaseIdentifierType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DeleteByCaseIdentifierType_identifierName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DeleteByCaseIdentifierType_identifierName_feature", //$NON-NLS-1$
+                                "_UI_DeleteByCaseIdentifierType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,9 +121,7 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/DeleteByCaseIdentifierType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DeleteByCaseIdentifierType")); //$NON-NLS-1$
     }
 
     /**
@@ -140,11 +132,9 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label =
-                ((DeleteByCaseIdentifierType) object).getIdentifierName();
-        return label == null || label.length() == 0
-                ? getString("_UI_DeleteByCaseIdentifierType_type") //$NON-NLS-1$
-                : getString("_UI_DeleteByCaseIdentifierType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ((DeleteByCaseIdentifierType) object).getIdentifierName();
+        return label == null || label.length() == 0 ? getString("_UI_DeleteByCaseIdentifierType_type") : //$NON-NLS-1$
+                getString("_UI_DeleteByCaseIdentifierType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -161,8 +151,7 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(DeleteByCaseIdentifierType.class)) {
         case XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__FIELD_PATH:
         case XpdExtensionPackage.DELETE_BY_CASE_IDENTIFIER_TYPE__IDENTIFIER_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -176,8 +165,7 @@ public class DeleteByCaseIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

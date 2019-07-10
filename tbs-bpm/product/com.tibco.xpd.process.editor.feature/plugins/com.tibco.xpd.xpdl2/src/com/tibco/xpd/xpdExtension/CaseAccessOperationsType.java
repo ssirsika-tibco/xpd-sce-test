@@ -32,8 +32,7 @@ public interface CaseAccessOperationsType extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Case Class External Reference</b></em>' containment reference.
@@ -137,7 +136,6 @@ public interface CaseAccessOperationsType extends EObject {
      * @see #getDeleteByCompositeIdentifiers()
      * @generated
      */
-    void setDeleteByCompositeIdentifiers(
-            DeleteByCompositeIdentifiersType value);
+    void setDeleteByCompositeIdentifiers(DeleteByCompositeIdentifiersType value);
 
 } // CaseAccessOperationsType

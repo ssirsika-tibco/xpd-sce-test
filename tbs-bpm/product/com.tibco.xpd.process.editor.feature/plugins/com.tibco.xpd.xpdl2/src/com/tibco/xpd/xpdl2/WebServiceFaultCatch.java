@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceFaultCatch#getMessage <em>Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceFaultCatch#getBlockActivity <em>Block Activity</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceFaultCatch#getTransitionRef <em>Transition Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.WebServiceFaultCatch#getFaultName <em>Fault Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getWebServiceFaultCatch()
  * @model extendedMetaData="name='WebServiceFaultCatch_._type' kind='elementOnly'"
@@ -33,8 +33,7 @@ public interface WebServiceFaultCatch extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Message</b></em>' containment reference.

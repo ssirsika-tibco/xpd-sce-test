@@ -27,15 +27,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsdlEventAssociationImpl extends EObjectImpl
-        implements WsdlEventAssociation {
+public class WsdlEventAssociationImpl extends EObjectImpl implements WsdlEventAssociation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getEventId() <em>Event Id</em>}' attribute.
@@ -94,8 +92,7 @@ public class WsdlEventAssociationImpl extends EObjectImpl
         String oldEventId = eventId;
         eventId = newEventId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID,
                     oldEventId, eventId));
     }
 
@@ -152,8 +149,7 @@ public class WsdlEventAssociationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.WSDL_EVENT_ASSOCIATION__EVENT_ID:
-            return EVENT_ID_EDEFAULT == null ? eventId != null
-                    : !EVENT_ID_EDEFAULT.equals(eventId);
+            return EVENT_ID_EDEFAULT == null ? eventId != null : !EVENT_ID_EDEFAULT.equals(eventId);
         }
         return super.eIsSet(featureID);
     }
@@ -168,7 +164,7 @@ public class WsdlEventAssociationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (eventId: "); //$NON-NLS-1$
         result.append(eventId);
         result.append(')');

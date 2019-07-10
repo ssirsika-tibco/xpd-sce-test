@@ -25,22 +25,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EnumerationTypeImpl#getEnumerationValue <em>Enumeration Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class EnumerationTypeImpl extends DataTypeImpl implements
-        EnumerationType {
+public class EnumerationTypeImpl extends DataTypeImpl implements EnumerationType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getEnumerationValue() <em>Enumeration Value</em>}' containment reference list.
@@ -78,10 +76,8 @@ public class EnumerationTypeImpl extends DataTypeImpl implements
      */
     public EList<EnumerationValue> getEnumerationValue() {
         if (enumerationValue == null) {
-            enumerationValue =
-                    new EObjectContainmentEList<EnumerationValue>(
-                            EnumerationValue.class, this,
-                            Xpdl2Package.ENUMERATION_TYPE__ENUMERATION_VALUE);
+            enumerationValue = new EObjectContainmentEList<EnumerationValue>(EnumerationValue.class, this,
+                    Xpdl2Package.ENUMERATION_TYPE__ENUMERATION_VALUE);
         }
         return enumerationValue;
     }
@@ -92,12 +88,10 @@ public class EnumerationTypeImpl extends DataTypeImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ENUMERATION_TYPE__ENUMERATION_VALUE:
-            return ((InternalEList<?>) getEnumerationValue())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getEnumerationValue()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -127,8 +121,7 @@ public class EnumerationTypeImpl extends DataTypeImpl implements
         switch (featureID) {
         case Xpdl2Package.ENUMERATION_TYPE__ENUMERATION_VALUE:
             getEnumerationValue().clear();
-            getEnumerationValue()
-                    .addAll((Collection<? extends EnumerationValue>) newValue);
+            getEnumerationValue().addAll((Collection<? extends EnumerationValue>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

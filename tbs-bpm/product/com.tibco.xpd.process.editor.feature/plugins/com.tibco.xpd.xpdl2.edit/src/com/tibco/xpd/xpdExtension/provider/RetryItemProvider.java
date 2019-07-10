@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RetryItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RetryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,21 +76,18 @@ public class RetryItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMaxPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Retry_max_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_Retry_max_feature", //$NON-NLS-1$
-                        "_UI_Retry_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.RETRY__MAX,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_Retry_max_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", "_UI_Retry_max_feature", "_UI_Retry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        XpdExtensionPackage.Literals.RETRY__MAX,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -103,13 +98,10 @@ public class RetryItemProvider extends ItemProviderAdapter
      */
     protected void addInitialPeriodPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
                 getString("_UI_Retry_initialPeriod_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_Retry_initialPeriod_feature", //$NON-NLS-1$
-                        "_UI_Retry_type"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Retry_initialPeriod_feature", "_UI_Retry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 XpdExtensionPackage.Literals.RETRY__INITIAL_PERIOD,
                 true,
                 false,
@@ -127,13 +119,10 @@ public class RetryItemProvider extends ItemProviderAdapter
      */
     protected void addPeriodIncrementPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
                 getString("_UI_Retry_periodIncrement_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_Retry_periodIncrement_feature", //$NON-NLS-1$
-                        "_UI_Retry_type"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Retry_periodIncrement_feature", "_UI_Retry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 XpdExtensionPackage.Literals.RETRY__PERIOD_INCREMENT,
                 true,
                 false,
@@ -151,13 +140,10 @@ public class RetryItemProvider extends ItemProviderAdapter
      */
     protected void addMaxRetryActionPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
                 getString("_UI_Retry_maxRetryAction_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_Retry_maxRetryAction_feature", //$NON-NLS-1$
-                        "_UI_Retry_type"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Retry_maxRetryAction_feature", "_UI_Retry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 XpdExtensionPackage.Literals.RETRY__MAX_RETRY_ACTION,
                 true,
                 false,
@@ -175,8 +161,7 @@ public class RetryItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Retry")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Retry")); //$NON-NLS-1$
     }
 
     /**
@@ -207,8 +192,7 @@ public class RetryItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.RETRY__INITIAL_PERIOD:
         case XpdExtensionPackage.RETRY__PERIOD_INCREMENT:
         case XpdExtensionPackage.RETRY__MAX_RETRY_ACTION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -222,8 +206,7 @@ public class RetryItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

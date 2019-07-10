@@ -35,6 +35,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SubFlowImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SubFlowImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -48,7 +49,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SubFlowImpl#getStartActivitySetId <em>Start Activity Set Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SubFlowImpl#getEndPoint <em>End Point</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -58,8 +58,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -109,8 +108,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      * @generated
      * @ordered
      */
-    protected static final ExecutionType EXECUTION_EDEFAULT =
-            ExecutionType.SYNCHR_LITERAL;
+    protected static final ExecutionType EXECUTION_EDEFAULT = ExecutionType.SYNCHR_LITERAL;
 
     /**
      * The cached value of the '{@link #getExecution() <em>Execution</em>}' attribute.
@@ -267,9 +265,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.SUB_FLOW__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.SUB_FLOW__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -281,9 +277,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.SUB_FLOW__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.SUB_FLOW__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -295,9 +289,8 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      */
     public EList<Expression> getActualParameters() {
         if (actualParameters == null) {
-            actualParameters =
-                    new EObjectContainmentEList<Expression>(Expression.class,
-                            this, Xpdl2Package.SUB_FLOW__ACTUAL_PARAMETERS);
+            actualParameters = new EObjectContainmentEList<Expression>(Expression.class, this,
+                    Xpdl2Package.SUB_FLOW__ACTUAL_PARAMETERS);
         }
         return actualParameters;
     }
@@ -309,9 +302,8 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings =
-                    new EObjectContainmentEList<DataMapping>(DataMapping.class,
-                            this, Xpdl2Package.SUB_FLOW__DATA_MAPPINGS);
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
+                    Xpdl2Package.SUB_FLOW__DATA_MAPPINGS);
         }
         return dataMappings;
     }
@@ -336,9 +328,8 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         boolean oldExecutionESet = executionESet;
         executionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__EXECUTION, oldExecution, execution,
-                    !oldExecutionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__EXECUTION, oldExecution,
+                    execution, !oldExecutionESet));
     }
 
     /**
@@ -352,8 +343,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         execution = EXECUTION_EDEFAULT;
         executionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.SUB_FLOW__EXECUTION, oldExecution,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.SUB_FLOW__EXECUTION, oldExecution,
                     EXECUTION_EDEFAULT, oldExecutionESet));
     }
 
@@ -384,8 +374,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         String oldInstanceDataField = instanceDataField;
         instanceDataField = newInstanceDataField;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__INSTANCE_DATA_FIELD,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__INSTANCE_DATA_FIELD,
                     oldInstanceDataField, instanceDataField));
     }
 
@@ -407,8 +396,8 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         String oldProcessId = processId;
         processId = newProcessId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__PROCESS_ID, oldProcessId, processId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__PROCESS_ID, oldProcessId,
+                    processId));
     }
 
     /**
@@ -429,9 +418,8 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         String oldPackageRefId = packageRefId;
         packageRefId = newPackageRefId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__PACKAGE_REF_ID, oldPackageRefId,
-                    packageRefId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__PACKAGE_REF_ID,
+                    oldPackageRefId, packageRefId));
     }
 
     /**
@@ -452,8 +440,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         String oldStartActivityId = startActivityId;
         startActivityId = newStartActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__START_ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__START_ACTIVITY_ID,
                     oldStartActivityId, startActivityId));
     }
 
@@ -475,8 +462,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         String oldStartActivitySetId = startActivitySetId;
         startActivitySetId = newStartActivitySetId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__START_ACTIVITY_SET_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__START_ACTIVITY_SET_ID,
                     oldStartActivitySetId, startActivitySetId));
     }
 
@@ -494,15 +480,12 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEndPoint(EndPoint newEndPoint,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEndPoint(EndPoint newEndPoint, NotificationChain msgs) {
         EndPoint oldEndPoint = endPoint;
         endPoint = newEndPoint;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.SUB_FLOW__END_POINT, oldEndPoint,
-                            newEndPoint);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.SUB_FLOW__END_POINT, oldEndPoint, newEndPoint);
             if (msgs == null)
                 msgs = notification;
             else
@@ -520,25 +503,17 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         if (newEndPoint != endPoint) {
             NotificationChain msgs = null;
             if (endPoint != null)
-                msgs =
-                        ((InternalEObject) endPoint).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.SUB_FLOW__END_POINT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) endPoint)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.SUB_FLOW__END_POINT, null, msgs);
             if (newEndPoint != null)
-                msgs =
-                        ((InternalEObject) newEndPoint).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.SUB_FLOW__END_POINT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newEndPoint)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.SUB_FLOW__END_POINT, null, msgs);
             msgs = basicSetEndPoint(newEndPoint, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SUB_FLOW__END_POINT, newEndPoint, newEndPoint));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SUB_FLOW__END_POINT, newEndPoint,
+                    newEndPoint));
     }
 
     /**
@@ -558,21 +533,16 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.SUB_FLOW__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.SUB_FLOW__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.SUB_FLOW__ACTUAL_PARAMETERS:
-            return ((InternalEList<?>) getActualParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getActualParameters()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.SUB_FLOW__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.SUB_FLOW__END_POINT:
             return basicSetEndPoint(null, msgs);
         }
@@ -634,13 +604,11 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
             return;
         case Xpdl2Package.SUB_FLOW__ACTUAL_PARAMETERS:
             getActualParameters().clear();
-            getActualParameters()
-                    .addAll((Collection<? extends Expression>) newValue);
+            getActualParameters().addAll((Collection<? extends Expression>) newValue);
             return;
         case Xpdl2Package.SUB_FLOW__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case Xpdl2Package.SUB_FLOW__EXECUTION:
             setExecution((ExecutionType) newValue);
@@ -734,8 +702,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
             return INSTANCE_DATA_FIELD_EDEFAULT == null ? instanceDataField != null
                     : !INSTANCE_DATA_FIELD_EDEFAULT.equals(instanceDataField);
         case Xpdl2Package.SUB_FLOW__PROCESS_ID:
-            return PROCESS_ID_EDEFAULT == null ? processId != null
-                    : !PROCESS_ID_EDEFAULT.equals(processId);
+            return PROCESS_ID_EDEFAULT == null ? processId != null : !PROCESS_ID_EDEFAULT.equals(processId);
         case Xpdl2Package.SUB_FLOW__PACKAGE_REF_ID:
             return PACKAGE_REF_ID_EDEFAULT == null ? packageRefId != null
                     : !PACKAGE_REF_ID_EDEFAULT.equals(packageRefId);
@@ -744,8 +711,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
                     : !START_ACTIVITY_ID_EDEFAULT.equals(startActivityId);
         case Xpdl2Package.SUB_FLOW__START_ACTIVITY_SET_ID:
             return START_ACTIVITY_SET_ID_EDEFAULT == null ? startActivitySetId != null
-                    : !START_ACTIVITY_SET_ID_EDEFAULT
-                            .equals(startActivitySetId);
+                    : !START_ACTIVITY_SET_ID_EDEFAULT.equals(startActivitySetId);
         case Xpdl2Package.SUB_FLOW__END_POINT:
             return endPoint != null;
         }
@@ -814,7 +780,7 @@ public class SubFlowImpl extends ImplementationImpl implements SubFlow {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

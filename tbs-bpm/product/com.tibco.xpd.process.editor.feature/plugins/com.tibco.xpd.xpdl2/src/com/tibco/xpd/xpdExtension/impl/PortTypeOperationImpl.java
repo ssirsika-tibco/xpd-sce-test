@@ -32,15 +32,13 @@ import com.tibco.xpd.xpdl2.ExternalReference;
  *
  * @generated
  */
-public class PortTypeOperationImpl extends EObjectImpl
-        implements PortTypeOperation {
+public class PortTypeOperationImpl extends EObjectImpl implements PortTypeOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPortTypeName() <em>Port Type Name</em>}' attribute.
@@ -150,8 +148,7 @@ public class PortTypeOperationImpl extends EObjectImpl
         portTypeName = newPortTypeName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PORT_TYPE_OPERATION__PORT_TYPE_NAME,
-                    oldPortTypeName, portTypeName));
+                    XpdExtensionPackage.PORT_TYPE_OPERATION__PORT_TYPE_NAME, oldPortTypeName, portTypeName));
     }
 
     /**
@@ -173,8 +170,7 @@ public class PortTypeOperationImpl extends EObjectImpl
         operationName = newOperationName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PORT_TYPE_OPERATION__OPERATION_NAME,
-                    oldOperationName, operationName));
+                    XpdExtensionPackage.PORT_TYPE_OPERATION__OPERATION_NAME, oldOperationName, operationName));
     }
 
     /**
@@ -191,15 +187,13 @@ public class PortTypeOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExternalReference(
-            ExternalReference newExternalReference, NotificationChain msgs) {
+    public NotificationChain basicSetExternalReference(ExternalReference newExternalReference, NotificationChain msgs) {
         ExternalReference oldExternalReference = externalReference;
         externalReference = newExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
-                    oldExternalReference, newExternalReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE, oldExternalReference,
+                    newExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -217,17 +211,13 @@ public class PortTypeOperationImpl extends EObjectImpl
         if (newExternalReference != externalReference) {
             NotificationChain msgs = null;
             if (externalReference != null)
-                msgs = ((InternalEObject) externalReference).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
+                msgs = ((InternalEObject) externalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
                         null,
                         msgs);
             if (newExternalReference != null)
-                msgs = ((InternalEObject) newExternalReference).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
+                msgs = ((InternalEObject) newExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
                         null,
                         msgs);
             msgs = basicSetExternalReference(newExternalReference, msgs);
@@ -235,8 +225,8 @@ public class PortTypeOperationImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
-                    newExternalReference, newExternalReference));
+                    XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE, newExternalReference,
+                    newExternalReference));
     }
 
     /**
@@ -257,8 +247,7 @@ public class PortTypeOperationImpl extends EObjectImpl
         String oldTransport = transport;
         transport = newTransport;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PORT_TYPE_OPERATION__TRANSPORT,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.PORT_TYPE_OPERATION__TRANSPORT,
                     oldTransport, transport));
     }
 
@@ -268,8 +257,7 @@ public class PortTypeOperationImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE:
             return basicSetExternalReference(null, msgs);
@@ -362,8 +350,7 @@ public class PortTypeOperationImpl extends EObjectImpl
         case XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE:
             return externalReference != null;
         case XpdExtensionPackage.PORT_TYPE_OPERATION__TRANSPORT:
-            return TRANSPORT_EDEFAULT == null ? transport != null
-                    : !TRANSPORT_EDEFAULT.equals(transport);
+            return TRANSPORT_EDEFAULT == null ? transport != null : !TRANSPORT_EDEFAULT.equals(transport);
         }
         return super.eIsSet(featureID);
     }
@@ -378,7 +365,7 @@ public class PortTypeOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (portTypeName: "); //$NON-NLS-1$
         result.append(portTypeName);
         result.append(", operationName: "); //$NON-NLS-1$

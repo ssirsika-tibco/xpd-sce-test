@@ -37,6 +37,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataFieldImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataFieldImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -49,7 +50,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataFieldImpl#isCorrelation <em>Correlation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataFieldImpl#getDeprecatedDataIsArray <em>Deprecated Data Is Array</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -59,8 +59,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -264,10 +263,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.DATA_FIELD__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.DATA_FIELD__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -279,9 +276,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.DATA_FIELD__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.DATA_FIELD__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -300,15 +295,12 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDataType(DataType newDataType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDataType(DataType newDataType, NotificationChain msgs) {
         DataType oldDataType = dataType;
         dataType = newDataType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_FIELD__DATA_TYPE, oldDataType,
-                            newDataType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_FIELD__DATA_TYPE, oldDataType, newDataType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -326,25 +318,16 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         if (newDataType != dataType) {
             NotificationChain msgs = null;
             if (dataType != null)
-                msgs =
-                        ((InternalEObject) dataType).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__DATA_TYPE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) dataType)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__DATA_TYPE, null, msgs);
             if (newDataType != null)
-                msgs =
-                        ((InternalEObject) newDataType).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__DATA_TYPE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDataType)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__DATA_TYPE, null, msgs);
             msgs = basicSetDataType(newDataType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__DATA_TYPE, newDataType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__DATA_TYPE, newDataType,
                     newDataType));
     }
 
@@ -362,15 +345,12 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInitialValue(Expression newInitialValue,
-            NotificationChain msgs) {
+    public NotificationChain basicSetInitialValue(Expression newInitialValue, NotificationChain msgs) {
         Expression oldInitialValue = initialValue;
         initialValue = newInitialValue;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_FIELD__INITIAL_VALUE,
-                            oldInitialValue, newInitialValue);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_FIELD__INITIAL_VALUE, oldInitialValue, newInitialValue);
             if (msgs == null)
                 msgs = notification;
             else
@@ -388,28 +368,19 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         if (newInitialValue != initialValue) {
             NotificationChain msgs = null;
             if (initialValue != null)
-                msgs =
-                        ((InternalEObject) initialValue)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DATA_FIELD__INITIAL_VALUE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) initialValue).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__INITIAL_VALUE,
+                        null,
+                        msgs);
             if (newInitialValue != null)
-                msgs =
-                        ((InternalEObject) newInitialValue)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DATA_FIELD__INITIAL_VALUE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newInitialValue)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__INITIAL_VALUE, null, msgs);
             msgs = basicSetInitialValue(newInitialValue, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__INITIAL_VALUE, newInitialValue,
-                    newInitialValue));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__INITIAL_VALUE,
+                    newInitialValue, newInitialValue));
     }
 
     /**
@@ -426,15 +397,12 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLength(Length newLength,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLength(Length newLength, NotificationChain msgs) {
         Length oldLength = length;
         length = newLength;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_FIELD__LENGTH, oldLength,
-                            newLength);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_FIELD__LENGTH, oldLength, newLength);
             if (msgs == null)
                 msgs = notification;
             else
@@ -452,25 +420,17 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         if (newLength != length) {
             NotificationChain msgs = null;
             if (length != null)
-                msgs =
-                        ((InternalEObject) length).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__LENGTH,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) length)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__LENGTH, null, msgs);
             if (newLength != null)
-                msgs =
-                        ((InternalEObject) newLength).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__LENGTH,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newLength)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__LENGTH, null, msgs);
             msgs = basicSetLength(newLength, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__LENGTH, newLength, newLength));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__LENGTH, newLength,
+                    newLength));
     }
 
     /**
@@ -496,9 +456,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__IS_ARRAY, oldIsArray, isArray,
-                    !oldIsArrayESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__IS_ARRAY, oldIsArray,
+                    isArray, !oldIsArrayESet));
     }
 
     /**
@@ -515,15 +474,12 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DATA_FIELD__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_FIELD__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -541,25 +497,18 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.DATA_FIELD__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDescription)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DATA_FIELD__DESCRIPTION, null, msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__DESCRIPTION, newDescription,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__DESCRIPTION, newDescription,
                     newDescription));
     }
 
@@ -583,8 +532,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         boolean oldCorrelationESet = correlationESet;
         correlationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__CORRELATION, oldCorrelation,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__CORRELATION, oldCorrelation,
                     correlation, !oldCorrelationESet));
     }
 
@@ -599,9 +547,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         correlation = CORRELATION_EDEFAULT;
         correlationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_FIELD__CORRELATION, oldCorrelation,
-                    CORRELATION_EDEFAULT, oldCorrelationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DATA_FIELD__CORRELATION,
+                    oldCorrelation, CORRELATION_EDEFAULT, oldCorrelationESet));
     }
 
     /**
@@ -633,10 +580,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         boolean oldDeprecatedDataIsArrayESet = deprecatedDataIsArrayESet;
         deprecatedDataIsArrayESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY,
-                    oldDeprecatedDataIsArray, deprecatedDataIsArray,
-                    !oldDeprecatedDataIsArrayESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY,
+                    oldDeprecatedDataIsArray, deprecatedDataIsArray, !oldDeprecatedDataIsArrayESet));
     }
 
     /**
@@ -650,11 +595,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         deprecatedDataIsArray = DEPRECATED_DATA_IS_ARRAY_EDEFAULT;
         deprecatedDataIsArrayESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY,
-                    oldDeprecatedDataIsArray,
-                    DEPRECATED_DATA_IS_ARRAY_EDEFAULT,
-                    oldDeprecatedDataIsArrayESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY,
+                    oldDeprecatedDataIsArray, DEPRECATED_DATA_IS_ARRAY_EDEFAULT, oldDeprecatedDataIsArrayESet));
     }
 
     /**
@@ -697,9 +639,8 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         boolean oldReadOnlyESet = readOnlyESet;
         readOnlyESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_FIELD__READ_ONLY, oldReadOnly, readOnly,
-                    !oldReadOnlyESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_FIELD__READ_ONLY, oldReadOnly,
+                    readOnly, !oldReadOnlyESet));
     }
 
     /**
@@ -713,8 +654,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         readOnly = READ_ONLY_EDEFAULT;
         readOnlyESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_FIELD__READ_ONLY, oldReadOnly,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DATA_FIELD__READ_ONLY, oldReadOnly,
                     READ_ONLY_EDEFAULT, oldReadOnlyESet));
     }
 
@@ -738,8 +678,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_FIELD__IS_ARRAY, oldIsArray,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DATA_FIELD__IS_ARRAY, oldIsArray,
                     IS_ARRAY_EDEFAULT, oldIsArrayESet));
     }
 
@@ -758,21 +697,18 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DATA_FIELD__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.DATA_FIELD__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DATA_FIELD__DATA_TYPE:
             return basicSetDataType(null, msgs);
         case Xpdl2Package.DATA_FIELD__LENGTH:
             return basicSetLength(null, msgs);
         case Xpdl2Package.DATA_FIELD__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DATA_FIELD__INITIAL_VALUE:
             return basicSetInitialValue(null, msgs);
         }
@@ -842,8 +778,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
             return;
         case Xpdl2Package.DATA_FIELD__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.DATA_FIELD__INITIAL_VALUE:
             setInitialValue((Expression) newValue);
@@ -1010,7 +945,7 @@ public class DataFieldImpl extends NamedElementImpl implements DataField {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", isArray: "); //$NON-NLS-1$

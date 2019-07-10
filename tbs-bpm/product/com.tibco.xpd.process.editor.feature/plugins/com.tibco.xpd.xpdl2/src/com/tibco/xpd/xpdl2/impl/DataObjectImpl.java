@@ -32,6 +32,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataObjectImpl#getDataFields <em>Data Fields</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataObjectImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -39,7 +40,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataObjectImpl#isDeprecatedRequiredForStart <em>Deprecated Required For Start</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DataObjectImpl#getState <em>State</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -48,8 +48,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDataFields() <em>Data Fields</em>}' containment reference list.
@@ -77,8 +76,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      * @ordered
      */
-    protected static final boolean DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT =
-            false;
+    protected static final boolean DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isDeprecatedProducedAtCompletion() <em>Deprecated Produced At Completion</em>}' attribute.
@@ -88,8 +86,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      * @ordered
      */
-    protected boolean deprecatedProducedAtCompletion =
-            DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT;
+    protected boolean deprecatedProducedAtCompletion = DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT;
 
     /**
      * This is true if the Deprecated Produced At Completion attribute has been set.
@@ -108,8 +105,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      * @ordered
      */
-    protected static final boolean DEPRECATED_REQUIRED_FOR_START_EDEFAULT =
-            false;
+    protected static final boolean DEPRECATED_REQUIRED_FOR_START_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isDeprecatedRequiredForStart() <em>Deprecated Required For Start</em>}' attribute.
@@ -119,8 +115,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      * @ordered
      */
-    protected boolean deprecatedRequiredForStart =
-            DEPRECATED_REQUIRED_FOR_START_EDEFAULT;
+    protected boolean deprecatedRequiredForStart = DEPRECATED_REQUIRED_FOR_START_EDEFAULT;
 
     /**
      * This is true if the Deprecated Required For Start attribute has been set.
@@ -172,9 +167,8 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      */
     public EList<DataField> getDataFields() {
         if (dataFields == null) {
-            dataFields =
-                    new EObjectContainmentEList<DataField>(DataField.class,
-                            this, Xpdl2Package.DATA_OBJECT__DATA_FIELDS);
+            dataFields = new EObjectContainmentEList<DataField>(DataField.class, this,
+                    Xpdl2Package.DATA_OBJECT__DATA_FIELDS);
         }
         return dataFields;
     }
@@ -185,9 +179,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.DATA_OBJECT__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.DATA_OBJECT__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -206,22 +198,15 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedProducedAtCompletion(
-            boolean newDeprecatedProducedAtCompletion) {
-        boolean oldDeprecatedProducedAtCompletion =
-                deprecatedProducedAtCompletion;
+    public void setDeprecatedProducedAtCompletion(boolean newDeprecatedProducedAtCompletion) {
+        boolean oldDeprecatedProducedAtCompletion = deprecatedProducedAtCompletion;
         deprecatedProducedAtCompletion = newDeprecatedProducedAtCompletion;
-        boolean oldDeprecatedProducedAtCompletionESet =
-                deprecatedProducedAtCompletionESet;
+        boolean oldDeprecatedProducedAtCompletionESet = deprecatedProducedAtCompletionESet;
         deprecatedProducedAtCompletionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION,
-                    oldDeprecatedProducedAtCompletion,
-                    deprecatedProducedAtCompletion,
-                    !oldDeprecatedProducedAtCompletionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION, oldDeprecatedProducedAtCompletion,
+                    deprecatedProducedAtCompletion, !oldDeprecatedProducedAtCompletionESet));
     }
 
     /**
@@ -230,21 +215,14 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      */
     public void unsetDeprecatedProducedAtCompletion() {
-        boolean oldDeprecatedProducedAtCompletion =
-                deprecatedProducedAtCompletion;
-        boolean oldDeprecatedProducedAtCompletionESet =
-                deprecatedProducedAtCompletionESet;
-        deprecatedProducedAtCompletion =
-                DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT;
+        boolean oldDeprecatedProducedAtCompletion = deprecatedProducedAtCompletion;
+        boolean oldDeprecatedProducedAtCompletionESet = deprecatedProducedAtCompletionESet;
+        deprecatedProducedAtCompletion = DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT;
         deprecatedProducedAtCompletionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.UNSET,
-                    Xpdl2Package.DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION,
-                    oldDeprecatedProducedAtCompletion,
-                    DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT,
-                    oldDeprecatedProducedAtCompletionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET,
+                    Xpdl2Package.DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION, oldDeprecatedProducedAtCompletion,
+                    DEPRECATED_PRODUCED_AT_COMPLETION_EDEFAULT, oldDeprecatedProducedAtCompletionESet));
     }
 
     /**
@@ -270,18 +248,15 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedRequiredForStart(
-            boolean newDeprecatedRequiredForStart) {
+    public void setDeprecatedRequiredForStart(boolean newDeprecatedRequiredForStart) {
         boolean oldDeprecatedRequiredForStart = deprecatedRequiredForStart;
         deprecatedRequiredForStart = newDeprecatedRequiredForStart;
-        boolean oldDeprecatedRequiredForStartESet =
-                deprecatedRequiredForStartESet;
+        boolean oldDeprecatedRequiredForStartESet = deprecatedRequiredForStartESet;
         deprecatedRequiredForStartESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START,
-                    oldDeprecatedRequiredForStart, deprecatedRequiredForStart,
-                    !oldDeprecatedRequiredForStartESet));
+                    Xpdl2Package.DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START, oldDeprecatedRequiredForStart,
+                    deprecatedRequiredForStart, !oldDeprecatedRequiredForStartESet));
     }
 
     /**
@@ -291,16 +266,13 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      */
     public void unsetDeprecatedRequiredForStart() {
         boolean oldDeprecatedRequiredForStart = deprecatedRequiredForStart;
-        boolean oldDeprecatedRequiredForStartESet =
-                deprecatedRequiredForStartESet;
+        boolean oldDeprecatedRequiredForStartESet = deprecatedRequiredForStartESet;
         deprecatedRequiredForStart = DEPRECATED_REQUIRED_FOR_START_EDEFAULT;
         deprecatedRequiredForStartESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START,
-                    oldDeprecatedRequiredForStart,
-                    DEPRECATED_REQUIRED_FOR_START_EDEFAULT,
-                    oldDeprecatedRequiredForStartESet));
+                    Xpdl2Package.DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START, oldDeprecatedRequiredForStart,
+                    DEPRECATED_REQUIRED_FOR_START_EDEFAULT, oldDeprecatedRequiredForStartESet));
     }
 
     /**
@@ -328,8 +300,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
         String oldState = state;
         state = newState;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DATA_OBJECT__STATE, oldState, state));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DATA_OBJECT__STATE, oldState, state));
     }
 
     /**
@@ -347,9 +318,8 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated NOT
      */
     public DataField getDataField(String id) {
-        return (DataField) EMFSearchUtil.findInList(getDataFields(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (DataField) EMFSearchUtil
+                .findInList(getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -357,15 +327,12 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DATA_OBJECT__DATA_FIELDS:
-            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DATA_OBJECT__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -463,8 +430,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
         case Xpdl2Package.DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START:
             return isSetDeprecatedRequiredForStart();
         case Xpdl2Package.DATA_OBJECT__STATE:
-            return STATE_EDEFAULT == null ? state != null : !STATE_EDEFAULT
-                    .equals(state);
+            return STATE_EDEFAULT == null ? state != null : !STATE_EDEFAULT.equals(state);
         }
         return super.eIsSet(featureID);
     }
@@ -528,7 +494,7 @@ public class DataObjectImpl extends NamedElementImpl implements DataObject {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", deprecatedProducedAtCompletion: "); //$NON-NLS-1$

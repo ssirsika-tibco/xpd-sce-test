@@ -1793,6 +1793,17 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldFormat" unique="false"
+        lowerBound="1" eType="#//FieldFormat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Used on BasicType for expressing a specific format for a given base type (such as URI)"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="FieldFormat"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DurationCalculation">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2805,6 +2816,19 @@
       <details key="name" value="SoapBindingStyle:Object"/>
       <details key="baseType" value="SoapBindingStyle"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FieldFormat">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="FieldFormat"/>
+      </eAnnotations>
+      <details key="name" value="FieldFormat"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Added to the BasicType element of a field to elaborate on it's formatting options."/>
+    </eAnnotations>
+    <eLiterals name="URI" literal="URI"/>
+    <eLiterals name="Email" value="1" literal="Email"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuredDiscriminator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

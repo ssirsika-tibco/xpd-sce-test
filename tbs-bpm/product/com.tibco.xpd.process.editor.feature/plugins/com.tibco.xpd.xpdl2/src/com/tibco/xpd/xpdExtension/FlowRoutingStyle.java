@@ -57,8 +57,7 @@ public enum FlowRoutingStyle implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Uncentered On Tasks</b></em>' literal value.
@@ -112,8 +111,7 @@ public enum FlowRoutingStyle implements Enumerator {
      * @generated
      */
     private static final FlowRoutingStyle[] VALUES_ARRAY =
-            new FlowRoutingStyle[] { UNCENTERED_ON_TASKS, SINGLE_ENTRY_EXIT,
-                    MULTI_ENTRY_EXIT, };
+            new FlowRoutingStyle[] { UNCENTERED_ON_TASKS, SINGLE_ENTRY_EXIT, MULTI_ENTRY_EXIT, };
 
     /**
      * A public read-only list of all the '<em><b>Flow Routing Style</b></em>' enumerators.
@@ -121,8 +119,7 @@ public enum FlowRoutingStyle implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<FlowRoutingStyle> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<FlowRoutingStyle> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Flow Routing Style</b></em>' literal with the specified literal value.

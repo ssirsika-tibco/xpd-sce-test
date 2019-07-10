@@ -35,7 +35,7 @@ public interface XpdExtensionPackage extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The package name.
@@ -1862,13 +1862,22 @@ public interface XpdExtensionPackage extends EPackage {
     int DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR = 114;
 
     /**
+     * The feature id for the '<em><b>Field Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DOCUMENT_ROOT__FIELD_FORMAT = 115;
+
+    /**
      * The number of structural features of the '<em>Document Root</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DOCUMENT_ROOT_FEATURE_COUNT = 115;
+    int DOCUMENT_ROOT_FEATURE_COUNT = 116;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.impl.DurationCalculationImpl <em>Duration Calculation</em>}' class.
@@ -6699,6 +6708,16 @@ public interface XpdExtensionPackage extends EPackage {
     int SOAP_BINDING_STYLE = 129;
 
     /**
+     * The meta object id for the '{@link com.tibco.xpd.xpdExtension.FieldFormat <em>Field Format</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.tibco.xpd.xpdExtension.FieldFormat
+     * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFieldFormat()
+     * @generated
+     */
+    int FIELD_FORMAT = 130;
+
+    /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SubProcessStartStrategy <em>Sub Process Start Strategy</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6706,7 +6725,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSubProcessStartStrategy()
      * @generated
      */
-    int SUB_PROCESS_START_STRATEGY = 130;
+    int SUB_PROCESS_START_STRATEGY = 131;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SystemErrorActionType <em>System Error Action Type</em>}' enum.
@@ -6716,7 +6735,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSystemErrorActionType()
      * @generated
      */
-    int SYSTEM_ERROR_ACTION_TYPE = 131;
+    int SYSTEM_ERROR_ACTION_TYPE = 132;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.ValidationIssueOverrideType <em>Validation Issue Override Type</em>}' enum.
@@ -6726,7 +6745,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getValidationIssueOverrideType()
      * @generated
      */
-    int VALIDATION_ISSUE_OVERRIDE_TYPE = 132;
+    int VALIDATION_ISSUE_OVERRIDE_TYPE = 133;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.Visibility <em>Visibility</em>}' enum.
@@ -6736,7 +6755,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getVisibility()
      * @generated
      */
-    int VISIBILITY = 133;
+    int VISIBILITY = 134;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.DeliveryMode <em>Delivery Mode</em>}' enum.
@@ -6746,7 +6765,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDeliveryMode()
      * @generated
      */
-    int DELIVERY_MODE = 134;
+    int DELIVERY_MODE = 135;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.XpdModelType <em>Xpd Model Type</em>}' enum.
@@ -6756,7 +6775,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getXpdModelType()
      * @generated
      */
-    int XPD_MODEL_TYPE = 135;
+    int XPD_MODEL_TYPE = 136;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AdHocExecutionTypeType <em>Ad Hoc Execution Type Type</em>}' enum.
@@ -6766,7 +6785,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAdHocExecutionTypeType()
      * @generated
      */
-    int AD_HOC_EXECUTION_TYPE_TYPE = 136;
+    int AD_HOC_EXECUTION_TYPE_TYPE = 137;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.QueryExpressionJoinType <em>Query Expression Join Type</em>}' enum.
@@ -6776,7 +6795,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getQueryExpressionJoinType()
      * @generated
      */
-    int QUERY_EXPRESSION_JOIN_TYPE = 137;
+    int QUERY_EXPRESSION_JOIN_TYPE = 138;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.CMISQueryOperator <em>CMIS Query Operator</em>}' enum.
@@ -6786,7 +6805,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getCMISQueryOperator()
      * @generated
      */
-    int CMIS_QUERY_OPERATOR = 138;
+    int CMIS_QUERY_OPERATOR = 139;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.AsyncExecutionMode <em>Async Execution Mode</em>}' enum.
@@ -6796,7 +6815,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAsyncExecutionMode()
      * @generated
      */
-    int ASYNC_EXECUTION_MODE = 139;
+    int ASYNC_EXECUTION_MODE = 140;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.SignalType <em>Signal Type</em>}' enum.
@@ -6806,7 +6825,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSignalType()
      * @generated
      */
-    int SIGNAL_TYPE = 140;
+    int SIGNAL_TYPE = 141;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.XpdInterfaceType <em>Xpd Interface Type</em>}' enum.
@@ -6816,7 +6835,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getXpdInterfaceType()
      * @generated
      */
-    int XPD_INTERFACE_TYPE = 141;
+    int XPD_INTERFACE_TYPE = 142;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.DataMapperArrayInflationType <em>Data Mapper Array Inflation Type</em>}' enum.
@@ -6826,7 +6845,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getDataMapperArrayInflationType()
      * @generated
      */
-    int DATA_MAPPER_ARRAY_INFLATION_TYPE = 142;
+    int DATA_MAPPER_ARRAY_INFLATION_TYPE = 143;
 
     /**
      * The meta object id for the '{@link com.tibco.xpd.xpdExtension.BusinessServicePublishType <em>Business Service Publish Type</em>}' enum.
@@ -6836,7 +6855,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getBusinessServicePublishType()
      * @generated
      */
-    int BUSINESS_SERVICE_PUBLISH_TYPE = 143;
+    int BUSINESS_SERVICE_PUBLISH_TYPE = 144;
 
     /**
      * The meta object id for the '<em>Audit Event Type Object</em>' data type.
@@ -6846,7 +6865,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getAuditEventTypeObject()
      * @generated
      */
-    int AUDIT_EVENT_TYPE_OBJECT = 144;
+    int AUDIT_EVENT_TYPE_OBJECT = 145;
 
     /**
      * The meta object id for the '<em>Security Policy Object</em>' data type.
@@ -6856,7 +6875,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSecurityPolicyObject()
      * @generated
      */
-    int SECURITY_POLICY_OBJECT = 145;
+    int SECURITY_POLICY_OBJECT = 146;
 
     /**
      * The meta object id for the '<em>Soap Binding Style Object</em>' data type.
@@ -6866,7 +6885,7 @@ public interface XpdExtensionPackage extends EPackage {
      * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getSoapBindingStyleObject()
      * @generated
      */
-    int SOAP_BINDING_STYLE_OBJECT = 146;
+    int SOAP_BINDING_STYLE_OBJECT = 147;
 
     /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.ActivityRef <em>Activity Ref</em>}'.
@@ -8795,6 +8814,17 @@ public interface XpdExtensionPackage extends EPackage {
      * @generated
      */
     EAttribute getDocumentRoot_SuppressMaxMappingsError();
+
+    /**
+     * Returns the meta object for the attribute '{@link com.tibco.xpd.xpdExtension.DocumentRoot#getFieldFormat <em>Field Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Field Format</em>'.
+     * @see com.tibco.xpd.xpdExtension.DocumentRoot#getFieldFormat()
+     * @see #getDocumentRoot()
+     * @generated
+     */
+    EAttribute getDocumentRoot_FieldFormat();
 
     /**
      * Returns the meta object for class '{@link com.tibco.xpd.xpdExtension.DurationCalculation <em>Duration Calculation</em>}'.
@@ -12371,6 +12401,16 @@ public interface XpdExtensionPackage extends EPackage {
     EEnum getSoapBindingStyle();
 
     /**
+     * Returns the meta object for enum '{@link com.tibco.xpd.xpdExtension.FieldFormat <em>Field Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Field Format</em>'.
+     * @see com.tibco.xpd.xpdExtension.FieldFormat
+     * @generated
+     */
+    EEnum getFieldFormat();
+
+    /**
      * Returns the meta object for enum '{@link com.tibco.xpd.xpdExtension.SubProcessStartStrategy <em>Sub Process Start Strategy</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14042,6 +14082,14 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EAttribute DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR = eINSTANCE.getDocumentRoot_SuppressMaxMappingsError();
+
+        /**
+         * The meta object literal for the '<em><b>Field Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DOCUMENT_ROOT__FIELD_FORMAT = eINSTANCE.getDocumentRoot_FieldFormat();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.impl.DurationCalculationImpl <em>Duration Calculation</em>}' class.
@@ -17023,6 +17071,16 @@ public interface XpdExtensionPackage extends EPackage {
          * @generated
          */
         EEnum SOAP_BINDING_STYLE = eINSTANCE.getSoapBindingStyle();
+
+        /**
+         * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.FieldFormat <em>Field Format</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see com.tibco.xpd.xpdExtension.FieldFormat
+         * @see com.tibco.xpd.xpdExtension.impl.XpdExtensionPackageImpl#getFieldFormat()
+         * @generated
+         */
+        EEnum FIELD_FORMAT = eINSTANCE.getFieldFormat();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdExtension.SubProcessStartStrategy <em>Sub Process Start Strategy</em>}' enum.

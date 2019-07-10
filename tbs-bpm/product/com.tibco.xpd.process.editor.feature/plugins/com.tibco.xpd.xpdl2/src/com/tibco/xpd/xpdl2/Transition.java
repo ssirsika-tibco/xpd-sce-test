@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Transition#getCondition <em>Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Transition#getAssignments <em>Assignments</em>}</li>
@@ -24,21 +25,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.Transition#getTo <em>To</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Transition#getFlowContainer <em>Flow Container</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTransition()
  * @model extendedMetaData="name='Transition_._type' kind='elementOnly' features-order='condition description extendedAttributes assignments object connectorGraphicsInfos'"
  * @generated
  */
-public interface Transition extends NamedElement, ExtendedAttributesContainer,
-        GraphicalConnector, DescribedElement {
+public interface Transition extends NamedElement, ExtendedAttributesContainer, GraphicalConnector, DescribedElement {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Condition</b></em>' containment reference.

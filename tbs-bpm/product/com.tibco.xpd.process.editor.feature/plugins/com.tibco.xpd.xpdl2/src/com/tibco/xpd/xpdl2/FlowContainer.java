@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.FlowContainer#getActivities <em>Activities</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.FlowContainer#getTransitions <em>Transitions</em>}</li>
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.FlowContainer#getAdHocOrdering <em>Ad Hoc Ordering</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.FlowContainer#getDefaultStartActivityId <em>Default Start Activity Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getFlowContainer()
  * @model interface="true" abstract="true"
@@ -36,8 +36,7 @@ public interface FlowContainer extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Activities</b></em>' containment reference list.

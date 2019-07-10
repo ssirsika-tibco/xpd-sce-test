@@ -22,23 +22,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConformanceClassImpl#getGraphConformance <em>Graph Conformance</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConformanceClassImpl#getBpmnModelPortabilityConformance <em>Bpmn Model Portability Conformance</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ConformanceClassImpl extends EObjectImpl implements
-        ConformanceClass {
+public class ConformanceClassImpl extends EObjectImpl implements ConformanceClass {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getGraphConformance() <em>Graph Conformance</em>}' attribute.
@@ -48,8 +46,7 @@ public class ConformanceClassImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected static final GraphConformanceType GRAPH_CONFORMANCE_EDEFAULT =
-            GraphConformanceType.NON_BLOCKED_LITERAL;
+    protected static final GraphConformanceType GRAPH_CONFORMANCE_EDEFAULT = GraphConformanceType.NON_BLOCKED_LITERAL;
 
     /**
      * The cached value of the '{@link #getGraphConformance() <em>Graph Conformance</em>}' attribute.
@@ -59,8 +56,7 @@ public class ConformanceClassImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected GraphConformanceType graphConformance =
-            GRAPH_CONFORMANCE_EDEFAULT;
+    protected GraphConformanceType graphConformance = GRAPH_CONFORMANCE_EDEFAULT;
 
     /**
      * This is true if the Graph Conformance attribute has been set.
@@ -128,16 +124,12 @@ public class ConformanceClassImpl extends EObjectImpl implements
      */
     public void setGraphConformance(GraphConformanceType newGraphConformance) {
         GraphConformanceType oldGraphConformance = graphConformance;
-        graphConformance =
-                newGraphConformance == null ? GRAPH_CONFORMANCE_EDEFAULT
-                        : newGraphConformance;
+        graphConformance = newGraphConformance == null ? GRAPH_CONFORMANCE_EDEFAULT : newGraphConformance;
         boolean oldGraphConformanceESet = graphConformanceESet;
         graphConformanceESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONFORMANCE_CLASS__GRAPH_CONFORMANCE,
-                    oldGraphConformance, graphConformance,
-                    !oldGraphConformanceESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONFORMANCE_CLASS__GRAPH_CONFORMANCE,
+                    oldGraphConformance, graphConformance, !oldGraphConformanceESet));
     }
 
     /**
@@ -151,10 +143,8 @@ public class ConformanceClassImpl extends EObjectImpl implements
         graphConformance = GRAPH_CONFORMANCE_EDEFAULT;
         graphConformanceESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.CONFORMANCE_CLASS__GRAPH_CONFORMANCE,
-                    oldGraphConformance, GRAPH_CONFORMANCE_EDEFAULT,
-                    oldGraphConformanceESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.CONFORMANCE_CLASS__GRAPH_CONFORMANCE,
+                    oldGraphConformance, GRAPH_CONFORMANCE_EDEFAULT, oldGraphConformanceESet));
     }
 
     /**
@@ -180,20 +170,15 @@ public class ConformanceClassImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBpmnModelPortabilityConformance(
-            BPMNModelPortabilityConformance newBpmnModelPortabilityConformance) {
-        BPMNModelPortabilityConformance oldBpmnModelPortabilityConformance =
-                bpmnModelPortabilityConformance;
+    public void setBpmnModelPortabilityConformance(BPMNModelPortabilityConformance newBpmnModelPortabilityConformance) {
+        BPMNModelPortabilityConformance oldBpmnModelPortabilityConformance = bpmnModelPortabilityConformance;
         bpmnModelPortabilityConformance =
                 newBpmnModelPortabilityConformance == null ? BPMN_MODEL_PORTABILITY_CONFORMANCE_EDEFAULT
                         : newBpmnModelPortabilityConformance;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     Xpdl2Package.CONFORMANCE_CLASS__BPMN_MODEL_PORTABILITY_CONFORMANCE,
-                    oldBpmnModelPortabilityConformance,
-                    bpmnModelPortabilityConformance));
+                    oldBpmnModelPortabilityConformance, bpmnModelPortabilityConformance));
     }
 
     /**
@@ -274,7 +259,7 @@ public class ConformanceClassImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (graphConformance: "); //$NON-NLS-1$
         if (graphConformanceESet)
             result.append(graphConformance);

@@ -43,8 +43,7 @@ public class AuditImpl extends EObjectImpl implements Audit {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAuditEvent() <em>Audit Event</em>}' containment reference list.
@@ -92,9 +91,8 @@ public class AuditImpl extends EObjectImpl implements Audit {
      */
     public EList<AuditEvent> getAuditEvent() {
         if (auditEvent == null) {
-            auditEvent =
-                    new EObjectContainmentEList<AuditEvent>(AuditEvent.class,
-                            this, XpdExtensionPackage.AUDIT__AUDIT_EVENT);
+            auditEvent = new EObjectContainmentEList<AuditEvent>(AuditEvent.class, this,
+                    XpdExtensionPackage.AUDIT__AUDIT_EVENT);
         }
         return auditEvent;
     }
@@ -117,12 +115,10 @@ public class AuditImpl extends EObjectImpl implements Audit {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.AUDIT__AUDIT_EVENT:
-            return ((InternalEList<?>) getAuditEvent()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAuditEvent()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.AUDIT__ANY:
             return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
         }
@@ -211,7 +207,7 @@ public class AuditImpl extends EObjectImpl implements Audit {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (any: "); //$NON-NLS-1$
         result.append(any);
         result.append(')');

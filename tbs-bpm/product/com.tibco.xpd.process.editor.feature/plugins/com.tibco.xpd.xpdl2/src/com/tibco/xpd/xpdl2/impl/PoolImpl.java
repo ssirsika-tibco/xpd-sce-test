@@ -40,6 +40,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PoolImpl#getNodeGraphicsInfos <em>Node Graphics Infos</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PoolImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -52,7 +53,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PoolImpl#getParentPackage <em>Parent Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PoolImpl#isMainPool <em>Main Pool</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -62,8 +62,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getNodeGraphicsInfos() <em>Node Graphics Infos</em>}' containment reference list.
@@ -142,8 +141,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * @generated
      * @ordered
      */
-    protected static final OrientationType ORIENTATION_EDEFAULT =
-            OrientationType.HORIZONTAL_LITERAL;
+    protected static final OrientationType ORIENTATION_EDEFAULT = OrientationType.HORIZONTAL_LITERAL;
 
     /**
      * The cached value of the '{@link #getOrientation() <em>Orientation</em>}' attribute.
@@ -250,10 +248,8 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      */
     public EList<NodeGraphicsInfo> getNodeGraphicsInfos() {
         if (nodeGraphicsInfos == null) {
-            nodeGraphicsInfos =
-                    new EObjectContainmentEList<NodeGraphicsInfo>(
-                            NodeGraphicsInfo.class, this,
-                            Xpdl2Package.POOL__NODE_GRAPHICS_INFOS);
+            nodeGraphicsInfos = new EObjectContainmentEList<NodeGraphicsInfo>(NodeGraphicsInfo.class, this,
+                    Xpdl2Package.POOL__NODE_GRAPHICS_INFOS);
         }
         return nodeGraphicsInfos;
     }
@@ -265,8 +261,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this, Xpdl2Package.POOL__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.POOL__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -278,10 +273,8 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      */
     public EList<Lane> getLanes() {
         if (lanes == null) {
-            lanes =
-                    new EObjectContainmentWithInverseEList<Lane>(Lane.class,
-                            this, Xpdl2Package.POOL__LANES,
-                            Xpdl2Package.LANE__PARENT_POOL);
+            lanes = new EObjectContainmentWithInverseEList<Lane>(Lane.class, this, Xpdl2Package.POOL__LANES,
+                    Xpdl2Package.LANE__PARENT_POOL);
         }
         return lanes;
     }
@@ -300,14 +293,12 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.POOL__OBJECT, oldObject, newObject);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -325,25 +316,16 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.POOL__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.POOL__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.POOL__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.POOL__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__OBJECT, newObject, newObject));
     }
 
     /**
@@ -366,9 +348,8 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         boolean oldBoundaryVisibleESet = boundaryVisibleESet;
         boundaryVisibleESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__BOUNDARY_VISIBLE, oldBoundaryVisible,
-                    boundaryVisible, !oldBoundaryVisibleESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__BOUNDARY_VISIBLE,
+                    oldBoundaryVisible, boundaryVisible, !oldBoundaryVisibleESet));
     }
 
     /**
@@ -382,9 +363,8 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         boundaryVisible = BOUNDARY_VISIBLE_EDEFAULT;
         boundaryVisibleESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.POOL__BOUNDARY_VISIBLE, oldBoundaryVisible,
-                    BOUNDARY_VISIBLE_EDEFAULT, oldBoundaryVisibleESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.POOL__BOUNDARY_VISIBLE,
+                    oldBoundaryVisible, BOUNDARY_VISIBLE_EDEFAULT, oldBoundaryVisibleESet));
     }
 
     /**
@@ -412,13 +392,11 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      */
     public void setOrientation(OrientationType newOrientation) {
         OrientationType oldOrientation = orientation;
-        orientation =
-                newOrientation == null ? ORIENTATION_EDEFAULT : newOrientation;
+        orientation = newOrientation == null ? ORIENTATION_EDEFAULT : newOrientation;
         boolean oldOrientationESet = orientationESet;
         orientationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__ORIENTATION, oldOrientation,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__ORIENTATION, oldOrientation,
                     orientation, !oldOrientationESet));
     }
 
@@ -433,8 +411,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         orientation = ORIENTATION_EDEFAULT;
         orientationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.POOL__ORIENTATION, oldOrientation,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.POOL__ORIENTATION, oldOrientation,
                     ORIENTATION_EDEFAULT, oldOrientationESet));
     }
 
@@ -465,8 +442,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         String oldParticipantId = participantId;
         participantId = newParticipantId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__PARTICIPANT_ID, oldParticipantId,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__PARTICIPANT_ID, oldParticipantId,
                     participantId));
     }
 
@@ -488,8 +464,8 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         String oldProcessId = processId;
         processId = newProcessId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__PROCESS_ID, oldProcessId, processId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__PROCESS_ID, oldProcessId,
+                    processId));
     }
 
     /**
@@ -508,12 +484,9 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentPackage(
-            com.tibco.xpd.xpdl2.Package newParentPackage, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newParentPackage,
-                        Xpdl2Package.POOL__PARENT_PACKAGE,
-                        msgs);
+    public NotificationChain basicSetParentPackage(com.tibco.xpd.xpdl2.Package newParentPackage,
+            NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newParentPackage, Xpdl2Package.POOL__PARENT_PACKAGE, msgs);
         return msgs;
     }
 
@@ -526,23 +499,18 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         if (newParentPackage != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.POOL__PARENT_PACKAGE && newParentPackage != null)) {
             if (EcoreUtil.isAncestor(this, newParentPackage))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newParentPackage != null)
-                msgs =
-                        ((InternalEObject) newParentPackage).eInverseAdd(this,
-                                Xpdl2Package.PACKAGE__POOLS,
-                                com.tibco.xpd.xpdl2.Package.class,
-                                msgs);
+                msgs = ((InternalEObject) newParentPackage)
+                        .eInverseAdd(this, Xpdl2Package.PACKAGE__POOLS, com.tibco.xpd.xpdl2.Package.class, msgs);
             msgs = basicSetParentPackage(newParentPackage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__PARENT_PACKAGE, newParentPackage,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__PARENT_PACKAGE, newParentPackage,
                     newParentPackage));
     }
 
@@ -564,8 +532,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         boolean oldMainPool = mainPool;
         mainPool = newMainPool;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POOL__MAIN_POOL, oldMainPool, mainPool));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POOL__MAIN_POOL, oldMainPool, mainPool));
     }
 
     /**
@@ -602,9 +569,9 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         if (getParentPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getParentPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Target(), getId());
+        return EMFSearchUtil.findManyInList(getParentPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Target(),
+                getId());
     }
 
     /**
@@ -616,9 +583,9 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         if (getParentPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getParentPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Source(), getId());
+        return EMFSearchUtil.findManyInList(getParentPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Source(),
+                getId());
     }
 
     /**
@@ -627,9 +594,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * @generated NOT
      */
     public Lane getLane(String id) {
-        return (Lane) EMFSearchUtil.findInList(getLanes(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Lane) EMFSearchUtil.findInList(getLanes(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -648,17 +613,14 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.POOL__LANES:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getLanes())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getLanes()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.POOL__PARENT_PACKAGE:
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetParentPackage((com.tibco.xpd.xpdl2.Package) otherEnd,
-                    msgs);
+            return basicSetParentPackage((com.tibco.xpd.xpdl2.Package) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -669,15 +631,12 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.POOL__NODE_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getNodeGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNodeGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.POOL__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.POOL__LANES:
             return ((InternalEList<?>) getLanes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.POOL__OBJECT:
@@ -694,14 +653,11 @@ public class PoolImpl extends NamedElementImpl implements Pool {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.POOL__PARENT_PACKAGE:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PACKAGE__POOLS,
-                    com.tibco.xpd.xpdl2.Package.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PACKAGE__POOLS, com.tibco.xpd.xpdl2.Package.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -751,8 +707,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         switch (featureID) {
         case Xpdl2Package.POOL__NODE_GRAPHICS_INFOS:
             getNodeGraphicsInfos().clear();
-            getNodeGraphicsInfos()
-                    .addAll((Collection<? extends NodeGraphicsInfo>) newValue);
+            getNodeGraphicsInfos().addAll((Collection<? extends NodeGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.POOL__OTHER_ELEMENTS:
             ((FeatureMap.Internal) getOtherElements()).set(newValue);
@@ -852,8 +807,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
             return PARTICIPANT_ID_EDEFAULT == null ? participantId != null
                     : !PARTICIPANT_ID_EDEFAULT.equals(participantId);
         case Xpdl2Package.POOL__PROCESS_ID:
-            return PROCESS_ID_EDEFAULT == null ? processId != null
-                    : !PROCESS_ID_EDEFAULT.equals(processId);
+            return PROCESS_ID_EDEFAULT == null ? processId != null : !PROCESS_ID_EDEFAULT.equals(processId);
         case Xpdl2Package.POOL__PARENT_PACKAGE:
             return getParentPackage() != null;
         case Xpdl2Package.POOL__MAIN_POOL:
@@ -924,7 +878,7 @@ public class PoolImpl extends NamedElementImpl implements Pool {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", boundaryVisible: "); //$NON-NLS-1$

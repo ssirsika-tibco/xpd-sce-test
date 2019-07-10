@@ -23,12 +23,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.JoinImpl#getIncomingCondtion <em>Incoming Condtion</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.JoinImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.JoinImpl#getExclusiveType <em>Exclusive Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -38,8 +38,7 @@ public class JoinImpl extends EObjectImpl implements Join {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getIncomingCondtion() <em>Incoming Condtion</em>}' attribute.
@@ -69,8 +68,7 @@ public class JoinImpl extends EObjectImpl implements Join {
      * @generated
      * @ordered
      */
-    protected static final JoinSplitType TYPE_EDEFAULT =
-            JoinSplitType.DEPRECATED_AND_LITERAL;
+    protected static final JoinSplitType TYPE_EDEFAULT = JoinSplitType.DEPRECATED_AND_LITERAL;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -99,8 +97,7 @@ public class JoinImpl extends EObjectImpl implements Join {
      * @generated
      * @ordered
      */
-    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT =
-            ExclusiveType.DATA;
+    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT = ExclusiveType.DATA;
 
     /**
      * The cached value of the '{@link #getExclusiveType() <em>Exclusive Type</em>}' attribute.
@@ -158,9 +155,8 @@ public class JoinImpl extends EObjectImpl implements Join {
         String oldIncomingCondtion = incomingCondtion;
         incomingCondtion = newIncomingCondtion;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.JOIN__INCOMING_CONDTION, oldIncomingCondtion,
-                    incomingCondtion));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.JOIN__INCOMING_CONDTION,
+                    oldIncomingCondtion, incomingCondtion));
     }
 
     /**
@@ -183,8 +179,8 @@ public class JoinImpl extends EObjectImpl implements Join {
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.JOIN__TYPE, oldType, type, !oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.JOIN__TYPE, oldType, type,
+                    !oldTypeESet));
     }
 
     /**
@@ -198,8 +194,7 @@ public class JoinImpl extends EObjectImpl implements Join {
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.JOIN__TYPE, oldType, TYPE_EDEFAULT,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.JOIN__TYPE, oldType, TYPE_EDEFAULT,
                     oldTypeESet));
     }
 
@@ -228,14 +223,11 @@ public class JoinImpl extends EObjectImpl implements Join {
      */
     public void setExclusiveType(ExclusiveType newExclusiveType) {
         ExclusiveType oldExclusiveType = exclusiveType;
-        exclusiveType =
-                newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT
-                        : newExclusiveType;
+        exclusiveType = newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT : newExclusiveType;
         boolean oldExclusiveTypeESet = exclusiveTypeESet;
         exclusiveTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.JOIN__EXCLUSIVE_TYPE, oldExclusiveType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.JOIN__EXCLUSIVE_TYPE, oldExclusiveType,
                     exclusiveType, !oldExclusiveTypeESet));
     }
 
@@ -250,8 +242,7 @@ public class JoinImpl extends EObjectImpl implements Join {
         exclusiveType = EXCLUSIVE_TYPE_EDEFAULT;
         exclusiveTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.JOIN__EXCLUSIVE_TYPE, oldExclusiveType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.JOIN__EXCLUSIVE_TYPE, oldExclusiveType,
                     EXCLUSIVE_TYPE_EDEFAULT, oldExclusiveTypeESet));
     }
 
@@ -353,7 +344,7 @@ public class JoinImpl extends EObjectImpl implements Join {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (incomingCondtion: "); //$NON-NLS-1$
         result.append(incomingCondtion);
         result.append(", type: "); //$NON-NLS-1$

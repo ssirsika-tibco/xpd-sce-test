@@ -31,13 +31,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SplitImpl#getTransitionRefs <em>Transition Refs</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SplitImpl#getOutgoingCondition <em>Outgoing Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SplitImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SplitImpl#getExclusiveType <em>Exclusive Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -47,8 +47,7 @@ public class SplitImpl extends EObjectImpl implements Split {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getTransitionRefs() <em>Transition Refs</em>}' containment reference list.
@@ -88,8 +87,7 @@ public class SplitImpl extends EObjectImpl implements Split {
      * @generated
      * @ordered
      */
-    protected static final JoinSplitType TYPE_EDEFAULT =
-            JoinSplitType.DEPRECATED_AND_LITERAL;
+    protected static final JoinSplitType TYPE_EDEFAULT = JoinSplitType.DEPRECATED_AND_LITERAL;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -118,8 +116,7 @@ public class SplitImpl extends EObjectImpl implements Split {
      * @generated
      * @ordered
      */
-    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT =
-            ExclusiveType.DATA;
+    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT = ExclusiveType.DATA;
 
     /**
      * The cached value of the '{@link #getExclusiveType() <em>Exclusive Type</em>}' attribute.
@@ -166,10 +163,8 @@ public class SplitImpl extends EObjectImpl implements Split {
      */
     public EList<TransitionRef> getTransitionRefs() {
         if (transitionRefs == null) {
-            transitionRefs =
-                    new EObjectContainmentEList<TransitionRef>(
-                            TransitionRef.class, this,
-                            Xpdl2Package.SPLIT__TRANSITION_REFS);
+            transitionRefs = new EObjectContainmentEList<TransitionRef>(TransitionRef.class, this,
+                    Xpdl2Package.SPLIT__TRANSITION_REFS);
         }
         return transitionRefs;
     }
@@ -192,8 +187,7 @@ public class SplitImpl extends EObjectImpl implements Split {
         String oldOutgoingCondition = outgoingCondition;
         outgoingCondition = newOutgoingCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SPLIT__OUTGOING_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SPLIT__OUTGOING_CONDITION,
                     oldOutgoingCondition, outgoingCondition));
     }
 
@@ -217,8 +211,8 @@ public class SplitImpl extends EObjectImpl implements Split {
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SPLIT__TYPE, oldType, type, !oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SPLIT__TYPE, oldType, type,
+                    !oldTypeESet));
     }
 
     /**
@@ -232,8 +226,7 @@ public class SplitImpl extends EObjectImpl implements Split {
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.SPLIT__TYPE, oldType, TYPE_EDEFAULT,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.SPLIT__TYPE, oldType, TYPE_EDEFAULT,
                     oldTypeESet));
     }
 
@@ -262,14 +255,11 @@ public class SplitImpl extends EObjectImpl implements Split {
      */
     public void setExclusiveType(ExclusiveType newExclusiveType) {
         ExclusiveType oldExclusiveType = exclusiveType;
-        exclusiveType =
-                newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT
-                        : newExclusiveType;
+        exclusiveType = newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT : newExclusiveType;
         boolean oldExclusiveTypeESet = exclusiveTypeESet;
         exclusiveTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SPLIT__EXCLUSIVE_TYPE, oldExclusiveType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SPLIT__EXCLUSIVE_TYPE, oldExclusiveType,
                     exclusiveType, !oldExclusiveTypeESet));
     }
 
@@ -284,9 +274,8 @@ public class SplitImpl extends EObjectImpl implements Split {
         exclusiveType = EXCLUSIVE_TYPE_EDEFAULT;
         exclusiveTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.SPLIT__EXCLUSIVE_TYPE, oldExclusiveType,
-                    EXCLUSIVE_TYPE_EDEFAULT, oldExclusiveTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.SPLIT__EXCLUSIVE_TYPE,
+                    oldExclusiveType, EXCLUSIVE_TYPE_EDEFAULT, oldExclusiveTypeESet));
     }
 
     /**
@@ -304,12 +293,10 @@ public class SplitImpl extends EObjectImpl implements Split {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.SPLIT__TRANSITION_REFS:
-            return ((InternalEList<?>) getTransitionRefs())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getTransitionRefs()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -345,8 +332,7 @@ public class SplitImpl extends EObjectImpl implements Split {
         switch (featureID) {
         case Xpdl2Package.SPLIT__TRANSITION_REFS:
             getTransitionRefs().clear();
-            getTransitionRefs()
-                    .addAll((Collection<? extends TransitionRef>) newValue);
+            getTransitionRefs().addAll((Collection<? extends TransitionRef>) newValue);
             return;
         case Xpdl2Package.SPLIT__OUTGOING_CONDITION:
             setOutgoingCondition((String) newValue);
@@ -416,7 +402,7 @@ public class SplitImpl extends EObjectImpl implements Split {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (outgoingCondition: "); //$NON-NLS-1$
         result.append(outgoingCondition);
         result.append(", type: "); //$NON-NLS-1$

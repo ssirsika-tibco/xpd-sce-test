@@ -79,8 +79,7 @@ public enum ParticipantType implements Enumerator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>RESOURCE SET</b></em>' literal value.
@@ -179,22 +178,21 @@ public enum ParticipantType implements Enumerator {
      * 
      * @generated
      */
-    private static final ParticipantType[] VALUES_ARRAY =
-            new ParticipantType[] { RESOURCE_SET_LITERAL, RESOURCE_LITERAL,
-                    ROLE_LITERAL, ORGANIZATIONAL_UNIT_LITERAL, HUMAN_LITERAL,
-                    SYSTEM_LITERAL, };
+    private static final ParticipantType[] VALUES_ARRAY = new ParticipantType[] { RESOURCE_SET_LITERAL,
+            RESOURCE_LITERAL, ROLE_LITERAL, ORGANIZATIONAL_UNIT_LITERAL, HUMAN_LITERAL, SYSTEM_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Participant Type</b></em>' enumerators.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ParticipantType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ParticipantType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Participant Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParticipantType get(String literal) {
@@ -210,6 +208,8 @@ public enum ParticipantType implements Enumerator {
     /**
      * Returns the '<em><b>Participant Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParticipantType getByName(String name) {
@@ -225,6 +225,8 @@ public enum ParticipantType implements Enumerator {
     /**
      * Returns the '<em><b>Participant Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParticipantType get(int value) {

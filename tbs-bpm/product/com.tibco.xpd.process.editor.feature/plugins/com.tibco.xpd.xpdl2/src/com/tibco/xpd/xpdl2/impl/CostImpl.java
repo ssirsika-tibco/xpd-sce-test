@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.CostImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class CostImpl extends EObjectImpl implements Cost {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -93,8 +92,7 @@ public class CostImpl extends EObjectImpl implements Cost {
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.COST__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.COST__VALUE, oldValue, value));
     }
 
     /**
@@ -150,8 +148,7 @@ public class CostImpl extends EObjectImpl implements Cost {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.COST__VALUE:
-            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
-                    .equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         }
         return super.eIsSet(featureID);
     }
@@ -166,7 +163,7 @@ public class CostImpl extends EObjectImpl implements Cost {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (value: "); //$NON-NLS-1$
         result.append(value);
         result.append(')');

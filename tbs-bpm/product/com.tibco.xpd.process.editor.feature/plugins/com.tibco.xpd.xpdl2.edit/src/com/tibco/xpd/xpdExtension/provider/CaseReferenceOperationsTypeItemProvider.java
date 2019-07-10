@@ -38,16 +38,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -55,8 +53,7 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public CaseReferenceOperationsTypeItemProvider(
-            AdapterFactory adapterFactory) {
+    public CaseReferenceOperationsTypeItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -83,22 +80,20 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_CaseReferenceOperationsType_caseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CaseReferenceOperationsType_caseRefField_feature", //$NON-NLS-1$
-                        "_UI_CaseReferenceOperationsType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CaseReferenceOperationsType_caseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CaseReferenceOperationsType_caseRefField_feature", //$NON-NLS-1$
+                                "_UI_CaseReferenceOperationsType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -110,18 +105,13 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__DELETE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS);
         }
         return childrenFeatures;
     }
@@ -147,9 +137,7 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CaseReferenceOperationsType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CaseReferenceOperationsType")); //$NON-NLS-1$
     }
 
     /**
@@ -161,9 +149,8 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((CaseReferenceOperationsType) object).getCaseRefField();
-        return label == null || label.length() == 0
-                ? getString("_UI_CaseReferenceOperationsType_type") //$NON-NLS-1$
-                : getString("_UI_CaseReferenceOperationsType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_CaseReferenceOperationsType_type") : //$NON-NLS-1$
+                getString("_UI_CaseReferenceOperationsType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -179,15 +166,13 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(CaseReferenceOperationsType.class)) {
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE:
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE:
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS:
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -201,27 +186,24 @@ public class CaseReferenceOperationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
-                XpdExtensionFactory.eINSTANCE.createUpdateCaseOperationType()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
+                        XpdExtensionFactory.eINSTANCE.createUpdateCaseOperationType()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
-                XpdExtensionFactory.eINSTANCE
-                        .createDeleteCaseReferenceOperationType()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
+                        XpdExtensionFactory.eINSTANCE.createDeleteCaseReferenceOperationType()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
-                XpdExtensionFactory.eINSTANCE.createAddLinkAssociationsType()));
+        newChildDescriptors.add(
+                createChildParameter(XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
+                        XpdExtensionFactory.eINSTANCE.createAddLinkAssociationsType()));
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
-                XpdExtensionFactory.eINSTANCE
-                        .createRemoveLinkAssociationsType()));
+                XpdExtensionFactory.eINSTANCE.createRemoveLinkAssociationsType()));
     }
 
     /**

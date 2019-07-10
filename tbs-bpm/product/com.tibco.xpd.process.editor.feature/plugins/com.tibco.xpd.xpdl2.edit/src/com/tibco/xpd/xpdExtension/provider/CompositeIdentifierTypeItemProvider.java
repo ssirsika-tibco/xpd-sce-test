@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,21 +74,20 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addFieldPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CompositeIdentifierType_fieldPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CompositeIdentifierType_fieldPath_feature", //$NON-NLS-1$
-                        "_UI_CompositeIdentifierType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CompositeIdentifierType_fieldPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CompositeIdentifierType_fieldPath_feature", //$NON-NLS-1$
+                                "_UI_CompositeIdentifierType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -100,21 +97,20 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIdentifiernamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CompositeIdentifierType_identifiername_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CompositeIdentifierType_identifiername_feature", //$NON-NLS-1$
-                        "_UI_CompositeIdentifierType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CompositeIdentifierType_identifiername_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CompositeIdentifierType_identifiername_feature", //$NON-NLS-1$
+                                "_UI_CompositeIdentifierType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -125,9 +121,7 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CompositeIdentifierType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CompositeIdentifierType")); //$NON-NLS-1$
     }
 
     /**
@@ -139,9 +133,8 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((CompositeIdentifierType) object).getIdentifiername();
-        return label == null || label.length() == 0
-                ? getString("_UI_CompositeIdentifierType_type") //$NON-NLS-1$
-                : getString("_UI_CompositeIdentifierType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_CompositeIdentifierType_type") : //$NON-NLS-1$
+                getString("_UI_CompositeIdentifierType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,8 +151,7 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(CompositeIdentifierType.class)) {
         case XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH:
         case XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -173,8 +165,7 @@ public class CompositeIdentifierTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

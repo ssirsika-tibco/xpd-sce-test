@@ -34,15 +34,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ErrorThrowerInfoImpl extends EObjectImpl
-        implements ErrorThrowerInfo {
+public class ErrorThrowerInfoImpl extends EObjectImpl implements ErrorThrowerInfo {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getThrowerId() <em>Thrower Id</em>}' attribute.
@@ -110,8 +108,7 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final ErrorThrowerType THROWER_TYPE_EDEFAULT =
-            ErrorThrowerType.PROCESS_ACTIVITY;
+    protected static final ErrorThrowerType THROWER_TYPE_EDEFAULT = ErrorThrowerType.PROCESS_ACTIVITY;
 
     /**
      * The cached value of the '{@link #getThrowerType() <em>Thrower Type</em>}' attribute.
@@ -171,8 +168,7 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         boolean oldThrowerIdESet = throwerIdESet;
         throwerIdESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_ID,
                     oldThrowerId, throwerId, !oldThrowerIdESet));
     }
 
@@ -187,8 +183,7 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         throwerId = THROWER_ID_EDEFAULT;
         throwerIdESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_ID,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_ID,
                     oldThrowerId, THROWER_ID_EDEFAULT, oldThrowerIdESet));
     }
 
@@ -222,9 +217,8 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         throwerContainerIdESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_CONTAINER_ID,
-                    oldThrowerContainerId, throwerContainerId,
-                    !oldThrowerContainerIdESet));
+                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_CONTAINER_ID, oldThrowerContainerId,
+                    throwerContainerId, !oldThrowerContainerIdESet));
     }
 
     /**
@@ -239,9 +233,8 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         throwerContainerIdESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_CONTAINER_ID,
-                    oldThrowerContainerId, THROWER_CONTAINER_ID_EDEFAULT,
-                    oldThrowerContainerIdESet));
+                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_CONTAINER_ID, oldThrowerContainerId,
+                    THROWER_CONTAINER_ID_EDEFAULT, oldThrowerContainerIdESet));
     }
 
     /**
@@ -269,13 +262,11 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
      */
     public void setThrowerType(ErrorThrowerType newThrowerType) {
         ErrorThrowerType oldThrowerType = throwerType;
-        throwerType =
-                newThrowerType == null ? THROWER_TYPE_EDEFAULT : newThrowerType;
+        throwerType = newThrowerType == null ? THROWER_TYPE_EDEFAULT : newThrowerType;
         boolean oldThrowerTypeESet = throwerTypeESet;
         throwerTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_TYPE,
                     oldThrowerType, throwerType, !oldThrowerTypeESet));
     }
 
@@ -291,8 +282,8 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         throwerTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_TYPE,
-                    oldThrowerType, THROWER_TYPE_EDEFAULT, oldThrowerTypeESet));
+                    XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_TYPE, oldThrowerType, THROWER_TYPE_EDEFAULT,
+                    oldThrowerTypeESet));
     }
 
     /**
@@ -392,7 +383,7 @@ public class ErrorThrowerInfoImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (throwerId: "); //$NON-NLS-1$
         if (throwerIdESet)
             result.append(throwerId);

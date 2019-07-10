@@ -28,13 +28,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DocumentRootImpl#getPackage <em>Package</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -44,8 +44,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -103,8 +102,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public FeatureMap getMixed() {
         if (mixed == null) {
-            mixed =
-                    new BasicFeatureMap(this, Xpdl2Package.DOCUMENT_ROOT__MIXED);
+            mixed = new BasicFeatureMap(this, Xpdl2Package.DOCUMENT_ROOT__MIXED);
         }
         return mixed;
     }
@@ -116,11 +114,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EMap<String, String> getXMLNSPrefixMap() {
         if (xMLNSPrefixMap == null) {
-            xMLNSPrefixMap =
-                    new EcoreEMap<String, String>(
-                            EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                            EStringToStringMapEntryImpl.class, this,
-                            Xpdl2Package.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+            xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, Xpdl2Package.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
         }
         return xMLNSPrefixMap;
     }
@@ -132,11 +127,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EMap<String, String> getXSISchemaLocation() {
         if (xSISchemaLocation == null) {
-            xSISchemaLocation =
-                    new EcoreEMap<String, String>(
-                            EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                            EStringToStringMapEntryImpl.class, this,
-                            Xpdl2Package.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+            xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, Xpdl2Package.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
         }
         return xSISchemaLocation;
     }
@@ -147,8 +139,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     public com.tibco.xpd.xpdl2.Package getPackage() {
-        return (com.tibco.xpd.xpdl2.Package) getMixed()
-                .get(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE, true);
+        return (com.tibco.xpd.xpdl2.Package) getMixed().get(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE, true);
     }
 
     /**
@@ -156,12 +147,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackage(
-            com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
+    public NotificationChain basicSetPackage(com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
         return ((FeatureMap.Internal) getMixed())
-                .basicAdd(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
-                        newPackage,
-                        msgs);
+                .basicAdd(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE, newPackage, msgs);
     }
 
     /**
@@ -170,8 +158,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     public void setPackage(com.tibco.xpd.xpdl2.Package newPackage) {
-        ((FeatureMap.Internal) getMixed())
-                .set(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE, newPackage);
+        ((FeatureMap.Internal) getMixed()).set(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE, newPackage);
     }
 
     /**
@@ -180,17 +167,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DOCUMENT_ROOT__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-            return ((InternalEList<?>) getXMLNSPrefixMap())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-            return ((InternalEList<?>) getXSISchemaLocation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.DOCUMENT_ROOT__PACKAGE:
             return basicSetPackage(null, msgs);
         }
@@ -303,7 +287,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: "); //$NON-NLS-1$
         result.append(mixed);
         result.append(')');

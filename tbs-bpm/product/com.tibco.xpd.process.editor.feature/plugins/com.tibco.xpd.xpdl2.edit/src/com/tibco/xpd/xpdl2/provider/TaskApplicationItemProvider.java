@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskApplicationItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TaskApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,11 +82,12 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -106,11 +105,12 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      */
     protected void addPackageRefPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TaskApplication_packageRef_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TaskApplication_packageRef_feature", "_UI_TaskApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TaskApplication_packageRef_feature", //$NON-NLS-1$
+                                "_UI_TaskApplication_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TASK_APPLICATION__PACKAGE_REF,
                         true,
                         false,
@@ -128,11 +128,12 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      */
     protected void addApplicationIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TaskApplication_applicationId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TaskApplication_applicationId_feature", "_UI_TaskApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TaskApplication_applicationId_feature", //$NON-NLS-1$
+                                "_UI_TaskApplication_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TASK_APPLICATION__APPLICATION_ID,
                         true,
                         false,
@@ -151,14 +152,11 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TASK_APPLICATION__ACTUAL_PARAMETERS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TASK_APPLICATION__DATA_MAPPINGS);
+            childrenFeatures.add(Xpdl2Package.Literals.TASK_APPLICATION__ACTUAL_PARAMETERS);
+            childrenFeatures.add(Xpdl2Package.Literals.TASK_APPLICATION__DATA_MAPPINGS);
         }
         return childrenFeatures;
     }
@@ -184,8 +182,7 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/TaskApplication")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskApplication")); //$NON-NLS-1$
     }
 
     /**
@@ -216,13 +213,11 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.TASK_APPLICATION__DESCRIPTION:
         case Xpdl2Package.TASK_APPLICATION__PACKAGE_REF:
         case Xpdl2Package.TASK_APPLICATION__APPLICATION_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.TASK_APPLICATION__ACTUAL_PARAMETERS:
         case Xpdl2Package.TASK_APPLICATION__DATA_MAPPINGS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -236,17 +231,14 @@ public class TaskApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK_APPLICATION__ACTUAL_PARAMETERS,
-                        Xpdl2Factory.eINSTANCE.createExpression()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK_APPLICATION__ACTUAL_PARAMETERS,
+                Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK_APPLICATION__DATA_MAPPINGS,
-                        Xpdl2Factory.eINSTANCE.createDataMapping()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK_APPLICATION__DATA_MAPPINGS,
+                Xpdl2Factory.eINSTANCE.createDataMapping()));
     }
 
     /**

@@ -20,22 +20,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EnumerationValueImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class EnumerationValueImpl extends EObjectImpl implements
-        EnumerationValue {
+public class EnumerationValueImpl extends EObjectImpl implements EnumerationValue {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -94,8 +92,7 @@ public class EnumerationValueImpl extends EObjectImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ENUMERATION_VALUE__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ENUMERATION_VALUE__NAME, oldName, name));
     }
 
     /**
@@ -151,8 +148,7 @@ public class EnumerationValueImpl extends EObjectImpl implements
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.ENUMERATION_VALUE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +163,7 @@ public class EnumerationValueImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(')');

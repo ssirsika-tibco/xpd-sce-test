@@ -34,15 +34,13 @@ import com.tibco.xpd.xpdl2.ModeType;
  *
  * @generated
  */
-public class AssociatedParameterImpl extends EObjectImpl
-        implements AssociatedParameter {
+public class AssociatedParameterImpl extends EObjectImpl implements AssociatedParameter {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -170,8 +168,7 @@ public class AssociatedParameterImpl extends EObjectImpl
         formalParam = newFormalParam;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__FORMAL_PARAM,
-                    oldFormalParam, formalParam));
+                    XpdExtensionPackage.ASSOCIATED_PARAMETER__FORMAL_PARAM, oldFormalParam, formalParam));
     }
 
     /**
@@ -194,9 +191,8 @@ public class AssociatedParameterImpl extends EObjectImpl
         boolean oldModeESet = modeESet;
         modeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE, oldMode,
-                    mode, !oldModeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE,
+                    oldMode, mode, !oldModeESet));
     }
 
     /**
@@ -210,9 +206,8 @@ public class AssociatedParameterImpl extends EObjectImpl
         mode = MODE_EDEFAULT;
         modeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE, oldMode,
-                    MODE_EDEFAULT, oldModeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE,
+                    oldMode, MODE_EDEFAULT, oldModeESet));
     }
 
     /**
@@ -238,15 +233,12 @@ public class AssociatedParameterImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
-                    oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -265,22 +257,19 @@ public class AssociatedParameterImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (description != null)
                 msgs = ((InternalEObject) description).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
                         null,
                         msgs);
             if (newDescription != null)
                 msgs = ((InternalEObject) newDescription).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
                         null,
                         msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION,
                     newDescription, newDescription));
     }
 
@@ -304,8 +293,7 @@ public class AssociatedParameterImpl extends EObjectImpl
         boolean oldMandatoryESet = mandatoryESet;
         mandatoryESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY,
                     oldMandatory, mandatory, !oldMandatoryESet));
     }
 
@@ -320,8 +308,7 @@ public class AssociatedParameterImpl extends EObjectImpl
         mandatory = MANDATORY_EDEFAULT;
         mandatoryESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY,
                     oldMandatory, MANDATORY_EDEFAULT, oldMandatoryESet));
     }
 
@@ -340,8 +327,7 @@ public class AssociatedParameterImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION:
             return basicSetDescription(null, msgs);
@@ -428,8 +414,7 @@ public class AssociatedParameterImpl extends EObjectImpl
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__DESCRIPTION:
             return description != null;
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__FORMAL_PARAM:
-            return FORMAL_PARAM_EDEFAULT == null ? formalParam != null
-                    : !FORMAL_PARAM_EDEFAULT.equals(formalParam);
+            return FORMAL_PARAM_EDEFAULT == null ? formalParam != null : !FORMAL_PARAM_EDEFAULT.equals(formalParam);
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE:
             return isSetMode();
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY:
@@ -448,7 +433,7 @@ public class AssociatedParameterImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (formalParam: "); //$NON-NLS-1$
         result.append(formalParam);
         result.append(", mode: "); //$NON-NLS-1$

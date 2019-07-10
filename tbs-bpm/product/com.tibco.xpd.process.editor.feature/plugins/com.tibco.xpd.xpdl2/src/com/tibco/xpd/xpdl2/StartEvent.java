@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.StartEvent#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.StartEvent#getTriggerTimer <em>Trigger Timer</em>}</li>
@@ -24,7 +25,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.StartEvent#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.StartEvent#getDeprecatedTriggerResultLink <em>Deprecated Trigger Result Link</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getStartEvent()
  * @model extendedMetaData="name='StartEvent_._type' kind='elementOnly' features-order='triggerResultMessage triggerTimer triggerConditional triggerResultLink triggerMultiple'"
@@ -36,8 +36,7 @@ public interface StartEvent extends Event {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Trigger Result Message</b></em>' containment reference.

@@ -36,15 +36,13 @@ import com.tibco.xpd.xpdl2.Expression;
  *
  * @generated
  */
-public class DurationCalculationImpl extends EObjectImpl
-        implements DurationCalculation {
+public class DurationCalculationImpl extends EObjectImpl implements DurationCalculation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getYears() <em>Years</em>}' containment reference.
@@ -159,15 +157,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetYears(Expression newYears,
-            NotificationChain msgs) {
+    public NotificationChain basicSetYears(Expression newYears, NotificationChain msgs) {
         Expression oldYears = years;
         years = newYears;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__YEARS,
-                            oldYears, newYears);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__YEARS, oldYears, newYears);
             if (msgs == null)
                 msgs = notification;
             else
@@ -186,23 +181,20 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (years != null)
                 msgs = ((InternalEObject) years).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__YEARS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__YEARS,
                         null,
                         msgs);
             if (newYears != null)
                 msgs = ((InternalEObject) newYears).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__YEARS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__YEARS,
                         null,
                         msgs);
             msgs = basicSetYears(newYears, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__YEARS, newYears,
-                    newYears));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__YEARS,
+                    newYears, newYears));
     }
 
     /**
@@ -219,15 +211,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMonths(Expression newMonths,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMonths(Expression newMonths, NotificationChain msgs) {
         Expression oldMonths = months;
         months = newMonths;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
-                            oldMonths, newMonths);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__MONTHS, oldMonths, newMonths);
             if (msgs == null)
                 msgs = notification;
             else
@@ -246,23 +235,20 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (months != null)
                 msgs = ((InternalEObject) months).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
                         null,
                         msgs);
             if (newMonths != null)
                 msgs = ((InternalEObject) newMonths).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
                         null,
                         msgs);
             msgs = basicSetMonths(newMonths, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__MONTHS, newMonths,
-                    newMonths));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__MONTHS,
+                    newMonths, newMonths));
     }
 
     /**
@@ -279,15 +265,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWeeks(Expression newWeeks,
-            NotificationChain msgs) {
+    public NotificationChain basicSetWeeks(Expression newWeeks, NotificationChain msgs) {
         Expression oldWeeks = weeks;
         weeks = newWeeks;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
-                            oldWeeks, newWeeks);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__WEEKS, oldWeeks, newWeeks);
             if (msgs == null)
                 msgs = notification;
             else
@@ -306,23 +289,20 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (weeks != null)
                 msgs = ((InternalEObject) weeks).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
                         null,
                         msgs);
             if (newWeeks != null)
                 msgs = ((InternalEObject) newWeeks).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
                         null,
                         msgs);
             msgs = basicSetWeeks(newWeeks, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__WEEKS, newWeeks,
-                    newWeeks));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__WEEKS,
+                    newWeeks, newWeeks));
     }
 
     /**
@@ -339,15 +319,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDays(Expression newDays,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDays(Expression newDays, NotificationChain msgs) {
         Expression oldDays = days;
         days = newDays;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__DAYS,
-                            oldDays, newDays);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__DAYS, oldDays, newDays);
             if (msgs == null)
                 msgs = notification;
             else
@@ -366,23 +343,20 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (days != null)
                 msgs = ((InternalEObject) days).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__DAYS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__DAYS,
                         null,
                         msgs);
             if (newDays != null)
                 msgs = ((InternalEObject) newDays).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__DAYS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__DAYS,
                         null,
                         msgs);
             msgs = basicSetDays(newDays, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__DAYS, newDays,
-                    newDays));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__DAYS,
+                    newDays, newDays));
     }
 
     /**
@@ -399,15 +373,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetHours(Expression newHours,
-            NotificationChain msgs) {
+    public NotificationChain basicSetHours(Expression newHours, NotificationChain msgs) {
         Expression oldHours = hours;
         hours = newHours;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__HOURS,
-                            oldHours, newHours);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__HOURS, oldHours, newHours);
             if (msgs == null)
                 msgs = notification;
             else
@@ -426,23 +397,20 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (hours != null)
                 msgs = ((InternalEObject) hours).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__HOURS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__HOURS,
                         null,
                         msgs);
             if (newHours != null)
                 msgs = ((InternalEObject) newHours).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__HOURS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__HOURS,
                         null,
                         msgs);
             msgs = basicSetHours(newHours, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__HOURS, newHours,
-                    newHours));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__HOURS,
+                    newHours, newHours));
     }
 
     /**
@@ -459,15 +427,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMinutes(Expression newMinutes,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMinutes(Expression newMinutes, NotificationChain msgs) {
         Expression oldMinutes = minutes;
         minutes = newMinutes;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
-                            oldMinutes, newMinutes);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__MINUTES, oldMinutes, newMinutes);
             if (msgs == null)
                 msgs = notification;
             else
@@ -486,22 +451,19 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (minutes != null)
                 msgs = ((InternalEObject) minutes).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
                         null,
                         msgs);
             if (newMinutes != null)
                 msgs = ((InternalEObject) newMinutes).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
                         null,
                         msgs);
             msgs = basicSetMinutes(newMinutes, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__MINUTES,
                     newMinutes, newMinutes));
     }
 
@@ -519,15 +481,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSeconds(Expression newSeconds,
-            NotificationChain msgs) {
+    public NotificationChain basicSetSeconds(Expression newSeconds, NotificationChain msgs) {
         Expression oldSeconds = seconds;
         seconds = newSeconds;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
-                            oldSeconds, newSeconds);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__SECONDS, oldSeconds, newSeconds);
             if (msgs == null)
                 msgs = notification;
             else
@@ -546,22 +505,19 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (seconds != null)
                 msgs = ((InternalEObject) seconds).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
                         null,
                         msgs);
             if (newSeconds != null)
                 msgs = ((InternalEObject) newSeconds).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
                         null,
                         msgs);
             msgs = basicSetSeconds(newSeconds, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DURATION_CALCULATION__SECONDS,
                     newSeconds, newSeconds));
     }
 
@@ -579,15 +535,12 @@ public class DurationCalculationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMicroseconds(Expression newMicroseconds,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMicroseconds(Expression newMicroseconds, NotificationChain msgs) {
         Expression oldMicroseconds = microseconds;
         microseconds = newMicroseconds;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
-                    oldMicroseconds, newMicroseconds);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS, oldMicroseconds, newMicroseconds);
             if (msgs == null)
                 msgs = notification;
             else
@@ -606,14 +559,12 @@ public class DurationCalculationImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (microseconds != null)
                 msgs = ((InternalEObject) microseconds).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
                         null,
                         msgs);
             if (newMicroseconds != null)
                 msgs = ((InternalEObject) newMicroseconds).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
                         null,
                         msgs);
             msgs = basicSetMicroseconds(newMicroseconds, msgs);
@@ -621,8 +572,7 @@ public class DurationCalculationImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS,
-                    newMicroseconds, newMicroseconds));
+                    XpdExtensionPackage.DURATION_CALCULATION__MICROSECONDS, newMicroseconds, newMicroseconds));
     }
 
     /**
@@ -631,8 +581,7 @@ public class DurationCalculationImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DURATION_CALCULATION__YEARS:
             return basicSetYears(null, msgs);

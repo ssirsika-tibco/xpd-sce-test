@@ -49,8 +49,7 @@ public enum ValidationIssueOverrideType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Suppress Until Next Flow Change</b></em>' literal value.
@@ -89,8 +88,7 @@ public enum ValidationIssueOverrideType implements Enumerator {
      * @generated
      */
     private static final ValidationIssueOverrideType[] VALUES_ARRAY =
-            new ValidationIssueOverrideType[] { SUPPRESS_UNTIL_NEXT_FLOW_CHANGE,
-                    SUPPRESS_UNTIL_MANUAL_REACTIVATION, };
+            new ValidationIssueOverrideType[] { SUPPRESS_UNTIL_NEXT_FLOW_CHANGE, SUPPRESS_UNTIL_MANUAL_REACTIVATION, };
 
     /**
      * A public read-only list of all the '<em><b>Validation Issue Override Type</b></em>' enumerators.
@@ -182,8 +180,7 @@ public enum ValidationIssueOverrideType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private ValidationIssueOverrideType(int value, String name,
-            String literal) {
+    private ValidationIssueOverrideType(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;

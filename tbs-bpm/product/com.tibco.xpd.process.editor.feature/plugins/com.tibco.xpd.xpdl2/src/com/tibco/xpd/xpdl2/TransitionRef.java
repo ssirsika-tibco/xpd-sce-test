@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TransitionRef#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TransitionRef#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTransitionRef()
  * @model extendedMetaData="name='TransitionRef_._type' kind='elementOnly'"
@@ -31,8 +31,7 @@ public interface TransitionRef extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.

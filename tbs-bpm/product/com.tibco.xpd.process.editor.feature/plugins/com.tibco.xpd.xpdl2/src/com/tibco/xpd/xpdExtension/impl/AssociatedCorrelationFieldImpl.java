@@ -35,15 +35,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class AssociatedCorrelationFieldImpl extends EObjectImpl
-        implements AssociatedCorrelationField {
+public class AssociatedCorrelationFieldImpl extends EObjectImpl implements AssociatedCorrelationField {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -83,8 +81,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final CorrelationMode CORRELATION_MODE_EDEFAULT =
-            CorrelationMode.INITIALIZE;
+    protected static final CorrelationMode CORRELATION_MODE_EDEFAULT = CorrelationMode.INITIALIZE;
 
     /**
      * The cached value of the '{@link #getCorrelationMode() <em>Correlation Mode</em>}' attribute.
@@ -138,15 +135,12 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
-                    oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -165,14 +159,12 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (description != null)
                 msgs = ((InternalEObject) description).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
                         null,
                         msgs);
             if (newDescription != null)
                 msgs = ((InternalEObject) newDescription).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
                         null,
                         msgs);
             msgs = basicSetDescription(newDescription, msgs);
@@ -180,8 +172,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION,
-                    newDescription, newDescription));
+                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION, newDescription, newDescription));
     }
 
     /**
@@ -203,8 +194,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
         name = newName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__NAME,
-                    oldName, name));
+                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__NAME, oldName, name));
     }
 
     /**
@@ -223,15 +213,13 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
      */
     public void setCorrelationMode(CorrelationMode newCorrelationMode) {
         CorrelationMode oldCorrelationMode = correlationMode;
-        correlationMode = newCorrelationMode == null ? CORRELATION_MODE_EDEFAULT
-                : newCorrelationMode;
+        correlationMode = newCorrelationMode == null ? CORRELATION_MODE_EDEFAULT : newCorrelationMode;
         boolean oldCorrelationModeESet = correlationModeESet;
         correlationModeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE,
-                    oldCorrelationMode, correlationMode,
-                    !oldCorrelationModeESet));
+                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE, oldCorrelationMode,
+                    correlationMode, !oldCorrelationModeESet));
     }
 
     /**
@@ -246,9 +234,8 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
         correlationModeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE,
-                    oldCorrelationMode, CORRELATION_MODE_EDEFAULT,
-                    oldCorrelationModeESet));
+                    XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE, oldCorrelationMode,
+                    CORRELATION_MODE_EDEFAULT, oldCorrelationModeESet));
     }
 
     /**
@@ -266,8 +253,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION:
             return basicSetDescription(null, msgs);
@@ -346,8 +332,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__DESCRIPTION:
             return description != null;
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__NAME:
-            return NAME_EDEFAULT == null ? name != null
-                    : !NAME_EDEFAULT.equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case XpdExtensionPackage.ASSOCIATED_CORRELATION_FIELD__CORRELATION_MODE:
             return isSetCorrelationMode();
         }
@@ -364,7 +349,7 @@ public class AssociatedCorrelationFieldImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(", correlationMode: "); //$NON-NLS-1$

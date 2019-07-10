@@ -45,8 +45,7 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getVirtualBinding() <em>Virtual Binding</em>}' containment reference.
@@ -109,15 +108,12 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetVirtualBinding(
-            WsVirtualBinding newVirtualBinding, NotificationChain msgs) {
+    public NotificationChain basicSetVirtualBinding(WsVirtualBinding newVirtualBinding, NotificationChain msgs) {
         WsVirtualBinding oldVirtualBinding = virtualBinding;
         virtualBinding = newVirtualBinding;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
-                            oldVirtualBinding, newVirtualBinding);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING, oldVirtualBinding, newVirtualBinding);
             if (msgs == null)
                 msgs = notification;
             else
@@ -135,22 +131,19 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
             NotificationChain msgs = null;
             if (virtualBinding != null)
                 msgs = ((InternalEObject) virtualBinding).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
                         null,
                         msgs);
             if (newVirtualBinding != null)
                 msgs = ((InternalEObject) newVirtualBinding).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
                         null,
                         msgs);
             msgs = basicSetVirtualBinding(newVirtualBinding, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING,
                     newVirtualBinding, newVirtualBinding));
     }
 
@@ -160,10 +153,8 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
      */
     public EList<WsSoapHttpInboundBinding> getSoapHttpBinding() {
         if (soapHttpBinding == null) {
-            soapHttpBinding =
-                    new EObjectContainmentEList<WsSoapHttpInboundBinding>(
-                            WsSoapHttpInboundBinding.class, this,
-                            XpdExtensionPackage.WS_INBOUND__SOAP_HTTP_BINDING);
+            soapHttpBinding = new EObjectContainmentEList<WsSoapHttpInboundBinding>(WsSoapHttpInboundBinding.class,
+                    this, XpdExtensionPackage.WS_INBOUND__SOAP_HTTP_BINDING);
         }
         return soapHttpBinding;
     }
@@ -174,10 +165,8 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
      */
     public EList<WsSoapJmsInboundBinding> getSoapJmsBinding() {
         if (soapJmsBinding == null) {
-            soapJmsBinding =
-                    new EObjectContainmentEList<WsSoapJmsInboundBinding>(
-                            WsSoapJmsInboundBinding.class, this,
-                            XpdExtensionPackage.WS_INBOUND__SOAP_JMS_BINDING);
+            soapJmsBinding = new EObjectContainmentEList<WsSoapJmsInboundBinding>(WsSoapJmsInboundBinding.class, this,
+                    XpdExtensionPackage.WS_INBOUND__SOAP_JMS_BINDING);
         }
         return soapJmsBinding;
     }
@@ -194,8 +183,7 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
         }
         list.addAll(getSoapHttpBinding());
         list.addAll(getSoapJmsBinding());
-        return new BasicEList.UnmodifiableEList<WsBinding>(list.size(),
-                list.toArray());
+        return new BasicEList.UnmodifiableEList<WsBinding>(list.size(), list.toArray());
     }
 
     /**
@@ -203,17 +191,14 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_INBOUND__VIRTUAL_BINDING:
             return basicSetVirtualBinding(null, msgs);
         case XpdExtensionPackage.WS_INBOUND__SOAP_HTTP_BINDING:
-            return ((InternalEList<?>) getSoapHttpBinding())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSoapHttpBinding()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.WS_INBOUND__SOAP_JMS_BINDING:
-            return ((InternalEList<?>) getSoapJmsBinding())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSoapJmsBinding()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -248,13 +233,11 @@ public class WsInboundImpl extends EObjectImpl implements WsInbound {
             return;
         case XpdExtensionPackage.WS_INBOUND__SOAP_HTTP_BINDING:
             getSoapHttpBinding().clear();
-            getSoapHttpBinding().addAll(
-                    (Collection<? extends WsSoapHttpInboundBinding>) newValue);
+            getSoapHttpBinding().addAll((Collection<? extends WsSoapHttpInboundBinding>) newValue);
             return;
         case XpdExtensionPackage.WS_INBOUND__SOAP_JMS_BINDING:
             getSoapJmsBinding().clear();
-            getSoapJmsBinding().addAll(
-                    (Collection<? extends WsSoapJmsInboundBinding>) newValue);
+            getSoapJmsBinding().addAll((Collection<? extends WsSoapJmsInboundBinding>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

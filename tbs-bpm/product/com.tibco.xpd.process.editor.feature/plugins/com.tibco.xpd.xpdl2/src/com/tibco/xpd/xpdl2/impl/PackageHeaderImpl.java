@@ -33,6 +33,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageHeaderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageHeaderImpl#getOtherAttributes <em>Other Attributes</em>}</li>
@@ -46,7 +47,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageHeaderImpl#getLayoutInfo <em>Layout Info</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageHeaderImpl#getModificationDate <em>Modification Date</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -56,8 +56,7 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -245,8 +244,8 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         String oldVendor = vendor;
         vendor = newVendor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__VENDOR, oldVendor, vendor));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__VENDOR, oldVendor,
+                    vendor));
     }
 
     /**
@@ -267,8 +266,8 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         String oldCreated = created;
         created = newCreated;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__CREATED, oldCreated, created));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__CREATED, oldCreated,
+                    created));
     }
 
     /**
@@ -285,15 +284,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -311,28 +307,21 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
+                        null,
+                        msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__DESCRIPTION, newDescription,
-                    newDescription));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__DESCRIPTION,
+                    newDescription, newDescription));
     }
 
     /**
@@ -342,9 +331,7 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.PACKAGE_HEADER__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.PACKAGE_HEADER__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -363,15 +350,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDocumentation(
-            Documentation newDocumentation, NotificationChain msgs) {
+    public NotificationChain basicSetDocumentation(Documentation newDocumentation, NotificationChain msgs) {
         Documentation oldDocumentation = documentation;
         documentation = newDocumentation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
-                            oldDocumentation, newDocumentation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION, oldDocumentation, newDocumentation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -389,27 +373,20 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newDocumentation != documentation) {
             NotificationChain msgs = null;
             if (documentation != null)
-                msgs =
-                        ((InternalEObject) documentation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) documentation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
+                        null,
+                        msgs);
             if (newDocumentation != null)
-                msgs =
-                        ((InternalEObject) newDocumentation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDocumentation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
+                        null,
+                        msgs);
             msgs = basicSetDocumentation(newDocumentation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION,
                     newDocumentation, newDocumentation));
     }
 
@@ -427,15 +404,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPriorityUnit(PriorityUnit newPriorityUnit,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPriorityUnit(PriorityUnit newPriorityUnit, NotificationChain msgs) {
         PriorityUnit oldPriorityUnit = priorityUnit;
         priorityUnit = newPriorityUnit;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
-                            oldPriorityUnit, newPriorityUnit);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT, oldPriorityUnit, newPriorityUnit);
             if (msgs == null)
                 msgs = notification;
             else
@@ -453,27 +427,20 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newPriorityUnit != priorityUnit) {
             NotificationChain msgs = null;
             if (priorityUnit != null)
-                msgs =
-                        ((InternalEObject) priorityUnit)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) priorityUnit).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
+                        null,
+                        msgs);
             if (newPriorityUnit != null)
-                msgs =
-                        ((InternalEObject) newPriorityUnit)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newPriorityUnit).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
+                        null,
+                        msgs);
             msgs = basicSetPriorityUnit(newPriorityUnit, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT,
                     newPriorityUnit, newPriorityUnit));
     }
 
@@ -491,15 +458,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCostUnit(CostUnit newCostUnit,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCostUnit(CostUnit newCostUnit, NotificationChain msgs) {
         CostUnit oldCostUnit = costUnit;
         costUnit = newCostUnit;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__COST_UNIT,
-                            oldCostUnit, newCostUnit);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__COST_UNIT, oldCostUnit, newCostUnit);
             if (msgs == null)
                 msgs = notification;
             else
@@ -517,27 +481,18 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newCostUnit != costUnit) {
             NotificationChain msgs = null;
             if (costUnit != null)
-                msgs =
-                        ((InternalEObject) costUnit)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__COST_UNIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) costUnit).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__COST_UNIT,
+                        null,
+                        msgs);
             if (newCostUnit != null)
-                msgs =
-                        ((InternalEObject) newCostUnit)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__COST_UNIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newCostUnit)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__COST_UNIT, null, msgs);
             msgs = basicSetCostUnit(newCostUnit, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__COST_UNIT, newCostUnit,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__COST_UNIT, newCostUnit,
                     newCostUnit));
     }
 
@@ -555,15 +510,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetVendorExtensions(
-            VendorExtensions newVendorExtensions, NotificationChain msgs) {
+    public NotificationChain basicSetVendorExtensions(VendorExtensions newVendorExtensions, NotificationChain msgs) {
         VendorExtensions oldVendorExtensions = vendorExtensions;
         vendorExtensions = newVendorExtensions;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
-                            oldVendorExtensions, newVendorExtensions);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS, oldVendorExtensions, newVendorExtensions);
             if (msgs == null)
                 msgs = notification;
             else
@@ -581,27 +533,20 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newVendorExtensions != vendorExtensions) {
             NotificationChain msgs = null;
             if (vendorExtensions != null)
-                msgs =
-                        ((InternalEObject) vendorExtensions)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) vendorExtensions).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
+                        null,
+                        msgs);
             if (newVendorExtensions != null)
-                msgs =
-                        ((InternalEObject) newVendorExtensions)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newVendorExtensions).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
+                        null,
+                        msgs);
             msgs = basicSetVendorExtensions(newVendorExtensions, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__VENDOR_EXTENSIONS,
                     newVendorExtensions, newVendorExtensions));
     }
 
@@ -619,15 +564,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLayoutInfo(LayoutInfo newLayoutInfo,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLayoutInfo(LayoutInfo newLayoutInfo, NotificationChain msgs) {
         LayoutInfo oldLayoutInfo = layoutInfo;
         layoutInfo = newLayoutInfo;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
-                            oldLayoutInfo, newLayoutInfo);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO, oldLayoutInfo, newLayoutInfo);
             if (msgs == null)
                 msgs = notification;
             else
@@ -645,28 +587,21 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newLayoutInfo != layoutInfo) {
             NotificationChain msgs = null;
             if (layoutInfo != null)
-                msgs =
-                        ((InternalEObject) layoutInfo)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) layoutInfo).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
+                        null,
+                        msgs);
             if (newLayoutInfo != null)
-                msgs =
-                        ((InternalEObject) newLayoutInfo)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newLayoutInfo).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
+                        null,
+                        msgs);
             msgs = basicSetLayoutInfo(newLayoutInfo, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO, newLayoutInfo,
-                    newLayoutInfo));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__LAYOUT_INFO,
+                    newLayoutInfo, newLayoutInfo));
     }
 
     /**
@@ -683,15 +618,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetModificationDate(
-            ModificationDate newModificationDate, NotificationChain msgs) {
+    public NotificationChain basicSetModificationDate(ModificationDate newModificationDate, NotificationChain msgs) {
         ModificationDate oldModificationDate = modificationDate;
         modificationDate = newModificationDate;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
-                            oldModificationDate, newModificationDate);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE, oldModificationDate, newModificationDate);
             if (msgs == null)
                 msgs = notification;
             else
@@ -709,27 +641,20 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (newModificationDate != modificationDate) {
             NotificationChain msgs = null;
             if (modificationDate != null)
-                msgs =
-                        ((InternalEObject) modificationDate)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) modificationDate).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
+                        null,
+                        msgs);
             if (newModificationDate != null)
-                msgs =
-                        ((InternalEObject) newModificationDate)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newModificationDate).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
+                        null,
+                        msgs);
             msgs = basicSetModificationDate(newModificationDate, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE_HEADER__MODIFICATION_DATE,
                     newModificationDate, newModificationDate));
     }
 
@@ -739,14 +664,12 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PACKAGE_HEADER__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.PACKAGE_HEADER__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION:
             return basicSetDocumentation(null, msgs);
         case Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT:
@@ -889,14 +812,11 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         case Xpdl2Package.PACKAGE_HEADER__OTHER_ATTRIBUTES:
             return otherAttributes != null && !otherAttributes.isEmpty();
         case Xpdl2Package.PACKAGE_HEADER__XPDL_VERSION:
-            return XPDL_VERSION_EDEFAULT == null ? xpdlVersion != null
-                    : !XPDL_VERSION_EDEFAULT.equals(xpdlVersion);
+            return XPDL_VERSION_EDEFAULT == null ? xpdlVersion != null : !XPDL_VERSION_EDEFAULT.equals(xpdlVersion);
         case Xpdl2Package.PACKAGE_HEADER__VENDOR:
-            return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT
-                    .equals(vendor);
+            return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
         case Xpdl2Package.PACKAGE_HEADER__CREATED:
-            return CREATED_EDEFAULT == null ? created != null
-                    : !CREATED_EDEFAULT.equals(created);
+            return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
         case Xpdl2Package.PACKAGE_HEADER__DOCUMENTATION:
             return documentation != null;
         case Xpdl2Package.PACKAGE_HEADER__PRIORITY_UNIT:
@@ -959,7 +879,7 @@ public class PackageHeaderImpl extends EObjectImpl implements PackageHeader {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", xpdlVersion: "); //$NON-NLS-1$

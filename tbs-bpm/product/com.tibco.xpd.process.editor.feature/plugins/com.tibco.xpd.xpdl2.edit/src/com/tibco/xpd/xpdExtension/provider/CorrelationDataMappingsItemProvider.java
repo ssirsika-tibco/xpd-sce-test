@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,12 +78,10 @@ public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS);
         }
         return childrenFeatures;
     }
@@ -111,9 +107,7 @@ public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CorrelationDataMappings")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CorrelationDataMappings")); //$NON-NLS-1$
     }
 
     /**
@@ -140,8 +134,7 @@ public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(CorrelationDataMappings.class)) {
         case XpdExtensionPackage.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -155,13 +148,12 @@ public class CorrelationDataMappingsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS,
-                Xpdl2Factory.eINSTANCE.createDataMapping()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS,
+                        Xpdl2Factory.eINSTANCE.createDataMapping()));
     }
 
     /**

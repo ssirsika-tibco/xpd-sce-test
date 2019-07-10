@@ -25,12 +25,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TimeEstimationImpl#getWaitingTime <em>Waiting Time</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TimeEstimationImpl#getWorkingTime <em>Working Time</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TimeEstimationImpl#getDuration <em>Duration</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,8 +40,7 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getWaitingTime() <em>Waiting Time</em>}' containment reference.
@@ -106,15 +105,12 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWaitingTime(WaitingTime newWaitingTime,
-            NotificationChain msgs) {
+    public NotificationChain basicSetWaitingTime(WaitingTime newWaitingTime, NotificationChain msgs) {
         WaitingTime oldWaitingTime = waitingTime;
         waitingTime = newWaitingTime;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
-                            oldWaitingTime, newWaitingTime);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TIME_ESTIMATION__WAITING_TIME, oldWaitingTime, newWaitingTime);
             if (msgs == null)
                 msgs = notification;
             else
@@ -132,28 +128,21 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
         if (newWaitingTime != waitingTime) {
             NotificationChain msgs = null;
             if (waitingTime != null)
-                msgs =
-                        ((InternalEObject) waitingTime)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) waitingTime).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
+                        null,
+                        msgs);
             if (newWaitingTime != null)
-                msgs =
-                        ((InternalEObject) newWaitingTime)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWaitingTime).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
+                        null,
+                        msgs);
             msgs = basicSetWaitingTime(newWaitingTime, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TIME_ESTIMATION__WAITING_TIME, newWaitingTime,
-                    newWaitingTime));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TIME_ESTIMATION__WAITING_TIME,
+                    newWaitingTime, newWaitingTime));
     }
 
     /**
@@ -170,15 +159,12 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWorkingTime(WorkingTime newWorkingTime,
-            NotificationChain msgs) {
+    public NotificationChain basicSetWorkingTime(WorkingTime newWorkingTime, NotificationChain msgs) {
         WorkingTime oldWorkingTime = workingTime;
         workingTime = newWorkingTime;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
-                            oldWorkingTime, newWorkingTime);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TIME_ESTIMATION__WORKING_TIME, oldWorkingTime, newWorkingTime);
             if (msgs == null)
                 msgs = notification;
             else
@@ -196,28 +182,21 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
         if (newWorkingTime != workingTime) {
             NotificationChain msgs = null;
             if (workingTime != null)
-                msgs =
-                        ((InternalEObject) workingTime)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) workingTime).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
+                        null,
+                        msgs);
             if (newWorkingTime != null)
-                msgs =
-                        ((InternalEObject) newWorkingTime)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWorkingTime).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
+                        null,
+                        msgs);
             msgs = basicSetWorkingTime(newWorkingTime, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TIME_ESTIMATION__WORKING_TIME, newWorkingTime,
-                    newWorkingTime));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TIME_ESTIMATION__WORKING_TIME,
+                    newWorkingTime, newWorkingTime));
     }
 
     /**
@@ -234,15 +213,12 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDuration(Duration newDuration,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDuration(Duration newDuration, NotificationChain msgs) {
         Duration oldDuration = duration;
         duration = newDuration;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TIME_ESTIMATION__DURATION,
-                            oldDuration, newDuration);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TIME_ESTIMATION__DURATION, oldDuration, newDuration);
             if (msgs == null)
                 msgs = notification;
             else
@@ -260,27 +236,18 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
         if (newDuration != duration) {
             NotificationChain msgs = null;
             if (duration != null)
-                msgs =
-                        ((InternalEObject) duration)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__DURATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) duration).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__DURATION,
+                        null,
+                        msgs);
             if (newDuration != null)
-                msgs =
-                        ((InternalEObject) newDuration)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TIME_ESTIMATION__DURATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDuration)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TIME_ESTIMATION__DURATION, null, msgs);
             msgs = basicSetDuration(newDuration, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TIME_ESTIMATION__DURATION, newDuration,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TIME_ESTIMATION__DURATION, newDuration,
                     newDuration));
     }
 
@@ -290,8 +257,7 @@ public class TimeEstimationImpl extends EObjectImpl implements TimeEstimation {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TIME_ESTIMATION__WAITING_TIME:
             return basicSetWaitingTime(null, msgs);

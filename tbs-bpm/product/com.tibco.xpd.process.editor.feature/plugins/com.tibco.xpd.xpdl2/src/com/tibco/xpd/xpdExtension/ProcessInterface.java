@@ -34,16 +34,14 @@ import com.tibco.xpd.xpdl2.OtherElementsContainer;
  * @model extendedMetaData="name='ProcessInterface' kind='elementOnly' features-order='startMethods intermediateMethods extendedAttributes'"
  * @generated
  */
-public interface ProcessInterface extends NamedElement, DescribedElement,
-        ExtendedAttributesContainer, FormalParametersContainer,
-        OtherAttributesContainer, OtherElementsContainer {
+public interface ProcessInterface extends NamedElement, DescribedElement, ExtendedAttributesContainer,
+        FormalParametersContainer, OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Start Methods</b></em>' containment reference list.

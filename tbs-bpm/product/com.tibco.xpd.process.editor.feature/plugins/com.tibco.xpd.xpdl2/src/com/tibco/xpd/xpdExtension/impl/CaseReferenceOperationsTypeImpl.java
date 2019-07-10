@@ -38,15 +38,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CaseReferenceOperationsTypeImpl extends EObjectImpl
-        implements CaseReferenceOperationsType {
+public class CaseReferenceOperationsTypeImpl extends EObjectImpl implements CaseReferenceOperationsType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getCaseRefField() <em>Case Ref Field</em>}' attribute.
@@ -146,8 +144,7 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
         caseRefField = newCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD,
-                    oldCaseRefField, caseRefField));
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__CASE_REF_FIELD, oldCaseRefField, caseRefField));
     }
 
     /**
@@ -164,15 +161,12 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetUpdate(UpdateCaseOperationType newUpdate,
-            NotificationChain msgs) {
+    public NotificationChain basicSetUpdate(UpdateCaseOperationType newUpdate, NotificationChain msgs) {
         UpdateCaseOperationType oldUpdate = update;
         update = newUpdate;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
-                    oldUpdate, newUpdate);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE, oldUpdate, newUpdate);
             if (msgs == null)
                 msgs = notification;
             else
@@ -191,14 +185,12 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (update != null)
                 msgs = ((InternalEObject) update).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
                         null,
                         msgs);
             if (newUpdate != null)
                 msgs = ((InternalEObject) newUpdate).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
                         null,
                         msgs);
             msgs = basicSetUpdate(newUpdate, msgs);
@@ -206,8 +198,7 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE,
-                    newUpdate, newUpdate));
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE, newUpdate, newUpdate));
     }
 
     /**
@@ -224,16 +215,12 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDelete(
-            DeleteCaseReferenceOperationType newDelete,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDelete(DeleteCaseReferenceOperationType newDelete, NotificationChain msgs) {
         DeleteCaseReferenceOperationType oldDelete = delete;
         delete = newDelete;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
-                    oldDelete, newDelete);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE, oldDelete, newDelete);
             if (msgs == null)
                 msgs = notification;
             else
@@ -252,14 +239,12 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (delete != null)
                 msgs = ((InternalEObject) delete).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
                         null,
                         msgs);
             if (newDelete != null)
                 msgs = ((InternalEObject) newDelete).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
                         null,
                         msgs);
             msgs = basicSetDelete(newDelete, msgs);
@@ -267,8 +252,7 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE,
-                    newDelete, newDelete));
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__DELETE, newDelete, newDelete));
     }
 
     /**
@@ -285,16 +269,14 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetAddLinkAssociations(
-            AddLinkAssociationsType newAddLinkAssociations,
+    public NotificationChain basicSetAddLinkAssociations(AddLinkAssociationsType newAddLinkAssociations,
             NotificationChain msgs) {
         AddLinkAssociationsType oldAddLinkAssociations = addLinkAssociations;
         addLinkAssociations = newAddLinkAssociations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
-                    oldAddLinkAssociations, newAddLinkAssociations);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS, oldAddLinkAssociations,
+                    newAddLinkAssociations);
             if (msgs == null)
                 msgs = notification;
             else
@@ -308,20 +290,17 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAddLinkAssociations(
-            AddLinkAssociationsType newAddLinkAssociations) {
+    public void setAddLinkAssociations(AddLinkAssociationsType newAddLinkAssociations) {
         if (newAddLinkAssociations != addLinkAssociations) {
             NotificationChain msgs = null;
             if (addLinkAssociations != null)
-                msgs = ((InternalEObject) addLinkAssociations).eInverseRemove(
-                        this,
+                msgs = ((InternalEObject) addLinkAssociations).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                                 - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
                         null,
                         msgs);
             if (newAddLinkAssociations != null)
-                msgs = ((InternalEObject) newAddLinkAssociations).eInverseAdd(
-                        this,
+                msgs = ((InternalEObject) newAddLinkAssociations).eInverseAdd(this,
                         EOPPOSITE_FEATURE_BASE
                                 - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
                         null,
@@ -331,8 +310,8 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS,
-                    newAddLinkAssociations, newAddLinkAssociations));
+                    XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__ADD_LINK_ASSOCIATIONS, newAddLinkAssociations,
+                    newAddLinkAssociations));
     }
 
     /**
@@ -349,15 +328,12 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRemoveLinkAssociations(
-            RemoveLinkAssociationsType newRemoveLinkAssociations,
+    public NotificationChain basicSetRemoveLinkAssociations(RemoveLinkAssociationsType newRemoveLinkAssociations,
             NotificationChain msgs) {
-        RemoveLinkAssociationsType oldRemoveLinkAssociations =
-                removeLinkAssociations;
+        RemoveLinkAssociationsType oldRemoveLinkAssociations = removeLinkAssociations;
         removeLinkAssociations = newRemoveLinkAssociations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
                     oldRemoveLinkAssociations, newRemoveLinkAssociations);
             if (msgs == null)
@@ -373,26 +349,22 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoveLinkAssociations(
-            RemoveLinkAssociationsType newRemoveLinkAssociations) {
+    public void setRemoveLinkAssociations(RemoveLinkAssociationsType newRemoveLinkAssociations) {
         if (newRemoveLinkAssociations != removeLinkAssociations) {
             NotificationChain msgs = null;
             if (removeLinkAssociations != null)
-                msgs = ((InternalEObject) removeLinkAssociations)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) removeLinkAssociations).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
+                        null,
+                        msgs);
             if (newRemoveLinkAssociations != null)
-                msgs = ((InternalEObject) newRemoveLinkAssociations)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
-                                null,
-                                msgs);
-            msgs = basicSetRemoveLinkAssociations(newRemoveLinkAssociations,
-                    msgs);
+                msgs = ((InternalEObject) newRemoveLinkAssociations).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__REMOVE_LINK_ASSOCIATIONS,
+                        null,
+                        msgs);
+            msgs = basicSetRemoveLinkAssociations(newRemoveLinkAssociations, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
@@ -407,8 +379,7 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CASE_REFERENCE_OPERATIONS_TYPE__UPDATE:
             return basicSetUpdate(null, msgs);
@@ -531,7 +502,7 @@ public class CaseReferenceOperationsTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (caseRefField: "); //$NON-NLS-1$
         result.append(caseRefField);
         result.append(')');

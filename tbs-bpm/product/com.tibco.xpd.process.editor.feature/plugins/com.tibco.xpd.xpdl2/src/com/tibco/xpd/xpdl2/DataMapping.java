@@ -13,27 +13,25 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.DataMapping#getActual <em>Actual</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataMapping#getDirection <em>Direction</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataMapping#getFormal <em>Formal</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataMapping#getTestValue <em>Test Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getDataMapping()
  * @model extendedMetaData="name='DataMapping_._type' kind='elementOnly'"
  * @generated
  */
-public interface DataMapping extends OtherElementsContainer,
-        OtherAttributesContainer {
+public interface DataMapping extends OtherElementsContainer, OtherAttributesContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Actual</b></em>' containment reference.

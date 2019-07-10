@@ -54,8 +54,7 @@ public enum ImplementationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Web Service</b></em>' literal value.
@@ -109,8 +108,7 @@ public enum ImplementationType implements Enumerator {
      * @generated
      */
     private static final ImplementationType[] VALUES_ARRAY =
-            new ImplementationType[] { WEB_SERVICE_LITERAL, OTHER_LITERAL,
-                    UNSPECIFIED_LITERAL, };
+            new ImplementationType[] { WEB_SERVICE_LITERAL, OTHER_LITERAL, UNSPECIFIED_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Implementation Type</b></em>' enumerators.
@@ -118,13 +116,14 @@ public enum ImplementationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ImplementationType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ImplementationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Implementation Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ImplementationType get(String literal) {
@@ -141,6 +140,8 @@ public enum ImplementationType implements Enumerator {
      * Returns the '<em><b>Implementation Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ImplementationType getByName(String name) {
@@ -157,6 +158,8 @@ public enum ImplementationType implements Enumerator {
      * Returns the '<em><b>Implementation Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ImplementationType get(int value) {

@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class NamespaceMapEntryImpl extends EObjectImpl
-        implements NamespaceMapEntry {
+public class NamespaceMapEntryImpl extends EObjectImpl implements NamespaceMapEntry {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
@@ -114,9 +112,8 @@ public class NamespaceMapEntryImpl extends EObjectImpl
         String oldPrefix = prefix;
         prefix = newPrefix;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.NAMESPACE_MAP_ENTRY__PREFIX, oldPrefix,
-                    prefix));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.NAMESPACE_MAP_ENTRY__PREFIX,
+                    oldPrefix, prefix));
     }
 
     /**
@@ -137,8 +134,7 @@ public class NamespaceMapEntryImpl extends EObjectImpl
         String oldNamespace = namespace;
         namespace = newNamespace;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.NAMESPACE_MAP_ENTRY__NAMESPACE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.NAMESPACE_MAP_ENTRY__NAMESPACE,
                     oldNamespace, namespace));
     }
 
@@ -203,11 +199,9 @@ public class NamespaceMapEntryImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.NAMESPACE_MAP_ENTRY__PREFIX:
-            return PREFIX_EDEFAULT == null ? prefix != null
-                    : !PREFIX_EDEFAULT.equals(prefix);
+            return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
         case XpdExtensionPackage.NAMESPACE_MAP_ENTRY__NAMESPACE:
-            return NAMESPACE_EDEFAULT == null ? namespace != null
-                    : !NAMESPACE_EDEFAULT.equals(namespace);
+            return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
         }
         return super.eIsSet(featureID);
     }
@@ -222,7 +216,7 @@ public class NamespaceMapEntryImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (Prefix: "); //$NON-NLS-1$
         result.append(prefix);
         result.append(", Namespace: "); //$NON-NLS-1$

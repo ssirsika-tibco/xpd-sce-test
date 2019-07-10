@@ -28,13 +28,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExpressionImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExpressionImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExpressionImpl#getAny <em>Any</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExpressionImpl#getScriptGrammar <em>Script Grammar</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -43,8 +43,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -115,8 +114,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
      * @generated
      */
     public FeatureMap getGroup() {
-        return (FeatureMap) getMixed()
-                .<FeatureMap.Entry> list(Xpdl2Package.Literals.EXPRESSION__GROUP);
+        return (FeatureMap) getMixed().<FeatureMap.Entry> list(Xpdl2Package.Literals.EXPRESSION__GROUP);
     }
 
     /**
@@ -146,9 +144,8 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
         String oldScriptGrammar = scriptGrammar;
         scriptGrammar = newScriptGrammar;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXPRESSION__SCRIPT_GRAMMAR, oldScriptGrammar,
-                    scriptGrammar));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXPRESSION__SCRIPT_GRAMMAR,
+                    oldScriptGrammar, scriptGrammar));
     }
 
     /**
@@ -157,10 +154,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
      * @generated NOT
      */
     public String getText() {
-        List vals =
-                (List) getMixed()
-                        .get(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(),
-                                false);
+        List vals = (List) getMixed().get(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(), false);
         if (vals.size() == 0) {
             return ""; //$NON-NLS-1$
         } else if (vals.size() == 1) {
@@ -180,8 +174,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.EXPRESSION__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
@@ -293,7 +286,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: "); //$NON-NLS-1$
         result.append(mixed);
         result.append(", any: "); //$NON-NLS-1$

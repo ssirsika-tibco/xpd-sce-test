@@ -25,12 +25,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EjbApplicationImpl#getJndiName <em>Jndi Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EjbApplicationImpl#getHomeClass <em>Home Class</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EjbApplicationImpl#getMethod <em>Method</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,8 +40,7 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getJndiName() <em>Jndi Name</em>}' containment reference.
@@ -106,15 +105,12 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetJndiName(JndiName newJndiName,
-            NotificationChain msgs) {
+    public NotificationChain basicSetJndiName(JndiName newJndiName, NotificationChain msgs) {
         JndiName oldJndiName = jndiName;
         jndiName = newJndiName;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.EJB_APPLICATION__JNDI_NAME,
-                            oldJndiName, newJndiName);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.EJB_APPLICATION__JNDI_NAME, oldJndiName, newJndiName);
             if (msgs == null)
                 msgs = notification;
             else
@@ -132,27 +128,20 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
         if (newJndiName != jndiName) {
             NotificationChain msgs = null;
             if (jndiName != null)
-                msgs =
-                        ((InternalEObject) jndiName)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.EJB_APPLICATION__JNDI_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) jndiName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__JNDI_NAME,
+                        null,
+                        msgs);
             if (newJndiName != null)
-                msgs =
-                        ((InternalEObject) newJndiName)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.EJB_APPLICATION__JNDI_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newJndiName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__JNDI_NAME,
+                        null,
+                        msgs);
             msgs = basicSetJndiName(newJndiName, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EJB_APPLICATION__JNDI_NAME, newJndiName,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EJB_APPLICATION__JNDI_NAME, newJndiName,
                     newJndiName));
     }
 
@@ -170,15 +159,12 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetHomeClass(HomeClass newHomeClass,
-            NotificationChain msgs) {
+    public NotificationChain basicSetHomeClass(HomeClass newHomeClass, NotificationChain msgs) {
         HomeClass oldHomeClass = homeClass;
         homeClass = newHomeClass;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
-                            oldHomeClass, newHomeClass);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.EJB_APPLICATION__HOME_CLASS, oldHomeClass, newHomeClass);
             if (msgs == null)
                 msgs = notification;
             else
@@ -196,28 +182,21 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
         if (newHomeClass != homeClass) {
             NotificationChain msgs = null;
             if (homeClass != null)
-                msgs =
-                        ((InternalEObject) homeClass)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) homeClass).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
+                        null,
+                        msgs);
             if (newHomeClass != null)
-                msgs =
-                        ((InternalEObject) newHomeClass)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newHomeClass).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
+                        null,
+                        msgs);
             msgs = basicSetHomeClass(newHomeClass, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EJB_APPLICATION__HOME_CLASS, newHomeClass,
-                    newHomeClass));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EJB_APPLICATION__HOME_CLASS,
+                    newHomeClass, newHomeClass));
     }
 
     /**
@@ -234,15 +213,12 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMethod(Method newMethod,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMethod(Method newMethod, NotificationChain msgs) {
         Method oldMethod = method;
         method = newMethod;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.EJB_APPLICATION__METHOD, oldMethod,
-                            newMethod);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.EJB_APPLICATION__METHOD, oldMethod, newMethod);
             if (msgs == null)
                 msgs = notification;
             else
@@ -260,25 +236,19 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
         if (newMethod != method) {
             NotificationChain msgs = null;
             if (method != null)
-                msgs =
-                        ((InternalEObject) method).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.EJB_APPLICATION__METHOD,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) method).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__METHOD,
+                        null,
+                        msgs);
             if (newMethod != null)
-                msgs =
-                        ((InternalEObject) newMethod).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.EJB_APPLICATION__METHOD,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMethod)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.EJB_APPLICATION__METHOD, null, msgs);
             msgs = basicSetMethod(newMethod, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EJB_APPLICATION__METHOD, newMethod, newMethod));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EJB_APPLICATION__METHOD, newMethod,
+                    newMethod));
     }
 
     /**
@@ -287,8 +257,7 @@ public class EjbApplicationImpl extends EObjectImpl implements EjbApplication {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.EJB_APPLICATION__JNDI_NAME:
             return basicSetJndiName(null, msgs);

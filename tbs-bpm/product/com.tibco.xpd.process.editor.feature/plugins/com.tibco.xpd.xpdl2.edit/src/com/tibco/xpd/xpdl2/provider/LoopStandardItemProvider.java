@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoopStandardItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LoopStandardItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,11 +83,12 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     protected void addLoopConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopStandard_loopCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopStandard_loopCondition_feature", "_UI_LoopStandard_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopStandard_loopCondition_feature", //$NON-NLS-1$
+                                "_UI_LoopStandard_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_STANDARD__LOOP_CONDITION,
                         true,
                         false,
@@ -107,11 +106,12 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     protected void addLoopCounterPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopStandard_loopCounter_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopStandard_loopCounter_feature", "_UI_LoopStandard_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopStandard_loopCounter_feature", //$NON-NLS-1$
+                                "_UI_LoopStandard_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_STANDARD__LOOP_COUNTER,
                         true,
                         false,
@@ -129,11 +129,12 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     protected void addLoopMaximumPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopStandard_loopMaximum_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopStandard_loopMaximum_feature", "_UI_LoopStandard_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopStandard_loopMaximum_feature", //$NON-NLS-1$
+                                "_UI_LoopStandard_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_STANDARD__LOOP_MAXIMUM,
                         true,
                         false,
@@ -151,11 +152,12 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     protected void addTestTimePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopStandard_testTime_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopStandard_testTime_feature", "_UI_LoopStandard_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopStandard_testTime_feature", //$NON-NLS-1$
+                                "_UI_LoopStandard_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_STANDARD__TEST_TIME,
                         true,
                         false,
@@ -173,11 +175,12 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     protected void addAttributeLoopConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopStandard_attributeLoopCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopStandard_attributeLoopCondition_feature", "_UI_LoopStandard_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopStandard_attributeLoopCondition_feature", //$NON-NLS-1$
+                                "_UI_LoopStandard_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION,
                         true,
                         false,
@@ -196,12 +199,10 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
         }
         return childrenFeatures;
     }
@@ -227,8 +228,7 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/LoopStandard")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopStandard")); //$NON-NLS-1$
     }
 
     /**
@@ -262,12 +262,10 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.LOOP_STANDARD__TEST_TIME:
         case Xpdl2Package.LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION:
         case Xpdl2Package.LOOP_STANDARD__LOOP_CONDITION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.LOOP_STANDARD__OTHER_ELEMENTS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -281,8 +279,7 @@ public class LoopStandardItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,12 +76,10 @@ public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE);
         }
         return childrenFeatures;
     }
@@ -109,9 +105,7 @@ public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/RequiredAccessPrivileges")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/RequiredAccessPrivileges")); //$NON-NLS-1$
     }
 
     /**
@@ -138,8 +132,7 @@ public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(RequiredAccessPrivileges.class)) {
         case XpdExtensionPackage.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -153,13 +146,12 @@ public class RequiredAccessPrivilegesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE,
-                Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE,
+                        Xpdl2Factory.eINSTANCE.createExternalReference()));
     }
 
     /**

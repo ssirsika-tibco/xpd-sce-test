@@ -32,6 +32,7 @@ import java.util.Collection;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultSignalImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultSignalImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -39,19 +40,16 @@ import java.util.Collection;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultSignalImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultSignalImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class TriggerResultSignalImpl extends EObjectImpl implements
-        TriggerResultSignal {
+public class TriggerResultSignalImpl extends EObjectImpl implements TriggerResultSignal {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -158,10 +156,7 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(
-                            this,
-                            Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -173,9 +168,7 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -187,10 +180,8 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
      */
     public EList<Expression> getProperties() {
         if (properties == null) {
-            properties =
-                    new EObjectContainmentEList<Expression>(Expression.class,
-                            this,
-                            Xpdl2Package.TRIGGER_RESULT_SIGNAL__PROPERTIES);
+            properties = new EObjectContainmentEList<Expression>(Expression.class, this,
+                    Xpdl2Package.TRIGGER_RESULT_SIGNAL__PROPERTIES);
         }
         return properties;
     }
@@ -211,13 +202,11 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
      */
     public void setCatchThrow(CatchThrow newCatchThrow) {
         CatchThrow oldCatchThrow = catchThrow;
-        catchThrow =
-                newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
+        catchThrow = newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
         boolean oldCatchThrowESet = catchThrowESet;
         catchThrowESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_SIGNAL__CATCH_THROW,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_RESULT_SIGNAL__CATCH_THROW,
                     oldCatchThrow, catchThrow, !oldCatchThrowESet));
     }
 
@@ -232,8 +221,7 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
         catchThrow = CATCH_THROW_EDEFAULT;
         catchThrowESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TRIGGER_RESULT_SIGNAL__CATCH_THROW,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TRIGGER_RESULT_SIGNAL__CATCH_THROW,
                     oldCatchThrow, CATCH_THROW_EDEFAULT, oldCatchThrowESet));
     }
 
@@ -264,8 +252,8 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_SIGNAL__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_RESULT_SIGNAL__NAME, oldName,
+                    name));
     }
 
     /**
@@ -285,18 +273,14 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__PROPERTIES:
-            return ((InternalEList<?>) getProperties()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -398,8 +382,7 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__CATCH_THROW:
             return isSetCatchThrow();
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL__PROPERTIES:
             return properties != null && !properties.isEmpty();
         }
@@ -452,7 +435,7 @@ public class TriggerResultSignalImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

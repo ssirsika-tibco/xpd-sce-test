@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JoinItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class JoinItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,19 +78,18 @@ public class JoinItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addIncomingCondtionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Join_incomingCondtion_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Join_incomingCondtion_feature", "_UI_Join_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.JOIN__INCOMING_CONDTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Join_incomingCondtion_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Join_incomingCondtion_feature", "_UI_Join_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.JOIN__INCOMING_CONDTION,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -103,8 +100,7 @@ public class JoinItemProvider extends ItemProviderAdapter implements
      */
     protected void addTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Join_type_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Join_type_feature", "_UI_Join_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -124,19 +120,18 @@ public class JoinItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addExclusiveTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Join_exclusiveType_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Join_exclusiveType_feature", "_UI_Join_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.JOIN__EXCLUSIVE_TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Join_exclusiveType_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Join_exclusiveType_feature", "_UI_Join_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.JOIN__EXCLUSIVE_TYPE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -147,8 +142,7 @@ public class JoinItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Join")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Join")); //$NON-NLS-1$
     }
 
     /**
@@ -179,8 +173,7 @@ public class JoinItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.JOIN__INCOMING_CONDTION:
         case Xpdl2Package.JOIN__TYPE:
         case Xpdl2Package.JOIN__EXCLUSIVE_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -194,8 +187,7 @@ public class JoinItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

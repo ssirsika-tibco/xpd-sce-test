@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -52,8 +50,7 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public ServiceProcessConfigurationItemProvider(
-            AdapterFactory adapterFactory) {
+    public ServiceProcessConfigurationItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -81,22 +78,20 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDeployToProcessRuntimePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_ServiceProcessConfiguration_deployToProcessRuntime_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ServiceProcessConfiguration_deployToProcessRuntime_feature", //$NON-NLS-1$
-                        "_UI_ServiceProcessConfiguration_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ServiceProcessConfiguration_deployToProcessRuntime_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ServiceProcessConfiguration_deployToProcessRuntime_feature", //$NON-NLS-1$
+                                "_UI_ServiceProcessConfiguration_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -106,22 +101,20 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDeployToPageflowRuntimePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_ServiceProcessConfiguration_deployToPageflowRuntime_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ServiceProcessConfiguration_deployToPageflowRuntime_feature", //$NON-NLS-1$
-                        "_UI_ServiceProcessConfiguration_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ServiceProcessConfiguration_deployToPageflowRuntime_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ServiceProcessConfiguration_deployToPageflowRuntime_feature", //$NON-NLS-1$
+                                "_UI_ServiceProcessConfiguration_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -132,9 +125,7 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/ServiceProcessConfiguration")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceProcessConfiguration")); //$NON-NLS-1$
     }
 
     /**
@@ -145,8 +136,7 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        ServiceProcessConfiguration serviceProcessConfiguration =
-                (ServiceProcessConfiguration) object;
+        ServiceProcessConfiguration serviceProcessConfiguration = (ServiceProcessConfiguration) object;
         return getString("_UI_ServiceProcessConfiguration_type") + " " //$NON-NLS-1$//$NON-NLS-2$
                 + serviceProcessConfiguration.isDeployToProcessRuntime();
     }
@@ -165,8 +155,7 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(ServiceProcessConfiguration.class)) {
         case XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME:
         case XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -180,8 +169,7 @@ public class ServiceProcessConfigurationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

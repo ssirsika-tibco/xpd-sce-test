@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.OutputImpl#getArtifactId <em>Artifact Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class OutputImpl extends EObjectImpl implements Output {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
@@ -93,8 +92,8 @@ public class OutputImpl extends EObjectImpl implements Output {
         String oldArtifactId = artifactId;
         artifactId = newArtifactId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.OUTPUT__ARTIFACT_ID, oldArtifactId, artifactId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.OUTPUT__ARTIFACT_ID, oldArtifactId,
+                    artifactId));
     }
 
     /**
@@ -150,8 +149,7 @@ public class OutputImpl extends EObjectImpl implements Output {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.OUTPUT__ARTIFACT_ID:
-            return ARTIFACT_ID_EDEFAULT == null ? artifactId != null
-                    : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+            return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
         }
         return super.eIsSet(featureID);
     }
@@ -166,7 +164,7 @@ public class OutputImpl extends EObjectImpl implements Output {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (artifactId: "); //$NON-NLS-1$
         result.append(artifactId);
         result.append(')');

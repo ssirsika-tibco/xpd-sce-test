@@ -23,11 +23,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PojoApplicationImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PojoApplicationImpl#getMethod <em>Method</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,8 +37,7 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
@@ -93,15 +92,12 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetClass(com.tibco.xpd.xpdl2.Class newClass,
-            NotificationChain msgs) {
+    public NotificationChain basicSetClass(com.tibco.xpd.xpdl2.Class newClass, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Class oldClass = class_;
         class_ = newClass;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.POJO_APPLICATION__CLASS, oldClass,
-                            newClass);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.POJO_APPLICATION__CLASS, oldClass, newClass);
             if (msgs == null)
                 msgs = notification;
             else
@@ -119,25 +115,19 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
         if (newClass != class_) {
             NotificationChain msgs = null;
             if (class_ != null)
-                msgs =
-                        ((InternalEObject) class_).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.POJO_APPLICATION__CLASS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) class_).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.POJO_APPLICATION__CLASS,
+                        null,
+                        msgs);
             if (newClass != null)
-                msgs =
-                        ((InternalEObject) newClass).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.POJO_APPLICATION__CLASS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newClass)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.POJO_APPLICATION__CLASS, null, msgs);
             msgs = basicSetClass(newClass, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POJO_APPLICATION__CLASS, newClass, newClass));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POJO_APPLICATION__CLASS, newClass,
+                    newClass));
     }
 
     /**
@@ -154,15 +144,12 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMethod(Method newMethod,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMethod(Method newMethod, NotificationChain msgs) {
         Method oldMethod = method;
         method = newMethod;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.POJO_APPLICATION__METHOD, oldMethod,
-                            newMethod);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.POJO_APPLICATION__METHOD, oldMethod, newMethod);
             if (msgs == null)
                 msgs = notification;
             else
@@ -180,27 +167,19 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
         if (newMethod != method) {
             NotificationChain msgs = null;
             if (method != null)
-                msgs =
-                        ((InternalEObject) method)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.POJO_APPLICATION__METHOD,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) method).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.POJO_APPLICATION__METHOD,
+                        null,
+                        msgs);
             if (newMethod != null)
-                msgs =
-                        ((InternalEObject) newMethod)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.POJO_APPLICATION__METHOD,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newMethod)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.POJO_APPLICATION__METHOD, null, msgs);
             msgs = basicSetMethod(newMethod, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.POJO_APPLICATION__METHOD, newMethod, newMethod));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.POJO_APPLICATION__METHOD, newMethod,
+                    newMethod));
     }
 
     /**
@@ -209,8 +188,7 @@ public class PojoApplicationImpl extends EObjectImpl implements PojoApplication 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.POJO_APPLICATION__CLASS:
             return basicSetClass(null, msgs);

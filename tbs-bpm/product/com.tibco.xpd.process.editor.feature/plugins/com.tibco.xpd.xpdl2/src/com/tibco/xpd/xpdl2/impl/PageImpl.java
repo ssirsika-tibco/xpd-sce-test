@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PageImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PageImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PageImpl#getWidth <em>Width</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,8 +42,7 @@ public class PageImpl extends NamedElementImpl implements Page {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -121,8 +120,7 @@ public class PageImpl extends NamedElementImpl implements Page {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this, Xpdl2Package.PAGE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.PAGE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -145,8 +143,7 @@ public class PageImpl extends NamedElementImpl implements Page {
         double oldHeight = height;
         height = newHeight;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PAGE__HEIGHT, oldHeight, height));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PAGE__HEIGHT, oldHeight, height));
     }
 
     /**
@@ -167,8 +164,7 @@ public class PageImpl extends NamedElementImpl implements Page {
         double oldWidth = width;
         width = newWidth;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PAGE__WIDTH, oldWidth, width));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PAGE__WIDTH, oldWidth, width));
     }
 
     /**
@@ -188,12 +184,10 @@ public class PageImpl extends NamedElementImpl implements Page {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PAGE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -324,7 +318,7 @@ public class PageImpl extends NamedElementImpl implements Page {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", height: "); //$NON-NLS-1$

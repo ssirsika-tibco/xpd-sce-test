@@ -48,8 +48,7 @@ public enum XpdInterfaceType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Process Interface</b></em>' literal value.
@@ -88,8 +87,7 @@ public enum XpdInterfaceType implements Enumerator {
      * @generated
      */
     private static final XpdInterfaceType[] VALUES_ARRAY =
-            new XpdInterfaceType[] { PROCESS_INTERFACE,
-                    SERVICE_PROCESS_INTERFACE, };
+            new XpdInterfaceType[] { PROCESS_INTERFACE, SERVICE_PROCESS_INTERFACE, };
 
     /**
      * A public read-only list of all the '<em><b>Xpd Interface Type</b></em>' enumerators.
@@ -97,8 +95,7 @@ public enum XpdInterfaceType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<XpdInterfaceType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<XpdInterfaceType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Xpd Interface Type</b></em>' literal with the specified literal value.

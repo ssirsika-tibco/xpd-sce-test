@@ -23,13 +23,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkImpl#getMyRole <em>My Role</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkImpl#getPartnerRole <em>Partner Role</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkImpl#getPartnerLinkTypeId <em>Partner Link Type Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,8 +39,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMyRole() <em>My Role</em>}' containment reference.
@@ -135,15 +134,12 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMyRole(MyRole newMyRole,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMyRole(MyRole newMyRole, NotificationChain msgs) {
         MyRole oldMyRole = myRole;
         myRole = newMyRole;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTNER_LINK__MY_ROLE, oldMyRole,
-                            newMyRole);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTNER_LINK__MY_ROLE, oldMyRole, newMyRole);
             if (msgs == null)
                 msgs = notification;
             else
@@ -161,25 +157,17 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
         if (newMyRole != myRole) {
             NotificationChain msgs = null;
             if (myRole != null)
-                msgs =
-                        ((InternalEObject) myRole).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PARTNER_LINK__MY_ROLE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) myRole)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_LINK__MY_ROLE, null, msgs);
             if (newMyRole != null)
-                msgs =
-                        ((InternalEObject) newMyRole).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PARTNER_LINK__MY_ROLE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMyRole)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_LINK__MY_ROLE, null, msgs);
             msgs = basicSetMyRole(newMyRole, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_LINK__MY_ROLE, newMyRole, newMyRole));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_LINK__MY_ROLE, newMyRole,
+                    newMyRole));
     }
 
     /**
@@ -196,15 +184,12 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPartnerRole(PartnerRole newPartnerRole,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPartnerRole(PartnerRole newPartnerRole, NotificationChain msgs) {
         PartnerRole oldPartnerRole = partnerRole;
         partnerRole = newPartnerRole;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
-                            oldPartnerRole, newPartnerRole);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTNER_LINK__PARTNER_ROLE, oldPartnerRole, newPartnerRole);
             if (msgs == null)
                 msgs = notification;
             else
@@ -222,28 +207,21 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
         if (newPartnerRole != partnerRole) {
             NotificationChain msgs = null;
             if (partnerRole != null)
-                msgs =
-                        ((InternalEObject) partnerRole)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) partnerRole).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
+                        null,
+                        msgs);
             if (newPartnerRole != null)
-                msgs =
-                        ((InternalEObject) newPartnerRole)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newPartnerRole).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
+                        null,
+                        msgs);
             msgs = basicSetPartnerRole(newPartnerRole, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_LINK__PARTNER_ROLE, newPartnerRole,
-                    newPartnerRole));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_LINK__PARTNER_ROLE,
+                    newPartnerRole, newPartnerRole));
     }
 
     /**
@@ -264,8 +242,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
         String oldPartnerLinkTypeId = partnerLinkTypeId;
         partnerLinkTypeId = newPartnerLinkTypeId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_LINK__PARTNER_LINK_TYPE_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_LINK__PARTNER_LINK_TYPE_ID,
                     oldPartnerLinkTypeId, partnerLinkTypeId));
     }
 
@@ -287,8 +264,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_LINK__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_LINK__NAME, oldName, name));
     }
 
     /**
@@ -297,8 +273,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PARTNER_LINK__MY_ROLE:
             return basicSetMyRole(null, msgs);
@@ -392,8 +367,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
             return PARTNER_LINK_TYPE_ID_EDEFAULT == null ? partnerLinkTypeId != null
                     : !PARTNER_LINK_TYPE_ID_EDEFAULT.equals(partnerLinkTypeId);
         case Xpdl2Package.PARTNER_LINK__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -408,7 +382,7 @@ public class PartnerLinkImpl extends UniqueIdElementImpl implements PartnerLink 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (partnerLinkTypeId: "); //$NON-NLS-1$
         result.append(partnerLinkTypeId);
         result.append(", name: "); //$NON-NLS-1$

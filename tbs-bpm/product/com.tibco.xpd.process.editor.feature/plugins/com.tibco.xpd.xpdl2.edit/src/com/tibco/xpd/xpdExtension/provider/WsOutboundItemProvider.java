@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WsOutboundItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WsOutboundItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,16 +77,12 @@ public class WsOutboundItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.WS_OUTBOUND__VIRTUAL_BINDING);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_HTTP_BINDING);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_JMS_BINDING);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_OUTBOUND__VIRTUAL_BINDING);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_HTTP_BINDING);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_JMS_BINDING);
         }
         return childrenFeatures;
     }
@@ -114,8 +108,7 @@ public class WsOutboundItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WsOutbound")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsOutbound")); //$NON-NLS-1$
     }
 
     /**
@@ -144,8 +137,7 @@ public class WsOutboundItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING:
         case XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING:
         case XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -159,23 +151,17 @@ public class WsOutboundItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_OUTBOUND__VIRTUAL_BINDING,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.WS_OUTBOUND__VIRTUAL_BINDING,
                 XpdExtensionFactory.eINSTANCE.createWsVirtualBinding()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_HTTP_BINDING,
-                XpdExtensionFactory.eINSTANCE
-                        .createWsSoapHttpOutboundBinding()));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_HTTP_BINDING,
+                XpdExtensionFactory.eINSTANCE.createWsSoapHttpOutboundBinding()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_JMS_BINDING,
-                XpdExtensionFactory.eINSTANCE
-                        .createWsSoapJmsOutboundBinding()));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.WS_OUTBOUND__SOAP_JMS_BINDING,
+                XpdExtensionFactory.eINSTANCE.createWsSoapJmsOutboundBinding()));
     }
 
     /**

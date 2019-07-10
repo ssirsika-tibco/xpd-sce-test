@@ -23,6 +23,9 @@ public enum QueryExpressionJoinType implements Enumerator {
      * The '<em><b>AND</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Process Data Field  used in the Conditional Expression
+     * <!-- end-model-doc -->
      * @see #AND_VALUE
      * @generated
      * @ordered
@@ -33,6 +36,9 @@ public enum QueryExpressionJoinType implements Enumerator {
      * The '<em><b>OR</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Process Data Field  used in the Conditional Expression
+     * <!-- end-model-doc -->
      * @see #OR_VALUE
      * @generated
      * @ordered
@@ -44,8 +50,7 @@ public enum QueryExpressionJoinType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>AND</b></em>' literal value.
@@ -89,8 +94,7 @@ public enum QueryExpressionJoinType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final QueryExpressionJoinType[] VALUES_ARRAY =
-            new QueryExpressionJoinType[] { AND, OR, };
+    private static final QueryExpressionJoinType[] VALUES_ARRAY = new QueryExpressionJoinType[] { AND, OR, };
 
     /**
      * A public read-only list of all the '<em><b>Query Expression Join Type</b></em>' enumerators.

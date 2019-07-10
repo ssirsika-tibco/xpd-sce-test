@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Process#getProcessHeader <em>Process Header</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Process#getRedefinableHeader <em>Redefinable Header</em>}</li>
@@ -30,22 +31,18 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.Process#getPackage <em>Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Process#getActivitySets <em>Activity Sets</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getProcess()
  * @model extendedMetaData="name='ProcessType' kind='elementOnly' features-order='processHeader redefinableHeader formalParameters participants applications dataFields activitySets activities transitions extendedAttributes assignments partnerLinks object extensions otherElements'"
  * @generated
  */
-public interface Process extends NamedElement, FlowContainer,
-        ExtendedAttributesContainer, FormalParametersContainer,
-        AssigmentsContainer, DataFieldsContainer, ParticipantsContainer,
-        ApplicationsContainer, OtherElementsContainer {
+public interface Process extends NamedElement, FlowContainer, ExtendedAttributesContainer, FormalParametersContainer,
+        AssigmentsContainer, DataFieldsContainer, ParticipantsContainer, ApplicationsContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Process Header</b></em>' containment reference.

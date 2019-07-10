@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerMultiple#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerMultiple#getTriggerTimer <em>Trigger Timer</em>}</li>
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerMultiple#getTriggerResultLink <em>Trigger Result Link</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerMultiple#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTriggerMultiple()
  * @model extendedMetaData="name='TriggerMultiple_._type' kind='elementOnly'"
@@ -34,8 +34,7 @@ public interface TriggerMultiple extends OtherAttributesContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Trigger Result Message</b></em>' containment reference.

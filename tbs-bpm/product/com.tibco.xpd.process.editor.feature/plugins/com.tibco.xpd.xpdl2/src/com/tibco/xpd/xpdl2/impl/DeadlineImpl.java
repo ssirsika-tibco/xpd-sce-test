@@ -25,12 +25,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeadlineImpl#getDeadlineDuration <em>Deadline Duration</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeadlineImpl#getExceptionName <em>Exception Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeadlineImpl#getExecution <em>Execution</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,8 +40,7 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDeadlineDuration() <em>Deadline Duration</em>}' containment reference.
@@ -71,8 +70,7 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
      * @generated
      * @ordered
      */
-    protected static final ExecutionType EXECUTION_EDEFAULT =
-            ExecutionType.ASYNCHR_LITERAL;
+    protected static final ExecutionType EXECUTION_EDEFAULT = ExecutionType.ASYNCHR_LITERAL;
 
     /**
      * The cached value of the '{@link #getExecution() <em>Execution</em>}' attribute.
@@ -126,15 +124,12 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeadlineDuration(
-            Expression newDeadlineDuration, NotificationChain msgs) {
+    public NotificationChain basicSetDeadlineDuration(Expression newDeadlineDuration, NotificationChain msgs) {
         Expression oldDeadlineDuration = deadlineDuration;
         deadlineDuration = newDeadlineDuration;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DEADLINE__DEADLINE_DURATION,
-                            oldDeadlineDuration, newDeadlineDuration);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DEADLINE__DEADLINE_DURATION, oldDeadlineDuration, newDeadlineDuration);
             if (msgs == null)
                 msgs = notification;
             else
@@ -152,27 +147,20 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
         if (newDeadlineDuration != deadlineDuration) {
             NotificationChain msgs = null;
             if (deadlineDuration != null)
-                msgs =
-                        ((InternalEObject) deadlineDuration)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DEADLINE__DEADLINE_DURATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deadlineDuration).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DEADLINE__DEADLINE_DURATION,
+                        null,
+                        msgs);
             if (newDeadlineDuration != null)
-                msgs =
-                        ((InternalEObject) newDeadlineDuration)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DEADLINE__DEADLINE_DURATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDeadlineDuration).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DEADLINE__DEADLINE_DURATION,
+                        null,
+                        msgs);
             msgs = basicSetDeadlineDuration(newDeadlineDuration, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DEADLINE__DEADLINE_DURATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DEADLINE__DEADLINE_DURATION,
                     newDeadlineDuration, newDeadlineDuration));
     }
 
@@ -190,15 +178,12 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExceptionName(
-            ExceptionName newExceptionName, NotificationChain msgs) {
+    public NotificationChain basicSetExceptionName(ExceptionName newExceptionName, NotificationChain msgs) {
         ExceptionName oldExceptionName = exceptionName;
         exceptionName = newExceptionName;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.DEADLINE__EXCEPTION_NAME,
-                            oldExceptionName, newExceptionName);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.DEADLINE__EXCEPTION_NAME, oldExceptionName, newExceptionName);
             if (msgs == null)
                 msgs = notification;
             else
@@ -216,28 +201,19 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
         if (newExceptionName != exceptionName) {
             NotificationChain msgs = null;
             if (exceptionName != null)
-                msgs =
-                        ((InternalEObject) exceptionName)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DEADLINE__EXCEPTION_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) exceptionName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.DEADLINE__EXCEPTION_NAME,
+                        null,
+                        msgs);
             if (newExceptionName != null)
-                msgs =
-                        ((InternalEObject) newExceptionName)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.DEADLINE__EXCEPTION_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newExceptionName)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.DEADLINE__EXCEPTION_NAME, null, msgs);
             msgs = basicSetExceptionName(newExceptionName, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DEADLINE__EXCEPTION_NAME, newExceptionName,
-                    newExceptionName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DEADLINE__EXCEPTION_NAME,
+                    newExceptionName, newExceptionName));
     }
 
     /**
@@ -260,9 +236,8 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
         boolean oldExecutionESet = executionESet;
         executionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DEADLINE__EXECUTION, oldExecution, execution,
-                    !oldExecutionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DEADLINE__EXECUTION, oldExecution,
+                    execution, !oldExecutionESet));
     }
 
     /**
@@ -276,8 +251,7 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
         execution = EXECUTION_EDEFAULT;
         executionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.DEADLINE__EXECUTION, oldExecution,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.DEADLINE__EXECUTION, oldExecution,
                     EXECUTION_EDEFAULT, oldExecutionESet));
     }
 
@@ -296,8 +270,7 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.DEADLINE__DEADLINE_DURATION:
             return basicSetDeadlineDuration(null, msgs);
@@ -395,7 +368,7 @@ public class DeadlineImpl extends EObjectImpl implements Deadline {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (execution: "); //$NON-NLS-1$
         if (executionESet)
             result.append(execution);

@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.XsltApplication;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.XsltApplicationImpl#getLocation <em>Location</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class XsltApplicationImpl extends EObjectImpl implements XsltApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -93,8 +92,7 @@ public class XsltApplicationImpl extends EObjectImpl implements XsltApplication 
         String oldLocation = location;
         location = newLocation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.XSLT_APPLICATION__LOCATION, oldLocation,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.XSLT_APPLICATION__LOCATION, oldLocation,
                     location));
     }
 
@@ -151,8 +149,7 @@ public class XsltApplicationImpl extends EObjectImpl implements XsltApplication 
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.XSLT_APPLICATION__LOCATION:
-            return LOCATION_EDEFAULT == null ? location != null
-                    : !LOCATION_EDEFAULT.equals(location);
+            return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +164,7 @@ public class XsltApplicationImpl extends EObjectImpl implements XsltApplication 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (location: "); //$NON-NLS-1$
         result.append(location);
         result.append(')');

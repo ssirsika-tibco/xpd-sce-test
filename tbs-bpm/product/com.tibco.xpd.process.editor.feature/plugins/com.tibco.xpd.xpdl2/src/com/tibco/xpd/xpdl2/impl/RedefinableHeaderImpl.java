@@ -33,6 +33,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RedefinableHeaderImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RedefinableHeaderImpl#getAuthor <em>Author</em>}</li>
@@ -42,19 +43,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RedefinableHeaderImpl#getResponsibles <em>Responsibles</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RedefinableHeaderImpl#getPublicationStatus <em>Publication Status</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class RedefinableHeaderImpl extends EObjectImpl implements
-        RedefinableHeader {
+public class RedefinableHeaderImpl extends EObjectImpl implements RedefinableHeader {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -173,8 +171,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected PublicationStatusType publicationStatus =
-            PUBLICATION_STATUS_EDEFAULT;
+    protected PublicationStatusType publicationStatus = PUBLICATION_STATUS_EDEFAULT;
 
     /**
      * This is true if the Publication Status attribute has been set.
@@ -211,9 +208,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.REDEFINABLE_HEADER__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.REDEFINABLE_HEADER__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -238,9 +233,8 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         boolean oldAuthorESet = authorESet;
         authorESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REDEFINABLE_HEADER__AUTHOR, oldAuthor, author,
-                    !oldAuthorESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REDEFINABLE_HEADER__AUTHOR, oldAuthor,
+                    author, !oldAuthorESet));
     }
 
     /**
@@ -254,8 +248,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         author = AUTHOR_EDEFAULT;
         authorESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.REDEFINABLE_HEADER__AUTHOR, oldAuthor,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.REDEFINABLE_HEADER__AUTHOR, oldAuthor,
                     AUTHOR_EDEFAULT, oldAuthorESet));
     }
 
@@ -288,8 +281,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         boolean oldVersionESet = versionESet;
         versionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REDEFINABLE_HEADER__VERSION, oldVersion,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REDEFINABLE_HEADER__VERSION, oldVersion,
                     version, !oldVersionESet));
     }
 
@@ -304,9 +296,8 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         version = VERSION_EDEFAULT;
         versionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.REDEFINABLE_HEADER__VERSION, oldVersion,
-                    VERSION_EDEFAULT, oldVersionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.REDEFINABLE_HEADER__VERSION,
+                    oldVersion, VERSION_EDEFAULT, oldVersionESet));
     }
 
     /**
@@ -332,15 +323,12 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCodepage(Codepage newCodepage,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCodepage(Codepage newCodepage, NotificationChain msgs) {
         Codepage oldCodepage = codepage;
         codepage = newCodepage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
-                            oldCodepage, newCodepage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE, oldCodepage, newCodepage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -358,28 +346,21 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         if (newCodepage != codepage) {
             NotificationChain msgs = null;
             if (codepage != null)
-                msgs =
-                        ((InternalEObject) codepage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) codepage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
+                        null,
+                        msgs);
             if (newCodepage != null)
-                msgs =
-                        ((InternalEObject) newCodepage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newCodepage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
+                        null,
+                        msgs);
             msgs = basicSetCodepage(newCodepage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE, newCodepage,
-                    newCodepage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE,
+                    newCodepage, newCodepage));
     }
 
     /**
@@ -396,15 +377,12 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCountrykey(CountryKey newCountrykey,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCountrykey(CountryKey newCountrykey, NotificationChain msgs) {
         CountryKey oldCountrykey = countrykey;
         countrykey = newCountrykey;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
-                            oldCountrykey, newCountrykey);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY, oldCountrykey, newCountrykey);
             if (msgs == null)
                 msgs = notification;
             else
@@ -422,28 +400,21 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         if (newCountrykey != countrykey) {
             NotificationChain msgs = null;
             if (countrykey != null)
-                msgs =
-                        ((InternalEObject) countrykey)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) countrykey).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
+                        null,
+                        msgs);
             if (newCountrykey != null)
-                msgs =
-                        ((InternalEObject) newCountrykey)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newCountrykey).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
+                        null,
+                        msgs);
             msgs = basicSetCountrykey(newCountrykey, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY, newCountrykey,
-                    newCountrykey));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY,
+                    newCountrykey, newCountrykey));
     }
 
     /**
@@ -453,9 +424,8 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      */
     public EList<Responsible> getResponsibles() {
         if (responsibles == null) {
-            responsibles =
-                    new EObjectContainmentEList<Responsible>(Responsible.class,
-                            this, Xpdl2Package.REDEFINABLE_HEADER__RESPONSIBLES);
+            responsibles = new EObjectContainmentEList<Responsible>(Responsible.class, this,
+                    Xpdl2Package.REDEFINABLE_HEADER__RESPONSIBLES);
         }
         return responsibles;
     }
@@ -476,16 +446,12 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      */
     public void setPublicationStatus(PublicationStatusType newPublicationStatus) {
         PublicationStatusType oldPublicationStatus = publicationStatus;
-        publicationStatus =
-                newPublicationStatus == null ? PUBLICATION_STATUS_EDEFAULT
-                        : newPublicationStatus;
+        publicationStatus = newPublicationStatus == null ? PUBLICATION_STATUS_EDEFAULT : newPublicationStatus;
         boolean oldPublicationStatusESet = publicationStatusESet;
         publicationStatusESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.REDEFINABLE_HEADER__PUBLICATION_STATUS,
-                    oldPublicationStatus, publicationStatus,
-                    !oldPublicationStatusESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.REDEFINABLE_HEADER__PUBLICATION_STATUS,
+                    oldPublicationStatus, publicationStatus, !oldPublicationStatusESet));
     }
 
     /**
@@ -499,10 +465,8 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         publicationStatus = PUBLICATION_STATUS_EDEFAULT;
         publicationStatusESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.REDEFINABLE_HEADER__PUBLICATION_STATUS,
-                    oldPublicationStatus, PUBLICATION_STATUS_EDEFAULT,
-                    oldPublicationStatusESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.REDEFINABLE_HEADER__PUBLICATION_STATUS,
+                    oldPublicationStatus, PUBLICATION_STATUS_EDEFAULT, oldPublicationStatusESet));
     }
 
     /**
@@ -520,19 +484,16 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.REDEFINABLE_HEADER__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.REDEFINABLE_HEADER__CODEPAGE:
             return basicSetCodepage(null, msgs);
         case Xpdl2Package.REDEFINABLE_HEADER__COUNTRYKEY:
             return basicSetCountrykey(null, msgs);
         case Xpdl2Package.REDEFINABLE_HEADER__RESPONSIBLES:
-            return ((InternalEList<?>) getResponsibles()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getResponsibles()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -591,8 +552,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
             return;
         case Xpdl2Package.REDEFINABLE_HEADER__RESPONSIBLES:
             getResponsibles().clear();
-            getResponsibles()
-                    .addAll((Collection<? extends Responsible>) newValue);
+            getResponsibles().addAll((Collection<? extends Responsible>) newValue);
             return;
         case Xpdl2Package.REDEFINABLE_HEADER__PUBLICATION_STATUS:
             setPublicationStatus((PublicationStatusType) newValue);
@@ -670,7 +630,7 @@ public class RedefinableHeaderImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", author: "); //$NON-NLS-1$

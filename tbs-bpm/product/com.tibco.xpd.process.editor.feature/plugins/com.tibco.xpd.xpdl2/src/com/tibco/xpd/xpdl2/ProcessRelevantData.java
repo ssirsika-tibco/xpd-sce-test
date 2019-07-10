@@ -13,27 +13,25 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ProcessRelevantData#getDataType <em>Data Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ProcessRelevantData#getLength <em>Length</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ProcessRelevantData#isIsArray <em>Is Array</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ProcessRelevantData#isReadOnly <em>Read Only</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getProcessRelevantData()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ProcessRelevantData extends NamedElement, DescribedElement,
-        OtherElementsContainer {
+public interface ProcessRelevantData extends NamedElement, DescribedElement, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Data Type</b></em>' containment reference.

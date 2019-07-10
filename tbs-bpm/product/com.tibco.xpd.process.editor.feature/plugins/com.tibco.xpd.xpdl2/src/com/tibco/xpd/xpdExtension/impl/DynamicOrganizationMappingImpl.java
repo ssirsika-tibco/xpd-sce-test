@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DynamicOrganizationMappingImpl extends EObjectImpl
-        implements DynamicOrganizationMapping {
+public class DynamicOrganizationMappingImpl extends EObjectImpl implements DynamicOrganizationMapping {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getSourcePath() <em>Source Path</em>}' attribute.
@@ -108,8 +106,7 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
         sourcePath = newSourcePath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH,
-                    oldSourcePath, sourcePath));
+                    XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH, oldSourcePath, sourcePath));
     }
 
     /**
@@ -126,15 +123,12 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDynamicOrgIdentifierRef(
-            DynamicOrgIdentifierRef newDynamicOrgIdentifierRef,
+    public NotificationChain basicSetDynamicOrgIdentifierRef(DynamicOrgIdentifierRef newDynamicOrgIdentifierRef,
             NotificationChain msgs) {
-        DynamicOrgIdentifierRef oldDynamicOrgIdentifierRef =
-                dynamicOrgIdentifierRef;
+        DynamicOrgIdentifierRef oldDynamicOrgIdentifierRef = dynamicOrgIdentifierRef;
         dynamicOrgIdentifierRef = newDynamicOrgIdentifierRef;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF,
                     oldDynamicOrgIdentifierRef, newDynamicOrgIdentifierRef);
             if (msgs == null)
@@ -150,26 +144,22 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDynamicOrgIdentifierRef(
-            DynamicOrgIdentifierRef newDynamicOrgIdentifierRef) {
+    public void setDynamicOrgIdentifierRef(DynamicOrgIdentifierRef newDynamicOrgIdentifierRef) {
         if (newDynamicOrgIdentifierRef != dynamicOrgIdentifierRef) {
             NotificationChain msgs = null;
             if (dynamicOrgIdentifierRef != null)
-                msgs = ((InternalEObject) dynamicOrgIdentifierRef)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) dynamicOrgIdentifierRef).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF,
+                        null,
+                        msgs);
             if (newDynamicOrgIdentifierRef != null)
-                msgs = ((InternalEObject) newDynamicOrgIdentifierRef)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF,
-                                null,
-                                msgs);
-            msgs = basicSetDynamicOrgIdentifierRef(newDynamicOrgIdentifierRef,
-                    msgs);
+                msgs = ((InternalEObject) newDynamicOrgIdentifierRef).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF,
+                        null,
+                        msgs);
+            msgs = basicSetDynamicOrgIdentifierRef(newDynamicOrgIdentifierRef, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
@@ -184,8 +174,7 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF:
             return basicSetDynamicOrgIdentifierRef(null, msgs);
@@ -254,8 +243,7 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH:
-            return SOURCE_PATH_EDEFAULT == null ? sourcePath != null
-                    : !SOURCE_PATH_EDEFAULT.equals(sourcePath);
+            return SOURCE_PATH_EDEFAULT == null ? sourcePath != null : !SOURCE_PATH_EDEFAULT.equals(sourcePath);
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF:
             return dynamicOrgIdentifierRef != null;
         }
@@ -272,7 +260,7 @@ public class DynamicOrganizationMappingImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (sourcePath: "); //$NON-NLS-1$
         result.append(sourcePath);
         result.append(')');

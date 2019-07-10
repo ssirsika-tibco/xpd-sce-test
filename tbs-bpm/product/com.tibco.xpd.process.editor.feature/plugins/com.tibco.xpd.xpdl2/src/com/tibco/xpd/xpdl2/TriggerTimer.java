@@ -13,27 +13,25 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerTimer#getDeprecatedTimeCycle <em>Deprecated Time Cycle</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerTimer#getDeprecatedTimeDate <em>Deprecated Time Date</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerTimer#getTimeDate <em>Time Date</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerTimer#getTimeCycle <em>Time Cycle</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTriggerTimer()
  * @model extendedMetaData="name='TriggerTimer_._type' kind='elementOnly' features-order='timeDate timeCycle otherElements otherAttributes'"
  * @generated
  */
-public interface TriggerTimer extends OtherAttributesContainer,
-        OtherElementsContainer {
+public interface TriggerTimer extends OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Deprecated Time Cycle</b></em>' attribute.

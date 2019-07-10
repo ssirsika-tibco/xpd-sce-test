@@ -13,12 +13,12 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Assignment#getTarget <em>Target</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Assignment#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Assignment#getAssignTime <em>Assign Time</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getAssignment()
  * @model extendedMetaData="name='Assignment_._type' kind='elementOnly'"
@@ -30,8 +30,7 @@ public interface Assignment extends OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Target</b></em>' containment reference.

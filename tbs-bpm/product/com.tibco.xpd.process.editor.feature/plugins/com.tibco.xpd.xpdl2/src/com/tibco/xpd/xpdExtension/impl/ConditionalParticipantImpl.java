@@ -32,15 +32,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ConditionalParticipantImpl extends EObjectImpl
-        implements ConditionalParticipant {
+public class ConditionalParticipantImpl extends EObjectImpl implements ConditionalParticipant {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getPerformerScript() <em>Performer Script</em>}' containment reference.
@@ -85,15 +83,13 @@ public class ConditionalParticipantImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPerformerScript(
-            Expression newPerformerScript, NotificationChain msgs) {
+    public NotificationChain basicSetPerformerScript(Expression newPerformerScript, NotificationChain msgs) {
         Expression oldPerformerScript = performerScript;
         performerScript = newPerformerScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
-                    oldPerformerScript, newPerformerScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT, oldPerformerScript,
+                    newPerformerScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -112,14 +108,12 @@ public class ConditionalParticipantImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (performerScript != null)
                 msgs = ((InternalEObject) performerScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
                         null,
                         msgs);
             if (newPerformerScript != null)
                 msgs = ((InternalEObject) newPerformerScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetPerformerScript(newPerformerScript, msgs);
@@ -127,8 +121,8 @@ public class ConditionalParticipantImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT,
-                    newPerformerScript, newPerformerScript));
+                    XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT, newPerformerScript,
+                    newPerformerScript));
     }
 
     /**
@@ -137,8 +131,7 @@ public class ConditionalParticipantImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CONDITIONAL_PARTICIPANT__PERFORMER_SCRIPT:
             return basicSetPerformerScript(null, msgs);

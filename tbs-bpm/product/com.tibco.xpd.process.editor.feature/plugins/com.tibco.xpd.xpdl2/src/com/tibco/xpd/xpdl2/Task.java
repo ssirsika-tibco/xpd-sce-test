@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Task#getTaskService <em>Task Service</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Task#getTaskReceive <em>Task Receive</em>}</li>
@@ -23,7 +24,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.Task#getTaskUser <em>Task User</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Task#getTaskApplication <em>Task Application</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTask()
  * @model extendedMetaData="name='Task_._type' kind='elementOnly' features-order='taskService taskReceive taskManual taskReference taskScript taskSend taskUser taskApplication'"
@@ -35,8 +35,7 @@ public interface Task extends Implementation {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Task Service</b></em>' containment reference.

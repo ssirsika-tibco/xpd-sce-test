@@ -29,15 +29,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class TaskLibraryReferenceImpl extends EObjectImpl
-        implements TaskLibraryReference {
+public class TaskLibraryReferenceImpl extends EObjectImpl implements TaskLibraryReference {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTaskLibraryId() <em>Task Library Id</em>}' attribute.
@@ -117,8 +115,7 @@ public class TaskLibraryReferenceImpl extends EObjectImpl
         taskLibraryId = newTaskLibraryId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID,
-                    oldTaskLibraryId, taskLibraryId));
+                    XpdExtensionPackage.TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID, oldTaskLibraryId, taskLibraryId));
     }
 
     /**
@@ -140,8 +137,7 @@ public class TaskLibraryReferenceImpl extends EObjectImpl
         packageRef = newPackageRef;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.TASK_LIBRARY_REFERENCE__PACKAGE_REF,
-                    oldPackageRef, packageRef));
+                    XpdExtensionPackage.TASK_LIBRARY_REFERENCE__PACKAGE_REF, oldPackageRef, packageRef));
     }
 
     /**
@@ -208,8 +204,7 @@ public class TaskLibraryReferenceImpl extends EObjectImpl
             return TASK_LIBRARY_ID_EDEFAULT == null ? taskLibraryId != null
                     : !TASK_LIBRARY_ID_EDEFAULT.equals(taskLibraryId);
         case XpdExtensionPackage.TASK_LIBRARY_REFERENCE__PACKAGE_REF:
-            return PACKAGE_REF_EDEFAULT == null ? packageRef != null
-                    : !PACKAGE_REF_EDEFAULT.equals(packageRef);
+            return PACKAGE_REF_EDEFAULT == null ? packageRef != null : !PACKAGE_REF_EDEFAULT.equals(packageRef);
         }
         return super.eIsSet(featureID);
     }
@@ -224,7 +219,7 @@ public class TaskLibraryReferenceImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (taskLibraryId: "); //$NON-NLS-1$
         result.append(taskLibraryId);
         result.append(", packageRef: "); //$NON-NLS-1$

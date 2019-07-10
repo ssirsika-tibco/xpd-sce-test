@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class FindByFileNameOperationImpl extends EObjectImpl
-        implements FindByFileNameOperation {
+public class FindByFileNameOperationImpl extends EObjectImpl implements FindByFileNameOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFileNameField() <em>File Name Field</em>}' attribute.
@@ -94,8 +92,7 @@ public class FindByFileNameOperationImpl extends EObjectImpl
         fileNameField = newFileNameField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD,
-                    oldFileNameField, fileNameField));
+                    XpdExtensionPackage.FIND_BY_FILE_NAME_OPERATION__FILE_NAME_FIELD, oldFileNameField, fileNameField));
     }
 
     /**
@@ -167,7 +164,7 @@ public class FindByFileNameOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (fileNameField: "); //$NON-NLS-1$
         result.append(fileNameField);
         result.append(')');

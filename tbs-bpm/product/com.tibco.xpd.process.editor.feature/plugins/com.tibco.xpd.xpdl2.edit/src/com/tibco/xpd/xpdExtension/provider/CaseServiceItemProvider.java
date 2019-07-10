@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CaseServiceItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CaseServiceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,16 +80,12 @@ public class CaseServiceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_SERVICE__CASE_CLASS_TYPE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_SERVICE__VISIBLE_FOR_CASE_STATES);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_SERVICE__CASE_CLASS_TYPE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_SERVICE__VISIBLE_FOR_CASE_STATES);
         }
         return childrenFeatures;
     }
@@ -117,8 +111,7 @@ public class CaseServiceItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/CaseService")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CaseService")); //$NON-NLS-1$
     }
 
     /**
@@ -147,8 +140,7 @@ public class CaseServiceItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.CASE_SERVICE__OTHER_ELEMENTS:
         case XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE:
         case XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -162,35 +154,25 @@ public class CaseServiceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                         XpdExtensionFactory.eINSTANCE.createAudit())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                         XpdExtensionFactory.eINSTANCE.createSignalData())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                        XpdExtensionFactory.eINSTANCE
-                                .createRescheduleTimerScript())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_SERVICE__CASE_CLASS_TYPE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.CASE_SERVICE__CASE_CLASS_TYPE,
                 Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
                 XpdExtensionFactory.eINSTANCE.createVisibleForCaseStates()));
     }
 

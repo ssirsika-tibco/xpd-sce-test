@@ -44,8 +44,7 @@ public enum ExclusiveType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Data</b></em>' literal value.
@@ -83,8 +82,7 @@ public enum ExclusiveType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ExclusiveType[] VALUES_ARRAY = new ExclusiveType[] {
-            DATA, EVENT, };
+    private static final ExclusiveType[] VALUES_ARRAY = new ExclusiveType[] { DATA, EVENT, };
 
     /**
      * A public read-only list of all the '<em><b>Exclusive Type</b></em>' enumerators.
@@ -92,13 +90,14 @@ public enum ExclusiveType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ExclusiveType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ExclusiveType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Exclusive Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ExclusiveType get(String literal) {
@@ -115,6 +114,8 @@ public enum ExclusiveType implements Enumerator {
      * Returns the '<em><b>Exclusive Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ExclusiveType getByName(String name) {
@@ -131,6 +132,8 @@ public enum ExclusiveType implements Enumerator {
      * Returns the '<em><b>Exclusive Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ExclusiveType get(int value) {

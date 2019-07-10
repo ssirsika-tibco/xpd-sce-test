@@ -47,8 +47,7 @@ public enum Visibility implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Private</b></em>' literal value.
@@ -86,8 +85,7 @@ public enum Visibility implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Visibility[] VALUES_ARRAY =
-            new Visibility[] { PRIVATE, PUBLIC, };
+    private static final Visibility[] VALUES_ARRAY = new Visibility[] { PRIVATE, PUBLIC, };
 
     /**
      * A public read-only list of all the '<em><b>Visibility</b></em>' enumerators.
@@ -95,8 +93,7 @@ public enum Visibility implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<Visibility> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<Visibility> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Visibility</b></em>' literal with the specified literal value.

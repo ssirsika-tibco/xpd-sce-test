@@ -39,6 +39,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TypeDeclarationImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TypeDeclarationImpl#getDescription <em>Description</em>}</li>
@@ -52,19 +53,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TypeDeclarationImpl#getArrayType <em>Array Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TypeDeclarationImpl#getListType <em>List Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class TypeDeclarationImpl extends NamedElementImpl implements
-        TypeDeclaration {
+public class TypeDeclarationImpl extends NamedElementImpl implements TypeDeclaration {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -202,10 +200,8 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.TYPE_DECLARATION__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.TYPE_DECLARATION__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -224,15 +220,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBasicType(BasicType newBasicType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetBasicType(BasicType newBasicType, NotificationChain msgs) {
         BasicType oldBasicType = basicType;
         basicType = newBasicType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
-                            oldBasicType, newBasicType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE, oldBasicType, newBasicType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -250,28 +243,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newBasicType != basicType) {
             NotificationChain msgs = null;
             if (basicType != null)
-                msgs =
-                        ((InternalEObject) basicType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) basicType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
+                        null,
+                        msgs);
             if (newBasicType != null)
-                msgs =
-                        ((InternalEObject) newBasicType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newBasicType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetBasicType(newBasicType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE, newBasicType,
-                    newBasicType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE,
+                    newBasicType, newBasicType));
     }
 
     /**
@@ -288,15 +274,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeclaredType(DeclaredType newDeclaredType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDeclaredType(DeclaredType newDeclaredType, NotificationChain msgs) {
         DeclaredType oldDeclaredType = declaredType;
         declaredType = newDeclaredType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
-                            oldDeclaredType, newDeclaredType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE, oldDeclaredType, newDeclaredType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -314,27 +297,20 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newDeclaredType != declaredType) {
             NotificationChain msgs = null;
             if (declaredType != null)
-                msgs =
-                        ((InternalEObject) declaredType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) declaredType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
+                        null,
+                        msgs);
             if (newDeclaredType != null)
-                msgs =
-                        ((InternalEObject) newDeclaredType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDeclaredType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetDeclaredType(newDeclaredType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__DECLARED_TYPE,
                     newDeclaredType, newDeclaredType));
     }
 
@@ -352,15 +328,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSchemaType(Schema newSchemaType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetSchemaType(Schema newSchemaType, NotificationChain msgs) {
         Schema oldSchemaType = schemaType;
         schemaType = newSchemaType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
-                            oldSchemaType, newSchemaType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE, oldSchemaType, newSchemaType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -378,28 +351,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newSchemaType != schemaType) {
             NotificationChain msgs = null;
             if (schemaType != null)
-                msgs =
-                        ((InternalEObject) schemaType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) schemaType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
+                        null,
+                        msgs);
             if (newSchemaType != null)
-                msgs =
-                        ((InternalEObject) newSchemaType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newSchemaType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetSchemaType(newSchemaType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE, newSchemaType,
-                    newSchemaType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__SCHEMA_TYPE,
+                    newSchemaType, newSchemaType));
     }
 
     /**
@@ -416,15 +382,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExternalReference(
-            ExternalReference newExternalReference, NotificationChain msgs) {
+    public NotificationChain basicSetExternalReference(ExternalReference newExternalReference, NotificationChain msgs) {
         ExternalReference oldExternalReference = externalReference;
         externalReference = newExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
-                            oldExternalReference, newExternalReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE, oldExternalReference, newExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -442,27 +405,20 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newExternalReference != externalReference) {
             NotificationChain msgs = null;
             if (externalReference != null)
-                msgs =
-                        ((InternalEObject) externalReference)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) externalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             if (newExternalReference != null)
-                msgs =
-                        ((InternalEObject) newExternalReference)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             msgs = basicSetExternalReference(newExternalReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__EXTERNAL_REFERENCE,
                     newExternalReference, newExternalReference));
     }
 
@@ -480,15 +436,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRecordType(RecordType newRecordType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetRecordType(RecordType newRecordType, NotificationChain msgs) {
         RecordType oldRecordType = recordType;
         recordType = newRecordType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
-                            oldRecordType, newRecordType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE, oldRecordType, newRecordType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -506,28 +459,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newRecordType != recordType) {
             NotificationChain msgs = null;
             if (recordType != null)
-                msgs =
-                        ((InternalEObject) recordType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) recordType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
+                        null,
+                        msgs);
             if (newRecordType != null)
-                msgs =
-                        ((InternalEObject) newRecordType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newRecordType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetRecordType(newRecordType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE, newRecordType,
-                    newRecordType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__RECORD_TYPE,
+                    newRecordType, newRecordType));
     }
 
     /**
@@ -544,15 +490,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetUnionType(UnionType newUnionType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetUnionType(UnionType newUnionType, NotificationChain msgs) {
         UnionType oldUnionType = unionType;
         unionType = newUnionType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
-                            oldUnionType, newUnionType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__UNION_TYPE, oldUnionType, newUnionType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -570,28 +513,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newUnionType != unionType) {
             NotificationChain msgs = null;
             if (unionType != null)
-                msgs =
-                        ((InternalEObject) unionType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) unionType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
+                        null,
+                        msgs);
             if (newUnionType != null)
-                msgs =
-                        ((InternalEObject) newUnionType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newUnionType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetUnionType(newUnionType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__UNION_TYPE, newUnionType,
-                    newUnionType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__UNION_TYPE,
+                    newUnionType, newUnionType));
     }
 
     /**
@@ -608,15 +544,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEnumerationType(
-            EnumerationType newEnumerationType, NotificationChain msgs) {
+    public NotificationChain basicSetEnumerationType(EnumerationType newEnumerationType, NotificationChain msgs) {
         EnumerationType oldEnumerationType = enumerationType;
         enumerationType = newEnumerationType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
-                            oldEnumerationType, newEnumerationType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE, oldEnumerationType, newEnumerationType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -634,27 +567,20 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newEnumerationType != enumerationType) {
             NotificationChain msgs = null;
             if (enumerationType != null)
-                msgs =
-                        ((InternalEObject) enumerationType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) enumerationType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
+                        null,
+                        msgs);
             if (newEnumerationType != null)
-                msgs =
-                        ((InternalEObject) newEnumerationType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newEnumerationType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetEnumerationType(newEnumerationType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE,
                     newEnumerationType, newEnumerationType));
     }
 
@@ -672,15 +598,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetArrayType(ArrayType newArrayType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetArrayType(ArrayType newArrayType, NotificationChain msgs) {
         ArrayType oldArrayType = arrayType;
         arrayType = newArrayType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
-                            oldArrayType, newArrayType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE, oldArrayType, newArrayType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -698,28 +621,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newArrayType != arrayType) {
             NotificationChain msgs = null;
             if (arrayType != null)
-                msgs =
-                        ((InternalEObject) arrayType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) arrayType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
+                        null,
+                        msgs);
             if (newArrayType != null)
-                msgs =
-                        ((InternalEObject) newArrayType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newArrayType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetArrayType(newArrayType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE, newArrayType,
-                    newArrayType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE,
+                    newArrayType, newArrayType));
     }
 
     /**
@@ -736,15 +652,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetListType(ListType newListType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetListType(ListType newListType, NotificationChain msgs) {
         ListType oldListType = listType;
         listType = newListType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__LIST_TYPE,
-                            oldListType, newListType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__LIST_TYPE, oldListType, newListType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -762,27 +675,20 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newListType != listType) {
             NotificationChain msgs = null;
             if (listType != null)
-                msgs =
-                        ((InternalEObject) listType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__LIST_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) listType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__LIST_TYPE,
+                        null,
+                        msgs);
             if (newListType != null)
-                msgs =
-                        ((InternalEObject) newListType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__LIST_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newListType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__LIST_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetListType(newListType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__LIST_TYPE, newListType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__LIST_TYPE, newListType,
                     newListType));
     }
 
@@ -800,15 +706,12 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TYPE_DECLARATION__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -826,28 +729,21 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
+                        null,
+                        msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TYPE_DECLARATION__DESCRIPTION, newDescription,
-                    newDescription));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TYPE_DECLARATION__DESCRIPTION,
+                    newDescription, newDescription));
     }
 
     /**
@@ -856,12 +752,10 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TYPE_DECLARATION__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TYPE_DECLARATION__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE:
@@ -931,8 +825,7 @@ public class TypeDeclarationImpl extends NamedElementImpl implements
         switch (featureID) {
         case Xpdl2Package.TYPE_DECLARATION__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.TYPE_DECLARATION__DESCRIPTION:
             setDescription((Description) newValue);

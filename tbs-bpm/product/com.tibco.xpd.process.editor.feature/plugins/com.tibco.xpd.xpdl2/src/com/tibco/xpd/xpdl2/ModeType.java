@@ -54,8 +54,7 @@ public enum ModeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>IN</b></em>' literal value.
@@ -108,8 +107,7 @@ public enum ModeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ModeType[] VALUES_ARRAY = new ModeType[] { IN_LITERAL,
-            OUT_LITERAL, INOUT_LITERAL, };
+    private static final ModeType[] VALUES_ARRAY = new ModeType[] { IN_LITERAL, OUT_LITERAL, INOUT_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Mode Type</b></em>' enumerators.
@@ -117,13 +115,14 @@ public enum ModeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ModeType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ModeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Mode Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ModeType get(String literal) {
@@ -140,6 +139,8 @@ public enum ModeType implements Enumerator {
      * Returns the '<em><b>Mode Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ModeType getByName(String name) {
@@ -156,6 +157,8 @@ public enum ModeType implements Enumerator {
      * Returns the '<em><b>Mode Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ModeType get(int value) {

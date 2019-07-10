@@ -63,8 +63,7 @@ public enum AuditEventType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Initiated</b></em>' literal value.
@@ -133,8 +132,7 @@ public enum AuditEventType implements Enumerator {
      * @generated
      */
     private static final AuditEventType[] VALUES_ARRAY =
-            new AuditEventType[] { INITIATED_LITERAL, COMPLETED_LITERAL,
-                    DEADLINE_EXPIRED_LITERAL, CANCELLED_LITERAL, };
+            new AuditEventType[] { INITIATED_LITERAL, COMPLETED_LITERAL, DEADLINE_EXPIRED_LITERAL, CANCELLED_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Audit Event Type</b></em>' enumerators.
@@ -142,8 +140,7 @@ public enum AuditEventType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AuditEventType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AuditEventType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Audit Event Type</b></em>' literal with the specified literal value.

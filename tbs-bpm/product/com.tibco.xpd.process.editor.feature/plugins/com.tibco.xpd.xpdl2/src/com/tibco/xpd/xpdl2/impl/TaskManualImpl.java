@@ -26,10 +26,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskManualImpl#getPerformers <em>Performers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,8 +39,7 @@ public class TaskManualImpl extends EObjectImpl implements TaskManual {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getPerformers() <em>Performers</em>}' containment reference list.
@@ -79,8 +78,7 @@ public class TaskManualImpl extends EObjectImpl implements TaskManual {
     public EList<Performer> getPerformers() {
         if (performers == null) {
             performers =
-                    new EObjectContainmentEList<Performer>(Performer.class,
-                            this, Xpdl2Package.TASK_MANUAL__PERFORMERS);
+                    new EObjectContainmentEList<Performer>(Performer.class, this, Xpdl2Package.TASK_MANUAL__PERFORMERS);
         }
         return performers;
     }
@@ -91,12 +89,10 @@ public class TaskManualImpl extends EObjectImpl implements TaskManual {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK_MANUAL__PERFORMERS:
-            return ((InternalEList<?>) getPerformers()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getPerformers()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }

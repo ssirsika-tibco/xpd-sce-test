@@ -56,8 +56,7 @@ public enum CorrelationMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Initialize</b></em>' literal value.
@@ -110,8 +109,7 @@ public enum CorrelationMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final CorrelationMode[] VALUES_ARRAY =
-            new CorrelationMode[] { INITIALIZE, CORRELATE, JOIN, };
+    private static final CorrelationMode[] VALUES_ARRAY = new CorrelationMode[] { INITIALIZE, CORRELATE, JOIN, };
 
     /**
      * A public read-only list of all the '<em><b>Correlation Mode</b></em>' enumerators.
@@ -119,8 +117,7 @@ public enum CorrelationMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<CorrelationMode> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<CorrelationMode> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Correlation Mode</b></em>' literal with the specified literal value.

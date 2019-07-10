@@ -19,24 +19,22 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExternalReferenceImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExternalReferenceImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExternalReferenceImpl#getXref <em>Xref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ExternalReferenceImpl extends DataTypeImpl implements
-        ExternalReference {
+public class ExternalReferenceImpl extends DataTypeImpl implements ExternalReference {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -135,9 +133,8 @@ public class ExternalReferenceImpl extends DataTypeImpl implements
         String oldLocation = location;
         location = newLocation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTERNAL_REFERENCE__LOCATION, oldLocation,
-                    location));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTERNAL_REFERENCE__LOCATION,
+                    oldLocation, location));
     }
 
     /**
@@ -158,9 +155,8 @@ public class ExternalReferenceImpl extends DataTypeImpl implements
         String oldNamespace = namespace;
         namespace = newNamespace;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTERNAL_REFERENCE__NAMESPACE, oldNamespace,
-                    namespace));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTERNAL_REFERENCE__NAMESPACE,
+                    oldNamespace, namespace));
     }
 
     /**
@@ -181,8 +177,8 @@ public class ExternalReferenceImpl extends DataTypeImpl implements
         String oldXref = xref;
         xref = newXref;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTERNAL_REFERENCE__XREF, oldXref, xref));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTERNAL_REFERENCE__XREF, oldXref,
+                    xref));
     }
 
     /**
@@ -254,14 +250,11 @@ public class ExternalReferenceImpl extends DataTypeImpl implements
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.EXTERNAL_REFERENCE__LOCATION:
-            return LOCATION_EDEFAULT == null ? location != null
-                    : !LOCATION_EDEFAULT.equals(location);
+            return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
         case Xpdl2Package.EXTERNAL_REFERENCE__NAMESPACE:
-            return NAMESPACE_EDEFAULT == null ? namespace != null
-                    : !NAMESPACE_EDEFAULT.equals(namespace);
+            return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
         case Xpdl2Package.EXTERNAL_REFERENCE__XREF:
-            return XREF_EDEFAULT == null ? xref != null : !XREF_EDEFAULT
-                    .equals(xref);
+            return XREF_EDEFAULT == null ? xref != null : !XREF_EDEFAULT.equals(xref);
         }
         return super.eIsSet(featureID);
     }
@@ -276,7 +269,7 @@ public class ExternalReferenceImpl extends DataTypeImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (location: "); //$NON-NLS-1$
         result.append(location);
         result.append(", namespace: "); //$NON-NLS-1$

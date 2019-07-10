@@ -54,6 +54,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageImpl#getApplications <em>Applications</em>}</li>
@@ -75,18 +76,15 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PackageImpl#getQueryLanguage <em>Query Language</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class PackageImpl extends NamedElementImpl implements
-        com.tibco.xpd.xpdl2.Package {
+public class PackageImpl extends NamedElementImpl implements com.tibco.xpd.xpdl2.Package {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -305,10 +303,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.PACKAGE__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.PACKAGE__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -319,9 +315,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<Application> getApplications() {
         if (applications == null) {
-            applications =
-                    new EObjectContainmentEList<Application>(Application.class,
-                            this, Xpdl2Package.PACKAGE__APPLICATIONS);
+            applications = new EObjectContainmentEList<Application>(Application.class, this,
+                    Xpdl2Package.PACKAGE__APPLICATIONS);
         }
         return applications;
     }
@@ -332,9 +327,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<Participant> getParticipants() {
         if (participants == null) {
-            participants =
-                    new EObjectContainmentEList<Participant>(Participant.class,
-                            this, Xpdl2Package.PACKAGE__PARTICIPANTS);
+            participants = new EObjectContainmentEList<Participant>(Participant.class, this,
+                    Xpdl2Package.PACKAGE__PARTICIPANTS);
         }
         return participants;
     }
@@ -346,8 +340,7 @@ public class PackageImpl extends NamedElementImpl implements
     public EList<DataField> getDataFields() {
         if (dataFields == null) {
             dataFields =
-                    new EObjectContainmentEList<DataField>(DataField.class,
-                            this, Xpdl2Package.PACKAGE__DATA_FIELDS);
+                    new EObjectContainmentEList<DataField>(DataField.class, this, Xpdl2Package.PACKAGE__DATA_FIELDS);
         }
         return dataFields;
     }
@@ -359,9 +352,7 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.PACKAGE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.PACKAGE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -378,15 +369,12 @@ public class PackageImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackageHeader(
-            PackageHeader newPackageHeader, NotificationChain msgs) {
+    public NotificationChain basicSetPackageHeader(PackageHeader newPackageHeader, NotificationChain msgs) {
         PackageHeader oldPackageHeader = packageHeader;
         packageHeader = newPackageHeader;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE__PACKAGE_HEADER,
-                            oldPackageHeader, newPackageHeader);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE__PACKAGE_HEADER, oldPackageHeader, newPackageHeader);
             if (msgs == null)
                 msgs = notification;
             else
@@ -403,26 +391,19 @@ public class PackageImpl extends NamedElementImpl implements
         if (newPackageHeader != packageHeader) {
             NotificationChain msgs = null;
             if (packageHeader != null)
-                msgs =
-                        ((InternalEObject) packageHeader).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PACKAGE__PACKAGE_HEADER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) packageHeader).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__PACKAGE_HEADER,
+                        null,
+                        msgs);
             if (newPackageHeader != null)
-                msgs =
-                        ((InternalEObject) newPackageHeader).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PACKAGE__PACKAGE_HEADER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPackageHeader)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__PACKAGE_HEADER, null, msgs);
             msgs = basicSetPackageHeader(newPackageHeader, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__PACKAGE_HEADER, newPackageHeader,
-                    newPackageHeader));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__PACKAGE_HEADER,
+                    newPackageHeader, newPackageHeader));
     }
 
     /**
@@ -437,15 +418,12 @@ public class PackageImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRedefinableHeader(
-            RedefinableHeader newRedefinableHeader, NotificationChain msgs) {
+    public NotificationChain basicSetRedefinableHeader(RedefinableHeader newRedefinableHeader, NotificationChain msgs) {
         RedefinableHeader oldRedefinableHeader = redefinableHeader;
         redefinableHeader = newRedefinableHeader;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
-                            oldRedefinableHeader, newRedefinableHeader);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE__REDEFINABLE_HEADER, oldRedefinableHeader, newRedefinableHeader);
             if (msgs == null)
                 msgs = notification;
             else
@@ -462,27 +440,20 @@ public class PackageImpl extends NamedElementImpl implements
         if (newRedefinableHeader != redefinableHeader) {
             NotificationChain msgs = null;
             if (redefinableHeader != null)
-                msgs =
-                        ((InternalEObject) redefinableHeader)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) redefinableHeader).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
+                        null,
+                        msgs);
             if (newRedefinableHeader != null)
-                msgs =
-                        ((InternalEObject) newRedefinableHeader)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newRedefinableHeader).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
+                        null,
+                        msgs);
             msgs = basicSetRedefinableHeader(newRedefinableHeader, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__REDEFINABLE_HEADER,
                     newRedefinableHeader, newRedefinableHeader));
     }
 
@@ -498,15 +469,12 @@ public class PackageImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetConformanceClass(
-            ConformanceClass newConformanceClass, NotificationChain msgs) {
+    public NotificationChain basicSetConformanceClass(ConformanceClass newConformanceClass, NotificationChain msgs) {
         ConformanceClass oldConformanceClass = conformanceClass;
         conformanceClass = newConformanceClass;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
-                            oldConformanceClass, newConformanceClass);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PACKAGE__CONFORMANCE_CLASS, oldConformanceClass, newConformanceClass);
             if (msgs == null)
                 msgs = notification;
             else
@@ -523,27 +491,20 @@ public class PackageImpl extends NamedElementImpl implements
         if (newConformanceClass != conformanceClass) {
             NotificationChain msgs = null;
             if (conformanceClass != null)
-                msgs =
-                        ((InternalEObject) conformanceClass)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) conformanceClass).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
+                        null,
+                        msgs);
             if (newConformanceClass != null)
-                msgs =
-                        ((InternalEObject) newConformanceClass)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newConformanceClass).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
+                        null,
+                        msgs);
             msgs = basicSetConformanceClass(newConformanceClass, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__CONFORMANCE_CLASS,
                     newConformanceClass, newConformanceClass));
     }
 
@@ -559,14 +520,12 @@ public class PackageImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScript(Script newScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetScript(Script newScript, NotificationChain msgs) {
         Script oldScript = script;
         script = newScript;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PACKAGE__SCRIPT, oldScript, newScript);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__SCRIPT, oldScript, newScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -583,25 +542,16 @@ public class PackageImpl extends NamedElementImpl implements
         if (newScript != script) {
             NotificationChain msgs = null;
             if (script != null)
-                msgs =
-                        ((InternalEObject) script).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PACKAGE__SCRIPT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) script)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__SCRIPT, null, msgs);
             if (newScript != null)
-                msgs =
-                        ((InternalEObject) newScript).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PACKAGE__SCRIPT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newScript)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PACKAGE__SCRIPT, null, msgs);
             msgs = basicSetScript(newScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__SCRIPT, newScript, newScript));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__SCRIPT, newScript, newScript));
     }
 
     /**
@@ -610,10 +560,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<ExternalPackage> getExternalPackages() {
         if (externalPackages == null) {
-            externalPackages =
-                    new EObjectContainmentEList<ExternalPackage>(
-                            ExternalPackage.class, this,
-                            Xpdl2Package.PACKAGE__EXTERNAL_PACKAGES);
+            externalPackages = new EObjectContainmentEList<ExternalPackage>(ExternalPackage.class, this,
+                    Xpdl2Package.PACKAGE__EXTERNAL_PACKAGES);
         }
         return externalPackages;
     }
@@ -624,10 +572,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<TypeDeclaration> getTypeDeclarations() {
         if (typeDeclarations == null) {
-            typeDeclarations =
-                    new EObjectContainmentEList<TypeDeclaration>(
-                            TypeDeclaration.class, this,
-                            Xpdl2Package.PACKAGE__TYPE_DECLARATIONS);
+            typeDeclarations = new EObjectContainmentEList<TypeDeclaration>(TypeDeclaration.class, this,
+                    Xpdl2Package.PACKAGE__TYPE_DECLARATIONS);
         }
         return typeDeclarations;
     }
@@ -638,10 +584,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<PartnerLinkType> getPartnerLinkTypes() {
         if (partnerLinkTypes == null) {
-            partnerLinkTypes =
-                    new EObjectContainmentEList<PartnerLinkType>(
-                            PartnerLinkType.class, this,
-                            Xpdl2Package.PACKAGE__PARTNER_LINK_TYPES);
+            partnerLinkTypes = new EObjectContainmentEList<PartnerLinkType>(PartnerLinkType.class, this,
+                    Xpdl2Package.PACKAGE__PARTNER_LINK_TYPES);
         }
         return partnerLinkTypes;
     }
@@ -652,10 +596,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<Pool> getPools() {
         if (pools == null) {
-            pools =
-                    new EObjectContainmentWithInverseEList<Pool>(Pool.class,
-                            this, Xpdl2Package.PACKAGE__POOLS,
-                            Xpdl2Package.POOL__PARENT_PACKAGE);
+            pools = new EObjectContainmentWithInverseEList<Pool>(Pool.class, this, Xpdl2Package.PACKAGE__POOLS,
+                    Xpdl2Package.POOL__PARENT_PACKAGE);
         }
         return pools;
     }
@@ -666,11 +608,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<MessageFlow> getMessageFlows() {
         if (messageFlows == null) {
-            messageFlows =
-                    new EObjectContainmentWithInverseEList<MessageFlow>(
-                            MessageFlow.class, this,
-                            Xpdl2Package.PACKAGE__MESSAGE_FLOWS,
-                            Xpdl2Package.MESSAGE_FLOW__PACKAGE);
+            messageFlows = new EObjectContainmentWithInverseEList<MessageFlow>(MessageFlow.class, this,
+                    Xpdl2Package.PACKAGE__MESSAGE_FLOWS, Xpdl2Package.MESSAGE_FLOW__PACKAGE);
         }
         return messageFlows;
     }
@@ -681,11 +620,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<Association> getAssociations() {
         if (associations == null) {
-            associations =
-                    new EObjectContainmentWithInverseEList<Association>(
-                            Association.class, this,
-                            Xpdl2Package.PACKAGE__ASSOCIATIONS,
-                            Xpdl2Package.ASSOCIATION__PACKAGE);
+            associations = new EObjectContainmentWithInverseEList<Association>(Association.class, this,
+                    Xpdl2Package.PACKAGE__ASSOCIATIONS, Xpdl2Package.ASSOCIATION__PACKAGE);
         }
         return associations;
     }
@@ -696,11 +632,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<Artifact> getArtifacts() {
         if (artifacts == null) {
-            artifacts =
-                    new EObjectContainmentWithInverseEList<Artifact>(
-                            Artifact.class, this,
-                            Xpdl2Package.PACKAGE__ARTIFACTS,
-                            Xpdl2Package.ARTIFACT__PACKAGE);
+            artifacts = new EObjectContainmentWithInverseEList<Artifact>(Artifact.class, this,
+                    Xpdl2Package.PACKAGE__ARTIFACTS, Xpdl2Package.ARTIFACT__PACKAGE);
         }
         return artifacts;
     }
@@ -711,11 +644,9 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList<com.tibco.xpd.xpdl2.Process> getProcesses() {
         if (processes == null) {
-            processes =
-                    new EObjectContainmentWithInverseEList<com.tibco.xpd.xpdl2.Process>(
-                            com.tibco.xpd.xpdl2.Process.class, this,
-                            Xpdl2Package.PACKAGE__PROCESSES,
-                            Xpdl2Package.PROCESS__PACKAGE);
+            processes = new EObjectContainmentWithInverseEList<com.tibco.xpd.xpdl2.Process>(
+                    com.tibco.xpd.xpdl2.Process.class, this, Xpdl2Package.PACKAGE__PROCESSES,
+                    Xpdl2Package.PROCESS__PACKAGE);
         }
         return processes;
     }
@@ -738,8 +669,8 @@ public class PackageImpl extends NamedElementImpl implements
         String oldLanguage = language;
         language = newLanguage;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__LANGUAGE, oldLanguage, language));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__LANGUAGE, oldLanguage,
+                    language));
     }
 
     /**
@@ -760,9 +691,8 @@ public class PackageImpl extends NamedElementImpl implements
         String oldQueryLanguage = queryLanguage;
         queryLanguage = newQueryLanguage;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PACKAGE__QUERY_LANGUAGE, oldQueryLanguage,
-                    queryLanguage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PACKAGE__QUERY_LANGUAGE,
+                    oldQueryLanguage, queryLanguage));
     }
 
     /**
@@ -770,9 +700,8 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public DataField getDataField(String id) {
-        return (DataField) EMFSearchUtil.findInList(getDataFields(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (DataField) EMFSearchUtil
+                .findInList(getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -781,9 +710,8 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public Participant getParticipant(String id) {
-        return (Participant) EMFSearchUtil.findInList(getParticipants(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Participant) EMFSearchUtil
+                .findInList(getParticipants(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -792,9 +720,7 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public Process getProcess(String id) {
-        return (Process) EMFSearchUtil.findInList(getProcesses(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Process) EMFSearchUtil.findInList(getProcesses(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -804,9 +730,7 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public ExternalPackage getExternalPackage(String id) {
         return (ExternalPackage) EMFSearchUtil
-                .findInList(getExternalPackages(),
-                        Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                        id);
+                .findInList(getExternalPackages(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -816,9 +740,7 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public TypeDeclaration getTypeDeclaration(String id) {
         return (TypeDeclaration) EMFSearchUtil
-                .findInList(getTypeDeclarations(),
-                        Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                        id);
+                .findInList(getTypeDeclarations(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -828,9 +750,7 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public PartnerLinkType getPartnerLinkType(String id) {
         return (PartnerLinkType) EMFSearchUtil
-                .findInList(getPartnerLinkTypes(),
-                        Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                        id);
+                .findInList(getPartnerLinkTypes(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -839,9 +759,7 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public Pool getPool(String id) {
-        return (Pool) EMFSearchUtil.findInList(getPools(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Pool) EMFSearchUtil.findInList(getPools(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -850,9 +768,8 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public MessageFlow getMessageFlow(String id) {
-        return (MessageFlow) EMFSearchUtil.findInList(getMessageFlows(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (MessageFlow) EMFSearchUtil
+                .findInList(getMessageFlows(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -861,9 +778,8 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public Association getAssociation(String id) {
-        return (Association) EMFSearchUtil.findInList(getAssociations(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Association) EMFSearchUtil
+                .findInList(getAssociations(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -872,9 +788,7 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated NOT
      */
     public Artifact getArtifact(String id) {
-        return (Artifact) EMFSearchUtil.findInList(getArtifacts(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Artifact) EMFSearchUtil.findInList(getArtifacts(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -884,9 +798,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList getMessageFlowFrom(String id) {
         BasicEList list = new BasicEList();
-        list.addAll(EMFSearchUtil.findManyInList(getMessageFlows(),
-                Xpdl2Package.eINSTANCE.getMessageFlow_Source(),
-                id));
+        list.addAll(
+                EMFSearchUtil.findManyInList(getMessageFlows(), Xpdl2Package.eINSTANCE.getMessageFlow_Source(), id));
         return list;
     }
 
@@ -897,9 +810,8 @@ public class PackageImpl extends NamedElementImpl implements
      */
     public EList getMessageFlowTo(String id) {
         BasicEList list = new BasicEList();
-        list.addAll(EMFSearchUtil.findManyInList(getMessageFlows(),
-                Xpdl2Package.eINSTANCE.getMessageFlow_Target(),
-                id));
+        list.addAll(
+                EMFSearchUtil.findManyInList(getMessageFlows(), Xpdl2Package.eINSTANCE.getMessageFlow_Target(), id));
         return list;
     }
 
@@ -949,24 +861,18 @@ public class PackageImpl extends NamedElementImpl implements
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PACKAGE__POOLS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getPools())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getPools()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__MESSAGE_FLOWS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getMessageFlows())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getMessageFlows()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__ASSOCIATIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAssociations())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAssociations()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__ARTIFACTS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getArtifacts())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getArtifacts()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__PROCESSES:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getProcesses())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getProcesses()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -976,24 +882,18 @@ public class PackageImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PACKAGE__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__APPLICATIONS:
-            return ((InternalEList<?>) getApplications()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getApplications()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__PARTICIPANTS:
-            return ((InternalEList<?>) getParticipants()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getParticipants()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__DATA_FIELDS:
-            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__PACKAGE_HEADER:
             return basicSetPackageHeader(null, msgs);
         case Xpdl2Package.PACKAGE__REDEFINABLE_HEADER:
@@ -1003,28 +903,21 @@ public class PackageImpl extends NamedElementImpl implements
         case Xpdl2Package.PACKAGE__SCRIPT:
             return basicSetScript(null, msgs);
         case Xpdl2Package.PACKAGE__EXTERNAL_PACKAGES:
-            return ((InternalEList<?>) getExternalPackages())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExternalPackages()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__TYPE_DECLARATIONS:
-            return ((InternalEList<?>) getTypeDeclarations())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getTypeDeclarations()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__PARTNER_LINK_TYPES:
-            return ((InternalEList<?>) getPartnerLinkTypes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getPartnerLinkTypes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__POOLS:
             return ((InternalEList<?>) getPools()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__MESSAGE_FLOWS:
-            return ((InternalEList<?>) getMessageFlows()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getMessageFlows()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__ASSOCIATIONS:
-            return ((InternalEList<?>) getAssociations()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAssociations()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__ARTIFACTS:
-            return ((InternalEList<?>) getArtifacts()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getArtifacts()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PACKAGE__PROCESSES:
-            return ((InternalEList<?>) getProcesses()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getProcesses()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -1090,18 +983,15 @@ public class PackageImpl extends NamedElementImpl implements
         switch (featureID) {
         case Xpdl2Package.PACKAGE__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.PACKAGE__APPLICATIONS:
             getApplications().clear();
-            getApplications()
-                    .addAll((Collection<? extends Application>) newValue);
+            getApplications().addAll((Collection<? extends Application>) newValue);
             return;
         case Xpdl2Package.PACKAGE__PARTICIPANTS:
             getParticipants().clear();
-            getParticipants()
-                    .addAll((Collection<? extends Participant>) newValue);
+            getParticipants().addAll((Collection<? extends Participant>) newValue);
             return;
         case Xpdl2Package.PACKAGE__DATA_FIELDS:
             getDataFields().clear();
@@ -1124,18 +1014,15 @@ public class PackageImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PACKAGE__EXTERNAL_PACKAGES:
             getExternalPackages().clear();
-            getExternalPackages()
-                    .addAll((Collection<? extends ExternalPackage>) newValue);
+            getExternalPackages().addAll((Collection<? extends ExternalPackage>) newValue);
             return;
         case Xpdl2Package.PACKAGE__TYPE_DECLARATIONS:
             getTypeDeclarations().clear();
-            getTypeDeclarations()
-                    .addAll((Collection<? extends TypeDeclaration>) newValue);
+            getTypeDeclarations().addAll((Collection<? extends TypeDeclaration>) newValue);
             return;
         case Xpdl2Package.PACKAGE__PARTNER_LINK_TYPES:
             getPartnerLinkTypes().clear();
-            getPartnerLinkTypes()
-                    .addAll((Collection<? extends PartnerLinkType>) newValue);
+            getPartnerLinkTypes().addAll((Collection<? extends PartnerLinkType>) newValue);
             return;
         case Xpdl2Package.PACKAGE__POOLS:
             getPools().clear();
@@ -1143,13 +1030,11 @@ public class PackageImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PACKAGE__MESSAGE_FLOWS:
             getMessageFlows().clear();
-            getMessageFlows()
-                    .addAll((Collection<? extends MessageFlow>) newValue);
+            getMessageFlows().addAll((Collection<? extends MessageFlow>) newValue);
             return;
         case Xpdl2Package.PACKAGE__ASSOCIATIONS:
             getAssociations().clear();
-            getAssociations()
-                    .addAll((Collection<? extends Association>) newValue);
+            getAssociations().addAll((Collection<? extends Association>) newValue);
             return;
         case Xpdl2Package.PACKAGE__ARTIFACTS:
             getArtifacts().clear();
@@ -1157,8 +1042,7 @@ public class PackageImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PACKAGE__PROCESSES:
             getProcesses().clear();
-            getProcesses()
-                    .addAll((Collection<? extends com.tibco.xpd.xpdl2.Process>) newValue);
+            getProcesses().addAll((Collection<? extends com.tibco.xpd.xpdl2.Process>) newValue);
             return;
         case Xpdl2Package.PACKAGE__LANGUAGE:
             setLanguage((String) newValue);
@@ -1280,8 +1164,7 @@ public class PackageImpl extends NamedElementImpl implements
         case Xpdl2Package.PACKAGE__PROCESSES:
             return processes != null && !processes.isEmpty();
         case Xpdl2Package.PACKAGE__LANGUAGE:
-            return LANGUAGE_EDEFAULT == null ? language != null
-                    : !LANGUAGE_EDEFAULT.equals(language);
+            return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
         case Xpdl2Package.PACKAGE__QUERY_LANGUAGE:
             return QUERY_LANGUAGE_EDEFAULT == null ? queryLanguage != null
                     : !QUERY_LANGUAGE_EDEFAULT.equals(queryLanguage);
@@ -1397,7 +1280,7 @@ public class PackageImpl extends NamedElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", language: "); //$NON-NLS-1$

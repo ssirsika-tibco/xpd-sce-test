@@ -64,6 +64,7 @@ import com.tibco.xpd.xpdExtension.ErrorThrowerType;
 import com.tibco.xpd.xpdExtension.EventHandlerFlowStrategy;
 import com.tibco.xpd.xpdExtension.EventHandlerInitialisers;
 import com.tibco.xpd.xpdExtension.FaultMessage;
+import com.tibco.xpd.xpdExtension.FieldFormat;
 import com.tibco.xpd.xpdExtension.FindByFileNameOperation;
 import com.tibco.xpd.xpdExtension.FindByQueryOperation;
 import com.tibco.xpd.xpdExtension.FlowRoutingStyle;
@@ -176,7 +177,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1031,6 +1032,13 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      * @generated
      */
     private EEnum soapBindingStyleEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum fieldFormatEEnum = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2250,6 +2258,15 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
      */
     public EAttribute getDocumentRoot_SuppressMaxMappingsError() {
         return (EAttribute) documentRootEClass.getEStructuralFeatures().get(114);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDocumentRoot_FieldFormat() {
+        return (EAttribute) documentRootEClass.getEStructuralFeatures().get(115);
     }
 
     /**
@@ -5844,6 +5861,15 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getFieldFormat() {
+        return fieldFormatEEnum;
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -6132,6 +6158,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         createEReference(documentRootEClass, DOCUMENT_ROOT__OUTPUT_MAPPINGS);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE);
         createEAttribute(documentRootEClass, DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR);
+        createEAttribute(documentRootEClass, DOCUMENT_ROOT__FIELD_FORMAT);
 
         durationCalculationEClass = createEClass(DURATION_CALCULATION);
         createEReference(durationCalculationEClass, DURATION_CALCULATION__YEARS);
@@ -6572,6 +6599,7 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         rescheduleTimerSelectionTypeEEnum = createEEnum(RESCHEDULE_TIMER_SELECTION_TYPE);
         securityPolicyEEnum = createEEnum(SECURITY_POLICY);
         soapBindingStyleEEnum = createEEnum(SOAP_BINDING_STYLE);
+        fieldFormatEEnum = createEEnum(FIELD_FORMAT);
         subProcessStartStrategyEEnum = createEEnum(SUB_PROCESS_START_STRATEGY);
         systemErrorActionTypeEEnum = createEEnum(SYSTEM_ERROR_ACTION_TYPE);
         validationIssueOverrideTypeEEnum = createEEnum(VALIDATION_ISSUE_OVERRIDE_TYPE);
@@ -9296,6 +9324,21 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         initEAttribute(getDocumentRoot_SuppressMaxMappingsError(),
                 theXMLTypePackage.getBoolean(),
                 "suppressMaxMappingsError", //$NON-NLS-1$
+                null,
+                1,
+                1,
+                null,
+                !IS_TRANSIENT,
+                !IS_VOLATILE,
+                IS_CHANGEABLE,
+                !IS_UNSETTABLE,
+                !IS_ID,
+                !IS_UNIQUE,
+                !IS_DERIVED,
+                IS_ORDERED);
+        initEAttribute(getDocumentRoot_FieldFormat(),
+                this.getFieldFormat(),
+                "fieldFormat", //$NON-NLS-1$
                 null,
                 1,
                 1,
@@ -13631,6 +13674,10 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
         addEEnumLiteral(soapBindingStyleEEnum, SoapBindingStyle.RPC_LITERAL);
         addEEnumLiteral(soapBindingStyleEEnum, SoapBindingStyle.DOCUMENT_LITERAL);
 
+        initEEnum(fieldFormatEEnum, FieldFormat.class, "FieldFormat"); //$NON-NLS-1$
+        addEEnumLiteral(fieldFormatEEnum, FieldFormat.URI);
+        addEEnumLiteral(fieldFormatEEnum, FieldFormat.EMAIL);
+
         initEEnum(subProcessStartStrategyEEnum, SubProcessStartStrategy.class, "SubProcessStartStrategy"); //$NON-NLS-1$
         addEEnumLiteral(subProcessStartStrategyEEnum, SubProcessStartStrategy.START_IMMEDIATELY);
         addEEnumLiteral(subProcessStartStrategyEEnum, SubProcessStartStrategy.SCHEDULE_START);
@@ -14758,6 +14805,12 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                         "name", "SuppressMaxMappingsError", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
                 });
+        addAnnotation(getDocumentRoot_FieldFormat(),
+                source,
+                new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "FieldFormat", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                });
         addAnnotation(durationCalculationEClass,
                 source,
                 new String[] { "name", "DurationCalculation", //$NON-NLS-1$ //$NON-NLS-2$
@@ -15394,6 +15447,13 @@ public class XpdExtensionPackageImpl extends EPackageImpl implements XpdExtensio
                 source,
                 new String[] { "name", "SoapBindingStyle:Object", //$NON-NLS-1$ //$NON-NLS-2$
                         "baseType", "SoapBindingStyle" //$NON-NLS-1$ //$NON-NLS-2$
+                });
+        addAnnotation(fieldFormatEEnum, source, new String[] { "name", "FieldFormat" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+        addAnnotation(fieldFormatEEnum,
+                1,
+                "http:///org/eclipse/emf/ecore/util/ExtendedMetaData", //$NON-NLS-1$
+                new String[] { "name", "FieldFormat" //$NON-NLS-1$ //$NON-NLS-2$
                 });
         addAnnotation(structuredDiscriminatorEClass,
                 source,

@@ -37,6 +37,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <em><b>Intermediate Event</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IntermediateEventImpl#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IntermediateEventImpl#getTriggerTimer <em>Trigger Timer</em>}</li>
@@ -54,18 +55,15 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IntermediateEventImpl#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IntermediateEventImpl#getDeprecatedResultCompensation <em>Deprecated Result Compensation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class IntermediateEventImpl extends EventImpl implements
-        IntermediateEvent {
+public class IntermediateEventImpl extends EventImpl implements IntermediateEvent {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getTriggerResultMessage()
@@ -147,8 +145,7 @@ public class IntermediateEventImpl extends EventImpl implements
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -194,8 +191,7 @@ public class IntermediateEventImpl extends EventImpl implements
      * @generated
      * @ordered
      */
-    protected static final TriggerType TRIGGER_EDEFAULT =
-            TriggerType.NONE_LITERAL;
+    protected static final TriggerType TRIGGER_EDEFAULT = TriggerType.NONE_LITERAL;
 
     /**
      * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' attribute.
@@ -298,17 +294,14 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
+            NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
-                            oldTriggerResultMessage, newTriggerResultMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE, oldTriggerResultMessage,
+                    newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -321,33 +314,26 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) triggerResultMessage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             if (newTriggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
-                    newTriggerResultMessage, newTriggerResultMessage));
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE, newTriggerResultMessage,
+                    newTriggerResultMessage));
     }
 
     /**
@@ -362,15 +348,12 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer, NotificationChain msgs) {
         TriggerTimer oldTriggerTimer = triggerTimer;
         triggerTimer = newTriggerTimer;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
-                            oldTriggerTimer, newTriggerTimer);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER, oldTriggerTimer, newTriggerTimer);
             if (msgs == null)
                 msgs = notification;
             else
@@ -387,27 +370,20 @@ public class IntermediateEventImpl extends EventImpl implements
         if (newTriggerTimer != triggerTimer) {
             NotificationChain msgs = null;
             if (triggerTimer != null)
-                msgs =
-                        ((InternalEObject) triggerTimer)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerTimer).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
+                        null,
+                        msgs);
             if (newTriggerTimer != null)
-                msgs =
-                        ((InternalEObject) newTriggerTimer)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerTimer).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
+                        null,
+                        msgs);
             msgs = basicSetTriggerTimer(newTriggerTimer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER,
                     newTriggerTimer, newTriggerTimer));
     }
 
@@ -423,15 +399,12 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetResultError(ResultError newResultError,
-            NotificationChain msgs) {
+    public NotificationChain basicSetResultError(ResultError newResultError, NotificationChain msgs) {
         ResultError oldResultError = resultError;
         resultError = newResultError;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
-                            oldResultError, newResultError);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR, oldResultError, newResultError);
             if (msgs == null)
                 msgs = notification;
             else
@@ -448,27 +421,20 @@ public class IntermediateEventImpl extends EventImpl implements
         if (newResultError != resultError) {
             NotificationChain msgs = null;
             if (resultError != null)
-                msgs =
-                        ((InternalEObject) resultError)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) resultError).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
+                        null,
+                        msgs);
             if (newResultError != null)
-                msgs =
-                        ((InternalEObject) newResultError)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newResultError).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
+                        null,
+                        msgs);
             msgs = basicSetResultError(newResultError, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__RESULT_ERROR,
                     newResultError, newResultError));
     }
 
@@ -484,20 +450,14 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultCompensation(
-            TriggerResultCompensation newTriggerResultCompensation,
+    public NotificationChain basicSetTriggerResultCompensation(TriggerResultCompensation newTriggerResultCompensation,
             NotificationChain msgs) {
-        TriggerResultCompensation oldTriggerResultCompensation =
-                triggerResultCompensation;
+        TriggerResultCompensation oldTriggerResultCompensation = triggerResultCompensation;
         triggerResultCompensation = newTriggerResultCompensation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
-                            oldTriggerResultCompensation,
-                            newTriggerResultCompensation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION, oldTriggerResultCompensation,
+                    newTriggerResultCompensation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -510,37 +470,26 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultCompensation(
-            TriggerResultCompensation newTriggerResultCompensation) {
+    public void setTriggerResultCompensation(TriggerResultCompensation newTriggerResultCompensation) {
         if (newTriggerResultCompensation != triggerResultCompensation) {
             NotificationChain msgs = null;
             if (triggerResultCompensation != null)
-                msgs =
-                        ((InternalEObject) triggerResultCompensation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultCompensation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
+                        null,
+                        msgs);
             if (newTriggerResultCompensation != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultCompensation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetTriggerResultCompensation(newTriggerResultCompensation,
-                            msgs);
+                msgs = ((InternalEObject) newTriggerResultCompensation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
+                        null,
+                        msgs);
+            msgs = basicSetTriggerResultCompensation(newTriggerResultCompensation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
-                    newTriggerResultCompensation, newTriggerResultCompensation));
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION, newTriggerResultCompensation,
+                    newTriggerResultCompensation));
     }
 
     /**
@@ -555,17 +504,13 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerConditional(
-            TriggerConditional newTriggerConditional, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerConditional(TriggerConditional newTriggerConditional,
+            NotificationChain msgs) {
         TriggerConditional oldTriggerConditional = triggerConditional;
         triggerConditional = newTriggerConditional;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
-                            oldTriggerConditional, newTriggerConditional);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL, oldTriggerConditional, newTriggerConditional);
             if (msgs == null)
                 msgs = notification;
             else
@@ -582,27 +527,20 @@ public class IntermediateEventImpl extends EventImpl implements
         if (newTriggerConditional != triggerConditional) {
             NotificationChain msgs = null;
             if (triggerConditional != null)
-                msgs =
-                        ((InternalEObject) triggerConditional)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerConditional).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             if (newTriggerConditional != null)
-                msgs =
-                        ((InternalEObject) newTriggerConditional)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerConditional).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerConditional(newTriggerConditional, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
                     newTriggerConditional, newTriggerConditional));
     }
 
@@ -618,17 +556,12 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultLink(
-            TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultLink(TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
         TriggerResultLink oldTriggerResultLink = triggerResultLink;
         triggerResultLink = newTriggerResultLink;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
-                            oldTriggerResultLink, newTriggerResultLink);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK, oldTriggerResultLink, newTriggerResultLink);
             if (msgs == null)
                 msgs = notification;
             else
@@ -645,27 +578,20 @@ public class IntermediateEventImpl extends EventImpl implements
         if (newTriggerResultLink != triggerResultLink) {
             NotificationChain msgs = null;
             if (triggerResultLink != null)
-                msgs =
-                        ((InternalEObject) triggerResultLink)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultLink).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             if (newTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultLink)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultLink).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultLink(newTriggerResultLink, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
                     newTriggerResultLink, newTriggerResultLink));
     }
 
@@ -682,19 +608,13 @@ public class IntermediateEventImpl extends EventImpl implements
      * @generated
      */
     public NotificationChain basicSetTriggerIntermediateMultiple(
-            TriggerIntermediateMultiple newTriggerIntermediateMultiple,
-            NotificationChain msgs) {
-        TriggerIntermediateMultiple oldTriggerIntermediateMultiple =
-                triggerIntermediateMultiple;
+            TriggerIntermediateMultiple newTriggerIntermediateMultiple, NotificationChain msgs) {
+        TriggerIntermediateMultiple oldTriggerIntermediateMultiple = triggerIntermediateMultiple;
         triggerIntermediateMultiple = newTriggerIntermediateMultiple;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
-                            oldTriggerIntermediateMultiple,
-                            newTriggerIntermediateMultiple);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE, oldTriggerIntermediateMultiple,
+                    newTriggerIntermediateMultiple);
             if (msgs == null)
                 msgs = notification;
             else
@@ -707,37 +627,25 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerIntermediateMultiple(
-            TriggerIntermediateMultiple newTriggerIntermediateMultiple) {
+    public void setTriggerIntermediateMultiple(TriggerIntermediateMultiple newTriggerIntermediateMultiple) {
         if (newTriggerIntermediateMultiple != triggerIntermediateMultiple) {
             NotificationChain msgs = null;
             if (triggerIntermediateMultiple != null)
-                msgs =
-                        ((InternalEObject) triggerIntermediateMultiple)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerIntermediateMultiple).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
+                        null,
+                        msgs);
             if (newTriggerIntermediateMultiple != null)
-                msgs =
-                        ((InternalEObject) newTriggerIntermediateMultiple)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetTriggerIntermediateMultiple(newTriggerIntermediateMultiple,
-                            msgs);
+                msgs = ((InternalEObject) newTriggerIntermediateMultiple).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
+                        null,
+                        msgs);
+            msgs = basicSetTriggerIntermediateMultiple(newTriggerIntermediateMultiple, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
-                    newTriggerIntermediateMultiple,
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE, newTriggerIntermediateMultiple,
                     newTriggerIntermediateMultiple));
     }
 
@@ -755,14 +663,11 @@ public class IntermediateEventImpl extends EventImpl implements
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION,
                     oldImplementation, implementation, !oldImplementationESet));
     }
 
@@ -776,10 +681,8 @@ public class IntermediateEventImpl extends EventImpl implements
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION,
-                    oldImplementation, IMPLEMENTATION_EDEFAULT,
-                    oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -806,8 +709,8 @@ public class IntermediateEventImpl extends EventImpl implements
         String oldTarget = target;
         target = newTarget;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TARGET, oldTarget, target));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__TARGET, oldTarget,
+                    target));
     }
 
     /**
@@ -828,8 +731,7 @@ public class IntermediateEventImpl extends EventImpl implements
         boolean oldTriggerESet = triggerESet;
         triggerESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER, oldTrigger,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER, oldTrigger,
                     trigger, !oldTriggerESet));
     }
 
@@ -843,9 +745,8 @@ public class IntermediateEventImpl extends EventImpl implements
         trigger = TRIGGER_EDEFAULT;
         triggerESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER, oldTrigger,
-                    TRIGGER_EDEFAULT, oldTriggerESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER,
+                    oldTrigger, TRIGGER_EDEFAULT, oldTriggerESet));
     }
 
     /**
@@ -862,9 +763,7 @@ public class IntermediateEventImpl extends EventImpl implements
      */
     public FeatureMap getAnyAttribute() {
         if (anyAttribute == null) {
-            anyAttribute =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.INTERMEDIATE_EVENT__ANY_ATTRIBUTE);
+            anyAttribute = new BasicFeatureMap(this, Xpdl2Package.INTERMEDIATE_EVENT__ANY_ATTRIBUTE);
         }
         return anyAttribute;
     }
@@ -881,17 +780,14 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultCancel(
-            TriggerResultCancel newTriggerResultCancel, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultCancel(TriggerResultCancel newTriggerResultCancel,
+            NotificationChain msgs) {
         TriggerResultCancel oldTriggerResultCancel = triggerResultCancel;
         triggerResultCancel = newTriggerResultCancel;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
-                            oldTriggerResultCancel, newTriggerResultCancel);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL, oldTriggerResultCancel,
+                    newTriggerResultCancel);
             if (msgs == null)
                 msgs = notification;
             else
@@ -904,33 +800,26 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultCancel(
-            TriggerResultCancel newTriggerResultCancel) {
+    public void setTriggerResultCancel(TriggerResultCancel newTriggerResultCancel) {
         if (newTriggerResultCancel != triggerResultCancel) {
             NotificationChain msgs = null;
             if (triggerResultCancel != null)
-                msgs =
-                        ((InternalEObject) triggerResultCancel)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultCancel).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
+                        null,
+                        msgs);
             if (newTriggerResultCancel != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultCancel)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultCancel).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultCancel(newTriggerResultCancel, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
-                    newTriggerResultCancel, newTriggerResultCancel));
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL, newTriggerResultCancel,
+                    newTriggerResultCancel));
     }
 
     /**
@@ -945,17 +834,14 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultSignal(TriggerResultSignal newTriggerResultSignal,
+            NotificationChain msgs) {
         TriggerResultSignal oldTriggerResultSignal = triggerResultSignal;
         triggerResultSignal = newTriggerResultSignal;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
-                            oldTriggerResultSignal, newTriggerResultSignal);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL, oldTriggerResultSignal,
+                    newTriggerResultSignal);
             if (msgs == null)
                 msgs = notification;
             else
@@ -968,33 +854,26 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal) {
+    public void setTriggerResultSignal(TriggerResultSignal newTriggerResultSignal) {
         if (newTriggerResultSignal != triggerResultSignal) {
             NotificationChain msgs = null;
             if (triggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) triggerResultSignal)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultSignal).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             if (newTriggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultSignal)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultSignal).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultSignal(newTriggerResultSignal, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
-                    newTriggerResultSignal, newTriggerResultSignal));
+                    Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL, newTriggerResultSignal,
+                    newTriggerResultSignal));
     }
 
     /**
@@ -1009,18 +888,14 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule,
+    public NotificationChain basicSetDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule,
             NotificationChain msgs) {
         DeprecatedTriggerRule oldDeprecatedTriggerRule = deprecatedTriggerRule;
         deprecatedTriggerRule = newDeprecatedTriggerRule;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
-                            oldDeprecatedTriggerRule, newDeprecatedTriggerRule);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE, oldDeprecatedTriggerRule,
+                    newDeprecatedTriggerRule);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1033,35 +908,26 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule) {
+    public void setDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule) {
         if (newDeprecatedTriggerRule != deprecatedTriggerRule) {
             NotificationChain msgs = null;
             if (deprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) deprecatedTriggerRule)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedTriggerRule).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
             if (newDeprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedTriggerRule)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedTriggerRule).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
-                    newDeprecatedTriggerRule, newDeprecatedTriggerRule));
+                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE, newDeprecatedTriggerRule,
+                    newDeprecatedTriggerRule));
     }
 
     /**
@@ -1077,19 +943,13 @@ public class IntermediateEventImpl extends EventImpl implements
      * @generated
      */
     public NotificationChain basicSetDeprecatedResultCompensation(
-            DeprecatedResultCompensation newDeprecatedResultCompensation,
-            NotificationChain msgs) {
-        DeprecatedResultCompensation oldDeprecatedResultCompensation =
-                deprecatedResultCompensation;
+            DeprecatedResultCompensation newDeprecatedResultCompensation, NotificationChain msgs) {
+        DeprecatedResultCompensation oldDeprecatedResultCompensation = deprecatedResultCompensation;
         deprecatedResultCompensation = newDeprecatedResultCompensation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                            oldDeprecatedResultCompensation,
-                            newDeprecatedResultCompensation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION, oldDeprecatedResultCompensation,
+                    newDeprecatedResultCompensation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1102,37 +962,25 @@ public class IntermediateEventImpl extends EventImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedResultCompensation(
-            DeprecatedResultCompensation newDeprecatedResultCompensation) {
+    public void setDeprecatedResultCompensation(DeprecatedResultCompensation newDeprecatedResultCompensation) {
         if (newDeprecatedResultCompensation != deprecatedResultCompensation) {
             NotificationChain msgs = null;
             if (deprecatedResultCompensation != null)
-                msgs =
-                        ((InternalEObject) deprecatedResultCompensation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedResultCompensation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
+                        null,
+                        msgs);
             if (newDeprecatedResultCompensation != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedResultCompensation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedResultCompensation(newDeprecatedResultCompensation,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedResultCompensation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedResultCompensation(newDeprecatedResultCompensation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                    newDeprecatedResultCompensation,
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION, newDeprecatedResultCompensation,
                     newDeprecatedResultCompensation));
     }
 
@@ -1141,8 +989,7 @@ public class IntermediateEventImpl extends EventImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
@@ -1159,8 +1006,7 @@ public class IntermediateEventImpl extends EventImpl implements
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE:
             return basicSetTriggerIntermediateMultiple(null, msgs);
         case Xpdl2Package.INTERMEDIATE_EVENT__ANY_ATTRIBUTE:
-            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL:
             return basicSetTriggerResultCancel(null, msgs);
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL:
@@ -1352,8 +1198,7 @@ public class IntermediateEventImpl extends EventImpl implements
         case Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION:
             return isSetImplementation();
         case Xpdl2Package.INTERMEDIATE_EVENT__TARGET:
-            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT
-                    .equals(target);
+            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER:
             return isSetTrigger();
         case Xpdl2Package.INTERMEDIATE_EVENT__ANY_ATTRIBUTE:
@@ -1379,7 +1224,7 @@ public class IntermediateEventImpl extends EventImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (implementation: "); //$NON-NLS-1$
         if (implementationESet)
             result.append(implementation);
@@ -1443,4 +1288,3 @@ public class IntermediateEventImpl extends EventImpl implements
     }
 
 } // IntermediateEventImpl
-

@@ -12,11 +12,11 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Page#getHeight <em>Height</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Page#getWidth <em>Width</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getPage()
  * @model extendedMetaData="name='Page' kind='elementOnly'"
@@ -28,8 +28,7 @@ public interface Page extends NamedElement, OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Height</b></em>' attribute.

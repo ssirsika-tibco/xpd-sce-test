@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Package#getPackageHeader <em>Package Header</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Package#getRedefinableHeader <em>Redefinable Header</em>}</li>
@@ -31,22 +32,19 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.Package#getLanguage <em>Language</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Package#getQueryLanguage <em>Query Language</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getPackage()
  * @model extendedMetaData="name='Package' kind='elementOnly' features-order='packageHeader redefinableHeader conformanceClass script externalPackages typeDeclarations participants applications dataFields partnerLinkTypes pools messageFlows associations artifacts processes extendedAttributes otherElements'"
  * @generated
  */
-public interface Package extends NamedElement, ExtendedAttributesContainer,
-        ApplicationsContainer, ParticipantsContainer, DataFieldsContainer,
-        OtherElementsContainer, OtherAttributesContainer {
+public interface Package extends NamedElement, ExtendedAttributesContainer, ApplicationsContainer,
+        ParticipantsContainer, DataFieldsContainer, OtherElementsContainer, OtherAttributesContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Package Header</b></em>' containment reference.

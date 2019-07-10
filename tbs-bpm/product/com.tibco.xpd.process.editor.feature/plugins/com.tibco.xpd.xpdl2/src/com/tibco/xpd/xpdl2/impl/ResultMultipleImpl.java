@@ -29,6 +29,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResultMultipleImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResultMultipleImpl#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
@@ -36,7 +37,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResultMultipleImpl#getResultCompensation <em>Result Compensation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResultMultipleImpl#getResultError <em>Result Error</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -46,8 +46,7 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -125,9 +124,7 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.RESULT_MULTIPLE__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.RESULT_MULTIPLE__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -146,16 +143,13 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
+            NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
                             oldTriggerResultMessage, newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
@@ -170,32 +164,24 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) triggerResultMessage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             if (newTriggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE,
                     newTriggerResultMessage, newTriggerResultMessage));
     }
 
@@ -213,15 +199,12 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultLink(
-            TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultLink(TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
         TriggerResultLink oldTriggerResultLink = triggerResultLink;
         triggerResultLink = newTriggerResultLink;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
-                            oldTriggerResultLink, newTriggerResultLink);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK, oldTriggerResultLink, newTriggerResultLink);
             if (msgs == null)
                 msgs = notification;
             else
@@ -239,27 +222,20 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
         if (newTriggerResultLink != triggerResultLink) {
             NotificationChain msgs = null;
             if (triggerResultLink != null)
-                msgs =
-                        ((InternalEObject) triggerResultLink)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultLink).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             if (newTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultLink)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultLink).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultLink(newTriggerResultLink, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK,
                     newTriggerResultLink, newTriggerResultLink));
     }
 
@@ -277,16 +253,13 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetResultCompensation(
-            TriggerResultCompensation newResultCompensation,
+    public NotificationChain basicSetResultCompensation(TriggerResultCompensation newResultCompensation,
             NotificationChain msgs) {
         TriggerResultCompensation oldResultCompensation = resultCompensation;
         resultCompensation = newResultCompensation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
-                            oldResultCompensation, newResultCompensation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION, oldResultCompensation, newResultCompensation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -300,32 +273,24 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setResultCompensation(
-            TriggerResultCompensation newResultCompensation) {
+    public void setResultCompensation(TriggerResultCompensation newResultCompensation) {
         if (newResultCompensation != resultCompensation) {
             NotificationChain msgs = null;
             if (resultCompensation != null)
-                msgs =
-                        ((InternalEObject) resultCompensation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) resultCompensation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
+                        null,
+                        msgs);
             if (newResultCompensation != null)
-                msgs =
-                        ((InternalEObject) newResultCompensation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newResultCompensation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
+                        null,
+                        msgs);
             msgs = basicSetResultCompensation(newResultCompensation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESULT_MULTIPLE__RESULT_COMPENSATION,
                     newResultCompensation, newResultCompensation));
     }
 
@@ -343,15 +308,12 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetResultError(ResultError newResultError,
-            NotificationChain msgs) {
+    public NotificationChain basicSetResultError(ResultError newResultError, NotificationChain msgs) {
         ResultError oldResultError = resultError;
         resultError = newResultError;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
-                            oldResultError, newResultError);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR, oldResultError, newResultError);
             if (msgs == null)
                 msgs = notification;
             else
@@ -369,28 +331,21 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
         if (newResultError != resultError) {
             NotificationChain msgs = null;
             if (resultError != null)
-                msgs =
-                        ((InternalEObject) resultError)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) resultError).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
+                        null,
+                        msgs);
             if (newResultError != null)
-                msgs =
-                        ((InternalEObject) newResultError)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newResultError).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
+                        null,
+                        msgs);
             msgs = basicSetResultError(newResultError, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR, newResultError,
-                    newResultError));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESULT_MULTIPLE__RESULT_ERROR,
+                    newResultError, newResultError));
     }
 
     /**
@@ -399,12 +354,10 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.RESULT_MULTIPLE__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
         case Xpdl2Package.RESULT_MULTIPLE__TRIGGER_RESULT_LINK:
@@ -527,7 +480,7 @@ public class ResultMultipleImpl extends EObjectImpl implements ResultMultiple {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(')');

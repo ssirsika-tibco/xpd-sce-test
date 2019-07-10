@@ -37,8 +37,7 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #isPilingAllowed() <em>Piling Allowed</em>}' attribute.
@@ -128,8 +127,7 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
         boolean oldPilingAllowedESet = pilingAllowedESet;
         pilingAllowedESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PILING_INFO__PILING_ALLOWED,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.PILING_INFO__PILING_ALLOWED,
                     oldPilingAllowed, pilingAllowed, !oldPilingAllowedESet));
     }
 
@@ -144,10 +142,8 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
         pilingAllowed = PILING_ALLOWED_EDEFAULT;
         pilingAllowedESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.PILING_INFO__PILING_ALLOWED,
-                    oldPilingAllowed, PILING_ALLOWED_EDEFAULT,
-                    oldPilingAllowedESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.PILING_INFO__PILING_ALLOWED,
+                    oldPilingAllowed, PILING_ALLOWED_EDEFAULT, oldPilingAllowedESet));
     }
 
     /**
@@ -177,8 +173,7 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
         String oldMaxPiliableItems = maxPiliableItems;
         maxPiliableItems = newMaxPiliableItems;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PILING_INFO__MAX_PILIABLE_ITEMS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.PILING_INFO__MAX_PILIABLE_ITEMS,
                     oldMaxPiliableItems, maxPiliableItems));
     }
 
@@ -245,8 +240,7 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
         case XpdExtensionPackage.PILING_INFO__PILING_ALLOWED:
             return isSetPilingAllowed();
         case XpdExtensionPackage.PILING_INFO__MAX_PILIABLE_ITEMS:
-            return MAX_PILIABLE_ITEMS_EDEFAULT == null
-                    ? maxPiliableItems != null
+            return MAX_PILIABLE_ITEMS_EDEFAULT == null ? maxPiliableItems != null
                     : !MAX_PILIABLE_ITEMS_EDEFAULT.equals(maxPiliableItems);
         }
         return super.eIsSet(featureID);
@@ -262,7 +256,7 @@ public class PilingInfoImpl extends EObjectImpl implements PilingInfo {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (pilingAllowed: "); //$NON-NLS-1$
         if (pilingAllowedESet)
             result.append(pilingAllowed);

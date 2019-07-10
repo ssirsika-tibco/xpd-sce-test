@@ -34,6 +34,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationImpl#getFormalParameters <em>Formal Parameters</em>}</li>
@@ -41,7 +42,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationImpl#getExternalReference <em>External Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -51,8 +51,7 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -130,10 +129,8 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.APPLICATION__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.APPLICATION__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -145,10 +142,8 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      */
     public EList<FormalParameter> getFormalParameters() {
         if (formalParameters == null) {
-            formalParameters =
-                    new EObjectContainmentEList<FormalParameter>(
-                            FormalParameter.class, this,
-                            Xpdl2Package.APPLICATION__FORMAL_PARAMETERS);
+            formalParameters = new EObjectContainmentEList<FormalParameter>(FormalParameter.class, this,
+                    Xpdl2Package.APPLICATION__FORMAL_PARAMETERS);
         }
         return formalParameters;
     }
@@ -167,15 +162,12 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -193,27 +185,18 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__DESCRIPTION, null, msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION__DESCRIPTION, newDescription,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION__DESCRIPTION, newDescription,
                     newDescription));
     }
 
@@ -231,14 +214,12 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetType(ApplicationType newType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetType(ApplicationType newType, NotificationChain msgs) {
         ApplicationType oldType = type;
         type = newType;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION__TYPE, oldType, newType);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION__TYPE, oldType, newType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -256,25 +237,16 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
         if (newType != type) {
             NotificationChain msgs = null;
             if (type != null)
-                msgs =
-                        ((InternalEObject) type).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION__TYPE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) type)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__TYPE, null, msgs);
             if (newType != null)
-                msgs =
-                        ((InternalEObject) newType).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION__TYPE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newType)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__TYPE, null, msgs);
             msgs = basicSetType(newType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION__TYPE, newType, newType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION__TYPE, newType, newType));
     }
 
     /**
@@ -291,15 +263,12 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExternalReference(
-            ExternalReference newExternalReference, NotificationChain msgs) {
+    public NotificationChain basicSetExternalReference(ExternalReference newExternalReference, NotificationChain msgs) {
         ExternalReference oldExternalReference = externalReference;
         externalReference = newExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
-                            oldExternalReference, newExternalReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE, oldExternalReference, newExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -317,27 +286,20 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
         if (newExternalReference != externalReference) {
             NotificationChain msgs = null;
             if (externalReference != null)
-                msgs =
-                        ((InternalEObject) externalReference)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) externalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             if (newExternalReference != null)
-                msgs =
-                        ((InternalEObject) newExternalReference)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             msgs = basicSetExternalReference(newExternalReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE,
                     newExternalReference, newExternalReference));
     }
 
@@ -347,15 +309,12 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.APPLICATION__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.APPLICATION__FORMAL_PARAMETERS:
-            return ((InternalEList<?>) getFormalParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFormalParameters()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.APPLICATION__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.APPLICATION__TYPE:
@@ -399,13 +358,11 @@ public class ApplicationImpl extends NamedElementImpl implements Application {
         switch (featureID) {
         case Xpdl2Package.APPLICATION__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.APPLICATION__FORMAL_PARAMETERS:
             getFormalParameters().clear();
-            getFormalParameters()
-                    .addAll((Collection<? extends FormalParameter>) newValue);
+            getFormalParameters().addAll((Collection<? extends FormalParameter>) newValue);
             return;
         case Xpdl2Package.APPLICATION__DESCRIPTION:
             setDescription((Description) newValue);

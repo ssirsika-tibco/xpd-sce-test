@@ -29,10 +29,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PagesImpl#getPage <em>Page</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,8 +42,7 @@ public class PagesImpl extends EObjectImpl implements Pages {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getPage() <em>Page</em>}' containment reference list.
@@ -81,9 +80,7 @@ public class PagesImpl extends EObjectImpl implements Pages {
      */
     public EList<Page> getPage() {
         if (page == null) {
-            page =
-                    new EObjectContainmentEList<Page>(Page.class, this,
-                            Xpdl2Package.PAGES__PAGE);
+            page = new EObjectContainmentEList<Page>(Page.class, this, Xpdl2Package.PAGES__PAGE);
         }
         return page;
     }
@@ -94,8 +91,7 @@ public class PagesImpl extends EObjectImpl implements Pages {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PAGES__PAGE:
             return ((InternalEList<?>) getPage()).basicRemove(otherEnd, msgs);

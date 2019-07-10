@@ -22,23 +22,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ObjectImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ObjectImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ObjectImpl extends NamedElementImpl implements
-        com.tibco.xpd.xpdl2.Object {
+public class ObjectImpl extends NamedElementImpl implements com.tibco.xpd.xpdl2.Object {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference.
@@ -93,15 +91,12 @@ public class ObjectImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCategories(Category newCategories,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCategories(Category newCategories, NotificationChain msgs) {
         Category oldCategories = categories;
         categories = newCategories;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.OBJECT__CATEGORIES, oldCategories,
-                            newCategories);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.OBJECT__CATEGORIES, oldCategories, newCategories);
             if (msgs == null)
                 msgs = notification;
             else
@@ -119,25 +114,16 @@ public class ObjectImpl extends NamedElementImpl implements
         if (newCategories != categories) {
             NotificationChain msgs = null;
             if (categories != null)
-                msgs =
-                        ((InternalEObject) categories).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.OBJECT__CATEGORIES,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) categories)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.OBJECT__CATEGORIES, null, msgs);
             if (newCategories != null)
-                msgs =
-                        ((InternalEObject) newCategories).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.OBJECT__CATEGORIES,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newCategories)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.OBJECT__CATEGORIES, null, msgs);
             msgs = basicSetCategories(newCategories, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.OBJECT__CATEGORIES, newCategories,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.OBJECT__CATEGORIES, newCategories,
                     newCategories));
     }
 
@@ -155,15 +141,12 @@ public class ObjectImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDocumentation(
-            Documentation newDocumentation, NotificationChain msgs) {
+    public NotificationChain basicSetDocumentation(Documentation newDocumentation, NotificationChain msgs) {
         Documentation oldDocumentation = documentation;
         documentation = newDocumentation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.OBJECT__DOCUMENTATION,
-                            oldDocumentation, newDocumentation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.OBJECT__DOCUMENTATION, oldDocumentation, newDocumentation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -181,25 +164,16 @@ public class ObjectImpl extends NamedElementImpl implements
         if (newDocumentation != documentation) {
             NotificationChain msgs = null;
             if (documentation != null)
-                msgs =
-                        ((InternalEObject) documentation).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.OBJECT__DOCUMENTATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) documentation)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.OBJECT__DOCUMENTATION, null, msgs);
             if (newDocumentation != null)
-                msgs =
-                        ((InternalEObject) newDocumentation).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.OBJECT__DOCUMENTATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDocumentation)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.OBJECT__DOCUMENTATION, null, msgs);
             msgs = basicSetDocumentation(newDocumentation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.OBJECT__DOCUMENTATION, newDocumentation,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.OBJECT__DOCUMENTATION, newDocumentation,
                     newDocumentation));
     }
 
@@ -209,8 +183,7 @@ public class ObjectImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.OBJECT__CATEGORIES:
             return basicSetCategories(null, msgs);

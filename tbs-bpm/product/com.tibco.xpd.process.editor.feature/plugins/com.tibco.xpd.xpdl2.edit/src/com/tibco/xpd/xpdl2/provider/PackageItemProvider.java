@@ -32,15 +32,12 @@ import com.tibco.xpd.xpdl2.util.DecisionFlowUtil;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class PackageItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PackageItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -76,19 +73,18 @@ public class PackageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addLanguagePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Package_language_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Package_language_feature", "_UI_Package_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.PACKAGE__LANGUAGE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Package_language_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Package_language_feature", "_UI_Package_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.PACKAGE__LANGUAGE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -99,11 +95,12 @@ public class PackageItemProvider extends NamedElementItemProvider implements
      */
     protected void addQueryLanguagePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Package_queryLanguage_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Package_queryLanguage_feature", "_UI_Package_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Package_queryLanguage_feature", //$NON-NLS-1$
+                                "_UI_Package_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PACKAGE__QUERY_LANGUAGE,
                         true,
                         false,
@@ -121,32 +118,21 @@ public class PackageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATIONS_CONTAINER__APPLICATIONS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PARTICIPANTS_CONTAINER__PARTICIPANTS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATIONS_CONTAINER__APPLICATIONS);
+            childrenFeatures.add(Xpdl2Package.Literals.PARTICIPANTS_CONTAINER__PARTICIPANTS);
+            childrenFeatures.add(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__PACKAGE_HEADER);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PACKAGE__REDEFINABLE_HEADER);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PACKAGE__CONFORMANCE_CLASS);
+            childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__REDEFINABLE_HEADER);
+            childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__CONFORMANCE_CLASS);
             childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__SCRIPT);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PACKAGE__EXTERNAL_PACKAGES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PACKAGE__TYPE_DECLARATIONS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PACKAGE__PARTNER_LINK_TYPES);
+            childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__EXTERNAL_PACKAGES);
+            childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__TYPE_DECLARATIONS);
+            childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__PARTNER_LINK_TYPES);
             childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__POOLS);
             childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__MESSAGE_FLOWS);
             childrenFeatures.add(Xpdl2Package.Literals.PACKAGE__ASSOCIATIONS);
@@ -176,12 +162,9 @@ public class PackageItemProvider extends NamedElementItemProvider implements
     @Override
     public Object getImage(Object object) {
         if (DecisionFlowUtil.isDecisionFlowPackage((Package) object)) {
-            return overlayImage(object,
-                    getResourceLocator()
-                            .getImage("full/obj16/DecisionFlowPackage")); //$NON-NLS-1$
+            return overlayImage(object, getResourceLocator().getImage("full/obj16/DecisionFlowPackage")); //$NON-NLS-1$
         } else {
-            return overlayImage(object,
-                    getResourceLocator().getImage("full/obj16/Package")); //$NON-NLS-1$
+            return overlayImage(object, getResourceLocator().getImage("full/obj16/Package")); //$NON-NLS-1$
         }
     }
 
@@ -210,8 +193,7 @@ public class PackageItemProvider extends NamedElementItemProvider implements
         switch (notification.getFeatureID(com.tibco.xpd.xpdl2.Package.class)) {
         case Xpdl2Package.PACKAGE__LANGUAGE:
         case Xpdl2Package.PACKAGE__QUERY_LANGUAGE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.PACKAGE__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.PACKAGE__APPLICATIONS:
@@ -230,8 +212,7 @@ public class PackageItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.PACKAGE__ASSOCIATIONS:
         case Xpdl2Package.PACKAGE__ARTIFACTS:
         case Xpdl2Package.PACKAGE__PROCESSES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -245,73 +226,57 @@ public class PackageItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES,
                         Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATIONS_CONTAINER__APPLICATIONS,
-                        Xpdl2Factory.eINSTANCE.createApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATIONS_CONTAINER__APPLICATIONS,
+                Xpdl2Factory.eINSTANCE.createApplication()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PARTICIPANTS_CONTAINER__PARTICIPANTS,
+                Xpdl2Factory.eINSTANCE.createParticipant()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS,
+                Xpdl2Factory.eINSTANCE.createDataField()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__PACKAGE_HEADER,
+                Xpdl2Factory.eINSTANCE.createPackageHeader()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__REDEFINABLE_HEADER,
+                Xpdl2Factory.eINSTANCE.createRedefinableHeader()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__CONFORMANCE_CLASS,
+                Xpdl2Factory.eINSTANCE.createConformanceClass()));
+
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.PACKAGE__SCRIPT, Xpdl2Factory.eINSTANCE.createScript()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__EXTERNAL_PACKAGES,
+                Xpdl2Factory.eINSTANCE.createExternalPackage()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__TYPE_DECLARATIONS,
+                Xpdl2Factory.eINSTANCE.createTypeDeclaration()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__PARTNER_LINK_TYPES,
+                Xpdl2Factory.eINSTANCE.createPartnerLinkType()));
 
         newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PARTICIPANTS_CONTAINER__PARTICIPANTS,
-                        Xpdl2Factory.eINSTANCE.createParticipant()));
+                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__POOLS, Xpdl2Factory.eINSTANCE.createPool()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS,
-                        Xpdl2Factory.eINSTANCE.createDataField()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__MESSAGE_FLOWS,
+                Xpdl2Factory.eINSTANCE.createMessageFlow()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__PACKAGE_HEADER,
-                        Xpdl2Factory.eINSTANCE.createPackageHeader()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__ASSOCIATIONS,
+                Xpdl2Factory.eINSTANCE.createAssociation()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__REDEFINABLE_HEADER,
-                        Xpdl2Factory.eINSTANCE.createRedefinableHeader()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PACKAGE__ARTIFACTS,
+                Xpdl2Factory.eINSTANCE.createArtifact()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__CONFORMANCE_CLASS,
-                        Xpdl2Factory.eINSTANCE.createConformanceClass()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__SCRIPT,
-                        Xpdl2Factory.eINSTANCE.createScript()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__EXTERNAL_PACKAGES,
-                        Xpdl2Factory.eINSTANCE.createExternalPackage()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__TYPE_DECLARATIONS,
-                        Xpdl2Factory.eINSTANCE.createTypeDeclaration()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__PARTNER_LINK_TYPES,
-                        Xpdl2Factory.eINSTANCE.createPartnerLinkType()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__POOLS,
-                        Xpdl2Factory.eINSTANCE.createPool()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__MESSAGE_FLOWS,
-                        Xpdl2Factory.eINSTANCE.createMessageFlow()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__ASSOCIATIONS,
-                        Xpdl2Factory.eINSTANCE.createAssociation()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__ARTIFACTS,
-                        Xpdl2Factory.eINSTANCE.createArtifact()));
-
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PACKAGE__PROCESSES,
-                        Xpdl2Factory.eINSTANCE.createProcess()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.PACKAGE__PROCESSES, Xpdl2Factory.eINSTANCE.createProcess()));
     }
 
 }

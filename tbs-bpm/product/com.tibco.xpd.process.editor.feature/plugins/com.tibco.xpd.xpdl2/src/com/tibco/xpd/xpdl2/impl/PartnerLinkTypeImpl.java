@@ -27,23 +27,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkTypeImpl#getRole <em>Role</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerLinkTypeImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
-        PartnerLinkType {
+public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements PartnerLinkType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
@@ -101,9 +99,7 @@ public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
      */
     public EList<Role> getRole() {
         if (role == null) {
-            role =
-                    new EObjectContainmentEList<Role>(Role.class, this,
-                            Xpdl2Package.PARTNER_LINK_TYPE__ROLE);
+            role = new EObjectContainmentEList<Role>(Role.class, this, Xpdl2Package.PARTNER_LINK_TYPE__ROLE);
         }
         return role;
     }
@@ -126,8 +122,7 @@ public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_LINK_TYPE__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_LINK_TYPE__NAME, oldName, name));
     }
 
     /**
@@ -136,8 +131,7 @@ public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PARTNER_LINK_TYPE__ROLE:
             return ((InternalEList<?>) getRole()).basicRemove(otherEnd, msgs);
@@ -210,8 +204,7 @@ public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
         case Xpdl2Package.PARTNER_LINK_TYPE__ROLE:
             return role != null && !role.isEmpty();
         case Xpdl2Package.PARTNER_LINK_TYPE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -226,7 +219,7 @@ public class PartnerLinkTypeImpl extends UniqueIdElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(')');

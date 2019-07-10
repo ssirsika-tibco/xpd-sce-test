@@ -29,23 +29,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NamedElementImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class NamedElementImpl extends UniqueIdElementImpl implements
-        NamedElement {
+public abstract class NamedElementImpl extends UniqueIdElementImpl implements NamedElement {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -105,9 +103,7 @@ public abstract class NamedElementImpl extends UniqueIdElementImpl implements
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -130,8 +126,7 @@ public abstract class NamedElementImpl extends UniqueIdElementImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NAMED_ELEMENT__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NAMED_ELEMENT__NAME, oldName, name));
     }
 
     /**
@@ -140,12 +135,10 @@ public abstract class NamedElementImpl extends UniqueIdElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -215,8 +208,7 @@ public abstract class NamedElementImpl extends UniqueIdElementImpl implements
         case Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES:
             return otherAttributes != null && !otherAttributes.isEmpty();
         case Xpdl2Package.NAMED_ELEMENT__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -267,7 +259,7 @@ public abstract class NamedElementImpl extends UniqueIdElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", name: "); //$NON-NLS-1$

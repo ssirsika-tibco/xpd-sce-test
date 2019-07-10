@@ -20,23 +20,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResourceCostsImpl#getResourceCost <em>Resource Cost</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ResourceCostsImpl#getCostUnitOfTime <em>Cost Unit Of Time</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ResourceCostsImpl extends NamedElementImpl implements
-        ResourceCosts {
+public class ResourceCostsImpl extends NamedElementImpl implements ResourceCosts {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getResourceCost() <em>Resource Cost</em>}' attribute.
@@ -115,8 +113,7 @@ public class ResourceCostsImpl extends NamedElementImpl implements
         BigDecimal oldResourceCost = resourceCost;
         resourceCost = newResourceCost;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESOURCE_COSTS__RESOURCE_COST,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESOURCE_COSTS__RESOURCE_COST,
                     oldResourceCost, resourceCost));
     }
 
@@ -138,8 +135,7 @@ public class ResourceCostsImpl extends NamedElementImpl implements
         String oldCostUnitOfTime = costUnitOfTime;
         costUnitOfTime = newCostUnitOfTime;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RESOURCE_COSTS__COST_UNIT_OF_TIME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RESOURCE_COSTS__COST_UNIT_OF_TIME,
                     oldCostUnitOfTime, costUnitOfTime));
     }
 
@@ -204,8 +200,7 @@ public class ResourceCostsImpl extends NamedElementImpl implements
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.RESOURCE_COSTS__RESOURCE_COST:
-            return RESOURCE_COST_EDEFAULT == null ? resourceCost != null
-                    : !RESOURCE_COST_EDEFAULT.equals(resourceCost);
+            return RESOURCE_COST_EDEFAULT == null ? resourceCost != null : !RESOURCE_COST_EDEFAULT.equals(resourceCost);
         case Xpdl2Package.RESOURCE_COSTS__COST_UNIT_OF_TIME:
             return COST_UNIT_OF_TIME_EDEFAULT == null ? costUnitOfTime != null
                     : !COST_UNIT_OF_TIME_EDEFAULT.equals(costUnitOfTime);
@@ -223,7 +218,7 @@ public class ResourceCostsImpl extends NamedElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (resourceCost: "); //$NON-NLS-1$
         result.append(resourceCost);
         result.append(", costUnitOfTime: "); //$NON-NLS-1$

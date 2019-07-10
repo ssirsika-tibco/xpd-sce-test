@@ -35,8 +35,7 @@ public class XpdExtPropertyImpl extends EObjectImpl implements XpdExtProperty {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -115,8 +114,8 @@ public class XpdExtPropertyImpl extends EObjectImpl implements XpdExtProperty {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_PROPERTY__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.XPD_EXT_PROPERTY__NAME, oldName,
+                    name));
     }
 
     /**
@@ -137,8 +136,7 @@ public class XpdExtPropertyImpl extends EObjectImpl implements XpdExtProperty {
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_PROPERTY__VALUE, oldValue,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.XPD_EXT_PROPERTY__VALUE, oldValue,
                     value));
     }
 
@@ -203,11 +201,9 @@ public class XpdExtPropertyImpl extends EObjectImpl implements XpdExtProperty {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_PROPERTY__NAME:
-            return NAME_EDEFAULT == null ? name != null
-                    : !NAME_EDEFAULT.equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case XpdExtensionPackage.XPD_EXT_PROPERTY__VALUE:
-            return VALUE_EDEFAULT == null ? value != null
-                    : !VALUE_EDEFAULT.equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         }
         return super.eIsSet(featureID);
     }
@@ -222,7 +218,7 @@ public class XpdExtPropertyImpl extends EObjectImpl implements XpdExtProperty {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (Name: "); //$NON-NLS-1$
         result.append(name);
         result.append(", value: "); //$NON-NLS-1$

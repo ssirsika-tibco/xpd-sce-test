@@ -36,8 +36,7 @@ public class RetryImpl extends EObjectImpl implements Retry {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -134,8 +133,7 @@ public class RetryImpl extends EObjectImpl implements Retry {
      * @generated
      * @ordered
      */
-    protected static final MaxRetryActionType MAX_RETRY_ACTION_EDEFAULT =
-            MaxRetryActionType.HALT;
+    protected static final MaxRetryActionType MAX_RETRY_ACTION_EDEFAULT = MaxRetryActionType.HALT;
 
     /**
      * The cached value of the '{@link #getMaxRetryAction() <em>Max Retry Action</em>}' attribute.
@@ -195,8 +193,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         boolean oldMaxESet = maxESet;
         maxESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RETRY__MAX, oldMax, max, !oldMaxESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.RETRY__MAX, oldMax, max,
+                    !oldMaxESet));
     }
 
     /**
@@ -210,9 +208,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         max = MAX_EDEFAULT;
         maxESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RETRY__MAX, oldMax, MAX_EDEFAULT,
-                    oldMaxESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.RETRY__MAX, oldMax,
+                    MAX_EDEFAULT, oldMaxESet));
     }
 
     /**
@@ -244,9 +241,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         boolean oldInitialPeriodESet = initialPeriodESet;
         initialPeriodESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RETRY__INITIAL_PERIOD, oldInitialPeriod,
-                    initialPeriod, !oldInitialPeriodESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.RETRY__INITIAL_PERIOD,
+                    oldInitialPeriod, initialPeriod, !oldInitialPeriodESet));
     }
 
     /**
@@ -260,9 +256,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         initialPeriod = INITIAL_PERIOD_EDEFAULT;
         initialPeriodESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RETRY__INITIAL_PERIOD, oldInitialPeriod,
-                    INITIAL_PERIOD_EDEFAULT, oldInitialPeriodESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.RETRY__INITIAL_PERIOD,
+                    oldInitialPeriod, INITIAL_PERIOD_EDEFAULT, oldInitialPeriodESet));
     }
 
     /**
@@ -294,10 +289,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         boolean oldPeriodIncrementESet = periodIncrementESet;
         periodIncrementESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RETRY__PERIOD_INCREMENT,
-                    oldPeriodIncrement, periodIncrement,
-                    !oldPeriodIncrementESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.RETRY__PERIOD_INCREMENT,
+                    oldPeriodIncrement, periodIncrement, !oldPeriodIncrementESet));
     }
 
     /**
@@ -311,10 +304,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         periodIncrement = PERIOD_INCREMENT_EDEFAULT;
         periodIncrementESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RETRY__PERIOD_INCREMENT,
-                    oldPeriodIncrement, PERIOD_INCREMENT_EDEFAULT,
-                    oldPeriodIncrementESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.RETRY__PERIOD_INCREMENT,
+                    oldPeriodIncrement, PERIOD_INCREMENT_EDEFAULT, oldPeriodIncrementESet));
     }
 
     /**
@@ -342,13 +333,11 @@ public class RetryImpl extends EObjectImpl implements Retry {
      */
     public void setMaxRetryAction(MaxRetryActionType newMaxRetryAction) {
         MaxRetryActionType oldMaxRetryAction = maxRetryAction;
-        maxRetryAction = newMaxRetryAction == null ? MAX_RETRY_ACTION_EDEFAULT
-                : newMaxRetryAction;
+        maxRetryAction = newMaxRetryAction == null ? MAX_RETRY_ACTION_EDEFAULT : newMaxRetryAction;
         boolean oldMaxRetryActionESet = maxRetryActionESet;
         maxRetryActionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RETRY__MAX_RETRY_ACTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.RETRY__MAX_RETRY_ACTION,
                     oldMaxRetryAction, maxRetryAction, !oldMaxRetryActionESet));
     }
 
@@ -363,10 +352,8 @@ public class RetryImpl extends EObjectImpl implements Retry {
         maxRetryAction = MAX_RETRY_ACTION_EDEFAULT;
         maxRetryActionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RETRY__MAX_RETRY_ACTION,
-                    oldMaxRetryAction, MAX_RETRY_ACTION_EDEFAULT,
-                    oldMaxRetryActionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.RETRY__MAX_RETRY_ACTION,
+                    oldMaxRetryAction, MAX_RETRY_ACTION_EDEFAULT, oldMaxRetryActionESet));
     }
 
     /**
@@ -476,7 +463,7 @@ public class RetryImpl extends EObjectImpl implements Retry {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (max: "); //$NON-NLS-1$
         if (maxESet)
             result.append(max);

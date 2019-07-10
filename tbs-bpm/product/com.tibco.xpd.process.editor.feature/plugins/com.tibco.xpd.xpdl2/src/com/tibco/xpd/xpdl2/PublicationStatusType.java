@@ -56,8 +56,7 @@ public enum PublicationStatusType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>UNDER REVISION</b></em>' literal value.
@@ -111,8 +110,7 @@ public enum PublicationStatusType implements Enumerator {
      * @generated
      */
     private static final PublicationStatusType[] VALUES_ARRAY =
-            new PublicationStatusType[] { UNDER_REVISION_LITERAL,
-                    RELEASED_LITERAL, UNDER_TEST_LITERAL, };
+            new PublicationStatusType[] { UNDER_REVISION_LITERAL, RELEASED_LITERAL, UNDER_TEST_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Publication Status Type</b></em>' enumerators.
@@ -120,13 +118,14 @@ public enum PublicationStatusType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<PublicationStatusType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<PublicationStatusType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Publication Status Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PublicationStatusType get(String literal) {
@@ -143,6 +142,8 @@ public enum PublicationStatusType implements Enumerator {
      * Returns the '<em><b>Publication Status Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PublicationStatusType getByName(String name) {
@@ -159,6 +160,8 @@ public enum PublicationStatusType implements Enumerator {
      * Returns the '<em><b>Publication Status Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PublicationStatusType get(int value) {

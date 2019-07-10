@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.EndEvent#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.EndEvent#getResultError <em>Result Error</em>}</li>
@@ -24,7 +25,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.EndEvent#getDeprecatedTriggerResultLink <em>Deprecated Trigger Result Link</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.EndEvent#getDeprecatedResultCompensation <em>Deprecated Result Compensation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getEndEvent()
  * @model extendedMetaData="name='EndEvent_._type' kind='elementOnly' features-order='triggerResultMessage resultError triggerResultCompensation triggerResultLink resultMultiple'"
@@ -36,8 +36,7 @@ public interface EndEvent extends Event {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Trigger Result Message</b></em>' containment reference.

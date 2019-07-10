@@ -9,6 +9,7 @@ package com.tibco.xpd.xpdl2.util;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import com.tibco.xpd.xpdl2.extension.ResourceExtensions;
 
 /**
@@ -21,18 +22,15 @@ import com.tibco.xpd.xpdl2.extension.ResourceExtensions;
 public class Xpdl2ResourceImpl extends ResourceExtensions {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
-     * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
-     * @param uri
-     *            the URI of the new resource.
+     * @param uri the URI of the new resource.
      * @generated
      */
     public Xpdl2ResourceImpl(URI uri) {

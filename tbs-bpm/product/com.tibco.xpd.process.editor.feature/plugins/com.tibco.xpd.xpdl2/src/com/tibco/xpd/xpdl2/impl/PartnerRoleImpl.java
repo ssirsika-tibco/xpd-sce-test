@@ -23,13 +23,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerRoleImpl#getEndPoint <em>End Point</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerRoleImpl#getPortName <em>Port Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerRoleImpl#getRoleName <em>Role Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerRoleImpl#getServiceName <em>Service Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,8 +39,7 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getEndPoint() <em>End Point</em>}' containment reference.
@@ -145,15 +144,12 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEndPoint(EndPoint newEndPoint,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEndPoint(EndPoint newEndPoint, NotificationChain msgs) {
         EndPoint oldEndPoint = endPoint;
         endPoint = newEndPoint;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTNER_ROLE__END_POINT, oldEndPoint,
-                            newEndPoint);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTNER_ROLE__END_POINT, oldEndPoint, newEndPoint);
             if (msgs == null)
                 msgs = notification;
             else
@@ -171,25 +167,18 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         if (newEndPoint != endPoint) {
             NotificationChain msgs = null;
             if (endPoint != null)
-                msgs =
-                        ((InternalEObject) endPoint).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PARTNER_ROLE__END_POINT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) endPoint).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_ROLE__END_POINT,
+                        null,
+                        msgs);
             if (newEndPoint != null)
-                msgs =
-                        ((InternalEObject) newEndPoint).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PARTNER_ROLE__END_POINT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newEndPoint)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTNER_ROLE__END_POINT, null, msgs);
             msgs = basicSetEndPoint(newEndPoint, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_ROLE__END_POINT, newEndPoint,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_ROLE__END_POINT, newEndPoint,
                     newEndPoint));
     }
 
@@ -211,8 +200,8 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         String oldPortName = portName;
         portName = newPortName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_ROLE__PORT_NAME, oldPortName, portName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_ROLE__PORT_NAME, oldPortName,
+                    portName));
     }
 
     /**
@@ -233,8 +222,8 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         String oldRoleName = roleName;
         roleName = newRoleName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_ROLE__ROLE_NAME, oldRoleName, roleName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_ROLE__ROLE_NAME, oldRoleName,
+                    roleName));
     }
 
     /**
@@ -255,9 +244,8 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         String oldServiceName = serviceName;
         serviceName = newServiceName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER_ROLE__SERVICE_NAME, oldServiceName,
-                    serviceName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER_ROLE__SERVICE_NAME,
+                    oldServiceName, serviceName));
     }
 
     /**
@@ -266,8 +254,7 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PARTNER_ROLE__END_POINT:
             return basicSetEndPoint(null, msgs);
@@ -354,14 +341,11 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         case Xpdl2Package.PARTNER_ROLE__END_POINT:
             return endPoint != null;
         case Xpdl2Package.PARTNER_ROLE__PORT_NAME:
-            return PORT_NAME_EDEFAULT == null ? portName != null
-                    : !PORT_NAME_EDEFAULT.equals(portName);
+            return PORT_NAME_EDEFAULT == null ? portName != null : !PORT_NAME_EDEFAULT.equals(portName);
         case Xpdl2Package.PARTNER_ROLE__ROLE_NAME:
-            return ROLE_NAME_EDEFAULT == null ? roleName != null
-                    : !ROLE_NAME_EDEFAULT.equals(roleName);
+            return ROLE_NAME_EDEFAULT == null ? roleName != null : !ROLE_NAME_EDEFAULT.equals(roleName);
         case Xpdl2Package.PARTNER_ROLE__SERVICE_NAME:
-            return SERVICE_NAME_EDEFAULT == null ? serviceName != null
-                    : !SERVICE_NAME_EDEFAULT.equals(serviceName);
+            return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
         }
         return super.eIsSet(featureID);
     }
@@ -376,7 +360,7 @@ public class PartnerRoleImpl extends EObjectImpl implements PartnerRole {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (portName: "); //$NON-NLS-1$
         result.append(portName);
         result.append(", roleName: "); //$NON-NLS-1$

@@ -13,12 +13,12 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ExternalReference#getLocation <em>Location</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ExternalReference#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ExternalReference#getXref <em>Xref</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getExternalReference()
  * @model extendedMetaData="name='ExternalReference_._type' kind='elementOnly'"
@@ -30,8 +30,7 @@ public interface ExternalReference extends DataType {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Location</b></em>' attribute.

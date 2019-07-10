@@ -99,8 +99,7 @@ public enum StatusType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>None</b></em>' literal value.
@@ -228,10 +227,8 @@ public enum StatusType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final StatusType[] VALUES_ARRAY = new StatusType[] {
-            NONE_LITERAL, READY_LITERAL, ACTIVE_LITERAL, CANCELLED_LITERAL,
-            ABORTING_LITERAL, ABORTED_LITERAL, COMPLETING_LITERAL,
-            COMPLETED_LITERAL, };
+    private static final StatusType[] VALUES_ARRAY = new StatusType[] { NONE_LITERAL, READY_LITERAL, ACTIVE_LITERAL,
+            CANCELLED_LITERAL, ABORTING_LITERAL, ABORTED_LITERAL, COMPLETING_LITERAL, COMPLETED_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Status Type</b></em>' enumerators.
@@ -239,13 +236,14 @@ public enum StatusType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<StatusType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<StatusType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Status Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static StatusType get(String literal) {
@@ -262,6 +260,8 @@ public enum StatusType implements Enumerator {
      * Returns the '<em><b>Status Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static StatusType getByName(String name) {
@@ -278,6 +278,8 @@ public enum StatusType implements Enumerator {
      * Returns the '<em><b>Status Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static StatusType get(int value) {

@@ -31,15 +31,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WsSoapHttpInboundBindingItemProvider
-        extends WsSoapBindingItemProvider {
+public class WsSoapHttpInboundBindingItemProvider extends WsSoapBindingItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -75,22 +73,20 @@ public class WsSoapHttpInboundBindingItemProvider
      * @generated
      */
     protected void addEndpointUrlPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_WsSoapHttpInboundBinding_endpointUrlPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsSoapHttpInboundBinding_endpointUrlPath_feature", //$NON-NLS-1$
-                        "_UI_WsSoapHttpInboundBinding_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WsSoapHttpInboundBinding_endpointUrlPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WsSoapHttpInboundBinding_endpointUrlPath_feature", //$NON-NLS-1$
+                                "_UI_WsSoapHttpInboundBinding_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -99,24 +95,21 @@ public class WsSoapHttpInboundBindingItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHttpConnectorInstanceNamePropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_WsSoapHttpInboundBinding_httpConnectorInstanceName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsSoapHttpInboundBinding_httpConnectorInstanceName_feature", //$NON-NLS-1$
-                        "_UI_WsSoapHttpInboundBinding_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+    protected void addHttpConnectorInstanceNamePropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WsSoapHttpInboundBinding_httpConnectorInstanceName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WsSoapHttpInboundBinding_httpConnectorInstanceName_feature", //$NON-NLS-1$
+                                "_UI_WsSoapHttpInboundBinding_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -128,12 +121,10 @@ public class WsSoapHttpInboundBindingItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY);
         }
         return childrenFeatures;
     }
@@ -159,9 +150,7 @@ public class WsSoapHttpInboundBindingItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/WsSoapHttpInboundBinding")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsSoapHttpInboundBinding")); //$NON-NLS-1$
     }
 
     /**
@@ -174,8 +163,7 @@ public class WsSoapHttpInboundBindingItemProvider
     public String getText(Object object) {
         String label = ((WsSoapHttpInboundBinding) object).getName();
         String type = getString("_UI_WsSoapHttpInboundBinding_type"); //$NON-NLS-1$
-        return label == null || label.length() == 0
-                ? String.format("(%1$s)", type) //$NON-NLS-1$
+        return label == null || label.length() == 0 ? String.format("(%1$s)", type) //$NON-NLS-1$
                 : String.format("%1$s (%2$s)", label, type); //$NON-NLS-1$
     }
 
@@ -193,12 +181,10 @@ public class WsSoapHttpInboundBindingItemProvider
         switch (notification.getFeatureID(WsSoapHttpInboundBinding.class)) {
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH:
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -212,13 +198,12 @@ public class WsSoapHttpInboundBindingItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
-                XpdExtensionFactory.eINSTANCE.createWsSoapSecurity()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
+                        XpdExtensionFactory.eINSTANCE.createWsSoapSecurity()));
     }
 
 }

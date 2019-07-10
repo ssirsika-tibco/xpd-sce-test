@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,22 +77,20 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addReturnCaseDocRefsFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_CaseDocFindOperations_returnCaseDocRefsField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CaseDocFindOperations_returnCaseDocRefsField_feature", //$NON-NLS-1$
-                        "_UI_CaseDocFindOperations_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CaseDocFindOperations_returnCaseDocRefsField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CaseDocFindOperations_returnCaseDocRefsField_feature", //$NON-NLS-1$
+                                "_UI_CaseDocFindOperations_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -104,21 +100,20 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CaseDocFindOperations_caseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CaseDocFindOperations_caseRefField_feature", //$NON-NLS-1$
-                        "_UI_CaseDocFindOperations_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CaseDocFindOperations_caseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CaseDocFindOperations_caseRefField_feature", //$NON-NLS-1$
+                                "_UI_CaseDocFindOperations_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -130,14 +125,11 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION);
         }
         return childrenFeatures;
     }
@@ -163,9 +155,7 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CaseDocFindOperations")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CaseDocFindOperations")); //$NON-NLS-1$
     }
 
     /**
@@ -176,11 +166,9 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label =
-                ((CaseDocFindOperations) object).getReturnCaseDocRefsField();
-        return label == null || label.length() == 0
-                ? getString("_UI_CaseDocFindOperations_type") //$NON-NLS-1$
-                : getString("_UI_CaseDocFindOperations_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ((CaseDocFindOperations) object).getReturnCaseDocRefsField();
+        return label == null || label.length() == 0 ? getString("_UI_CaseDocFindOperations_type") : //$NON-NLS-1$
+                getString("_UI_CaseDocFindOperations_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -197,13 +185,11 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(CaseDocFindOperations.class)) {
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD:
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION:
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -217,17 +203,16 @@ public class CaseDocFindOperationsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
-                XpdExtensionFactory.eINSTANCE.createFindByFileNameOperation()));
+        newChildDescriptors.add(
+                createChildParameter(XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
+                        XpdExtensionFactory.eINSTANCE.createFindByFileNameOperation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
-                XpdExtensionFactory.eINSTANCE.createFindByQueryOperation()));
+        newChildDescriptors.add(
+                createChildParameter(XpdExtensionPackage.Literals.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
+                        XpdExtensionFactory.eINSTANCE.createFindByQueryOperation()));
     }
 
     /**

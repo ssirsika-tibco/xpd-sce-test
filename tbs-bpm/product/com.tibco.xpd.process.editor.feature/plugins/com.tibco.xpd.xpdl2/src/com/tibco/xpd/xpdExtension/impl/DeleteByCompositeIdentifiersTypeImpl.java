@@ -36,15 +36,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
-        implements DeleteByCompositeIdentifiersType {
+public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl implements DeleteByCompositeIdentifiersType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
@@ -82,8 +80,7 @@ public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
      */
     public FeatureMap getGroup() {
         if (group == null) {
-            group = new BasicFeatureMap(this,
-                    XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP);
+            group = new BasicFeatureMap(this, XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP);
         }
         return group;
     }
@@ -94,8 +91,7 @@ public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
      * @generated
      */
     public EList<CompositeIdentifierType> getCompositeIdentifier() {
-        return getGroup().list(
-                XpdExtensionPackage.Literals.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER);
+        return getGroup().list(XpdExtensionPackage.Literals.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER);
     }
 
     /**
@@ -104,14 +100,12 @@ public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__GROUP:
             return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER:
-            return ((InternalEList<?>) getCompositeIdentifier())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCompositeIdentifier()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -148,8 +142,7 @@ public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.DELETE_BY_COMPOSITE_IDENTIFIERS_TYPE__COMPOSITE_IDENTIFIER:
             getCompositeIdentifier().clear();
-            getCompositeIdentifier().addAll(
-                    (Collection<? extends CompositeIdentifierType>) newValue);
+            getCompositeIdentifier().addAll((Collection<? extends CompositeIdentifierType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -199,7 +192,7 @@ public class DeleteByCompositeIdentifiersTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (group: "); //$NON-NLS-1$
         result.append(group);
         result.append(')');

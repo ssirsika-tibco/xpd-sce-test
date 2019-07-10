@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorkItemPriorityItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WorkItemPriorityItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,21 +77,20 @@ public class WorkItemPriorityItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addInitialPriorityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_WorkItemPriority_initialPriority_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WorkItemPriority_initialPriority_feature", //$NON-NLS-1$
-                        "_UI_WorkItemPriority_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WORK_ITEM_PRIORITY__INITIAL_PRIORITY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WorkItemPriority_initialPriority_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WorkItemPriority_initialPriority_feature", //$NON-NLS-1$
+                                "_UI_WorkItemPriority_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WORK_ITEM_PRIORITY__INITIAL_PRIORITY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -104,8 +101,7 @@ public class WorkItemPriorityItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WorkItemPriority")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WorkItemPriority")); //$NON-NLS-1$
     }
 
     /**
@@ -117,9 +113,8 @@ public class WorkItemPriorityItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((WorkItemPriority) object).getInitialPriority();
-        return label == null || label.length() == 0
-                ? getString("_UI_WorkItemPriority_type") //$NON-NLS-1$
-                : getString("_UI_WorkItemPriority_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_WorkItemPriority_type") : //$NON-NLS-1$
+                getString("_UI_WorkItemPriority_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -135,8 +130,7 @@ public class WorkItemPriorityItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(WorkItemPriority.class)) {
         case XpdExtensionPackage.WORK_ITEM_PRIORITY__INITIAL_PRIORITY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -150,8 +144,7 @@ public class WorkItemPriorityItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

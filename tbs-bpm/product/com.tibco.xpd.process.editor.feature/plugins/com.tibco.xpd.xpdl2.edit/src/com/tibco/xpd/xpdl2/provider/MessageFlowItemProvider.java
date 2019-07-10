@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageFlowItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MessageFlowItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +80,12 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
      */
     protected void addSourcePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_MessageFlow_source_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_MessageFlow_source_feature", "_UI_MessageFlow_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_MessageFlow_source_feature", //$NON-NLS-1$
+                                "_UI_MessageFlow_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.MESSAGE_FLOW__SOURCE,
                         true,
                         false,
@@ -105,11 +103,12 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
      */
     protected void addTargetPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_MessageFlow_target_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_MessageFlow_target_feature", "_UI_MessageFlow_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_MessageFlow_target_feature", //$NON-NLS-1$
+                                "_UI_MessageFlow_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.MESSAGE_FLOW__TARGET,
                         true,
                         false,
@@ -128,14 +127,11 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.MESSAGE_FLOW__MESSAGE);
             childrenFeatures.add(Xpdl2Package.Literals.MESSAGE_FLOW__OBJECT);
         }
@@ -163,8 +159,7 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/MessageFlow")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/MessageFlow")); //$NON-NLS-1$
     }
 
     /**
@@ -191,15 +186,13 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
         switch (notification.getFeatureID(MessageFlow.class)) {
         case Xpdl2Package.MESSAGE_FLOW__SOURCE:
         case Xpdl2Package.MESSAGE_FLOW__TARGET:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS:
         case Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS:
         case Xpdl2Package.MESSAGE_FLOW__MESSAGE:
         case Xpdl2Package.MESSAGE_FLOW__OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -213,21 +206,18 @@ public class MessageFlowItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS,
                         Xpdl2Factory.eINSTANCE.createConnectorGraphicsInfo()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.MESSAGE_FLOW__MESSAGE,
-                        Xpdl2Factory.eINSTANCE.createMessage()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.MESSAGE_FLOW__MESSAGE,
+                Xpdl2Factory.eINSTANCE.createMessage()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.MESSAGE_FLOW__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.MESSAGE_FLOW__OBJECT,
+                Xpdl2Factory.eINSTANCE.createObject()));
     }
 
 }

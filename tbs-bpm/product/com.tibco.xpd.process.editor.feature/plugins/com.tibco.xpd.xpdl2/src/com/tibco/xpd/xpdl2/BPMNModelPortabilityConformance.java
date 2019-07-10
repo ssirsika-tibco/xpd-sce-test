@@ -62,8 +62,7 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>NONE</b></em>' literal value.
@@ -132,8 +131,7 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * @generated
      */
     private static final BPMNModelPortabilityConformance[] VALUES_ARRAY =
-            new BPMNModelPortabilityConformance[] { NONE, SIMPLE, STANDARD,
-                    COMPLETE, };
+            new BPMNModelPortabilityConformance[] { NONE, SIMPLE, STANDARD, COMPLETE, };
 
     /**
      * A public read-only list of all the '<em><b>BPMN Model Portability Conformance</b></em>' enumerators.
@@ -148,6 +146,8 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * Returns the '<em><b>BPMN Model Portability Conformance</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BPMNModelPortabilityConformance get(String literal) {
@@ -164,6 +164,8 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * Returns the '<em><b>BPMN Model Portability Conformance</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BPMNModelPortabilityConformance getByName(String name) {
@@ -180,6 +182,8 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * Returns the '<em><b>BPMN Model Portability Conformance</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BPMNModelPortabilityConformance get(int value) {
@@ -223,8 +227,7 @@ public enum BPMNModelPortabilityConformance implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private BPMNModelPortabilityConformance(int value, String name,
-            String literal) {
+    private BPMNModelPortabilityConformance(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;

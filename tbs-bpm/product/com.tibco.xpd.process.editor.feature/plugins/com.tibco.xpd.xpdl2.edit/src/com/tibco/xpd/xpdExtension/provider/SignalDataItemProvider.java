@@ -44,7 +44,7 @@ public class SignalDataItemProvider extends ItemProviderAdapter implements IEdit
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.

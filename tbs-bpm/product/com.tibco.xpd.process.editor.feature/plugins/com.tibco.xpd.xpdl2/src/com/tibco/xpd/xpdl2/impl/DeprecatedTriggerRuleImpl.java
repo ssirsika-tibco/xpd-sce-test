@@ -19,22 +19,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeprecatedTriggerRuleImpl#getRuleName <em>Rule Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class DeprecatedTriggerRuleImpl extends EObjectImpl implements
-        DeprecatedTriggerRule {
+public class DeprecatedTriggerRuleImpl extends EObjectImpl implements DeprecatedTriggerRule {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getRuleName() <em>Rule Name</em>}' attribute.
@@ -93,8 +91,7 @@ public class DeprecatedTriggerRuleImpl extends EObjectImpl implements
         String oldRuleName = ruleName;
         ruleName = newRuleName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DEPRECATED_TRIGGER_RULE__RULE_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DEPRECATED_TRIGGER_RULE__RULE_NAME,
                     oldRuleName, ruleName));
     }
 
@@ -151,8 +148,7 @@ public class DeprecatedTriggerRuleImpl extends EObjectImpl implements
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.DEPRECATED_TRIGGER_RULE__RULE_NAME:
-            return RULE_NAME_EDEFAULT == null ? ruleName != null
-                    : !RULE_NAME_EDEFAULT.equals(ruleName);
+            return RULE_NAME_EDEFAULT == null ? ruleName != null : !RULE_NAME_EDEFAULT.equals(ruleName);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +163,7 @@ public class DeprecatedTriggerRuleImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (ruleName: "); //$NON-NLS-1$
         result.append(ruleName);
         result.append(')');

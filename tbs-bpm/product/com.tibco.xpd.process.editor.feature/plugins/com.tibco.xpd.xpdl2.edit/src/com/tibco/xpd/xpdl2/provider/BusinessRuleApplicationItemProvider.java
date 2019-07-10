@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,14 +78,11 @@ public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__RULE_NAME);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__LOCATION);
+            childrenFeatures.add(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__RULE_NAME);
+            childrenFeatures.add(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__LOCATION);
         }
         return childrenFeatures;
     }
@@ -113,9 +108,7 @@ public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/BusinessRuleApplication")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/BusinessRuleApplication")); //$NON-NLS-1$
     }
 
     /**
@@ -143,8 +136,7 @@ public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(BusinessRuleApplication.class)) {
         case Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME:
         case Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -158,17 +150,14 @@ public class BusinessRuleApplicationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__RULE_NAME,
-                        Xpdl2Factory.eINSTANCE.createRuleName()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__RULE_NAME,
+                Xpdl2Factory.eINSTANCE.createRuleName()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__LOCATION,
-                        Xpdl2Factory.eINSTANCE.createLocation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.BUSINESS_RULE_APPLICATION__LOCATION,
+                Xpdl2Factory.eINSTANCE.createLocation()));
     }
 
     /**

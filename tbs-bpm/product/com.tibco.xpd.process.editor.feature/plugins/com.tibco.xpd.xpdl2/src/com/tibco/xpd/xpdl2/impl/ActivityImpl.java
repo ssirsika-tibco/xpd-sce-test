@@ -70,6 +70,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivityImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivityImpl#getNodeGraphicsInfos <em>Node Graphics Infos</em>}</li>
@@ -108,7 +109,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivityImpl#isIsForCompensation <em>Is For Compensation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivityImpl#getCompletionQuantity <em>Completion Quantity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -117,8 +117,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -362,8 +361,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      * @ordered
      */
-    protected static final FinishModeType FINISH_MODE_EDEFAULT =
-            FinishModeType.AUTOMATIC_LITERAL;
+    protected static final FinishModeType FINISH_MODE_EDEFAULT = FinishModeType.AUTOMATIC_LITERAL;
 
     /**
      * The cached value of the '{@link #getFinishMode() <em>Finish Mode</em>}' attribute.
@@ -444,8 +442,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      * @ordered
      */
-    protected static final StartModeType START_MODE_EDEFAULT =
-            StartModeType.AUTOMATIC_LITERAL;
+    protected static final StartModeType START_MODE_EDEFAULT = StartModeType.AUTOMATIC_LITERAL;
 
     /**
      * The cached value of the '{@link #getStartMode() <em>Start Mode</em>}' attribute.
@@ -472,8 +469,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      * @ordered
      */
-    protected static final BigInteger START_QUANTITY_EDEFAULT = new BigInteger(
-            "1"); //$NON-NLS-1$
+    protected static final BigInteger START_QUANTITY_EDEFAULT = new BigInteger("1"); //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getStartQuantity() <em>Start Quantity</em>}' attribute.
@@ -566,8 +562,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      * @ordered
      */
-    protected static final BigInteger COMPLETION_QUANTITY_EDEFAULT =
-            new BigInteger("1"); //$NON-NLS-1$
+    protected static final BigInteger COMPLETION_QUANTITY_EDEFAULT = new BigInteger("1"); //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCompletionQuantity() <em>Completion Quantity</em>}' attribute.
@@ -611,10 +606,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.ACTIVITY__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.ACTIVITY__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -625,10 +618,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public EList<NodeGraphicsInfo> getNodeGraphicsInfos() {
         if (nodeGraphicsInfos == null) {
-            nodeGraphicsInfos =
-                    new EObjectContainmentEList<NodeGraphicsInfo>(
-                            NodeGraphicsInfo.class, this,
-                            Xpdl2Package.ACTIVITY__NODE_GRAPHICS_INFOS);
+            nodeGraphicsInfos = new EObjectContainmentEList<NodeGraphicsInfo>(NodeGraphicsInfo.class, this,
+                    Xpdl2Package.ACTIVITY__NODE_GRAPHICS_INFOS);
         }
         return nodeGraphicsInfos;
     }
@@ -646,15 +637,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__DESCRIPTION, oldDescription,
-                            newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -672,25 +660,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) description)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__DESCRIPTION, null, msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDescription)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__DESCRIPTION, null, msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__DESCRIPTION, newDescription,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__DESCRIPTION, newDescription,
                     newDescription));
     }
 
@@ -701,9 +680,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.ACTIVITY__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.ACTIVITY__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -720,14 +697,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLimit(Limit newLimit,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLimit(Limit newLimit, NotificationChain msgs) {
         Limit oldLimit = limit;
         limit = newLimit;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__LIMIT, oldLimit, newLimit);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__LIMIT, oldLimit, newLimit);
             if (msgs == null)
                 msgs = notification;
             else
@@ -744,25 +719,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newLimit != limit) {
             NotificationChain msgs = null;
             if (limit != null)
-                msgs =
-                        ((InternalEObject) limit).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__LIMIT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) limit)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__LIMIT, null, msgs);
             if (newLimit != null)
-                msgs =
-                        ((InternalEObject) newLimit).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__LIMIT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newLimit)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__LIMIT, null, msgs);
             msgs = basicSetLimit(newLimit, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__LIMIT, newLimit, newLimit));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__LIMIT, newLimit, newLimit));
     }
 
     /**
@@ -777,14 +743,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRoute(Route newRoute,
-            NotificationChain msgs) {
+    public NotificationChain basicSetRoute(Route newRoute, NotificationChain msgs) {
         Route oldRoute = route;
         route = newRoute;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__ROUTE, oldRoute, newRoute);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__ROUTE, oldRoute, newRoute);
             if (msgs == null)
                 msgs = notification;
             else
@@ -801,25 +765,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newRoute != route) {
             NotificationChain msgs = null;
             if (route != null)
-                msgs =
-                        ((InternalEObject) route).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__ROUTE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) route)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__ROUTE, null, msgs);
             if (newRoute != null)
-                msgs =
-                        ((InternalEObject) newRoute).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__ROUTE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newRoute)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__ROUTE, null, msgs);
             msgs = basicSetRoute(newRoute, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__ROUTE, newRoute, newRoute));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__ROUTE, newRoute, newRoute));
     }
 
     /**
@@ -834,15 +789,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetImplementation(
-            Implementation newImplementation, NotificationChain msgs) {
+    public NotificationChain basicSetImplementation(Implementation newImplementation, NotificationChain msgs) {
         Implementation oldImplementation = implementation;
         implementation = newImplementation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__IMPLEMENTATION,
-                            oldImplementation, newImplementation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__IMPLEMENTATION, oldImplementation, newImplementation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -859,24 +811,17 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newImplementation != implementation) {
             NotificationChain msgs = null;
             if (implementation != null)
-                msgs =
-                        ((InternalEObject) implementation).eInverseRemove(this,
-                                Xpdl2Package.IMPLEMENTATION__ACTIVITY,
-                                Implementation.class,
-                                msgs);
+                msgs = ((InternalEObject) implementation)
+                        .eInverseRemove(this, Xpdl2Package.IMPLEMENTATION__ACTIVITY, Implementation.class, msgs);
             if (newImplementation != null)
-                msgs =
-                        ((InternalEObject) newImplementation).eInverseAdd(this,
-                                Xpdl2Package.IMPLEMENTATION__ACTIVITY,
-                                Implementation.class,
-                                msgs);
+                msgs = ((InternalEObject) newImplementation)
+                        .eInverseAdd(this, Xpdl2Package.IMPLEMENTATION__ACTIVITY, Implementation.class, msgs);
             msgs = basicSetImplementation(newImplementation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__IMPLEMENTATION, newImplementation,
-                    newImplementation));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__IMPLEMENTATION,
+                    newImplementation, newImplementation));
     }
 
     /**
@@ -891,15 +836,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBlockActivity(
-            BlockActivity newBlockActivity, NotificationChain msgs) {
+    public NotificationChain basicSetBlockActivity(BlockActivity newBlockActivity, NotificationChain msgs) {
         BlockActivity oldBlockActivity = blockActivity;
         blockActivity = newBlockActivity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY,
-                            oldBlockActivity, newBlockActivity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY, oldBlockActivity, newBlockActivity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -916,28 +858,19 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newBlockActivity != blockActivity) {
             NotificationChain msgs = null;
             if (blockActivity != null)
-                msgs =
-                        ((InternalEObject) blockActivity)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) blockActivity).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY,
+                        null,
+                        msgs);
             if (newBlockActivity != null)
-                msgs =
-                        ((InternalEObject) newBlockActivity)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newBlockActivity)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY, null, msgs);
             msgs = basicSetBlockActivity(newBlockActivity, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY, newBlockActivity,
-                    newBlockActivity));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__BLOCK_ACTIVITY,
+                    newBlockActivity, newBlockActivity));
     }
 
     /**
@@ -952,14 +885,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEvent(Event newEvent,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEvent(Event newEvent, NotificationChain msgs) {
         Event oldEvent = event;
         event = newEvent;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__EVENT, oldEvent, newEvent);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__EVENT, oldEvent, newEvent);
             if (msgs == null)
                 msgs = notification;
             else
@@ -976,25 +907,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newEvent != event) {
             NotificationChain msgs = null;
             if (event != null)
-                msgs =
-                        ((InternalEObject) event).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__EVENT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) event)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__EVENT, null, msgs);
             if (newEvent != null)
-                msgs =
-                        ((InternalEObject) newEvent).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__EVENT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newEvent)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__EVENT, null, msgs);
             msgs = basicSetEvent(newEvent, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__EVENT, newEvent, newEvent));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__EVENT, newEvent, newEvent));
     }
 
     /**
@@ -1009,15 +931,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTransaction(Transaction newTransaction,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTransaction(Transaction newTransaction, NotificationChain msgs) {
         Transaction oldTransaction = transaction;
         transaction = newTransaction;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__TRANSACTION, oldTransaction,
-                            newTransaction);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__TRANSACTION, oldTransaction, newTransaction);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1034,25 +953,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newTransaction != transaction) {
             NotificationChain msgs = null;
             if (transaction != null)
-                msgs =
-                        ((InternalEObject) transaction).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__TRANSACTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) transaction)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__TRANSACTION, null, msgs);
             if (newTransaction != null)
-                msgs =
-                        ((InternalEObject) newTransaction).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__TRANSACTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTransaction)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__TRANSACTION, null, msgs);
             msgs = basicSetTransaction(newTransaction, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__TRANSACTION, newTransaction,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__TRANSACTION, newTransaction,
                     newTransaction));
     }
 
@@ -1068,15 +978,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPerformer(Performer newPerformer,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPerformer(Performer newPerformer, NotificationChain msgs) {
         Performer oldPerformer = performer;
         performer = newPerformer;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__PERFORMER, oldPerformer,
-                            newPerformer);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__PERFORMER, oldPerformer, newPerformer);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1093,25 +1000,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newPerformer != performer) {
             NotificationChain msgs = null;
             if (performer != null)
-                msgs =
-                        ((InternalEObject) performer).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PERFORMER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) performer)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PERFORMER, null, msgs);
             if (newPerformer != null)
-                msgs =
-                        ((InternalEObject) newPerformer).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PERFORMER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPerformer)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PERFORMER, null, msgs);
             msgs = basicSetPerformer(newPerformer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__PERFORMER, newPerformer,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__PERFORMER, newPerformer,
                     newPerformer));
     }
 
@@ -1128,15 +1026,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPerformers(Performers newPerformers,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPerformers(Performers newPerformers, NotificationChain msgs) {
         Performers oldPerformers = performers;
         performers = newPerformers;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__PERFORMERS, oldPerformers,
-                            newPerformers);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__PERFORMERS, oldPerformers, newPerformers);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1154,25 +1049,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newPerformers != performers) {
             NotificationChain msgs = null;
             if (performers != null)
-                msgs =
-                        ((InternalEObject) performers).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PERFORMERS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) performers)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PERFORMERS, null, msgs);
             if (newPerformers != null)
-                msgs =
-                        ((InternalEObject) newPerformers).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PERFORMERS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPerformers)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PERFORMERS, null, msgs);
             msgs = basicSetPerformers(newPerformers, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__PERFORMERS, newPerformers,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__PERFORMERS, newPerformers,
                     newPerformers));
     }
 
@@ -1188,15 +1074,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPriority(Priority newPriority,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs) {
         Priority oldPriority = priority;
         priority = newPriority;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__PRIORITY, oldPriority,
-                            newPriority);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__PRIORITY, oldPriority, newPriority);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1213,25 +1096,17 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newPriority != priority) {
             NotificationChain msgs = null;
             if (priority != null)
-                msgs =
-                        ((InternalEObject) priority).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PRIORITY,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) priority)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PRIORITY, null, msgs);
             if (newPriority != null)
-                msgs =
-                        ((InternalEObject) newPriority).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__PRIORITY,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPriority)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__PRIORITY, null, msgs);
             msgs = basicSetPriority(newPriority, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__PRIORITY, newPriority, newPriority));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__PRIORITY, newPriority,
+                    newPriority));
     }
 
     /**
@@ -1240,9 +1115,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public EList<Deadline> getDeadline() {
         if (deadline == null) {
-            deadline =
-                    new EObjectContainmentEList<Deadline>(Deadline.class, this,
-                            Xpdl2Package.ACTIVITY__DEADLINE);
+            deadline = new EObjectContainmentEList<Deadline>(Deadline.class, this, Xpdl2Package.ACTIVITY__DEADLINE);
         }
         return deadline;
     }
@@ -1259,16 +1132,13 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSimulationInformation(
-            SimulationInformation newSimulationInformation,
+    public NotificationChain basicSetSimulationInformation(SimulationInformation newSimulationInformation,
             NotificationChain msgs) {
         SimulationInformation oldSimulationInformation = simulationInformation;
         simulationInformation = newSimulationInformation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
-                            oldSimulationInformation, newSimulationInformation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION, oldSimulationInformation, newSimulationInformation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1281,34 +1151,24 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setSimulationInformation(
-            SimulationInformation newSimulationInformation) {
+    public void setSimulationInformation(SimulationInformation newSimulationInformation) {
         if (newSimulationInformation != simulationInformation) {
             NotificationChain msgs = null;
             if (simulationInformation != null)
-                msgs =
-                        ((InternalEObject) simulationInformation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) simulationInformation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
+                        null,
+                        msgs);
             if (newSimulationInformation != null)
-                msgs =
-                        ((InternalEObject) newSimulationInformation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetSimulationInformation(newSimulationInformation,
-                            msgs);
+                msgs = ((InternalEObject) newSimulationInformation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
+                        null,
+                        msgs);
+            msgs = basicSetSimulationInformation(newSimulationInformation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION,
                     newSimulationInformation, newSimulationInformation));
     }
 
@@ -1329,8 +1189,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         icon = newIcon;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__ICON, oldIcon, newIcon);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__ICON, oldIcon, newIcon);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1347,25 +1206,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newIcon != icon) {
             NotificationChain msgs = null;
             if (icon != null)
-                msgs =
-                        ((InternalEObject) icon).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__ICON,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) icon)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__ICON, null, msgs);
             if (newIcon != null)
-                msgs =
-                        ((InternalEObject) newIcon).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__ICON,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newIcon)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__ICON, null, msgs);
             msgs = basicSetIcon(newIcon, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__ICON, newIcon, newIcon));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__ICON, newIcon, newIcon));
     }
 
     /**
@@ -1380,15 +1230,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDocumentation(
-            Documentation newDocumentation, NotificationChain msgs) {
+    public NotificationChain basicSetDocumentation(Documentation newDocumentation, NotificationChain msgs) {
         Documentation oldDocumentation = documentation;
         documentation = newDocumentation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__DOCUMENTATION,
-                            oldDocumentation, newDocumentation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__DOCUMENTATION, oldDocumentation, newDocumentation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1405,26 +1252,19 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newDocumentation != documentation) {
             NotificationChain msgs = null;
             if (documentation != null)
-                msgs =
-                        ((InternalEObject) documentation).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__DOCUMENTATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) documentation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__DOCUMENTATION,
+                        null,
+                        msgs);
             if (newDocumentation != null)
-                msgs =
-                        ((InternalEObject) newDocumentation).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__DOCUMENTATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDocumentation)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__DOCUMENTATION, null, msgs);
             msgs = basicSetDocumentation(newDocumentation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__DOCUMENTATION, newDocumentation,
-                    newDocumentation));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__DOCUMENTATION,
+                    newDocumentation, newDocumentation));
     }
 
     /**
@@ -1433,10 +1273,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public EList<TransitionRestriction> getTransitionRestrictions() {
         if (transitionRestrictions == null) {
-            transitionRestrictions =
-                    new EObjectContainmentEList<TransitionRestriction>(
-                            TransitionRestriction.class, this,
-                            Xpdl2Package.ACTIVITY__TRANSITION_RESTRICTIONS);
+            transitionRestrictions = new EObjectContainmentEList<TransitionRestriction>(TransitionRestriction.class,
+                    this, Xpdl2Package.ACTIVITY__TRANSITION_RESTRICTIONS);
         }
         return transitionRestrictions;
     }
@@ -1448,8 +1286,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
     public EList<DataField> getDataFields() {
         if (dataFields == null) {
             dataFields =
-                    new EObjectContainmentEList<DataField>(DataField.class,
-                            this, Xpdl2Package.ACTIVITY__DATA_FIELDS);
+                    new EObjectContainmentEList<DataField>(DataField.class, this, Xpdl2Package.ACTIVITY__DATA_FIELDS);
         }
         return dataFields;
     }
@@ -1460,9 +1297,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public EList<InputSet> getInputSets() {
         if (inputSets == null) {
-            inputSets =
-                    new EObjectContainmentEList<InputSet>(InputSet.class, this,
-                            Xpdl2Package.ACTIVITY__INPUT_SETS);
+            inputSets = new EObjectContainmentEList<InputSet>(InputSet.class, this, Xpdl2Package.ACTIVITY__INPUT_SETS);
         }
         return inputSets;
     }
@@ -1479,15 +1314,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutputSets(OutputSet newOutputSets,
-            NotificationChain msgs) {
+    public NotificationChain basicSetOutputSets(OutputSet newOutputSets, NotificationChain msgs) {
         OutputSet oldOutputSets = outputSets;
         outputSets = newOutputSets;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__OUTPUT_SETS, oldOutputSets,
-                            newOutputSets);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__OUTPUT_SETS, oldOutputSets, newOutputSets);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1504,25 +1336,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newOutputSets != outputSets) {
             NotificationChain msgs = null;
             if (outputSets != null)
-                msgs =
-                        ((InternalEObject) outputSets).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__OUTPUT_SETS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) outputSets)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__OUTPUT_SETS, null, msgs);
             if (newOutputSets != null)
-                msgs =
-                        ((InternalEObject) newOutputSets).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__OUTPUT_SETS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newOutputSets)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__OUTPUT_SETS, null, msgs);
             msgs = basicSetOutputSets(newOutputSets, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__OUTPUT_SETS, newOutputSets,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__OUTPUT_SETS, newOutputSets,
                     newOutputSets));
     }
 
@@ -1538,15 +1361,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetIoRules(IORules newIoRules,
-            NotificationChain msgs) {
+    public NotificationChain basicSetIoRules(IORules newIoRules, NotificationChain msgs) {
         IORules oldIoRules = ioRules;
         ioRules = newIoRules;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__IO_RULES, oldIoRules,
-                            newIoRules);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__IO_RULES, oldIoRules, newIoRules);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1563,25 +1383,17 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newIoRules != ioRules) {
             NotificationChain msgs = null;
             if (ioRules != null)
-                msgs =
-                        ((InternalEObject) ioRules).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__IO_RULES,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) ioRules)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__IO_RULES, null, msgs);
             if (newIoRules != null)
-                msgs =
-                        ((InternalEObject) newIoRules).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__IO_RULES,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newIoRules)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__IO_RULES, null, msgs);
             msgs = basicSetIoRules(newIoRules, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__IO_RULES, newIoRules, newIoRules));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__IO_RULES, newIoRules,
+                    newIoRules));
     }
 
     /**
@@ -1601,8 +1413,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         loop = newLoop;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__LOOP, oldLoop, newLoop);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__LOOP, oldLoop, newLoop);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1619,25 +1430,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newLoop != loop) {
             NotificationChain msgs = null;
             if (loop != null)
-                msgs =
-                        ((InternalEObject) loop).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__LOOP,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) loop)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__LOOP, null, msgs);
             if (newLoop != null)
-                msgs =
-                        ((InternalEObject) newLoop).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__LOOP,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newLoop)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__LOOP, null, msgs);
             msgs = basicSetLoop(newLoop, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__LOOP, newLoop, newLoop));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__LOOP, newLoop, newLoop));
     }
 
     /**
@@ -1647,8 +1449,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
     public EList<Assignment> getAssignments() {
         if (assignments == null) {
             assignments =
-                    new EObjectContainmentEList<Assignment>(Assignment.class,
-                            this, Xpdl2Package.ACTIVITY__ASSIGNMENTS);
+                    new EObjectContainmentEList<Assignment>(Assignment.class, this, Xpdl2Package.ACTIVITY__ASSIGNMENTS);
         }
         return assignments;
     }
@@ -1665,14 +1466,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__OBJECT, oldObject, newObject);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1689,25 +1488,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__OBJECT, newObject, newObject));
     }
 
     /**
@@ -1722,15 +1512,12 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExtensions(EObject newExtensions,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExtensions(EObject newExtensions, NotificationChain msgs) {
         EObject oldExtensions = extensions;
         extensions = newExtensions;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY__EXTENSIONS, oldExtensions,
-                            newExtensions);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY__EXTENSIONS, oldExtensions, newExtensions);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1747,25 +1534,16 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newExtensions != extensions) {
             NotificationChain msgs = null;
             if (extensions != null)
-                msgs =
-                        ((InternalEObject) extensions).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__EXTENSIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) extensions)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__EXTENSIONS, null, msgs);
             if (newExtensions != null)
-                msgs =
-                        ((InternalEObject) newExtensions).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY__EXTENSIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newExtensions)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__EXTENSIONS, null, msgs);
             msgs = basicSetExtensions(newExtensions, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__EXTENSIONS, newExtensions,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__EXTENSIONS, newExtensions,
                     newExtensions));
     }
 
@@ -1783,13 +1561,11 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      */
     public void setFinishMode(FinishModeType newFinishMode) {
         FinishModeType oldFinishMode = finishMode;
-        finishMode =
-                newFinishMode == null ? FINISH_MODE_EDEFAULT : newFinishMode;
+        finishMode = newFinishMode == null ? FINISH_MODE_EDEFAULT : newFinishMode;
         boolean oldFinishModeESet = finishModeESet;
         finishModeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__FINISH_MODE, oldFinishMode,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__FINISH_MODE, oldFinishMode,
                     finishMode, !oldFinishModeESet));
     }
 
@@ -1803,8 +1579,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         finishMode = FINISH_MODE_EDEFAULT;
         finishModeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__FINISH_MODE, oldFinishMode,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__FINISH_MODE, oldFinishMode,
                     FINISH_MODE_EDEFAULT, oldFinishModeESet));
     }
 
@@ -1834,9 +1609,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldIsATransactionESet = isATransactionESet;
         isATransactionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__IS_ATRANSACTION, oldIsATransaction,
-                    isATransaction, !oldIsATransactionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__IS_ATRANSACTION,
+                    oldIsATransaction, isATransaction, !oldIsATransactionESet));
     }
 
     /**
@@ -1849,9 +1623,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         isATransaction = IS_ATRANSACTION_EDEFAULT;
         isATransactionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__IS_ATRANSACTION, oldIsATransaction,
-                    IS_ATRANSACTION_EDEFAULT, oldIsATransactionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__IS_ATRANSACTION,
+                    oldIsATransaction, IS_ATRANSACTION_EDEFAULT, oldIsATransactionESet));
     }
 
     /**
@@ -1880,9 +1653,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldStartActivityESet = startActivityESet;
         startActivityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__START_ACTIVITY, oldStartActivity,
-                    startActivity, !oldStartActivityESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__START_ACTIVITY,
+                    oldStartActivity, startActivity, !oldStartActivityESet));
     }
 
     /**
@@ -1895,9 +1667,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         startActivity = START_ACTIVITY_EDEFAULT;
         startActivityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__START_ACTIVITY, oldStartActivity,
-                    START_ACTIVITY_EDEFAULT, oldStartActivityESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__START_ACTIVITY,
+                    oldStartActivity, START_ACTIVITY_EDEFAULT, oldStartActivityESet));
     }
 
     /**
@@ -1926,9 +1697,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldStartModeESet = startModeESet;
         startModeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__START_MODE, oldStartMode, startMode,
-                    !oldStartModeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__START_MODE, oldStartMode,
+                    startMode, !oldStartModeESet));
     }
 
     /**
@@ -1941,8 +1711,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         startMode = START_MODE_EDEFAULT;
         startModeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__START_MODE, oldStartMode,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__START_MODE, oldStartMode,
                     START_MODE_EDEFAULT, oldStartModeESet));
     }
 
@@ -1972,9 +1741,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldStartQuantityESet = startQuantityESet;
         startQuantityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__START_QUANTITY, oldStartQuantity,
-                    startQuantity, !oldStartQuantityESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__START_QUANTITY,
+                    oldStartQuantity, startQuantity, !oldStartQuantityESet));
     }
 
     /**
@@ -1987,9 +1755,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         startQuantity = START_QUANTITY_EDEFAULT;
         startQuantityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__START_QUANTITY, oldStartQuantity,
-                    START_QUANTITY_EDEFAULT, oldStartQuantityESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__START_QUANTITY,
+                    oldStartQuantity, START_QUANTITY_EDEFAULT, oldStartQuantityESet));
     }
 
     /**
@@ -2018,8 +1785,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldStatusESet = statusESet;
         statusESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__STATUS, oldStatus, status,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__STATUS, oldStatus, status,
                     !oldStatusESet));
     }
 
@@ -2033,9 +1799,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         status = STATUS_EDEFAULT;
         statusESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__STATUS, oldStatus, STATUS_EDEFAULT,
-                    oldStatusESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__STATUS, oldStatus,
+                    STATUS_EDEFAULT, oldStatusESet));
     }
 
     /**
@@ -2060,12 +1825,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFlowContainer(
-            FlowContainer newFlowContainer, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newFlowContainer,
-                        Xpdl2Package.ACTIVITY__FLOW_CONTAINER,
-                        msgs);
+    public NotificationChain basicSetFlowContainer(FlowContainer newFlowContainer, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newFlowContainer, Xpdl2Package.ACTIVITY__FLOW_CONTAINER, msgs);
         return msgs;
     }
 
@@ -2077,24 +1838,19 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (newFlowContainer != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.ACTIVITY__FLOW_CONTAINER && newFlowContainer != null)) {
             if (EcoreUtil.isAncestor(this, newFlowContainer))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newFlowContainer != null)
-                msgs =
-                        ((InternalEObject) newFlowContainer).eInverseAdd(this,
-                                Xpdl2Package.FLOW_CONTAINER__ACTIVITIES,
-                                FlowContainer.class,
-                                msgs);
+                msgs = ((InternalEObject) newFlowContainer)
+                        .eInverseAdd(this, Xpdl2Package.FLOW_CONTAINER__ACTIVITIES, FlowContainer.class, msgs);
             msgs = basicSetFlowContainer(newFlowContainer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__FLOW_CONTAINER, newFlowContainer,
-                    newFlowContainer));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__FLOW_CONTAINER,
+                    newFlowContainer, newFlowContainer));
     }
 
     /**
@@ -2131,9 +1887,9 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (getProcess() == null || getProcess().getPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getProcess().getPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Target(), getId());
+        return EMFSearchUtil.findManyInList(getProcess().getPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Target(),
+                getId());
     }
 
     /**
@@ -2145,9 +1901,9 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (getProcess() == null || getProcess().getPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getProcess().getPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Source(), getId());
+        return EMFSearchUtil.findManyInList(getProcess().getPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Source(),
+                getId());
     }
 
     /**
@@ -2158,10 +1914,9 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (getFlowContainer() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil
-                .findManyInList(getFlowContainer().getTransitions(),
-                        Xpdl2Package.eINSTANCE.getTransition_From(),
-                        getId());
+        return EMFSearchUtil.findManyInList(getFlowContainer().getTransitions(),
+                Xpdl2Package.eINSTANCE.getTransition_From(),
+                getId());
     }
 
     /**
@@ -2173,10 +1928,9 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (getFlowContainer() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil
-                .findManyInList(getFlowContainer().getTransitions(),
-                        Xpdl2Package.eINSTANCE.getTransition_To(),
-                        getId());
+        return EMFSearchUtil.findManyInList(getFlowContainer().getTransitions(),
+                Xpdl2Package.eINSTANCE.getTransition_To(),
+                getId());
     }
 
     /**
@@ -2242,18 +1996,14 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ACTIVITY__IMPLEMENTATION:
             if (implementation != null)
-                msgs =
-                        ((InternalEObject) implementation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.ACTIVITY__IMPLEMENTATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) implementation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY__IMPLEMENTATION,
+                        null,
+                        msgs);
             return basicSetImplementation((Implementation) otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__FLOW_CONTAINER:
             if (eInternalContainer() != null)
@@ -2268,23 +2018,18 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ACTIVITY__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__NODE_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getNodeGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNodeGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.ACTIVITY__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__DATA_FIELDS:
-            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__LIMIT:
             return basicSetLimit(null, msgs);
         case Xpdl2Package.ACTIVITY__ROUTE:
@@ -2304,8 +2049,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         case Xpdl2Package.ACTIVITY__PRIORITY:
             return basicSetPriority(null, msgs);
         case Xpdl2Package.ACTIVITY__DEADLINE:
-            return ((InternalEList<?>) getDeadline()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDeadline()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__SIMULATION_INFORMATION:
             return basicSetSimulationInformation(null, msgs);
         case Xpdl2Package.ACTIVITY__ICON:
@@ -2313,11 +2057,9 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         case Xpdl2Package.ACTIVITY__DOCUMENTATION:
             return basicSetDocumentation(null, msgs);
         case Xpdl2Package.ACTIVITY__TRANSITION_RESTRICTIONS:
-            return ((InternalEList<?>) getTransitionRestrictions())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getTransitionRestrictions()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__INPUT_SETS:
-            return ((InternalEList<?>) getInputSets()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getInputSets()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__OUTPUT_SETS:
             return basicSetOutputSets(null, msgs);
         case Xpdl2Package.ACTIVITY__IO_RULES:
@@ -2325,8 +2067,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         case Xpdl2Package.ACTIVITY__LOOP:
             return basicSetLoop(null, msgs);
         case Xpdl2Package.ACTIVITY__ASSIGNMENTS:
-            return ((InternalEList<?>) getAssignments()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAssignments()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.ACTIVITY__EXTENSIONS:
@@ -2342,14 +2083,11 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.ACTIVITY__FLOW_CONTAINER:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.FLOW_CONTAINER__ACTIVITIES,
-                    FlowContainer.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.FLOW_CONTAINER__ACTIVITIES, FlowContainer.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -2451,13 +2189,11 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         switch (featureID) {
         case Xpdl2Package.ACTIVITY__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.ACTIVITY__NODE_GRAPHICS_INFOS:
             getNodeGraphicsInfos().clear();
-            getNodeGraphicsInfos()
-                    .addAll((Collection<? extends NodeGraphicsInfo>) newValue);
+            getNodeGraphicsInfos().addAll((Collection<? extends NodeGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.ACTIVITY__DESCRIPTION:
             setDescription((Description) newValue);
@@ -2511,8 +2247,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
             return;
         case Xpdl2Package.ACTIVITY__TRANSITION_RESTRICTIONS:
             getTransitionRestrictions().clear();
-            getTransitionRestrictions()
-                    .addAll((Collection<? extends TransitionRestriction>) newValue);
+            getTransitionRestrictions().addAll((Collection<? extends TransitionRestriction>) newValue);
             return;
         case Xpdl2Package.ACTIVITY__INPUT_SETS:
             getInputSets().clear();
@@ -2529,8 +2264,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
             return;
         case Xpdl2Package.ACTIVITY__ASSIGNMENTS:
             getAssignments().clear();
-            getAssignments()
-                    .addAll((Collection<? extends Assignment>) newValue);
+            getAssignments().addAll((Collection<? extends Assignment>) newValue);
             return;
         case Xpdl2Package.ACTIVITY__OBJECT:
             setObject((com.tibco.xpd.xpdl2.Object) newValue);
@@ -2729,8 +2463,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         case Xpdl2Package.ACTIVITY__DOCUMENTATION:
             return documentation != null;
         case Xpdl2Package.ACTIVITY__TRANSITION_RESTRICTIONS:
-            return transitionRestrictions != null
-                    && !transitionRestrictions.isEmpty();
+            return transitionRestrictions != null && !transitionRestrictions.isEmpty();
         case Xpdl2Package.ACTIVITY__INPUT_SETS:
             return inputSets != null && !inputSets.isEmpty();
         case Xpdl2Package.ACTIVITY__OUTPUT_SETS:
@@ -2810,10 +2543,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldIsForCompensationESet = isForCompensationESet;
         isForCompensationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__IS_FOR_COMPENSATION,
-                    oldIsForCompensation, isForCompensation,
-                    !oldIsForCompensationESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__IS_FOR_COMPENSATION,
+                    oldIsForCompensation, isForCompensation, !oldIsForCompensationESet));
     }
 
     /**
@@ -2827,10 +2558,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         isForCompensation = IS_FOR_COMPENSATION_EDEFAULT;
         isForCompensationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__IS_FOR_COMPENSATION,
-                    oldIsForCompensation, IS_FOR_COMPENSATION_EDEFAULT,
-                    oldIsForCompensationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__IS_FOR_COMPENSATION,
+                    oldIsForCompensation, IS_FOR_COMPENSATION_EDEFAULT, oldIsForCompensationESet));
     }
 
     /**
@@ -2862,10 +2591,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         boolean oldCompletionQuantityESet = completionQuantityESet;
         completionQuantityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY__COMPLETION_QUANTITY,
-                    oldCompletionQuantity, completionQuantity,
-                    !oldCompletionQuantityESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY__COMPLETION_QUANTITY,
+                    oldCompletionQuantity, completionQuantity, !oldCompletionQuantityESet));
     }
 
     /**
@@ -2879,10 +2606,8 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         completionQuantity = COMPLETION_QUANTITY_EDEFAULT;
         completionQuantityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY__COMPLETION_QUANTITY,
-                    oldCompletionQuantity, COMPLETION_QUANTITY_EDEFAULT,
-                    oldCompletionQuantityESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY__COMPLETION_QUANTITY,
+                    oldCompletionQuantity, COMPLETION_QUANTITY_EDEFAULT, oldCompletionQuantityESet));
     }
 
     /**
@@ -3001,7 +2726,7 @@ public class ActivityImpl extends NamedElementImpl implements Activity {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", finishMode: "); //$NON-NLS-1$

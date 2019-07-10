@@ -31,6 +31,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivitySetImpl#getActivities <em>Activities</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivitySetImpl#getTransitions <em>Transitions</em>}</li>
@@ -41,7 +42,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivitySetImpl#getObject <em>Object</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ActivitySetImpl#getProcess <em>Process</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -50,8 +50,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getActivities() <em>Activities</em>}' containment reference list.
@@ -114,8 +113,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated
      * @ordered
      */
-    protected String adHocCompletionCondition =
-            AD_HOC_COMPLETION_CONDITION_EDEFAULT;
+    protected String adHocCompletionCondition = AD_HOC_COMPLETION_CONDITION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getAdHocOrdering() <em>Ad Hoc Ordering</em>}' attribute.
@@ -124,8 +122,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated
      * @ordered
      */
-    protected static final AdHocOrderingType AD_HOC_ORDERING_EDEFAULT =
-            AdHocOrderingType.PARALLEL_LITERAL;
+    protected static final AdHocOrderingType AD_HOC_ORDERING_EDEFAULT = AdHocOrderingType.PARALLEL_LITERAL;
 
     /**
      * The cached value of the '{@link #getAdHocOrdering() <em>Ad Hoc Ordering</em>}' attribute.
@@ -161,8 +158,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated
      * @ordered
      */
-    protected String defaultStartActivityId =
-            DEFAULT_START_ACTIVITY_ID_EDEFAULT;
+    protected String defaultStartActivityId = DEFAULT_START_ACTIVITY_ID_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getObject() <em>Object</em>}' containment reference.
@@ -196,11 +192,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      */
     public EList<Activity> getActivities() {
         if (activities == null) {
-            activities =
-                    new EObjectContainmentWithInverseEList<Activity>(
-                            Activity.class, this,
-                            Xpdl2Package.ACTIVITY_SET__ACTIVITIES,
-                            Xpdl2Package.ACTIVITY__FLOW_CONTAINER);
+            activities = new EObjectContainmentWithInverseEList<Activity>(Activity.class, this,
+                    Xpdl2Package.ACTIVITY_SET__ACTIVITIES, Xpdl2Package.ACTIVITY__FLOW_CONTAINER);
         }
         return activities;
     }
@@ -211,11 +204,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      */
     public EList<Transition> getTransitions() {
         if (transitions == null) {
-            transitions =
-                    new EObjectContainmentWithInverseEList<Transition>(
-                            Transition.class, this,
-                            Xpdl2Package.ACTIVITY_SET__TRANSITIONS,
-                            Xpdl2Package.TRANSITION__FLOW_CONTAINER);
+            transitions = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this,
+                    Xpdl2Package.ACTIVITY_SET__TRANSITIONS, Xpdl2Package.TRANSITION__FLOW_CONTAINER);
         }
         return transitions;
     }
@@ -238,8 +228,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         boolean oldAdHocESet = adHocESet;
         adHocESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__AD_HOC, oldAdHoc, adHoc,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY_SET__AD_HOC, oldAdHoc, adHoc,
                     !oldAdHocESet));
     }
 
@@ -253,8 +242,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         adHoc = AD_HOC_EDEFAULT;
         adHocESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY_SET__AD_HOC, oldAdHoc,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY_SET__AD_HOC, oldAdHoc,
                     AD_HOC_EDEFAULT, oldAdHocESet));
     }
 
@@ -283,8 +271,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         adHocCompletionCondition = newAdHocCompletionCondition;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION,
-                    oldAdHocCompletionCondition, adHocCompletionCondition));
+                    Xpdl2Package.ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION, oldAdHocCompletionCondition,
+                    adHocCompletionCondition));
     }
 
     /**
@@ -301,14 +289,11 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      */
     public void setAdHocOrdering(AdHocOrderingType newAdHocOrdering) {
         AdHocOrderingType oldAdHocOrdering = adHocOrdering;
-        adHocOrdering =
-                newAdHocOrdering == null ? AD_HOC_ORDERING_EDEFAULT
-                        : newAdHocOrdering;
+        adHocOrdering = newAdHocOrdering == null ? AD_HOC_ORDERING_EDEFAULT : newAdHocOrdering;
         boolean oldAdHocOrderingESet = adHocOrderingESet;
         adHocOrderingESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING,
                     oldAdHocOrdering, adHocOrdering, !oldAdHocOrderingESet));
     }
 
@@ -322,10 +307,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         adHocOrdering = AD_HOC_ORDERING_EDEFAULT;
         adHocOrderingESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING,
-                    oldAdHocOrdering, AD_HOC_ORDERING_EDEFAULT,
-                    oldAdHocOrderingESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING,
+                    oldAdHocOrdering, AD_HOC_ORDERING_EDEFAULT, oldAdHocOrderingESet));
     }
 
     /**
@@ -352,8 +335,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         String oldDefaultStartActivityId = defaultStartActivityId;
         defaultStartActivityId = newDefaultStartActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID,
                     oldDefaultStartActivityId, defaultStartActivityId));
     }
 
@@ -369,15 +351,12 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ACTIVITY_SET__OBJECT, oldObject,
-                            newObject);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ACTIVITY_SET__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -394,25 +373,17 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY_SET__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY_SET__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ACTIVITY_SET__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ACTIVITY_SET__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY_SET__OBJECT, newObject,
+                    newObject));
     }
 
     /**
@@ -431,12 +402,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetProcess(
-            com.tibco.xpd.xpdl2.Process newProcess, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newProcess,
-                        Xpdl2Package.ACTIVITY_SET__PROCESS,
-                        msgs);
+    public NotificationChain basicSetProcess(com.tibco.xpd.xpdl2.Process newProcess, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newProcess, Xpdl2Package.ACTIVITY_SET__PROCESS, msgs);
         return msgs;
     }
 
@@ -449,23 +416,21 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         if (newProcess != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.ACTIVITY_SET__PROCESS && newProcess != null)) {
             if (EcoreUtil.isAncestor(this, newProcess))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newProcess != null)
-                msgs =
-                        ((InternalEObject) newProcess).eInverseAdd(this,
-                                Xpdl2Package.PROCESS__ACTIVITY_SETS,
-                                com.tibco.xpd.xpdl2.Process.class,
-                                msgs);
+                msgs = ((InternalEObject) newProcess).eInverseAdd(this,
+                        Xpdl2Package.PROCESS__ACTIVITY_SETS,
+                        com.tibco.xpd.xpdl2.Process.class,
+                        msgs);
             msgs = basicSetProcess(newProcess, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ACTIVITY_SET__PROCESS, newProcess, newProcess));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ACTIVITY_SET__PROCESS, newProcess,
+                    newProcess));
     }
 
     /**
@@ -474,9 +439,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated NOT
      */
     public Activity getActivity(String id) {
-        return (Activity) EMFSearchUtil.findInList(getActivities(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Activity) EMFSearchUtil.findInList(getActivities(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -485,9 +448,8 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated NOT
      */
     public Transition getTransition(String id) {
-        return (Transition) EMFSearchUtil.findInList(getTransitions(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Transition) EMFSearchUtil
+                .findInList(getTransitions(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -506,15 +468,12 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ACTIVITY_SET__ACTIVITIES:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivities())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivities()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY_SET__TRANSITIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getTransitions())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getTransitions()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY_SET__PROCESS:
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
@@ -529,15 +488,12 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ACTIVITY_SET__ACTIVITIES:
-            return ((InternalEList<?>) getActivities()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getActivities()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY_SET__TRANSITIONS:
-            return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ACTIVITY_SET__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.ACTIVITY_SET__PROCESS:
@@ -552,14 +508,11 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.ACTIVITY_SET__PROCESS:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PROCESS__ACTIVITY_SETS,
-                    com.tibco.xpd.xpdl2.Process.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PROCESS__ACTIVITY_SETS, com.tibco.xpd.xpdl2.Process.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -607,8 +560,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
             return;
         case Xpdl2Package.ACTIVITY_SET__TRANSITIONS:
             getTransitions().clear();
-            getTransitions()
-                    .addAll((Collection<? extends Transition>) newValue);
+            getTransitions().addAll((Collection<? extends Transition>) newValue);
             return;
         case Xpdl2Package.ACTIVITY_SET__AD_HOC:
             setAdHoc((Boolean) newValue);
@@ -684,14 +636,12 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
             return isSetAdHoc();
         case Xpdl2Package.ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION:
             return AD_HOC_COMPLETION_CONDITION_EDEFAULT == null ? adHocCompletionCondition != null
-                    : !AD_HOC_COMPLETION_CONDITION_EDEFAULT
-                            .equals(adHocCompletionCondition);
+                    : !AD_HOC_COMPLETION_CONDITION_EDEFAULT.equals(adHocCompletionCondition);
         case Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING:
             return isSetAdHocOrdering();
         case Xpdl2Package.ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID:
             return DEFAULT_START_ACTIVITY_ID_EDEFAULT == null ? defaultStartActivityId != null
-                    : !DEFAULT_START_ACTIVITY_ID_EDEFAULT
-                            .equals(defaultStartActivityId);
+                    : !DEFAULT_START_ACTIVITY_ID_EDEFAULT.equals(defaultStartActivityId);
         case Xpdl2Package.ACTIVITY_SET__OBJECT:
             return object != null;
         case Xpdl2Package.ACTIVITY_SET__PROCESS:
@@ -763,7 +713,7 @@ public class ActivitySetImpl extends NamedElementImpl implements ActivitySet {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (adHoc: "); //$NON-NLS-1$
         if (adHocESet)
             result.append(adHoc);

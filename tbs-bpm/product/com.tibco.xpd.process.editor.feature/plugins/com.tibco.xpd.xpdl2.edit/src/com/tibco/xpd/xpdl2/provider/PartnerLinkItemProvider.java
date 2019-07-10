@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PartnerLinkItemProvider extends UniqueIdElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +80,12 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
      */
     protected void addPartnerLinkTypeIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_PartnerLink_partnerLinkTypeId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_PartnerLink_partnerLinkTypeId_feature", "_UI_PartnerLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PartnerLink_partnerLinkTypeId_feature", //$NON-NLS-1$
+                                "_UI_PartnerLink_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PARTNER_LINK__PARTNER_LINK_TYPE_ID,
                         true,
                         false,
@@ -104,19 +102,18 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
      * @generated
      */
     protected void addNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_PartnerLink_name_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_PartnerLink_name_feature", "_UI_PartnerLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.PARTNER_LINK__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_PartnerLink_name_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_PartnerLink_name_feature", "_UI_PartnerLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.PARTNER_LINK__NAME,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -128,13 +125,11 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.PARTNER_LINK__MY_ROLE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PARTNER_LINK__PARTNER_ROLE);
+            childrenFeatures.add(Xpdl2Package.Literals.PARTNER_LINK__PARTNER_ROLE);
         }
         return childrenFeatures;
     }
@@ -160,8 +155,7 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/PartnerLink")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/PartnerLink")); //$NON-NLS-1$
     }
 
     /**
@@ -191,13 +185,11 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
         switch (notification.getFeatureID(PartnerLink.class)) {
         case Xpdl2Package.PARTNER_LINK__PARTNER_LINK_TYPE_ID:
         case Xpdl2Package.PARTNER_LINK__NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.PARTNER_LINK__MY_ROLE:
         case Xpdl2Package.PARTNER_LINK__PARTNER_ROLE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -211,17 +203,14 @@ public class PartnerLinkItemProvider extends UniqueIdElementItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PARTNER_LINK__MY_ROLE,
-                        Xpdl2Factory.eINSTANCE.createMyRole()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PARTNER_LINK__MY_ROLE,
+                Xpdl2Factory.eINSTANCE.createMyRole()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.PARTNER_LINK__PARTNER_ROLE,
-                        Xpdl2Factory.eINSTANCE.createPartnerRole()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.PARTNER_LINK__PARTNER_ROLE,
+                Xpdl2Factory.eINSTANCE.createPartnerRole()));
     }
 
 }

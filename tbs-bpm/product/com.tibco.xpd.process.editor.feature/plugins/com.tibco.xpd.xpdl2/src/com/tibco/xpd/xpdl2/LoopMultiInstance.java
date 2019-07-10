@@ -15,6 +15,7 @@ import java.math.BigInteger;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopMultiInstance#getLoopCounter <em>Loop Counter</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopMultiInstance#getMIFlowCondition <em>MI Flow Condition</em>}</li>
@@ -24,7 +25,6 @@ import java.math.BigInteger;
  *   <li>{@link com.tibco.xpd.xpdl2.LoopMultiInstance#getAttributeComplexMI_FlowCondition <em>Attribute Complex MI Flow Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopMultiInstance#getAttributeMI_Condition <em>Attribute MI Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getLoopMultiInstance()
  * @model extendedMetaData="name='LoopMultiInstance_._type' kind='elementOnly' features-order='mICondition complexMIFlowCondition otherElements'"
@@ -36,8 +36,7 @@ public interface LoopMultiInstance extends OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Complex MI Flow Condition</b></em>' containment reference.

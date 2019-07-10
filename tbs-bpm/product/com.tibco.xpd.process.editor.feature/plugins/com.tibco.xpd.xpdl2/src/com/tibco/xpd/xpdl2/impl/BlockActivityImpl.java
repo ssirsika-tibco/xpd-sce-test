@@ -26,13 +26,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BlockActivityImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BlockActivityImpl#getActivitySetId <em>Activity Set Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BlockActivityImpl#getStartActivityId <em>Start Activity Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BlockActivityImpl#getView <em>View</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,8 +42,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -150,9 +149,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.BLOCK_ACTIVITY__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.BLOCK_ACTIVITY__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -175,8 +172,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
         String oldActivitySetId = activitySetId;
         activitySetId = newActivitySetId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.BLOCK_ACTIVITY__ACTIVITY_SET_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.BLOCK_ACTIVITY__ACTIVITY_SET_ID,
                     oldActivitySetId, activitySetId));
     }
 
@@ -198,8 +194,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
         String oldStartActivityId = startActivityId;
         startActivityId = newStartActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.BLOCK_ACTIVITY__START_ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.BLOCK_ACTIVITY__START_ACTIVITY_ID,
                     oldStartActivityId, startActivityId));
     }
 
@@ -223,8 +218,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
         boolean oldViewESet = viewESet;
         viewESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.BLOCK_ACTIVITY__VIEW, oldView, view,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.BLOCK_ACTIVITY__VIEW, oldView, view,
                     !oldViewESet));
     }
 
@@ -239,9 +233,8 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
         view = VIEW_EDEFAULT;
         viewESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.BLOCK_ACTIVITY__VIEW, oldView, VIEW_EDEFAULT,
-                    oldViewESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.BLOCK_ACTIVITY__VIEW, oldView,
+                    VIEW_EDEFAULT, oldViewESet));
     }
 
     /**
@@ -259,12 +252,10 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.BLOCK_ACTIVITY__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -371,7 +362,7 @@ public class BlockActivityImpl extends EObjectImpl implements BlockActivity {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", activitySetId: "); //$NON-NLS-1$

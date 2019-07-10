@@ -28,15 +28,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class LinkSystemDocumentOperationImpl extends EObjectImpl
-        implements LinkSystemDocumentOperation {
+public class LinkSystemDocumentOperationImpl extends EObjectImpl implements LinkSystemDocumentOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDocumentId() <em>Document Id</em>}' attribute.
@@ -136,8 +134,7 @@ public class LinkSystemDocumentOperationImpl extends EObjectImpl
         documentId = newDocumentId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID,
-                    oldDocumentId, documentId));
+                    XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID, oldDocumentId, documentId));
     }
 
     /**
@@ -182,8 +179,7 @@ public class LinkSystemDocumentOperationImpl extends EObjectImpl
         caseRefField = newCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD,
-                    oldCaseRefField, caseRefField));
+                    XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD, oldCaseRefField, caseRefField));
     }
 
     /**
@@ -255,13 +251,10 @@ public class LinkSystemDocumentOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__DOCUMENT_ID:
-            return DOCUMENT_ID_EDEFAULT == null ? documentId != null
-                    : !DOCUMENT_ID_EDEFAULT.equals(documentId);
+            return DOCUMENT_ID_EDEFAULT == null ? documentId != null : !DOCUMENT_ID_EDEFAULT.equals(documentId);
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__RETURN_CASE_DOC_REF_FIELD:
-            return RETURN_CASE_DOC_REF_FIELD_EDEFAULT == null
-                    ? returnCaseDocRefField != null
-                    : !RETURN_CASE_DOC_REF_FIELD_EDEFAULT
-                            .equals(returnCaseDocRefField);
+            return RETURN_CASE_DOC_REF_FIELD_EDEFAULT == null ? returnCaseDocRefField != null
+                    : !RETURN_CASE_DOC_REF_FIELD_EDEFAULT.equals(returnCaseDocRefField);
         case XpdExtensionPackage.LINK_SYSTEM_DOCUMENT_OPERATION__CASE_REF_FIELD:
             return CASE_REF_FIELD_EDEFAULT == null ? caseRefField != null
                     : !CASE_REF_FIELD_EDEFAULT.equals(caseRefField);
@@ -279,7 +272,7 @@ public class LinkSystemDocumentOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (documentId: "); //$NON-NLS-1$
         result.append(documentId);
         result.append(", returnCaseDocRefField: "); //$NON-NLS-1$

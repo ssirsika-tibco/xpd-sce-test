@@ -44,15 +44,13 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * 
  * @generated
  */
-public class AssociatedParameterItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AssociatedParameterItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -90,21 +88,20 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addFormalParamPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AssociatedParameter_formalParam_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_formalParam_feature", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__FORMAL_PARAM,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AssociatedParameter_formalParam_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_formalParam_feature", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__FORMAL_PARAM,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -114,21 +111,20 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addModePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AssociatedParameter_mode_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_mode_feature", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__MODE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AssociatedParameter_mode_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_mode_feature", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__MODE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -138,21 +134,20 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DescribedElement_description_feature", //$NON-NLS-1$
-                        "_UI_DescribedElement_type"), //$NON-NLS-1$
-                Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
-                true,
-                false,
-                false,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
+                        Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -162,21 +157,20 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMandatoryPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AssociatedParameter_mandatory_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_mandatory_feature", //$NON-NLS-1$
-                        "_UI_AssociatedParameter_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__MANDATORY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AssociatedParameter_mandatory_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_mandatory_feature", //$NON-NLS-1$
+                                "_UI_AssociatedParameter_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ASSOCIATED_PARAMETER__MANDATORY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -187,9 +181,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/AssociatedParameter")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/AssociatedParameter")); //$NON-NLS-1$
     }
 
     /**
@@ -208,8 +200,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
             EObject parent2 = parameters.eContainer();
             if (parent2 instanceof Activity) {
                 Activity activity = (Activity) parent2;
-                ProcessRelevantData data =
-                        Xpdl2ModelUtil.resolveParameter(activity, label);
+                ProcessRelevantData data = Xpdl2ModelUtil.resolveParameter(activity, label);
                 if (data != null) {
                     label = WorkingCopyUtil.getText(data);
                 }
@@ -219,8 +210,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
             EObject container = intfMethod.eContainer();
             if (container instanceof ProcessInterface) {
                 ProcessInterface interf = (ProcessInterface) container;
-                EList<FormalParameter> formalParameters =
-                        interf.getFormalParameters();
+                EList<FormalParameter> formalParameters = interf.getFormalParameters();
                 FormalParameter fp = null;
                 for (FormalParameter formalParameter : formalParameters) {
                     if (label.equals(formalParameter.getName())) {
@@ -234,8 +224,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
             }
 
         }
-        return label == null || label.length() == 0
-                ? getString("_UI_AssociatedParameter_type") //$NON-NLS-1$
+        return label == null || label.length() == 0 ? getString("_UI_AssociatedParameter_type") //$NON-NLS-1$
                 : label;
     }
 
@@ -255,8 +244,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__FORMAL_PARAM:
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__MODE:
         case XpdExtensionPackage.ASSOCIATED_PARAMETER__MANDATORY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -270,8 +258,7 @@ public class AssociatedParameterItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

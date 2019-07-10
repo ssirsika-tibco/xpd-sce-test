@@ -13,11 +13,11 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.DeclaredType#getTypeDeclarationId <em>Type Declaration Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DeclaredType#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getDeclaredType()
  * @model extendedMetaData="name='DeclaredType_._type' kind='elementOnly'"
@@ -29,8 +29,7 @@ public interface DeclaredType extends DataType {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Type Declaration Id</b></em>' attribute.

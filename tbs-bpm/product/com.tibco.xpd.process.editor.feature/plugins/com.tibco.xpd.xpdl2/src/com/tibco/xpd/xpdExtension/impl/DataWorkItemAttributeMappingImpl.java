@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DataWorkItemAttributeMappingImpl extends EObjectImpl
-        implements DataWorkItemAttributeMapping {
+public class DataWorkItemAttributeMappingImpl extends EObjectImpl implements DataWorkItemAttributeMapping {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
@@ -115,8 +113,7 @@ public class DataWorkItemAttributeMappingImpl extends EObjectImpl
         attribute = newAttribute;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE,
-                    oldAttribute, attribute));
+                    XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE, oldAttribute, attribute));
     }
 
     /**
@@ -138,8 +135,7 @@ public class DataWorkItemAttributeMappingImpl extends EObjectImpl
         processData = newProcessData;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__PROCESS_DATA,
-                    oldProcessData, processData));
+                    XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__PROCESS_DATA, oldProcessData, processData));
     }
 
     /**
@@ -203,11 +199,9 @@ public class DataWorkItemAttributeMappingImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__ATTRIBUTE:
-            return ATTRIBUTE_EDEFAULT == null ? attribute != null
-                    : !ATTRIBUTE_EDEFAULT.equals(attribute);
+            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
         case XpdExtensionPackage.DATA_WORK_ITEM_ATTRIBUTE_MAPPING__PROCESS_DATA:
-            return PROCESS_DATA_EDEFAULT == null ? processData != null
-                    : !PROCESS_DATA_EDEFAULT.equals(processData);
+            return PROCESS_DATA_EDEFAULT == null ? processData != null : !PROCESS_DATA_EDEFAULT.equals(processData);
         }
         return super.eIsSet(featureID);
     }
@@ -222,7 +216,7 @@ public class DataWorkItemAttributeMappingImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (attribute: "); //$NON-NLS-1$
         result.append(attribute);
         result.append(", processData: "); //$NON-NLS-1$

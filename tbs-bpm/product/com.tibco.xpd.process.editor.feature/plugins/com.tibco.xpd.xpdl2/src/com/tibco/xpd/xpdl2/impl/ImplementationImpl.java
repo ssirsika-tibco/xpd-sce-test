@@ -24,22 +24,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ImplementationImpl#getActivity <em>Activity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class ImplementationImpl extends EObjectImpl implements
-        Implementation {
+public abstract class ImplementationImpl extends EObjectImpl implements Implementation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->
@@ -76,12 +74,8 @@ public abstract class ImplementationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetActivity(Activity newActivity,
-            NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newActivity,
-                        Xpdl2Package.IMPLEMENTATION__ACTIVITY,
-                        msgs);
+    public NotificationChain basicSetActivity(Activity newActivity, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newActivity, Xpdl2Package.IMPLEMENTATION__ACTIVITY, msgs);
         return msgs;
     }
 
@@ -94,23 +88,18 @@ public abstract class ImplementationImpl extends EObjectImpl implements
         if (newActivity != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.IMPLEMENTATION__ACTIVITY && newActivity != null)) {
             if (EcoreUtil.isAncestor(this, newActivity))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newActivity != null)
-                msgs =
-                        ((InternalEObject) newActivity).eInverseAdd(this,
-                                Xpdl2Package.ACTIVITY__IMPLEMENTATION,
-                                Activity.class,
-                                msgs);
+                msgs = ((InternalEObject) newActivity)
+                        .eInverseAdd(this, Xpdl2Package.ACTIVITY__IMPLEMENTATION, Activity.class, msgs);
             msgs = basicSetActivity(newActivity, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.IMPLEMENTATION__ACTIVITY, newActivity,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.IMPLEMENTATION__ACTIVITY, newActivity,
                     newActivity));
     }
 
@@ -120,8 +109,7 @@ public abstract class ImplementationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.IMPLEMENTATION__ACTIVITY:
             if (eInternalContainer() != null)
@@ -137,8 +125,7 @@ public abstract class ImplementationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.IMPLEMENTATION__ACTIVITY:
             return basicSetActivity(null, msgs);
@@ -152,14 +139,11 @@ public abstract class ImplementationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.IMPLEMENTATION__ACTIVITY:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.ACTIVITY__IMPLEMENTATION,
-                    Activity.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.ACTIVITY__IMPLEMENTATION, Activity.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

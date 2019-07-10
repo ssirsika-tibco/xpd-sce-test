@@ -45,8 +45,7 @@ public enum TestTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Before</b></em>' literal value.
@@ -84,8 +83,7 @@ public enum TestTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final TestTimeType[] VALUES_ARRAY = new TestTimeType[] {
-            BEFORE_LITERAL, AFTER_LITERAL, };
+    private static final TestTimeType[] VALUES_ARRAY = new TestTimeType[] { BEFORE_LITERAL, AFTER_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Test Time Type</b></em>' enumerators.
@@ -93,13 +91,14 @@ public enum TestTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<TestTimeType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<TestTimeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Test Time Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TestTimeType get(String literal) {
@@ -116,6 +115,8 @@ public enum TestTimeType implements Enumerator {
      * Returns the '<em><b>Test Time Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TestTimeType getByName(String name) {
@@ -132,6 +133,8 @@ public enum TestTimeType implements Enumerator {
      * Returns the '<em><b>Test Time Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TestTimeType get(int value) {

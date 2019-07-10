@@ -28,11 +28,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.CostStructureImpl#getFixedCost <em>Fixed Cost</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.CostStructureImpl#getResourceCosts <em>Resource Costs</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,8 +42,7 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFixedCost() <em>Fixed Cost</em>}' attribute.
@@ -112,8 +111,7 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
         BigInteger oldFixedCost = fixedCost;
         fixedCost = newFixedCost;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.COST_STRUCTURE__FIXED_COST, oldFixedCost,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.COST_STRUCTURE__FIXED_COST, oldFixedCost,
                     fixedCost));
     }
 
@@ -124,10 +122,8 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
      */
     public EList<ResourceCosts> getResourceCosts() {
         if (resourceCosts == null) {
-            resourceCosts =
-                    new EObjectContainmentEList<ResourceCosts>(
-                            ResourceCosts.class, this,
-                            Xpdl2Package.COST_STRUCTURE__RESOURCE_COSTS);
+            resourceCosts = new EObjectContainmentEList<ResourceCosts>(ResourceCosts.class, this,
+                    Xpdl2Package.COST_STRUCTURE__RESOURCE_COSTS);
         }
         return resourceCosts;
     }
@@ -138,12 +134,10 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.COST_STRUCTURE__RESOURCE_COSTS:
-            return ((InternalEList<?>) getResourceCosts())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getResourceCosts()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -178,8 +172,7 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
             return;
         case Xpdl2Package.COST_STRUCTURE__RESOURCE_COSTS:
             getResourceCosts().clear();
-            getResourceCosts()
-                    .addAll((Collection<? extends ResourceCosts>) newValue);
+            getResourceCosts().addAll((Collection<? extends ResourceCosts>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -212,8 +205,7 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.COST_STRUCTURE__FIXED_COST:
-            return FIXED_COST_EDEFAULT == null ? fixedCost != null
-                    : !FIXED_COST_EDEFAULT.equals(fixedCost);
+            return FIXED_COST_EDEFAULT == null ? fixedCost != null : !FIXED_COST_EDEFAULT.equals(fixedCost);
         case Xpdl2Package.COST_STRUCTURE__RESOURCE_COSTS:
             return resourceCosts != null && !resourceCosts.isEmpty();
         }
@@ -230,7 +222,7 @@ public class CostStructureImpl extends EObjectImpl implements CostStructure {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (fixedCost: "); //$NON-NLS-1$
         result.append(fixedCost);
         result.append(')');

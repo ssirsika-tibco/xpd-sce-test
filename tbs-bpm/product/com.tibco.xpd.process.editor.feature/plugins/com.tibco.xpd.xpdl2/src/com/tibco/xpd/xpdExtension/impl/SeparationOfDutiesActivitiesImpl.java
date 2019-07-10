@@ -31,14 +31,12 @@ import com.tibco.xpd.xpdl2.impl.NamedElementImpl;
  *
  * @generated
  */
-public class SeparationOfDutiesActivitiesImpl extends NamedElementImpl
-        implements SeparationOfDutiesActivities {
+public class SeparationOfDutiesActivitiesImpl extends NamedElementImpl implements SeparationOfDutiesActivities {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getActivityRef() <em>Activity Ref</em>}' containment reference list.
@@ -72,8 +70,7 @@ public class SeparationOfDutiesActivitiesImpl extends NamedElementImpl
      */
     public EList<ActivityRef> getActivityRef() {
         if (activityRef == null) {
-            activityRef = new EObjectContainmentEList<ActivityRef>(
-                    ActivityRef.class, this,
+            activityRef = new EObjectContainmentEList<ActivityRef>(ActivityRef.class, this,
                     XpdExtensionPackage.SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF);
         }
         return activityRef;
@@ -84,12 +81,10 @@ public class SeparationOfDutiesActivitiesImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF:
-            return ((InternalEList<?>) getActivityRef()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getActivityRef()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -117,8 +112,7 @@ public class SeparationOfDutiesActivitiesImpl extends NamedElementImpl
         switch (featureID) {
         case XpdExtensionPackage.SEPARATION_OF_DUTIES_ACTIVITIES__ACTIVITY_REF:
             getActivityRef().clear();
-            getActivityRef()
-                    .addAll((Collection<? extends ActivityRef>) newValue);
+            getActivityRef().addAll((Collection<? extends ActivityRef>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

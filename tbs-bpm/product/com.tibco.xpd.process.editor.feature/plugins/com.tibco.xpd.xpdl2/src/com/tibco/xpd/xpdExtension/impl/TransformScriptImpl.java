@@ -44,15 +44,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TransformScriptImpl extends EObjectImpl
-        implements TransformScript {
+public class TransformScriptImpl extends EObjectImpl implements TransformScript {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -120,8 +118,7 @@ public class TransformScriptImpl extends EObjectImpl
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(
-                    ExtendedAttribute.class, this,
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
                     XpdExtensionPackage.TRANSFORM_SCRIPT__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
@@ -134,8 +131,7 @@ public class TransformScriptImpl extends EObjectImpl
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings = new EObjectContainmentEList<DataMapping>(
-                    DataMapping.class, this,
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
                     XpdExtensionPackage.TRANSFORM_SCRIPT__DATA_MAPPINGS);
         }
         return dataMappings;
@@ -173,15 +169,12 @@ public class TransformScriptImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.TRANSFORM_SCRIPT__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.TRANSFORM_SCRIPT__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -217,13 +210,11 @@ public class TransformScriptImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.TRANSFORM_SCRIPT__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case XpdExtensionPackage.TRANSFORM_SCRIPT__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case XpdExtensionPackage.TRANSFORM_SCRIPT__INPUT_DOM:
             getInputDom().clear();
@@ -291,7 +282,7 @@ public class TransformScriptImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (inputDom: "); //$NON-NLS-1$
         result.append(inputDom);
         result.append(", outputDom: "); //$NON-NLS-1$

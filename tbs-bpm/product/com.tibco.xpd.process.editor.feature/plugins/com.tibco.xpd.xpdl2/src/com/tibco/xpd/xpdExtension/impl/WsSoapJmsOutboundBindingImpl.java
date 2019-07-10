@@ -35,14 +35,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
-        implements WsSoapJmsOutboundBinding {
+public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl implements WsSoapJmsOutboundBinding {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getOutboundConnectionFactory() <em>Outbound Connection Factory</em>}' attribute.
@@ -62,8 +60,7 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected String outboundConnectionFactory =
-            OUTBOUND_CONNECTION_FACTORY_EDEFAULT;
+    protected String outboundConnectionFactory = OUTBOUND_CONNECTION_FACTORY_EDEFAULT;
 
     /**
      * The default value of the '{@link #getInboundDestination() <em>Inbound Destination</em>}' attribute.
@@ -261,8 +258,7 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public void setOutboundConnectionFactory(
-            String newOutboundConnectionFactory) {
+    public void setOutboundConnectionFactory(String newOutboundConnectionFactory) {
         String oldOutboundConnectionFactory = outboundConnectionFactory;
         outboundConnectionFactory = newOutboundConnectionFactory;
         if (eNotificationRequired())
@@ -290,8 +286,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         inboundDestination = newInboundDestination;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION,
-                    oldInboundDestination, inboundDestination));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION, oldInboundDestination,
+                    inboundDestination));
     }
 
     /**
@@ -313,8 +309,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         outboundDestination = newOutboundDestination;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION,
-                    oldOutboundDestination, outboundDestination));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION, oldOutboundDestination,
+                    outboundDestination));
     }
 
     /**
@@ -330,15 +326,13 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutboundSecurity(
-            WsSoapSecurity newOutboundSecurity, NotificationChain msgs) {
+    public NotificationChain basicSetOutboundSecurity(WsSoapSecurity newOutboundSecurity, NotificationChain msgs) {
         WsSoapSecurity oldOutboundSecurity = outboundSecurity;
         outboundSecurity = newOutboundSecurity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
-                    oldOutboundSecurity, newOutboundSecurity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY, oldOutboundSecurity,
+                    newOutboundSecurity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -357,14 +351,12 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
             NotificationChain msgs = null;
             if (outboundSecurity != null)
                 msgs = ((InternalEObject) outboundSecurity).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
                         null,
                         msgs);
             if (newOutboundSecurity != null)
                 msgs = ((InternalEObject) newOutboundSecurity).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
                         null,
                         msgs);
             msgs = basicSetOutboundSecurity(newOutboundSecurity, msgs);
@@ -372,8 +364,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY,
-                    newOutboundSecurity, newOutboundSecurity));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY, newOutboundSecurity,
+                    newOutboundSecurity));
     }
 
     /**
@@ -392,14 +384,13 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
     @Override
     public void setDeliveryMode(DeliveryMode newDeliveryMode) {
         DeliveryMode oldDeliveryMode = deliveryMode;
-        deliveryMode = newDeliveryMode == null ? DELIVERY_MODE_EDEFAULT
-                : newDeliveryMode;
+        deliveryMode = newDeliveryMode == null ? DELIVERY_MODE_EDEFAULT : newDeliveryMode;
         boolean oldDeliveryModeESet = deliveryModeESet;
         deliveryModeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE,
-                    oldDeliveryMode, deliveryMode, !oldDeliveryModeESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE, oldDeliveryMode, deliveryMode,
+                    !oldDeliveryModeESet));
     }
 
     /**
@@ -414,9 +405,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         deliveryModeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE,
-                    oldDeliveryMode, DELIVERY_MODE_EDEFAULT,
-                    oldDeliveryModeESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE, oldDeliveryMode,
+                    DELIVERY_MODE_EDEFAULT, oldDeliveryModeESet));
     }
 
     /**
@@ -449,8 +439,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         priorityESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY,
-                    oldPriority, priority, !oldPriorityESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY, oldPriority, priority,
+                    !oldPriorityESet));
     }
 
     /**
@@ -465,8 +455,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         priorityESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY,
-                    oldPriority, PRIORITY_EDEFAULT, oldPriorityESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__PRIORITY, oldPriority, PRIORITY_EDEFAULT,
+                    oldPriorityESet));
     }
 
     /**
@@ -499,9 +489,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         messageExpirationESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION,
-                    oldMessageExpiration, messageExpiration,
-                    !oldMessageExpirationESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION, oldMessageExpiration,
+                    messageExpiration, !oldMessageExpirationESet));
     }
 
     /**
@@ -516,9 +505,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         messageExpirationESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION,
-                    oldMessageExpiration, MESSAGE_EXPIRATION_EDEFAULT,
-                    oldMessageExpirationESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__MESSAGE_EXPIRATION, oldMessageExpiration,
+                    MESSAGE_EXPIRATION_EDEFAULT, oldMessageExpirationESet));
     }
 
     /**
@@ -551,9 +539,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         invocationTimeoutESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT,
-                    oldInvocationTimeout, invocationTimeout,
-                    !oldInvocationTimeoutESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT, oldInvocationTimeout,
+                    invocationTimeout, !oldInvocationTimeoutESet));
     }
 
     /**
@@ -568,9 +555,8 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         invocationTimeoutESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT,
-                    oldInvocationTimeout, INVOCATION_TIMEOUT_EDEFAULT,
-                    oldInvocationTimeoutESet));
+                    XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INVOCATION_TIMEOUT, oldInvocationTimeout,
+                    INVOCATION_TIMEOUT_EDEFAULT, oldInvocationTimeoutESet));
     }
 
     /**
@@ -587,8 +573,7 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY:
             return basicSetOutboundSecurity(null, msgs);
@@ -701,19 +686,14 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY:
-            return OUTBOUND_CONNECTION_FACTORY_EDEFAULT == null
-                    ? outboundConnectionFactory != null
-                    : !OUTBOUND_CONNECTION_FACTORY_EDEFAULT
-                            .equals(outboundConnectionFactory);
+            return OUTBOUND_CONNECTION_FACTORY_EDEFAULT == null ? outboundConnectionFactory != null
+                    : !OUTBOUND_CONNECTION_FACTORY_EDEFAULT.equals(outboundConnectionFactory);
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__INBOUND_DESTINATION:
-            return INBOUND_DESTINATION_EDEFAULT == null
-                    ? inboundDestination != null
+            return INBOUND_DESTINATION_EDEFAULT == null ? inboundDestination != null
                     : !INBOUND_DESTINATION_EDEFAULT.equals(inboundDestination);
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_DESTINATION:
-            return OUTBOUND_DESTINATION_EDEFAULT == null
-                    ? outboundDestination != null
-                    : !OUTBOUND_DESTINATION_EDEFAULT
-                            .equals(outboundDestination);
+            return OUTBOUND_DESTINATION_EDEFAULT == null ? outboundDestination != null
+                    : !OUTBOUND_DESTINATION_EDEFAULT.equals(outboundDestination);
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__OUTBOUND_SECURITY:
             return outboundSecurity != null;
         case XpdExtensionPackage.WS_SOAP_JMS_OUTBOUND_BINDING__DELIVERY_MODE:
@@ -737,7 +717,7 @@ public class WsSoapJmsOutboundBindingImpl extends WsSoapBindingImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (outboundConnectionFactory: "); //$NON-NLS-1$
         result.append(outboundConnectionFactory);
         result.append(", inboundDestination: "); //$NON-NLS-1$

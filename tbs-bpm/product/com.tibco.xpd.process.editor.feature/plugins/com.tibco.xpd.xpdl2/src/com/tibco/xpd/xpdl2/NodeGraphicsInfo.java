@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.NodeGraphicsInfo#getCoordinates <em>Coordinates</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.NodeGraphicsInfo#getBorderColor <em>Border Color</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.NodeGraphicsInfo#getWidth <em>Width</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.NodeGraphicsInfo#getPageId <em>Page Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getNodeGraphicsInfo()
  * @model extendedMetaData="name='NodeGraphicsInfo_._type' kind='elementOnly'"
@@ -40,8 +40,7 @@ public interface NodeGraphicsInfo extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Coordinates</b></em>' containment reference.

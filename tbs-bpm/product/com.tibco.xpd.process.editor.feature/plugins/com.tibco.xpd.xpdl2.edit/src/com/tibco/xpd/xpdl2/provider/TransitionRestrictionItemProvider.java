@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransitionRestrictionItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TransitionRestrictionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,14 +78,11 @@ public class TransitionRestrictionItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRANSITION_RESTRICTION__JOIN);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRANSITION_RESTRICTION__SPLIT);
+            childrenFeatures.add(Xpdl2Package.Literals.TRANSITION_RESTRICTION__JOIN);
+            childrenFeatures.add(Xpdl2Package.Literals.TRANSITION_RESTRICTION__SPLIT);
         }
         return childrenFeatures;
     }
@@ -113,9 +108,7 @@ public class TransitionRestrictionItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/TransitionRestriction")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TransitionRestriction")); //$NON-NLS-1$
     }
 
     /**
@@ -143,8 +136,7 @@ public class TransitionRestrictionItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(TransitionRestriction.class)) {
         case Xpdl2Package.TRANSITION_RESTRICTION__JOIN:
         case Xpdl2Package.TRANSITION_RESTRICTION__SPLIT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -158,17 +150,14 @@ public class TransitionRestrictionItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRANSITION_RESTRICTION__JOIN,
-                        Xpdl2Factory.eINSTANCE.createJoin()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRANSITION_RESTRICTION__JOIN,
+                Xpdl2Factory.eINSTANCE.createJoin()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRANSITION_RESTRICTION__SPLIT,
-                        Xpdl2Factory.eINSTANCE.createSplit()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRANSITION_RESTRICTION__SPLIT,
+                Xpdl2Factory.eINSTANCE.createSplit()));
     }
 
     /**

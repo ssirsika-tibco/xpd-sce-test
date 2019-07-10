@@ -33,15 +33,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ServiceProcessConfigurationImpl extends EObjectImpl
-        implements ServiceProcessConfiguration {
+public class ServiceProcessConfigurationImpl extends EObjectImpl implements ServiceProcessConfiguration {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #isDeployToProcessRuntime() <em>Deploy To Process Runtime</em>}' attribute.
@@ -61,8 +59,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean deployToProcessRuntime =
-            DEPLOY_TO_PROCESS_RUNTIME_EDEFAULT;
+    protected boolean deployToProcessRuntime = DEPLOY_TO_PROCESS_RUNTIME_EDEFAULT;
 
     /**
      * This is true if the Deploy To Process Runtime attribute has been set.
@@ -91,8 +88,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean deployToPageflowRuntime =
-            DEPLOY_TO_PAGEFLOW_RUNTIME_EDEFAULT;
+    protected boolean deployToPageflowRuntime = DEPLOY_TO_PAGEFLOW_RUNTIME_EDEFAULT;
 
     /**
      * This is true if the Deploy To Pageflow Runtime attribute has been set.
@@ -144,8 +140,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME,
-                    oldDeployToProcessRuntime, deployToProcessRuntime,
-                    !oldDeployToProcessRuntimeESet));
+                    oldDeployToProcessRuntime, deployToProcessRuntime, !oldDeployToProcessRuntimeESet));
     }
 
     /**
@@ -161,9 +156,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PROCESS_RUNTIME,
-                    oldDeployToProcessRuntime,
-                    DEPLOY_TO_PROCESS_RUNTIME_EDEFAULT,
-                    oldDeployToProcessRuntimeESet));
+                    oldDeployToProcessRuntime, DEPLOY_TO_PROCESS_RUNTIME_EDEFAULT, oldDeployToProcessRuntimeESet));
     }
 
     /**
@@ -197,8 +190,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME,
-                    oldDeployToPageflowRuntime, deployToPageflowRuntime,
-                    !oldDeployToPageflowRuntimeESet));
+                    oldDeployToPageflowRuntime, deployToPageflowRuntime, !oldDeployToPageflowRuntimeESet));
     }
 
     /**
@@ -214,9 +206,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.SERVICE_PROCESS_CONFIGURATION__DEPLOY_TO_PAGEFLOW_RUNTIME,
-                    oldDeployToPageflowRuntime,
-                    DEPLOY_TO_PAGEFLOW_RUNTIME_EDEFAULT,
-                    oldDeployToPageflowRuntimeESet));
+                    oldDeployToPageflowRuntime, DEPLOY_TO_PAGEFLOW_RUNTIME_EDEFAULT, oldDeployToPageflowRuntimeESet));
     }
 
     /**
@@ -306,7 +296,7 @@ public class ServiceProcessConfigurationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (deployToProcessRuntime: "); //$NON-NLS-1$
         if (deployToProcessRuntimeESet)
             result.append(deployToProcessRuntime);

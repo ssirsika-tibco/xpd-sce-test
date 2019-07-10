@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PilingInfoItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PilingInfoItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,21 +76,20 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPilingAllowedPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PilingInfo_pilingAllowed_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_PilingInfo_pilingAllowed_feature", //$NON-NLS-1$
-                        "_UI_PilingInfo_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PILING_INFO__PILING_ALLOWED,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_PilingInfo_pilingAllowed_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PilingInfo_pilingAllowed_feature", //$NON-NLS-1$
+                                "_UI_PilingInfo_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PILING_INFO__PILING_ALLOWED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -102,21 +99,20 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMaxPiliableItemsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PilingInfo_maxPiliableItems_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_PilingInfo_maxPiliableItems_feature", //$NON-NLS-1$
-                        "_UI_PilingInfo_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PILING_INFO__MAX_PILIABLE_ITEMS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_PilingInfo_maxPiliableItems_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PilingInfo_maxPiliableItems_feature", //$NON-NLS-1$
+                                "_UI_PilingInfo_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PILING_INFO__MAX_PILIABLE_ITEMS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,8 +123,7 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/PilingInfo")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/PilingInfo")); //$NON-NLS-1$
     }
 
     /**
@@ -140,8 +135,7 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         PilingInfo pilingInfo = (PilingInfo) object;
-        return getString("_UI_PilingInfo_type") + " " //$NON-NLS-1$//$NON-NLS-2$
-                + pilingInfo.isPilingAllowed();
+        return getString("_UI_PilingInfo_type") + " " + pilingInfo.isPilingAllowed(); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,8 +152,7 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(PilingInfo.class)) {
         case XpdExtensionPackage.PILING_INFO__PILING_ALLOWED:
         case XpdExtensionPackage.PILING_INFO__MAX_PILIABLE_ITEMS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -173,8 +166,7 @@ public class PilingInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

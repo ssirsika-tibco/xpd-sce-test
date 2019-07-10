@@ -25,25 +25,23 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceFaultCatchImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceFaultCatchImpl#getBlockActivity <em>Block Activity</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceFaultCatchImpl#getTransitionRef <em>Transition Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceFaultCatchImpl#getFaultName <em>Fault Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class WebServiceFaultCatchImpl extends EObjectImpl implements
-        WebServiceFaultCatch {
+public class WebServiceFaultCatchImpl extends EObjectImpl implements WebServiceFaultCatch {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
@@ -128,15 +126,12 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessage(Message newMessage,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs) {
         Message oldMessage = message;
         message = newMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
-                            oldMessage, newMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE, oldMessage, newMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -154,28 +149,21 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         if (newMessage != message) {
             NotificationChain msgs = null;
             if (message != null)
-                msgs =
-                        ((InternalEObject) message)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) message).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
+                        null,
+                        msgs);
             if (newMessage != null)
-                msgs =
-                        ((InternalEObject) newMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetMessage(newMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE, newMessage,
-                    newMessage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE,
+                    newMessage, newMessage));
     }
 
     /**
@@ -192,17 +180,12 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBlockActivity(
-            BlockActivity newBlockActivity, NotificationChain msgs) {
+    public NotificationChain basicSetBlockActivity(BlockActivity newBlockActivity, NotificationChain msgs) {
         BlockActivity oldBlockActivity = blockActivity;
         blockActivity = newBlockActivity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
-                            oldBlockActivity, newBlockActivity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY, oldBlockActivity, newBlockActivity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -220,27 +203,20 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         if (newBlockActivity != blockActivity) {
             NotificationChain msgs = null;
             if (blockActivity != null)
-                msgs =
-                        ((InternalEObject) blockActivity)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) blockActivity).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
+                        null,
+                        msgs);
             if (newBlockActivity != null)
-                msgs =
-                        ((InternalEObject) newBlockActivity)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newBlockActivity).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
+                        null,
+                        msgs);
             msgs = basicSetBlockActivity(newBlockActivity, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY,
                     newBlockActivity, newBlockActivity));
     }
 
@@ -258,17 +234,12 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTransitionRef(
-            TransitionRef newTransitionRef, NotificationChain msgs) {
+    public NotificationChain basicSetTransitionRef(TransitionRef newTransitionRef, NotificationChain msgs) {
         TransitionRef oldTransitionRef = transitionRef;
         transitionRef = newTransitionRef;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
-                            oldTransitionRef, newTransitionRef);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF, oldTransitionRef, newTransitionRef);
             if (msgs == null)
                 msgs = notification;
             else
@@ -286,27 +257,20 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         if (newTransitionRef != transitionRef) {
             NotificationChain msgs = null;
             if (transitionRef != null)
-                msgs =
-                        ((InternalEObject) transitionRef)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) transitionRef).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
+                        null,
+                        msgs);
             if (newTransitionRef != null)
-                msgs =
-                        ((InternalEObject) newTransitionRef)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTransitionRef).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
+                        null,
+                        msgs);
             msgs = basicSetTransitionRef(newTransitionRef, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF,
                     newTransitionRef, newTransitionRef));
     }
 
@@ -328,8 +292,7 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         String oldFaultName = faultName;
         faultName = newFaultName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_FAULT_CATCH__FAULT_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_FAULT_CATCH__FAULT_NAME,
                     oldFaultName, faultName));
     }
 
@@ -339,8 +302,7 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.WEB_SERVICE_FAULT_CATCH__MESSAGE:
             return basicSetMessage(null, msgs);
@@ -435,8 +397,7 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         case Xpdl2Package.WEB_SERVICE_FAULT_CATCH__TRANSITION_REF:
             return transitionRef != null;
         case Xpdl2Package.WEB_SERVICE_FAULT_CATCH__FAULT_NAME:
-            return FAULT_NAME_EDEFAULT == null ? faultName != null
-                    : !FAULT_NAME_EDEFAULT.equals(faultName);
+            return FAULT_NAME_EDEFAULT == null ? faultName != null : !FAULT_NAME_EDEFAULT.equals(faultName);
         }
         return super.eIsSet(featureID);
     }
@@ -451,7 +412,7 @@ public class WebServiceFaultCatchImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (faultName: "); //$NON-NLS-1$
         result.append(faultName);
         result.append(')');

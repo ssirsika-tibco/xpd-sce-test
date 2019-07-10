@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,21 +76,20 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addTaskLibraryIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_TaskLibraryReference_taskLibraryId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_TaskLibraryReference_taskLibraryId_feature", //$NON-NLS-1$
-                        "_UI_TaskLibraryReference_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_TaskLibraryReference_taskLibraryId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TaskLibraryReference_taskLibraryId_feature", //$NON-NLS-1$
+                                "_UI_TaskLibraryReference_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -102,21 +99,20 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPackageRefPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_TaskLibraryReference_packageRef_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_TaskLibraryReference_packageRef_feature", //$NON-NLS-1$
-                        "_UI_TaskLibraryReference_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.TASK_LIBRARY_REFERENCE__PACKAGE_REF,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_TaskLibraryReference_packageRef_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TaskLibraryReference_packageRef_feature", //$NON-NLS-1$
+                                "_UI_TaskLibraryReference_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.TASK_LIBRARY_REFERENCE__PACKAGE_REF,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,9 +123,7 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/TaskLibraryReference")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskLibraryReference")); //$NON-NLS-1$
     }
 
     /**
@@ -141,9 +135,8 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((TaskLibraryReference) object).getTaskLibraryId();
-        return label == null || label.length() == 0
-                ? getString("_UI_TaskLibraryReference_type") //$NON-NLS-1$
-                : getString("_UI_TaskLibraryReference_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_TaskLibraryReference_type") : //$NON-NLS-1$
+                getString("_UI_TaskLibraryReference_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -160,8 +153,7 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(TaskLibraryReference.class)) {
         case XpdExtensionPackage.TASK_LIBRARY_REFERENCE__TASK_LIBRARY_ID:
         case XpdExtensionPackage.TASK_LIBRARY_REFERENCE__PACKAGE_REF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -175,8 +167,7 @@ public class TaskLibraryReferenceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

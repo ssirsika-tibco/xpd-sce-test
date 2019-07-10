@@ -34,8 +34,7 @@ public class ActivityRefImpl extends EObjectImpl implements ActivityRef {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getIdRef() <em>Id Ref</em>}' attribute.
@@ -88,8 +87,8 @@ public class ActivityRefImpl extends EObjectImpl implements ActivityRef {
         String oldIdRef = idRef;
         idRef = newIdRef;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_REF__ID_REF, oldIdRef, idRef));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ACTIVITY_REF__ID_REF, oldIdRef,
+                    idRef));
     }
 
     /**
@@ -181,8 +180,7 @@ public class ActivityRefImpl extends EObjectImpl implements ActivityRef {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            return ID_REF_EDEFAULT == null ? idRef != null
-                    : !ID_REF_EDEFAULT.equals(idRef);
+            return ID_REF_EDEFAULT == null ? idRef != null : !ID_REF_EDEFAULT.equals(idRef);
         }
         return super.eIsSet(featureID);
     }
@@ -196,7 +194,7 @@ public class ActivityRefImpl extends EObjectImpl implements ActivityRef {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (idRef: "); //$NON-NLS-1$
         result.append(idRef);
         result.append(')');

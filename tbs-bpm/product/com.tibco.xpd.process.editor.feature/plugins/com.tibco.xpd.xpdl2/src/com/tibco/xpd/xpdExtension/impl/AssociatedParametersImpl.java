@@ -36,15 +36,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class AssociatedParametersImpl extends EObjectImpl
-        implements AssociatedParameters {
+public class AssociatedParametersImpl extends EObjectImpl implements AssociatedParameters {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAssociatedParameter() <em>Associated Parameter</em>}' containment reference list.
@@ -64,8 +62,7 @@ public class AssociatedParametersImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT =
-            false;
+    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isDisableImplicitAssociation() <em>Disable Implicit Association</em>}' attribute.
@@ -75,8 +72,7 @@ public class AssociatedParametersImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean disableImplicitAssociation =
-            DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
+    protected boolean disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
 
     /**
      * This is true if the Disable Implicit Association attribute has been set.
@@ -113,10 +109,8 @@ public class AssociatedParametersImpl extends EObjectImpl
      */
     public EList<AssociatedParameter> getAssociatedParameter() {
         if (associatedParameter == null) {
-            associatedParameter =
-                    new EObjectContainmentEList<AssociatedParameter>(
-                            AssociatedParameter.class, this,
-                            XpdExtensionPackage.ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER);
+            associatedParameter = new EObjectContainmentEList<AssociatedParameter>(AssociatedParameter.class, this,
+                    XpdExtensionPackage.ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER);
         }
         return associatedParameter;
     }
@@ -135,18 +129,15 @@ public class AssociatedParametersImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDisableImplicitAssociation(
-            boolean newDisableImplicitAssociation) {
+    public void setDisableImplicitAssociation(boolean newDisableImplicitAssociation) {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
         disableImplicitAssociation = newDisableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociationESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation, disableImplicitAssociation,
-                    !oldDisableImplicitAssociationESet));
+                    oldDisableImplicitAssociation, disableImplicitAssociation, !oldDisableImplicitAssociationESet));
     }
 
     /**
@@ -156,15 +147,13 @@ public class AssociatedParametersImpl extends EObjectImpl
      */
     public void unsetDisableImplicitAssociation() {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
         disableImplicitAssociationESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation,
-                    DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT,
+                    oldDisableImplicitAssociation, DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT,
                     oldDisableImplicitAssociationESet));
     }
 
@@ -183,12 +172,10 @@ public class AssociatedParametersImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER:
-            return ((InternalEList<?>) getAssociatedParameter())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssociatedParameter()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -220,8 +207,7 @@ public class AssociatedParametersImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER:
             getAssociatedParameter().clear();
-            getAssociatedParameter().addAll(
-                    (Collection<? extends AssociatedParameter>) newValue);
+            getAssociatedParameter().addAll((Collection<? extends AssociatedParameter>) newValue);
             return;
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION:
             setDisableImplicitAssociation((Boolean) newValue);
@@ -257,8 +243,7 @@ public class AssociatedParametersImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS__ASSOCIATED_PARAMETER:
-            return associatedParameter != null
-                    && !associatedParameter.isEmpty();
+            return associatedParameter != null && !associatedParameter.isEmpty();
         case XpdExtensionPackage.ASSOCIATED_PARAMETERS__DISABLE_IMPLICIT_ASSOCIATION:
             return isSetDisableImplicitAssociation();
         }
@@ -275,7 +260,7 @@ public class AssociatedParametersImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (disableImplicitAssociation: "); //$NON-NLS-1$
         if (disableImplicitAssociationESet)
             result.append(disableImplicitAssociation);

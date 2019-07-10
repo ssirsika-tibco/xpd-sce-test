@@ -34,8 +34,7 @@ public interface Xpdl2Package extends EPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The package name.
@@ -224,8 +223,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION =
-            NAMED_ELEMENT_FEATURE_COUNT + 3;
+    int ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Ad Hoc Ordering</b></em>' attribute.
@@ -243,8 +241,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID =
-            NAMED_ELEMENT_FEATURE_COUNT + 5;
+    int ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Object</b></em>' containment reference.
@@ -2584,8 +2581,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ARTIFACT_INPUT__OTHER_ELEMENTS =
-            OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
+    int ARTIFACT_INPUT__OTHER_ELEMENTS = OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -2594,8 +2590,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ARTIFACT_INPUT__ARTIFACT_ID =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int ARTIFACT_INPUT__ARTIFACT_ID = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Required For Start</b></em>' attribute.
@@ -2604,8 +2599,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ARTIFACT_INPUT__REQUIRED_FOR_START =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
+    int ARTIFACT_INPUT__REQUIRED_FOR_START = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Artifact Input</em>' class.
@@ -2614,8 +2608,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ARTIFACT_INPUT_FEATURE_COUNT =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
+    int ARTIFACT_INPUT_FEATURE_COUNT = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -2790,13 +2783,22 @@ public interface Xpdl2Package extends EPackage {
     int BASIC_TYPE__OTHER_ELEMENTS = DATA_TYPE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_TYPE__OTHER_ATTRIBUTES = DATA_TYPE_FEATURE_COUNT + 1;
+
+    /**
      * The feature id for the '<em><b>Length</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__LENGTH = DATA_TYPE_FEATURE_COUNT + 1;
+    int BASIC_TYPE__LENGTH = DATA_TYPE_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Precision</b></em>' containment reference.
@@ -2805,7 +2807,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__PRECISION = DATA_TYPE_FEATURE_COUNT + 2;
+    int BASIC_TYPE__PRECISION = DATA_TYPE_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Scale</b></em>' containment reference.
@@ -2814,7 +2816,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__SCALE = DATA_TYPE_FEATURE_COUNT + 3;
+    int BASIC_TYPE__SCALE = DATA_TYPE_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2823,7 +2825,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPE__TYPE = DATA_TYPE_FEATURE_COUNT + 4;
+    int BASIC_TYPE__TYPE = DATA_TYPE_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Basic Type</em>' class.
@@ -2832,7 +2834,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
+    int BASIC_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
@@ -2859,8 +2861,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BLOCK_ACTIVITY__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int BLOCK_ACTIVITY__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Activity Set Id</b></em>' attribute.
@@ -2869,8 +2870,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BLOCK_ACTIVITY__ACTIVITY_SET_ID =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int BLOCK_ACTIVITY__ACTIVITY_SET_ID = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Start Activity Id</b></em>' attribute.
@@ -2879,8 +2879,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BLOCK_ACTIVITY__START_ACTIVITY_ID =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int BLOCK_ACTIVITY__START_ACTIVITY_ID = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>View</b></em>' attribute.
@@ -2898,8 +2897,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int BLOCK_ACTIVITY_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int BLOCK_ACTIVITY_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Rule Name</b></em>' containment reference.
@@ -3007,8 +3005,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int CONDITION__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int CONDITION__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -3269,8 +3266,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_RELEVANT_DATA__OTHER_ATTRIBUTES =
-            NAMED_ELEMENT__OTHER_ATTRIBUTES;
+    int PROCESS_RELEVANT_DATA__OTHER_ATTRIBUTES = NAMED_ELEMENT__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3432,8 +3428,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_FIELD__EXTENDED_ATTRIBUTES =
-            PROCESS_RELEVANT_DATA_FEATURE_COUNT + 0;
+    int DATA_FIELD__EXTENDED_ATTRIBUTES = PROCESS_RELEVANT_DATA_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
@@ -3460,8 +3455,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_FIELD__DEPRECATED_DATA_IS_ARRAY =
-            PROCESS_RELEVANT_DATA_FEATURE_COUNT + 3;
+    int DATA_FIELD__DEPRECATED_DATA_IS_ARRAY = PROCESS_RELEVANT_DATA_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Data Field</em>' class.
@@ -3506,8 +3500,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_MAPPING__OTHER_ATTRIBUTES =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int DATA_MAPPING__OTHER_ATTRIBUTES = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Actual</b></em>' containment reference.
@@ -3606,8 +3599,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION =
-            NAMED_ELEMENT_FEATURE_COUNT + 2;
+    int DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Deprecated Required For Start</b></em>' attribute.
@@ -3616,8 +3608,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START =
-            NAMED_ELEMENT_FEATURE_COUNT + 3;
+    int DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>State</b></em>' attribute.
@@ -3781,8 +3772,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DESCRIPTION__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int DESCRIPTION__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3800,8 +3790,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int DESCRIPTION_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int DESCRIPTION_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -4454,8 +4443,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int FORMAL_PARAMETER__OTHER_ATTRIBUTES =
-            PROCESS_RELEVANT_DATA__OTHER_ATTRIBUTES;
+    int FORMAL_PARAMETER__OTHER_ATTRIBUTES = PROCESS_RELEVANT_DATA__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4482,8 +4470,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int FORMAL_PARAMETER__OTHER_ELEMENTS =
-            PROCESS_RELEVANT_DATA__OTHER_ELEMENTS;
+    int FORMAL_PARAMETER__OTHER_ELEMENTS = PROCESS_RELEVANT_DATA__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' containment reference.
@@ -4546,8 +4533,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int FORMAL_PARAMETER_FEATURE_COUNT =
-            PROCESS_RELEVANT_DATA_FEATURE_COUNT + 2;
+    int FORMAL_PARAMETER_FEATURE_COUNT = PROCESS_RELEVANT_DATA_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -4880,8 +4866,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION =
-            EVENT_FEATURE_COUNT + 3;
+    int INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION = EVENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Trigger Conditional</b></em>' containment reference.
@@ -4908,8 +4893,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE =
-            EVENT_FEATURE_COUNT + 6;
+    int INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE = EVENT_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -4981,8 +4965,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION =
-            EVENT_FEATURE_COUNT + 14;
+    int INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION = EVENT_FEATURE_COUNT + 14;
 
     /**
      * The number of structural features of the '<em>Intermediate Event</em>' class.
@@ -5081,8 +5064,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LAYOUT_INFO__PIXELS_PER_MILLIMETER =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int LAYOUT_INFO__PIXELS_PER_MILLIMETER = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Layout Info</em>' class.
@@ -5352,8 +5334,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__OTHER_ELEMENTS =
-            OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
+    int LOOP_MULTI_INSTANCE__OTHER_ELEMENTS = OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Loop Counter</b></em>' attribute.
@@ -5362,8 +5343,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__LOOP_COUNTER =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int LOOP_MULTI_INSTANCE__LOOP_COUNTER = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>MI Flow Condition</b></em>' attribute.
@@ -5372,8 +5352,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
+    int LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>MI Ordering</b></em>' attribute.
@@ -5382,8 +5361,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__MI_ORDERING =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
+    int LOOP_MULTI_INSTANCE__MI_ORDERING = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>MI Condition</b></em>' containment reference.
@@ -5392,8 +5370,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__MI_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
+    int LOOP_MULTI_INSTANCE__MI_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Complex MI Flow Condition</b></em>' containment reference.
@@ -5402,8 +5379,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
+    int LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Attribute Complex MI Flow Condition</b></em>' attribute.
@@ -5412,8 +5388,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
+    int LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Attribute MI Condition</b></em>' attribute.
@@ -5422,8 +5397,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
+    int LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Loop Multi Instance</em>' class.
@@ -5432,8 +5406,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_MULTI_INSTANCE_FEATURE_COUNT =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 7;
+    int LOOP_MULTI_INSTANCE_FEATURE_COUNT = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -5442,8 +5415,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD__OTHER_ELEMENTS =
-            OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
+    int LOOP_STANDARD__OTHER_ELEMENTS = OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS;
 
     /**
      * The feature id for the '<em><b>Loop Counter</b></em>' attribute.
@@ -5452,8 +5424,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD__LOOP_COUNTER =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
+    int LOOP_STANDARD__LOOP_COUNTER = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Loop Maximum</b></em>' attribute.
@@ -5462,8 +5433,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD__LOOP_MAXIMUM =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
+    int LOOP_STANDARD__LOOP_MAXIMUM = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Test Time</b></em>' attribute.
@@ -5481,8 +5451,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
+    int LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Loop Condition</b></em>' containment reference.
@@ -5491,8 +5460,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD__LOOP_CONDITION =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
+    int LOOP_STANDARD__LOOP_CONDITION = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Loop Standard</em>' class.
@@ -5501,8 +5469,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int LOOP_STANDARD_FEATURE_COUNT =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
+    int LOOP_STANDARD_FEATURE_COUNT = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Loop Standard</b></em>' containment reference.
@@ -5682,8 +5649,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS =
-            NAMED_ELEMENT_FEATURE_COUNT + 0;
+    int MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -5863,8 +5829,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int MODIFICATION_DATE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int MODIFICATION_DATE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The number of structural features of the '<em>Modification Date</em>' class.
@@ -5873,8 +5838,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int MODIFICATION_DATE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int MODIFICATION_DATE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -6632,8 +6596,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PARTICIPANT_TYPE_ELEM__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int PARTICIPANT_TYPE_ELEM__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -6642,8 +6605,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PARTICIPANT_TYPE_ELEM__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int PARTICIPANT_TYPE_ELEM__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -6652,8 +6614,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PARTICIPANT_TYPE_ELEM__TYPE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int PARTICIPANT_TYPE_ELEM__TYPE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Participant Type Elem</em>' class.
@@ -6662,8 +6623,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PARTICIPANT_TYPE_ELEM_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int PARTICIPANT_TYPE_ELEM_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6699,8 +6659,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PARTNER_LINK__PARTNER_LINK_TYPE_ID =
-            UNIQUE_ID_ELEMENT_FEATURE_COUNT + 2;
+    int PARTNER_LINK__PARTNER_LINK_TYPE_ID = UNIQUE_ID_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7367,8 +7326,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS__DEFAULT_START_ACTIVITY_SET_ID =
-            NAMED_ELEMENT_FEATURE_COUNT + 19;
+    int PROCESS__DEFAULT_START_ACTIVITY_SET_ID = NAMED_ELEMENT_FEATURE_COUNT + 19;
 
     /**
      * The feature id for the '<em><b>Enable Instance Compensation</b></em>' attribute.
@@ -7377,8 +7335,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS__ENABLE_INSTANCE_COMPENSATION =
-            NAMED_ELEMENT_FEATURE_COUNT + 20;
+    int PROCESS__ENABLE_INSTANCE_COMPENSATION = NAMED_ELEMENT_FEATURE_COUNT + 20;
 
     /**
      * The feature id for the '<em><b>Process Type</b></em>' attribute.
@@ -7459,8 +7416,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_INPUT__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int PROPERTY_INPUT__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -7469,8 +7425,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_INPUT__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int PROPERTY_INPUT__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Property Id</b></em>' attribute.
@@ -7479,8 +7434,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_INPUT__PROPERTY_ID =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int PROPERTY_INPUT__PROPERTY_ID = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Property Input</em>' class.
@@ -7489,8 +7443,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_INPUT_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int PROPERTY_INPUT_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Member</b></em>' containment reference list.
@@ -7517,8 +7470,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int REDEFINABLE_HEADER__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -7527,8 +7479,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__AUTHOR =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int REDEFINABLE_HEADER__AUTHOR = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -7537,8 +7488,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__VERSION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int REDEFINABLE_HEADER__VERSION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Codepage</b></em>' containment reference.
@@ -7547,8 +7497,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__CODEPAGE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int REDEFINABLE_HEADER__CODEPAGE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Countrykey</b></em>' containment reference.
@@ -7557,8 +7506,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__COUNTRYKEY =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int REDEFINABLE_HEADER__COUNTRYKEY = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Responsibles</b></em>' containment reference list.
@@ -7567,8 +7515,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__RESPONSIBLES =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int REDEFINABLE_HEADER__RESPONSIBLES = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Publication Status</b></em>' attribute.
@@ -7577,8 +7524,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER__PUBLICATION_STATUS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int REDEFINABLE_HEADER__PUBLICATION_STATUS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Redefinable Header</em>' class.
@@ -7587,8 +7533,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int REDEFINABLE_HEADER_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
+    int REDEFINABLE_HEADER_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Activity</b></em>' container reference.
@@ -7714,8 +7659,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_ERROR__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int RESULT_ERROR__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -7724,8 +7668,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_ERROR__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int RESULT_ERROR__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Error Code</b></em>' attribute.
@@ -7743,8 +7686,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_ERROR_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int RESULT_ERROR_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
@@ -7753,8 +7695,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int RESULT_MULTIPLE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Trigger Result Message</b></em>' containment reference.
@@ -7763,8 +7704,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Trigger Result Link</b></em>' containment reference.
@@ -7773,8 +7713,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE__TRIGGER_RESULT_LINK =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int RESULT_MULTIPLE__TRIGGER_RESULT_LINK = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Result Compensation</b></em>' containment reference.
@@ -7783,8 +7722,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE__RESULT_COMPENSATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int RESULT_MULTIPLE__RESULT_COMPENSATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Result Error</b></em>' containment reference.
@@ -7793,8 +7731,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE__RESULT_ERROR =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int RESULT_MULTIPLE__RESULT_ERROR = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Result Multiple</em>' class.
@@ -7803,8 +7740,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int RESULT_MULTIPLE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int RESULT_MULTIPLE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7867,8 +7803,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int ROUTE__DEPRECATED_INSTANTIATE =
-            OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
+    int ROUTE__DEPRECATED_INSTANTIATE = OTHER_ELEMENTS_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Marker Visible</b></em>' attribute.
@@ -8066,8 +8001,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int SERVICE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int SERVICE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>End Point</b></em>' containment reference.
@@ -8418,8 +8352,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_APPLICATION__ACTUAL_PARAMETERS =
-            DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
+    int TASK_APPLICATION__ACTUAL_PARAMETERS = DESCRIBED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Data Mappings</b></em>' containment reference list.
@@ -8482,8 +8415,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TASK_RECEIVE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -8492,8 +8424,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TASK_RECEIVE__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Message</b></em>' containment reference.
@@ -8511,8 +8442,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE__WEB_SERVICE_OPERATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TASK_RECEIVE__WEB_SERVICE_OPERATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -8521,8 +8451,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE__IMPLEMENTATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TASK_RECEIVE__IMPLEMENTATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Instantiate</b></em>' attribute.
@@ -8531,8 +8460,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE__INSTANTIATE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TASK_RECEIVE__INSTANTIATE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Task Receive</em>' class.
@@ -8541,8 +8469,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_RECEIVE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TASK_RECEIVE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Task Ref</b></em>' attribute.
@@ -8587,8 +8514,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SEND__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TASK_SEND__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -8597,8 +8523,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SEND__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TASK_SEND__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Message</b></em>' containment reference.
@@ -8616,8 +8541,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SEND__WEB_SERVICE_OPERATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TASK_SEND__WEB_SERVICE_OPERATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Web Service Fault Catch</b></em>' containment reference list.
@@ -8626,8 +8550,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SEND__WEB_SERVICE_FAULT_CATCH =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TASK_SEND__WEB_SERVICE_FAULT_CATCH = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -8636,8 +8559,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SEND__IMPLEMENTATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TASK_SEND__IMPLEMENTATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Task Send</em>' class.
@@ -8655,8 +8577,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TASK_SERVICE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -8665,8 +8586,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TASK_SERVICE__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Message In</b></em>' containment reference.
@@ -8684,8 +8604,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__MESSAGE_OUT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TASK_SERVICE__MESSAGE_OUT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Web Service Operation</b></em>' containment reference.
@@ -8694,8 +8613,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__WEB_SERVICE_OPERATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TASK_SERVICE__WEB_SERVICE_OPERATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Web Service Fault Catch</b></em>' containment reference list.
@@ -8704,8 +8622,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__WEB_SERVICE_FAULT_CATCH =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TASK_SERVICE__WEB_SERVICE_FAULT_CATCH = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -8714,8 +8631,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE__IMPLEMENTATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TASK_SERVICE__IMPLEMENTATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Task Service</em>' class.
@@ -8724,8 +8640,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_SERVICE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
+    int TASK_SERVICE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Activity</b></em>' container reference.
@@ -8824,8 +8739,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_USER__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TASK_USER__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -8834,8 +8748,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_USER__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TASK_USER__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Performers</b></em>' containment reference list.
@@ -8871,8 +8784,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_USER__WEB_SERVICE_OPERATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TASK_USER__WEB_SERVICE_OPERATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -8881,8 +8793,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_USER__IMPLEMENTATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TASK_USER__IMPLEMENTATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Task User</em>' class.
@@ -9152,8 +9063,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Trigger Result Message</b></em>' containment reference.
@@ -9162,8 +9072,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_MESSAGE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_MESSAGE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Trigger Timer</b></em>' containment reference.
@@ -9172,8 +9081,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Result Error</b></em>' containment reference.
@@ -9182,8 +9090,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Trigger Result Compensation</b></em>' containment reference.
@@ -9192,8 +9099,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Deprecated Result Compensation</b></em>' containment reference.
@@ -9202,8 +9108,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Trigger Conditional</b></em>' containment reference.
@@ -9212,8 +9117,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Trigger Result Link</b></em>' containment reference.
@@ -9222,8 +9126,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_LINK =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
+    int TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_LINK = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Trigger Intermediate Multiple</em>' class.
@@ -9232,8 +9135,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_INTERMEDIATE_MULTIPLE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 7;
+    int TRIGGER_INTERMEDIATE_MULTIPLE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
@@ -9242,8 +9144,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_MULTIPLE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Trigger Result Message</b></em>' containment reference.
@@ -9252,8 +9153,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Trigger Timer</b></em>' containment reference.
@@ -9262,8 +9162,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__TRIGGER_TIMER =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_MULTIPLE__TRIGGER_TIMER = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Trigger Conditional</b></em>' containment reference.
@@ -9272,8 +9171,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Trigger Result Link</b></em>' containment reference.
@@ -9282,8 +9180,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Deprecated Trigger Rule</b></em>' containment reference.
@@ -9292,8 +9189,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Trigger Multiple</em>' class.
@@ -9302,8 +9198,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_MULTIPLE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TRIGGER_MULTIPLE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Trigger Result Cancel</em>' class.
@@ -9321,8 +9216,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_COMPENSATION__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_RESULT_COMPENSATION__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Activity Id</b></em>' attribute.
@@ -9331,8 +9225,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_COMPENSATION__ACTIVITY_ID =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_RESULT_COMPENSATION__ACTIVITY_ID = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Trigger Result Compensation</em>' class.
@@ -9341,8 +9234,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_COMPENSATION_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_RESULT_COMPENSATION_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Other Attributes</b></em>' attribute list.
@@ -9351,8 +9243,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_RESULT_SIGNAL__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -9361,8 +9252,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_RESULT_SIGNAL__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Catch Throw</b></em>' attribute.
@@ -9371,8 +9261,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL__CATCH_THROW =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_RESULT_SIGNAL__CATCH_THROW = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -9381,8 +9270,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL__NAME =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRIGGER_RESULT_SIGNAL__NAME = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -9391,8 +9279,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL__PROPERTIES =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TRIGGER_RESULT_SIGNAL__PROPERTIES = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Trigger Result Signal</em>' class.
@@ -9401,8 +9288,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_SIGNAL_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TRIGGER_RESULT_SIGNAL_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Deprecated Link Id</b></em>' attribute.
@@ -9456,8 +9342,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_RESULT_MESSAGE__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -9466,8 +9351,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_RESULT_MESSAGE__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Message</b></em>' containment reference.
@@ -9476,8 +9360,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE__MESSAGE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_RESULT_MESSAGE__MESSAGE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Web Service Operation</b></em>' containment reference.
@@ -9486,8 +9369,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE__WEB_SERVICE_OPERATION =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRIGGER_RESULT_MESSAGE__WEB_SERVICE_OPERATION = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Catch Throw</b></em>' attribute.
@@ -9496,8 +9378,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE__CATCH_THROW =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int TRIGGER_RESULT_MESSAGE__CATCH_THROW = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Trigger Result Message</em>' class.
@@ -9506,8 +9387,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_RESULT_MESSAGE_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TRIGGER_RESULT_MESSAGE_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Condition Name</b></em>' attribute.
@@ -9543,8 +9423,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int TRIGGER_TIMER__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Other Elements</b></em>' attribute list.
@@ -9553,8 +9432,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER__OTHER_ELEMENTS =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int TRIGGER_TIMER__OTHER_ELEMENTS = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Deprecated Time Cycle</b></em>' attribute.
@@ -9563,8 +9441,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER__DEPRECATED_TIME_CYCLE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int TRIGGER_TIMER__DEPRECATED_TIME_CYCLE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Deprecated Time Date</b></em>' attribute.
@@ -9573,8 +9450,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER__DEPRECATED_TIME_DATE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int TRIGGER_TIMER__DEPRECATED_TIME_DATE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Time Date</b></em>' containment reference.
@@ -9592,8 +9468,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER__TIME_CYCLE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
+    int TRIGGER_TIMER__TIME_CYCLE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Trigger Timer</em>' class.
@@ -9602,8 +9477,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int TRIGGER_TIMER_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
+    int TRIGGER_TIMER_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9918,8 +9792,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES =
-            OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
+    int WEB_SERVICE_OPERATION__OTHER_ATTRIBUTES = OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES;
 
     /**
      * The feature id for the '<em><b>Partner</b></em>' containment reference.
@@ -9928,8 +9801,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int WEB_SERVICE_OPERATION__PARTNER =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
+    int WEB_SERVICE_OPERATION__PARTNER = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Service</b></em>' containment reference.
@@ -9938,8 +9810,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int WEB_SERVICE_OPERATION__SERVICE =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
+    int WEB_SERVICE_OPERATION__SERVICE = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Operation Name</b></em>' attribute.
@@ -9948,8 +9819,7 @@ public interface Xpdl2Package extends EPackage {
      * @generated
      * @ordered
      */
-    int WEB_SERVICE_OPERATION__OPERATION_NAME =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
+    int WEB_SERVICE_OPERATION__OPERATION_NAME = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Web Service Operation</em>' class.
@@ -9959,8 +9829,7 @@ public interface Xpdl2Package extends EPackage {
      * @ordered
      */
 
-    int WEB_SERVICE_OPERATION_FEATURE_COUNT =
-            OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
+    int WEB_SERVICE_OPERATION_FEATURE_COUNT = OTHER_ATTRIBUTES_CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Web Service Operation</b></em>' containment reference.
@@ -19138,8 +19007,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__IMPLEMENTATION = eINSTANCE
-                .getActivity_Implementation();
+        EReference ACTIVITY__IMPLEMENTATION = eINSTANCE.getActivity_Implementation();
 
         /**
          * The meta object literal for the '<em><b>Block Activity</b></em>' containment reference feature.
@@ -19147,8 +19015,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__BLOCK_ACTIVITY = eINSTANCE
-                .getActivity_BlockActivity();
+        EReference ACTIVITY__BLOCK_ACTIVITY = eINSTANCE.getActivity_BlockActivity();
 
         /**
          * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
@@ -19204,8 +19071,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__SIMULATION_INFORMATION = eINSTANCE
-                .getActivity_SimulationInformation();
+        EReference ACTIVITY__SIMULATION_INFORMATION = eINSTANCE.getActivity_SimulationInformation();
 
         /**
          * The meta object literal for the '<em><b>Icon</b></em>' containment reference feature.
@@ -19221,8 +19087,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__DOCUMENTATION = eINSTANCE
-                .getActivity_Documentation();
+        EReference ACTIVITY__DOCUMENTATION = eINSTANCE.getActivity_Documentation();
 
         /**
          * The meta object literal for the '<em><b>Transition Restrictions</b></em>' containment reference list feature.
@@ -19230,8 +19095,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__TRANSITION_RESTRICTIONS = eINSTANCE
-                .getActivity_TransitionRestrictions();
+        EReference ACTIVITY__TRANSITION_RESTRICTIONS = eINSTANCE.getActivity_TransitionRestrictions();
 
         /**
          * The meta object literal for the '<em><b>Input Sets</b></em>' containment reference list feature.
@@ -19303,8 +19167,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ACTIVITY__IS_ATRANSACTION = eINSTANCE
-                .getActivity_IsATransaction();
+        EAttribute ACTIVITY__IS_ATRANSACTION = eINSTANCE.getActivity_IsATransaction();
 
         /**
          * The meta object literal for the '<em><b>Start Activity</b></em>' attribute feature.
@@ -19312,8 +19175,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ACTIVITY__START_ACTIVITY = eINSTANCE
-                .getActivity_StartActivity();
+        EAttribute ACTIVITY__START_ACTIVITY = eINSTANCE.getActivity_StartActivity();
 
         /**
          * The meta object literal for the '<em><b>Start Mode</b></em>' attribute feature.
@@ -19329,8 +19191,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ACTIVITY__START_QUANTITY = eINSTANCE
-                .getActivity_StartQuantity();
+        EAttribute ACTIVITY__START_QUANTITY = eINSTANCE.getActivity_StartQuantity();
 
         /**
          * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
@@ -19346,8 +19207,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ACTIVITY__FLOW_CONTAINER = eINSTANCE
-                .getActivity_FlowContainer();
+        EReference ACTIVITY__FLOW_CONTAINER = eINSTANCE.getActivity_FlowContainer();
 
         /**
          * The meta object literal for the '<em><b>Process</b></em>' reference feature.
@@ -19363,8 +19223,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ACTIVITY__IS_FOR_COMPENSATION = eINSTANCE
-                .getActivity_IsForCompensation();
+        EAttribute ACTIVITY__IS_FOR_COMPENSATION = eINSTANCE.getActivity_IsForCompensation();
 
         /**
          * The meta object literal for the '<em><b>Completion Quantity</b></em>' attribute feature.
@@ -19372,8 +19231,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ACTIVITY__COMPLETION_QUANTITY = eINSTANCE
-                .getActivity_CompletionQuantity();
+        EAttribute ACTIVITY__COMPLETION_QUANTITY = eINSTANCE.getActivity_CompletionQuantity();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ApplicationTypeImpl <em>Application Type</em>}' class.
@@ -19415,8 +19273,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATION_TYPE__SCRIPT = eINSTANCE
-                .getApplicationType_Script();
+        EReference APPLICATION_TYPE__SCRIPT = eINSTANCE.getApplicationType_Script();
 
         /**
          * The meta object literal for the '<em><b>Web Service</b></em>' containment reference feature.
@@ -19424,8 +19281,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATION_TYPE__WEB_SERVICE = eINSTANCE
-                .getApplicationType_WebService();
+        EReference APPLICATION_TYPE__WEB_SERVICE = eINSTANCE.getApplicationType_WebService();
 
         /**
          * The meta object literal for the '<em><b>Business Rule</b></em>' containment reference feature.
@@ -19433,8 +19289,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATION_TYPE__BUSINESS_RULE = eINSTANCE
-                .getApplicationType_BusinessRule();
+        EReference APPLICATION_TYPE__BUSINESS_RULE = eINSTANCE.getApplicationType_BusinessRule();
 
         /**
          * The meta object literal for the '<em><b>Form</b></em>' containment reference feature.
@@ -19450,8 +19305,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute APPLICATION_TYPE__ANY_ATTRIBUTE = eINSTANCE
-                .getApplicationType_AnyAttribute();
+        EAttribute APPLICATION_TYPE__ANY_ATTRIBUTE = eINSTANCE.getApplicationType_AnyAttribute();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ApplicationImpl <em>Application</em>}' class.
@@ -19477,8 +19331,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATION__EXTERNAL_REFERENCE = eINSTANCE
-                .getApplication_ExternalReference();
+        EReference APPLICATION__EXTERNAL_REFERENCE = eINSTANCE.getApplication_ExternalReference();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.ExtendedAttributesContainer <em>Extended Attributes Container</em>}' class.
@@ -19488,8 +19341,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getExtendedAttributesContainer()
          * @generated
          */
-        EClass EXTENDED_ATTRIBUTES_CONTAINER = eINSTANCE
-                .getExtendedAttributesContainer();
+        EClass EXTENDED_ATTRIBUTES_CONTAINER = eINSTANCE.getExtendedAttributesContainer();
 
         /**
          * The meta object literal for the '<em><b>Extended Attributes</b></em>' containment reference list feature.
@@ -19524,8 +19376,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ARRAY_TYPE__DECLARED_TYPE = eINSTANCE
-                .getArrayType_DeclaredType();
+        EReference ARRAY_TYPE__DECLARED_TYPE = eINSTANCE.getArrayType_DeclaredType();
 
         /**
          * The meta object literal for the '<em><b>Schema Type</b></em>' containment reference feature.
@@ -19533,8 +19384,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ARRAY_TYPE__SCHEMA_TYPE = eINSTANCE
-                .getArrayType_SchemaType();
+        EReference ARRAY_TYPE__SCHEMA_TYPE = eINSTANCE.getArrayType_SchemaType();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' containment reference feature.
@@ -19542,8 +19392,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ARRAY_TYPE__EXTERNAL_REFERENCE = eINSTANCE
-                .getArrayType_ExternalReference();
+        EReference ARRAY_TYPE__EXTERNAL_REFERENCE = eINSTANCE.getArrayType_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Record Type</b></em>' containment reference feature.
@@ -19551,8 +19400,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ARRAY_TYPE__RECORD_TYPE = eINSTANCE
-                .getArrayType_RecordType();
+        EReference ARRAY_TYPE__RECORD_TYPE = eINSTANCE.getArrayType_RecordType();
 
         /**
          * The meta object literal for the '<em><b>Union Type</b></em>' containment reference feature.
@@ -19568,8 +19416,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ARRAY_TYPE__ENUMERATION_TYPE = eINSTANCE
-                .getArrayType_EnumerationType();
+        EReference ARRAY_TYPE__ENUMERATION_TYPE = eINSTANCE.getArrayType_EnumerationType();
 
         /**
          * The meta object literal for the '<em><b>Array Type</b></em>' containment reference feature.
@@ -19593,8 +19440,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARRAY_TYPE__LOWER_INDEX = eINSTANCE
-                .getArrayType_LowerIndex();
+        EAttribute ARRAY_TYPE__LOWER_INDEX = eINSTANCE.getArrayType_LowerIndex();
 
         /**
          * The meta object literal for the '<em><b>Upper Index</b></em>' attribute feature.
@@ -19602,8 +19448,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARRAY_TYPE__UPPER_INDEX = eINSTANCE
-                .getArrayType_UpperIndex();
+        EAttribute ARRAY_TYPE__UPPER_INDEX = eINSTANCE.getArrayType_UpperIndex();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -19637,8 +19482,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARTIFACT__ARTIFACT_TYPE = eINSTANCE
-                .getArtifact_ArtifactType();
+        EAttribute ARTIFACT__ARTIFACT_TYPE = eINSTANCE.getArtifact_ArtifactType();
 
         /**
          * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
@@ -19664,8 +19508,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARTIFACT_INPUT__ARTIFACT_ID = eINSTANCE
-                .getArtifactInput_ArtifactId();
+        EAttribute ARTIFACT_INPUT__ARTIFACT_ID = eINSTANCE.getArtifactInput_ArtifactId();
 
         /**
          * The meta object literal for the '<em><b>Required For Start</b></em>' attribute feature.
@@ -19673,8 +19516,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARTIFACT_INPUT__REQUIRED_FOR_START = eINSTANCE
-                .getArtifactInput_RequiredForStart();
+        EAttribute ARTIFACT_INPUT__REQUIRED_FOR_START = eINSTANCE.getArtifactInput_RequiredForStart();
 
         /**
          * The meta object literal for the '<em><b>Text Annotation</b></em>' attribute feature.
@@ -19682,8 +19524,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ARTIFACT__TEXT_ANNOTATION = eINSTANCE
-                .getArtifact_TextAnnotation();
+        EAttribute ARTIFACT__TEXT_ANNOTATION = eINSTANCE.getArtifact_TextAnnotation();
 
         /**
          * The meta object literal for the '<em><b>Package</b></em>' container reference feature.
@@ -19709,8 +19550,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GRAPHICAL_NODE__NODE_GRAPHICS_INFOS = eINSTANCE
-                .getGraphicalNode_NodeGraphicsInfos();
+        EReference GRAPHICAL_NODE__NODE_GRAPHICS_INFOS = eINSTANCE.getGraphicalNode_NodeGraphicsInfos();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.GraphicalConnector <em>Graphical Connector</em>}' class.
@@ -19728,8 +19568,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS = eINSTANCE
-                .getGraphicalConnector_ConnectorGraphicsInfos();
+        EReference GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS =
+                eINSTANCE.getGraphicalConnector_ConnectorGraphicsInfos();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.Group <em>Group</em>}' class.
@@ -19781,8 +19621,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ASSIGNMENT__EXPRESSION = eINSTANCE
-                .getAssignment_Expression();
+        EReference ASSIGNMENT__EXPRESSION = eINSTANCE.getAssignment_Expression();
 
         /**
          * The meta object literal for the '<em><b>Assign Time</b></em>' attribute feature.
@@ -19790,8 +19629,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSIGNMENT__ASSIGN_TIME = eINSTANCE
-                .getAssignment_AssignTime();
+        EAttribute ASSIGNMENT__ASSIGN_TIME = eINSTANCE.getAssignment_AssignTime();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.AssociationImpl <em>Association</em>}' class.
@@ -19817,8 +19655,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ASSOCIATION__ASSOCIATION_DIRECTION = eINSTANCE
-                .getAssociation_AssociationDirection();
+        EAttribute ASSOCIATION__ASSOCIATION_DIRECTION = eINSTANCE.getAssociation_AssociationDirection();
 
         /**
          * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
@@ -19902,8 +19739,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BLOCK_ACTIVITY__ACTIVITY_SET_ID = eINSTANCE
-                .getBlockActivity_ActivitySetId();
+        EAttribute BLOCK_ACTIVITY__ACTIVITY_SET_ID = eINSTANCE.getBlockActivity_ActivitySetId();
 
         /**
          * The meta object literal for the '<em><b>Start Activity Id</b></em>' attribute feature.
@@ -19911,8 +19747,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BLOCK_ACTIVITY__START_ACTIVITY_ID = eINSTANCE
-                .getBlockActivity_StartActivityId();
+        EAttribute BLOCK_ACTIVITY__START_ACTIVITY_ID = eINSTANCE.getBlockActivity_StartActivityId();
 
         /**
          * The meta object literal for the '<em><b>View</b></em>' attribute feature.
@@ -19930,8 +19765,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getBusinessRuleApplication()
          * @generated
          */
-        EClass BUSINESS_RULE_APPLICATION = eINSTANCE
-                .getBusinessRuleApplication();
+        EClass BUSINESS_RULE_APPLICATION = eINSTANCE.getBusinessRuleApplication();
 
         /**
          * The meta object literal for the '<em><b>Rule Name</b></em>' containment reference feature.
@@ -19939,8 +19773,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BUSINESS_RULE_APPLICATION__RULE_NAME = eINSTANCE
-                .getBusinessRuleApplication_RuleName();
+        EReference BUSINESS_RULE_APPLICATION__RULE_NAME = eINSTANCE.getBusinessRuleApplication_RuleName();
 
         /**
          * The meta object literal for the '<em><b>Location</b></em>' containment reference feature.
@@ -19948,8 +19781,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BUSINESS_RULE_APPLICATION__LOCATION = eINSTANCE
-                .getBusinessRuleApplication_Location();
+        EReference BUSINESS_RULE_APPLICATION__LOCATION = eINSTANCE.getBusinessRuleApplication_Location();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.CategoryImpl <em>Category</em>}' class.
@@ -20047,8 +19879,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONFORMANCE_CLASS__GRAPH_CONFORMANCE = eINSTANCE
-                .getConformanceClass_GraphConformance();
+        EAttribute CONFORMANCE_CLASS__GRAPH_CONFORMANCE = eINSTANCE.getConformanceClass_GraphConformance();
 
         /**
          * The meta object literal for the '<em><b>Bpmn Model Portability Conformance</b></em>' attribute feature.
@@ -20075,8 +19906,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CONNECTOR_GRAPHICS_INFO__COORDINATES = eINSTANCE
-                .getConnectorGraphicsInfo_Coordinates();
+        EReference CONNECTOR_GRAPHICS_INFO__COORDINATES = eINSTANCE.getConnectorGraphicsInfo_Coordinates();
 
         /**
          * The meta object literal for the '<em><b>Border Color</b></em>' attribute feature.
@@ -20084,8 +19914,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__BORDER_COLOR = eINSTANCE
-                .getConnectorGraphicsInfo_BorderColor();
+        EAttribute CONNECTOR_GRAPHICS_INFO__BORDER_COLOR = eINSTANCE.getConnectorGraphicsInfo_BorderColor();
 
         /**
          * The meta object literal for the '<em><b>Fill Color</b></em>' attribute feature.
@@ -20093,8 +19922,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__FILL_COLOR = eINSTANCE
-                .getConnectorGraphicsInfo_FillColor();
+        EAttribute CONNECTOR_GRAPHICS_INFO__FILL_COLOR = eINSTANCE.getConnectorGraphicsInfo_FillColor();
 
         /**
          * The meta object literal for the '<em><b>Is Visible</b></em>' attribute feature.
@@ -20102,8 +19930,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__IS_VISIBLE = eINSTANCE
-                .getConnectorGraphicsInfo_IsVisible();
+        EAttribute CONNECTOR_GRAPHICS_INFO__IS_VISIBLE = eINSTANCE.getConnectorGraphicsInfo_IsVisible();
 
         /**
          * The meta object literal for the '<em><b>Page Id</b></em>' attribute feature.
@@ -20111,8 +19938,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__PAGE_ID = eINSTANCE
-                .getConnectorGraphicsInfo_PageId();
+        EAttribute CONNECTOR_GRAPHICS_INFO__PAGE_ID = eINSTANCE.getConnectorGraphicsInfo_PageId();
 
         /**
          * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
@@ -20120,8 +19946,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__STYLE = eINSTANCE
-                .getConnectorGraphicsInfo_Style();
+        EAttribute CONNECTOR_GRAPHICS_INFO__STYLE = eINSTANCE.getConnectorGraphicsInfo_Style();
 
         /**
          * The meta object literal for the '<em><b>Tool Id</b></em>' attribute feature.
@@ -20129,8 +19954,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CONNECTOR_GRAPHICS_INFO__TOOL_ID = eINSTANCE
-                .getConnectorGraphicsInfo_ToolId();
+        EAttribute CONNECTOR_GRAPHICS_INFO__TOOL_ID = eINSTANCE.getConnectorGraphicsInfo_ToolId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.CoordinatesImpl <em>Coordinates</em>}' class.
@@ -20148,8 +19972,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute COORDINATES__XCOORDINATE = eINSTANCE
-                .getCoordinates_XCoordinate();
+        EAttribute COORDINATES__XCOORDINATE = eINSTANCE.getCoordinates_XCoordinate();
 
         /**
          * The meta object literal for the '<em><b>YCoordinate</b></em>' attribute feature.
@@ -20157,8 +19980,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute COORDINATES__YCOORDINATE = eINSTANCE
-                .getCoordinates_YCoordinate();
+        EAttribute COORDINATES__YCOORDINATE = eINSTANCE.getCoordinates_YCoordinate();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.CostImpl <em>Cost</em>}' class.
@@ -20194,8 +20016,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute COST_STRUCTURE__FIXED_COST = eINSTANCE
-                .getCostStructure_FixedCost();
+        EAttribute COST_STRUCTURE__FIXED_COST = eINSTANCE.getCostStructure_FixedCost();
 
         /**
          * The meta object literal for the '<em><b>Resource Costs</b></em>' containment reference list feature.
@@ -20203,8 +20024,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference COST_STRUCTURE__RESOURCE_COSTS = eINSTANCE
-                .getCostStructure_ResourceCosts();
+        EReference COST_STRUCTURE__RESOURCE_COSTS = eINSTANCE.getCostStructure_ResourceCosts();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.CostUnitImpl <em>Cost Unit</em>}' class.
@@ -20258,8 +20078,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_FIELD__INITIAL_VALUE = eINSTANCE
-                .getDataField_InitialValue();
+        EReference DATA_FIELD__INITIAL_VALUE = eINSTANCE.getDataField_InitialValue();
 
         /**
          * The meta object literal for the '<em><b>Correlation</b></em>' attribute feature.
@@ -20267,8 +20086,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_FIELD__CORRELATION = eINSTANCE
-                .getDataField_Correlation();
+        EAttribute DATA_FIELD__CORRELATION = eINSTANCE.getDataField_Correlation();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Data Is Array</b></em>' attribute feature.
@@ -20276,8 +20094,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_FIELD__DEPRECATED_DATA_IS_ARRAY = eINSTANCE
-                .getDataField_DeprecatedDataIsArray();
+        EAttribute DATA_FIELD__DEPRECATED_DATA_IS_ARRAY = eINSTANCE.getDataField_DeprecatedDataIsArray();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.DataMappingImpl <em>Data Mapping</em>}' class.
@@ -20303,8 +20120,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_MAPPING__DIRECTION = eINSTANCE
-                .getDataMapping_Direction();
+        EAttribute DATA_MAPPING__DIRECTION = eINSTANCE.getDataMapping_Direction();
 
         /**
          * The meta object literal for the '<em><b>Formal</b></em>' attribute feature.
@@ -20320,8 +20136,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_MAPPING__TEST_VALUE = eINSTANCE
-                .getDataMapping_TestValue();
+        EReference DATA_MAPPING__TEST_VALUE = eINSTANCE.getDataMapping_TestValue();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.DataObjectImpl <em>Data Object</em>}' class.
@@ -20339,8 +20154,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION = eINSTANCE
-                .getDataObject_DeprecatedProducedAtCompletion();
+        EAttribute DATA_OBJECT__DEPRECATED_PRODUCED_AT_COMPLETION =
+                eINSTANCE.getDataObject_DeprecatedProducedAtCompletion();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Required For Start</b></em>' attribute feature.
@@ -20348,8 +20163,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START = eINSTANCE
-                .getDataObject_DeprecatedRequiredForStart();
+        EAttribute DATA_OBJECT__DEPRECATED_REQUIRED_FOR_START = eINSTANCE.getDataObject_DeprecatedRequiredForStart();
 
         /**
          * The meta object literal for the '<em><b>State</b></em>' attribute feature.
@@ -20385,8 +20199,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DEADLINE__DEADLINE_DURATION = eINSTANCE
-                .getDeadline_DeadlineDuration();
+        EReference DEADLINE__DEADLINE_DURATION = eINSTANCE.getDeadline_DeadlineDuration();
 
         /**
          * The meta object literal for the '<em><b>Exception Name</b></em>' containment reference feature.
@@ -20394,8 +20207,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DEADLINE__EXCEPTION_NAME = eINSTANCE
-                .getDeadline_ExceptionName();
+        EReference DEADLINE__EXCEPTION_NAME = eINSTANCE.getDeadline_ExceptionName();
 
         /**
          * The meta object literal for the '<em><b>Execution</b></em>' attribute feature.
@@ -20421,8 +20233,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DECLARED_TYPE__TYPE_DECLARATION_ID = eINSTANCE
-                .getDeclaredType_TypeDeclarationId();
+        EAttribute DECLARED_TYPE__TYPE_DECLARATION_ID = eINSTANCE.getDeclaredType_TypeDeclarationId();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -20440,8 +20251,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getDeprecatedResultCompensation()
          * @generated
          */
-        EClass DEPRECATED_RESULT_COMPENSATION = eINSTANCE
-                .getDeprecatedResultCompensation();
+        EClass DEPRECATED_RESULT_COMPENSATION = eINSTANCE.getDeprecatedResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Activity Id</b></em>' attribute feature.
@@ -20449,8 +20259,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DEPRECATED_RESULT_COMPENSATION__ACTIVITY_ID = eINSTANCE
-                .getDeprecatedResultCompensation_ActivityId();
+        EAttribute DEPRECATED_RESULT_COMPENSATION__ACTIVITY_ID = eINSTANCE.getDeprecatedResultCompensation_ActivityId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.DeprecatedTriggerRuleImpl <em>Deprecated Trigger Rule</em>}' class.
@@ -20468,8 +20277,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute DEPRECATED_TRIGGER_RULE__RULE_NAME = eINSTANCE
-                .getDeprecatedTriggerRule_RuleName();
+        EAttribute DEPRECATED_TRIGGER_RULE__RULE_NAME = eINSTANCE.getDeprecatedTriggerRule_RuleName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.DescriptionImpl <em>Description</em>}' class.
@@ -20531,8 +20339,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE
-                .getDocumentRoot_XMLNSPrefixMap();
+        EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
 
         /**
          * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
@@ -20540,8 +20347,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE
-                .getDocumentRoot_XSISchemaLocation();
+        EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
 
         /**
          * The meta object literal for the '<em><b>Package</b></em>' containment reference feature.
@@ -20585,8 +20391,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference EJB_APPLICATION__JNDI_NAME = eINSTANCE
-                .getEjbApplication_JndiName();
+        EReference EJB_APPLICATION__JNDI_NAME = eINSTANCE.getEjbApplication_JndiName();
 
         /**
          * The meta object literal for the '<em><b>Home Class</b></em>' containment reference feature.
@@ -20594,8 +20399,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference EJB_APPLICATION__HOME_CLASS = eINSTANCE
-                .getEjbApplication_HomeClass();
+        EReference EJB_APPLICATION__HOME_CLASS = eINSTANCE.getEjbApplication_HomeClass();
 
         /**
          * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
@@ -20603,8 +20407,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference EJB_APPLICATION__METHOD = eINSTANCE
-                .getEjbApplication_Method();
+        EReference EJB_APPLICATION__METHOD = eINSTANCE.getEjbApplication_Method();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.EndEventImpl <em>End Event</em>}' class.
@@ -20622,8 +20425,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE
-                .getEndEvent_TriggerResultMessage();
+        EReference END_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE.getEndEvent_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Result Error</b></em>' containment reference feature.
@@ -20631,8 +20433,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__RESULT_ERROR = eINSTANCE
-                .getEndEvent_ResultError();
+        EReference END_EVENT__RESULT_ERROR = eINSTANCE.getEndEvent_ResultError();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Compensation</b></em>' containment reference feature.
@@ -20640,8 +20441,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__TRIGGER_RESULT_COMPENSATION = eINSTANCE
-                .getEndEvent_TriggerResultCompensation();
+        EReference END_EVENT__TRIGGER_RESULT_COMPENSATION = eINSTANCE.getEndEvent_TriggerResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Signal</b></em>' containment reference feature.
@@ -20649,8 +20449,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE
-                .getEndEvent_TriggerResultSignal();
+        EReference END_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE.getEndEvent_TriggerResultSignal();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Result Compensation</b></em>' containment reference feature.
@@ -20658,8 +20457,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__DEPRECATED_RESULT_COMPENSATION = eINSTANCE
-                .getEndEvent_DeprecatedResultCompensation();
+        EReference END_EVENT__DEPRECATED_RESULT_COMPENSATION = eINSTANCE.getEndEvent_DeprecatedResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Result Multiple</b></em>' containment reference feature.
@@ -20667,8 +20465,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__RESULT_MULTIPLE = eINSTANCE
-                .getEndEvent_ResultMultiple();
+        EReference END_EVENT__RESULT_MULTIPLE = eINSTANCE.getEndEvent_ResultMultiple();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -20676,8 +20473,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute END_EVENT__IMPLEMENTATION = eINSTANCE
-                .getEndEvent_Implementation();
+        EAttribute END_EVENT__IMPLEMENTATION = eINSTANCE.getEndEvent_Implementation();
 
         /**
          * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
@@ -20693,8 +20489,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK = eINSTANCE
-                .getEndEvent_DeprecatedTriggerResultLink();
+        EReference END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK = eINSTANCE.getEndEvent_DeprecatedTriggerResultLink();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.EndPointImpl <em>End Point</em>}' class.
@@ -20712,8 +20507,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference END_POINT__EXTERNAL_REFERENCE = eINSTANCE
-                .getEndPoint_ExternalReference();
+        EReference END_POINT__EXTERNAL_REFERENCE = eINSTANCE.getEndPoint_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>End Point Type</b></em>' attribute feature.
@@ -20721,8 +20515,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute END_POINT__END_POINT_TYPE = eINSTANCE
-                .getEndPoint_EndPointType();
+        EAttribute END_POINT__END_POINT_TYPE = eINSTANCE.getEndPoint_EndPointType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.EnumerationTypeImpl <em>Enumeration Type</em>}' class.
@@ -20740,8 +20533,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATION_TYPE__ENUMERATION_VALUE = eINSTANCE
-                .getEnumerationType_EnumerationValue();
+        EReference ENUMERATION_TYPE__ENUMERATION_VALUE = eINSTANCE.getEnumerationType_EnumerationValue();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.EnumerationValueImpl <em>Enumeration Value</em>}' class.
@@ -20759,8 +20551,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ENUMERATION_VALUE__NAME = eINSTANCE
-                .getEnumerationValue_Name();
+        EAttribute ENUMERATION_VALUE__NAME = eINSTANCE.getEnumerationValue_Name();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.EventImpl <em>Event</em>}' class.
@@ -20830,8 +20621,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXPRESSION__SCRIPT_GRAMMAR = eINSTANCE
-                .getExpression_ScriptGrammar();
+        EAttribute EXPRESSION__SCRIPT_GRAMMAR = eINSTANCE.getExpression_ScriptGrammar();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ExtendedAttributeImpl <em>Extended Attribute</em>}' class.
@@ -20849,8 +20639,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTENDED_ATTRIBUTE__MIXED = eINSTANCE
-                .getExtendedAttribute_Mixed();
+        EAttribute EXTENDED_ATTRIBUTE__MIXED = eINSTANCE.getExtendedAttribute_Mixed();
 
         /**
          * The meta object literal for the '<em><b>Group</b></em>' attribute list feature.
@@ -20858,8 +20647,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTENDED_ATTRIBUTE__GROUP = eINSTANCE
-                .getExtendedAttribute_Group();
+        EAttribute EXTENDED_ATTRIBUTE__GROUP = eINSTANCE.getExtendedAttribute_Group();
 
         /**
          * The meta object literal for the '<em><b>Any</b></em>' attribute list feature.
@@ -20867,8 +20655,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTENDED_ATTRIBUTE__ANY = eINSTANCE
-                .getExtendedAttribute_Any();
+        EAttribute EXTENDED_ATTRIBUTE__ANY = eINSTANCE.getExtendedAttribute_Any();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -20876,8 +20663,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTENDED_ATTRIBUTE__NAME = eINSTANCE
-                .getExtendedAttribute_Name();
+        EAttribute EXTENDED_ATTRIBUTE__NAME = eINSTANCE.getExtendedAttribute_Name();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -20885,8 +20671,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTENDED_ATTRIBUTE__VALUE = eINSTANCE
-                .getExtendedAttribute_Value();
+        EAttribute EXTENDED_ATTRIBUTE__VALUE = eINSTANCE.getExtendedAttribute_Value();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ExternalPackageImpl <em>External Package</em>}' class.
@@ -20922,8 +20707,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTERNAL_REFERENCE__LOCATION = eINSTANCE
-                .getExternalReference_Location();
+        EAttribute EXTERNAL_REFERENCE__LOCATION = eINSTANCE.getExternalReference_Location();
 
         /**
          * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
@@ -20931,8 +20715,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTERNAL_REFERENCE__NAMESPACE = eINSTANCE
-                .getExternalReference_Namespace();
+        EAttribute EXTERNAL_REFERENCE__NAMESPACE = eINSTANCE.getExternalReference_Namespace();
 
         /**
          * The meta object literal for the '<em><b>Xref</b></em>' attribute feature.
@@ -20940,8 +20723,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EXTERNAL_REFERENCE__XREF = eINSTANCE
-                .getExternalReference_Xref();
+        EAttribute EXTERNAL_REFERENCE__XREF = eINSTANCE.getExternalReference_Xref();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.FormalParameterImpl <em>Formal Parameter</em>}' class.
@@ -20967,8 +20749,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMAL_PARAMETER__REQUIRED = eINSTANCE
-                .getFormalParameter_Required();
+        EAttribute FORMAL_PARAMETER__REQUIRED = eINSTANCE.getFormalParameter_Required();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.FormLayoutImpl <em>Form Layout</em>}' class.
@@ -21004,8 +20785,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FORM_APPLICATION__FORM_LAYOUT = eINSTANCE
-                .getFormApplication_FormLayout();
+        EReference FORM_APPLICATION__FORM_LAYOUT = eINSTANCE.getFormApplication_FormLayout();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.HomeClassImpl <em>Home Class</em>}' class.
@@ -21099,8 +20879,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference IMPLEMENTATION__ACTIVITY = eINSTANCE
-                .getImplementation_Activity();
+        EReference IMPLEMENTATION__ACTIVITY = eINSTANCE.getImplementation_Activity();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.InputSetImpl <em>Input Set</em>}' class.
@@ -21126,8 +20905,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INPUT_SET__ARTIFACT_INPUT = eINSTANCE
-                .getInputSet_ArtifactInput();
+        EReference INPUT_SET__ARTIFACT_INPUT = eINSTANCE.getInputSet_ArtifactInput();
 
         /**
          * The meta object literal for the '<em><b>Property Input</b></em>' containment reference list feature.
@@ -21135,8 +20913,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INPUT_SET__PROPERTY_INPUT = eINSTANCE
-                .getInputSet_PropertyInput();
+        EReference INPUT_SET__PROPERTY_INPUT = eINSTANCE.getInputSet_PropertyInput();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.InputImpl <em>Input</em>}' class.
@@ -21172,8 +20949,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE
-                .getIntermediateEvent_TriggerResultMessage();
+        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE.getIntermediateEvent_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Trigger Timer</b></em>' containment reference feature.
@@ -21181,8 +20957,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_TIMER = eINSTANCE
-                .getIntermediateEvent_TriggerTimer();
+        EReference INTERMEDIATE_EVENT__TRIGGER_TIMER = eINSTANCE.getIntermediateEvent_TriggerTimer();
 
         /**
          * The meta object literal for the '<em><b>Result Error</b></em>' containment reference feature.
@@ -21190,8 +20965,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__RESULT_ERROR = eINSTANCE
-                .getIntermediateEvent_ResultError();
+        EReference INTERMEDIATE_EVENT__RESULT_ERROR = eINSTANCE.getIntermediateEvent_ResultError();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Compensation</b></em>' containment reference feature.
@@ -21199,8 +20973,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION = eINSTANCE
-                .getIntermediateEvent_TriggerResultCompensation();
+        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION =
+                eINSTANCE.getIntermediateEvent_TriggerResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Trigger Conditional</b></em>' containment reference feature.
@@ -21208,8 +20982,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL = eINSTANCE
-                .getIntermediateEvent_TriggerConditional();
+        EReference INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL = eINSTANCE.getIntermediateEvent_TriggerConditional();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Link</b></em>' containment reference feature.
@@ -21217,8 +20990,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK = eINSTANCE
-                .getIntermediateEvent_TriggerResultLink();
+        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK = eINSTANCE.getIntermediateEvent_TriggerResultLink();
 
         /**
          * The meta object literal for the '<em><b>Trigger Intermediate Multiple</b></em>' containment reference feature.
@@ -21235,8 +21007,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERMEDIATE_EVENT__IMPLEMENTATION = eINSTANCE
-                .getIntermediateEvent_Implementation();
+        EAttribute INTERMEDIATE_EVENT__IMPLEMENTATION = eINSTANCE.getIntermediateEvent_Implementation();
 
         /**
          * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
@@ -21244,8 +21015,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERMEDIATE_EVENT__TARGET = eINSTANCE
-                .getIntermediateEvent_Target();
+        EAttribute INTERMEDIATE_EVENT__TARGET = eINSTANCE.getIntermediateEvent_Target();
 
         /**
          * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
@@ -21253,8 +21023,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERMEDIATE_EVENT__TRIGGER = eINSTANCE
-                .getIntermediateEvent_Trigger();
+        EAttribute INTERMEDIATE_EVENT__TRIGGER = eINSTANCE.getIntermediateEvent_Trigger();
 
         /**
          * The meta object literal for the '<em><b>Any Attribute</b></em>' attribute list feature.
@@ -21262,8 +21031,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute INTERMEDIATE_EVENT__ANY_ATTRIBUTE = eINSTANCE
-                .getIntermediateEvent_AnyAttribute();
+        EAttribute INTERMEDIATE_EVENT__ANY_ATTRIBUTE = eINSTANCE.getIntermediateEvent_AnyAttribute();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Cancel</b></em>' containment reference feature.
@@ -21271,8 +21039,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL = eINSTANCE
-                .getIntermediateEvent_TriggerResultCancel();
+        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL = eINSTANCE.getIntermediateEvent_TriggerResultCancel();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Signal</b></em>' containment reference feature.
@@ -21280,8 +21047,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE
-                .getIntermediateEvent_TriggerResultSignal();
+        EReference INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE.getIntermediateEvent_TriggerResultSignal();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Trigger Rule</b></em>' containment reference feature.
@@ -21289,8 +21055,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE = eINSTANCE
-                .getIntermediateEvent_DeprecatedTriggerRule();
+        EReference INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE = eINSTANCE.getIntermediateEvent_DeprecatedTriggerRule();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Result Compensation</b></em>' containment reference feature.
@@ -21353,8 +21118,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute JOIN__INCOMING_CONDTION = eINSTANCE
-                .getJoin_IncomingCondtion();
+        EAttribute JOIN__INCOMING_CONDTION = eINSTANCE.getJoin_IncomingCondtion();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -21388,8 +21152,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LAYOUT_INFO__PIXELS_PER_MILLIMETER = eINSTANCE
-                .getLayoutInfo_PixelsPerMillimeter();
+        EAttribute LAYOUT_INFO__PIXELS_PER_MILLIMETER = eINSTANCE.getLayoutInfo_PixelsPerMillimeter();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.LaneImpl <em>Lane</em>}' class.
@@ -21415,8 +21178,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LANE__DEPRECATED_PARENT_LANE = eINSTANCE
-                .getLane_DeprecatedParentLane();
+        EAttribute LANE__DEPRECATED_PARENT_LANE = eINSTANCE.getLane_DeprecatedParentLane();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Parent Pool Id</b></em>' attribute feature.
@@ -21424,8 +21186,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LANE__DEPRECATED_PARENT_POOL_ID = eINSTANCE
-                .getLane_DeprecatedParentPoolId();
+        EAttribute LANE__DEPRECATED_PARENT_POOL_ID = eINSTANCE.getLane_DeprecatedParentPoolId();
 
         /**
          * The meta object literal for the '<em><b>Parent Pool</b></em>' container reference feature.
@@ -21511,8 +21272,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIST_TYPE__DECLARED_TYPE = eINSTANCE
-                .getListType_DeclaredType();
+        EReference LIST_TYPE__DECLARED_TYPE = eINSTANCE.getListType_DeclaredType();
 
         /**
          * The meta object literal for the '<em><b>Schema Type</b></em>' containment reference feature.
@@ -21528,8 +21288,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIST_TYPE__EXTERNAL_REFERENCE = eINSTANCE
-                .getListType_ExternalReference();
+        EReference LIST_TYPE__EXTERNAL_REFERENCE = eINSTANCE.getListType_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Record Type</b></em>' containment reference feature.
@@ -21553,8 +21312,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LIST_TYPE__ENUMERATION_TYPE = eINSTANCE
-                .getListType_EnumerationType();
+        EReference LIST_TYPE__ENUMERATION_TYPE = eINSTANCE.getListType_EnumerationType();
 
         /**
          * The meta object literal for the '<em><b>Array Type</b></em>' containment reference feature.
@@ -21606,8 +21364,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION = eINSTANCE
-                .getLoopMultiInstance_ComplexMIFlowCondition();
+        EReference LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION =
+                eINSTANCE.getLoopMultiInstance_ComplexMIFlowCondition();
 
         /**
          * The meta object literal for the '<em><b>Attribute Complex MI Flow Condition</b></em>' attribute feature.
@@ -21616,8 +21374,7 @@ public interface Xpdl2Package extends EPackage {
          * @generated
          */
         EAttribute LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION =
-                eINSTANCE
-                        .getLoopMultiInstance_AttributeComplexMI_FlowCondition();
+                eINSTANCE.getLoopMultiInstance_AttributeComplexMI_FlowCondition();
 
         /**
          * The meta object literal for the '<em><b>Attribute MI Condition</b></em>' attribute feature.
@@ -21625,8 +21382,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION = eINSTANCE
-                .getLoopMultiInstance_AttributeMI_Condition();
+        EAttribute LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION = eINSTANCE.getLoopMultiInstance_AttributeMI_Condition();
 
         /**
          * The meta object literal for the '<em><b>Loop Counter</b></em>' attribute feature.
@@ -21634,8 +21390,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_MULTI_INSTANCE__LOOP_COUNTER = eINSTANCE
-                .getLoopMultiInstance_LoopCounter();
+        EAttribute LOOP_MULTI_INSTANCE__LOOP_COUNTER = eINSTANCE.getLoopMultiInstance_LoopCounter();
 
         /**
          * The meta object literal for the '<em><b>MI Condition</b></em>' containment reference feature.
@@ -21643,8 +21398,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LOOP_MULTI_INSTANCE__MI_CONDITION = eINSTANCE
-                .getLoopMultiInstance_MICondition();
+        EReference LOOP_MULTI_INSTANCE__MI_CONDITION = eINSTANCE.getLoopMultiInstance_MICondition();
 
         /**
          * The meta object literal for the '<em><b>MI Flow Condition</b></em>' attribute feature.
@@ -21652,8 +21406,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION = eINSTANCE
-                .getLoopMultiInstance_MIFlowCondition();
+        EAttribute LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION = eINSTANCE.getLoopMultiInstance_MIFlowCondition();
 
         /**
          * The meta object literal for the '<em><b>MI Ordering</b></em>' attribute feature.
@@ -21661,8 +21414,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_MULTI_INSTANCE__MI_ORDERING = eINSTANCE
-                .getLoopMultiInstance_MIOrdering();
+        EAttribute LOOP_MULTI_INSTANCE__MI_ORDERING = eINSTANCE.getLoopMultiInstance_MIOrdering();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.LoopStandardImpl <em>Loop Standard</em>}' class.
@@ -21680,8 +21432,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LOOP_STANDARD__LOOP_CONDITION = eINSTANCE
-                .getLoopStandard_LoopCondition();
+        EReference LOOP_STANDARD__LOOP_CONDITION = eINSTANCE.getLoopStandard_LoopCondition();
 
         /**
          * The meta object literal for the '<em><b>Loop Counter</b></em>' attribute feature.
@@ -21689,8 +21440,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_STANDARD__LOOP_COUNTER = eINSTANCE
-                .getLoopStandard_LoopCounter();
+        EAttribute LOOP_STANDARD__LOOP_COUNTER = eINSTANCE.getLoopStandard_LoopCounter();
 
         /**
          * The meta object literal for the '<em><b>Loop Maximum</b></em>' attribute feature.
@@ -21698,8 +21448,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_STANDARD__LOOP_MAXIMUM = eINSTANCE
-                .getLoopStandard_LoopMaximum();
+        EAttribute LOOP_STANDARD__LOOP_MAXIMUM = eINSTANCE.getLoopStandard_LoopMaximum();
 
         /**
          * The meta object literal for the '<em><b>Test Time</b></em>' attribute feature.
@@ -21707,8 +21456,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_STANDARD__TEST_TIME = eINSTANCE
-                .getLoopStandard_TestTime();
+        EAttribute LOOP_STANDARD__TEST_TIME = eINSTANCE.getLoopStandard_TestTime();
 
         /**
          * The meta object literal for the '<em><b>Attribute Loop Condition</b></em>' attribute feature.
@@ -21716,8 +21464,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION = eINSTANCE
-                .getLoopStandard_AttributeLoopCondition();
+        EAttribute LOOP_STANDARD__ATTRIBUTE_LOOP_CONDITION = eINSTANCE.getLoopStandard_AttributeLoopCondition();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.LoopImpl <em>Loop</em>}' class.
@@ -21743,8 +21490,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LOOP__LOOP_MULTI_INSTANCE = eINSTANCE
-                .getLoop_LoopMultiInstance();
+        EReference LOOP__LOOP_MULTI_INSTANCE = eINSTANCE.getLoop_LoopMultiInstance();
 
         /**
          * The meta object literal for the '<em><b>Loop Type</b></em>' attribute feature.
@@ -21802,8 +21548,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MEMBER__EXTERNAL_REFERENCE = eINSTANCE
-                .getMember_ExternalReference();
+        EReference MEMBER__EXTERNAL_REFERENCE = eINSTANCE.getMember_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Record Type</b></em>' containment reference feature.
@@ -21827,8 +21572,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MEMBER__ENUMERATION_TYPE = eINSTANCE
-                .getMember_EnumerationType();
+        EReference MEMBER__ENUMERATION_TYPE = eINSTANCE.getMember_EnumerationType();
 
         /**
          * The meta object literal for the '<em><b>Array Type</b></em>' containment reference feature.
@@ -21920,8 +21664,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MESSAGE__ACTUAL_PARAMETERS = eINSTANCE
-                .getMessage_ActualParameters();
+        EReference MESSAGE__ACTUAL_PARAMETERS = eINSTANCE.getMessage_ActualParameters();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -22017,8 +21760,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference NODE_GRAPHICS_INFO__COORDINATES = eINSTANCE
-                .getNodeGraphicsInfo_Coordinates();
+        EReference NODE_GRAPHICS_INFO__COORDINATES = eINSTANCE.getNodeGraphicsInfo_Coordinates();
 
         /**
          * The meta object literal for the '<em><b>Border Color</b></em>' attribute feature.
@@ -22026,8 +21768,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__BORDER_COLOR = eINSTANCE
-                .getNodeGraphicsInfo_BorderColor();
+        EAttribute NODE_GRAPHICS_INFO__BORDER_COLOR = eINSTANCE.getNodeGraphicsInfo_BorderColor();
 
         /**
          * The meta object literal for the '<em><b>Fill Color</b></em>' attribute feature.
@@ -22035,8 +21776,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__FILL_COLOR = eINSTANCE
-                .getNodeGraphicsInfo_FillColor();
+        EAttribute NODE_GRAPHICS_INFO__FILL_COLOR = eINSTANCE.getNodeGraphicsInfo_FillColor();
 
         /**
          * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
@@ -22044,8 +21784,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__HEIGHT = eINSTANCE
-                .getNodeGraphicsInfo_Height();
+        EAttribute NODE_GRAPHICS_INFO__HEIGHT = eINSTANCE.getNodeGraphicsInfo_Height();
 
         /**
          * The meta object literal for the '<em><b>Is Visible</b></em>' attribute feature.
@@ -22053,8 +21792,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__IS_VISIBLE = eINSTANCE
-                .getNodeGraphicsInfo_IsVisible();
+        EAttribute NODE_GRAPHICS_INFO__IS_VISIBLE = eINSTANCE.getNodeGraphicsInfo_IsVisible();
 
         /**
          * The meta object literal for the '<em><b>Lane Id</b></em>' attribute feature.
@@ -22062,8 +21800,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__LANE_ID = eINSTANCE
-                .getNodeGraphicsInfo_LaneId();
+        EAttribute NODE_GRAPHICS_INFO__LANE_ID = eINSTANCE.getNodeGraphicsInfo_LaneId();
 
         /**
          * The meta object literal for the '<em><b>Page</b></em>' attribute feature.
@@ -22071,8 +21808,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__PAGE = eINSTANCE
-                .getNodeGraphicsInfo_Page();
+        EAttribute NODE_GRAPHICS_INFO__PAGE = eINSTANCE.getNodeGraphicsInfo_Page();
 
         /**
          * The meta object literal for the '<em><b>Shape</b></em>' attribute feature.
@@ -22080,8 +21816,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__SHAPE = eINSTANCE
-                .getNodeGraphicsInfo_Shape();
+        EAttribute NODE_GRAPHICS_INFO__SHAPE = eINSTANCE.getNodeGraphicsInfo_Shape();
 
         /**
          * The meta object literal for the '<em><b>Tool Id</b></em>' attribute feature.
@@ -22089,8 +21824,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__TOOL_ID = eINSTANCE
-                .getNodeGraphicsInfo_ToolId();
+        EAttribute NODE_GRAPHICS_INFO__TOOL_ID = eINSTANCE.getNodeGraphicsInfo_ToolId();
 
         /**
          * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -22098,8 +21832,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__WIDTH = eINSTANCE
-                .getNodeGraphicsInfo_Width();
+        EAttribute NODE_GRAPHICS_INFO__WIDTH = eINSTANCE.getNodeGraphicsInfo_Width();
 
         /**
          * The meta object literal for the '<em><b>Page Id</b></em>' attribute feature.
@@ -22107,8 +21840,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute NODE_GRAPHICS_INFO__PAGE_ID = eINSTANCE
-                .getNodeGraphicsInfo_PageId();
+        EAttribute NODE_GRAPHICS_INFO__PAGE_ID = eINSTANCE.getNodeGraphicsInfo_PageId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.NoImpl <em>No</em>}' class.
@@ -22198,8 +21930,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PACKAGE_HEADER__XPDL_VERSION = eINSTANCE
-                .getPackageHeader_XpdlVersion();
+        EAttribute PACKAGE_HEADER__XPDL_VERSION = eINSTANCE.getPackageHeader_XpdlVersion();
 
         /**
          * The meta object literal for the '<em><b>Vendor</b></em>' attribute feature.
@@ -22215,8 +21946,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PACKAGE_HEADER__CREATED = eINSTANCE
-                .getPackageHeader_Created();
+        EAttribute PACKAGE_HEADER__CREATED = eINSTANCE.getPackageHeader_Created();
 
         /**
          * The meta object literal for the '<em><b>Documentation</b></em>' containment reference feature.
@@ -22224,8 +21954,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__DOCUMENTATION = eINSTANCE
-                .getPackageHeader_Documentation();
+        EReference PACKAGE_HEADER__DOCUMENTATION = eINSTANCE.getPackageHeader_Documentation();
 
         /**
          * The meta object literal for the '<em><b>Priority Unit</b></em>' containment reference feature.
@@ -22233,8 +21962,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__PRIORITY_UNIT = eINSTANCE
-                .getPackageHeader_PriorityUnit();
+        EReference PACKAGE_HEADER__PRIORITY_UNIT = eINSTANCE.getPackageHeader_PriorityUnit();
 
         /**
          * The meta object literal for the '<em><b>Cost Unit</b></em>' containment reference feature.
@@ -22242,8 +21970,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__COST_UNIT = eINSTANCE
-                .getPackageHeader_CostUnit();
+        EReference PACKAGE_HEADER__COST_UNIT = eINSTANCE.getPackageHeader_CostUnit();
 
         /**
          * The meta object literal for the '<em><b>Vendor Extensions</b></em>' containment reference feature.
@@ -22251,8 +21978,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__VENDOR_EXTENSIONS = eINSTANCE
-                .getPackageHeader_VendorExtensions();
+        EReference PACKAGE_HEADER__VENDOR_EXTENSIONS = eINSTANCE.getPackageHeader_VendorExtensions();
 
         /**
          * The meta object literal for the '<em><b>Layout Info</b></em>' containment reference feature.
@@ -22260,8 +21986,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__LAYOUT_INFO = eINSTANCE
-                .getPackageHeader_LayoutInfo();
+        EReference PACKAGE_HEADER__LAYOUT_INFO = eINSTANCE.getPackageHeader_LayoutInfo();
 
         /**
          * The meta object literal for the '<em><b>Modification Date</b></em>' containment reference feature.
@@ -22269,8 +21994,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE_HEADER__MODIFICATION_DATE = eINSTANCE
-                .getPackageHeader_ModificationDate();
+        EReference PACKAGE_HEADER__MODIFICATION_DATE = eINSTANCE.getPackageHeader_ModificationDate();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PackageImpl <em>Package</em>}' class.
@@ -22288,8 +22012,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__PACKAGE_HEADER = eINSTANCE
-                .getPackage_PackageHeader();
+        EReference PACKAGE__PACKAGE_HEADER = eINSTANCE.getPackage_PackageHeader();
 
         /**
          * The meta object literal for the '<em><b>Redefinable Header</b></em>' containment reference feature.
@@ -22297,8 +22020,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__REDEFINABLE_HEADER = eINSTANCE
-                .getPackage_RedefinableHeader();
+        EReference PACKAGE__REDEFINABLE_HEADER = eINSTANCE.getPackage_RedefinableHeader();
 
         /**
          * The meta object literal for the '<em><b>Conformance Class</b></em>' containment reference feature.
@@ -22306,8 +22028,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__CONFORMANCE_CLASS = eINSTANCE
-                .getPackage_ConformanceClass();
+        EReference PACKAGE__CONFORMANCE_CLASS = eINSTANCE.getPackage_ConformanceClass();
 
         /**
          * The meta object literal for the '<em><b>Script</b></em>' containment reference feature.
@@ -22323,8 +22044,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__EXTERNAL_PACKAGES = eINSTANCE
-                .getPackage_ExternalPackages();
+        EReference PACKAGE__EXTERNAL_PACKAGES = eINSTANCE.getPackage_ExternalPackages();
 
         /**
          * The meta object literal for the '<em><b>Type Declarations</b></em>' containment reference list feature.
@@ -22332,8 +22052,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__TYPE_DECLARATIONS = eINSTANCE
-                .getPackage_TypeDeclarations();
+        EReference PACKAGE__TYPE_DECLARATIONS = eINSTANCE.getPackage_TypeDeclarations();
 
         /**
          * The meta object literal for the '<em><b>Partner Link Types</b></em>' containment reference list feature.
@@ -22341,8 +22060,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PACKAGE__PARTNER_LINK_TYPES = eINSTANCE
-                .getPackage_PartnerLinkTypes();
+        EReference PACKAGE__PARTNER_LINK_TYPES = eINSTANCE.getPackage_PartnerLinkTypes();
 
         /**
          * The meta object literal for the '<em><b>Pools</b></em>' containment reference list feature.
@@ -22398,8 +22116,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PACKAGE__QUERY_LANGUAGE = eINSTANCE
-                .getPackage_QueryLanguage();
+        EAttribute PACKAGE__QUERY_LANGUAGE = eINSTANCE.getPackage_QueryLanguage();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PageImpl <em>Page</em>}' class.
@@ -22461,8 +22178,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATIONS_CONTAINER__APPLICATIONS = eINSTANCE
-                .getApplicationsContainer_Applications();
+        EReference APPLICATIONS_CONTAINER__APPLICATIONS = eINSTANCE.getApplicationsContainer_Applications();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.ParticipantsContainer <em>Participants Container</em>}' class.
@@ -22480,8 +22196,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANTS_CONTAINER__PARTICIPANTS = eINSTANCE
-                .getParticipantsContainer_Participants();
+        EReference PARTICIPANTS_CONTAINER__PARTICIPANTS = eINSTANCE.getParticipantsContainer_Participants();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.DataFieldsContainerImpl <em>Data Fields Container</em>}' class.
@@ -22499,8 +22214,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DATA_FIELDS_CONTAINER__DATA_FIELDS = eINSTANCE
-                .getDataFieldsContainer_DataFields();
+        EReference DATA_FIELDS_CONTAINER__DATA_FIELDS = eINSTANCE.getDataFieldsContainer_DataFields();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ParticipantImpl <em>Participant</em>}' class.
@@ -22518,8 +22232,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT__PARTICIPANT_TYPE = eINSTANCE
-                .getParticipant_ParticipantType();
+        EReference PARTICIPANT__PARTICIPANT_TYPE = eINSTANCE.getParticipant_ParticipantType();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' containment reference feature.
@@ -22527,8 +22240,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTICIPANT__EXTERNAL_REFERENCE = eINSTANCE
-                .getParticipant_ExternalReference();
+        EReference PARTICIPANT__EXTERNAL_REFERENCE = eINSTANCE.getParticipant_ExternalReference();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ParticipantTypeElemImpl <em>Participant Type Elem</em>}' class.
@@ -22546,8 +22258,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTICIPANT_TYPE_ELEM__TYPE = eINSTANCE
-                .getParticipantTypeElem_Type();
+        EAttribute PARTICIPANT_TYPE_ELEM__TYPE = eINSTANCE.getParticipantTypeElem_Type();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PartnerLinkImpl <em>Partner Link</em>}' class.
@@ -22573,8 +22284,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTNER_LINK__PARTNER_ROLE = eINSTANCE
-                .getPartnerLink_PartnerRole();
+        EReference PARTNER_LINK__PARTNER_ROLE = eINSTANCE.getPartnerLink_PartnerRole();
 
         /**
          * The meta object literal for the '<em><b>Partner Link Type Id</b></em>' attribute feature.
@@ -22582,8 +22292,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER_LINK__PARTNER_LINK_TYPE_ID = eINSTANCE
-                .getPartnerLink_PartnerLinkTypeId();
+        EAttribute PARTNER_LINK__PARTNER_LINK_TYPE_ID = eINSTANCE.getPartnerLink_PartnerLinkTypeId();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -22609,8 +22318,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTNER_LINK_TYPE__ROLE = eINSTANCE
-                .getPartnerLinkType_Role();
+        EReference PARTNER_LINK_TYPE__ROLE = eINSTANCE.getPartnerLinkType_Role();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -22618,8 +22326,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER_LINK_TYPE__NAME = eINSTANCE
-                .getPartnerLinkType_Name();
+        EAttribute PARTNER_LINK_TYPE__NAME = eINSTANCE.getPartnerLinkType_Name();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PartnerRoleImpl <em>Partner Role</em>}' class.
@@ -22637,8 +22344,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PARTNER_ROLE__END_POINT = eINSTANCE
-                .getPartnerRole_EndPoint();
+        EReference PARTNER_ROLE__END_POINT = eINSTANCE.getPartnerRole_EndPoint();
 
         /**
          * The meta object literal for the '<em><b>Port Name</b></em>' attribute feature.
@@ -22646,8 +22352,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER_ROLE__PORT_NAME = eINSTANCE
-                .getPartnerRole_PortName();
+        EAttribute PARTNER_ROLE__PORT_NAME = eINSTANCE.getPartnerRole_PortName();
 
         /**
          * The meta object literal for the '<em><b>Role Name</b></em>' attribute feature.
@@ -22655,8 +22360,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER_ROLE__ROLE_NAME = eINSTANCE
-                .getPartnerRole_RoleName();
+        EAttribute PARTNER_ROLE__ROLE_NAME = eINSTANCE.getPartnerRole_RoleName();
 
         /**
          * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
@@ -22664,8 +22368,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER_ROLE__SERVICE_NAME = eINSTANCE
-                .getPartnerRole_ServiceName();
+        EAttribute PARTNER_ROLE__SERVICE_NAME = eINSTANCE.getPartnerRole_ServiceName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PartnerImpl <em>Partner</em>}' class.
@@ -22683,8 +22386,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PARTNER__PARTNER_LINK_ID = eINSTANCE
-                .getPartner_PartnerLinkId();
+        EAttribute PARTNER__PARTNER_LINK_ID = eINSTANCE.getPartner_PartnerLinkId();
 
         /**
          * The meta object literal for the '<em><b>Role Type</b></em>' attribute feature.
@@ -22728,8 +22430,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference POJO_APPLICATION__CLASS = eINSTANCE
-                .getPojoApplication_Class();
+        EReference POJO_APPLICATION__CLASS = eINSTANCE.getPojoApplication_Class();
 
         /**
          * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
@@ -22737,8 +22438,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference POJO_APPLICATION__METHOD = eINSTANCE
-                .getPojoApplication_Method();
+        EReference POJO_APPLICATION__METHOD = eINSTANCE.getPojoApplication_Method();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PoolImpl <em>Pool</em>}' class.
@@ -22884,8 +22584,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS_HEADER__CREATED = eINSTANCE
-                .getProcessHeader_Created();
+        EAttribute PROCESS_HEADER__CREATED = eINSTANCE.getProcessHeader_Created();
 
         /**
          * The meta object literal for the '<em><b>Priority</b></em>' containment reference feature.
@@ -22893,8 +22592,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_HEADER__PRIORITY = eINSTANCE
-                .getProcessHeader_Priority();
+        EReference PROCESS_HEADER__PRIORITY = eINSTANCE.getProcessHeader_Priority();
 
         /**
          * The meta object literal for the '<em><b>Limit</b></em>' containment reference feature.
@@ -22910,8 +22608,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_HEADER__VALID_FROM = eINSTANCE
-                .getProcessHeader_ValidFrom();
+        EReference PROCESS_HEADER__VALID_FROM = eINSTANCE.getProcessHeader_ValidFrom();
 
         /**
          * The meta object literal for the '<em><b>Valid To</b></em>' containment reference feature.
@@ -22919,8 +22616,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_HEADER__VALID_TO = eINSTANCE
-                .getProcessHeader_ValidTo();
+        EReference PROCESS_HEADER__VALID_TO = eINSTANCE.getProcessHeader_ValidTo();
 
         /**
          * The meta object literal for the '<em><b>Time Estimation</b></em>' containment reference feature.
@@ -22928,8 +22624,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_HEADER__TIME_ESTIMATION = eINSTANCE
-                .getProcessHeader_TimeEstimation();
+        EReference PROCESS_HEADER__TIME_ESTIMATION = eINSTANCE.getProcessHeader_TimeEstimation();
 
         /**
          * The meta object literal for the '<em><b>Duration Unit</b></em>' attribute feature.
@@ -22937,8 +22632,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS_HEADER__DURATION_UNIT = eINSTANCE
-                .getProcessHeader_DurationUnit();
+        EAttribute PROCESS_HEADER__DURATION_UNIT = eINSTANCE.getProcessHeader_DurationUnit();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ProcessImpl <em>Process</em>}' class.
@@ -22956,8 +22650,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS__PROCESS_HEADER = eINSTANCE
-                .getProcess_ProcessHeader();
+        EReference PROCESS__PROCESS_HEADER = eINSTANCE.getProcess_ProcessHeader();
 
         /**
          * The meta object literal for the '<em><b>Redefinable Header</b></em>' containment reference feature.
@@ -22965,8 +22658,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS__REDEFINABLE_HEADER = eINSTANCE
-                .getProcess_RedefinableHeader();
+        EReference PROCESS__REDEFINABLE_HEADER = eINSTANCE.getProcess_RedefinableHeader();
 
         /**
          * The meta object literal for the '<em><b>Partner Links</b></em>' containment reference list feature.
@@ -23006,8 +22698,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS__DEFAULT_START_ACTIVITY_SET_ID = eINSTANCE
-                .getProcess_DefaultStartActivitySetId();
+        EAttribute PROCESS__DEFAULT_START_ACTIVITY_SET_ID = eINSTANCE.getProcess_DefaultStartActivitySetId();
 
         /**
          * The meta object literal for the '<em><b>Enable Instance Compensation</b></em>' attribute feature.
@@ -23015,8 +22706,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS__ENABLE_INSTANCE_COMPENSATION = eINSTANCE
-                .getProcess_EnableInstanceCompensation();
+        EAttribute PROCESS__ENABLE_INSTANCE_COMPENSATION = eINSTANCE.getProcess_EnableInstanceCompensation();
 
         /**
          * The meta object literal for the '<em><b>Process Type</b></em>' attribute feature.
@@ -23040,8 +22730,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS__SUPPRESS_JOIN_FAILURE = eINSTANCE
-                .getProcess_SuppressJoinFailure();
+        EAttribute PROCESS__SUPPRESS_JOIN_FAILURE = eINSTANCE.getProcess_SuppressJoinFailure();
 
         /**
          * The meta object literal for the '<em><b>Package</b></em>' container reference feature.
@@ -23067,8 +22756,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getFormalParametersContainer()
          * @generated
          */
-        EClass FORMAL_PARAMETERS_CONTAINER = eINSTANCE
-                .getFormalParametersContainer();
+        EClass FORMAL_PARAMETERS_CONTAINER = eINSTANCE.getFormalParametersContainer();
 
         /**
          * The meta object literal for the '<em><b>Formal Parameters</b></em>' containment reference list feature.
@@ -23076,8 +22764,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS = eINSTANCE
-                .getFormalParametersContainer_FormalParameters();
+        EReference FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS =
+                eINSTANCE.getFormalParametersContainer_FormalParameters();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.AssigmentsContainer <em>Assigments Container</em>}' class.
@@ -23095,8 +22783,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ASSIGMENTS_CONTAINER__ASSIGNMENTS = eINSTANCE
-                .getAssigmentsContainer_Assignments();
+        EReference ASSIGMENTS_CONTAINER__ASSIGNMENTS = eINSTANCE.getAssigmentsContainer_Assignments();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.RecordTypeImpl <em>Record Type</em>}' class.
@@ -23132,8 +22819,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REDEFINABLE_HEADER__AUTHOR = eINSTANCE
-                .getRedefinableHeader_Author();
+        EAttribute REDEFINABLE_HEADER__AUTHOR = eINSTANCE.getRedefinableHeader_Author();
 
         /**
          * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
@@ -23141,8 +22827,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REDEFINABLE_HEADER__VERSION = eINSTANCE
-                .getRedefinableHeader_Version();
+        EAttribute REDEFINABLE_HEADER__VERSION = eINSTANCE.getRedefinableHeader_Version();
 
         /**
          * The meta object literal for the '<em><b>Codepage</b></em>' containment reference feature.
@@ -23150,8 +22835,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference REDEFINABLE_HEADER__CODEPAGE = eINSTANCE
-                .getRedefinableHeader_Codepage();
+        EReference REDEFINABLE_HEADER__CODEPAGE = eINSTANCE.getRedefinableHeader_Codepage();
 
         /**
          * The meta object literal for the '<em><b>Countrykey</b></em>' containment reference feature.
@@ -23159,8 +22843,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference REDEFINABLE_HEADER__COUNTRYKEY = eINSTANCE
-                .getRedefinableHeader_Countrykey();
+        EReference REDEFINABLE_HEADER__COUNTRYKEY = eINSTANCE.getRedefinableHeader_Countrykey();
 
         /**
          * The meta object literal for the '<em><b>Responsibles</b></em>' containment reference list feature.
@@ -23168,8 +22851,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference REDEFINABLE_HEADER__RESPONSIBLES = eINSTANCE
-                .getRedefinableHeader_Responsibles();
+        EReference REDEFINABLE_HEADER__RESPONSIBLES = eINSTANCE.getRedefinableHeader_Responsibles();
 
         /**
          * The meta object literal for the '<em><b>Publication Status</b></em>' attribute feature.
@@ -23177,8 +22859,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REDEFINABLE_HEADER__PUBLICATION_STATUS = eINSTANCE
-                .getRedefinableHeader_PublicationStatus();
+        EAttribute REDEFINABLE_HEADER__PUBLICATION_STATUS = eINSTANCE.getRedefinableHeader_PublicationStatus();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -23214,8 +22895,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RESOURCE_COSTS__RESOURCE_COST = eINSTANCE
-                .getResourceCosts_ResourceCost();
+        EAttribute RESOURCE_COSTS__RESOURCE_COST = eINSTANCE.getResourceCosts_ResourceCost();
 
         /**
          * The meta object literal for the '<em><b>Cost Unit Of Time</b></em>' attribute feature.
@@ -23223,8 +22903,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RESOURCE_COSTS__COST_UNIT_OF_TIME = eINSTANCE
-                .getResourceCosts_CostUnitOfTime();
+        EAttribute RESOURCE_COSTS__COST_UNIT_OF_TIME = eINSTANCE.getResourceCosts_CostUnitOfTime();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ResponsibleImpl <em>Responsible</em>}' class.
@@ -23260,8 +22939,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute RESULT_ERROR__ERROR_CODE = eINSTANCE
-                .getResultError_ErrorCode();
+        EAttribute RESULT_ERROR__ERROR_CODE = eINSTANCE.getResultError_ErrorCode();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.ResultMultipleImpl <em>Result Multiple</em>}' class.
@@ -23279,8 +22957,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE = eINSTANCE
-                .getResultMultiple_TriggerResultMessage();
+        EReference RESULT_MULTIPLE__TRIGGER_RESULT_MESSAGE = eINSTANCE.getResultMultiple_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Link</b></em>' containment reference feature.
@@ -23288,8 +22965,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESULT_MULTIPLE__TRIGGER_RESULT_LINK = eINSTANCE
-                .getResultMultiple_TriggerResultLink();
+        EReference RESULT_MULTIPLE__TRIGGER_RESULT_LINK = eINSTANCE.getResultMultiple_TriggerResultLink();
 
         /**
          * The meta object literal for the '<em><b>Result Compensation</b></em>' containment reference feature.
@@ -23297,8 +22973,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESULT_MULTIPLE__RESULT_COMPENSATION = eINSTANCE
-                .getResultMultiple_ResultCompensation();
+        EReference RESULT_MULTIPLE__RESULT_COMPENSATION = eINSTANCE.getResultMultiple_ResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Result Error</b></em>' containment reference feature.
@@ -23306,8 +22981,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference RESULT_MULTIPLE__RESULT_ERROR = eINSTANCE
-                .getResultMultiple_ResultError();
+        EReference RESULT_MULTIPLE__RESULT_ERROR = eINSTANCE.getResultMultiple_ResultError();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.RoleImpl <em>Role</em>}' class.
@@ -23359,8 +23033,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ROUTE__DEPRECATED_XOR_TYPE = eINSTANCE
-                .getRoute_DeprecatedXorType();
+        EAttribute ROUTE__DEPRECATED_XOR_TYPE = eINSTANCE.getRoute_DeprecatedXorType();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Instantiate</b></em>' attribute feature.
@@ -23368,8 +23041,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ROUTE__DEPRECATED_INSTANTIATE = eINSTANCE
-                .getRoute_DeprecatedInstantiate();
+        EAttribute ROUTE__DEPRECATED_INSTANTIATE = eINSTANCE.getRoute_DeprecatedInstantiate();
 
         /**
          * The meta object literal for the '<em><b>Exclusive Type</b></em>' attribute feature.
@@ -23393,8 +23065,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ROUTE__INCOMING_CONDITION = eINSTANCE
-                .getRoute_IncomingCondition();
+        EAttribute ROUTE__INCOMING_CONDITION = eINSTANCE.getRoute_IncomingCondition();
 
         /**
          * The meta object literal for the '<em><b>Outgoing Condition</b></em>' attribute feature.
@@ -23402,8 +23073,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ROUTE__OUTGOING_CONDITION = eINSTANCE
-                .getRoute_OutgoingCondition();
+        EAttribute ROUTE__OUTGOING_CONDITION = eINSTANCE.getRoute_OutgoingCondition();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.RuleNameImpl <em>Rule Name</em>}' class.
@@ -23569,8 +23239,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIMULATION_INFORMATION__COST = eINSTANCE
-                .getSimulationInformation_Cost();
+        EReference SIMULATION_INFORMATION__COST = eINSTANCE.getSimulationInformation_Cost();
 
         /**
          * The meta object literal for the '<em><b>Time Estimation</b></em>' containment reference feature.
@@ -23578,8 +23247,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIMULATION_INFORMATION__TIME_ESTIMATION = eINSTANCE
-                .getSimulationInformation_TimeEstimation();
+        EReference SIMULATION_INFORMATION__TIME_ESTIMATION = eINSTANCE.getSimulationInformation_TimeEstimation();
 
         /**
          * The meta object literal for the '<em><b>Instantiation</b></em>' attribute feature.
@@ -23587,8 +23255,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SIMULATION_INFORMATION__INSTANTIATION = eINSTANCE
-                .getSimulationInformation_Instantiation();
+        EAttribute SIMULATION_INFORMATION__INSTANTIATION = eINSTANCE.getSimulationInformation_Instantiation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.SplitImpl <em>Split</em>}' class.
@@ -23614,8 +23281,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SPLIT__OUTGOING_CONDITION = eINSTANCE
-                .getSplit_OutgoingCondition();
+        EAttribute SPLIT__OUTGOING_CONDITION = eINSTANCE.getSplit_OutgoingCondition();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -23649,8 +23315,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE
-                .getStartEvent_TriggerResultMessage();
+        EReference START_EVENT__TRIGGER_RESULT_MESSAGE = eINSTANCE.getStartEvent_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Trigger Timer</b></em>' containment reference feature.
@@ -23658,8 +23323,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__TRIGGER_TIMER = eINSTANCE
-                .getStartEvent_TriggerTimer();
+        EReference START_EVENT__TRIGGER_TIMER = eINSTANCE.getStartEvent_TriggerTimer();
 
         /**
          * The meta object literal for the '<em><b>Trigger Conditional</b></em>' containment reference feature.
@@ -23667,8 +23331,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__TRIGGER_CONDITIONAL = eINSTANCE
-                .getStartEvent_TriggerConditional();
+        EReference START_EVENT__TRIGGER_CONDITIONAL = eINSTANCE.getStartEvent_TriggerConditional();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Signal</b></em>' containment reference feature.
@@ -23676,8 +23339,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE
-                .getStartEvent_TriggerResultSignal();
+        EReference START_EVENT__TRIGGER_RESULT_SIGNAL = eINSTANCE.getStartEvent_TriggerResultSignal();
 
         /**
          * The meta object literal for the '<em><b>Trigger Multiple</b></em>' containment reference feature.
@@ -23685,8 +23347,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__TRIGGER_MULTIPLE = eINSTANCE
-                .getStartEvent_TriggerMultiple();
+        EReference START_EVENT__TRIGGER_MULTIPLE = eINSTANCE.getStartEvent_TriggerMultiple();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -23694,8 +23355,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute START_EVENT__IMPLEMENTATION = eINSTANCE
-                .getStartEvent_Implementation();
+        EAttribute START_EVENT__IMPLEMENTATION = eINSTANCE.getStartEvent_Implementation();
 
         /**
          * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
@@ -23711,8 +23371,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__DEPRECATED_TRIGGER_RULE = eINSTANCE
-                .getStartEvent_DeprecatedTriggerRule();
+        EReference START_EVENT__DEPRECATED_TRIGGER_RULE = eINSTANCE.getStartEvent_DeprecatedTriggerRule();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Trigger Result Link</b></em>' containment reference feature.
@@ -23720,8 +23379,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK = eINSTANCE
-                .getStartEvent_DeprecatedTriggerResultLink();
+        EReference START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK = eINSTANCE.getStartEvent_DeprecatedTriggerResultLink();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.SubFlowImpl <em>Sub Flow</em>}' class.
@@ -23739,8 +23397,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SUB_FLOW__ACTUAL_PARAMETERS = eINSTANCE
-                .getSubFlow_ActualParameters();
+        EReference SUB_FLOW__ACTUAL_PARAMETERS = eINSTANCE.getSubFlow_ActualParameters();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -23748,8 +23405,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SUB_FLOW__DATA_MAPPINGS = eINSTANCE
-                .getSubFlow_DataMappings();
+        EReference SUB_FLOW__DATA_MAPPINGS = eINSTANCE.getSubFlow_DataMappings();
 
         /**
          * The meta object literal for the '<em><b>Execution</b></em>' attribute feature.
@@ -23765,8 +23421,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUB_FLOW__INSTANCE_DATA_FIELD = eINSTANCE
-                .getSubFlow_InstanceDataField();
+        EAttribute SUB_FLOW__INSTANCE_DATA_FIELD = eINSTANCE.getSubFlow_InstanceDataField();
 
         /**
          * The meta object literal for the '<em><b>Process Id</b></em>' attribute feature.
@@ -23782,8 +23437,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUB_FLOW__PACKAGE_REF_ID = eINSTANCE
-                .getSubFlow_PackageRefId();
+        EAttribute SUB_FLOW__PACKAGE_REF_ID = eINSTANCE.getSubFlow_PackageRefId();
 
         /**
          * The meta object literal for the '<em><b>Start Activity Id</b></em>' attribute feature.
@@ -23791,8 +23445,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUB_FLOW__START_ACTIVITY_ID = eINSTANCE
-                .getSubFlow_StartActivityId();
+        EAttribute SUB_FLOW__START_ACTIVITY_ID = eINSTANCE.getSubFlow_StartActivityId();
 
         /**
          * The meta object literal for the '<em><b>Start Activity Set Id</b></em>' attribute feature.
@@ -23800,8 +23453,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUB_FLOW__START_ACTIVITY_SET_ID = eINSTANCE
-                .getSubFlow_StartActivitySetId();
+        EAttribute SUB_FLOW__START_ACTIVITY_SET_ID = eINSTANCE.getSubFlow_StartActivitySetId();
 
         /**
          * The meta object literal for the '<em><b>End Point</b></em>' containment reference feature.
@@ -23827,8 +23479,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_APPLICATION__ACTUAL_PARAMETERS = eINSTANCE
-                .getTaskApplication_ActualParameters();
+        EReference TASK_APPLICATION__ACTUAL_PARAMETERS = eINSTANCE.getTaskApplication_ActualParameters();
 
         /**
          * The meta object literal for the '<em><b>Data Mappings</b></em>' containment reference list feature.
@@ -23836,8 +23487,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_APPLICATION__DATA_MAPPINGS = eINSTANCE
-                .getTaskApplication_DataMappings();
+        EReference TASK_APPLICATION__DATA_MAPPINGS = eINSTANCE.getTaskApplication_DataMappings();
 
         /**
          * The meta object literal for the '<em><b>Package Ref</b></em>' attribute feature.
@@ -23845,8 +23495,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_APPLICATION__PACKAGE_REF = eINSTANCE
-                .getTaskApplication_PackageRef();
+        EAttribute TASK_APPLICATION__PACKAGE_REF = eINSTANCE.getTaskApplication_PackageRef();
 
         /**
          * The meta object literal for the '<em><b>Application Id</b></em>' attribute feature.
@@ -23854,8 +23503,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_APPLICATION__APPLICATION_ID = eINSTANCE
-                .getTaskApplication_ApplicationId();
+        EAttribute TASK_APPLICATION__APPLICATION_ID = eINSTANCE.getTaskApplication_ApplicationId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskManualImpl <em>Task Manual</em>}' class.
@@ -23873,8 +23521,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_MANUAL__PERFORMERS = eINSTANCE
-                .getTaskManual_Performers();
+        EReference TASK_MANUAL__PERFORMERS = eINSTANCE.getTaskManual_Performers();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskReceiveImpl <em>Task Receive</em>}' class.
@@ -23900,8 +23547,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_RECEIVE__WEB_SERVICE_OPERATION = eINSTANCE
-                .getTaskReceive_WebServiceOperation();
+        EReference TASK_RECEIVE__WEB_SERVICE_OPERATION = eINSTANCE.getTaskReceive_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -23909,8 +23555,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_RECEIVE__IMPLEMENTATION = eINSTANCE
-                .getTaskReceive_Implementation();
+        EAttribute TASK_RECEIVE__IMPLEMENTATION = eINSTANCE.getTaskReceive_Implementation();
 
         /**
          * The meta object literal for the '<em><b>Instantiate</b></em>' attribute feature.
@@ -23918,8 +23563,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_RECEIVE__INSTANTIATE = eINSTANCE
-                .getTaskReceive_Instantiate();
+        EAttribute TASK_RECEIVE__INSTANTIATE = eINSTANCE.getTaskReceive_Instantiate();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskReferenceImpl <em>Task Reference</em>}' class.
@@ -23937,8 +23581,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_REFERENCE__TASK_REF = eINSTANCE
-                .getTaskReference_TaskRef();
+        EAttribute TASK_REFERENCE__TASK_REF = eINSTANCE.getTaskReference_TaskRef();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskScriptImpl <em>Task Script</em>}' class.
@@ -23982,8 +23625,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SEND__WEB_SERVICE_OPERATION = eINSTANCE
-                .getTaskSend_WebServiceOperation();
+        EReference TASK_SEND__WEB_SERVICE_OPERATION = eINSTANCE.getTaskSend_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Web Service Fault Catch</b></em>' containment reference list feature.
@@ -23991,8 +23633,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SEND__WEB_SERVICE_FAULT_CATCH = eINSTANCE
-                .getTaskSend_WebServiceFaultCatch();
+        EReference TASK_SEND__WEB_SERVICE_FAULT_CATCH = eINSTANCE.getTaskSend_WebServiceFaultCatch();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -24000,8 +23641,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_SEND__IMPLEMENTATION = eINSTANCE
-                .getTaskSend_Implementation();
+        EAttribute TASK_SEND__IMPLEMENTATION = eINSTANCE.getTaskSend_Implementation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskServiceImpl <em>Task Service</em>}' class.
@@ -24019,8 +23659,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SERVICE__MESSAGE_IN = eINSTANCE
-                .getTaskService_MessageIn();
+        EReference TASK_SERVICE__MESSAGE_IN = eINSTANCE.getTaskService_MessageIn();
 
         /**
          * The meta object literal for the '<em><b>Message Out</b></em>' containment reference feature.
@@ -24028,8 +23667,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SERVICE__MESSAGE_OUT = eINSTANCE
-                .getTaskService_MessageOut();
+        EReference TASK_SERVICE__MESSAGE_OUT = eINSTANCE.getTaskService_MessageOut();
 
         /**
          * The meta object literal for the '<em><b>Web Service Operation</b></em>' containment reference feature.
@@ -24037,8 +23675,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SERVICE__WEB_SERVICE_OPERATION = eINSTANCE
-                .getTaskService_WebServiceOperation();
+        EReference TASK_SERVICE__WEB_SERVICE_OPERATION = eINSTANCE.getTaskService_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Web Service Fault Catch</b></em>' containment reference list feature.
@@ -24046,8 +23683,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_SERVICE__WEB_SERVICE_FAULT_CATCH = eINSTANCE
-                .getTaskService_WebServiceFaultCatch();
+        EReference TASK_SERVICE__WEB_SERVICE_FAULT_CATCH = eINSTANCE.getTaskService_WebServiceFaultCatch();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -24055,8 +23691,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_SERVICE__IMPLEMENTATION = eINSTANCE
-                .getTaskService_Implementation();
+        EAttribute TASK_SERVICE__IMPLEMENTATION = eINSTANCE.getTaskService_Implementation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TaskImpl <em>Task</em>}' class.
@@ -24172,8 +23807,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK_USER__WEB_SERVICE_OPERATION = eINSTANCE
-                .getTaskUser_WebServiceOperation();
+        EReference TASK_USER__WEB_SERVICE_OPERATION = eINSTANCE.getTaskUser_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Implementation</b></em>' attribute feature.
@@ -24181,8 +23815,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TASK_USER__IMPLEMENTATION = eINSTANCE
-                .getTaskUser_Implementation();
+        EAttribute TASK_USER__IMPLEMENTATION = eINSTANCE.getTaskUser_Implementation();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TimeEstimationImpl <em>Time Estimation</em>}' class.
@@ -24200,8 +23833,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TIME_ESTIMATION__WAITING_TIME = eINSTANCE
-                .getTimeEstimation_WaitingTime();
+        EReference TIME_ESTIMATION__WAITING_TIME = eINSTANCE.getTimeEstimation_WaitingTime();
 
         /**
          * The meta object literal for the '<em><b>Working Time</b></em>' containment reference feature.
@@ -24209,8 +23841,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TIME_ESTIMATION__WORKING_TIME = eINSTANCE
-                .getTimeEstimation_WorkingTime();
+        EReference TIME_ESTIMATION__WORKING_TIME = eINSTANCE.getTimeEstimation_WorkingTime();
 
         /**
          * The meta object literal for the '<em><b>Duration</b></em>' containment reference feature.
@@ -24218,8 +23849,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TIME_ESTIMATION__DURATION = eINSTANCE
-                .getTimeEstimation_Duration();
+        EReference TIME_ESTIMATION__DURATION = eINSTANCE.getTimeEstimation_Duration();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TransactionImpl <em>Transaction</em>}' class.
@@ -24237,8 +23867,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSACTION__TRANSACTION_ID = eINSTANCE
-                .getTransaction_TransactionId();
+        EAttribute TRANSACTION__TRANSACTION_ID = eINSTANCE.getTransaction_TransactionId();
 
         /**
          * The meta object literal for the '<em><b>Transaction Method</b></em>' attribute feature.
@@ -24246,8 +23875,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSACTION__TRANSACTION_METHOD = eINSTANCE
-                .getTransaction_TransactionMethod();
+        EAttribute TRANSACTION__TRANSACTION_METHOD = eINSTANCE.getTransaction_TransactionMethod();
 
         /**
          * The meta object literal for the '<em><b>Transaction Protocol</b></em>' attribute feature.
@@ -24255,8 +23883,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSACTION__TRANSACTION_PROTOCOL = eINSTANCE
-                .getTransaction_TransactionProtocol();
+        EAttribute TRANSACTION__TRANSACTION_PROTOCOL = eINSTANCE.getTransaction_TransactionProtocol();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TransitionRefImpl <em>Transition Ref</em>}' class.
@@ -24300,8 +23927,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRANSITION_RESTRICTION__JOIN = eINSTANCE
-                .getTransitionRestriction_Join();
+        EReference TRANSITION_RESTRICTION__JOIN = eINSTANCE.getTransitionRestriction_Join();
 
         /**
          * The meta object literal for the '<em><b>Split</b></em>' containment reference feature.
@@ -24309,8 +23935,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRANSITION_RESTRICTION__SPLIT = eINSTANCE
-                .getTransitionRestriction_Split();
+        EReference TRANSITION_RESTRICTION__SPLIT = eINSTANCE.getTransitionRestriction_Split();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TransitionImpl <em>Transition</em>}' class.
@@ -24336,8 +23961,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRANSITION__ASSIGNMENTS = eINSTANCE
-                .getTransition_Assignments();
+        EReference TRANSITION__ASSIGNMENTS = eINSTANCE.getTransition_Assignments();
 
         /**
          * The meta object literal for the '<em><b>Object</b></em>' containment reference feature.
@@ -24377,8 +24001,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRANSITION__FLOW_CONTAINER = eINSTANCE
-                .getTransition_FlowContainer();
+        EReference TRANSITION__FLOW_CONTAINER = eINSTANCE.getTransition_FlowContainer();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerIntermediateMultipleImpl <em>Trigger Intermediate Multiple</em>}' class.
@@ -24388,8 +24011,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getTriggerIntermediateMultiple()
          * @generated
          */
-        EClass TRIGGER_INTERMEDIATE_MULTIPLE = eINSTANCE
-                .getTriggerIntermediateMultiple();
+        EClass TRIGGER_INTERMEDIATE_MULTIPLE = eINSTANCE.getTriggerIntermediateMultiple();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Message</b></em>' containment reference feature.
@@ -24406,8 +24028,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER = eINSTANCE
-                .getTriggerIntermediateMultiple_TriggerTimer();
+        EReference TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER =
+                eINSTANCE.getTriggerIntermediateMultiple_TriggerTimer();
 
         /**
          * The meta object literal for the '<em><b>Result Error</b></em>' containment reference feature.
@@ -24415,8 +24037,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR = eINSTANCE
-                .getTriggerIntermediateMultiple_ResultError();
+        EReference TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR = eINSTANCE.getTriggerIntermediateMultiple_ResultError();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Compensation</b></em>' containment reference feature.
@@ -24425,8 +24046,7 @@ public interface Xpdl2Package extends EPackage {
          * @generated
          */
         EReference TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION =
-                eINSTANCE
-                        .getTriggerIntermediateMultiple_TriggerResultCompensation();
+                eINSTANCE.getTriggerIntermediateMultiple_TriggerResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Result Compensation</b></em>' containment reference feature.
@@ -24435,8 +24055,7 @@ public interface Xpdl2Package extends EPackage {
          * @generated
          */
         EReference TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION =
-                eINSTANCE
-                        .getTriggerIntermediateMultiple_DeprecatedResultCompensation();
+                eINSTANCE.getTriggerIntermediateMultiple_DeprecatedResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Trigger Conditional</b></em>' containment reference feature.
@@ -24472,8 +24091,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE = eINSTANCE
-                .getTriggerMultiple_TriggerResultMessage();
+        EReference TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE = eINSTANCE.getTriggerMultiple_TriggerResultMessage();
 
         /**
          * The meta object literal for the '<em><b>Trigger Timer</b></em>' containment reference feature.
@@ -24481,8 +24099,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_MULTIPLE__TRIGGER_TIMER = eINSTANCE
-                .getTriggerMultiple_TriggerTimer();
+        EReference TRIGGER_MULTIPLE__TRIGGER_TIMER = eINSTANCE.getTriggerMultiple_TriggerTimer();
 
         /**
          * The meta object literal for the '<em><b>Trigger Conditional</b></em>' containment reference feature.
@@ -24490,8 +24107,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL = eINSTANCE
-                .getTriggerMultiple_TriggerConditional();
+        EReference TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL = eINSTANCE.getTriggerMultiple_TriggerConditional();
 
         /**
          * The meta object literal for the '<em><b>Trigger Result Link</b></em>' containment reference feature.
@@ -24499,8 +24115,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK = eINSTANCE
-                .getTriggerMultiple_TriggerResultLink();
+        EReference TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK = eINSTANCE.getTriggerMultiple_TriggerResultLink();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Trigger Rule</b></em>' containment reference feature.
@@ -24508,8 +24123,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE = eINSTANCE
-                .getTriggerMultiple_DeprecatedTriggerRule();
+        EReference TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE = eINSTANCE.getTriggerMultiple_DeprecatedTriggerRule();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerResultCancelImpl <em>Trigger Result Cancel</em>}' class.
@@ -24529,8 +24143,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getTriggerResultCompensation()
          * @generated
          */
-        EClass TRIGGER_RESULT_COMPENSATION = eINSTANCE
-                .getTriggerResultCompensation();
+        EClass TRIGGER_RESULT_COMPENSATION = eINSTANCE.getTriggerResultCompensation();
 
         /**
          * The meta object literal for the '<em><b>Activity Id</b></em>' attribute feature.
@@ -24538,8 +24151,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_COMPENSATION__ACTIVITY_ID = eINSTANCE
-                .getTriggerResultCompensation_ActivityId();
+        EAttribute TRIGGER_RESULT_COMPENSATION__ACTIVITY_ID = eINSTANCE.getTriggerResultCompensation_ActivityId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerResultSignalImpl <em>Trigger Result Signal</em>}' class.
@@ -24557,8 +24169,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_RESULT_SIGNAL__PROPERTIES = eINSTANCE
-                .getTriggerResultSignal_Properties();
+        EReference TRIGGER_RESULT_SIGNAL__PROPERTIES = eINSTANCE.getTriggerResultSignal_Properties();
 
         /**
          * The meta object literal for the '<em><b>Catch Throw</b></em>' attribute feature.
@@ -24566,8 +24177,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_SIGNAL__CATCH_THROW = eINSTANCE
-                .getTriggerResultSignal_CatchThrow();
+        EAttribute TRIGGER_RESULT_SIGNAL__CATCH_THROW = eINSTANCE.getTriggerResultSignal_CatchThrow();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -24575,8 +24185,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_SIGNAL__NAME = eINSTANCE
-                .getTriggerResultSignal_Name();
+        EAttribute TRIGGER_RESULT_SIGNAL__NAME = eINSTANCE.getTriggerResultSignal_Name();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerResultLinkImpl <em>Trigger Result Link</em>}' class.
@@ -24594,8 +24203,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_LINK__DEPRECATED_LINK_ID = eINSTANCE
-                .getTriggerResultLink_DeprecatedLinkId();
+        EAttribute TRIGGER_RESULT_LINK__DEPRECATED_LINK_ID = eINSTANCE.getTriggerResultLink_DeprecatedLinkId();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Process Ref</b></em>' attribute feature.
@@ -24603,8 +24211,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_LINK__DEPRECATED_PROCESS_REF = eINSTANCE
-                .getTriggerResultLink_DeprecatedProcessRef();
+        EAttribute TRIGGER_RESULT_LINK__DEPRECATED_PROCESS_REF = eINSTANCE.getTriggerResultLink_DeprecatedProcessRef();
 
         /**
          * The meta object literal for the '<em><b>Catch Throw</b></em>' attribute feature.
@@ -24612,8 +24219,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_LINK__CATCH_THROW = eINSTANCE
-                .getTriggerResultLink_CatchThrow();
+        EAttribute TRIGGER_RESULT_LINK__CATCH_THROW = eINSTANCE.getTriggerResultLink_CatchThrow();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -24621,8 +24227,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_LINK__NAME = eINSTANCE
-                .getTriggerResultLink_Name();
+        EAttribute TRIGGER_RESULT_LINK__NAME = eINSTANCE.getTriggerResultLink_Name();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerResultMessageImpl <em>Trigger Result Message</em>}' class.
@@ -24640,8 +24245,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_RESULT_MESSAGE__MESSAGE = eINSTANCE
-                .getTriggerResultMessage_Message();
+        EReference TRIGGER_RESULT_MESSAGE__MESSAGE = eINSTANCE.getTriggerResultMessage_Message();
 
         /**
          * The meta object literal for the '<em><b>Web Service Operation</b></em>' containment reference feature.
@@ -24649,8 +24253,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_RESULT_MESSAGE__WEB_SERVICE_OPERATION = eINSTANCE
-                .getTriggerResultMessage_WebServiceOperation();
+        EReference TRIGGER_RESULT_MESSAGE__WEB_SERVICE_OPERATION =
+                eINSTANCE.getTriggerResultMessage_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Catch Throw</b></em>' attribute feature.
@@ -24658,8 +24262,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_RESULT_MESSAGE__CATCH_THROW = eINSTANCE
-                .getTriggerResultMessage_CatchThrow();
+        EAttribute TRIGGER_RESULT_MESSAGE__CATCH_THROW = eINSTANCE.getTriggerResultMessage_CatchThrow();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerConditionalImpl <em>Trigger Conditional</em>}' class.
@@ -24677,8 +24280,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_CONDITIONAL__CONDITION_NAME = eINSTANCE
-                .getTriggerConditional_ConditionName();
+        EAttribute TRIGGER_CONDITIONAL__CONDITION_NAME = eINSTANCE.getTriggerConditional_ConditionName();
 
         /**
          * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -24686,8 +24288,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_CONDITIONAL__EXPRESSION = eINSTANCE
-                .getTriggerConditional_Expression();
+        EReference TRIGGER_CONDITIONAL__EXPRESSION = eINSTANCE.getTriggerConditional_Expression();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TriggerTimerImpl <em>Trigger Timer</em>}' class.
@@ -24705,8 +24306,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_TIMER__DEPRECATED_TIME_CYCLE = eINSTANCE
-                .getTriggerTimer_DeprecatedTimeCycle();
+        EAttribute TRIGGER_TIMER__DEPRECATED_TIME_CYCLE = eINSTANCE.getTriggerTimer_DeprecatedTimeCycle();
 
         /**
          * The meta object literal for the '<em><b>Deprecated Time Date</b></em>' attribute feature.
@@ -24714,8 +24314,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRIGGER_TIMER__DEPRECATED_TIME_DATE = eINSTANCE
-                .getTriggerTimer_DeprecatedTimeDate();
+        EAttribute TRIGGER_TIMER__DEPRECATED_TIME_DATE = eINSTANCE.getTriggerTimer_DeprecatedTimeDate();
 
         /**
          * The meta object literal for the '<em><b>Time Cycle</b></em>' containment reference feature.
@@ -24723,8 +24322,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_TIMER__TIME_CYCLE = eINSTANCE
-                .getTriggerTimer_TimeCycle();
+        EReference TRIGGER_TIMER__TIME_CYCLE = eINSTANCE.getTriggerTimer_TimeCycle();
 
         /**
          * The meta object literal for the '<em><b>Time Date</b></em>' containment reference feature.
@@ -24732,8 +24330,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TRIGGER_TIMER__TIME_DATE = eINSTANCE
-                .getTriggerTimer_TimeDate();
+        EReference TRIGGER_TIMER__TIME_DATE = eINSTANCE.getTriggerTimer_TimeDate();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.TypeDeclarationImpl <em>Type Declaration</em>}' class.
@@ -24751,8 +24348,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__BASIC_TYPE = eINSTANCE
-                .getTypeDeclaration_BasicType();
+        EReference TYPE_DECLARATION__BASIC_TYPE = eINSTANCE.getTypeDeclaration_BasicType();
 
         /**
          * The meta object literal for the '<em><b>Declared Type</b></em>' containment reference feature.
@@ -24760,8 +24356,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__DECLARED_TYPE = eINSTANCE
-                .getTypeDeclaration_DeclaredType();
+        EReference TYPE_DECLARATION__DECLARED_TYPE = eINSTANCE.getTypeDeclaration_DeclaredType();
 
         /**
          * The meta object literal for the '<em><b>Schema Type</b></em>' containment reference feature.
@@ -24769,8 +24364,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__SCHEMA_TYPE = eINSTANCE
-                .getTypeDeclaration_SchemaType();
+        EReference TYPE_DECLARATION__SCHEMA_TYPE = eINSTANCE.getTypeDeclaration_SchemaType();
 
         /**
          * The meta object literal for the '<em><b>External Reference</b></em>' containment reference feature.
@@ -24778,8 +24372,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__EXTERNAL_REFERENCE = eINSTANCE
-                .getTypeDeclaration_ExternalReference();
+        EReference TYPE_DECLARATION__EXTERNAL_REFERENCE = eINSTANCE.getTypeDeclaration_ExternalReference();
 
         /**
          * The meta object literal for the '<em><b>Record Type</b></em>' containment reference feature.
@@ -24787,8 +24380,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__RECORD_TYPE = eINSTANCE
-                .getTypeDeclaration_RecordType();
+        EReference TYPE_DECLARATION__RECORD_TYPE = eINSTANCE.getTypeDeclaration_RecordType();
 
         /**
          * The meta object literal for the '<em><b>Union Type</b></em>' containment reference feature.
@@ -24796,8 +24388,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__UNION_TYPE = eINSTANCE
-                .getTypeDeclaration_UnionType();
+        EReference TYPE_DECLARATION__UNION_TYPE = eINSTANCE.getTypeDeclaration_UnionType();
 
         /**
          * The meta object literal for the '<em><b>Enumeration Type</b></em>' containment reference feature.
@@ -24805,8 +24396,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__ENUMERATION_TYPE = eINSTANCE
-                .getTypeDeclaration_EnumerationType();
+        EReference TYPE_DECLARATION__ENUMERATION_TYPE = eINSTANCE.getTypeDeclaration_EnumerationType();
 
         /**
          * The meta object literal for the '<em><b>Array Type</b></em>' containment reference feature.
@@ -24814,8 +24404,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__ARRAY_TYPE = eINSTANCE
-                .getTypeDeclaration_ArrayType();
+        EReference TYPE_DECLARATION__ARRAY_TYPE = eINSTANCE.getTypeDeclaration_ArrayType();
 
         /**
          * The meta object literal for the '<em><b>List Type</b></em>' containment reference feature.
@@ -24823,8 +24412,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TYPE_DECLARATION__LIST_TYPE = eINSTANCE
-                .getTypeDeclaration_ListType();
+        EReference TYPE_DECLARATION__LIST_TYPE = eINSTANCE.getTypeDeclaration_ListType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.UnionTypeImpl <em>Union Type</em>}' class.
@@ -24896,8 +24484,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference VENDOR_EXTENSIONS__VENDOR_EXTENSION = eINSTANCE
-                .getVendorExtensions_VendorExtension();
+        EReference VENDOR_EXTENSIONS__VENDOR_EXTENSION = eINSTANCE.getVendorExtensions_VendorExtension();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.VendorExtensionImpl <em>Vendor Extension</em>}' class.
@@ -24915,8 +24502,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VENDOR_EXTENSION__EXTENSION_DESCRIPTION = eINSTANCE
-                .getVendorExtension_ExtensionDescription();
+        EAttribute VENDOR_EXTENSION__EXTENSION_DESCRIPTION = eINSTANCE.getVendorExtension_ExtensionDescription();
 
         /**
          * The meta object literal for the '<em><b>Schema Location</b></em>' attribute feature.
@@ -24924,8 +24510,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VENDOR_EXTENSION__SCHEMA_LOCATION = eINSTANCE
-                .getVendorExtension_SchemaLocation();
+        EAttribute VENDOR_EXTENSION__SCHEMA_LOCATION = eINSTANCE.getVendorExtension_SchemaLocation();
 
         /**
          * The meta object literal for the '<em><b>Tool Id</b></em>' attribute feature.
@@ -24933,8 +24518,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VENDOR_EXTENSION__TOOL_ID = eINSTANCE
-                .getVendorExtension_ToolId();
+        EAttribute VENDOR_EXTENSION__TOOL_ID = eINSTANCE.getVendorExtension_ToolId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.WaitingTimeImpl <em>Waiting Time</em>}' class.
@@ -24970,8 +24554,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_FAULT_CATCH__MESSAGE = eINSTANCE
-                .getWebServiceFaultCatch_Message();
+        EReference WEB_SERVICE_FAULT_CATCH__MESSAGE = eINSTANCE.getWebServiceFaultCatch_Message();
 
         /**
          * The meta object literal for the '<em><b>Block Activity</b></em>' containment reference feature.
@@ -24979,8 +24562,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY = eINSTANCE
-                .getWebServiceFaultCatch_BlockActivity();
+        EReference WEB_SERVICE_FAULT_CATCH__BLOCK_ACTIVITY = eINSTANCE.getWebServiceFaultCatch_BlockActivity();
 
         /**
          * The meta object literal for the '<em><b>Transition Ref</b></em>' containment reference feature.
@@ -24988,8 +24570,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_FAULT_CATCH__TRANSITION_REF = eINSTANCE
-                .getWebServiceFaultCatch_TransitionRef();
+        EReference WEB_SERVICE_FAULT_CATCH__TRANSITION_REF = eINSTANCE.getWebServiceFaultCatch_TransitionRef();
 
         /**
          * The meta object literal for the '<em><b>Fault Name</b></em>' attribute feature.
@@ -24997,8 +24578,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WEB_SERVICE_FAULT_CATCH__FAULT_NAME = eINSTANCE
-                .getWebServiceFaultCatch_FaultName();
+        EAttribute WEB_SERVICE_FAULT_CATCH__FAULT_NAME = eINSTANCE.getWebServiceFaultCatch_FaultName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.WebServiceOperationImpl <em>Web Service Operation</em>}' class.
@@ -25016,8 +24596,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_OPERATION__PARTNER = eINSTANCE
-                .getWebServiceOperation_Partner();
+        EReference WEB_SERVICE_OPERATION__PARTNER = eINSTANCE.getWebServiceOperation_Partner();
 
         /**
          * The meta object literal for the '<em><b>Service</b></em>' containment reference feature.
@@ -25025,8 +24604,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_OPERATION__SERVICE = eINSTANCE
-                .getWebServiceOperation_Service();
+        EReference WEB_SERVICE_OPERATION__SERVICE = eINSTANCE.getWebServiceOperation_Service();
 
         /**
          * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
@@ -25034,8 +24612,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WEB_SERVICE_OPERATION__OPERATION_NAME = eINSTANCE
-                .getWebServiceOperation_OperationName();
+        EAttribute WEB_SERVICE_OPERATION__OPERATION_NAME = eINSTANCE.getWebServiceOperation_OperationName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.WebServiceApplicationImpl <em>Web Service Application</em>}' class.
@@ -25053,8 +24630,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION = eINSTANCE
-                .getWebServiceApplication_WebServiceOperation();
+        EReference WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION =
+                eINSTANCE.getWebServiceApplication_WebServiceOperation();
 
         /**
          * The meta object literal for the '<em><b>Web Service Fault Catch</b></em>' containment reference list feature.
@@ -25062,8 +24639,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH = eINSTANCE
-                .getWebServiceApplication_WebServiceFaultCatch();
+        EReference WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH =
+                eINSTANCE.getWebServiceApplication_WebServiceFaultCatch();
 
         /**
          * The meta object literal for the '<em><b>Input Msg Name</b></em>' attribute feature.
@@ -25071,8 +24648,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WEB_SERVICE_APPLICATION__INPUT_MSG_NAME = eINSTANCE
-                .getWebServiceApplication_InputMsgName();
+        EAttribute WEB_SERVICE_APPLICATION__INPUT_MSG_NAME = eINSTANCE.getWebServiceApplication_InputMsgName();
 
         /**
          * The meta object literal for the '<em><b>Output Msg Name</b></em>' attribute feature.
@@ -25080,8 +24656,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME = eINSTANCE
-                .getWebServiceApplication_OutputMsgName();
+        EAttribute WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME = eINSTANCE.getWebServiceApplication_OutputMsgName();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.WorkingTimeImpl <em>Working Time</em>}' class.
@@ -25117,8 +24692,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute XSLT_APPLICATION__LOCATION = eINSTANCE
-                .getXsltApplication_Location();
+        EAttribute XSLT_APPLICATION__LOCATION = eINSTANCE.getXsltApplication_Location();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -25154,8 +24728,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FLOW_CONTAINER__ACTIVITIES = eINSTANCE
-                .getFlowContainer_Activities();
+        EReference FLOW_CONTAINER__ACTIVITIES = eINSTANCE.getFlowContainer_Activities();
 
         /**
          * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
@@ -25163,8 +24736,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FLOW_CONTAINER__TRANSITIONS = eINSTANCE
-                .getFlowContainer_Transitions();
+        EReference FLOW_CONTAINER__TRANSITIONS = eINSTANCE.getFlowContainer_Transitions();
 
         /**
          * The meta object literal for the '<em><b>Ad Hoc</b></em>' attribute feature.
@@ -25180,8 +24752,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FLOW_CONTAINER__AD_HOC_COMPLETION_CONDITION = eINSTANCE
-                .getFlowContainer_AdHocCompletionCondition();
+        EAttribute FLOW_CONTAINER__AD_HOC_COMPLETION_CONDITION = eINSTANCE.getFlowContainer_AdHocCompletionCondition();
 
         /**
          * The meta object literal for the '<em><b>Ad Hoc Ordering</b></em>' attribute feature.
@@ -25189,8 +24760,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FLOW_CONTAINER__AD_HOC_ORDERING = eINSTANCE
-                .getFlowContainer_AdHocOrdering();
+        EAttribute FLOW_CONTAINER__AD_HOC_ORDERING = eINSTANCE.getFlowContainer_AdHocOrdering();
 
         /**
          * The meta object literal for the '<em><b>Default Start Activity Id</b></em>' attribute feature.
@@ -25198,8 +24768,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FLOW_CONTAINER__DEFAULT_START_ACTIVITY_ID = eINSTANCE
-                .getFlowContainer_DefaultStartActivityId();
+        EAttribute FLOW_CONTAINER__DEFAULT_START_ACTIVITY_ID = eINSTANCE.getFlowContainer_DefaultStartActivityId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.DescribedElement <em>Described Element</em>}' class.
@@ -25217,8 +24786,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DESCRIBED_ELEMENT__DESCRIPTION = eINSTANCE
-                .getDescribedElement_Description();
+        EReference DESCRIBED_ELEMENT__DESCRIPTION = eINSTANCE.getDescribedElement_Description();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.ProcessRelevantData <em>Process Relevant Data</em>}' class.
@@ -25236,8 +24804,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_RELEVANT_DATA__DATA_TYPE = eINSTANCE
-                .getProcessRelevantData_DataType();
+        EReference PROCESS_RELEVANT_DATA__DATA_TYPE = eINSTANCE.getProcessRelevantData_DataType();
 
         /**
          * The meta object literal for the '<em><b>Length</b></em>' containment reference feature.
@@ -25245,8 +24812,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS_RELEVANT_DATA__LENGTH = eINSTANCE
-                .getProcessRelevantData_Length();
+        EReference PROCESS_RELEVANT_DATA__LENGTH = eINSTANCE.getProcessRelevantData_Length();
 
         /**
          * The meta object literal for the '<em><b>Is Array</b></em>' attribute feature.
@@ -25254,8 +24820,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS_RELEVANT_DATA__IS_ARRAY = eINSTANCE
-                .getProcessRelevantData_IsArray();
+        EAttribute PROCESS_RELEVANT_DATA__IS_ARRAY = eINSTANCE.getProcessRelevantData_IsArray();
 
         /**
          * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
@@ -25263,8 +24828,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROCESS_RELEVANT_DATA__READ_ONLY = eINSTANCE
-                .getProcessRelevantData_ReadOnly();
+        EAttribute PROCESS_RELEVANT_DATA__READ_ONLY = eINSTANCE.getProcessRelevantData_ReadOnly();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PropertyInputImpl <em>Property Input</em>}' class.
@@ -25282,8 +24846,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROPERTY_INPUT__PROPERTY_ID = eINSTANCE
-                .getPropertyInput_PropertyId();
+        EAttribute PROPERTY_INPUT__PROPERTY_ID = eINSTANCE.getPropertyInput_PropertyId();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.UniqueIdElementImpl <em>Unique Id Element</em>}' class.
@@ -25311,8 +24874,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getOtherAttributesContainer()
          * @generated
          */
-        EClass OTHER_ATTRIBUTES_CONTAINER = eINSTANCE
-                .getOtherAttributesContainer();
+        EClass OTHER_ATTRIBUTES_CONTAINER = eINSTANCE.getOtherAttributesContainer();
 
         /**
          * The meta object literal for the '<em><b>Other Attributes</b></em>' attribute list feature.
@@ -25320,8 +24882,8 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES = eINSTANCE
-                .getOtherAttributesContainer_OtherAttributes();
+        EAttribute OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES =
+                eINSTANCE.getOtherAttributesContainer_OtherAttributes();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.OtherElementsContainer <em>Other Elements Container</em>}' class.
@@ -25339,8 +24901,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS = eINSTANCE
-                .getOtherElementsContainer_OtherElements();
+        EAttribute OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS = eINSTANCE.getOtherElementsContainer_OtherElements();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.impl.PerformersImpl <em>Performers</em>}' class.
@@ -25358,8 +24919,7 @@ public interface Xpdl2Package extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PERFORMERS__PERFORMERS = eINSTANCE
-                .getPerformers_Performers();
+        EReference PERFORMERS__PERFORMERS = eINSTANCE.getPerformers_Performers();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.AccessLevelType <em>Access Level Type</em>}' enum.
@@ -25409,8 +24969,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getAssociationDirectionType()
          * @generated
          */
-        EEnum ASSOCIATION_DIRECTION_TYPE = eINSTANCE
-                .getAssociationDirectionType();
+        EEnum ASSOCIATION_DIRECTION_TYPE = eINSTANCE.getAssociationDirectionType();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.DirectionType <em>Direction Type</em>}' enum.
@@ -25730,8 +25289,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getBPMNModelPortabilityConformance()
          * @generated
          */
-        EEnum BPMN_MODEL_PORTABILITY_CONFORMANCE = eINSTANCE
-                .getBPMNModelPortabilityConformance();
+        EEnum BPMN_MODEL_PORTABILITY_CONFORMANCE = eINSTANCE.getBPMNModelPortabilityConformance();
 
         /**
          * The meta object literal for the '{@link com.tibco.xpd.xpdl2.CatchThrow <em>Catch Throw</em>}' enum.
@@ -25761,8 +25319,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getAccessLevelTypeObject()
          * @generated
          */
-        EDataType ACCESS_LEVEL_TYPE_OBJECT = eINSTANCE
-                .getAccessLevelTypeObject();
+        EDataType ACCESS_LEVEL_TYPE_OBJECT = eINSTANCE.getAccessLevelTypeObject();
 
         /**
          * The meta object literal for the '<em>Ad Hoc Ordering Type Object</em>' data type.
@@ -25772,8 +25329,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getAdHocOrderingTypeObject()
          * @generated
          */
-        EDataType AD_HOC_ORDERING_TYPE_OBJECT = eINSTANCE
-                .getAdHocOrderingTypeObject();
+        EDataType AD_HOC_ORDERING_TYPE_OBJECT = eINSTANCE.getAdHocOrderingTypeObject();
 
         /**
          * The meta object literal for the '<em>Artifact Type Object</em>' data type.
@@ -25803,8 +25359,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getAssociationDirectionTypeObject()
          * @generated
          */
-        EDataType ASSOCIATION_DIRECTION_TYPE_OBJECT = eINSTANCE
-                .getAssociationDirectionTypeObject();
+        EDataType ASSOCIATION_DIRECTION_TYPE_OBJECT = eINSTANCE.getAssociationDirectionTypeObject();
 
         /**
          * The meta object literal for the '<em>Direction Type Object</em>' data type.
@@ -25824,8 +25379,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getDurationUnitTypeObject()
          * @generated
          */
-        EDataType DURATION_UNIT_TYPE_OBJECT = eINSTANCE
-                .getDurationUnitTypeObject();
+        EDataType DURATION_UNIT_TYPE_OBJECT = eINSTANCE.getDurationUnitTypeObject();
 
         /**
          * The meta object literal for the '<em>End Point Type Type Object</em>' data type.
@@ -25835,8 +25389,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getEndPointTypeTypeObject()
          * @generated
          */
-        EDataType END_POINT_TYPE_TYPE_OBJECT = eINSTANCE
-                .getEndPointTypeTypeObject();
+        EDataType END_POINT_TYPE_TYPE_OBJECT = eINSTANCE.getEndPointTypeTypeObject();
 
         /**
          * The meta object literal for the '<em>Execution Type Object</em>' data type.
@@ -25876,8 +25429,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getGraphConformanceTypeObject()
          * @generated
          */
-        EDataType GRAPH_CONFORMANCE_TYPE_OBJECT = eINSTANCE
-                .getGraphConformanceTypeObject();
+        EDataType GRAPH_CONFORMANCE_TYPE_OBJECT = eINSTANCE.getGraphConformanceTypeObject();
 
         /**
          * The meta object literal for the '<em>Implementation Type Object</em>' data type.
@@ -25887,8 +25439,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getImplementationTypeObject()
          * @generated
          */
-        EDataType IMPLEMENTATION_TYPE_OBJECT = eINSTANCE
-                .getImplementationTypeObject();
+        EDataType IMPLEMENTATION_TYPE_OBJECT = eINSTANCE.getImplementationTypeObject();
 
         /**
          * The meta object literal for the '<em>Instantiation Type Object</em>' data type.
@@ -25898,8 +25449,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getInstantiationTypeObject()
          * @generated
          */
-        EDataType INSTANTIATION_TYPE_OBJECT = eINSTANCE
-                .getInstantiationTypeObject();
+        EDataType INSTANTIATION_TYPE_OBJECT = eINSTANCE.getInstantiationTypeObject();
 
         /**
          * The meta object literal for the '<em>Is Array Type Object</em>' data type.
@@ -25929,8 +25479,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getMIFlowConditionTypeObject()
          * @generated
          */
-        EDataType MI_FLOW_CONDITION_TYPE_OBJECT = eINSTANCE
-                .getMIFlowConditionTypeObject();
+        EDataType MI_FLOW_CONDITION_TYPE_OBJECT = eINSTANCE.getMIFlowConditionTypeObject();
 
         /**
          * The meta object literal for the '<em>MI Ordering Type Object</em>' data type.
@@ -25960,8 +25509,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getOrientationTypeObject()
          * @generated
          */
-        EDataType ORIENTATION_TYPE_OBJECT = eINSTANCE
-                .getOrientationTypeObject();
+        EDataType ORIENTATION_TYPE_OBJECT = eINSTANCE.getOrientationTypeObject();
 
         /**
          * The meta object literal for the '<em>Process Type Object</em>' data type.
@@ -25981,8 +25529,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getPublicationStatusTypeObject()
          * @generated
          */
-        EDataType PUBLICATION_STATUS_TYPE_OBJECT = eINSTANCE
-                .getPublicationStatusTypeObject();
+        EDataType PUBLICATION_STATUS_TYPE_OBJECT = eINSTANCE.getPublicationStatusTypeObject();
 
         /**
          * The meta object literal for the '<em>Result Type Object</em>' data type.
@@ -26052,8 +25599,7 @@ public interface Xpdl2Package extends EPackage {
          * @see com.tibco.xpd.xpdl2.impl.Xpdl2PackageImpl#getTransactionMethodTypeObject()
          * @generated
          */
-        EDataType TRANSACTION_METHOD_TYPE_OBJECT = eINSTANCE
-                .getTransactionMethodTypeObject();
+        EDataType TRANSACTION_METHOD_TYPE_OBJECT = eINSTANCE.getTransactionMethodTypeObject();
 
         /**
          * The meta object literal for the '<em>Trigger Type Object</em>' data type.

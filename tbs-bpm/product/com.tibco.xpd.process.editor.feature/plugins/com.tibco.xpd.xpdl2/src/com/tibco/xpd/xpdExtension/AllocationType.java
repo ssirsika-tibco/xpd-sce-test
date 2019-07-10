@@ -66,8 +66,7 @@ public enum AllocationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Offer All</b></em>' literal value.
@@ -135,8 +134,8 @@ public enum AllocationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AllocationType[] VALUES_ARRAY = new AllocationType[] {
-            OFFER_ALL, OFFER_ONE, ALLOCATE_ONE, ALLOCATE_OFFER_SET_MEMBER, };
+    private static final AllocationType[] VALUES_ARRAY =
+            new AllocationType[] { OFFER_ALL, OFFER_ONE, ALLOCATE_ONE, ALLOCATE_OFFER_SET_MEMBER, };
 
     /**
      * A public read-only list of all the '<em><b>Allocation Type</b></em>' enumerators.
@@ -144,8 +143,7 @@ public enum AllocationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AllocationType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AllocationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Allocation Type</b></em>' literal with the specified literal value.

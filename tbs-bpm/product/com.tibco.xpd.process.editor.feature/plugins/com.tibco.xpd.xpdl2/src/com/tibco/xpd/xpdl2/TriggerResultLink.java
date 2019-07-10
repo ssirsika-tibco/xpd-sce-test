@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerResultLink#getDeprecatedLinkId <em>Deprecated Link Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerResultLink#getDeprecatedProcessRef <em>Deprecated Process Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerResultLink#getCatchThrow <em>Catch Throw</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TriggerResultLink#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTriggerResultLink()
  * @model extendedMetaData="name='TriggerResultLink_._type' kind='elementOnly'"
@@ -33,8 +33,7 @@ public interface TriggerResultLink extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Deprecated Link Id</b></em>' attribute.

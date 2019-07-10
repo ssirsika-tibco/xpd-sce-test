@@ -15,27 +15,25 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskSend#getMessage <em>Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskSend#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskSend#getWebServiceFaultCatch <em>Web Service Fault Catch</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskSend#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTaskSend()
  * @model extendedMetaData="name='TaskSend_._type' kind='elementOnly' features-order='message webServiceOperation webServiceFaultCatch otherElements'"
  * @generated
  */
-public interface TaskSend extends OtherAttributesContainer,
-        OtherElementsContainer {
+public interface TaskSend extends OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Message</b></em>' containment reference.

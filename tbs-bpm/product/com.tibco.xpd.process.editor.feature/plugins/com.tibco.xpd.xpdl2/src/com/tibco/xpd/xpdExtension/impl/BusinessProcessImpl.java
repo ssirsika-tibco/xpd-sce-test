@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class BusinessProcessImpl extends EObjectImpl
-        implements BusinessProcess {
+public class BusinessProcessImpl extends EObjectImpl implements BusinessProcess {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getProcessId() <em>Process Id</em>}' attribute.
@@ -137,8 +135,7 @@ public class BusinessProcessImpl extends EObjectImpl
         String oldProcessId = processId;
         processId = newProcessId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.BUSINESS_PROCESS__PROCESS_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.BUSINESS_PROCESS__PROCESS_ID,
                     oldProcessId, processId));
     }
 
@@ -160,8 +157,7 @@ public class BusinessProcessImpl extends EObjectImpl
         String oldPackageRefId = packageRefId;
         packageRefId = newPackageRefId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.BUSINESS_PROCESS__PACKAGE_REF_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.BUSINESS_PROCESS__PACKAGE_REF_ID,
                     oldPackageRefId, packageRefId));
     }
 
@@ -183,8 +179,7 @@ public class BusinessProcessImpl extends EObjectImpl
         String oldActivityId = activityId;
         activityId = newActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.BUSINESS_PROCESS__ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.BUSINESS_PROCESS__ACTIVITY_ID,
                     oldActivityId, activityId));
     }
 
@@ -257,14 +252,12 @@ public class BusinessProcessImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.BUSINESS_PROCESS__PROCESS_ID:
-            return PROCESS_ID_EDEFAULT == null ? processId != null
-                    : !PROCESS_ID_EDEFAULT.equals(processId);
+            return PROCESS_ID_EDEFAULT == null ? processId != null : !PROCESS_ID_EDEFAULT.equals(processId);
         case XpdExtensionPackage.BUSINESS_PROCESS__PACKAGE_REF_ID:
             return PACKAGE_REF_ID_EDEFAULT == null ? packageRefId != null
                     : !PACKAGE_REF_ID_EDEFAULT.equals(packageRefId);
         case XpdExtensionPackage.BUSINESS_PROCESS__ACTIVITY_ID:
-            return ACTIVITY_ID_EDEFAULT == null ? activityId != null
-                    : !ACTIVITY_ID_EDEFAULT.equals(activityId);
+            return ACTIVITY_ID_EDEFAULT == null ? activityId != null : !ACTIVITY_ID_EDEFAULT.equals(activityId);
         }
         return super.eIsSet(featureID);
     }
@@ -279,7 +272,7 @@ public class BusinessProcessImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (processId: "); //$NON-NLS-1$
         result.append(processId);
         result.append(", packageRefId: "); //$NON-NLS-1$

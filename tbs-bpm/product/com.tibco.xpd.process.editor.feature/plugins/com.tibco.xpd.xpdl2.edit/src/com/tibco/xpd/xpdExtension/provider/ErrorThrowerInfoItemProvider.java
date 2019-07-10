@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,21 +79,20 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addThrowerIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ErrorThrowerInfo_throwerId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_throwerId_feature", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ErrorThrowerInfo_throwerId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_throwerId_feature", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -105,21 +102,20 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addThrowerContainerIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ErrorThrowerInfo_throwerContainerId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_throwerContainerId_feature", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_CONTAINER_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ErrorThrowerInfo_throwerContainerId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_throwerContainerId_feature", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_CONTAINER_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -129,21 +125,20 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addThrowerTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ErrorThrowerInfo_throwerType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_throwerType_feature", //$NON-NLS-1$
-                        "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ErrorThrowerInfo_throwerType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_throwerType_feature", //$NON-NLS-1$
+                                "_UI_ErrorThrowerInfo_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ERROR_THROWER_INFO__THROWER_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -154,8 +149,7 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ErrorThrowerInfo")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ErrorThrowerInfo")); //$NON-NLS-1$
     }
 
     /**
@@ -167,9 +161,8 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((ErrorThrowerInfo) object).getThrowerId();
-        return label == null || label.length() == 0
-                ? getString("_UI_ErrorThrowerInfo_type") //$NON-NLS-1$
-                : getString("_UI_ErrorThrowerInfo_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_ErrorThrowerInfo_type") : //$NON-NLS-1$
+                getString("_UI_ErrorThrowerInfo_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,8 +180,7 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_ID:
         case XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_CONTAINER_ID:
         case XpdExtensionPackage.ERROR_THROWER_INFO__THROWER_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -202,8 +194,7 @@ public class ErrorThrowerInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

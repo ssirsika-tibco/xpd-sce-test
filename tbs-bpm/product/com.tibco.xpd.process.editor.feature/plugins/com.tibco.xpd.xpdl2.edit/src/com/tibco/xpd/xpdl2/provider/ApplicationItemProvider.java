@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ApplicationItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,11 +79,12 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -105,17 +103,13 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS);
             childrenFeatures.add(Xpdl2Package.Literals.APPLICATION__TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATION__EXTERNAL_REFERENCE);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATION__EXTERNAL_REFERENCE);
         }
         return childrenFeatures;
     }
@@ -141,8 +135,7 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Application")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Application")); //$NON-NLS-1$
     }
 
     /**
@@ -168,15 +161,13 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
 
         switch (notification.getFeatureID(Application.class)) {
         case Xpdl2Package.APPLICATION__DESCRIPTION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.APPLICATION__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.APPLICATION__FORMAL_PARAMETERS:
         case Xpdl2Package.APPLICATION__TYPE:
         case Xpdl2Package.APPLICATION__EXTERNAL_REFERENCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -190,8 +181,7 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
@@ -202,13 +192,11 @@ public class ApplicationItemProvider extends NamedElementItemProvider implements
                 .add(createChildParameter(Xpdl2Package.Literals.FORMAL_PARAMETERS_CONTAINER__FORMAL_PARAMETERS,
                         Xpdl2Factory.eINSTANCE.createFormalParameter()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION__TYPE,
-                        Xpdl2Factory.eINSTANCE.createApplicationType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION__TYPE,
+                Xpdl2Factory.eINSTANCE.createApplicationType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION__EXTERNAL_REFERENCE,
-                        Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION__EXTERNAL_REFERENCE,
+                Xpdl2Factory.eINSTANCE.createExternalReference()));
     }
 
 }

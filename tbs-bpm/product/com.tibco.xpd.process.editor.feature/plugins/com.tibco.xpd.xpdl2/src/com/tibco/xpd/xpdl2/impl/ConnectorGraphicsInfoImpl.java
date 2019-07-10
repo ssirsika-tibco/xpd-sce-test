@@ -29,6 +29,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConnectorGraphicsInfoImpl#getCoordinates <em>Coordinates</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConnectorGraphicsInfoImpl#getBorderColor <em>Border Color</em>}</li>
@@ -38,19 +39,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConnectorGraphicsInfoImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConnectorGraphicsInfoImpl#getToolId <em>Tool Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
-        ConnectorGraphicsInfo {
+public class ConnectorGraphicsInfoImpl extends EObjectImpl implements ConnectorGraphicsInfo {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCoordinates() <em>Coordinates</em>}' containment reference list.
@@ -217,10 +215,8 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
      */
     public EList<Coordinates> getCoordinates() {
         if (coordinates == null) {
-            coordinates =
-                    new EObjectContainmentEList<Coordinates>(Coordinates.class,
-                            this,
-                            Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES);
+            coordinates = new EObjectContainmentEList<Coordinates>(Coordinates.class, this,
+                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES);
         }
         return coordinates;
     }
@@ -243,8 +239,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         String oldBorderColor = borderColor;
         borderColor = newBorderColor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__BORDER_COLOR,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__BORDER_COLOR,
                     oldBorderColor, borderColor));
     }
 
@@ -266,8 +261,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         String oldFillColor = fillColor;
         fillColor = newFillColor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__FILL_COLOR,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__FILL_COLOR,
                     oldFillColor, fillColor));
     }
 
@@ -291,8 +285,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         boolean oldIsVisibleESet = isVisibleESet;
         isVisibleESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE,
                     oldIsVisible, isVisible, !oldIsVisibleESet));
     }
 
@@ -307,8 +300,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         isVisible = IS_VISIBLE_EDEFAULT;
         isVisibleESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE,
                     oldIsVisible, IS_VISIBLE_EDEFAULT, oldIsVisibleESet));
     }
 
@@ -339,9 +331,8 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         String oldPageId = pageId;
         pageId = newPageId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__PAGE_ID, oldPageId,
-                    pageId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__PAGE_ID,
+                    oldPageId, pageId));
     }
 
     /**
@@ -362,8 +353,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         String oldStyle = style;
         style = newStyle;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__STYLE, oldStyle,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__STYLE, oldStyle,
                     style));
     }
 
@@ -385,9 +375,8 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         String oldToolId = toolId;
         toolId = newToolId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONNECTOR_GRAPHICS_INFO__TOOL_ID, oldToolId,
-                    toolId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONNECTOR_GRAPHICS_INFO__TOOL_ID,
+                    oldToolId, toolId));
     }
 
     /**
@@ -396,12 +385,10 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES:
-            return ((InternalEList<?>) getCoordinates()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getCoordinates()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -443,8 +430,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         switch (featureID) {
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES:
             getCoordinates().clear();
-            getCoordinates()
-                    .addAll((Collection<? extends Coordinates>) newValue);
+            getCoordinates().addAll((Collection<? extends Coordinates>) newValue);
             return;
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__BORDER_COLOR:
             setBorderColor((String) newValue);
@@ -512,22 +498,17 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES:
             return coordinates != null && !coordinates.isEmpty();
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__BORDER_COLOR:
-            return BORDER_COLOR_EDEFAULT == null ? borderColor != null
-                    : !BORDER_COLOR_EDEFAULT.equals(borderColor);
+            return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__FILL_COLOR:
-            return FILL_COLOR_EDEFAULT == null ? fillColor != null
-                    : !FILL_COLOR_EDEFAULT.equals(fillColor);
+            return FILL_COLOR_EDEFAULT == null ? fillColor != null : !FILL_COLOR_EDEFAULT.equals(fillColor);
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE:
             return isSetIsVisible();
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__PAGE_ID:
-            return PAGE_ID_EDEFAULT == null ? pageId != null
-                    : !PAGE_ID_EDEFAULT.equals(pageId);
+            return PAGE_ID_EDEFAULT == null ? pageId != null : !PAGE_ID_EDEFAULT.equals(pageId);
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__STYLE:
-            return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT
-                    .equals(style);
+            return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__TOOL_ID:
-            return TOOL_ID_EDEFAULT == null ? toolId != null
-                    : !TOOL_ID_EDEFAULT.equals(toolId);
+            return TOOL_ID_EDEFAULT == null ? toolId != null : !TOOL_ID_EDEFAULT.equals(toolId);
         }
         return super.eIsSet(featureID);
     }
@@ -542,7 +523,7 @@ public class ConnectorGraphicsInfoImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (borderColor: "); //$NON-NLS-1$
         result.append(borderColor);
         result.append(", fillColor: "); //$NON-NLS-1$

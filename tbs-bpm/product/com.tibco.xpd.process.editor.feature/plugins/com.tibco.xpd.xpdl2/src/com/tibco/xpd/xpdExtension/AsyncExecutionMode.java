@@ -44,8 +44,7 @@ public enum AsyncExecutionMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Attached</b></em>' literal value.
@@ -83,8 +82,7 @@ public enum AsyncExecutionMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AsyncExecutionMode[] VALUES_ARRAY =
-            new AsyncExecutionMode[] { ATTACHED, DETACHED, };
+    private static final AsyncExecutionMode[] VALUES_ARRAY = new AsyncExecutionMode[] { ATTACHED, DETACHED, };
 
     /**
      * A public read-only list of all the '<em><b>Async Execution Mode</b></em>' enumerators.
@@ -92,8 +90,7 @@ public enum AsyncExecutionMode implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AsyncExecutionMode> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AsyncExecutionMode> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Async Execution Mode</b></em>' literal with the specified literal value.

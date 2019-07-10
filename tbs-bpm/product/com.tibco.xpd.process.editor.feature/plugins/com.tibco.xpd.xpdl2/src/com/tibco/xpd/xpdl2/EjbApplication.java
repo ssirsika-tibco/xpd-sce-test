@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.EjbApplication#getJndiName <em>Jndi Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.EjbApplication#getHomeClass <em>Home Class</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.EjbApplication#getMethod <em>Method</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getEjbApplication()
  * @model extendedMetaData="name='Ejb_._type' kind='elementOnly'"
@@ -32,8 +32,7 @@ public interface EjbApplication extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Jndi Name</b></em>' containment reference.

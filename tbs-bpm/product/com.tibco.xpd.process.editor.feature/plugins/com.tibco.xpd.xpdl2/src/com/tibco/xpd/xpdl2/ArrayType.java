@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ArrayType#getBasicType <em>Basic Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ArrayType#getDeclaredType <em>Declared Type</em>}</li>
@@ -26,7 +27,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.ArrayType#getLowerIndex <em>Lower Index</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ArrayType#getUpperIndex <em>Upper Index</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getArrayType()
  * @model extendedMetaData="name='ArrayType_._type' kind='elementOnly'"
@@ -38,8 +38,7 @@ public interface ArrayType extends DataType {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Basic Type</b></em>' containment reference.

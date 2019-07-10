@@ -413,6 +413,9 @@ public class ProcessDataUtil {
                 uIReadableBasicTypeLabel = "Date Time and Timezone";//$NON-NLS-1$
             } else if (UIBasicTypes.Performer.equals(uiBasicType)) {
                 uIReadableBasicTypeLabel = "Performer";//$NON-NLS-1$
+            } else if (UIBasicTypes.URI.equals(uiBasicType)) {
+                /* Sid ACE-1192 - added URI data type. */
+                uIReadableBasicTypeLabel = "URI";//$NON-NLS-1$
             }
 
         }

@@ -23,10 +23,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormLayoutImpl#getMixed <em>Mixed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -36,8 +36,7 @@ public class FormLayoutImpl extends EObjectImpl implements FormLayout {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -86,8 +85,7 @@ public class FormLayoutImpl extends EObjectImpl implements FormLayout {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.FORM_LAYOUT__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
@@ -165,7 +163,7 @@ public class FormLayoutImpl extends EObjectImpl implements FormLayout {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: "); //$NON-NLS-1$
         result.append(mixed);
         result.append(')');

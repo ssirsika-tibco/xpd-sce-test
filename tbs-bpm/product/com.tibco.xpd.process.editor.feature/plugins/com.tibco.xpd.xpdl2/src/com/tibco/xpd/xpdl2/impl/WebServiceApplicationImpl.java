@@ -29,25 +29,23 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceApplicationImpl#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceApplicationImpl#getWebServiceFaultCatch <em>Web Service Fault Catch</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceApplicationImpl#getInputMsgName <em>Input Msg Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.WebServiceApplicationImpl#getOutputMsgName <em>Output Msg Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class WebServiceApplicationImpl extends EObjectImpl implements
-        WebServiceApplication {
+public class WebServiceApplicationImpl extends EObjectImpl implements WebServiceApplication {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getWebServiceOperation() <em>Web Service Operation</em>}' containment reference.
@@ -142,17 +140,14 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebServiceOperation(
-            WebServiceOperation newWebServiceOperation, NotificationChain msgs) {
+    public NotificationChain basicSetWebServiceOperation(WebServiceOperation newWebServiceOperation,
+            NotificationChain msgs) {
         WebServiceOperation oldWebServiceOperation = webServiceOperation;
         webServiceOperation = newWebServiceOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
-                            oldWebServiceOperation, newWebServiceOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION, oldWebServiceOperation,
+                    newWebServiceOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -166,35 +161,26 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWebServiceOperation(
-            WebServiceOperation newWebServiceOperation) {
+    public void setWebServiceOperation(WebServiceOperation newWebServiceOperation) {
         if (newWebServiceOperation != webServiceOperation) {
             NotificationChain msgs = null;
             if (webServiceOperation != null)
-                msgs =
-                        ((InternalEObject) webServiceOperation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) webServiceOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             if (newWebServiceOperation != null)
-                msgs =
-                        ((InternalEObject) newWebServiceOperation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWebServiceOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             msgs = basicSetWebServiceOperation(newWebServiceOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION,
-                    newWebServiceOperation, newWebServiceOperation));
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION, newWebServiceOperation,
+                    newWebServiceOperation));
     }
 
     /**
@@ -204,11 +190,8 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
      */
     public EList<WebServiceFaultCatch> getWebServiceFaultCatch() {
         if (webServiceFaultCatch == null) {
-            webServiceFaultCatch =
-                    new EObjectContainmentEList<WebServiceFaultCatch>(
-                            WebServiceFaultCatch.class,
-                            this,
-                            Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH);
+            webServiceFaultCatch = new EObjectContainmentEList<WebServiceFaultCatch>(WebServiceFaultCatch.class, this,
+                    Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH);
         }
         return webServiceFaultCatch;
     }
@@ -231,8 +214,7 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
         String oldInputMsgName = inputMsgName;
         inputMsgName = newInputMsgName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME,
                     oldInputMsgName, inputMsgName));
     }
 
@@ -254,8 +236,7 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
         String oldOutputMsgName = outputMsgName;
         outputMsgName = newOutputMsgName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME,
                     oldOutputMsgName, outputMsgName));
     }
 
@@ -265,14 +246,12 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION:
             return basicSetWebServiceOperation(null, msgs);
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH:
-            return ((InternalEList<?>) getWebServiceFaultCatch())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getWebServiceFaultCatch()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -311,8 +290,7 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
             return;
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH:
             getWebServiceFaultCatch().clear();
-            getWebServiceFaultCatch()
-                    .addAll((Collection<? extends WebServiceFaultCatch>) newValue);
+            getWebServiceFaultCatch().addAll((Collection<? extends WebServiceFaultCatch>) newValue);
             return;
         case Xpdl2Package.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME:
             setInputMsgName((String) newValue);
@@ -359,8 +337,7 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION:
             return webServiceOperation != null;
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH:
-            return webServiceFaultCatch != null
-                    && !webServiceFaultCatch.isEmpty();
+            return webServiceFaultCatch != null && !webServiceFaultCatch.isEmpty();
         case Xpdl2Package.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME:
             return INPUT_MSG_NAME_EDEFAULT == null ? inputMsgName != null
                     : !INPUT_MSG_NAME_EDEFAULT.equals(inputMsgName);
@@ -381,7 +358,7 @@ public class WebServiceApplicationImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (inputMsgName: "); //$NON-NLS-1$
         result.append(inputMsgName);
         result.append(", outputMsgName: "); //$NON-NLS-1$

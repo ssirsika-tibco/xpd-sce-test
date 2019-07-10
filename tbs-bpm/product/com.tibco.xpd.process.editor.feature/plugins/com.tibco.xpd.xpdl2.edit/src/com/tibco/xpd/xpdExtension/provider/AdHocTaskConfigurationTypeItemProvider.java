@@ -39,16 +39,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -56,8 +54,7 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public AdHocTaskConfigurationTypeItemProvider(
-            AdapterFactory adapterFactory) {
+    public AdHocTaskConfigurationTypeItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -86,22 +83,20 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAdHocExecutionTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AdHocTaskConfigurationType_adHocExecutionType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_adHocExecutionType_feature", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AdHocTaskConfigurationType_adHocExecutionType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_adHocExecutionType_feature", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -111,22 +106,20 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSuspendMainFlowPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AdHocTaskConfigurationType_suspendMainFlow_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_suspendMainFlow_feature", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AdHocTaskConfigurationType_suspendMainFlow_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_suspendMainFlow_feature", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -135,24 +128,21 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAllowMultipleInvocationsPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AdHocTaskConfigurationType_allowMultipleInvocations_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_allowMultipleInvocations_feature", //$NON-NLS-1$
-                        "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addAllowMultipleInvocationsPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AdHocTaskConfigurationType_allowMultipleInvocations_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_allowMultipleInvocations_feature", //$NON-NLS-1$
+                                "_UI_AdHocTaskConfigurationType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -164,14 +154,12 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT);
+            childrenFeatures
+                    .add(XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES);
         }
         return childrenFeatures;
     }
@@ -197,9 +185,7 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/AdHocTaskConfigurationType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/AdHocTaskConfigurationType")); //$NON-NLS-1$
     }
 
     /**
@@ -210,12 +196,10 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        AdHocExecutionTypeType labelValue =
-                ((AdHocTaskConfigurationType) object).getAdHocExecutionType();
+        AdHocExecutionTypeType labelValue = ((AdHocTaskConfigurationType) object).getAdHocExecutionType();
         String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0
-                ? getString("_UI_AdHocTaskConfigurationType_type") //$NON-NLS-1$
-                : getString("_UI_AdHocTaskConfigurationType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_AdHocTaskConfigurationType_type") : //$NON-NLS-1$
+                getString("_UI_AdHocTaskConfigurationType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -233,13 +217,11 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE:
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW:
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT:
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -253,18 +235,16 @@ public class AdHocTaskConfigurationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
-                XpdExtensionFactory.eINSTANCE.createEnablementType()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
+                        XpdExtensionFactory.eINSTANCE.createEnablementType()));
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
-                XpdExtensionFactory.eINSTANCE
-                        .createRequiredAccessPrivileges()));
+                XpdExtensionFactory.eINSTANCE.createRequiredAccessPrivileges()));
     }
 
     /**

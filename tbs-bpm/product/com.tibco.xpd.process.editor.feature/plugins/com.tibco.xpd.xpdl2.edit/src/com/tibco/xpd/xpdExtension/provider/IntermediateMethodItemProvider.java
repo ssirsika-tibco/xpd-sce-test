@@ -51,8 +51,7 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -90,21 +89,20 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DescribedElement_description_feature", //$NON-NLS-1$
-                        "_UI_DescribedElement_type"), //$NON-NLS-1$
-                Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
-                true,
-                false,
-                false,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
+                        Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -113,24 +111,21 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDisableImplicitAssociationPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature", //$NON-NLS-1$
-                        "_UI_AssociatedParametersContainer_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addDisableImplicitAssociationPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AssociatedParametersContainer_disableImplicitAssociation_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature", //$NON-NLS-1$
+                                "_UI_AssociatedParametersContainer_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -140,21 +135,20 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addTriggerPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_InterfaceMethod_trigger_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_InterfaceMethod_trigger_feature", //$NON-NLS-1$
-                        "_UI_InterfaceMethod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_InterfaceMethod_trigger_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_InterfaceMethod_trigger_feature", //$NON-NLS-1$
+                                "_UI_InterfaceMethod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -164,21 +158,20 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addVisibilityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_InterfaceMethod_visibility_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_InterfaceMethod_visibility_feature", //$NON-NLS-1$
-                        "_UI_InterfaceMethod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.INTERFACE_METHOD__VISIBILITY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_InterfaceMethod_visibility_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_InterfaceMethod_visibility_feature", //$NON-NLS-1$
+                                "_UI_InterfaceMethod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.INTERFACE_METHOD__VISIBILITY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -190,16 +183,12 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.INTERFACE_METHOD__ERROR_METHODS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.INTERFACE_METHOD__ERROR_METHODS);
         }
         return childrenFeatures;
     }
@@ -225,8 +214,8 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      */
     public Object getImage(Object object) {
         String icon = "full/obj16/IntermediateMethodNone"; //$NON-NLS-1$
-        if (object instanceof IntermediateMethod && TriggerType.MESSAGE_LITERAL
-                .equals(((IntermediateMethod) object).getTrigger())) {
+        if (object instanceof IntermediateMethod
+                && TriggerType.MESSAGE_LITERAL.equals(((IntermediateMethod) object).getTrigger())) {
             icon = "full/obj16/IntermediateMethodMessage"; //$NON-NLS-1$
         }
         return overlayImage(object, getResourceLocator().getImage(icon));
@@ -258,14 +247,12 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
         case XpdExtensionPackage.INTERMEDIATE_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
         case XpdExtensionPackage.INTERMEDIATE_METHOD__TRIGGER:
         case XpdExtensionPackage.INTERMEDIATE_METHOD__VISIBILITY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.INTERMEDIATE_METHOD__ASSOCIATED_PARAMETERS:
         case XpdExtensionPackage.INTERMEDIATE_METHOD__TRIGGER_RESULT_MESSAGE:
         case XpdExtensionPackage.INTERMEDIATE_METHOD__ERROR_METHODS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -279,20 +266,18 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS,
                 XpdExtensionFactory.eINSTANCE.createAssociatedParameter()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE,
-                Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.INTERFACE_METHOD__TRIGGER_RESULT_MESSAGE,
+                        Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.INTERFACE_METHOD__ERROR_METHODS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.INTERFACE_METHOD__ERROR_METHODS,
                 XpdExtensionFactory.eINSTANCE.createErrorMethod()));
     }
 
@@ -308,46 +293,26 @@ public class IntermediateMethodItemProvider extends NamedElementItemProvider {
     }
 
     @Override
-    protected Command createAddCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection, int index) {
-        Command cmd = super.createAddCommand(domain,
-                owner,
-                feature,
-                collection,
-                index);
-        cmd = CommandsUtils.checkExternalAddWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                collection,
-                index);
+    protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection, int index) {
+        Command cmd = super.createAddCommand(domain, owner, feature, collection, index);
+        cmd = CommandsUtils.checkExternalAddWrappers(cmd, domain, owner, feature, collection, index);
         return cmd;
     }
 
     @Override
-    protected Command createRemoveCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection) {
-        Command cmd =
-                super.createRemoveCommand(domain, owner, feature, collection);
-        cmd = CommandsUtils.checkExternalDeleteWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                collection);
+    protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection) {
+        Command cmd = super.createRemoveCommand(domain, owner, feature, collection);
+        cmd = CommandsUtils.checkExternalDeleteWrappers(cmd, domain, owner, feature, collection);
         return cmd;
     }
 
     @Override
-    protected Command createSetCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Object value, int index) {
-        Command cmd =
-                super.createSetCommand(domain, owner, feature, value, index);
-        cmd = CommandsUtils.checkExternalSetWrappers(cmd,
-                domain,
-                owner,
-                feature,
-                value,
-                index);
+    protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+            int index) {
+        Command cmd = super.createSetCommand(domain, owner, feature, value, index);
+        cmd = CommandsUtils.checkExternalSetWrappers(cmd, domain, owner, feature, value, index);
         return cmd;
     }
 

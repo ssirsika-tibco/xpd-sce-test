@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ConnectorGraphicsInfo#getCoordinates <em>Coordinates</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ConnectorGraphicsInfo#getBorderColor <em>Border Color</em>}</li>
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.ConnectorGraphicsInfo#getStyle <em>Style</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ConnectorGraphicsInfo#getToolId <em>Tool Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getConnectorGraphicsInfo()
  * @model extendedMetaData="name='ConnectorGraphicsInfo_._type' kind='elementOnly'"
@@ -37,8 +37,7 @@ public interface ConnectorGraphicsInfo extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Coordinates</b></em>' containment reference list.

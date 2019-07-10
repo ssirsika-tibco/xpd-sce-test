@@ -23,10 +23,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormApplicationImpl#getFormLayout <em>Form Layout</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -36,8 +36,7 @@ public class FormApplicationImpl extends EObjectImpl implements FormApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getFormLayout() <em>Form Layout</em>}' containment reference.
@@ -82,15 +81,12 @@ public class FormApplicationImpl extends EObjectImpl implements FormApplication 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFormLayout(FormLayout newFormLayout,
-            NotificationChain msgs) {
+    public NotificationChain basicSetFormLayout(FormLayout newFormLayout, NotificationChain msgs) {
         FormLayout oldFormLayout = formLayout;
         formLayout = newFormLayout;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
-                            oldFormLayout, newFormLayout);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT, oldFormLayout, newFormLayout);
             if (msgs == null)
                 msgs = notification;
             else
@@ -108,28 +104,21 @@ public class FormApplicationImpl extends EObjectImpl implements FormApplication 
         if (newFormLayout != formLayout) {
             NotificationChain msgs = null;
             if (formLayout != null)
-                msgs =
-                        ((InternalEObject) formLayout)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) formLayout).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
+                        null,
+                        msgs);
             if (newFormLayout != null)
-                msgs =
-                        ((InternalEObject) newFormLayout)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newFormLayout).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
+                        null,
+                        msgs);
             msgs = basicSetFormLayout(newFormLayout, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT, newFormLayout,
-                    newFormLayout));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT,
+                    newFormLayout, newFormLayout));
     }
 
     /**
@@ -138,8 +127,7 @@ public class FormApplicationImpl extends EObjectImpl implements FormApplication 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.FORM_APPLICATION__FORM_LAYOUT:
             return basicSetFormLayout(null, msgs);

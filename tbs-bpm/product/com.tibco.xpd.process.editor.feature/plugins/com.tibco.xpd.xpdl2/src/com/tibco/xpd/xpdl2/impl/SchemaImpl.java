@@ -22,10 +22,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.SchemaImpl#getAny <em>Any</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,8 +35,7 @@ public class SchemaImpl extends DataTypeImpl implements Schema {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
@@ -85,8 +84,7 @@ public class SchemaImpl extends DataTypeImpl implements Schema {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.SCHEMA__ANY:
             return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
@@ -164,7 +162,7 @@ public class SchemaImpl extends DataTypeImpl implements Schema {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (any: "); //$NON-NLS-1$
         result.append(any);
         result.append(')');

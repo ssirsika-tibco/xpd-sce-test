@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class AddLinkAssociationsTypeImpl extends EObjectImpl
-        implements AddLinkAssociationsType {
+public class AddLinkAssociationsTypeImpl extends EObjectImpl implements AddLinkAssociationsType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getAddCaseRefField() <em>Add Case Ref Field</em>}' attribute.
@@ -115,8 +113,8 @@ public class AddLinkAssociationsTypeImpl extends EObjectImpl
         addCaseRefField = newAddCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD,
-                    oldAddCaseRefField, addCaseRefField));
+                    XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD, oldAddCaseRefField,
+                    addCaseRefField));
     }
 
     /**
@@ -138,8 +136,8 @@ public class AddLinkAssociationsTypeImpl extends EObjectImpl
         associationName = newAssociationName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME,
-                    oldAssociationName, associationName));
+                    XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME, oldAssociationName,
+                    associationName));
     }
 
     /**
@@ -222,7 +220,7 @@ public class AddLinkAssociationsTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (addCaseRefField: "); //$NON-NLS-1$
         result.append(addCaseRefField);
         result.append(", associationName: "); //$NON-NLS-1$

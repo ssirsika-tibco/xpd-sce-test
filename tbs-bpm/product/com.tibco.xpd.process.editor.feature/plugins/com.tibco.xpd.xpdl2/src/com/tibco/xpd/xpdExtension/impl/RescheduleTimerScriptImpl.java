@@ -28,15 +28,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RescheduleTimerScriptImpl extends ExpressionImpl
-        implements RescheduleTimerScript {
+public class RescheduleTimerScriptImpl extends ExpressionImpl implements RescheduleTimerScript {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDurationRelativeTo() <em>Duration Relative To</em>}' attribute.
@@ -57,8 +55,7 @@ public class RescheduleTimerScriptImpl extends ExpressionImpl
      * @generated
      * @ordered
      */
-    protected RescheduleDurationType durationRelativeTo =
-            DURATION_RELATIVE_TO_EDEFAULT;
+    protected RescheduleDurationType durationRelativeTo = DURATION_RELATIVE_TO_EDEFAULT;
 
     /**
      * This is true if the Duration Relative To attribute has been set.
@@ -102,19 +99,15 @@ public class RescheduleTimerScriptImpl extends ExpressionImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDurationRelativeTo(
-            RescheduleDurationType newDurationRelativeTo) {
+    public void setDurationRelativeTo(RescheduleDurationType newDurationRelativeTo) {
         RescheduleDurationType oldDurationRelativeTo = durationRelativeTo;
-        durationRelativeTo =
-                newDurationRelativeTo == null ? DURATION_RELATIVE_TO_EDEFAULT
-                        : newDurationRelativeTo;
+        durationRelativeTo = newDurationRelativeTo == null ? DURATION_RELATIVE_TO_EDEFAULT : newDurationRelativeTo;
         boolean oldDurationRelativeToESet = durationRelativeToESet;
         durationRelativeToESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO,
-                    oldDurationRelativeTo, durationRelativeTo,
-                    !oldDurationRelativeToESet));
+                    XpdExtensionPackage.RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO, oldDurationRelativeTo,
+                    durationRelativeTo, !oldDurationRelativeToESet));
     }
 
     /**
@@ -129,9 +122,8 @@ public class RescheduleTimerScriptImpl extends ExpressionImpl
         durationRelativeToESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO,
-                    oldDurationRelativeTo, DURATION_RELATIVE_TO_EDEFAULT,
-                    oldDurationRelativeToESet));
+                    XpdExtensionPackage.RESCHEDULE_TIMER_SCRIPT__DURATION_RELATIVE_TO, oldDurationRelativeTo,
+                    DURATION_RELATIVE_TO_EDEFAULT, oldDurationRelativeToESet));
     }
 
     /**
@@ -211,7 +203,7 @@ public class RescheduleTimerScriptImpl extends ExpressionImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (durationRelativeTo: "); //$NON-NLS-1$
         if (durationRelativeToESet)
             result.append(durationRelativeTo);

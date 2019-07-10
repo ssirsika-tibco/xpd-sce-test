@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,22 +78,20 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addWaitForIncomingPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_StructuredDiscriminator_waitForIncomingPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_StructuredDiscriminator_waitForIncomingPath_feature", //$NON-NLS-1$
-                        "_UI_StructuredDiscriminator_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_StructuredDiscriminator_waitForIncomingPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_StructuredDiscriminator_waitForIncomingPath_feature", //$NON-NLS-1$
+                                "_UI_StructuredDiscriminator_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -105,22 +101,20 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addUpStreamParallelSplitPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_StructuredDiscriminator_UpStreamParallelSplit_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_StructuredDiscriminator_UpStreamParallelSplit_feature", //$NON-NLS-1$
-                        "_UI_StructuredDiscriminator_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_StructuredDiscriminator_UpStreamParallelSplit_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_StructuredDiscriminator_UpStreamParallelSplit_feature", //$NON-NLS-1$
+                                "_UI_StructuredDiscriminator_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -131,9 +125,7 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/StructuredDiscriminator")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/StructuredDiscriminator")); //$NON-NLS-1$
     }
 
     /**
@@ -144,12 +136,10 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        BigInteger labelValue =
-                ((StructuredDiscriminator) object).getWaitForIncomingPath();
+        BigInteger labelValue = ((StructuredDiscriminator) object).getWaitForIncomingPath();
         String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0
-                ? getString("_UI_StructuredDiscriminator_type") //$NON-NLS-1$
-                : getString("_UI_StructuredDiscriminator_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_StructuredDiscriminator_type") : //$NON-NLS-1$
+                getString("_UI_StructuredDiscriminator_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -166,8 +156,7 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(StructuredDiscriminator.class)) {
         case XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH:
         case XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -181,8 +170,7 @@ public class StructuredDiscriminatorItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

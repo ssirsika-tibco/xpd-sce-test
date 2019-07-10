@@ -28,24 +28,22 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantTypeElemImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantTypeElemImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantTypeElemImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ParticipantTypeElemImpl extends EObjectImpl implements
-        ParticipantTypeElem {
+public class ParticipantTypeElemImpl extends EObjectImpl implements ParticipantTypeElem {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -75,8 +73,7 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected static final ParticipantType TYPE_EDEFAULT =
-            ParticipantType.RESOURCE_SET_LITERAL;
+    protected static final ParticipantType TYPE_EDEFAULT = ParticipantType.RESOURCE_SET_LITERAL;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -123,10 +120,7 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(
-                            this,
-                            Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -138,9 +132,7 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -165,9 +157,8 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTICIPANT_TYPE_ELEM__TYPE, oldType, type,
-                    !oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTICIPANT_TYPE_ELEM__TYPE, oldType,
+                    type, !oldTypeESet));
     }
 
     /**
@@ -181,8 +172,7 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PARTICIPANT_TYPE_ELEM__TYPE, oldType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PARTICIPANT_TYPE_ELEM__TYPE, oldType,
                     TYPE_EDEFAULT, oldTypeESet));
     }
 
@@ -212,15 +202,12 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PARTICIPANT_TYPE_ELEM__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -353,7 +340,7 @@ public class ParticipantTypeElemImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

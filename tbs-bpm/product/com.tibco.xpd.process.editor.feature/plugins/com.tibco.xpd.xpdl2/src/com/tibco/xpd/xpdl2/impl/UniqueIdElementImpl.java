@@ -27,21 +27,19 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.UniqueIdElementImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class UniqueIdElementImpl extends EObjectImpl implements
-        UniqueIdElement {
+public abstract class UniqueIdElementImpl extends EObjectImpl implements UniqueIdElement {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
@@ -117,8 +115,8 @@ public abstract class UniqueIdElementImpl extends EObjectImpl implements
             String oldValue = id;
             id = (String) newValue;
             if (eNotificationRequired()) {
-                eNotify(new ENotificationImpl(this, Notification.SET,
-                        Xpdl2Package.UNIQUE_ID_ELEMENT__ID, oldValue, newValue));
+                eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.UNIQUE_ID_ELEMENT__ID, oldValue,
+                        newValue));
             }
             return;
         }
@@ -160,7 +158,7 @@ public abstract class UniqueIdElementImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (id: "); //$NON-NLS-1$
         result.append(id);
         result.append(')');

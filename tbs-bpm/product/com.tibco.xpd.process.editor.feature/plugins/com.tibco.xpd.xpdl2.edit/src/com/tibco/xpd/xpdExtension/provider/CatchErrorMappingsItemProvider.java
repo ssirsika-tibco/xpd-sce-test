@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CatchErrorMappingsItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CatchErrorMappingsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,12 +79,10 @@ public class CatchErrorMappingsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE);
         }
         return childrenFeatures;
     }
@@ -112,8 +108,7 @@ public class CatchErrorMappingsItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/CatchErrorMappings")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CatchErrorMappings")); //$NON-NLS-1$
     }
 
     /**
@@ -140,8 +135,7 @@ public class CatchErrorMappingsItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(CatchErrorMappings.class)) {
         case XpdExtensionPackage.CATCH_ERROR_MAPPINGS__MESSAGE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -155,16 +149,13 @@ public class CatchErrorMappingsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE,
                 XpdExtensionFactory.eINSTANCE.createFaultMessage()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.CATCH_ERROR_MAPPINGS__MESSAGE,
                 Xpdl2Factory.eINSTANCE.createMessage()));
     }
 

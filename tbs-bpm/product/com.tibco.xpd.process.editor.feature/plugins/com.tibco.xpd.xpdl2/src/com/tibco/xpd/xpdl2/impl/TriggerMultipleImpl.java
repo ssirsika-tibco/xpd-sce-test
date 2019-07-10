@@ -30,6 +30,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerMultipleImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerMultipleImpl#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
@@ -38,7 +39,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerMultipleImpl#getTriggerResultLink <em>Trigger Result Link</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerMultipleImpl#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -48,8 +48,7 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -137,9 +136,7 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TRIGGER_MULTIPLE__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TRIGGER_MULTIPLE__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -158,16 +155,13 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
+            NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
                             oldTriggerResultMessage, newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
@@ -182,32 +176,24 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) triggerResultMessage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             if (newTriggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE,
                     newTriggerResultMessage, newTriggerResultMessage));
     }
 
@@ -225,15 +211,12 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer, NotificationChain msgs) {
         TriggerTimer oldTriggerTimer = triggerTimer;
         triggerTimer = newTriggerTimer;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
-                            oldTriggerTimer, newTriggerTimer);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER, oldTriggerTimer, newTriggerTimer);
             if (msgs == null)
                 msgs = notification;
             else
@@ -251,27 +234,20 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
         if (newTriggerTimer != triggerTimer) {
             NotificationChain msgs = null;
             if (triggerTimer != null)
-                msgs =
-                        ((InternalEObject) triggerTimer)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerTimer).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
+                        null,
+                        msgs);
             if (newTriggerTimer != null)
-                msgs =
-                        ((InternalEObject) newTriggerTimer)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerTimer).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
+                        null,
+                        msgs);
             msgs = basicSetTriggerTimer(newTriggerTimer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER,
                     newTriggerTimer, newTriggerTimer));
     }
 
@@ -289,15 +265,13 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerConditional(
-            TriggerConditional newTriggerConditional, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerConditional(TriggerConditional newTriggerConditional,
+            NotificationChain msgs) {
         TriggerConditional oldTriggerConditional = triggerConditional;
         triggerConditional = newTriggerConditional;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
-                            oldTriggerConditional, newTriggerConditional);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL, oldTriggerConditional, newTriggerConditional);
             if (msgs == null)
                 msgs = notification;
             else
@@ -315,27 +289,20 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
         if (newTriggerConditional != triggerConditional) {
             NotificationChain msgs = null;
             if (triggerConditional != null)
-                msgs =
-                        ((InternalEObject) triggerConditional)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerConditional).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             if (newTriggerConditional != null)
-                msgs =
-                        ((InternalEObject) newTriggerConditional)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerConditional).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerConditional(newTriggerConditional, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_CONDITIONAL,
                     newTriggerConditional, newTriggerConditional));
     }
 
@@ -353,15 +320,12 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultLink(
-            TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultLink(TriggerResultLink newTriggerResultLink, NotificationChain msgs) {
         TriggerResultLink oldTriggerResultLink = triggerResultLink;
         triggerResultLink = newTriggerResultLink;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
-                            oldTriggerResultLink, newTriggerResultLink);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK, oldTriggerResultLink, newTriggerResultLink);
             if (msgs == null)
                 msgs = notification;
             else
@@ -379,27 +343,20 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
         if (newTriggerResultLink != triggerResultLink) {
             NotificationChain msgs = null;
             if (triggerResultLink != null)
-                msgs =
-                        ((InternalEObject) triggerResultLink)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultLink).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             if (newTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultLink)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultLink).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultLink(newTriggerResultLink, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_LINK,
                     newTriggerResultLink, newTriggerResultLink));
     }
 
@@ -417,18 +374,14 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule,
+    public NotificationChain basicSetDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule,
             NotificationChain msgs) {
         DeprecatedTriggerRule oldDeprecatedTriggerRule = deprecatedTriggerRule;
         deprecatedTriggerRule = newDeprecatedTriggerRule;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
-                            oldDeprecatedTriggerRule, newDeprecatedTriggerRule);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE, oldDeprecatedTriggerRule,
+                    newDeprecatedTriggerRule);
             if (msgs == null)
                 msgs = notification;
             else
@@ -442,35 +395,26 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule) {
+    public void setDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule) {
         if (newDeprecatedTriggerRule != deprecatedTriggerRule) {
             NotificationChain msgs = null;
             if (deprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) deprecatedTriggerRule)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedTriggerRule).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
             if (newDeprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedTriggerRule)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedTriggerRule).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE,
-                    newDeprecatedTriggerRule, newDeprecatedTriggerRule));
+                    Xpdl2Package.TRIGGER_MULTIPLE__DEPRECATED_TRIGGER_RULE, newDeprecatedTriggerRule,
+                    newDeprecatedTriggerRule));
     }
 
     /**
@@ -479,12 +423,10 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRIGGER_MULTIPLE__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
         case Xpdl2Package.TRIGGER_MULTIPLE__TRIGGER_TIMER:
@@ -619,7 +561,7 @@ public class TriggerMultipleImpl extends EObjectImpl implements TriggerMultiple 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(')');

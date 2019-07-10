@@ -141,6 +141,7 @@ import com.tibco.xpd.xpdl2.SubFlow;
  *   <li>{@link com.tibco.xpd.xpdExtension.DocumentRoot#getOutputMappings <em>Output Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.DocumentRoot#getBusinessServicePublishType <em>Business Service Publish Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.DocumentRoot#isSuppressMaxMappingsError <em>Suppress Max Mappings Error</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.DocumentRoot#getFieldFormat <em>Field Format</em>}</li>
  * </ul>
  *
  * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDocumentRoot()
@@ -154,8 +155,7 @@ public interface DocumentRoot extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>XMLNS Prefix Map</b></em>' map.
@@ -3335,5 +3335,34 @@ public interface DocumentRoot extends EObject {
      * @generated
      */
     void setSuppressMaxMappingsError(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Field Format</b></em>' attribute.
+     * The literals are from the enumeration {@link com.tibco.xpd.xpdExtension.FieldFormat}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Used on BasicType for expressing a specific format for a given base type (such as URI)
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Field Format</em>' attribute.
+     * @see com.tibco.xpd.xpdExtension.FieldFormat
+     * @see #setFieldFormat(FieldFormat)
+     * @see com.tibco.xpd.xpdExtension.XpdExtensionPackage#getDocumentRoot_FieldFormat()
+     * @model unique="false" required="true"
+     *        extendedMetaData="kind='attribute' name='FieldFormat' namespace='##targetNamespace'"
+     * @generated
+     */
+    FieldFormat getFieldFormat();
+
+    /**
+     * Sets the value of the '{@link com.tibco.xpd.xpdExtension.DocumentRoot#getFieldFormat <em>Field Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Field Format</em>' attribute.
+     * @see com.tibco.xpd.xpdExtension.FieldFormat
+     * @see #getFieldFormat()
+     * @generated
+     */
+    void setFieldFormat(FieldFormat value);
 
 } // DocumentRoot

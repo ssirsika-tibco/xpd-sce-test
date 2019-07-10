@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,14 +77,12 @@ public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES);
+            childrenFeatures
+                    .add(XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES);
         }
         return childrenFeatures;
     }
@@ -112,9 +108,7 @@ public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/ProcessResourcePatterns")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessResourcePatterns")); //$NON-NLS-1$
     }
 
     /**
@@ -142,8 +136,7 @@ public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(ProcessResourcePatterns.class)) {
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES:
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -157,19 +150,16 @@ public class ProcessResourcePatternsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES,
-                XpdExtensionFactory.eINSTANCE
-                        .createSeparationOfDutiesActivities()));
+                XpdExtensionFactory.eINSTANCE.createSeparationOfDutiesActivities()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES,
-                XpdExtensionFactory.eINSTANCE
-                        .createRetainFamiliarActivities()));
+        newChildDescriptors.add(
+                createChildParameter(XpdExtensionPackage.Literals.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES,
+                        XpdExtensionFactory.eINSTANCE.createRetainFamiliarActivities()));
     }
 
     /**

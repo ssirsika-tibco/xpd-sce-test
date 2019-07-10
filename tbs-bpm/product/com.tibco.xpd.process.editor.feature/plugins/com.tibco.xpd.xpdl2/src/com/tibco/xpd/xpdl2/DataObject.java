@@ -13,26 +13,24 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.DataObject#isDeprecatedProducedAtCompletion <em>Deprecated Produced At Completion</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataObject#isDeprecatedRequiredForStart <em>Deprecated Required For Start</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataObject#getState <em>State</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getDataObject()
  * @model extendedMetaData="name='DataObject_._type' kind='elementOnly' features-order='dataFields'"
  * @generated
  */
-public interface DataObject extends NamedElement, DataFieldsContainer,
-        OtherElementsContainer {
+public interface DataObject extends NamedElement, DataFieldsContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Deprecated Produced At Completion</b></em>' attribute.

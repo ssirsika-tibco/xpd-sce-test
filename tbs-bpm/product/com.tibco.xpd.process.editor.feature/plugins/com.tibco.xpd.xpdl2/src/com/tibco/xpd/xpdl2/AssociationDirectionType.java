@@ -63,8 +63,7 @@ public enum AssociationDirectionType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>None</b></em>' literal value.
@@ -133,8 +132,7 @@ public enum AssociationDirectionType implements Enumerator {
      * @generated
      */
     private static final AssociationDirectionType[] VALUES_ARRAY =
-            new AssociationDirectionType[] { NONE_LITERAL, TO_LITERAL,
-                    FROM_LITERAL, BOTH_LITERAL, };
+            new AssociationDirectionType[] { NONE_LITERAL, TO_LITERAL, FROM_LITERAL, BOTH_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Association Direction Type</b></em>' enumerators.
@@ -142,13 +140,15 @@ public enum AssociationDirectionType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AssociationDirectionType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AssociationDirectionType> VALUES =
+            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Association Direction Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssociationDirectionType get(String literal) {
@@ -165,6 +165,8 @@ public enum AssociationDirectionType implements Enumerator {
      * Returns the '<em><b>Association Direction Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssociationDirectionType getByName(String name) {
@@ -181,6 +183,8 @@ public enum AssociationDirectionType implements Enumerator {
      * Returns the '<em><b>Association Direction Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssociationDirectionType get(int value) {

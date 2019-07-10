@@ -33,15 +33,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DocumentOperationImpl extends EObjectImpl
-        implements DocumentOperation {
+public class DocumentOperationImpl extends EObjectImpl implements DocumentOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCaseDocRefOperation() <em>Case Doc Ref Operation</em>}' containment reference.
@@ -106,16 +104,14 @@ public class DocumentOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseDocRefOperation(
-            CaseDocRefOperations newCaseDocRefOperation,
+    public NotificationChain basicSetCaseDocRefOperation(CaseDocRefOperations newCaseDocRefOperation,
             NotificationChain msgs) {
         CaseDocRefOperations oldCaseDocRefOperation = caseDocRefOperation;
         caseDocRefOperation = newCaseDocRefOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
-                    oldCaseDocRefOperation, newCaseDocRefOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION, oldCaseDocRefOperation,
+                    newCaseDocRefOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -129,22 +125,17 @@ public class DocumentOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCaseDocRefOperation(
-            CaseDocRefOperations newCaseDocRefOperation) {
+    public void setCaseDocRefOperation(CaseDocRefOperations newCaseDocRefOperation) {
         if (newCaseDocRefOperation != caseDocRefOperation) {
             NotificationChain msgs = null;
             if (caseDocRefOperation != null)
-                msgs = ((InternalEObject) caseDocRefOperation).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
+                msgs = ((InternalEObject) caseDocRefOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
                         null,
                         msgs);
             if (newCaseDocRefOperation != null)
-                msgs = ((InternalEObject) newCaseDocRefOperation).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
+                msgs = ((InternalEObject) newCaseDocRefOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
                         null,
                         msgs);
             msgs = basicSetCaseDocRefOperation(newCaseDocRefOperation, msgs);
@@ -152,8 +143,8 @@ public class DocumentOperationImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION,
-                    newCaseDocRefOperation, newCaseDocRefOperation));
+                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION, newCaseDocRefOperation,
+                    newCaseDocRefOperation));
     }
 
     /**
@@ -170,16 +161,14 @@ public class DocumentOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseDocFindOperations(
-            CaseDocFindOperations newCaseDocFindOperations,
+    public NotificationChain basicSetCaseDocFindOperations(CaseDocFindOperations newCaseDocFindOperations,
             NotificationChain msgs) {
         CaseDocFindOperations oldCaseDocFindOperations = caseDocFindOperations;
         caseDocFindOperations = newCaseDocFindOperations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
-                    oldCaseDocFindOperations, newCaseDocFindOperations);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS, oldCaseDocFindOperations,
+                    newCaseDocFindOperations);
             if (msgs == null)
                 msgs = notification;
             else
@@ -193,32 +182,26 @@ public class DocumentOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCaseDocFindOperations(
-            CaseDocFindOperations newCaseDocFindOperations) {
+    public void setCaseDocFindOperations(CaseDocFindOperations newCaseDocFindOperations) {
         if (newCaseDocFindOperations != caseDocFindOperations) {
             NotificationChain msgs = null;
             if (caseDocFindOperations != null)
-                msgs = ((InternalEObject) caseDocFindOperations).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
+                msgs = ((InternalEObject) caseDocFindOperations).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
                         null,
                         msgs);
             if (newCaseDocFindOperations != null)
-                msgs = ((InternalEObject) newCaseDocFindOperations).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
+                msgs = ((InternalEObject) newCaseDocFindOperations).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
                         null,
                         msgs);
-            msgs = basicSetCaseDocFindOperations(newCaseDocFindOperations,
-                    msgs);
+            msgs = basicSetCaseDocFindOperations(newCaseDocFindOperations, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS,
-                    newCaseDocFindOperations, newCaseDocFindOperations));
+                    XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_FIND_OPERATIONS, newCaseDocFindOperations,
+                    newCaseDocFindOperations));
     }
 
     /**
@@ -236,17 +219,13 @@ public class DocumentOperationImpl extends EObjectImpl
      * @generated
      */
     public NotificationChain basicSetLinkSystemDocumentOperation(
-            LinkSystemDocumentOperation newLinkSystemDocumentOperation,
-            NotificationChain msgs) {
-        LinkSystemDocumentOperation oldLinkSystemDocumentOperation =
-                linkSystemDocumentOperation;
+            LinkSystemDocumentOperation newLinkSystemDocumentOperation, NotificationChain msgs) {
+        LinkSystemDocumentOperation oldLinkSystemDocumentOperation = linkSystemDocumentOperation;
         linkSystemDocumentOperation = newLinkSystemDocumentOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
-                    oldLinkSystemDocumentOperation,
-                    newLinkSystemDocumentOperation);
+                    oldLinkSystemDocumentOperation, newLinkSystemDocumentOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -260,34 +239,26 @@ public class DocumentOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLinkSystemDocumentOperation(
-            LinkSystemDocumentOperation newLinkSystemDocumentOperation) {
+    public void setLinkSystemDocumentOperation(LinkSystemDocumentOperation newLinkSystemDocumentOperation) {
         if (newLinkSystemDocumentOperation != linkSystemDocumentOperation) {
             NotificationChain msgs = null;
             if (linkSystemDocumentOperation != null)
-                msgs = ((InternalEObject) linkSystemDocumentOperation)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) linkSystemDocumentOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
+                        null,
+                        msgs);
             if (newLinkSystemDocumentOperation != null)
-                msgs = ((InternalEObject) newLinkSystemDocumentOperation)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
-                                null,
-                                msgs);
-            msgs = basicSetLinkSystemDocumentOperation(
-                    newLinkSystemDocumentOperation,
-                    msgs);
+                msgs = ((InternalEObject) newLinkSystemDocumentOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
+                        null,
+                        msgs);
+            msgs = basicSetLinkSystemDocumentOperation(newLinkSystemDocumentOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION,
-                    newLinkSystemDocumentOperation,
-                    newLinkSystemDocumentOperation));
+                    newLinkSystemDocumentOperation, newLinkSystemDocumentOperation));
     }
 
     /**
@@ -296,8 +267,7 @@ public class DocumentOperationImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DOCUMENT_OPERATION__CASE_DOC_REF_OPERATION:
             return basicSetCaseDocRefOperation(null, msgs);
@@ -342,8 +312,7 @@ public class DocumentOperationImpl extends EObjectImpl
             setCaseDocFindOperations((CaseDocFindOperations) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_OPERATION__LINK_SYSTEM_DOCUMENT_OPERATION:
-            setLinkSystemDocumentOperation(
-                    (LinkSystemDocumentOperation) newValue);
+            setLinkSystemDocumentOperation((LinkSystemDocumentOperation) newValue);
             return;
         }
         super.eSet(featureID, newValue);

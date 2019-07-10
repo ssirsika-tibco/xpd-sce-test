@@ -37,15 +37,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CaseAccessOperationsTypeImpl extends EObjectImpl
-        implements CaseAccessOperationsType {
+public class CaseAccessOperationsTypeImpl extends EObjectImpl implements CaseAccessOperationsType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCaseClassExternalReference() <em>Case Class External Reference</em>}' containment reference.
@@ -120,18 +118,14 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseClassExternalReference(
-            ExternalReference newCaseClassExternalReference,
+    public NotificationChain basicSetCaseClassExternalReference(ExternalReference newCaseClassExternalReference,
             NotificationChain msgs) {
-        ExternalReference oldCaseClassExternalReference =
-                caseClassExternalReference;
+        ExternalReference oldCaseClassExternalReference = caseClassExternalReference;
         caseClassExternalReference = newCaseClassExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
-                    oldCaseClassExternalReference,
-                    newCaseClassExternalReference);
+                    oldCaseClassExternalReference, newCaseClassExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -145,34 +139,28 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCaseClassExternalReference(
-            ExternalReference newCaseClassExternalReference) {
+    public void setCaseClassExternalReference(ExternalReference newCaseClassExternalReference) {
         if (newCaseClassExternalReference != caseClassExternalReference) {
             NotificationChain msgs = null;
             if (caseClassExternalReference != null)
-                msgs = ((InternalEObject) caseClassExternalReference)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) caseClassExternalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             if (newCaseClassExternalReference != null)
-                msgs = ((InternalEObject) newCaseClassExternalReference)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
-                                null,
-                                msgs);
-            msgs = basicSetCaseClassExternalReference(
-                    newCaseClassExternalReference,
-                    msgs);
+                msgs = ((InternalEObject) newCaseClassExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
+            msgs = basicSetCaseClassExternalReference(newCaseClassExternalReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
-                    newCaseClassExternalReference,
-                    newCaseClassExternalReference));
+                    newCaseClassExternalReference, newCaseClassExternalReference));
     }
 
     /**
@@ -189,15 +177,12 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCreate(CreateCaseOperationType newCreate,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCreate(CreateCaseOperationType newCreate, NotificationChain msgs) {
         CreateCaseOperationType oldCreate = create;
         create = newCreate;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
-                    oldCreate, newCreate);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE, oldCreate, newCreate);
             if (msgs == null)
                 msgs = notification;
             else
@@ -216,14 +201,12 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (create != null)
                 msgs = ((InternalEObject) create).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
                         null,
                         msgs);
             if (newCreate != null)
                 msgs = ((InternalEObject) newCreate).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
                         null,
                         msgs);
             msgs = basicSetCreate(newCreate, msgs);
@@ -231,8 +214,7 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
-                    newCreate, newCreate));
+                    XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE, newCreate, newCreate));
     }
 
     /**
@@ -249,15 +231,12 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeleteByCaseIdentifier(
-            DeleteByCaseIdentifierType newDeleteByCaseIdentifier,
+    public NotificationChain basicSetDeleteByCaseIdentifier(DeleteByCaseIdentifierType newDeleteByCaseIdentifier,
             NotificationChain msgs) {
-        DeleteByCaseIdentifierType oldDeleteByCaseIdentifier =
-                deleteByCaseIdentifier;
+        DeleteByCaseIdentifierType oldDeleteByCaseIdentifier = deleteByCaseIdentifier;
         deleteByCaseIdentifier = newDeleteByCaseIdentifier;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
                     oldDeleteByCaseIdentifier, newDeleteByCaseIdentifier);
             if (msgs == null)
@@ -273,26 +252,22 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeleteByCaseIdentifier(
-            DeleteByCaseIdentifierType newDeleteByCaseIdentifier) {
+    public void setDeleteByCaseIdentifier(DeleteByCaseIdentifierType newDeleteByCaseIdentifier) {
         if (newDeleteByCaseIdentifier != deleteByCaseIdentifier) {
             NotificationChain msgs = null;
             if (deleteByCaseIdentifier != null)
-                msgs = ((InternalEObject) deleteByCaseIdentifier)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) deleteByCaseIdentifier).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
+                        null,
+                        msgs);
             if (newDeleteByCaseIdentifier != null)
-                msgs = ((InternalEObject) newDeleteByCaseIdentifier)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
-                                null,
-                                msgs);
-            msgs = basicSetDeleteByCaseIdentifier(newDeleteByCaseIdentifier,
-                    msgs);
+                msgs = ((InternalEObject) newDeleteByCaseIdentifier).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
+                        null,
+                        msgs);
+            msgs = basicSetDeleteByCaseIdentifier(newDeleteByCaseIdentifier, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
@@ -316,17 +291,13 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * @generated
      */
     public NotificationChain basicSetDeleteByCompositeIdentifiers(
-            DeleteByCompositeIdentifiersType newDeleteByCompositeIdentifiers,
-            NotificationChain msgs) {
-        DeleteByCompositeIdentifiersType oldDeleteByCompositeIdentifiers =
-                deleteByCompositeIdentifiers;
+            DeleteByCompositeIdentifiersType newDeleteByCompositeIdentifiers, NotificationChain msgs) {
+        DeleteByCompositeIdentifiersType oldDeleteByCompositeIdentifiers = deleteByCompositeIdentifiers;
         deleteByCompositeIdentifiers = newDeleteByCompositeIdentifiers;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
-                    oldDeleteByCompositeIdentifiers,
-                    newDeleteByCompositeIdentifiers);
+                    oldDeleteByCompositeIdentifiers, newDeleteByCompositeIdentifiers);
             if (msgs == null)
                 msgs = notification;
             else
@@ -340,34 +311,28 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDeleteByCompositeIdentifiers(
-            DeleteByCompositeIdentifiersType newDeleteByCompositeIdentifiers) {
+    public void setDeleteByCompositeIdentifiers(DeleteByCompositeIdentifiersType newDeleteByCompositeIdentifiers) {
         if (newDeleteByCompositeIdentifiers != deleteByCompositeIdentifiers) {
             NotificationChain msgs = null;
             if (deleteByCompositeIdentifiers != null)
-                msgs = ((InternalEObject) deleteByCompositeIdentifiers)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) deleteByCompositeIdentifiers).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
+                        null,
+                        msgs);
             if (newDeleteByCompositeIdentifiers != null)
-                msgs = ((InternalEObject) newDeleteByCompositeIdentifiers)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
-                                null,
-                                msgs);
-            msgs = basicSetDeleteByCompositeIdentifiers(
-                    newDeleteByCompositeIdentifiers,
-                    msgs);
+                msgs = ((InternalEObject) newDeleteByCompositeIdentifiers).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
+                        null,
+                        msgs);
+            msgs = basicSetDeleteByCompositeIdentifiers(newDeleteByCompositeIdentifiers, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
-                    newDeleteByCompositeIdentifiers,
-                    newDeleteByCompositeIdentifiers));
+                    newDeleteByCompositeIdentifiers, newDeleteByCompositeIdentifiers));
     }
 
     /**
@@ -376,8 +341,7 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE:
             return basicSetCaseClassExternalReference(null, msgs);
@@ -429,8 +393,7 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
             setDeleteByCaseIdentifier((DeleteByCaseIdentifierType) newValue);
             return;
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS:
-            setDeleteByCompositeIdentifiers(
-                    (DeleteByCompositeIdentifiersType) newValue);
+            setDeleteByCompositeIdentifiers((DeleteByCompositeIdentifiersType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -454,8 +417,7 @@ public class CaseAccessOperationsTypeImpl extends EObjectImpl
             setDeleteByCaseIdentifier((DeleteByCaseIdentifierType) null);
             return;
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS:
-            setDeleteByCompositeIdentifiers(
-                    (DeleteByCompositeIdentifiersType) null);
+            setDeleteByCompositeIdentifiers((DeleteByCompositeIdentifiersType) null);
             return;
         }
         super.eUnset(featureID);

@@ -21,25 +21,23 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultLinkImpl#getDeprecatedLinkId <em>Deprecated Link Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultLinkImpl#getDeprecatedProcessRef <em>Deprecated Process Ref</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultLinkImpl#getCatchThrow <em>Catch Throw</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerResultLinkImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class TriggerResultLinkImpl extends EObjectImpl implements
-        TriggerResultLink {
+public class TriggerResultLinkImpl extends EObjectImpl implements TriggerResultLink {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDeprecatedLinkId() <em>Deprecated Link Id</em>}' attribute.
@@ -167,8 +165,7 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
         String oldDeprecatedLinkId = deprecatedLinkId;
         deprecatedLinkId = newDeprecatedLinkId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_LINK__DEPRECATED_LINK_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_RESULT_LINK__DEPRECATED_LINK_ID,
                     oldDeprecatedLinkId, deprecatedLinkId));
     }
 
@@ -191,8 +188,8 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
         deprecatedProcessRef = newDeprecatedProcessRef;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_LINK__DEPRECATED_PROCESS_REF,
-                    oldDeprecatedProcessRef, deprecatedProcessRef));
+                    Xpdl2Package.TRIGGER_RESULT_LINK__DEPRECATED_PROCESS_REF, oldDeprecatedProcessRef,
+                    deprecatedProcessRef));
     }
 
     /**
@@ -211,13 +208,11 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
      */
     public void setCatchThrow(CatchThrow newCatchThrow) {
         CatchThrow oldCatchThrow = catchThrow;
-        catchThrow =
-                newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
+        catchThrow = newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
         boolean oldCatchThrowESet = catchThrowESet;
         catchThrowESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_LINK__CATCH_THROW,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_RESULT_LINK__CATCH_THROW,
                     oldCatchThrow, catchThrow, !oldCatchThrowESet));
     }
 
@@ -232,8 +227,7 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
         catchThrow = CATCH_THROW_EDEFAULT;
         catchThrowESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TRIGGER_RESULT_LINK__CATCH_THROW,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TRIGGER_RESULT_LINK__CATCH_THROW,
                     oldCatchThrow, CATCH_THROW_EDEFAULT, oldCatchThrowESet));
     }
 
@@ -264,8 +258,8 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_RESULT_LINK__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_RESULT_LINK__NAME, oldName,
+                    name));
     }
 
     /**
@@ -349,13 +343,11 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
                     : !DEPRECATED_LINK_ID_EDEFAULT.equals(deprecatedLinkId);
         case Xpdl2Package.TRIGGER_RESULT_LINK__DEPRECATED_PROCESS_REF:
             return DEPRECATED_PROCESS_REF_EDEFAULT == null ? deprecatedProcessRef != null
-                    : !DEPRECATED_PROCESS_REF_EDEFAULT
-                            .equals(deprecatedProcessRef);
+                    : !DEPRECATED_PROCESS_REF_EDEFAULT.equals(deprecatedProcessRef);
         case Xpdl2Package.TRIGGER_RESULT_LINK__CATCH_THROW:
             return isSetCatchThrow();
         case Xpdl2Package.TRIGGER_RESULT_LINK__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -370,7 +362,7 @@ public class TriggerResultLinkImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (deprecatedLinkId: "); //$NON-NLS-1$
         result.append(deprecatedLinkId);
         result.append(", deprecatedProcessRef: "); //$NON-NLS-1$

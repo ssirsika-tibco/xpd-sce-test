@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.MessageFlow#getMessage <em>Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.MessageFlow#getObject <em>Object</em>}</li>
@@ -20,21 +21,18 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.MessageFlow#getTarget <em>Target</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.MessageFlow#getPackage <em>Package</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getMessageFlow()
  * @model extendedMetaData="name='MessageFlow_._type' kind='elementOnly' features-order='message object connectorGraphicsInfos'"
  * @generated
  */
-public interface MessageFlow extends NamedElement, GraphicalConnector,
-        OtherElementsContainer {
+public interface MessageFlow extends NamedElement, GraphicalConnector, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Message</b></em>' containment reference.

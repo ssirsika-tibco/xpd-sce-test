@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,24 +76,21 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addVisibleForUnsetCaseStatePropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_VisibleForCaseStates_visibleForUnsetCaseState_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_VisibleForCaseStates_visibleForUnsetCaseState_feature", //$NON-NLS-1$
-                        "_UI_VisibleForCaseStates_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__VISIBLE_FOR_UNSET_CASE_STATE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addVisibleForUnsetCaseStatePropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_VisibleForCaseStates_visibleForUnsetCaseState_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_VisibleForCaseStates_visibleForUnsetCaseState_feature", //$NON-NLS-1$
+                                "_UI_VisibleForCaseStates_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__VISIBLE_FOR_UNSET_CASE_STATE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -107,12 +102,10 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__CASE_STATE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__CASE_STATE);
         }
         return childrenFeatures;
     }
@@ -138,9 +131,7 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/VisibleForCaseStates")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/VisibleForCaseStates")); //$NON-NLS-1$
     }
 
     /**
@@ -151,10 +142,8 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        VisibleForCaseStates visibleForCaseStates =
-                (VisibleForCaseStates) object;
-        return getString("_UI_VisibleForCaseStates_type") + " " //$NON-NLS-1$//$NON-NLS-2$
-                + visibleForCaseStates.isVisibleForUnsetCaseState();
+        VisibleForCaseStates visibleForCaseStates = (VisibleForCaseStates) object;
+        return getString("_UI_VisibleForCaseStates_type") + " " + visibleForCaseStates.isVisibleForUnsetCaseState(); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -170,12 +159,10 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(VisibleForCaseStates.class)) {
         case XpdExtensionPackage.VISIBLE_FOR_CASE_STATES__VISIBLE_FOR_UNSET_CASE_STATE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.VISIBLE_FOR_CASE_STATES__CASE_STATE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -189,12 +176,10 @@ public class VisibleForCaseStatesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__CASE_STATE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.VISIBLE_FOR_CASE_STATES__CASE_STATE,
                 Xpdl2Factory.eINSTANCE.createExternalReference()));
     }
 

@@ -39,16 +39,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScriptDataMapperItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ScriptDataMapperItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,21 +82,20 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMapperContextPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ScriptDataMapper_mapperContext_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ScriptDataMapper_mapperContext_feature", //$NON-NLS-1$
-                        "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptDataMapper_mapperContext_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_mapperContext_feature", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -108,21 +105,20 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMappingDirectionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ScriptDataMapper_mappingDirection_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ScriptDataMapper_mappingDirection_feature", //$NON-NLS-1$
-                        "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptDataMapper_mappingDirection_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_mappingDirection_feature", //$NON-NLS-1$
+                                "_UI_ScriptDataMapper_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -134,20 +130,14 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures.add(
-                    Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
         }
         return childrenFeatures;
     }
@@ -173,8 +163,7 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ScriptDataMapper")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ScriptDataMapper")); //$NON-NLS-1$
     }
 
     /**
@@ -186,9 +175,8 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((ScriptDataMapper) object).getMapperContext();
-        return label == null || label.length() == 0
-                ? getString("_UI_ScriptDataMapper_type") //$NON-NLS-1$
-                : getString("_UI_ScriptDataMapper_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_ScriptDataMapper_type") : //$NON-NLS-1$
+                getString("_UI_ScriptDataMapper_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -205,16 +193,14 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(ScriptDataMapper.class)) {
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ELEMENTS:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS:
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -228,41 +214,30 @@ public class ScriptDataMapperItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                         XpdExtensionFactory.eINSTANCE.createAudit())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                         XpdExtensionFactory.eINSTANCE.createSignalData())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                        XpdExtensionFactory.eINSTANCE
-                                .createRescheduleTimerScript())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__DATA_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__DATA_MAPPINGS,
                 Xpdl2Factory.eINSTANCE.createDataMapping()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS,
                 XpdExtensionFactory.eINSTANCE.createScriptInformation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE,
-                XpdExtensionFactory.eINSTANCE
-                        .createDataMapperArrayInflation()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE,
+                        XpdExtensionFactory.eINSTANCE.createDataMapperArrayInflation()));
     }
 
     /**

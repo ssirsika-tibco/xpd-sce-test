@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,21 +74,20 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addFromFieldPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CreateCaseOperationType_fromFieldPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CreateCaseOperationType_fromFieldPath_feature", //$NON-NLS-1$
-                        "_UI_CreateCaseOperationType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CreateCaseOperationType_fromFieldPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CreateCaseOperationType_fromFieldPath_feature", //$NON-NLS-1$
+                                "_UI_CreateCaseOperationType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -100,21 +97,20 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addToCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CreateCaseOperationType_toCaseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_CreateCaseOperationType_toCaseRefField_feature", //$NON-NLS-1$
-                        "_UI_CreateCaseOperationType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CREATE_CASE_OPERATION_TYPE__TO_CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_CreateCaseOperationType_toCaseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_CreateCaseOperationType_toCaseRefField_feature", //$NON-NLS-1$
+                                "_UI_CreateCaseOperationType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CREATE_CASE_OPERATION_TYPE__TO_CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -125,9 +121,7 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CreateCaseOperationType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CreateCaseOperationType")); //$NON-NLS-1$
     }
 
     /**
@@ -139,9 +133,8 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((CreateCaseOperationType) object).getFromFieldPath();
-        return label == null || label.length() == 0
-                ? getString("_UI_CreateCaseOperationType_type") //$NON-NLS-1$
-                : getString("_UI_CreateCaseOperationType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_CreateCaseOperationType_type") : //$NON-NLS-1$
+                getString("_UI_CreateCaseOperationType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,8 +151,7 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(CreateCaseOperationType.class)) {
         case XpdExtensionPackage.CREATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH:
         case XpdExtensionPackage.CREATE_CASE_OPERATION_TYPE__TO_CASE_REF_FIELD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -173,8 +165,7 @@ public class CreateCaseOperationTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

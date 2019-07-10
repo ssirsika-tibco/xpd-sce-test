@@ -34,15 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EventHandlerInitialisersImpl extends NamedElementImpl
-        implements EventHandlerInitialisers {
+public class EventHandlerInitialisersImpl extends NamedElementImpl implements EventHandlerInitialisers {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getActivityRef() <em>Activity Ref</em>}' containment reference list.
@@ -80,8 +78,7 @@ public class EventHandlerInitialisersImpl extends NamedElementImpl
      */
     public EList<ActivityRef> getActivityRef() {
         if (activityRef == null) {
-            activityRef = new EObjectContainmentEList<ActivityRef>(
-                    ActivityRef.class, this,
+            activityRef = new EObjectContainmentEList<ActivityRef>(ActivityRef.class, this,
                     XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF);
         }
         return activityRef;
@@ -93,12 +90,10 @@ public class EventHandlerInitialisersImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
-            return ((InternalEList<?>) getActivityRef()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getActivityRef()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -128,8 +123,7 @@ public class EventHandlerInitialisersImpl extends NamedElementImpl
         switch (featureID) {
         case XpdExtensionPackage.EVENT_HANDLER_INITIALISERS__ACTIVITY_REF:
             getActivityRef().clear();
-            getActivityRef()
-                    .addAll((Collection<? extends ActivityRef>) newValue);
+            getActivityRef().addAll((Collection<? extends ActivityRef>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

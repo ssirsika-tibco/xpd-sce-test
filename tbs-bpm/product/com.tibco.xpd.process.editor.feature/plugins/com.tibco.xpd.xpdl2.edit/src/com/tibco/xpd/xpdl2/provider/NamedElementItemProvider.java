@@ -39,15 +39,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * end-user-doc -->
  * @generated
  */
-public class NamedElementItemProvider extends UniqueIdElementItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NamedElementItemProvider extends UniqueIdElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -83,11 +80,12 @@ public class NamedElementItemProvider extends UniqueIdElementItemProvider
      */
     protected void addNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NamedElement_name_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NamedElement_name_feature", //$NON-NLS-1$
+                                "_UI_NamedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NAMED_ELEMENT__NAME,
                         true,
                         false,
@@ -105,12 +103,10 @@ public class NamedElementItemProvider extends UniqueIdElementItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
         }
         return childrenFeatures;
     }
@@ -136,11 +132,8 @@ public class NamedElementItemProvider extends UniqueIdElementItemProvider
     @Override
     public String getText(Object object) {
         String label = null;
-        String displayName =
-                (String) Xpdl2ModelUtil
-                        .getOtherAttribute((OtherAttributesContainer) object,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_DisplayName());
+        String displayName = (String) Xpdl2ModelUtil.getOtherAttribute((OtherAttributesContainer) object,
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_DisplayName());
         if (displayName == null || displayName.length() == 0) {
             label = ((NamedElement) object).getName();
         } else {
@@ -171,12 +164,10 @@ public class NamedElementItemProvider extends UniqueIdElementItemProvider
 
         switch (notification.getFeatureID(NamedElement.class)) {
         case Xpdl2Package.NAMED_ELEMENT__NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.NAMED_ELEMENT__OTHER_ATTRIBUTES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -190,8 +181,7 @@ public class NamedElementItemProvider extends UniqueIdElementItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

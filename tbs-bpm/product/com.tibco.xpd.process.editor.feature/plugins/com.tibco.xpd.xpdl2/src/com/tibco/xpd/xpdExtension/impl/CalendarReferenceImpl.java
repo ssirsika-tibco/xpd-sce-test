@@ -24,14 +24,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class CalendarReferenceImpl extends EObjectImpl
-        implements CalendarReference {
+public class CalendarReferenceImpl extends EObjectImpl implements CalendarReference {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
@@ -125,9 +123,8 @@ public class CalendarReferenceImpl extends EObjectImpl
         boolean oldAliasESet = aliasESet;
         aliasESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CALENDAR_REFERENCE__ALIAS, oldAlias,
-                    alias, !oldAliasESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CALENDAR_REFERENCE__ALIAS,
+                    oldAlias, alias, !oldAliasESet));
     }
 
     /**
@@ -141,9 +138,8 @@ public class CalendarReferenceImpl extends EObjectImpl
         alias = ALIAS_EDEFAULT;
         aliasESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CALENDAR_REFERENCE__ALIAS, oldAlias,
-                    ALIAS_EDEFAULT, oldAliasESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.CALENDAR_REFERENCE__ALIAS,
+                    oldAlias, ALIAS_EDEFAULT, oldAliasESet));
     }
 
     /**
@@ -175,8 +171,7 @@ public class CalendarReferenceImpl extends EObjectImpl
         boolean oldDataFieldIdESet = dataFieldIdESet;
         dataFieldIdESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CALENDAR_REFERENCE__DATA_FIELD_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CALENDAR_REFERENCE__DATA_FIELD_ID,
                     oldDataFieldId, dataFieldId, !oldDataFieldIdESet));
     }
 
@@ -192,8 +187,7 @@ public class CalendarReferenceImpl extends EObjectImpl
         dataFieldIdESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CALENDAR_REFERENCE__DATA_FIELD_ID,
-                    oldDataFieldId, DATA_FIELD_ID_EDEFAULT,
+                    XpdExtensionPackage.CALENDAR_REFERENCE__DATA_FIELD_ID, oldDataFieldId, DATA_FIELD_ID_EDEFAULT,
                     oldDataFieldIdESet));
     }
 
@@ -279,7 +273,7 @@ public class CalendarReferenceImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (alias: "); //$NON-NLS-1$
         if (aliasESet)
             result.append(alias);

@@ -38,15 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class WsSecurityPolicyImpl extends EObjectImpl
-        implements WsSecurityPolicy {
+public class WsSecurityPolicyImpl extends EObjectImpl implements WsSecurityPolicy {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -76,8 +74,7 @@ public class WsSecurityPolicyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected String governanceApplicationName =
-            GOVERNANCE_APPLICATION_NAME_EDEFAULT;
+    protected String governanceApplicationName = GOVERNANCE_APPLICATION_NAME_EDEFAULT;
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -87,8 +84,7 @@ public class WsSecurityPolicyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final SecurityPolicy TYPE_EDEFAULT =
-            SecurityPolicy.USERNAME_TOKEN;
+    protected static final SecurityPolicy TYPE_EDEFAULT = SecurityPolicy.USERNAME_TOKEN;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -135,8 +131,7 @@ public class WsSecurityPolicyImpl extends EObjectImpl
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(
-                    ExtendedAttribute.class, this,
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
                     XpdExtensionPackage.WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
@@ -156,14 +151,13 @@ public class WsSecurityPolicyImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setGovernanceApplicationName(
-            String newGovernanceApplicationName) {
+    public void setGovernanceApplicationName(String newGovernanceApplicationName) {
         String oldGovernanceApplicationName = governanceApplicationName;
         governanceApplicationName = newGovernanceApplicationName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME,
-                    oldGovernanceApplicationName, governanceApplicationName));
+                    XpdExtensionPackage.WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME, oldGovernanceApplicationName,
+                    governanceApplicationName));
     }
 
     /**
@@ -186,9 +180,8 @@ public class WsSecurityPolicyImpl extends EObjectImpl
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SECURITY_POLICY__TYPE, oldType, type,
-                    !oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_SECURITY_POLICY__TYPE, oldType,
+                    type, !oldTypeESet));
     }
 
     /**
@@ -202,9 +195,8 @@ public class WsSecurityPolicyImpl extends EObjectImpl
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SECURITY_POLICY__TYPE, oldType,
-                    TYPE_EDEFAULT, oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.WS_SECURITY_POLICY__TYPE,
+                    oldType, TYPE_EDEFAULT, oldTypeESet));
     }
 
     /**
@@ -222,12 +214,10 @@ public class WsSecurityPolicyImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -261,8 +251,7 @@ public class WsSecurityPolicyImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case XpdExtensionPackage.WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME:
             setGovernanceApplicationName((String) newValue);
@@ -306,10 +295,8 @@ public class WsSecurityPolicyImpl extends EObjectImpl
         case XpdExtensionPackage.WS_SECURITY_POLICY__EXTENDED_ATTRIBUTES:
             return extendedAttributes != null && !extendedAttributes.isEmpty();
         case XpdExtensionPackage.WS_SECURITY_POLICY__GOVERNANCE_APPLICATION_NAME:
-            return GOVERNANCE_APPLICATION_NAME_EDEFAULT == null
-                    ? governanceApplicationName != null
-                    : !GOVERNANCE_APPLICATION_NAME_EDEFAULT
-                            .equals(governanceApplicationName);
+            return GOVERNANCE_APPLICATION_NAME_EDEFAULT == null ? governanceApplicationName != null
+                    : !GOVERNANCE_APPLICATION_NAME_EDEFAULT.equals(governanceApplicationName);
         case XpdExtensionPackage.WS_SECURITY_POLICY__TYPE:
             return isSetType();
         }
@@ -326,7 +313,7 @@ public class WsSecurityPolicyImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (governanceApplicationName: "); //$NON-NLS-1$
         result.append(governanceApplicationName);
         result.append(", type: "); //$NON-NLS-1$

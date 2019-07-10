@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class LikeMappingExclusionImpl extends EObjectImpl
-        implements LikeMappingExclusion {
+public class LikeMappingExclusionImpl extends EObjectImpl implements LikeMappingExclusion {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -93,9 +91,8 @@ public class LikeMappingExclusionImpl extends EObjectImpl
         String oldPath = path;
         path = newPath;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.LIKE_MAPPING_EXCLUSION__PATH, oldPath,
-                    path));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.LIKE_MAPPING_EXCLUSION__PATH,
+                    oldPath, path));
     }
 
     /**
@@ -151,8 +148,7 @@ public class LikeMappingExclusionImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSION__PATH:
-            return PATH_EDEFAULT == null ? path != null
-                    : !PATH_EDEFAULT.equals(path);
+            return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
         }
         return super.eIsSet(featureID);
     }
@@ -167,7 +163,7 @@ public class LikeMappingExclusionImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (path: "); //$NON-NLS-1$
         result.append(path);
         result.append(')');

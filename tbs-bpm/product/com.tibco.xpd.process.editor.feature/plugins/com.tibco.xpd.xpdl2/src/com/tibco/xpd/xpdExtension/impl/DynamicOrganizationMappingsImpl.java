@@ -34,15 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DynamicOrganizationMappingsImpl extends EObjectImpl
-        implements DynamicOrganizationMappings {
+public class DynamicOrganizationMappingsImpl extends EObjectImpl implements DynamicOrganizationMappings {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDynamicOrganizationMapping() <em>Dynamic Organization Mapping</em>}' containment reference list.
@@ -81,8 +79,7 @@ public class DynamicOrganizationMappingsImpl extends EObjectImpl
     public EList<DynamicOrganizationMapping> getDynamicOrganizationMapping() {
         if (dynamicOrganizationMapping == null) {
             dynamicOrganizationMapping =
-                    new EObjectContainmentEList<DynamicOrganizationMapping>(
-                            DynamicOrganizationMapping.class, this,
+                    new EObjectContainmentEList<DynamicOrganizationMapping>(DynamicOrganizationMapping.class, this,
                             XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING);
         }
         return dynamicOrganizationMapping;
@@ -94,12 +91,10 @@ public class DynamicOrganizationMappingsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING:
-            return ((InternalEList<?>) getDynamicOrganizationMapping())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDynamicOrganizationMapping()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -129,8 +124,7 @@ public class DynamicOrganizationMappingsImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING:
             getDynamicOrganizationMapping().clear();
-            getDynamicOrganizationMapping().addAll(
-                    (Collection<? extends DynamicOrganizationMapping>) newValue);
+            getDynamicOrganizationMapping().addAll((Collection<? extends DynamicOrganizationMapping>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -160,8 +154,7 @@ public class DynamicOrganizationMappingsImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPINGS__DYNAMIC_ORGANIZATION_MAPPING:
-            return dynamicOrganizationMapping != null
-                    && !dynamicOrganizationMapping.isEmpty();
+            return dynamicOrganizationMapping != null && !dynamicOrganizationMapping.isEmpty();
         }
         return super.eIsSet(featureID);
     }

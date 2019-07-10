@@ -31,6 +31,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormalParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormalParameterImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -41,19 +42,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormalParameterImpl#getMode <em>Mode</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.FormalParameterImpl#isRequired <em>Required</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class FormalParameterImpl extends NamedElementImpl implements
-        FormalParameter {
+public class FormalParameterImpl extends NamedElementImpl implements FormalParameter {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -244,15 +242,12 @@ public class FormalParameterImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDataType(DataType newDataType,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDataType(DataType newDataType, NotificationChain msgs) {
         DataType oldDataType = dataType;
         dataType = newDataType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE,
-                            oldDataType, newDataType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE, oldDataType, newDataType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -270,27 +265,20 @@ public class FormalParameterImpl extends NamedElementImpl implements
         if (newDataType != dataType) {
             NotificationChain msgs = null;
             if (dataType != null)
-                msgs =
-                        ((InternalEObject) dataType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) dataType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE,
+                        null,
+                        msgs);
             if (newDataType != null)
-                msgs =
-                        ((InternalEObject) newDataType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDataType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetDataType(newDataType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE, newDataType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE, newDataType,
                     newDataType));
     }
 
@@ -308,15 +296,12 @@ public class FormalParameterImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -334,28 +319,21 @@ public class FormalParameterImpl extends NamedElementImpl implements
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
+                        null,
+                        msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION, newDescription,
-                    newDescription));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION,
+                    newDescription, newDescription));
     }
 
     /**
@@ -372,15 +350,12 @@ public class FormalParameterImpl extends NamedElementImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLength(Length newLength,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLength(Length newLength, NotificationChain msgs) {
         Length oldLength = length;
         length = newLength;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.FORMAL_PARAMETER__LENGTH, oldLength,
-                            newLength);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.FORMAL_PARAMETER__LENGTH, oldLength, newLength);
             if (msgs == null)
                 msgs = notification;
             else
@@ -398,27 +373,19 @@ public class FormalParameterImpl extends NamedElementImpl implements
         if (newLength != length) {
             NotificationChain msgs = null;
             if (length != null)
-                msgs =
-                        ((InternalEObject) length)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__LENGTH,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) length).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__LENGTH,
+                        null,
+                        msgs);
             if (newLength != null)
-                msgs =
-                        ((InternalEObject) newLength)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.FORMAL_PARAMETER__LENGTH,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newLength)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.FORMAL_PARAMETER__LENGTH, null, msgs);
             msgs = basicSetLength(newLength, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__LENGTH, newLength, newLength));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__LENGTH, newLength,
+                    newLength));
     }
 
     /**
@@ -441,8 +408,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         boolean oldIsArrayESet = isArrayESet;
         isArrayESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__IS_ARRAY, oldIsArray,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__IS_ARRAY, oldIsArray,
                     isArray, !oldIsArrayESet));
     }
 
@@ -457,8 +423,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         isArray = IS_ARRAY_EDEFAULT;
         isArrayESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.FORMAL_PARAMETER__IS_ARRAY, oldIsArray,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.FORMAL_PARAMETER__IS_ARRAY, oldIsArray,
                     IS_ARRAY_EDEFAULT, oldIsArrayESet));
     }
 
@@ -478,9 +443,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.FORMAL_PARAMETER__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.FORMAL_PARAMETER__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -505,8 +468,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         boolean oldModeESet = modeESet;
         modeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__MODE, oldMode, mode,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__MODE, oldMode, mode,
                     !oldModeESet));
     }
 
@@ -521,8 +483,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         mode = MODE_EDEFAULT;
         modeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.FORMAL_PARAMETER__MODE, oldMode,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.FORMAL_PARAMETER__MODE, oldMode,
                     MODE_EDEFAULT, oldModeESet));
     }
 
@@ -555,8 +516,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         boolean oldRequiredESet = requiredESet;
         requiredESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__REQUIRED, oldRequired,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__REQUIRED, oldRequired,
                     required, !oldRequiredESet));
     }
 
@@ -571,9 +531,8 @@ public class FormalParameterImpl extends NamedElementImpl implements
         required = REQUIRED_EDEFAULT;
         requiredESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.FORMAL_PARAMETER__REQUIRED, oldRequired,
-                    REQUIRED_EDEFAULT, oldRequiredESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.FORMAL_PARAMETER__REQUIRED,
+                    oldRequired, REQUIRED_EDEFAULT, oldRequiredESet));
     }
 
     /**
@@ -605,8 +564,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         boolean oldReadOnlyESet = readOnlyESet;
         readOnlyESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.FORMAL_PARAMETER__READ_ONLY, oldReadOnly,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.FORMAL_PARAMETER__READ_ONLY, oldReadOnly,
                     readOnly, !oldReadOnlyESet));
     }
 
@@ -621,9 +579,8 @@ public class FormalParameterImpl extends NamedElementImpl implements
         readOnly = READ_ONLY_EDEFAULT;
         readOnlyESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.FORMAL_PARAMETER__READ_ONLY, oldReadOnly,
-                    READ_ONLY_EDEFAULT, oldReadOnlyESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.FORMAL_PARAMETER__READ_ONLY,
+                    oldReadOnly, READ_ONLY_EDEFAULT, oldReadOnlyESet));
     }
 
     /**
@@ -650,14 +607,12 @@ public class FormalParameterImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.FORMAL_PARAMETER__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.FORMAL_PARAMETER__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE:
             return basicSetDataType(null, msgs);
         case Xpdl2Package.FORMAL_PARAMETER__LENGTH:
@@ -858,7 +813,7 @@ public class FormalParameterImpl extends NamedElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", isArray: "); //$NON-NLS-1$

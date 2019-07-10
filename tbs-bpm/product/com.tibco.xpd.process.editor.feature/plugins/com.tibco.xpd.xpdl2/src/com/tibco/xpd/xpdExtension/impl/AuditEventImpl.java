@@ -39,8 +39,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -50,8 +49,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
      * @generated
      * @ordered
      */
-    protected static final AuditEventType TYPE_EDEFAULT =
-            AuditEventType.INITIATED_LITERAL;
+    protected static final AuditEventType TYPE_EDEFAULT = AuditEventType.INITIATED_LITERAL;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -121,8 +119,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.AUDIT_EVENT__TYPE, oldType, type,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.AUDIT_EVENT__TYPE, oldType, type,
                     !oldTypeESet));
     }
 
@@ -137,8 +134,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.AUDIT_EVENT__TYPE, oldType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.AUDIT_EVENT__TYPE, oldType,
                     TYPE_EDEFAULT, oldTypeESet));
     }
 
@@ -165,15 +161,12 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInformation(Expression newInformation,
-            NotificationChain msgs) {
+    public NotificationChain basicSetInformation(Expression newInformation, NotificationChain msgs) {
         Expression oldInformation = information;
         information = newInformation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
-                            oldInformation, newInformation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.AUDIT_EVENT__INFORMATION, oldInformation, newInformation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -192,22 +185,19 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
             NotificationChain msgs = null;
             if (information != null)
                 msgs = ((InternalEObject) information).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
                         null,
                         msgs);
             if (newInformation != null)
                 msgs = ((InternalEObject) newInformation).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
                         null,
                         msgs);
             msgs = basicSetInformation(newInformation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.AUDIT_EVENT__INFORMATION,
                     newInformation, newInformation));
     }
 
@@ -217,8 +207,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.AUDIT_EVENT__INFORMATION:
             return basicSetInformation(null, msgs);
@@ -304,7 +293,7 @@ public class AuditEventImpl extends EObjectImpl implements AuditEvent {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (type: "); //$NON-NLS-1$
         if (typeESet)
             result.append(type);

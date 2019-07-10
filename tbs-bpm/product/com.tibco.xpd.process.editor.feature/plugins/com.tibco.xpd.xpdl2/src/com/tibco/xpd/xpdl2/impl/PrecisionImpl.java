@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PrecisionImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class PrecisionImpl extends EObjectImpl implements Precision {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -104,8 +103,7 @@ public class PrecisionImpl extends EObjectImpl implements Precision {
         boolean oldValueESet = valueESet;
         valueESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PRECISION__VALUE, oldValue, value,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PRECISION__VALUE, oldValue, value,
                     !oldValueESet));
     }
 
@@ -120,9 +118,8 @@ public class PrecisionImpl extends EObjectImpl implements Precision {
         value = VALUE_EDEFAULT;
         valueESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PRECISION__VALUE, oldValue, VALUE_EDEFAULT,
-                    oldValueESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PRECISION__VALUE, oldValue,
+                    VALUE_EDEFAULT, oldValueESet));
     }
 
     /**
@@ -202,7 +199,7 @@ public class PrecisionImpl extends EObjectImpl implements Precision {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (value: "); //$NON-NLS-1$
         if (valueESet)
             result.append(value);

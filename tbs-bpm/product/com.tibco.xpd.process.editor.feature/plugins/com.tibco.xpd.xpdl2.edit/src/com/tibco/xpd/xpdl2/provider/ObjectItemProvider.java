@@ -36,16 +36,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ObjectItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ObjectItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,8 +78,7 @@ public class ObjectItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.OBJECT__CATEGORIES);
@@ -112,8 +108,7 @@ public class ObjectItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Object")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Object")); //$NON-NLS-1$
     }
 
     /**
@@ -143,8 +138,7 @@ public class ObjectItemProvider extends NamedElementItemProvider implements
         switch (notification.getFeatureID(com.tibco.xpd.xpdl2.Object.class)) {
         case Xpdl2Package.OBJECT__CATEGORIES:
         case Xpdl2Package.OBJECT__DOCUMENTATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -158,17 +152,14 @@ public class ObjectItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.OBJECT__CATEGORIES,
-                        Xpdl2Factory.eINSTANCE.createCategory()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OBJECT__CATEGORIES,
+                Xpdl2Factory.eINSTANCE.createCategory()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.OBJECT__DOCUMENTATION,
-                        Xpdl2Factory.eINSTANCE.createDocumentation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OBJECT__DOCUMENTATION,
+                Xpdl2Factory.eINSTANCE.createDocumentation()));
     }
 
 }

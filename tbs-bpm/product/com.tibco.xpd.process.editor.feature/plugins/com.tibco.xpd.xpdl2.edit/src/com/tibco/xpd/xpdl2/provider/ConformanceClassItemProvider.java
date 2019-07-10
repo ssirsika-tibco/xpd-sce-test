@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConformanceClassItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ConformanceClassItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,11 +79,12 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
      */
     protected void addGraphConformancePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConformanceClass_graphConformance_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConformanceClass_graphConformance_feature", "_UI_ConformanceClass_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConformanceClass_graphConformance_feature", //$NON-NLS-1$
+                                "_UI_ConformanceClass_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONFORMANCE_CLASS__GRAPH_CONFORMANCE,
                         true,
                         false,
@@ -101,14 +100,14 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addBpmnModelPortabilityConformancePropertyDescriptor(
-            Object object) {
+    protected void addBpmnModelPortabilityConformancePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConformanceClass_bpmnModelPortabilityConformance_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConformanceClass_bpmnModelPortabilityConformance_feature", "_UI_ConformanceClass_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConformanceClass_bpmnModelPortabilityConformance_feature", //$NON-NLS-1$
+                                "_UI_ConformanceClass_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONFORMANCE_CLASS__BPMN_MODEL_PORTABILITY_CONFORMANCE,
                         true,
                         false,
@@ -126,8 +125,7 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ConformanceClass")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ConformanceClass")); //$NON-NLS-1$
     }
 
     /**
@@ -138,8 +136,7 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public String getText(Object object) {
-        GraphConformanceType labelValue =
-                ((ConformanceClass) object).getGraphConformance();
+        GraphConformanceType labelValue = ((ConformanceClass) object).getGraphConformance();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? getString("_UI_ConformanceClass_type") : //$NON-NLS-1$
                 getString("_UI_ConformanceClass_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -159,8 +156,7 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
         switch (notification.getFeatureID(ConformanceClass.class)) {
         case Xpdl2Package.CONFORMANCE_CLASS__GRAPH_CONFORMANCE:
         case Xpdl2Package.CONFORMANCE_CLASS__BPMN_MODEL_PORTABILITY_CONFORMANCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -174,8 +170,7 @@ public class ConformanceClassItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

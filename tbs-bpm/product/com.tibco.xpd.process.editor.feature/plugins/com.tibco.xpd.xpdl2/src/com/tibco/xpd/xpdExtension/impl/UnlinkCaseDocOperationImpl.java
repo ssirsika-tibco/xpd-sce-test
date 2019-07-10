@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class UnlinkCaseDocOperationImpl extends EObjectImpl
-        implements UnlinkCaseDocOperation {
+public class UnlinkCaseDocOperationImpl extends EObjectImpl implements UnlinkCaseDocOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getSourceCaseRefField() <em>Source Case Ref Field</em>}' attribute.
@@ -94,8 +92,8 @@ public class UnlinkCaseDocOperationImpl extends EObjectImpl
         sourceCaseRefField = newSourceCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD,
-                    oldSourceCaseRefField, sourceCaseRefField));
+                    XpdExtensionPackage.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD, oldSourceCaseRefField,
+                    sourceCaseRefField));
     }
 
     /**
@@ -151,10 +149,8 @@ public class UnlinkCaseDocOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD:
-            return SOURCE_CASE_REF_FIELD_EDEFAULT == null
-                    ? sourceCaseRefField != null
-                    : !SOURCE_CASE_REF_FIELD_EDEFAULT
-                            .equals(sourceCaseRefField);
+            return SOURCE_CASE_REF_FIELD_EDEFAULT == null ? sourceCaseRefField != null
+                    : !SOURCE_CASE_REF_FIELD_EDEFAULT.equals(sourceCaseRefField);
         }
         return super.eIsSet(featureID);
     }
@@ -169,7 +165,7 @@ public class UnlinkCaseDocOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (sourceCaseRefField: "); //$NON-NLS-1$
         result.append(sourceCaseRefField);
         result.append(')');

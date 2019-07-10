@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Route#getGatewayType <em>Gateway Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Route#getDeprecatedXorType <em>Deprecated Xor Type</em>}</li>
@@ -22,7 +23,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.Route#getOutgoingCondition <em>Outgoing Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Route#getExclusiveType <em>Exclusive Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getRoute()
  * @model extendedMetaData="name='Route_._type' kind='elementOnly'"
@@ -34,8 +34,7 @@ public interface Route extends OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Gateway Type</b></em>' attribute.

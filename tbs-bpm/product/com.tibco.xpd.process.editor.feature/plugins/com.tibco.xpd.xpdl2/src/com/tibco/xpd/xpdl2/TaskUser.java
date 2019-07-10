@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskUser#getPerformers <em>Performers</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskUser#getMessageIn <em>Message In</em>}</li>
@@ -22,21 +23,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.TaskUser#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskUser#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTaskUser()
  * @model extendedMetaData="name='TaskUser_._type' kind='elementOnly' features-order='performers messageIn messageOut webServiceOperation otherElements'"
  * @generated
  */
-public interface TaskUser extends OtherAttributesContainer,
-        OtherElementsContainer {
+public interface TaskUser extends OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Performers</b></em>' containment reference list.

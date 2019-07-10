@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VendorExtensionsItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class VendorExtensionsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,12 +77,10 @@ public class VendorExtensionsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.VENDOR_EXTENSIONS__VENDOR_EXTENSION);
+            childrenFeatures.add(Xpdl2Package.Literals.VENDOR_EXTENSIONS__VENDOR_EXTENSION);
         }
         return childrenFeatures;
     }
@@ -110,8 +106,7 @@ public class VendorExtensionsItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/VendorExtensions")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/VendorExtensions")); //$NON-NLS-1$
     }
 
     /**
@@ -138,8 +133,7 @@ public class VendorExtensionsItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(VendorExtensions.class)) {
         case Xpdl2Package.VENDOR_EXTENSIONS__VENDOR_EXTENSION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -153,13 +147,11 @@ public class VendorExtensionsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.VENDOR_EXTENSIONS__VENDOR_EXTENSION,
-                        Xpdl2Factory.eINSTANCE.createVendorExtension()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.VENDOR_EXTENSIONS__VENDOR_EXTENSION,
+                Xpdl2Factory.eINSTANCE.createVendorExtension()));
     }
 
     /**

@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -77,21 +75,20 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DataMapperArrayInflation_path_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_path_feature", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DataMapperArrayInflation_path_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_path_feature", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,21 +98,20 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMappingTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DataMapperArrayInflation_mappingType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_mappingType_feature", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DataMapperArrayInflation_mappingType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_mappingType_feature", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -125,21 +121,20 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addContributorIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DataMapperArrayInflation_contributorId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_contributorId_feature", //$NON-NLS-1$
-                        "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DataMapperArrayInflation_contributorId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_contributorId_feature", //$NON-NLS-1$
+                                "_UI_DataMapperArrayInflation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -150,9 +145,7 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/DataMapperArrayInflation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DataMapperArrayInflation")); //$NON-NLS-1$
     }
 
     /**
@@ -164,9 +157,8 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((DataMapperArrayInflation) object).getPath();
-        return label == null || label.length() == 0
-                ? getString("_UI_DataMapperArrayInflation_type") //$NON-NLS-1$
-                : getString("_UI_DataMapperArrayInflation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_DataMapperArrayInflation_type") : //$NON-NLS-1$
+                getString("_UI_DataMapperArrayInflation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -184,8 +176,7 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__PATH:
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE:
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -199,8 +190,7 @@ public class DataMapperArrayInflationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

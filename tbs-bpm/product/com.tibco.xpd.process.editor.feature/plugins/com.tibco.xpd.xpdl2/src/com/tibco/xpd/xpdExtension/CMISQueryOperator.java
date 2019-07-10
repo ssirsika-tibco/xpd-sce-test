@@ -23,6 +23,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>EQUAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * = Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #EQUAL_VALUE
      * @generated
      * @ordered
@@ -33,6 +36,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NOT EQUAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * <> Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NOT_EQUAL_VALUE
      * @generated
      * @ordered
@@ -43,6 +49,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>GREATER THAN</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * > Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #GREATER_THAN_VALUE
      * @generated
      * @ordered
@@ -53,6 +62,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>GREATER THAN EQUAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * >= Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #GREATER_THAN_EQUAL_VALUE
      * @generated
      * @ordered
@@ -63,6 +75,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>LESS THAN</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * < Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #LESS_THAN_VALUE
      * @generated
      * @ordered
@@ -73,6 +88,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>LESS THAN EQUAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * <= Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #LESS_THAN_EQUAL_VALUE
      * @generated
      * @ordered
@@ -83,6 +101,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>IN</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * IN Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #IN_VALUE
      * @generated
      * @ordered
@@ -92,6 +113,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NOT IN</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * NOT IN Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NOT_IN_VALUE
      * @generated
      * @ordered
@@ -102,6 +126,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>CONTAINS</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * CONTAINS Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #CONTAINS_VALUE
      * @generated
      * @ordered
@@ -111,6 +138,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NOT CONTAINS</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * NOT CONTAINS Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NOT_CONTAINS_VALUE
      * @generated
      * @ordered
@@ -121,6 +151,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>LIKE</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * LIKE Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #LIKE_VALUE
      * @generated
      * @ordered
@@ -130,6 +163,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NOT LIKE</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * NOT LIKE Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NOT_LIKE_VALUE
      * @generated
      * @ordered
@@ -140,6 +176,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NULL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * NULL Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NULL_VALUE
      * @generated
      * @ordered
@@ -149,6 +188,9 @@ public enum CMISQueryOperator implements Enumerator {
      * The '<em><b>NOT NULL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * NOT NULL Operator for Conditional Expression
+     * <!-- end-model-doc -->
      * @see #NOT_NULL_VALUE
      * @generated
      * @ordered
@@ -160,8 +202,7 @@ public enum CMISQueryOperator implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>EQUAL</b></em>' literal value.
@@ -406,9 +447,8 @@ public enum CMISQueryOperator implements Enumerator {
      * @generated
      */
     private static final CMISQueryOperator[] VALUES_ARRAY =
-            new CMISQueryOperator[] { EQUAL, NOT_EQUAL, GREATER_THAN,
-                    GREATER_THAN_EQUAL, LESS_THAN, LESS_THAN_EQUAL, IN, NOT_IN,
-                    CONTAINS, NOT_CONTAINS, LIKE, NOT_LIKE, NULL, NOT_NULL, };
+            new CMISQueryOperator[] { EQUAL, NOT_EQUAL, GREATER_THAN, GREATER_THAN_EQUAL, LESS_THAN, LESS_THAN_EQUAL,
+                    IN, NOT_IN, CONTAINS, NOT_CONTAINS, LIKE, NOT_LIKE, NULL, NOT_NULL, };
 
     /**
      * A public read-only list of all the '<em><b>CMIS Query Operator</b></em>' enumerators.
@@ -416,8 +456,7 @@ public enum CMISQueryOperator implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<CMISQueryOperator> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<CMISQueryOperator> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>CMIS Query Operator</b></em>' literal with the specified literal value.

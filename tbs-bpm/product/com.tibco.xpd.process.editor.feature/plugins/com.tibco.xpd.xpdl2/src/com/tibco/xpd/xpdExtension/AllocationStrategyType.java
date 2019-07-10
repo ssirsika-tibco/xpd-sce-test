@@ -53,8 +53,7 @@ public enum AllocationStrategyType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>SYSTEM DETERMINED</b></em>' literal value.
@@ -108,8 +107,7 @@ public enum AllocationStrategyType implements Enumerator {
      * @generated
      */
     private static final AllocationStrategyType[] VALUES_ARRAY =
-            new AllocationStrategyType[] { SYSTEM_DETERMINED, RANDOM,
-                    ROUND_ROBIN, };
+            new AllocationStrategyType[] { SYSTEM_DETERMINED, RANDOM, ROUND_ROBIN, };
 
     /**
      * A public read-only list of all the '<em><b>Allocation Strategy Type</b></em>' enumerators.
@@ -117,8 +115,7 @@ public enum AllocationStrategyType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AllocationStrategyType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AllocationStrategyType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Allocation Strategy Type</b></em>' literal with the specified literal value.

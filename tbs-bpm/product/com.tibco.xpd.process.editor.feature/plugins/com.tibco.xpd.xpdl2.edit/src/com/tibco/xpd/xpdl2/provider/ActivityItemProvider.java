@@ -45,15 +45,12 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class ActivityItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ActivityItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -98,11 +95,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -119,19 +117,18 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addFinishModePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Activity_finishMode_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_finishMode_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ACTIVITY__FINISH_MODE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Activity_finishMode_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Activity_finishMode_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ACTIVITY__FINISH_MODE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -142,11 +139,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addIsATransactionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Activity_isATransaction_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_isATransaction_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Activity_isATransaction_feature", //$NON-NLS-1$
+                                "_UI_Activity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ACTIVITY__IS_ATRANSACTION,
                         true,
                         false,
@@ -164,11 +162,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addStartActivityPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Activity_startActivity_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_startActivity_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Activity_startActivity_feature", //$NON-NLS-1$
+                                "_UI_Activity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ACTIVITY__START_ACTIVITY,
                         true,
                         false,
@@ -185,19 +184,18 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addStartModePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Activity_startMode_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_startMode_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ACTIVITY__START_MODE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Activity_startMode_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Activity_startMode_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ACTIVITY__START_MODE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -208,11 +206,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addStartQuantityPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Activity_startQuantity_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_startQuantity_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Activity_startQuantity_feature", //$NON-NLS-1$
+                                "_UI_Activity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ACTIVITY__START_QUANTITY,
                         true,
                         false,
@@ -229,19 +228,18 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addStatusPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Activity_status_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_status_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ACTIVITY__STATUS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Activity_status_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Activity_status_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ACTIVITY__STATUS,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -251,19 +249,18 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addProcessPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Activity_process_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_process_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ACTIVITY__PROCESS,
-                        false,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Activity_process_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Activity_process_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ACTIVITY__PROCESS,
+                false,
+                false,
+                false,
+                null,
+                null,
+                null));
     }
 
     /**
@@ -274,11 +271,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addIsForCompensationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Activity_isForCompensation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_isForCompensation_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Activity_isForCompensation_feature", //$NON-NLS-1$
+                                "_UI_Activity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ACTIVITY__IS_FOR_COMPENSATION,
                         true,
                         false,
@@ -296,11 +294,12 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      */
     protected void addCompletionQuantityPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Activity_completionQuantity_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Activity_completionQuantity_feature", "_UI_Activity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Activity_completionQuantity_feature", //$NON-NLS-1$
+                                "_UI_Activity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ACTIVITY__COMPLETION_QUANTITY,
                         true,
                         false,
@@ -318,36 +317,27 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.DATA_FIELDS_CONTAINER__DATA_FIELDS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__LIMIT);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__ROUTE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ACTIVITY__IMPLEMENTATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ACTIVITY__BLOCK_ACTIVITY);
+            childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__IMPLEMENTATION);
+            childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__BLOCK_ACTIVITY);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__EVENT);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__TRANSACTION);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__PERFORMER);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__PERFORMERS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__PRIORITY);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__DEADLINE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ACTIVITY__SIMULATION_INFORMATION);
+            childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__SIMULATION_INFORMATION);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__ICON);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__DOCUMENTATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.ACTIVITY__TRANSITION_RESTRICTIONS);
+            childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__TRANSITION_RESTRICTIONS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__INPUT_SETS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__OUTPUT_SETS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY__IO_RULES);
@@ -414,8 +404,7 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.ACTIVITY__STATUS:
         case Xpdl2Package.ACTIVITY__IS_FOR_COMPENSATION:
         case Xpdl2Package.ACTIVITY__COMPLETION_QUANTITY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ACTIVITY__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.ACTIVITY__NODE_GRAPHICS_INFOS:
@@ -442,8 +431,7 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.ACTIVITY__ASSIGNMENTS:
         case Xpdl2Package.ACTIVITY__OBJECT:
         case Xpdl2Package.ACTIVITY__EXTENSIONS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -457,146 +445,105 @@ public class ActivityItemProvider extends NamedElementItemProvider implements
      * 
      * @generated NOT
      */
-    protected void collectNewChildDescriptors(Collection newChildDescriptors,
-            Object object) {
+    protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getExtendedAttributesContainer_ExtendedAttributes(),
-                Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getGraphicalNode_NodeGraphicsInfos(), Xpdl2Factory.eINSTANCE
-                .createNodeGraphicsInfo()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getDescribedElement_Description(), Xpdl2Factory.eINSTANCE
-                .createDescription()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Limit(), Xpdl2Factory.eINSTANCE.createLimit()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Route(), Xpdl2Factory.eINSTANCE.createRoute()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_BlockActivity(), Xpdl2Factory.eINSTANCE
-                .createBlockActivity()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Transaction(), Xpdl2Factory.eINSTANCE
-                .createTransaction()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Performer(), Xpdl2Factory.eINSTANCE
-                .createPerformer()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Performers(), Xpdl2Factory.eINSTANCE
-                .createPerformer()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Priority(), Xpdl2Factory.eINSTANCE
-                .createPriority()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Deadline(), Xpdl2Factory.eINSTANCE
-                .createDeadline()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_SimulationInformation(), Xpdl2Factory.eINSTANCE
-                .createSimulationInformation()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Icon(), Xpdl2Factory.eINSTANCE.createIcon()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Documentation(), Xpdl2Factory.eINSTANCE
-                .createDocumentation()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_TransitionRestrictions(), Xpdl2Factory.eINSTANCE
-                .createTransitionRestriction()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_InputSets(), Xpdl2Factory.eINSTANCE
-                .createInputSet()));
-
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_OutputSets(), Xpdl2Factory.eINSTANCE
-                .createOutputSet()));
-
         newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.eINSTANCE
-                        .getActivity_IoRules(), Xpdl2Factory.eINSTANCE
-                        .createIORules()));
+                .add(createChildParameter(Xpdl2Package.eINSTANCE.getExtendedAttributesContainer_ExtendedAttributes(),
+                        Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Loop(), Xpdl2Factory.eINSTANCE.createLoop()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getGraphicalNode_NodeGraphicsInfos(),
+                Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Assignments(), Xpdl2Factory.eINSTANCE
-                .createAssignment()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getDescribedElement_Description(),
+                Xpdl2Factory.eINSTANCE.createDescription()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Object(), Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Limit(), Xpdl2Factory.eINSTANCE.createLimit()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createApplicationType()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Route(), Xpdl2Factory.eINSTANCE.createRoute()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createExpression()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_BlockActivity(),
+                Xpdl2Factory.eINSTANCE.createBlockActivity()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createMessage()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Transaction(),
+                Xpdl2Factory.eINSTANCE.createTransaction()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createPackage()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Performer(),
+                Xpdl2Factory.eINSTANCE.createPerformer()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createDataFieldsContainer()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Performers(),
+                Xpdl2Factory.eINSTANCE.createPerformer()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getActivity_Extensions(), Xpdl2Factory.eINSTANCE
-                .createProcess()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Priority(),
+                Xpdl2Factory.eINSTANCE.createPriority()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Deadline(),
+                Xpdl2Factory.eINSTANCE.createDeadline()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_SimulationInformation(),
+                Xpdl2Factory.eINSTANCE.createSimulationInformation()));
+
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Icon(), Xpdl2Factory.eINSTANCE.createIcon()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Documentation(),
+                Xpdl2Factory.eINSTANCE.createDocumentation()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_TransitionRestrictions(),
+                Xpdl2Factory.eINSTANCE.createTransitionRestriction()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_InputSets(),
+                Xpdl2Factory.eINSTANCE.createInputSet()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_OutputSets(),
+                Xpdl2Factory.eINSTANCE.createOutputSet()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_IoRules(),
+                Xpdl2Factory.eINSTANCE.createIORules()));
+
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Loop(), Xpdl2Factory.eINSTANCE.createLoop()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Assignments(),
+                Xpdl2Factory.eINSTANCE.createAssignment()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Object(),
+                Xpdl2Factory.eINSTANCE.createObject()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createApplicationType()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createExpression()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createMessage()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createPackage()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createDataFieldsContainer()));
+
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getActivity_Extensions(),
+                Xpdl2Factory.eINSTANCE.createProcess()));
     }
 
     @Override
-    protected Command createAddCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection, int index) {
-        Command cmd =
-                super.createAddCommand(domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
-        cmd =
-                CommandsUtils.checkExternalAddWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
+    protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection, int index) {
+        Command cmd = super.createAddCommand(domain, owner, feature, collection, index);
+        cmd = CommandsUtils.checkExternalAddWrappers(cmd, domain, owner, feature, collection, index);
         return cmd;
     }
 
     @Override
-    protected Command createSetCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Object value, int index) {
-        Command cmd =
-                super.createSetCommand(domain, owner, feature, value, index);
-        cmd =
-                CommandsUtils.checkExternalSetWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        value,
-                        index);
+    protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+            int index) {
+        Command cmd = super.createSetCommand(domain, owner, feature, value, index);
+        cmd = CommandsUtils.checkExternalSetWrappers(cmd, domain, owner, feature, value, index);
         return cmd;
     }
 

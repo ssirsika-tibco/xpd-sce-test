@@ -48,8 +48,7 @@ public enum EventHandlerFlowStrategy implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Serialize Concurrent</b></em>' literal value.
@@ -88,8 +87,7 @@ public enum EventHandlerFlowStrategy implements Enumerator {
      * @generated
      */
     private static final EventHandlerFlowStrategy[] VALUES_ARRAY =
-            new EventHandlerFlowStrategy[] { SERIALIZE_CONCURRENT,
-                    ALLOW_CONCURRENT, };
+            new EventHandlerFlowStrategy[] { SERIALIZE_CONCURRENT, ALLOW_CONCURRENT, };
 
     /**
      * A public read-only list of all the '<em><b>Event Handler Flow Strategy</b></em>' enumerators.

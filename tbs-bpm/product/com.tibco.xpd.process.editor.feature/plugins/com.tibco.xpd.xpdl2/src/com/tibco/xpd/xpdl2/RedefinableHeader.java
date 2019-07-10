@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.RedefinableHeader#getAuthor <em>Author</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.RedefinableHeader#getVersion <em>Version</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.RedefinableHeader#getResponsibles <em>Responsibles</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.RedefinableHeader#getPublicationStatus <em>Publication Status</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getRedefinableHeader()
  * @model extendedMetaData="name='RedefinableHeader_._type' kind='elementOnly'"
@@ -35,8 +35,7 @@ public interface RedefinableHeader extends OtherAttributesContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Author</b></em>' attribute.

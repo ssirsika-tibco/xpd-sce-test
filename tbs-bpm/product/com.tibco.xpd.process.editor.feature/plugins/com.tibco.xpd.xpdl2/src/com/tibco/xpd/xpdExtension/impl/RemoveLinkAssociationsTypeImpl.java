@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class RemoveLinkAssociationsTypeImpl extends EObjectImpl
-        implements RemoveLinkAssociationsType {
+public class RemoveLinkAssociationsTypeImpl extends EObjectImpl implements RemoveLinkAssociationsType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getAssociationName() <em>Association Name</em>}' attribute.
@@ -115,8 +113,8 @@ public class RemoveLinkAssociationsTypeImpl extends EObjectImpl
         associationName = newAssociationName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME,
-                    oldAssociationName, associationName));
+                    XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME, oldAssociationName,
+                    associationName));
     }
 
     /**
@@ -138,8 +136,8 @@ public class RemoveLinkAssociationsTypeImpl extends EObjectImpl
         removeCaseRefField = newRemoveCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD,
-                    oldRemoveCaseRefField, removeCaseRefField));
+                    XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD, oldRemoveCaseRefField,
+                    removeCaseRefField));
     }
 
     /**
@@ -206,10 +204,8 @@ public class RemoveLinkAssociationsTypeImpl extends EObjectImpl
             return ASSOCIATION_NAME_EDEFAULT == null ? associationName != null
                     : !ASSOCIATION_NAME_EDEFAULT.equals(associationName);
         case XpdExtensionPackage.REMOVE_LINK_ASSOCIATIONS_TYPE__REMOVE_CASE_REF_FIELD:
-            return REMOVE_CASE_REF_FIELD_EDEFAULT == null
-                    ? removeCaseRefField != null
-                    : !REMOVE_CASE_REF_FIELD_EDEFAULT
-                            .equals(removeCaseRefField);
+            return REMOVE_CASE_REF_FIELD_EDEFAULT == null ? removeCaseRefField != null
+                    : !REMOVE_CASE_REF_FIELD_EDEFAULT.equals(removeCaseRefField);
         }
         return super.eIsSet(featureID);
     }
@@ -224,7 +220,7 @@ public class RemoveLinkAssociationsTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (associationName: "); //$NON-NLS-1$
         result.append(associationName);
         result.append(", removeCaseRefField: "); //$NON-NLS-1$

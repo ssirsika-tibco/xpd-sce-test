@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VendorExtensionItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class VendorExtensionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,11 +79,12 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
      */
     protected void addExtensionDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_VendorExtension_extensionDescription_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_VendorExtension_extensionDescription_feature", "_UI_VendorExtension_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_VendorExtension_extensionDescription_feature", //$NON-NLS-1$
+                                "_UI_VendorExtension_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.VENDOR_EXTENSION__EXTENSION_DESCRIPTION,
                         true,
                         false,
@@ -103,11 +102,12 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
      */
     protected void addSchemaLocationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_VendorExtension_schemaLocation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_VendorExtension_schemaLocation_feature", "_UI_VendorExtension_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_VendorExtension_schemaLocation_feature", //$NON-NLS-1$
+                                "_UI_VendorExtension_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.VENDOR_EXTENSION__SCHEMA_LOCATION,
                         true,
                         false,
@@ -125,11 +125,12 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
      */
     protected void addToolIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_VendorExtension_toolId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_VendorExtension_toolId_feature", "_UI_VendorExtension_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_VendorExtension_toolId_feature", //$NON-NLS-1$
+                                "_UI_VendorExtension_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.VENDOR_EXTENSION__TOOL_ID,
                         true,
                         false,
@@ -147,8 +148,7 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/VendorExtension")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/VendorExtension")); //$NON-NLS-1$
     }
 
     /**
@@ -179,8 +179,7 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.VENDOR_EXTENSION__EXTENSION_DESCRIPTION:
         case Xpdl2Package.VENDOR_EXTENSION__SCHEMA_LOCATION:
         case Xpdl2Package.VENDOR_EXTENSION__TOOL_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -194,8 +193,7 @@ public class VendorExtensionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -29,6 +29,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessHeaderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessHeaderImpl#getCreated <em>Created</em>}</li>
@@ -39,7 +40,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessHeaderImpl#getTimeEstimation <em>Time Estimation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessHeaderImpl#getDurationUnit <em>Duration Unit</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -49,8 +49,7 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -140,8 +139,7 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * @generated
      * @ordered
      */
-    protected static final DurationUnitType DURATION_UNIT_EDEFAULT =
-            DurationUnitType.YEAR_LITERAL;
+    protected static final DurationUnitType DURATION_UNIT_EDEFAULT = DurationUnitType.YEAR_LITERAL;
 
     /**
      * The cached value of the '{@link #getDurationUnit() <em>Duration Unit</em>}' attribute.
@@ -199,8 +197,8 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         String oldCreated = created;
         created = newCreated;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__CREATED, oldCreated, created));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__CREATED, oldCreated,
+                    created));
     }
 
     /**
@@ -217,15 +215,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -243,28 +238,21 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
+                        null,
+                        msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__DESCRIPTION, newDescription,
-                    newDescription));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__DESCRIPTION,
+                    newDescription, newDescription));
     }
 
     /**
@@ -281,15 +269,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPriority(Priority newPriority,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs) {
         Priority oldPriority = priority;
         priority = newPriority;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__PRIORITY, oldPriority,
-                            newPriority);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__PRIORITY, oldPriority, newPriority);
             if (msgs == null)
                 msgs = notification;
             else
@@ -307,27 +292,18 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newPriority != priority) {
             NotificationChain msgs = null;
             if (priority != null)
-                msgs =
-                        ((InternalEObject) priority)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__PRIORITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) priority).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__PRIORITY,
+                        null,
+                        msgs);
             if (newPriority != null)
-                msgs =
-                        ((InternalEObject) newPriority)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__PRIORITY,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newPriority)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__PRIORITY, null, msgs);
             msgs = basicSetPriority(newPriority, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__PRIORITY, newPriority,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__PRIORITY, newPriority,
                     newPriority));
     }
 
@@ -345,15 +321,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLimit(Limit newLimit,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLimit(Limit newLimit, NotificationChain msgs) {
         Limit oldLimit = limit;
         limit = newLimit;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__LIMIT, oldLimit,
-                            newLimit);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__LIMIT, oldLimit, newLimit);
             if (msgs == null)
                 msgs = notification;
             else
@@ -371,25 +344,17 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newLimit != limit) {
             NotificationChain msgs = null;
             if (limit != null)
-                msgs =
-                        ((InternalEObject) limit).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS_HEADER__LIMIT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) limit)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__LIMIT, null, msgs);
             if (newLimit != null)
-                msgs =
-                        ((InternalEObject) newLimit).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS_HEADER__LIMIT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newLimit)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__LIMIT, null, msgs);
             msgs = basicSetLimit(newLimit, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__LIMIT, newLimit, newLimit));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__LIMIT, newLimit,
+                    newLimit));
     }
 
     /**
@@ -406,15 +371,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetValidFrom(ValidFrom newValidFrom,
-            NotificationChain msgs) {
+    public NotificationChain basicSetValidFrom(ValidFrom newValidFrom, NotificationChain msgs) {
         ValidFrom oldValidFrom = validFrom;
         validFrom = newValidFrom;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__VALID_FROM,
-                            oldValidFrom, newValidFrom);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__VALID_FROM, oldValidFrom, newValidFrom);
             if (msgs == null)
                 msgs = notification;
             else
@@ -432,27 +394,20 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newValidFrom != validFrom) {
             NotificationChain msgs = null;
             if (validFrom != null)
-                msgs =
-                        ((InternalEObject) validFrom)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__VALID_FROM,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) validFrom).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__VALID_FROM,
+                        null,
+                        msgs);
             if (newValidFrom != null)
-                msgs =
-                        ((InternalEObject) newValidFrom)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__VALID_FROM,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newValidFrom).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__VALID_FROM,
+                        null,
+                        msgs);
             msgs = basicSetValidFrom(newValidFrom, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__VALID_FROM, newValidFrom,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__VALID_FROM, newValidFrom,
                     newValidFrom));
     }
 
@@ -470,15 +425,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetValidTo(ValidTo newValidTo,
-            NotificationChain msgs) {
+    public NotificationChain basicSetValidTo(ValidTo newValidTo, NotificationChain msgs) {
         ValidTo oldValidTo = validTo;
         validTo = newValidTo;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__VALID_TO, oldValidTo,
-                            newValidTo);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__VALID_TO, oldValidTo, newValidTo);
             if (msgs == null)
                 msgs = notification;
             else
@@ -496,27 +448,18 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newValidTo != validTo) {
             NotificationChain msgs = null;
             if (validTo != null)
-                msgs =
-                        ((InternalEObject) validTo)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__VALID_TO,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) validTo).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__VALID_TO,
+                        null,
+                        msgs);
             if (newValidTo != null)
-                msgs =
-                        ((InternalEObject) newValidTo)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__VALID_TO,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newValidTo)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__VALID_TO, null, msgs);
             msgs = basicSetValidTo(newValidTo, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__VALID_TO, newValidTo,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__VALID_TO, newValidTo,
                     newValidTo));
     }
 
@@ -534,15 +477,12 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTimeEstimation(
-            TimeEstimation newTimeEstimation, NotificationChain msgs) {
+    public NotificationChain basicSetTimeEstimation(TimeEstimation newTimeEstimation, NotificationChain msgs) {
         TimeEstimation oldTimeEstimation = timeEstimation;
         timeEstimation = newTimeEstimation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
-                            oldTimeEstimation, newTimeEstimation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION, oldTimeEstimation, newTimeEstimation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -560,27 +500,20 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (newTimeEstimation != timeEstimation) {
             NotificationChain msgs = null;
             if (timeEstimation != null)
-                msgs =
-                        ((InternalEObject) timeEstimation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) timeEstimation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
+                        null,
+                        msgs);
             if (newTimeEstimation != null)
-                msgs =
-                        ((InternalEObject) newTimeEstimation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTimeEstimation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
+                        null,
+                        msgs);
             msgs = basicSetTimeEstimation(newTimeEstimation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__TIME_ESTIMATION,
                     newTimeEstimation, newTimeEstimation));
     }
 
@@ -600,14 +533,11 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      */
     public void setDurationUnit(DurationUnitType newDurationUnit) {
         DurationUnitType oldDurationUnit = durationUnit;
-        durationUnit =
-                newDurationUnit == null ? DURATION_UNIT_EDEFAULT
-                        : newDurationUnit;
+        durationUnit = newDurationUnit == null ? DURATION_UNIT_EDEFAULT : newDurationUnit;
         boolean oldDurationUnitESet = durationUnitESet;
         durationUnitESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS_HEADER__DURATION_UNIT,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS_HEADER__DURATION_UNIT,
                     oldDurationUnit, durationUnit, !oldDurationUnitESet));
     }
 
@@ -622,10 +552,8 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         durationUnit = DURATION_UNIT_EDEFAULT;
         durationUnitESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS_HEADER__DURATION_UNIT,
-                    oldDurationUnit, DURATION_UNIT_EDEFAULT,
-                    oldDurationUnitESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS_HEADER__DURATION_UNIT,
+                    oldDurationUnit, DURATION_UNIT_EDEFAULT, oldDurationUnitESet));
     }
 
     /**
@@ -643,8 +571,7 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PROCESS_HEADER__DESCRIPTION:
             return basicSetDescription(null, msgs);
@@ -773,8 +700,7 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         case Xpdl2Package.PROCESS_HEADER__DESCRIPTION:
             return description != null;
         case Xpdl2Package.PROCESS_HEADER__CREATED:
-            return CREATED_EDEFAULT == null ? created != null
-                    : !CREATED_EDEFAULT.equals(created);
+            return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
         case Xpdl2Package.PROCESS_HEADER__PRIORITY:
             return priority != null;
         case Xpdl2Package.PROCESS_HEADER__LIMIT:
@@ -801,7 +727,7 @@ public class ProcessHeaderImpl extends EObjectImpl implements ProcessHeader {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (created: "); //$NON-NLS-1$
         result.append(created);
         result.append(", durationUnit: "); //$NON-NLS-1$

@@ -22,10 +22,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RuleImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,8 +35,7 @@ public class RuleImpl extends NamedElementImpl implements Rule {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -81,15 +80,12 @@ public class RuleImpl extends NamedElementImpl implements Rule {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExpression(Expression newExpression,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
         Expression oldExpression = expression;
         expression = newExpression;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.RULE__EXPRESSION, oldExpression,
-                            newExpression);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.RULE__EXPRESSION, oldExpression, newExpression);
             if (msgs == null)
                 msgs = notification;
             else
@@ -107,25 +103,17 @@ public class RuleImpl extends NamedElementImpl implements Rule {
         if (newExpression != expression) {
             NotificationChain msgs = null;
             if (expression != null)
-                msgs =
-                        ((InternalEObject) expression).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.RULE__EXPRESSION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) expression)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.RULE__EXPRESSION, null, msgs);
             if (newExpression != null)
-                msgs =
-                        ((InternalEObject) newExpression).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.RULE__EXPRESSION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newExpression)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.RULE__EXPRESSION, null, msgs);
             msgs = basicSetExpression(newExpression, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.RULE__EXPRESSION, newExpression, newExpression));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.RULE__EXPRESSION, newExpression,
+                    newExpression));
     }
 
     /**
@@ -134,8 +122,7 @@ public class RuleImpl extends NamedElementImpl implements Rule {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.RULE__EXPRESSION:
             return basicSetExpression(null, msgs);

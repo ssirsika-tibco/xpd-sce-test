@@ -28,23 +28,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExternalPackageImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExternalPackageImpl#getHref <em>Href</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ExternalPackageImpl extends NamedElementImpl implements
-        ExternalPackage {
+public class ExternalPackageImpl extends NamedElementImpl implements ExternalPackage {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -102,10 +100,8 @@ public class ExternalPackageImpl extends NamedElementImpl implements
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -128,8 +124,7 @@ public class ExternalPackageImpl extends NamedElementImpl implements
         String oldHref = href;
         href = newHref;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTERNAL_PACKAGE__HREF, oldHref, href));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTERNAL_PACKAGE__HREF, oldHref, href));
     }
 
     /**
@@ -138,12 +133,10 @@ public class ExternalPackageImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -175,8 +168,7 @@ public class ExternalPackageImpl extends NamedElementImpl implements
         switch (featureID) {
         case Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.EXTERNAL_PACKAGE__HREF:
             setHref((String) newValue);
@@ -214,8 +206,7 @@ public class ExternalPackageImpl extends NamedElementImpl implements
         case Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES:
             return extendedAttributes != null && !extendedAttributes.isEmpty();
         case Xpdl2Package.EXTERNAL_PACKAGE__HREF:
-            return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
-                    .equals(href);
+            return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
         }
         return super.eIsSet(featureID);
     }
@@ -266,7 +257,7 @@ public class ExternalPackageImpl extends NamedElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (href: "); //$NON-NLS-1$
         result.append(href);
         result.append(')');

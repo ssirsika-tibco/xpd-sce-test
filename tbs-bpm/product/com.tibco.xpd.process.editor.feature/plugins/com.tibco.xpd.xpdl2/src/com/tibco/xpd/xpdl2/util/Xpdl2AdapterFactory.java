@@ -192,8 +192,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package.
@@ -307,8 +306,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseBusinessRuleApplication(
-                BusinessRuleApplication object) {
+        public Adapter caseBusinessRuleApplication(BusinessRuleApplication object) {
             return createBusinessRuleApplicationAdapter();
         }
 
@@ -403,8 +401,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseDeprecatedResultCompensation(
-                DeprecatedResultCompensation object) {
+        public Adapter caseDeprecatedResultCompensation(DeprecatedResultCompensation object) {
             return createDeprecatedResultCompensationAdapter();
         }
 
@@ -484,8 +481,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseExtendedAttributesContainer(
-                ExtendedAttributesContainer object) {
+        public Adapter caseExtendedAttributesContainer(ExtendedAttributesContainer object) {
             return createExtendedAttributesContainerAdapter();
         }
 
@@ -675,8 +671,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseOtherAttributesContainer(
-                OtherAttributesContainer object) {
+        public Adapter caseOtherAttributesContainer(OtherAttributesContainer object) {
             return createOtherAttributesContainerAdapter();
         }
 
@@ -796,8 +791,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseFormalParametersContainer(
-                FormalParametersContainer object) {
+        public Adapter caseFormalParametersContainer(FormalParametersContainer object) {
             return createFormalParametersContainerAdapter();
         }
 
@@ -977,8 +971,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseTriggerIntermediateMultiple(
-                TriggerIntermediateMultiple object) {
+        public Adapter caseTriggerIntermediateMultiple(TriggerIntermediateMultiple object) {
             return createTriggerIntermediateMultipleAdapter();
         }
 
@@ -993,8 +986,7 @@ public class Xpdl2AdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseTriggerResultCompensation(
-                TriggerResultCompensation object) {
+        public Adapter caseTriggerResultCompensation(TriggerResultCompensation object) {
             return createTriggerResultCompensationAdapter();
         }
 

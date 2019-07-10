@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,18 +77,15 @@ public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CREATE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS);
+            childrenFeatures
+                    .add(XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CREATE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER);
+            childrenFeatures
+                    .add(XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS);
         }
         return childrenFeatures;
     }
@@ -116,9 +111,7 @@ public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/CaseAccessOperationsType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CaseAccessOperationsType")); //$NON-NLS-1$
     }
 
     /**
@@ -148,8 +141,7 @@ public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__CREATE:
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER:
         case XpdExtensionPackage.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -163,27 +155,23 @@ public class CaseAccessOperationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CASE_CLASS_EXTERNAL_REFERENCE,
                 Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__CREATE,
                 XpdExtensionFactory.eINSTANCE.createCreateCaseOperationType()));
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_CASE_IDENTIFIER,
-                XpdExtensionFactory.eINSTANCE
-                        .createDeleteByCaseIdentifierType()));
+                XpdExtensionFactory.eINSTANCE.createDeleteByCaseIdentifierType()));
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.CASE_ACCESS_OPERATIONS_TYPE__DELETE_BY_COMPOSITE_IDENTIFIERS,
-                XpdExtensionFactory.eINSTANCE
-                        .createDeleteByCompositeIdentifiersType()));
+                XpdExtensionFactory.eINSTANCE.createDeleteByCompositeIdentifiersType()));
     }
 
     /**

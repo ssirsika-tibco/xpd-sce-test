@@ -27,15 +27,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class InitialParameterValueImpl extends EObjectImpl
-        implements InitialParameterValue {
+public class InitialParameterValueImpl extends EObjectImpl implements InitialParameterValue {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -114,9 +112,8 @@ public class InitialParameterValueImpl extends EObjectImpl
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.INITIAL_PARAMETER_VALUE__NAME, oldName,
-                    name));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.INITIAL_PARAMETER_VALUE__NAME,
+                    oldName, name));
     }
 
     /**
@@ -137,8 +134,7 @@ public class InitialParameterValueImpl extends EObjectImpl
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.INITIAL_PARAMETER_VALUE__VALUE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.INITIAL_PARAMETER_VALUE__VALUE,
                     oldValue, value));
     }
 
@@ -203,11 +199,9 @@ public class InitialParameterValueImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.INITIAL_PARAMETER_VALUE__NAME:
-            return NAME_EDEFAULT == null ? name != null
-                    : !NAME_EDEFAULT.equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case XpdExtensionPackage.INITIAL_PARAMETER_VALUE__VALUE:
-            return VALUE_EDEFAULT == null ? value != null
-                    : !VALUE_EDEFAULT.equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         }
         return super.eIsSet(featureID);
     }
@@ -222,7 +216,7 @@ public class InitialParameterValueImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(", value: "); //$NON-NLS-1$

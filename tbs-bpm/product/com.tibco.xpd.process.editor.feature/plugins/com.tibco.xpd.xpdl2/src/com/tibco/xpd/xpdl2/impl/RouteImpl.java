@@ -31,6 +31,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RouteImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RouteImpl#getGatewayType <em>Gateway Type</em>}</li>
@@ -41,7 +42,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RouteImpl#getOutgoingCondition <em>Outgoing Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RouteImpl#getExclusiveType <em>Exclusive Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -51,8 +51,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -72,8 +71,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      * @generated
      * @ordered
      */
-    protected static final JoinSplitType GATEWAY_TYPE_EDEFAULT =
-            JoinSplitType.DEPRECATED_AND_LITERAL;
+    protected static final JoinSplitType GATEWAY_TYPE_EDEFAULT = JoinSplitType.DEPRECATED_AND_LITERAL;
 
     /**
      * The cached value of the '{@link #getGatewayType() <em>Gateway Type</em>}' attribute.
@@ -102,8 +100,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      * @generated
      * @ordered
      */
-    protected static final DeprecatedXorType DEPRECATED_XOR_TYPE_EDEFAULT =
-            DeprecatedXorType.DATA;
+    protected static final DeprecatedXorType DEPRECATED_XOR_TYPE_EDEFAULT = DeprecatedXorType.DATA;
 
     /**
      * The cached value of the '{@link #getDeprecatedXorType() <em>Deprecated Xor Type</em>}' attribute.
@@ -113,8 +110,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      * @generated
      * @ordered
      */
-    protected DeprecatedXorType deprecatedXorType =
-            DEPRECATED_XOR_TYPE_EDEFAULT;
+    protected DeprecatedXorType deprecatedXorType = DEPRECATED_XOR_TYPE_EDEFAULT;
 
     /**
      * This is true if the Deprecated Xor Type attribute has been set.
@@ -231,8 +227,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      * @generated
      * @ordered
      */
-    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT =
-            ExclusiveType.DATA;
+    protected static final ExclusiveType EXCLUSIVE_TYPE_EDEFAULT = ExclusiveType.DATA;
 
     /**
      * The cached value of the '{@link #getExclusiveType() <em>Exclusive Type</em>}' attribute.
@@ -279,9 +274,7 @@ public class RouteImpl extends EObjectImpl implements Route {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.ROUTE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.ROUTE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -302,13 +295,11 @@ public class RouteImpl extends EObjectImpl implements Route {
      */
     public void setGatewayType(JoinSplitType newGatewayType) {
         JoinSplitType oldGatewayType = gatewayType;
-        gatewayType =
-                newGatewayType == null ? GATEWAY_TYPE_EDEFAULT : newGatewayType;
+        gatewayType = newGatewayType == null ? GATEWAY_TYPE_EDEFAULT : newGatewayType;
         boolean oldGatewayTypeESet = gatewayTypeESet;
         gatewayTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__GATEWAY_TYPE, oldGatewayType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__GATEWAY_TYPE, oldGatewayType,
                     gatewayType, !oldGatewayTypeESet));
     }
 
@@ -323,8 +314,7 @@ public class RouteImpl extends EObjectImpl implements Route {
         gatewayType = GATEWAY_TYPE_EDEFAULT;
         gatewayTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ROUTE__GATEWAY_TYPE, oldGatewayType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ROUTE__GATEWAY_TYPE, oldGatewayType,
                     GATEWAY_TYPE_EDEFAULT, oldGatewayTypeESet));
     }
 
@@ -353,16 +343,12 @@ public class RouteImpl extends EObjectImpl implements Route {
      */
     public void setDeprecatedXorType(DeprecatedXorType newDeprecatedXorType) {
         DeprecatedXorType oldDeprecatedXorType = deprecatedXorType;
-        deprecatedXorType =
-                newDeprecatedXorType == null ? DEPRECATED_XOR_TYPE_EDEFAULT
-                        : newDeprecatedXorType;
+        deprecatedXorType = newDeprecatedXorType == null ? DEPRECATED_XOR_TYPE_EDEFAULT : newDeprecatedXorType;
         boolean oldDeprecatedXorTypeESet = deprecatedXorTypeESet;
         deprecatedXorTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__DEPRECATED_XOR_TYPE,
-                    oldDeprecatedXorType, deprecatedXorType,
-                    !oldDeprecatedXorTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__DEPRECATED_XOR_TYPE,
+                    oldDeprecatedXorType, deprecatedXorType, !oldDeprecatedXorTypeESet));
     }
 
     /**
@@ -376,10 +362,8 @@ public class RouteImpl extends EObjectImpl implements Route {
         deprecatedXorType = DEPRECATED_XOR_TYPE_EDEFAULT;
         deprecatedXorTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ROUTE__DEPRECATED_XOR_TYPE,
-                    oldDeprecatedXorType, DEPRECATED_XOR_TYPE_EDEFAULT,
-                    oldDeprecatedXorTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ROUTE__DEPRECATED_XOR_TYPE,
+                    oldDeprecatedXorType, DEPRECATED_XOR_TYPE_EDEFAULT, oldDeprecatedXorTypeESet));
     }
 
     /**
@@ -411,10 +395,8 @@ public class RouteImpl extends EObjectImpl implements Route {
         boolean oldDeprecatedInstantiateESet = deprecatedInstantiateESet;
         deprecatedInstantiateESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__DEPRECATED_INSTANTIATE,
-                    oldDeprecatedInstantiate, deprecatedInstantiate,
-                    !oldDeprecatedInstantiateESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__DEPRECATED_INSTANTIATE,
+                    oldDeprecatedInstantiate, deprecatedInstantiate, !oldDeprecatedInstantiateESet));
     }
 
     /**
@@ -428,10 +410,8 @@ public class RouteImpl extends EObjectImpl implements Route {
         deprecatedInstantiate = DEPRECATED_INSTANTIATE_EDEFAULT;
         deprecatedInstantiateESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ROUTE__DEPRECATED_INSTANTIATE,
-                    oldDeprecatedInstantiate, DEPRECATED_INSTANTIATE_EDEFAULT,
-                    oldDeprecatedInstantiateESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ROUTE__DEPRECATED_INSTANTIATE,
+                    oldDeprecatedInstantiate, DEPRECATED_INSTANTIATE_EDEFAULT, oldDeprecatedInstantiateESet));
     }
 
     /**
@@ -459,14 +439,11 @@ public class RouteImpl extends EObjectImpl implements Route {
      */
     public void setExclusiveType(ExclusiveType newExclusiveType) {
         ExclusiveType oldExclusiveType = exclusiveType;
-        exclusiveType =
-                newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT
-                        : newExclusiveType;
+        exclusiveType = newExclusiveType == null ? EXCLUSIVE_TYPE_EDEFAULT : newExclusiveType;
         boolean oldExclusiveTypeESet = exclusiveTypeESet;
         exclusiveTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__EXCLUSIVE_TYPE, oldExclusiveType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__EXCLUSIVE_TYPE, oldExclusiveType,
                     exclusiveType, !oldExclusiveTypeESet));
     }
 
@@ -481,9 +458,8 @@ public class RouteImpl extends EObjectImpl implements Route {
         exclusiveType = EXCLUSIVE_TYPE_EDEFAULT;
         exclusiveTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ROUTE__EXCLUSIVE_TYPE, oldExclusiveType,
-                    EXCLUSIVE_TYPE_EDEFAULT, oldExclusiveTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ROUTE__EXCLUSIVE_TYPE,
+                    oldExclusiveType, EXCLUSIVE_TYPE_EDEFAULT, oldExclusiveTypeESet));
     }
 
     /**
@@ -515,8 +491,7 @@ public class RouteImpl extends EObjectImpl implements Route {
         boolean oldMarkerVisibleESet = markerVisibleESet;
         markerVisibleESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__MARKER_VISIBLE, oldMarkerVisible,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__MARKER_VISIBLE, oldMarkerVisible,
                     markerVisible, !oldMarkerVisibleESet));
     }
 
@@ -531,9 +506,8 @@ public class RouteImpl extends EObjectImpl implements Route {
         markerVisible = MARKER_VISIBLE_EDEFAULT;
         markerVisibleESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ROUTE__MARKER_VISIBLE, oldMarkerVisible,
-                    MARKER_VISIBLE_EDEFAULT, oldMarkerVisibleESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ROUTE__MARKER_VISIBLE,
+                    oldMarkerVisible, MARKER_VISIBLE_EDEFAULT, oldMarkerVisibleESet));
     }
 
     /**
@@ -563,8 +537,7 @@ public class RouteImpl extends EObjectImpl implements Route {
         String oldIncomingCondition = incomingCondition;
         incomingCondition = newIncomingCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__INCOMING_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__INCOMING_CONDITION,
                     oldIncomingCondition, incomingCondition));
     }
 
@@ -586,8 +559,7 @@ public class RouteImpl extends EObjectImpl implements Route {
         String oldOutgoingCondition = outgoingCondition;
         outgoingCondition = newOutgoingCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROUTE__OUTGOING_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROUTE__OUTGOING_CONDITION,
                     oldOutgoingCondition, outgoingCondition));
     }
 
@@ -608,12 +580,10 @@ public class RouteImpl extends EObjectImpl implements Route {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ROUTE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -760,7 +730,7 @@ public class RouteImpl extends EObjectImpl implements Route {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", gatewayType: "); //$NON-NLS-1$

@@ -28,12 +28,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.InputSetImpl#getInput <em>Input</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.InputSetImpl#getArtifactInput <em>Artifact Input</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.InputSetImpl#getPropertyInput <em>Property Input</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -43,8 +43,7 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
@@ -102,9 +101,7 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
      */
     public EList<Input> getInput() {
         if (input == null) {
-            input =
-                    new EObjectContainmentEList<Input>(Input.class, this,
-                            Xpdl2Package.INPUT_SET__INPUT);
+            input = new EObjectContainmentEList<Input>(Input.class, this, Xpdl2Package.INPUT_SET__INPUT);
         }
         return input;
     }
@@ -116,10 +113,8 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
      */
     public EList<ArtifactInput> getArtifactInput() {
         if (artifactInput == null) {
-            artifactInput =
-                    new EObjectContainmentEList<ArtifactInput>(
-                            ArtifactInput.class, this,
-                            Xpdl2Package.INPUT_SET__ARTIFACT_INPUT);
+            artifactInput = new EObjectContainmentEList<ArtifactInput>(ArtifactInput.class, this,
+                    Xpdl2Package.INPUT_SET__ARTIFACT_INPUT);
         }
         return artifactInput;
     }
@@ -131,10 +126,8 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
      */
     public EList<PropertyInput> getPropertyInput() {
         if (propertyInput == null) {
-            propertyInput =
-                    new EObjectContainmentEList<PropertyInput>(
-                            PropertyInput.class, this,
-                            Xpdl2Package.INPUT_SET__PROPERTY_INPUT);
+            propertyInput = new EObjectContainmentEList<PropertyInput>(PropertyInput.class, this,
+                    Xpdl2Package.INPUT_SET__PROPERTY_INPUT);
         }
         return propertyInput;
     }
@@ -145,17 +138,14 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.INPUT_SET__INPUT:
             return ((InternalEList<?>) getInput()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.INPUT_SET__ARTIFACT_INPUT:
-            return ((InternalEList<?>) getArtifactInput())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getArtifactInput()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.INPUT_SET__PROPERTY_INPUT:
-            return ((InternalEList<?>) getPropertyInput())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getPropertyInput()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -193,13 +183,11 @@ public class InputSetImpl extends EObjectImpl implements InputSet {
             return;
         case Xpdl2Package.INPUT_SET__ARTIFACT_INPUT:
             getArtifactInput().clear();
-            getArtifactInput()
-                    .addAll((Collection<? extends ArtifactInput>) newValue);
+            getArtifactInput().addAll((Collection<? extends ArtifactInput>) newValue);
             return;
         case Xpdl2Package.INPUT_SET__PROPERTY_INPUT:
             getPropertyInput().clear();
-            getPropertyInput()
-                    .addAll((Collection<? extends PropertyInput>) newValue);
+            getPropertyInput().addAll((Collection<? extends PropertyInput>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

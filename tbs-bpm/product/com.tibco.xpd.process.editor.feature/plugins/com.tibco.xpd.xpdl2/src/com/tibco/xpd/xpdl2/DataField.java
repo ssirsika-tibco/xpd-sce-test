@@ -12,25 +12,23 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.DataField#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataField#isCorrelation <em>Correlation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.DataField#getDeprecatedDataIsArray <em>Deprecated Data Is Array</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getDataField()
  * @model extendedMetaData="name='DataField_._type' kind='elementOnly' features-order='dataType initialValue length description extendedAttributes otherElements'"
  * @generated
  */
-public interface DataField extends ProcessRelevantData,
-        ExtendedAttributesContainer {
+public interface DataField extends ProcessRelevantData, ExtendedAttributesContainer {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Initial Value</b></em>' containment

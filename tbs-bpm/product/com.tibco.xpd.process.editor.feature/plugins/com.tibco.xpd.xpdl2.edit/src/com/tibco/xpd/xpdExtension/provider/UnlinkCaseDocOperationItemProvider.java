@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -75,22 +73,20 @@ public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSourceCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_UnlinkCaseDocOperation_sourceCaseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_UnlinkCaseDocOperation_sourceCaseRefField_feature", //$NON-NLS-1$
-                        "_UI_UnlinkCaseDocOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_UnlinkCaseDocOperation_sourceCaseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_UnlinkCaseDocOperation_sourceCaseRefField_feature", //$NON-NLS-1$
+                                "_UI_UnlinkCaseDocOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,9 +97,7 @@ public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/UnlinkCaseDocOperation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/UnlinkCaseDocOperation")); //$NON-NLS-1$
     }
 
     /**
@@ -114,11 +108,9 @@ public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label =
-                ((UnlinkCaseDocOperation) object).getSourceCaseRefField();
-        return label == null || label.length() == 0
-                ? getString("_UI_UnlinkCaseDocOperation_type") //$NON-NLS-1$
-                : getString("_UI_UnlinkCaseDocOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ((UnlinkCaseDocOperation) object).getSourceCaseRefField();
+        return label == null || label.length() == 0 ? getString("_UI_UnlinkCaseDocOperation_type") : //$NON-NLS-1$
+                getString("_UI_UnlinkCaseDocOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -134,8 +126,7 @@ public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(UnlinkCaseDocOperation.class)) {
         case XpdExtensionPackage.UNLINK_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -149,8 +140,7 @@ public class UnlinkCaseDocOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

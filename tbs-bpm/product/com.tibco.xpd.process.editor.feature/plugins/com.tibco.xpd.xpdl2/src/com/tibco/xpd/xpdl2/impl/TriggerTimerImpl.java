@@ -28,6 +28,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerTimerImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerTimerImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -36,7 +37,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerTimerImpl#getTimeDate <em>Time Date</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TriggerTimerImpl#getTimeCycle <em>Time Cycle</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -46,8 +46,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -155,9 +154,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TRIGGER_TIMER__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TRIGGER_TIMER__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -169,9 +166,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TRIGGER_TIMER__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.TRIGGER_TIMER__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -194,8 +189,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
         String oldDeprecatedTimeCycle = deprecatedTimeCycle;
         deprecatedTimeCycle = newDeprecatedTimeCycle;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_CYCLE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_CYCLE,
                     oldDeprecatedTimeCycle, deprecatedTimeCycle));
     }
 
@@ -217,8 +211,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
         String oldDeprecatedTimeDate = deprecatedTimeDate;
         deprecatedTimeDate = newDeprecatedTimeDate;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_DATE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_DATE,
                     oldDeprecatedTimeDate, deprecatedTimeDate));
     }
 
@@ -236,15 +229,12 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTimeCycle(Expression newTimeCycle,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTimeCycle(Expression newTimeCycle, NotificationChain msgs) {
         Expression oldTimeCycle = timeCycle;
         timeCycle = newTimeCycle;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE,
-                            oldTimeCycle, newTimeCycle);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE, oldTimeCycle, newTimeCycle);
             if (msgs == null)
                 msgs = notification;
             else
@@ -262,27 +252,18 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
         if (newTimeCycle != timeCycle) {
             NotificationChain msgs = null;
             if (timeCycle != null)
-                msgs =
-                        ((InternalEObject) timeCycle)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) timeCycle).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE,
+                        null,
+                        msgs);
             if (newTimeCycle != null)
-                msgs =
-                        ((InternalEObject) newTimeCycle)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTimeCycle)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE, null, msgs);
             msgs = basicSetTimeCycle(newTimeCycle, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE, newTimeCycle,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE, newTimeCycle,
                     newTimeCycle));
     }
 
@@ -311,15 +292,12 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTimeDate(Expression newTimeDate,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTimeDate(Expression newTimeDate, NotificationChain msgs) {
         Expression oldTimeDate = timeDate;
         timeDate = newTimeDate;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRIGGER_TIMER__TIME_DATE, oldTimeDate,
-                            newTimeDate);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRIGGER_TIMER__TIME_DATE, oldTimeDate, newTimeDate);
             if (msgs == null)
                 msgs = notification;
             else
@@ -337,27 +315,18 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
         if (newTimeDate != timeDate) {
             NotificationChain msgs = null;
             if (timeDate != null)
-                msgs =
-                        ((InternalEObject) timeDate)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_TIMER__TIME_DATE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) timeDate).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_TIMER__TIME_DATE,
+                        null,
+                        msgs);
             if (newTimeDate != null)
-                msgs =
-                        ((InternalEObject) newTimeDate)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRIGGER_TIMER__TIME_DATE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTimeDate)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRIGGER_TIMER__TIME_DATE, null, msgs);
             msgs = basicSetTimeDate(newTimeDate, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRIGGER_TIMER__TIME_DATE, newTimeDate,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRIGGER_TIMER__TIME_DATE, newTimeDate,
                     newTimeDate));
     }
 
@@ -367,15 +336,12 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRIGGER_TIMER__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRIGGER_TIMER__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRIGGER_TIMER__TIME_DATE:
             return basicSetTimeDate(null, msgs);
         case Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE:
@@ -486,8 +452,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_CYCLE:
             return DEPRECATED_TIME_CYCLE_EDEFAULT == null ? deprecatedTimeCycle != null
-                    : !DEPRECATED_TIME_CYCLE_EDEFAULT
-                            .equals(deprecatedTimeCycle);
+                    : !DEPRECATED_TIME_CYCLE_EDEFAULT.equals(deprecatedTimeCycle);
         case Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_DATE:
             return DEPRECATED_TIME_DATE_EDEFAULT == null ? deprecatedTimeDate != null
                     : !DEPRECATED_TIME_DATE_EDEFAULT.equals(deprecatedTimeDate);
@@ -545,7 +510,7 @@ public class TriggerTimerImpl extends EObjectImpl implements TriggerTimer {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

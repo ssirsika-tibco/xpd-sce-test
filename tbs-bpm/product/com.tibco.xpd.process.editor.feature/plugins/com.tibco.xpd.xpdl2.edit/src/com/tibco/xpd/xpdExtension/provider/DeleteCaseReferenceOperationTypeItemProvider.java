@@ -25,17 +25,15 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeleteCaseReferenceOperationTypeItemProvider
-        extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DeleteCaseReferenceOperationTypeItemProvider extends ItemProviderAdapter
+        implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+        IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -43,8 +41,7 @@ public class DeleteCaseReferenceOperationTypeItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public DeleteCaseReferenceOperationTypeItemProvider(
-            AdapterFactory adapterFactory) {
+    public DeleteCaseReferenceOperationTypeItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -71,9 +68,7 @@ public class DeleteCaseReferenceOperationTypeItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage(
-                        "full/obj16/DeleteCaseReferenceOperationType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DeleteCaseReferenceOperationType")); //$NON-NLS-1$
     }
 
     /**
@@ -108,8 +103,7 @@ public class DeleteCaseReferenceOperationTypeItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

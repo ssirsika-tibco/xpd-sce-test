@@ -38,16 +38,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntermediateEventItemProvider extends EventItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class IntermediateEventItemProvider extends EventItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,11 +82,12 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      */
     protected void addImplementationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_IntermediateEvent_implementation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_IntermediateEvent_implementation_feature", "_UI_IntermediateEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_implementation_feature", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.INTERMEDIATE_EVENT__IMPLEMENTATION,
                         true,
                         false,
@@ -107,11 +105,12 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      */
     protected void addTargetPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_IntermediateEvent_target_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_IntermediateEvent_target_feature", "_UI_IntermediateEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_target_feature", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.INTERMEDIATE_EVENT__TARGET,
                         true,
                         false,
@@ -129,11 +128,12 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      */
     protected void addTriggerPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_IntermediateEvent_trigger_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_IntermediateEvent_trigger_feature", "_UI_IntermediateEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_trigger_feature", //$NON-NLS-1$
+                                "_UI_IntermediateEvent_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER,
                         true,
                         false,
@@ -152,34 +152,21 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_TIMER);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__RESULT_ERROR);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__ANY_ATTRIBUTE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_TIMER);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__RESULT_ERROR);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__ANY_ATTRIBUTE);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE);
+            childrenFeatures.add(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION);
         }
         return childrenFeatures;
     }
@@ -205,8 +192,7 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/IntermediateEvent")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/IntermediateEvent")); //$NON-NLS-1$
     }
 
     /**
@@ -217,8 +203,7 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      */
     @Override
     public String getText(Object object) {
-        ImplementationType labelValue =
-                ((IntermediateEvent) object).getImplementation();
+        ImplementationType labelValue = ((IntermediateEvent) object).getImplementation();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? getString("_UI_IntermediateEvent_type") : //$NON-NLS-1$
                 getString("_UI_IntermediateEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -239,8 +224,7 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
         case Xpdl2Package.INTERMEDIATE_EVENT__IMPLEMENTATION:
         case Xpdl2Package.INTERMEDIATE_EVENT__TARGET:
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE:
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_TIMER:
@@ -254,8 +238,7 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
         case Xpdl2Package.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL:
         case Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE:
         case Xpdl2Package.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -269,56 +252,44 @@ public class IntermediateEventItemProvider extends EventItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_MESSAGE,
+                Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_TIMER,
-                        Xpdl2Factory.eINSTANCE.createTriggerTimer()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_TIMER,
+                Xpdl2Factory.eINSTANCE.createTriggerTimer()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__RESULT_ERROR,
-                        Xpdl2Factory.eINSTANCE.createResultError()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__RESULT_ERROR,
+                Xpdl2Factory.eINSTANCE.createResultError()));
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createTriggerResultCompensation()));
+                        Xpdl2Factory.eINSTANCE.createTriggerResultCompensation()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
-                        Xpdl2Factory.eINSTANCE.createTriggerConditional()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_CONDITIONAL,
+                Xpdl2Factory.eINSTANCE.createTriggerConditional()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultLink()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_LINK,
+                Xpdl2Factory.eINSTANCE.createTriggerResultLink()));
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_INTERMEDIATE_MULTIPLE,
-                        Xpdl2Factory.eINSTANCE
-                                .createTriggerIntermediateMultiple()));
+                        Xpdl2Factory.eINSTANCE.createTriggerIntermediateMultiple()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultCancel()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_CANCEL,
+                Xpdl2Factory.eINSTANCE.createTriggerResultCancel()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultSignal()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__TRIGGER_RESULT_SIGNAL,
+                Xpdl2Factory.eINSTANCE.createTriggerResultSignal()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
-                        Xpdl2Factory.eINSTANCE.createDeprecatedTriggerRule()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_TRIGGER_RULE,
+                Xpdl2Factory.eINSTANCE.createDeprecatedTriggerRule()));
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.INTERMEDIATE_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createDeprecatedResultCompensation()));
+                        Xpdl2Factory.eINSTANCE.createDeprecatedResultCompensation()));
     }
 
 }

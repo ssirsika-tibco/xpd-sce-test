@@ -55,8 +55,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -86,8 +85,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      * @ordered
      */
-    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT =
-            false;
+    protected static final boolean DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isDisableImplicitAssociation() <em>Disable Implicit Association</em>}' attribute.
@@ -97,8 +95,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      * @ordered
      */
-    protected boolean disableImplicitAssociation =
-            DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
+    protected boolean disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
 
     /**
      * This is true if the Disable Implicit Association attribute has been set.
@@ -117,8 +114,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      * @ordered
      */
-    protected static final TriggerType TRIGGER_EDEFAULT =
-            TriggerType.NONE_LITERAL;
+    protected static final TriggerType TRIGGER_EDEFAULT = TriggerType.NONE_LITERAL;
 
     /**
      * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' attribute.
@@ -212,15 +208,12 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.START_METHOD__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.START_METHOD__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -239,22 +232,19 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
             NotificationChain msgs = null;
             if (description != null)
                 msgs = ((InternalEObject) description).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.START_METHOD__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.START_METHOD__DESCRIPTION,
                         null,
                         msgs);
             if (newDescription != null)
                 msgs = ((InternalEObject) newDescription).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.START_METHOD__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.START_METHOD__DESCRIPTION,
                         null,
                         msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.START_METHOD__DESCRIPTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.START_METHOD__DESCRIPTION,
                     newDescription, newDescription));
     }
 
@@ -265,10 +255,8 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      */
     public EList<AssociatedParameter> getAssociatedParameters() {
         if (associatedParameters == null) {
-            associatedParameters =
-                    new EObjectContainmentEList<AssociatedParameter>(
-                            AssociatedParameter.class, this,
-                            XpdExtensionPackage.START_METHOD__ASSOCIATED_PARAMETERS);
+            associatedParameters = new EObjectContainmentEList<AssociatedParameter>(AssociatedParameter.class, this,
+                    XpdExtensionPackage.START_METHOD__ASSOCIATED_PARAMETERS);
         }
         return associatedParameters;
     }
@@ -287,18 +275,15 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDisableImplicitAssociation(
-            boolean newDisableImplicitAssociation) {
+    public void setDisableImplicitAssociation(boolean newDisableImplicitAssociation) {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
         disableImplicitAssociation = newDisableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociationESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation, disableImplicitAssociation,
-                    !oldDisableImplicitAssociationESet));
+                    XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION, oldDisableImplicitAssociation,
+                    disableImplicitAssociation, !oldDisableImplicitAssociationESet));
     }
 
     /**
@@ -308,16 +293,13 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      */
     public void unsetDisableImplicitAssociation() {
         boolean oldDisableImplicitAssociation = disableImplicitAssociation;
-        boolean oldDisableImplicitAssociationESet =
-                disableImplicitAssociationESet;
+        boolean oldDisableImplicitAssociationESet = disableImplicitAssociationESet;
         disableImplicitAssociation = DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT;
         disableImplicitAssociationESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION,
-                    oldDisableImplicitAssociation,
-                    DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT,
-                    oldDisableImplicitAssociationESet));
+                    XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION, oldDisableImplicitAssociation,
+                    DISABLE_IMPLICIT_ASSOCIATION_EDEFAULT, oldDisableImplicitAssociationESet));
     }
 
     /**
@@ -347,8 +329,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
         TriggerType oldTrigger = trigger;
         trigger = newTrigger == null ? TRIGGER_EDEFAULT : newTrigger;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.START_METHOD__TRIGGER, oldTrigger,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.START_METHOD__TRIGGER, oldTrigger,
                     trigger));
     }
 
@@ -366,16 +347,14 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage,
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
             NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
-                    oldTriggerResultMessage, newTriggerResultMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE, oldTriggerResultMessage,
+                    newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -389,22 +368,17 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
                         null,
                         msgs);
             if (newTriggerResultMessage != null)
-                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
                         null,
                         msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
@@ -412,8 +386,8 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE,
-                    newTriggerResultMessage, newTriggerResultMessage));
+                    XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE, newTriggerResultMessage,
+                    newTriggerResultMessage));
     }
 
     /**
@@ -432,14 +406,12 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      */
     public void setVisibility(Visibility newVisibility) {
         Visibility oldVisibility = visibility;
-        visibility =
-                newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+        visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
         boolean oldVisibilityESet = visibilityESet;
         visibilityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.START_METHOD__VISIBILITY, oldVisibility,
-                    visibility, !oldVisibilityESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.START_METHOD__VISIBILITY,
+                    oldVisibility, visibility, !oldVisibilityESet));
     }
 
     /**
@@ -453,9 +425,8 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
         visibility = VISIBILITY_EDEFAULT;
         visibilityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.START_METHOD__VISIBILITY, oldVisibility,
-                    VISIBILITY_EDEFAULT, oldVisibilityESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.START_METHOD__VISIBILITY,
+                    oldVisibility, VISIBILITY_EDEFAULT, oldVisibilityESet));
     }
 
     /**
@@ -474,8 +445,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      */
     public EList<ErrorMethod> getErrorMethods() {
         if (errorMethods == null) {
-            errorMethods = new EObjectContainmentEList<ErrorMethod>(
-                    ErrorMethod.class, this,
+            errorMethods = new EObjectContainmentEList<ErrorMethod>(ErrorMethod.class, this,
                     XpdExtensionPackage.START_METHOD__ERROR_METHODS);
         }
         return errorMethods;
@@ -487,19 +457,16 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.START_METHOD__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case XpdExtensionPackage.START_METHOD__ASSOCIATED_PARAMETERS:
-            return ((InternalEList<?>) getAssociatedParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssociatedParameters()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.START_METHOD__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
         case XpdExtensionPackage.START_METHOD__ERROR_METHODS:
-            return ((InternalEList<?>) getErrorMethods()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getErrorMethods()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -544,8 +511,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
             return;
         case XpdExtensionPackage.START_METHOD__ASSOCIATED_PARAMETERS:
             getAssociatedParameters().clear();
-            getAssociatedParameters().addAll(
-                    (Collection<? extends AssociatedParameter>) newValue);
+            getAssociatedParameters().addAll((Collection<? extends AssociatedParameter>) newValue);
             return;
         case XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
             setDisableImplicitAssociation((Boolean) newValue);
@@ -561,8 +527,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
             return;
         case XpdExtensionPackage.START_METHOD__ERROR_METHODS:
             getErrorMethods().clear();
-            getErrorMethods()
-                    .addAll((Collection<? extends ErrorMethod>) newValue);
+            getErrorMethods().addAll((Collection<? extends ErrorMethod>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -612,8 +577,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
         case XpdExtensionPackage.START_METHOD__DESCRIPTION:
             return description != null;
         case XpdExtensionPackage.START_METHOD__ASSOCIATED_PARAMETERS:
-            return associatedParameters != null
-                    && !associatedParameters.isEmpty();
+            return associatedParameters != null && !associatedParameters.isEmpty();
         case XpdExtensionPackage.START_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
             return isSetDisableImplicitAssociation();
         case XpdExtensionPackage.START_METHOD__TRIGGER:
@@ -634,8 +598,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID,
-            Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == DescribedElement.class) {
             switch (derivedFeatureID) {
             case XpdExtensionPackage.START_METHOD__DESCRIPTION:
@@ -663,8 +626,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID,
-            Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == DescribedElement.class) {
             switch (baseFeatureID) {
             case Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION:
@@ -696,7 +658,7 @@ public class StartMethodImpl extends NamedElementImpl implements StartMethod {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (disableImplicitAssociation: "); //$NON-NLS-1$
         if (disableImplicitAssociationESet)
             result.append(disableImplicitAssociation);

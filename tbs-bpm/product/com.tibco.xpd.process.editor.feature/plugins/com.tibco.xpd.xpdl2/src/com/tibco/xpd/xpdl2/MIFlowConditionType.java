@@ -63,8 +63,7 @@ public enum MIFlowConditionType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>None</b></em>' literal value.
@@ -133,8 +132,7 @@ public enum MIFlowConditionType implements Enumerator {
      * @generated
      */
     private static final MIFlowConditionType[] VALUES_ARRAY =
-            new MIFlowConditionType[] { NONE_LITERAL, ONE_LITERAL, ALL_LITERAL,
-                    COMPLEX_LITERAL, };
+            new MIFlowConditionType[] { NONE_LITERAL, ONE_LITERAL, ALL_LITERAL, COMPLEX_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>MI Flow Condition Type</b></em>' enumerators.
@@ -142,13 +140,14 @@ public enum MIFlowConditionType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<MIFlowConditionType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<MIFlowConditionType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>MI Flow Condition Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static MIFlowConditionType get(String literal) {
@@ -165,6 +164,8 @@ public enum MIFlowConditionType implements Enumerator {
      * Returns the '<em><b>MI Flow Condition Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static MIFlowConditionType getByName(String name) {
@@ -181,6 +182,8 @@ public enum MIFlowConditionType implements Enumerator {
      * Returns the '<em><b>MI Flow Condition Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static MIFlowConditionType get(int value) {

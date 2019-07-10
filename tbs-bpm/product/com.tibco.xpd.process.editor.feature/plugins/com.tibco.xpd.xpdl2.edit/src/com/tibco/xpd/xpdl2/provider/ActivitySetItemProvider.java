@@ -37,15 +37,12 @@ import com.tibco.xpd.xpdl2.commands.CommandsUtils;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActivitySetItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ActivitySetItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -84,11 +81,12 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      */
     protected void addAdHocPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FlowContainer_adHoc_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FlowContainer_adHoc_feature", "_UI_FlowContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FlowContainer_adHoc_feature", //$NON-NLS-1$
+                                "_UI_FlowContainer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FLOW_CONTAINER__AD_HOC,
                         true,
                         false,
@@ -105,11 +103,12 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      */
     protected void addAdHocCompletionConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FlowContainer_adHocCompletionCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FlowContainer_adHocCompletionCondition_feature", "_UI_FlowContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FlowContainer_adHocCompletionCondition_feature", //$NON-NLS-1$
+                                "_UI_FlowContainer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FLOW_CONTAINER__AD_HOC_COMPLETION_CONDITION,
                         true,
                         false,
@@ -127,11 +126,12 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      */
     protected void addAdHocOrderingPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FlowContainer_adHocOrdering_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FlowContainer_adHocOrdering_feature", "_UI_FlowContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FlowContainer_adHocOrdering_feature", //$NON-NLS-1$
+                                "_UI_FlowContainer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FLOW_CONTAINER__AD_HOC_ORDERING,
                         true,
                         false,
@@ -148,11 +148,12 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      */
     protected void addDefaultStartActivityIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FlowContainer_defaultStartActivityId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FlowContainer_defaultStartActivityId_feature", "_UI_FlowContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FlowContainer_defaultStartActivityId_feature", //$NON-NLS-1$
+                                "_UI_FlowContainer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FLOW_CONTAINER__DEFAULT_START_ACTIVITY_ID,
                         true,
                         false,
@@ -170,14 +171,11 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.FLOW_CONTAINER__ACTIVITIES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.FLOW_CONTAINER__TRANSITIONS);
+            childrenFeatures.add(Xpdl2Package.Literals.FLOW_CONTAINER__ACTIVITIES);
+            childrenFeatures.add(Xpdl2Package.Literals.FLOW_CONTAINER__TRANSITIONS);
             childrenFeatures.add(Xpdl2Package.Literals.ACTIVITY_SET__OBJECT);
         }
         return childrenFeatures;
@@ -203,8 +201,7 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ActivitySet")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ActivitySet")); //$NON-NLS-1$
     }
 
     /**
@@ -233,14 +230,12 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.ACTIVITY_SET__AD_HOC_COMPLETION_CONDITION:
         case Xpdl2Package.ACTIVITY_SET__AD_HOC_ORDERING:
         case Xpdl2Package.ACTIVITY_SET__DEFAULT_START_ACTIVITY_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ACTIVITY_SET__ACTIVITIES:
         case Xpdl2Package.ACTIVITY_SET__TRANSITIONS:
         case Xpdl2Package.ACTIVITY_SET__OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -254,68 +249,40 @@ public class ActivitySetItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FLOW_CONTAINER__ACTIVITIES,
-                        Xpdl2Factory.eINSTANCE.createActivity()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FLOW_CONTAINER__ACTIVITIES,
+                Xpdl2Factory.eINSTANCE.createActivity()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FLOW_CONTAINER__TRANSITIONS,
-                        Xpdl2Factory.eINSTANCE.createTransition()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FLOW_CONTAINER__TRANSITIONS,
+                Xpdl2Factory.eINSTANCE.createTransition()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ACTIVITY_SET__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ACTIVITY_SET__OBJECT,
+                Xpdl2Factory.eINSTANCE.createObject()));
     }
 
     @Override
-    protected Command createAddCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection, int index) {
-        Command cmd =
-                super.createAddCommand(domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
-        cmd =
-                CommandsUtils.checkExternalAddWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
+    protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection, int index) {
+        Command cmd = super.createAddCommand(domain, owner, feature, collection, index);
+        cmd = CommandsUtils.checkExternalAddWrappers(cmd, domain, owner, feature, collection, index);
         return cmd;
     }
 
     @Override
-    protected Command createRemoveCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection) {
-        Command cmd =
-                super.createRemoveCommand(domain, owner, feature, collection);
-        cmd =
-                CommandsUtils.checkExternalDeleteWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        collection);
+    protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection) {
+        Command cmd = super.createRemoveCommand(domain, owner, feature, collection);
+        cmd = CommandsUtils.checkExternalDeleteWrappers(cmd, domain, owner, feature, collection);
         return cmd;
     }
 
     @Override
-    protected Command createSetCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Object value, int index) {
-        Command cmd =
-                super.createSetCommand(domain, owner, feature, value, index);
-        cmd =
-                CommandsUtils.checkExternalSetWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        value,
-                        index);
+    protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+            int index) {
+        Command cmd = super.createSetCommand(domain, owner, feature, value, index);
+        cmd = CommandsUtils.checkExternalSetWrappers(cmd, domain, owner, feature, value, index);
         return cmd;
     }
 

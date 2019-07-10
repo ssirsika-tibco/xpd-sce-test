@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Activity#getLimit <em>Limit</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Activity#getRoute <em>Route</em>}</li>
@@ -51,22 +52,19 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.tibco.xpd.xpdl2.Activity#isIsForCompensation <em>Is For Compensation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Activity#getCompletionQuantity <em>Completion Quantity</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getActivity()
  * @model extendedMetaData="name='Activity_._type' kind='elementOnly' features-order='description limit route implementation blockActivity event transaction performer performers priority deadline simulationInformation icon documentation transitionRestrictions extendedAttributes dataFields inputSets outputSets iORules loop assignments object nodeGraphicsInfos extensions otherElements otherAttributes'"
  * @generated
  */
-public interface Activity extends NamedElement, ExtendedAttributesContainer,
-        GraphicalNode, DescribedElement, OtherElementsContainer,
-        DataFieldsContainer {
+public interface Activity extends NamedElement, ExtendedAttributesContainer, GraphicalNode, DescribedElement,
+        OtherElementsContainer, DataFieldsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Limit</b></em>' containment reference.

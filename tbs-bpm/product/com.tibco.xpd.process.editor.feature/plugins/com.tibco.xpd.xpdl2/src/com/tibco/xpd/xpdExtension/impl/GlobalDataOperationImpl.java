@@ -31,15 +31,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class GlobalDataOperationImpl extends EObjectImpl
-        implements GlobalDataOperation {
+public class GlobalDataOperationImpl extends EObjectImpl implements GlobalDataOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCaseAccessOperations() <em>Case Access Operations</em>}' containment reference.
@@ -94,16 +92,14 @@ public class GlobalDataOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseAccessOperations(
-            CaseAccessOperationsType newCaseAccessOperations,
+    public NotificationChain basicSetCaseAccessOperations(CaseAccessOperationsType newCaseAccessOperations,
             NotificationChain msgs) {
         CaseAccessOperationsType oldCaseAccessOperations = caseAccessOperations;
         caseAccessOperations = newCaseAccessOperations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
-                    oldCaseAccessOperations, newCaseAccessOperations);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS, oldCaseAccessOperations,
+                    newCaseAccessOperations);
             if (msgs == null)
                 msgs = notification;
             else
@@ -117,22 +113,17 @@ public class GlobalDataOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCaseAccessOperations(
-            CaseAccessOperationsType newCaseAccessOperations) {
+    public void setCaseAccessOperations(CaseAccessOperationsType newCaseAccessOperations) {
         if (newCaseAccessOperations != caseAccessOperations) {
             NotificationChain msgs = null;
             if (caseAccessOperations != null)
-                msgs = ((InternalEObject) caseAccessOperations).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
+                msgs = ((InternalEObject) caseAccessOperations).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
                         null,
                         msgs);
             if (newCaseAccessOperations != null)
-                msgs = ((InternalEObject) newCaseAccessOperations).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
+                msgs = ((InternalEObject) newCaseAccessOperations).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
                         null,
                         msgs);
             msgs = basicSetCaseAccessOperations(newCaseAccessOperations, msgs);
@@ -140,8 +131,8 @@ public class GlobalDataOperationImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS,
-                    newCaseAccessOperations, newCaseAccessOperations));
+                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS, newCaseAccessOperations,
+                    newCaseAccessOperations));
     }
 
     /**
@@ -158,17 +149,14 @@ public class GlobalDataOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseReferenceOperations(
-            CaseReferenceOperationsType newCaseReferenceOperations,
+    public NotificationChain basicSetCaseReferenceOperations(CaseReferenceOperationsType newCaseReferenceOperations,
             NotificationChain msgs) {
-        CaseReferenceOperationsType oldCaseReferenceOperations =
-                caseReferenceOperations;
+        CaseReferenceOperationsType oldCaseReferenceOperations = caseReferenceOperations;
         caseReferenceOperations = newCaseReferenceOperations;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
-                    oldCaseReferenceOperations, newCaseReferenceOperations);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS, oldCaseReferenceOperations,
+                    newCaseReferenceOperations);
             if (msgs == null)
                 msgs = notification;
             else
@@ -182,32 +170,26 @@ public class GlobalDataOperationImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCaseReferenceOperations(
-            CaseReferenceOperationsType newCaseReferenceOperations) {
+    public void setCaseReferenceOperations(CaseReferenceOperationsType newCaseReferenceOperations) {
         if (newCaseReferenceOperations != caseReferenceOperations) {
             NotificationChain msgs = null;
             if (caseReferenceOperations != null)
-                msgs = ((InternalEObject) caseReferenceOperations)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) caseReferenceOperations).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
+                        null,
+                        msgs);
             if (newCaseReferenceOperations != null)
-                msgs = ((InternalEObject) newCaseReferenceOperations)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
-                                null,
-                                msgs);
-            msgs = basicSetCaseReferenceOperations(newCaseReferenceOperations,
-                    msgs);
+                msgs = ((InternalEObject) newCaseReferenceOperations).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
+                        null,
+                        msgs);
+            msgs = basicSetCaseReferenceOperations(newCaseReferenceOperations, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS,
-                    newCaseReferenceOperations, newCaseReferenceOperations));
+                    XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_REFERENCE_OPERATIONS, newCaseReferenceOperations,
+                    newCaseReferenceOperations));
     }
 
     /**
@@ -216,8 +198,7 @@ public class GlobalDataOperationImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.GLOBAL_DATA_OPERATION__CASE_ACCESS_OPERATIONS:
             return basicSetCaseAccessOperations(null, msgs);

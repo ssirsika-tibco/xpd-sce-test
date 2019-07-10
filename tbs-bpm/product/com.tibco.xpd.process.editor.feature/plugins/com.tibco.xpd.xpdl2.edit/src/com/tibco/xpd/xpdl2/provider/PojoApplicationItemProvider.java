@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PojoApplicationItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PojoApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,13 +78,11 @@ public class PojoApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.POJO_APPLICATION__CLASS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.POJO_APPLICATION__METHOD);
+            childrenFeatures.add(Xpdl2Package.Literals.POJO_APPLICATION__METHOD);
         }
         return childrenFeatures;
     }
@@ -112,8 +108,7 @@ public class PojoApplicationItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/PojoApplication")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/PojoApplication")); //$NON-NLS-1$
     }
 
     /**
@@ -141,8 +136,7 @@ public class PojoApplicationItemProvider extends ItemProviderAdapter implements
         switch (notification.getFeatureID(PojoApplication.class)) {
         case Xpdl2Package.POJO_APPLICATION__CLASS:
         case Xpdl2Package.POJO_APPLICATION__METHOD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -156,17 +150,14 @@ public class PojoApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.POJO_APPLICATION__CLASS,
-                        Xpdl2Factory.eINSTANCE.createClass()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.POJO_APPLICATION__CLASS,
+                Xpdl2Factory.eINSTANCE.createClass()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.POJO_APPLICATION__METHOD,
-                        Xpdl2Factory.eINSTANCE.createMethod()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.POJO_APPLICATION__METHOD,
+                Xpdl2Factory.eINSTANCE.createMethod()));
     }
 
     /**

@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PortTypeOperationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PortTypeOperationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,21 +81,20 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPortTypeNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PortTypeOperation_portTypeName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_portTypeName_feature", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__PORT_TYPE_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_PortTypeOperation_portTypeName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_portTypeName_feature", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__PORT_TYPE_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -107,21 +104,20 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addOperationNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PortTypeOperation_operationName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_operationName_feature", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__OPERATION_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_PortTypeOperation_operationName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_operationName_feature", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__OPERATION_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -131,21 +127,20 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addTransportPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PortTypeOperation_transport_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_transport_feature", //$NON-NLS-1$
-                        "_UI_PortTypeOperation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__TRANSPORT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_PortTypeOperation_transport_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_transport_feature", //$NON-NLS-1$
+                                "_UI_PortTypeOperation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__TRANSPORT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -157,12 +152,10 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE);
         }
         return childrenFeatures;
     }
@@ -188,8 +181,7 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/PortTypeOperation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/PortTypeOperation")); //$NON-NLS-1$
     }
 
     /**
@@ -201,9 +193,8 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((PortTypeOperation) object).getPortTypeName();
-        return label == null || label.length() == 0
-                ? getString("_UI_PortTypeOperation_type") //$NON-NLS-1$
-                : getString("_UI_PortTypeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_PortTypeOperation_type") : //$NON-NLS-1$
+                getString("_UI_PortTypeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -221,12 +212,10 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.PORT_TYPE_OPERATION__PORT_TYPE_NAME:
         case XpdExtensionPackage.PORT_TYPE_OPERATION__OPERATION_NAME:
         case XpdExtensionPackage.PORT_TYPE_OPERATION__TRANSPORT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -240,13 +229,12 @@ public class PortTypeOperationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
-                Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.PORT_TYPE_OPERATION__EXTERNAL_REFERENCE,
+                        Xpdl2Factory.eINSTANCE.createExternalReference()));
     }
 
     /**

@@ -28,13 +28,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssignmentImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssignmentImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssignmentImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssignmentImpl#getAssignTime <em>Assign Time</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -44,8 +44,7 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -85,8 +84,7 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      * @generated
      * @ordered
      */
-    protected static final AssignTimeType ASSIGN_TIME_EDEFAULT =
-            AssignTimeType.START_LITERAL;
+    protected static final AssignTimeType ASSIGN_TIME_EDEFAULT = AssignTimeType.START_LITERAL;
 
     /**
      * The cached value of the '{@link #getAssignTime() <em>Assign Time</em>}' attribute.
@@ -133,9 +131,7 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.ASSIGNMENT__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.ASSIGNMENT__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -154,15 +150,12 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTarget(Expression newTarget,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTarget(Expression newTarget, NotificationChain msgs) {
         Expression oldTarget = target;
         target = newTarget;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ASSIGNMENT__TARGET, oldTarget,
-                            newTarget);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ASSIGNMENT__TARGET, oldTarget, newTarget);
             if (msgs == null)
                 msgs = notification;
             else
@@ -180,25 +173,17 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
         if (newTarget != target) {
             NotificationChain msgs = null;
             if (target != null)
-                msgs =
-                        ((InternalEObject) target).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSIGNMENT__TARGET,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) target)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSIGNMENT__TARGET, null, msgs);
             if (newTarget != null)
-                msgs =
-                        ((InternalEObject) newTarget).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSIGNMENT__TARGET,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTarget)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSIGNMENT__TARGET, null, msgs);
             msgs = basicSetTarget(newTarget, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSIGNMENT__TARGET, newTarget, newTarget));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSIGNMENT__TARGET, newTarget,
+                    newTarget));
     }
 
     /**
@@ -215,15 +200,12 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExpression(Expression newExpression,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
         Expression oldExpression = expression;
         expression = newExpression;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ASSIGNMENT__EXPRESSION, oldExpression,
-                            newExpression);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ASSIGNMENT__EXPRESSION, oldExpression, newExpression);
             if (msgs == null)
                 msgs = notification;
             else
@@ -241,25 +223,16 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
         if (newExpression != expression) {
             NotificationChain msgs = null;
             if (expression != null)
-                msgs =
-                        ((InternalEObject) expression).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSIGNMENT__EXPRESSION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) expression)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSIGNMENT__EXPRESSION, null, msgs);
             if (newExpression != null)
-                msgs =
-                        ((InternalEObject) newExpression).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSIGNMENT__EXPRESSION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newExpression)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSIGNMENT__EXPRESSION, null, msgs);
             msgs = basicSetExpression(newExpression, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSIGNMENT__EXPRESSION, newExpression,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSIGNMENT__EXPRESSION, newExpression,
                     newExpression));
     }
 
@@ -279,13 +252,11 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      */
     public void setAssignTime(AssignTimeType newAssignTime) {
         AssignTimeType oldAssignTime = assignTime;
-        assignTime =
-                newAssignTime == null ? ASSIGN_TIME_EDEFAULT : newAssignTime;
+        assignTime = newAssignTime == null ? ASSIGN_TIME_EDEFAULT : newAssignTime;
         boolean oldAssignTimeESet = assignTimeESet;
         assignTimeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSIGNMENT__ASSIGN_TIME, oldAssignTime,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSIGNMENT__ASSIGN_TIME, oldAssignTime,
                     assignTime, !oldAssignTimeESet));
     }
 
@@ -300,8 +271,7 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
         assignTime = ASSIGN_TIME_EDEFAULT;
         assignTimeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ASSIGNMENT__ASSIGN_TIME, oldAssignTime,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ASSIGNMENT__ASSIGN_TIME, oldAssignTime,
                     ASSIGN_TIME_EDEFAULT, oldAssignTimeESet));
     }
 
@@ -331,12 +301,10 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ASSIGNMENT__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ASSIGNMENT__TARGET:
             return basicSetTarget(null, msgs);
         case Xpdl2Package.ASSIGNMENT__EXPRESSION:
@@ -445,7 +413,7 @@ public class AssignmentImpl extends EObjectImpl implements Assignment {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", assignTime: "); //$NON-NLS-1$

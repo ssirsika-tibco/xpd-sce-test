@@ -38,16 +38,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskSendItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TaskSendItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +81,12 @@ public class TaskSendItemProvider extends ItemProviderAdapter implements
      */
     protected void addImplementationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TaskSend_implementation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TaskSend_implementation_feature", "_UI_TaskSend_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TaskSend_implementation_feature", //$NON-NLS-1$
+                                "_UI_TaskSend_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TASK_SEND__IMPLEMENTATION,
                         true,
                         false,
@@ -106,19 +105,14 @@ public class TaskSendItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.TASK_SEND__MESSAGE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_OPERATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_FAULT_CATCH);
+            childrenFeatures.add(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_OPERATION);
+            childrenFeatures.add(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_FAULT_CATCH);
         }
         return childrenFeatures;
     }
@@ -144,8 +138,7 @@ public class TaskSendItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/TaskSend")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskSend")); //$NON-NLS-1$
     }
 
     /**
@@ -175,16 +168,14 @@ public class TaskSendItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(TaskSend.class)) {
         case Xpdl2Package.TASK_SEND__IMPLEMENTATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.TASK_SEND__OTHER_ATTRIBUTES:
         case Xpdl2Package.TASK_SEND__OTHER_ELEMENTS:
         case Xpdl2Package.TASK_SEND__MESSAGE:
         case Xpdl2Package.TASK_SEND__WEB_SERVICE_OPERATION:
         case Xpdl2Package.TASK_SEND__WEB_SERVICE_FAULT_CATCH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -198,21 +189,17 @@ public class TaskSendItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK_SEND__MESSAGE,
-                        Xpdl2Factory.eINSTANCE.createMessage()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.TASK_SEND__MESSAGE, Xpdl2Factory.eINSTANCE.createMessage()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_OPERATION,
-                        Xpdl2Factory.eINSTANCE.createWebServiceOperation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_OPERATION,
+                Xpdl2Factory.eINSTANCE.createWebServiceOperation()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_FAULT_CATCH,
-                        Xpdl2Factory.eINSTANCE.createWebServiceFaultCatch()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK_SEND__WEB_SERVICE_FAULT_CATCH,
+                Xpdl2Factory.eINSTANCE.createWebServiceFaultCatch()));
     }
 
     /**

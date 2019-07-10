@@ -28,15 +28,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ValidationIssueOverrideImpl extends EObjectImpl
-        implements ValidationIssueOverride {
+public class ValidationIssueOverrideImpl extends EObjectImpl implements ValidationIssueOverride {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getValidationIssueId() <em>Validation Issue Id</em>}' attribute.
@@ -126,8 +124,8 @@ public class ValidationIssueOverrideImpl extends EObjectImpl
         validationIssueId = newValidationIssueId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__VALIDATION_ISSUE_ID,
-                    oldValidationIssueId, validationIssueId));
+                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__VALIDATION_ISSUE_ID, oldValidationIssueId,
+                    validationIssueId));
     }
 
     /**
@@ -146,14 +144,13 @@ public class ValidationIssueOverrideImpl extends EObjectImpl
      */
     public void setOverrideType(ValidationIssueOverrideType newOverrideType) {
         ValidationIssueOverrideType oldOverrideType = overrideType;
-        overrideType = newOverrideType == null ? OVERRIDE_TYPE_EDEFAULT
-                : newOverrideType;
+        overrideType = newOverrideType == null ? OVERRIDE_TYPE_EDEFAULT : newOverrideType;
         boolean oldOverrideTypeESet = overrideTypeESet;
         overrideTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE,
-                    oldOverrideType, overrideType, !oldOverrideTypeESet));
+                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE, oldOverrideType, overrideType,
+                    !oldOverrideTypeESet));
     }
 
     /**
@@ -168,9 +165,8 @@ public class ValidationIssueOverrideImpl extends EObjectImpl
         overrideTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE,
-                    oldOverrideType, OVERRIDE_TYPE_EDEFAULT,
-                    oldOverrideTypeESet));
+                    XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE, oldOverrideType,
+                    OVERRIDE_TYPE_EDEFAULT, oldOverrideTypeESet));
     }
 
     /**
@@ -243,8 +239,7 @@ public class ValidationIssueOverrideImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__VALIDATION_ISSUE_ID:
-            return VALIDATION_ISSUE_ID_EDEFAULT == null
-                    ? validationIssueId != null
+            return VALIDATION_ISSUE_ID_EDEFAULT == null ? validationIssueId != null
                     : !VALIDATION_ISSUE_ID_EDEFAULT.equals(validationIssueId);
         case XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE__OVERRIDE_TYPE:
             return isSetOverrideType();
@@ -262,7 +257,7 @@ public class ValidationIssueOverrideImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (validationIssueId: "); //$NON-NLS-1$
         result.append(validationIssueId);
         result.append(", overrideType: "); //$NON-NLS-1$

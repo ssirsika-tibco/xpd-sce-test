@@ -30,30 +30,33 @@ public enum JoinSplitType implements Enumerator {
      * @generated
      * @ordered
      */
-    DEPRECATED_AND_LITERAL(0, "deprecatedAND", "deprecatedAND"), /**
-                                                                  * The '<em><b>Deprecated XOR</b></em>' literal object.
-                                                                  * <!-- begin-user-doc -->
-                                                                  * <!-- end-user-doc -->
-                                                                  * @see #DEPRECATED_XOR
-                                                                  * @generated
-                                                                  * @ordered
-                                                                  */
-    DEPRECATED_XOR_LITERAL(1, "deprecatedXOR", "deprecatedXOR"), /**
-                                                                  * The '<em><b>Deprecated OR</b></em>' literal object.
-                                                                  * <!-- begin-user-doc -->
-                                                                  * <!-- end-user-doc -->
-                                                                  * @see #DEPRECATED_OR
-                                                                  * @generated
-                                                                  * @ordered
-                                                                  */
-    DEPRECATED_OR_LITERAL(2, "deprecatedOR", "deprecatedOR"), /**
-                                                               * The '<em><b>Complex</b></em>' literal object.
-                                                               * <!-- begin-user-doc -->
-                                                               * <!-- end-user-doc -->
-                                                               * @see #COMPLEX
-                                                               * @generated
-                                                               * @ordered
-                                                               */
+    DEPRECATED_AND_LITERAL(0, "deprecatedAND", "deprecatedAND"),
+    /**
+    * The '<em><b>Deprecated XOR</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #DEPRECATED_XOR
+    * @generated
+    * @ordered
+    */
+    DEPRECATED_XOR_LITERAL(1, "deprecatedXOR", "deprecatedXOR"),
+    /**
+    * The '<em><b>Deprecated OR</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #DEPRECATED_OR
+    * @generated
+    * @ordered
+    */
+    DEPRECATED_OR_LITERAL(2, "deprecatedOR", "deprecatedOR"),
+    /**
+    * The '<em><b>Complex</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #COMPLEX
+    * @generated
+    * @ordered
+    */
     COMPLEX_LITERAL(3, "Complex", "Complex"),
     /**
      * The '<em><b>Inclusive</b></em>' literal object.
@@ -87,8 +90,7 @@ public enum JoinSplitType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Deprecated AND</b></em>' literal value.
@@ -201,10 +203,9 @@ public enum JoinSplitType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final JoinSplitType[] VALUES_ARRAY = new JoinSplitType[] {
-            DEPRECATED_AND_LITERAL, DEPRECATED_XOR_LITERAL,
-            DEPRECATED_OR_LITERAL, COMPLEX_LITERAL, INCLUSIVE_LITERAL,
-            EXCLUSIVE_LITERAL, PARALLEL_LITERAL, };
+    private static final JoinSplitType[] VALUES_ARRAY =
+            new JoinSplitType[] { DEPRECATED_AND_LITERAL, DEPRECATED_XOR_LITERAL, DEPRECATED_OR_LITERAL,
+                    COMPLEX_LITERAL, INCLUSIVE_LITERAL, EXCLUSIVE_LITERAL, PARALLEL_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Join Split Type</b></em>' enumerators.
@@ -212,13 +213,14 @@ public enum JoinSplitType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<JoinSplitType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<JoinSplitType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Join Split Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static JoinSplitType get(String literal) {
@@ -235,6 +237,8 @@ public enum JoinSplitType implements Enumerator {
      * Returns the '<em><b>Join Split Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static JoinSplitType getByName(String name) {
@@ -251,6 +255,8 @@ public enum JoinSplitType implements Enumerator {
      * Returns the '<em><b>Join Split Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static JoinSplitType get(int value) {

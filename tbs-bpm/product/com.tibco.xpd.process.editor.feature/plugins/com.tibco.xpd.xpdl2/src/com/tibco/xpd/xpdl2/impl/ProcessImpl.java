@@ -57,6 +57,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <em><b>Process</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessImpl#getActivities <em>Activities</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessImpl#getTransitions <em>Transitions</em>}</li>
@@ -85,18 +86,15 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ProcessImpl#getActivitySets <em>Activity Sets</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ProcessImpl extends NamedElementImpl implements
-        com.tibco.xpd.xpdl2.Process {
+public class ProcessImpl extends NamedElementImpl implements com.tibco.xpd.xpdl2.Process {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getActivities() <em>Activities</em>}' containment reference list.
@@ -161,8 +159,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected String adHocCompletionCondition =
-            AD_HOC_COMPLETION_CONDITION_EDEFAULT;
+    protected String adHocCompletionCondition = AD_HOC_COMPLETION_CONDITION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getAdHocOrdering() <em>Ad Hoc Ordering</em>}' attribute.
@@ -172,8 +169,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected static final AdHocOrderingType AD_HOC_ORDERING_EDEFAULT =
-            AdHocOrderingType.PARALLEL_LITERAL;
+    protected static final AdHocOrderingType AD_HOC_ORDERING_EDEFAULT = AdHocOrderingType.PARALLEL_LITERAL;
 
     /**
      * The cached value of the '{@link #getAdHocOrdering() <em>Ad Hoc Ordering</em>}' attribute.
@@ -212,8 +208,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected String defaultStartActivityId =
-            DEFAULT_START_ACTIVITY_ID_EDEFAULT;
+    protected String defaultStartActivityId = DEFAULT_START_ACTIVITY_ID_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getExtendedAttributes()
@@ -342,8 +337,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected static final AccessLevelType ACCESS_LEVEL_EDEFAULT =
-            AccessLevelType.PUBLIC_LITERAL;
+    protected static final AccessLevelType ACCESS_LEVEL_EDEFAULT = AccessLevelType.PUBLIC_LITERAL;
 
     /**
      * The cached value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
@@ -381,8 +375,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected String defaultStartActivitySetId =
-            DEFAULT_START_ACTIVITY_SET_ID_EDEFAULT;
+    protected String defaultStartActivitySetId = DEFAULT_START_ACTIVITY_SET_ID_EDEFAULT;
 
     /**
      * The default value of the '{@link #isEnableInstanceCompensation() <em>Enable Instance Compensation</em>}' attribute.
@@ -392,8 +385,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected static final boolean ENABLE_INSTANCE_COMPENSATION_EDEFAULT =
-            false;
+    protected static final boolean ENABLE_INSTANCE_COMPENSATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isEnableInstanceCompensation() <em>Enable Instance Compensation</em>}' attribute.
@@ -403,8 +395,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected boolean enableInstanceCompensation =
-            ENABLE_INSTANCE_COMPENSATION_EDEFAULT;
+    protected boolean enableInstanceCompensation = ENABLE_INSTANCE_COMPENSATION_EDEFAULT;
 
     /**
      * This is true if the Enable Instance Compensation attribute has been set.
@@ -421,8 +412,7 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      * @ordered
      */
-    protected static final ProcessType PROCESS_TYPE_EDEFAULT =
-            ProcessType.NONE_LITERAL;
+    protected static final ProcessType PROCESS_TYPE_EDEFAULT = ProcessType.NONE_LITERAL;
 
     /**
      * The cached value of the '{@link #getProcessType() <em>Process Type</em>}' attribute.
@@ -532,11 +522,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<Activity> getActivities() {
         if (activities == null) {
-            activities =
-                    new EObjectContainmentWithInverseEList<Activity>(
-                            Activity.class, this,
-                            Xpdl2Package.PROCESS__ACTIVITIES,
-                            Xpdl2Package.ACTIVITY__FLOW_CONTAINER);
+            activities = new EObjectContainmentWithInverseEList<Activity>(Activity.class, this,
+                    Xpdl2Package.PROCESS__ACTIVITIES, Xpdl2Package.ACTIVITY__FLOW_CONTAINER);
         }
         return activities;
     }
@@ -548,11 +535,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<Transition> getTransitions() {
         if (transitions == null) {
-            transitions =
-                    new EObjectContainmentWithInverseEList<Transition>(
-                            Transition.class, this,
-                            Xpdl2Package.PROCESS__TRANSITIONS,
-                            Xpdl2Package.TRANSITION__FLOW_CONTAINER);
+            transitions = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this,
+                    Xpdl2Package.PROCESS__TRANSITIONS, Xpdl2Package.TRANSITION__FLOW_CONTAINER);
         }
         return transitions;
     }
@@ -577,8 +561,7 @@ public class ProcessImpl extends NamedElementImpl implements
         boolean oldAdHocESet = adHocESet;
         adHocESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__AD_HOC, oldAdHoc, adHoc,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__AD_HOC, oldAdHoc, adHoc,
                     !oldAdHocESet));
     }
 
@@ -593,9 +576,8 @@ public class ProcessImpl extends NamedElementImpl implements
         adHoc = AD_HOC_EDEFAULT;
         adHocESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__AD_HOC, oldAdHoc, AD_HOC_EDEFAULT,
-                    oldAdHocESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__AD_HOC, oldAdHoc,
+                    AD_HOC_EDEFAULT, oldAdHocESet));
     }
 
     /**
@@ -625,8 +607,7 @@ public class ProcessImpl extends NamedElementImpl implements
         String oldAdHocCompletionCondition = adHocCompletionCondition;
         adHocCompletionCondition = newAdHocCompletionCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__AD_HOC_COMPLETION_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__AD_HOC_COMPLETION_CONDITION,
                     oldAdHocCompletionCondition, adHocCompletionCondition));
     }
 
@@ -646,15 +627,12 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public void setAdHocOrdering(AdHocOrderingType newAdHocOrdering) {
         AdHocOrderingType oldAdHocOrdering = adHocOrdering;
-        adHocOrdering =
-                newAdHocOrdering == null ? AD_HOC_ORDERING_EDEFAULT
-                        : newAdHocOrdering;
+        adHocOrdering = newAdHocOrdering == null ? AD_HOC_ORDERING_EDEFAULT : newAdHocOrdering;
         boolean oldAdHocOrderingESet = adHocOrderingESet;
         adHocOrderingESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__AD_HOC_ORDERING, oldAdHocOrdering,
-                    adHocOrdering, !oldAdHocOrderingESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__AD_HOC_ORDERING,
+                    oldAdHocOrdering, adHocOrdering, !oldAdHocOrderingESet));
     }
 
     /**
@@ -668,9 +646,8 @@ public class ProcessImpl extends NamedElementImpl implements
         adHocOrdering = AD_HOC_ORDERING_EDEFAULT;
         adHocOrderingESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__AD_HOC_ORDERING, oldAdHocOrdering,
-                    AD_HOC_ORDERING_EDEFAULT, oldAdHocOrderingESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__AD_HOC_ORDERING,
+                    oldAdHocOrdering, AD_HOC_ORDERING_EDEFAULT, oldAdHocOrderingESet));
     }
 
     /**
@@ -700,8 +677,7 @@ public class ProcessImpl extends NamedElementImpl implements
         String oldDefaultStartActivityId = defaultStartActivityId;
         defaultStartActivityId = newDefaultStartActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_ID,
                     oldDefaultStartActivityId, defaultStartActivityId));
     }
 
@@ -712,10 +688,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.PROCESS__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.PROCESS__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -727,10 +701,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<FormalParameter> getFormalParameters() {
         if (formalParameters == null) {
-            formalParameters =
-                    new EObjectContainmentEList<FormalParameter>(
-                            FormalParameter.class, this,
-                            Xpdl2Package.PROCESS__FORMAL_PARAMETERS);
+            formalParameters = new EObjectContainmentEList<FormalParameter>(FormalParameter.class, this,
+                    Xpdl2Package.PROCESS__FORMAL_PARAMETERS);
         }
         return formalParameters;
     }
@@ -748,15 +720,12 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetAssignments(Assignment newAssignments,
-            NotificationChain msgs) {
+    public NotificationChain basicSetAssignments(Assignment newAssignments, NotificationChain msgs) {
         Assignment oldAssignments = assignments;
         assignments = newAssignments;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS__ASSIGNMENTS, oldAssignments,
-                            newAssignments);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS__ASSIGNMENTS, oldAssignments, newAssignments);
             if (msgs == null)
                 msgs = notification;
             else
@@ -774,25 +743,16 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newAssignments != assignments) {
             NotificationChain msgs = null;
             if (assignments != null)
-                msgs =
-                        ((InternalEObject) assignments).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__ASSIGNMENTS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) assignments)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__ASSIGNMENTS, null, msgs);
             if (newAssignments != null)
-                msgs =
-                        ((InternalEObject) newAssignments).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__ASSIGNMENTS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newAssignments)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__ASSIGNMENTS, null, msgs);
             msgs = basicSetAssignments(newAssignments, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__ASSIGNMENTS, newAssignments,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__ASSIGNMENTS, newAssignments,
                     newAssignments));
     }
 
@@ -804,8 +764,7 @@ public class ProcessImpl extends NamedElementImpl implements
     public EList<DataField> getDataFields() {
         if (dataFields == null) {
             dataFields =
-                    new EObjectContainmentEList<DataField>(DataField.class,
-                            this, Xpdl2Package.PROCESS__DATA_FIELDS);
+                    new EObjectContainmentEList<DataField>(DataField.class, this, Xpdl2Package.PROCESS__DATA_FIELDS);
         }
         return dataFields;
     }
@@ -817,9 +776,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<Participant> getParticipants() {
         if (participants == null) {
-            participants =
-                    new EObjectContainmentEList<Participant>(Participant.class,
-                            this, Xpdl2Package.PROCESS__PARTICIPANTS);
+            participants = new EObjectContainmentEList<Participant>(Participant.class, this,
+                    Xpdl2Package.PROCESS__PARTICIPANTS);
         }
         return participants;
     }
@@ -831,9 +789,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<Application> getApplications() {
         if (applications == null) {
-            applications =
-                    new EObjectContainmentEList<Application>(Application.class,
-                            this, Xpdl2Package.PROCESS__APPLICATIONS);
+            applications = new EObjectContainmentEList<Application>(Application.class, this,
+                    Xpdl2Package.PROCESS__APPLICATIONS);
         }
         return applications;
     }
@@ -845,9 +802,7 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.PROCESS__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.PROCESS__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -865,15 +820,12 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetProcessHeader(
-            ProcessHeader newProcessHeader, NotificationChain msgs) {
+    public NotificationChain basicSetProcessHeader(ProcessHeader newProcessHeader, NotificationChain msgs) {
         ProcessHeader oldProcessHeader = processHeader;
         processHeader = newProcessHeader;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS__PROCESS_HEADER,
-                            oldProcessHeader, newProcessHeader);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS__PROCESS_HEADER, oldProcessHeader, newProcessHeader);
             if (msgs == null)
                 msgs = notification;
             else
@@ -891,26 +843,19 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newProcessHeader != processHeader) {
             NotificationChain msgs = null;
             if (processHeader != null)
-                msgs =
-                        ((InternalEObject) processHeader).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__PROCESS_HEADER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) processHeader).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__PROCESS_HEADER,
+                        null,
+                        msgs);
             if (newProcessHeader != null)
-                msgs =
-                        ((InternalEObject) newProcessHeader).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__PROCESS_HEADER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newProcessHeader)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__PROCESS_HEADER, null, msgs);
             msgs = basicSetProcessHeader(newProcessHeader, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__PROCESS_HEADER, newProcessHeader,
-                    newProcessHeader));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__PROCESS_HEADER,
+                    newProcessHeader, newProcessHeader));
     }
 
     /**
@@ -926,15 +871,12 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRedefinableHeader(
-            RedefinableHeader newRedefinableHeader, NotificationChain msgs) {
+    public NotificationChain basicSetRedefinableHeader(RedefinableHeader newRedefinableHeader, NotificationChain msgs) {
         RedefinableHeader oldRedefinableHeader = redefinableHeader;
         redefinableHeader = newRedefinableHeader;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
-                            oldRedefinableHeader, newRedefinableHeader);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS__REDEFINABLE_HEADER, oldRedefinableHeader, newRedefinableHeader);
             if (msgs == null)
                 msgs = notification;
             else
@@ -952,27 +894,20 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newRedefinableHeader != redefinableHeader) {
             NotificationChain msgs = null;
             if (redefinableHeader != null)
-                msgs =
-                        ((InternalEObject) redefinableHeader)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) redefinableHeader).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
+                        null,
+                        msgs);
             if (newRedefinableHeader != null)
-                msgs =
-                        ((InternalEObject) newRedefinableHeader)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newRedefinableHeader).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
+                        null,
+                        msgs);
             msgs = basicSetRedefinableHeader(newRedefinableHeader, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__REDEFINABLE_HEADER,
                     newRedefinableHeader, newRedefinableHeader));
     }
 
@@ -983,11 +918,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<ActivitySet> getActivitySets() {
         if (activitySets == null) {
-            activitySets =
-                    new EObjectContainmentWithInverseEList<ActivitySet>(
-                            ActivitySet.class, this,
-                            Xpdl2Package.PROCESS__ACTIVITY_SETS,
-                            Xpdl2Package.ACTIVITY_SET__PROCESS);
+            activitySets = new EObjectContainmentWithInverseEList<ActivitySet>(ActivitySet.class, this,
+                    Xpdl2Package.PROCESS__ACTIVITY_SETS, Xpdl2Package.ACTIVITY_SET__PROCESS);
         }
         return activitySets;
     }
@@ -999,9 +931,8 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public EList<PartnerLink> getPartnerLinks() {
         if (partnerLinks == null) {
-            partnerLinks =
-                    new EObjectContainmentEList<PartnerLink>(PartnerLink.class,
-                            this, Xpdl2Package.PROCESS__PARTNER_LINKS);
+            partnerLinks = new EObjectContainmentEList<PartnerLink>(PartnerLink.class, this,
+                    Xpdl2Package.PROCESS__PARTNER_LINKS);
         }
         return partnerLinks;
     }
@@ -1019,14 +950,12 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS__OBJECT, oldObject, newObject);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1044,25 +973,16 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__OBJECT, newObject, newObject));
     }
 
     /**
@@ -1078,15 +998,12 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExtensions(EObject newExtensions,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExtensions(EObject newExtensions, NotificationChain msgs) {
         EObject oldExtensions = extensions;
         extensions = newExtensions;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PROCESS__EXTENSIONS, oldExtensions,
-                            newExtensions);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PROCESS__EXTENSIONS, oldExtensions, newExtensions);
             if (msgs == null)
                 msgs = notification;
             else
@@ -1104,25 +1021,16 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newExtensions != extensions) {
             NotificationChain msgs = null;
             if (extensions != null)
-                msgs =
-                        ((InternalEObject) extensions).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__EXTENSIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) extensions)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__EXTENSIONS, null, msgs);
             if (newExtensions != null)
-                msgs =
-                        ((InternalEObject) newExtensions).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.PROCESS__EXTENSIONS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newExtensions)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PROCESS__EXTENSIONS, null, msgs);
             msgs = basicSetExtensions(newExtensions, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__EXTENSIONS, newExtensions,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__EXTENSIONS, newExtensions,
                     newExtensions));
     }
 
@@ -1142,13 +1050,11 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public void setAccessLevel(AccessLevelType newAccessLevel) {
         AccessLevelType oldAccessLevel = accessLevel;
-        accessLevel =
-                newAccessLevel == null ? ACCESS_LEVEL_EDEFAULT : newAccessLevel;
+        accessLevel = newAccessLevel == null ? ACCESS_LEVEL_EDEFAULT : newAccessLevel;
         boolean oldAccessLevelESet = accessLevelESet;
         accessLevelESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__ACCESS_LEVEL, oldAccessLevel,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__ACCESS_LEVEL, oldAccessLevel,
                     accessLevel, !oldAccessLevelESet));
     }
 
@@ -1163,8 +1069,7 @@ public class ProcessImpl extends NamedElementImpl implements
         accessLevel = ACCESS_LEVEL_EDEFAULT;
         accessLevelESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__ACCESS_LEVEL, oldAccessLevel,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__ACCESS_LEVEL, oldAccessLevel,
                     ACCESS_LEVEL_EDEFAULT, oldAccessLevelESet));
     }
 
@@ -1195,8 +1100,7 @@ public class ProcessImpl extends NamedElementImpl implements
         String oldDefaultStartActivitySetId = defaultStartActivitySetId;
         defaultStartActivitySetId = newDefaultStartActivitySetId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_SET_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_SET_ID,
                     oldDefaultStartActivitySetId, defaultStartActivitySetId));
     }
 
@@ -1214,18 +1118,14 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public void setEnableInstanceCompensation(
-            boolean newEnableInstanceCompensation) {
+    public void setEnableInstanceCompensation(boolean newEnableInstanceCompensation) {
         boolean oldEnableInstanceCompensation = enableInstanceCompensation;
         enableInstanceCompensation = newEnableInstanceCompensation;
-        boolean oldEnableInstanceCompensationESet =
-                enableInstanceCompensationESet;
+        boolean oldEnableInstanceCompensationESet = enableInstanceCompensationESet;
         enableInstanceCompensationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__ENABLE_INSTANCE_COMPENSATION,
-                    oldEnableInstanceCompensation, enableInstanceCompensation,
-                    !oldEnableInstanceCompensationESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__ENABLE_INSTANCE_COMPENSATION,
+                    oldEnableInstanceCompensation, enableInstanceCompensation, !oldEnableInstanceCompensationESet));
     }
 
     /**
@@ -1235,15 +1135,12 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public void unsetEnableInstanceCompensation() {
         boolean oldEnableInstanceCompensation = enableInstanceCompensation;
-        boolean oldEnableInstanceCompensationESet =
-                enableInstanceCompensationESet;
+        boolean oldEnableInstanceCompensationESet = enableInstanceCompensationESet;
         enableInstanceCompensation = ENABLE_INSTANCE_COMPENSATION_EDEFAULT;
         enableInstanceCompensationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__ENABLE_INSTANCE_COMPENSATION,
-                    oldEnableInstanceCompensation,
-                    ENABLE_INSTANCE_COMPENSATION_EDEFAULT,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__ENABLE_INSTANCE_COMPENSATION,
+                    oldEnableInstanceCompensation, ENABLE_INSTANCE_COMPENSATION_EDEFAULT,
                     oldEnableInstanceCompensationESet));
     }
 
@@ -1272,13 +1169,11 @@ public class ProcessImpl extends NamedElementImpl implements
     @Override
     public void setProcessType(ProcessType newProcessType) {
         ProcessType oldProcessType = processType;
-        processType =
-                newProcessType == null ? PROCESS_TYPE_EDEFAULT : newProcessType;
+        processType = newProcessType == null ? PROCESS_TYPE_EDEFAULT : newProcessType;
         boolean oldProcessTypeESet = processTypeESet;
         processTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__PROCESS_TYPE, oldProcessType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__PROCESS_TYPE, oldProcessType,
                     processType, !oldProcessTypeESet));
     }
 
@@ -1293,8 +1188,7 @@ public class ProcessImpl extends NamedElementImpl implements
         processType = PROCESS_TYPE_EDEFAULT;
         processTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__PROCESS_TYPE, oldProcessType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__PROCESS_TYPE, oldProcessType,
                     PROCESS_TYPE_EDEFAULT, oldProcessTypeESet));
     }
 
@@ -1327,8 +1221,7 @@ public class ProcessImpl extends NamedElementImpl implements
         boolean oldStatusESet = statusESet;
         statusESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__STATUS, oldStatus, status,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__STATUS, oldStatus, status,
                     !oldStatusESet));
     }
 
@@ -1343,9 +1236,8 @@ public class ProcessImpl extends NamedElementImpl implements
         status = STATUS_EDEFAULT;
         statusESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__STATUS, oldStatus, STATUS_EDEFAULT,
-                    oldStatusESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__STATUS, oldStatus,
+                    STATUS_EDEFAULT, oldStatusESet));
     }
 
     /**
@@ -1377,10 +1269,8 @@ public class ProcessImpl extends NamedElementImpl implements
         boolean oldSuppressJoinFailureESet = suppressJoinFailureESet;
         suppressJoinFailureESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__SUPPRESS_JOIN_FAILURE,
-                    oldSuppressJoinFailure, suppressJoinFailure,
-                    !oldSuppressJoinFailureESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__SUPPRESS_JOIN_FAILURE,
+                    oldSuppressJoinFailure, suppressJoinFailure, !oldSuppressJoinFailureESet));
     }
 
     /**
@@ -1394,10 +1284,8 @@ public class ProcessImpl extends NamedElementImpl implements
         suppressJoinFailure = SUPPRESS_JOIN_FAILURE_EDEFAULT;
         suppressJoinFailureESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PROCESS__SUPPRESS_JOIN_FAILURE,
-                    oldSuppressJoinFailure, SUPPRESS_JOIN_FAILURE_EDEFAULT,
-                    oldSuppressJoinFailureESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PROCESS__SUPPRESS_JOIN_FAILURE,
+                    oldSuppressJoinFailure, SUPPRESS_JOIN_FAILURE_EDEFAULT, oldSuppressJoinFailureESet));
     }
 
     /**
@@ -1416,9 +1304,7 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public Activity getActivity(String id) {
-        return (Activity) EMFSearchUtil.findInList(getActivities(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Activity) EMFSearchUtil.findInList(getActivities(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -1428,9 +1314,8 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public Transition getTransition(String id) {
-        return (Transition) EMFSearchUtil.findInList(getTransitions(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (Transition) EMFSearchUtil
+                .findInList(getTransitions(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -1450,9 +1335,8 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public ActivitySet getActivitySet(String id) {
-        return (ActivitySet) EMFSearchUtil.findInList(getActivitySets(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (ActivitySet) EMFSearchUtil
+                .findInList(getActivitySets(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -1462,23 +1346,15 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public ProcessRelevantData getProcessData(String id) {
-        ProcessRelevantData data =
-                (ProcessRelevantData) EMFSearchUtil.findInList(getDataFields(),
-                        Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                        id);
+        ProcessRelevantData data = (ProcessRelevantData) EMFSearchUtil
+                .findInList(getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
         if (data == null) {
-            data =
-                    (ProcessRelevantData) EMFSearchUtil
-                            .findInList(getFormalParameters(),
-                                    Xpdl2Package.eINSTANCE
-                                            .getUniqueIdElement_Id(),
-                                    id);
+            data = (ProcessRelevantData) EMFSearchUtil
+                    .findInList(getFormalParameters(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
         }
         if (data == null) {
-            data =
-                    (ProcessRelevantData) EMFSearchUtil.findInList(getPackage()
-                            .getDataFields(), Xpdl2Package.eINSTANCE
-                            .getUniqueIdElement_Id(), id);
+            data = (ProcessRelevantData) EMFSearchUtil
+                    .findInList(getPackage().getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
         }
         return data;
     }
@@ -1500,10 +1376,8 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public Participant getParticipant(String id) {
-        Participant participant =
-                (Participant) EMFSearchUtil.findInList(getParticipants(),
-                        Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                        id);
+        Participant participant = (Participant) EMFSearchUtil
+                .findInList(getParticipants(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
 
         if (participant == null) {
             participant = getPackage().getParticipant(id);
@@ -1518,22 +1392,18 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PROCESS__ACTIVITIES:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivities())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivities()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PROCESS__TRANSITIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getTransitions())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getTransitions()).basicAdd(otherEnd, msgs);
         case Xpdl2Package.PROCESS__PACKAGE:
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             return basicSetPackage((com.tibco.xpd.xpdl2.Package) otherEnd, msgs);
         case Xpdl2Package.PROCESS__ACTIVITY_SETS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivitySets())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActivitySets()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -1543,42 +1413,32 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PROCESS__ACTIVITIES:
-            return ((InternalEList<?>) getActivities()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getActivities()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__TRANSITIONS:
-            return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getTransitions()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__FORMAL_PARAMETERS:
-            return ((InternalEList<?>) getFormalParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFormalParameters()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__ASSIGNMENTS:
             return basicSetAssignments(null, msgs);
         case Xpdl2Package.PROCESS__DATA_FIELDS:
-            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataFields()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__PARTICIPANTS:
-            return ((InternalEList<?>) getParticipants()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getParticipants()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__APPLICATIONS:
-            return ((InternalEList<?>) getApplications()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getApplications()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__PROCESS_HEADER:
             return basicSetProcessHeader(null, msgs);
         case Xpdl2Package.PROCESS__REDEFINABLE_HEADER:
             return basicSetRedefinableHeader(null, msgs);
         case Xpdl2Package.PROCESS__PARTNER_LINKS:
-            return ((InternalEList<?>) getPartnerLinks()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getPartnerLinks()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PROCESS__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.PROCESS__EXTENSIONS:
@@ -1586,8 +1446,7 @@ public class ProcessImpl extends NamedElementImpl implements
         case Xpdl2Package.PROCESS__PACKAGE:
             return basicSetPackage(null, msgs);
         case Xpdl2Package.PROCESS__ACTIVITY_SETS:
-            return ((InternalEList<?>) getActivitySets()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getActivitySets()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -1597,14 +1456,11 @@ public class ProcessImpl extends NamedElementImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.PROCESS__PACKAGE:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PACKAGE__PROCESSES,
-                    com.tibco.xpd.xpdl2.Package.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PACKAGE__PROCESSES, com.tibco.xpd.xpdl2.Package.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -1688,8 +1544,7 @@ public class ProcessImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PROCESS__TRANSITIONS:
             getTransitions().clear();
-            getTransitions()
-                    .addAll((Collection<? extends Transition>) newValue);
+            getTransitions().addAll((Collection<? extends Transition>) newValue);
             return;
         case Xpdl2Package.PROCESS__AD_HOC:
             setAdHoc((Boolean) newValue);
@@ -1705,13 +1560,11 @@ public class ProcessImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PROCESS__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.PROCESS__FORMAL_PARAMETERS:
             getFormalParameters().clear();
-            getFormalParameters()
-                    .addAll((Collection<? extends FormalParameter>) newValue);
+            getFormalParameters().addAll((Collection<? extends FormalParameter>) newValue);
             return;
         case Xpdl2Package.PROCESS__ASSIGNMENTS:
             setAssignments((Assignment) newValue);
@@ -1722,13 +1575,11 @@ public class ProcessImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PROCESS__PARTICIPANTS:
             getParticipants().clear();
-            getParticipants()
-                    .addAll((Collection<? extends Participant>) newValue);
+            getParticipants().addAll((Collection<? extends Participant>) newValue);
             return;
         case Xpdl2Package.PROCESS__APPLICATIONS:
             getApplications().clear();
-            getApplications()
-                    .addAll((Collection<? extends Application>) newValue);
+            getApplications().addAll((Collection<? extends Application>) newValue);
             return;
         case Xpdl2Package.PROCESS__OTHER_ELEMENTS:
             ((FeatureMap.Internal) getOtherElements()).set(newValue);
@@ -1741,8 +1592,7 @@ public class ProcessImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PROCESS__PARTNER_LINKS:
             getPartnerLinks().clear();
-            getPartnerLinks()
-                    .addAll((Collection<? extends PartnerLink>) newValue);
+            getPartnerLinks().addAll((Collection<? extends PartnerLink>) newValue);
             return;
         case Xpdl2Package.PROCESS__OBJECT:
             setObject((com.tibco.xpd.xpdl2.Object) newValue);
@@ -1773,8 +1623,7 @@ public class ProcessImpl extends NamedElementImpl implements
             return;
         case Xpdl2Package.PROCESS__ACTIVITY_SETS:
             getActivitySets().clear();
-            getActivitySets()
-                    .addAll((Collection<? extends ActivitySet>) newValue);
+            getActivitySets().addAll((Collection<? extends ActivitySet>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -1884,14 +1733,12 @@ public class ProcessImpl extends NamedElementImpl implements
             return isSetAdHoc();
         case Xpdl2Package.PROCESS__AD_HOC_COMPLETION_CONDITION:
             return AD_HOC_COMPLETION_CONDITION_EDEFAULT == null ? adHocCompletionCondition != null
-                    : !AD_HOC_COMPLETION_CONDITION_EDEFAULT
-                            .equals(adHocCompletionCondition);
+                    : !AD_HOC_COMPLETION_CONDITION_EDEFAULT.equals(adHocCompletionCondition);
         case Xpdl2Package.PROCESS__AD_HOC_ORDERING:
             return isSetAdHocOrdering();
         case Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_ID:
             return DEFAULT_START_ACTIVITY_ID_EDEFAULT == null ? defaultStartActivityId != null
-                    : !DEFAULT_START_ACTIVITY_ID_EDEFAULT
-                            .equals(defaultStartActivityId);
+                    : !DEFAULT_START_ACTIVITY_ID_EDEFAULT.equals(defaultStartActivityId);
         case Xpdl2Package.PROCESS__EXTENDED_ATTRIBUTES:
             return extendedAttributes != null && !extendedAttributes.isEmpty();
         case Xpdl2Package.PROCESS__FORMAL_PARAMETERS:
@@ -1920,8 +1767,7 @@ public class ProcessImpl extends NamedElementImpl implements
             return isSetAccessLevel();
         case Xpdl2Package.PROCESS__DEFAULT_START_ACTIVITY_SET_ID:
             return DEFAULT_START_ACTIVITY_SET_ID_EDEFAULT == null ? defaultStartActivitySetId != null
-                    : !DEFAULT_START_ACTIVITY_SET_ID_EDEFAULT
-                            .equals(defaultStartActivitySetId);
+                    : !DEFAULT_START_ACTIVITY_SET_ID_EDEFAULT.equals(defaultStartActivitySetId);
         case Xpdl2Package.PROCESS__ENABLE_INSTANCE_COMPENSATION:
             return isSetEnableInstanceCompensation();
         case Xpdl2Package.PROCESS__PROCESS_TYPE:
@@ -1945,9 +1791,8 @@ public class ProcessImpl extends NamedElementImpl implements
      */
     @Override
     public DataField getDataField(String id) {
-        return (DataField) EMFSearchUtil.findInList(getDataFields(),
-                Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(),
-                id);
+        return (DataField) EMFSearchUtil
+                .findInList(getDataFields(), Xpdl2Package.eINSTANCE.getUniqueIdElement_Id(), id);
     }
 
     /**
@@ -1970,12 +1815,8 @@ public class ProcessImpl extends NamedElementImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackage(
-            com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newPackage,
-                        Xpdl2Package.PROCESS__PACKAGE,
-                        msgs);
+    public NotificationChain basicSetPackage(com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newPackage, Xpdl2Package.PROCESS__PACKAGE, msgs);
         return msgs;
     }
 
@@ -1988,23 +1829,19 @@ public class ProcessImpl extends NamedElementImpl implements
         if (newPackage != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.PROCESS__PACKAGE && newPackage != null)) {
             if (EcoreUtil.isAncestor(this, newPackage))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newPackage != null)
-                msgs =
-                        ((InternalEObject) newPackage).eInverseAdd(this,
-                                Xpdl2Package.PACKAGE__PROCESSES,
-                                com.tibco.xpd.xpdl2.Package.class,
-                                msgs);
+                msgs = ((InternalEObject) newPackage)
+                        .eInverseAdd(this, Xpdl2Package.PACKAGE__PROCESSES, com.tibco.xpd.xpdl2.Package.class, msgs);
             msgs = basicSetPackage(newPackage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PROCESS__PACKAGE, newPackage, newPackage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PROCESS__PACKAGE, newPackage,
+                    newPackage));
     }
 
     /**
@@ -2182,7 +2019,7 @@ public class ProcessImpl extends NamedElementImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (adHoc: "); //$NON-NLS-1$
         if (adHocESet)
             result.append(adHoc);

@@ -30,6 +30,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <em><b>Start Event</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.StartEventImpl#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.StartEventImpl#getTriggerTimer <em>Trigger Timer</em>}</li>
@@ -41,7 +42,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.StartEventImpl#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.StartEventImpl#getDeprecatedTriggerResultLink <em>Deprecated Trigger Result Link</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -50,8 +50,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getTriggerResultMessage()
@@ -113,8 +112,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -142,8 +140,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * @generated
      * @ordered
      */
-    protected static final TriggerType TRIGGER_EDEFAULT =
-            TriggerType.NONE_LITERAL;
+    protected static final TriggerType TRIGGER_EDEFAULT = TriggerType.NONE_LITERAL;
 
     /**
      * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' attribute.
@@ -214,15 +211,13 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultMessage(TriggerResultMessage newTriggerResultMessage,
+            NotificationChain msgs) {
         TriggerResultMessage oldTriggerResultMessage = triggerResultMessage;
         triggerResultMessage = newTriggerResultMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
-                            oldTriggerResultMessage, newTriggerResultMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE, oldTriggerResultMessage, newTriggerResultMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -235,32 +230,24 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultMessage(
-            TriggerResultMessage newTriggerResultMessage) {
+    public void setTriggerResultMessage(TriggerResultMessage newTriggerResultMessage) {
         if (newTriggerResultMessage != triggerResultMessage) {
             NotificationChain msgs = null;
             if (triggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) triggerResultMessage)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultMessage).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             if (newTriggerResultMessage != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultMessage)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultMessage).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultMessage(newTriggerResultMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE,
                     newTriggerResultMessage, newTriggerResultMessage));
     }
 
@@ -276,15 +263,12 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTriggerTimer(TriggerTimer newTriggerTimer, NotificationChain msgs) {
         TriggerTimer oldTriggerTimer = triggerTimer;
         triggerTimer = newTriggerTimer;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__TRIGGER_TIMER,
-                            oldTriggerTimer, newTriggerTimer);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__TRIGGER_TIMER, oldTriggerTimer, newTriggerTimer);
             if (msgs == null)
                 msgs = notification;
             else
@@ -301,28 +285,21 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         if (newTriggerTimer != triggerTimer) {
             NotificationChain msgs = null;
             if (triggerTimer != null)
-                msgs =
-                        ((InternalEObject) triggerTimer)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerTimer).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_TIMER,
+                        null,
+                        msgs);
             if (newTriggerTimer != null)
-                msgs =
-                        ((InternalEObject) newTriggerTimer)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_TIMER,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerTimer).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_TIMER,
+                        null,
+                        msgs);
             msgs = basicSetTriggerTimer(newTriggerTimer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER_TIMER, newTriggerTimer,
-                    newTriggerTimer));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER_TIMER,
+                    newTriggerTimer, newTriggerTimer));
     }
 
     /**
@@ -337,15 +314,13 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerConditional(
-            TriggerConditional newTriggerConditional, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerConditional(TriggerConditional newTriggerConditional,
+            NotificationChain msgs) {
         TriggerConditional oldTriggerConditional = triggerConditional;
         triggerConditional = newTriggerConditional;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
-                            oldTriggerConditional, newTriggerConditional);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL, oldTriggerConditional, newTriggerConditional);
             if (msgs == null)
                 msgs = notification;
             else
@@ -362,27 +337,20 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         if (newTriggerConditional != triggerConditional) {
             NotificationChain msgs = null;
             if (triggerConditional != null)
-                msgs =
-                        ((InternalEObject) triggerConditional)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerConditional).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             if (newTriggerConditional != null)
-                msgs =
-                        ((InternalEObject) newTriggerConditional)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerConditional).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerConditional(newTriggerConditional, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER_CONDITIONAL,
                     newTriggerConditional, newTriggerConditional));
     }
 
@@ -398,15 +366,13 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerResultSignal(TriggerResultSignal newTriggerResultSignal,
+            NotificationChain msgs) {
         TriggerResultSignal oldTriggerResultSignal = triggerResultSignal;
         triggerResultSignal = newTriggerResultSignal;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
-                            oldTriggerResultSignal, newTriggerResultSignal);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL, oldTriggerResultSignal, newTriggerResultSignal);
             if (msgs == null)
                 msgs = notification;
             else
@@ -419,32 +385,24 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setTriggerResultSignal(
-            TriggerResultSignal newTriggerResultSignal) {
+    public void setTriggerResultSignal(TriggerResultSignal newTriggerResultSignal) {
         if (newTriggerResultSignal != triggerResultSignal) {
             NotificationChain msgs = null;
             if (triggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) triggerResultSignal)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerResultSignal).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             if (newTriggerResultSignal != null)
-                msgs =
-                        ((InternalEObject) newTriggerResultSignal)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerResultSignal).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
+                        null,
+                        msgs);
             msgs = basicSetTriggerResultSignal(newTriggerResultSignal, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER_RESULT_SIGNAL,
                     newTriggerResultSignal, newTriggerResultSignal));
     }
 
@@ -460,15 +418,12 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTriggerMultiple(
-            TriggerMultiple newTriggerMultiple, NotificationChain msgs) {
+    public NotificationChain basicSetTriggerMultiple(TriggerMultiple newTriggerMultiple, NotificationChain msgs) {
         TriggerMultiple oldTriggerMultiple = triggerMultiple;
         triggerMultiple = newTriggerMultiple;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
-                            oldTriggerMultiple, newTriggerMultiple);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE, oldTriggerMultiple, newTriggerMultiple);
             if (msgs == null)
                 msgs = notification;
             else
@@ -485,27 +440,20 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         if (newTriggerMultiple != triggerMultiple) {
             NotificationChain msgs = null;
             if (triggerMultiple != null)
-                msgs =
-                        ((InternalEObject) triggerMultiple)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) triggerMultiple).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
+                        null,
+                        msgs);
             if (newTriggerMultiple != null)
-                msgs =
-                        ((InternalEObject) newTriggerMultiple)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTriggerMultiple).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
+                        null,
+                        msgs);
             msgs = basicSetTriggerMultiple(newTriggerMultiple, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER_MULTIPLE,
                     newTriggerMultiple, newTriggerMultiple));
     }
 
@@ -523,14 +471,11 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__IMPLEMENTATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__IMPLEMENTATION,
                     oldImplementation, implementation, !oldImplementationESet));
     }
 
@@ -544,10 +489,8 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.START_EVENT__IMPLEMENTATION,
-                    oldImplementation, IMPLEMENTATION_EDEFAULT,
-                    oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.START_EVENT__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -576,9 +519,8 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         boolean oldTriggerESet = triggerESet;
         triggerESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__TRIGGER, oldTrigger, trigger,
-                    !oldTriggerESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__TRIGGER, oldTrigger,
+                    trigger, !oldTriggerESet));
     }
 
     /**
@@ -591,8 +533,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         trigger = TRIGGER_EDEFAULT;
         triggerESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.START_EVENT__TRIGGER, oldTrigger,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.START_EVENT__TRIGGER, oldTrigger,
                     TRIGGER_EDEFAULT, oldTriggerESet));
     }
 
@@ -616,15 +557,13 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule,
+    public NotificationChain basicSetDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule,
             NotificationChain msgs) {
         DeprecatedTriggerRule oldDeprecatedTriggerRule = deprecatedTriggerRule;
         deprecatedTriggerRule = newDeprecatedTriggerRule;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
                             oldDeprecatedTriggerRule, newDeprecatedTriggerRule);
             if (msgs == null)
                 msgs = notification;
@@ -638,34 +577,24 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedTriggerRule(
-            DeprecatedTriggerRule newDeprecatedTriggerRule) {
+    public void setDeprecatedTriggerRule(DeprecatedTriggerRule newDeprecatedTriggerRule) {
         if (newDeprecatedTriggerRule != deprecatedTriggerRule) {
             NotificationChain msgs = null;
             if (deprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) deprecatedTriggerRule)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedTriggerRule).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
             if (newDeprecatedTriggerRule != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedTriggerRule)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedTriggerRule).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedTriggerRule(newDeprecatedTriggerRule, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RULE,
                     newDeprecatedTriggerRule, newDeprecatedTriggerRule));
     }
 
@@ -681,20 +610,14 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDeprecatedTriggerResultLink(
-            TriggerResultLink newDeprecatedTriggerResultLink,
+    public NotificationChain basicSetDeprecatedTriggerResultLink(TriggerResultLink newDeprecatedTriggerResultLink,
             NotificationChain msgs) {
-        TriggerResultLink oldDeprecatedTriggerResultLink =
-                deprecatedTriggerResultLink;
+        TriggerResultLink oldDeprecatedTriggerResultLink = deprecatedTriggerResultLink;
         deprecatedTriggerResultLink = newDeprecatedTriggerResultLink;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                            oldDeprecatedTriggerResultLink,
-                            newDeprecatedTriggerResultLink);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK, oldDeprecatedTriggerResultLink,
+                    newDeprecatedTriggerResultLink);
             if (msgs == null)
                 msgs = notification;
             else
@@ -707,35 +630,25 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setDeprecatedTriggerResultLink(
-            TriggerResultLink newDeprecatedTriggerResultLink) {
+    public void setDeprecatedTriggerResultLink(TriggerResultLink newDeprecatedTriggerResultLink) {
         if (newDeprecatedTriggerResultLink != deprecatedTriggerResultLink) {
             NotificationChain msgs = null;
             if (deprecatedTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) deprecatedTriggerResultLink)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) deprecatedTriggerResultLink).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
             if (newDeprecatedTriggerResultLink != null)
-                msgs =
-                        ((InternalEObject) newDeprecatedTriggerResultLink)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetDeprecatedTriggerResultLink(newDeprecatedTriggerResultLink,
-                            msgs);
+                msgs = ((InternalEObject) newDeprecatedTriggerResultLink).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
+                        null,
+                        msgs);
+            msgs = basicSetDeprecatedTriggerResultLink(newDeprecatedTriggerResultLink, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                    newDeprecatedTriggerResultLink,
+                    Xpdl2Package.START_EVENT__DEPRECATED_TRIGGER_RESULT_LINK, newDeprecatedTriggerResultLink,
                     newDeprecatedTriggerResultLink));
     }
 
@@ -744,8 +657,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.START_EVENT__TRIGGER_RESULT_MESSAGE:
             return basicSetTriggerResultMessage(null, msgs);
@@ -908,7 +820,7 @@ public class StartEventImpl extends EventImpl implements StartEvent {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (implementation: "); //$NON-NLS-1$
         if (implementationESet)
             result.append(implementation);
@@ -951,4 +863,3 @@ public class StartEventImpl extends EventImpl implements StartEvent {
     }
 
 } // StartEventImpl
-

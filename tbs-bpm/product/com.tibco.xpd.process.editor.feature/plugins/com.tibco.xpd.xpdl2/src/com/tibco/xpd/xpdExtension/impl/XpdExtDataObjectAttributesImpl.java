@@ -37,16 +37,14 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class XpdExtDataObjectAttributesImpl extends EObjectImpl
-        implements XpdExtDataObjectAttributes {
+public class XpdExtDataObjectAttributesImpl extends EObjectImpl implements XpdExtDataObjectAttributes {
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -136,8 +134,7 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
         description = newDescription;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION,
-                    oldDescription, description));
+                    XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION, oldDescription, description));
     }
 
     /**
@@ -159,8 +156,8 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
         externalReference = newExternalReference;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE,
-                    oldExternalReference, externalReference));
+                    XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE, oldExternalReference,
+                    externalReference));
     }
 
     /**
@@ -170,8 +167,7 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
      */
     public EList<XpdExtProperty> getProperties() {
         if (properties == null) {
-            properties = new EObjectContainmentEList<XpdExtProperty>(
-                    XpdExtProperty.class, this,
+            properties = new EObjectContainmentEList<XpdExtProperty>(XpdExtProperty.class, this,
                     XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES);
         }
         return properties;
@@ -183,12 +179,10 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES:
-            return ((InternalEList<?>) getProperties()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -228,8 +222,7 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES:
             getProperties().clear();
-            getProperties()
-                    .addAll((Collection<? extends XpdExtProperty>) newValue);
+            getProperties().addAll((Collection<? extends XpdExtProperty>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -265,11 +258,9 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION:
-            return DESCRIPTION_EDEFAULT == null ? description != null
-                    : !DESCRIPTION_EDEFAULT.equals(description);
+            return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE:
-            return EXTERNAL_REFERENCE_EDEFAULT == null
-                    ? externalReference != null
+            return EXTERNAL_REFERENCE_EDEFAULT == null ? externalReference != null
                     : !EXTERNAL_REFERENCE_EDEFAULT.equals(externalReference);
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES:
             return properties != null && !properties.isEmpty();
@@ -287,7 +278,7 @@ public class XpdExtDataObjectAttributesImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (description: "); //$NON-NLS-1$
         result.append(description);
         result.append(", externalReference: "); //$NON-NLS-1$

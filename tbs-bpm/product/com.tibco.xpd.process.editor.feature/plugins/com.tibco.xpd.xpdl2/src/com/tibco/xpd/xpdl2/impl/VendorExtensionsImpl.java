@@ -26,22 +26,20 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.VendorExtensionsImpl#getVendorExtension <em>Vendor Extension</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class VendorExtensionsImpl extends EObjectImpl implements
-        VendorExtensions {
+public class VendorExtensionsImpl extends EObjectImpl implements VendorExtensions {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getVendorExtension() <em>Vendor Extension</em>}' containment reference list.
@@ -79,10 +77,8 @@ public class VendorExtensionsImpl extends EObjectImpl implements
      */
     public EList<VendorExtension> getVendorExtension() {
         if (vendorExtension == null) {
-            vendorExtension =
-                    new EObjectContainmentEList<VendorExtension>(
-                            VendorExtension.class, this,
-                            Xpdl2Package.VENDOR_EXTENSIONS__VENDOR_EXTENSION);
+            vendorExtension = new EObjectContainmentEList<VendorExtension>(VendorExtension.class, this,
+                    Xpdl2Package.VENDOR_EXTENSIONS__VENDOR_EXTENSION);
         }
         return vendorExtension;
     }
@@ -93,12 +89,10 @@ public class VendorExtensionsImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.VENDOR_EXTENSIONS__VENDOR_EXTENSION:
-            return ((InternalEList<?>) getVendorExtension())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getVendorExtension()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -128,8 +122,7 @@ public class VendorExtensionsImpl extends EObjectImpl implements
         switch (featureID) {
         case Xpdl2Package.VENDOR_EXTENSIONS__VENDOR_EXTENSION:
             getVendorExtension().clear();
-            getVendorExtension()
-                    .addAll((Collection<? extends VendorExtension>) newValue);
+            getVendorExtension().addAll((Collection<? extends VendorExtension>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

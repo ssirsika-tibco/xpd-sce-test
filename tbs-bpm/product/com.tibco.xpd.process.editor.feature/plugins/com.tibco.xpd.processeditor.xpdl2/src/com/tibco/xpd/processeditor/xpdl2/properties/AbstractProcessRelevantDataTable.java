@@ -74,7 +74,6 @@ import com.tibco.xpd.ui.util.CapabilityUtil;
 import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.BasicType;
-import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.DataType;
 import com.tibco.xpd.xpdl2.DeclaredType;
 import com.tibco.xpd.xpdl2.ExternalReference;
@@ -945,6 +944,10 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                     ProcessDataUtil
                             .getBasicTypeLabel(UIBasicTypes.Time.getDefaultBasicType()));
 
+            /* Sid ACE-1192 - added URI data type. */
+            typeNameMap.put(UIBasicTypes.URI.name(),
+                    ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.URI.getDefaultBasicType()));
+
             typeName = "BOM Type"; //$NON-NLS-1$
             typeLit = ProcessRelevantDataUtil.EXTERNAL_REFERENCE_TYPE;
             typeNameMap.put(typeLit, typeName);
@@ -1126,7 +1129,13 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                 TypeDeclaration typeDeclaration = (TypeDeclaration) element;
                 if (typeDeclaration.getBasicType() != null) {
                     BasicType basicType = typeDeclaration.getBasicType();
-                    if (basicType.getType() == BasicTypeType.STRING_LITERAL) {
+
+                    /*
+                     * Sid ACE-192 Don't allow length set on URI fields.
+                     */
+                    UIBasicTypes uiBasicType = UIBasicTypes.fromBasicType(basicType);
+
+                    if (UIBasicTypes.String.equals(uiBasicType)) {
                         Length length = basicType.getLength();
                         if (length != null) {
                             text = length.getValue();
@@ -1143,7 +1152,12 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
                 ProcessRelevantData prd = (ProcessRelevantData) element;
                 if (prd.getDataType() instanceof BasicType) {
                     BasicType basicType = (BasicType) prd.getDataType();
-                    if (basicType.getType() == BasicTypeType.STRING_LITERAL) {
+                    /*
+                     * Sid ACE-192 Don't allow length set on URI fields.
+                     */
+                    UIBasicTypes uiBasicType = UIBasicTypes.fromBasicType(basicType);
+
+                    if (UIBasicTypes.String.equals(uiBasicType)) {
                         Length length = basicType.getLength();
                         if (length != null) {
                             text = length.getValue();

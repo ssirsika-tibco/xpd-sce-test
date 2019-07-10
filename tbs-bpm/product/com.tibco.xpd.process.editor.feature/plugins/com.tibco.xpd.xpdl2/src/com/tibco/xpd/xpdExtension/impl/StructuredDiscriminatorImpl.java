@@ -29,15 +29,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class StructuredDiscriminatorImpl extends EObjectImpl
-        implements StructuredDiscriminator {
+public class StructuredDiscriminatorImpl extends EObjectImpl implements StructuredDiscriminator {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getWaitForIncomingPath() <em>Wait For Incoming Path</em>}' attribute.
@@ -117,8 +115,8 @@ public class StructuredDiscriminatorImpl extends EObjectImpl
         waitForIncomingPath = newWaitForIncomingPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH,
-                    oldWaitForIncomingPath, waitForIncomingPath));
+                    XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH, oldWaitForIncomingPath,
+                    waitForIncomingPath));
     }
 
     /**
@@ -140,8 +138,8 @@ public class StructuredDiscriminatorImpl extends EObjectImpl
         upStreamParallelSplit = newUpStreamParallelSplit;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT,
-                    oldUpStreamParallelSplit, upStreamParallelSplit));
+                    XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT, oldUpStreamParallelSplit,
+                    upStreamParallelSplit));
     }
 
     /**
@@ -205,15 +203,11 @@ public class StructuredDiscriminatorImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__WAIT_FOR_INCOMING_PATH:
-            return WAIT_FOR_INCOMING_PATH_EDEFAULT == null
-                    ? waitForIncomingPath != null
-                    : !WAIT_FOR_INCOMING_PATH_EDEFAULT
-                            .equals(waitForIncomingPath);
+            return WAIT_FOR_INCOMING_PATH_EDEFAULT == null ? waitForIncomingPath != null
+                    : !WAIT_FOR_INCOMING_PATH_EDEFAULT.equals(waitForIncomingPath);
         case XpdExtensionPackage.STRUCTURED_DISCRIMINATOR__UP_STREAM_PARALLEL_SPLIT:
-            return UP_STREAM_PARALLEL_SPLIT_EDEFAULT == null
-                    ? upStreamParallelSplit != null
-                    : !UP_STREAM_PARALLEL_SPLIT_EDEFAULT
-                            .equals(upStreamParallelSplit);
+            return UP_STREAM_PARALLEL_SPLIT_EDEFAULT == null ? upStreamParallelSplit != null
+                    : !UP_STREAM_PARALLEL_SPLIT_EDEFAULT.equals(upStreamParallelSplit);
         }
         return super.eIsSet(featureID);
     }
@@ -228,7 +222,7 @@ public class StructuredDiscriminatorImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (waitForIncomingPath: "); //$NON-NLS-1$
         result.append(waitForIncomingPath);
         result.append(", UpStreamParallelSplit: "); //$NON-NLS-1$

@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.PartnerLinkType#getRole <em>Role</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.PartnerLinkType#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getPartnerLinkType()
  * @model extendedMetaData="name='PartnerLinkType_._type' kind='elementOnly' features-order='partnerLinkType'"
@@ -31,8 +31,7 @@ public interface PartnerLinkType extends UniqueIdElement {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Role</b></em>' containment reference list.

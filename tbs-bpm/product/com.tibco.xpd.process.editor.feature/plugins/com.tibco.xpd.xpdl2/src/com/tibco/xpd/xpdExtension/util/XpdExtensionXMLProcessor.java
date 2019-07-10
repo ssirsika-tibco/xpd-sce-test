@@ -27,8 +27,7 @@ public class XpdExtensionXMLProcessor extends XMLProcessor {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Public constructor to instantiate the helper.
@@ -51,10 +50,8 @@ public class XpdExtensionXMLProcessor extends XMLProcessor {
     protected Map<String, Resource.Factory> getRegistrations() {
         if (registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION,
-                    new XpdExtensionResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION,
-                    new XpdExtensionResourceFactoryImpl());
+            registrations.put(XML_EXTENSION, new XpdExtensionResourceFactoryImpl());
+            registrations.put(STAR_EXTENSION, new XpdExtensionResourceFactoryImpl());
         }
         return registrations;
     }

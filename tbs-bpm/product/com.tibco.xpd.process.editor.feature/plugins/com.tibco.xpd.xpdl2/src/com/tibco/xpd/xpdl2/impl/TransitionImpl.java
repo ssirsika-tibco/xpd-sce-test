@@ -40,6 +40,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionImpl#getConnectorGraphicsInfos <em>Connector Graphics Infos</em>}</li>
@@ -52,7 +53,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionImpl#getTo <em>To</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionImpl#getFlowContainer <em>Flow Container</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -61,8 +61,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -206,10 +205,8 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -220,10 +217,8 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      */
     public EList<ConnectorGraphicsInfo> getConnectorGraphicsInfos() {
         if (connectorGraphicsInfos == null) {
-            connectorGraphicsInfos =
-                    new EObjectContainmentEList<ConnectorGraphicsInfo>(
-                            ConnectorGraphicsInfo.class, this,
-                            Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS);
+            connectorGraphicsInfos = new EObjectContainmentEList<ConnectorGraphicsInfo>(ConnectorGraphicsInfo.class,
+                    this, Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS);
         }
         return connectorGraphicsInfos;
     }
@@ -240,15 +235,12 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCondition(Condition newCondition,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
         Condition oldCondition = condition;
         condition = newCondition;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRANSITION__CONDITION, oldCondition,
-                            newCondition);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRANSITION__CONDITION, oldCondition, newCondition);
             if (msgs == null)
                 msgs = notification;
             else
@@ -265,25 +257,16 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (newCondition != condition) {
             NotificationChain msgs = null;
             if (condition != null)
-                msgs =
-                        ((InternalEObject) condition).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__CONDITION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) condition)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__CONDITION, null, msgs);
             if (newCondition != null)
-                msgs =
-                        ((InternalEObject) newCondition).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__CONDITION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newCondition)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__CONDITION, null, msgs);
             msgs = basicSetCondition(newCondition, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__CONDITION, newCondition,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__CONDITION, newCondition,
                     newCondition));
     }
 
@@ -300,15 +283,12 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRANSITION__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRANSITION__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -326,25 +306,18 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__DESCRIPTION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDescription)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__DESCRIPTION, null, msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__DESCRIPTION, newDescription,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__DESCRIPTION, newDescription,
                     newDescription));
     }
 
@@ -354,9 +327,8 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      */
     public EList<Assignment> getAssignments() {
         if (assignments == null) {
-            assignments =
-                    new EObjectContainmentEList<Assignment>(Assignment.class,
-                            this, Xpdl2Package.TRANSITION__ASSIGNMENTS);
+            assignments = new EObjectContainmentEList<Assignment>(Assignment.class, this,
+                    Xpdl2Package.TRANSITION__ASSIGNMENTS);
         }
         return assignments;
     }
@@ -373,15 +345,12 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRANSITION__OBJECT, oldObject,
-                            newObject);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRANSITION__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -398,25 +367,17 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TRANSITION__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__OBJECT, newObject,
+                    newObject));
     }
 
     /**
@@ -435,8 +396,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         String oldFrom = from;
         from = newFrom;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__FROM, oldFrom, from));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__FROM, oldFrom, from));
     }
 
     /**
@@ -457,9 +417,8 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         boolean oldQuantityESet = quantityESet;
         quantityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__QUANTITY, oldQuantity, quantity,
-                    !oldQuantityESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__QUANTITY, oldQuantity,
+                    quantity, !oldQuantityESet));
     }
 
     /**
@@ -472,8 +431,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         quantity = QUANTITY_EDEFAULT;
         quantityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TRANSITION__QUANTITY, oldQuantity,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TRANSITION__QUANTITY, oldQuantity,
                     QUANTITY_EDEFAULT, oldQuantityESet));
     }
 
@@ -501,8 +459,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         String oldTo = to;
         to = newTo;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__TO, oldTo, to));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__TO, oldTo, to));
     }
 
     /**
@@ -521,12 +478,8 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFlowContainer(
-            FlowContainer newFlowContainer, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newFlowContainer,
-                        Xpdl2Package.TRANSITION__FLOW_CONTAINER,
-                        msgs);
+    public NotificationChain basicSetFlowContainer(FlowContainer newFlowContainer, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newFlowContainer, Xpdl2Package.TRANSITION__FLOW_CONTAINER, msgs);
         return msgs;
     }
 
@@ -539,24 +492,19 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (newFlowContainer != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.TRANSITION__FLOW_CONTAINER && newFlowContainer != null)) {
             if (EcoreUtil.isAncestor(this, newFlowContainer))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newFlowContainer != null)
-                msgs =
-                        ((InternalEObject) newFlowContainer).eInverseAdd(this,
-                                Xpdl2Package.FLOW_CONTAINER__TRANSITIONS,
-                                FlowContainer.class,
-                                msgs);
+                msgs = ((InternalEObject) newFlowContainer)
+                        .eInverseAdd(this, Xpdl2Package.FLOW_CONTAINER__TRANSITIONS, FlowContainer.class, msgs);
             msgs = basicSetFlowContainer(newFlowContainer, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION__FLOW_CONTAINER, newFlowContainer,
-                    newFlowContainer));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION__FLOW_CONTAINER,
+                    newFlowContainer, newFlowContainer));
     }
 
     /**
@@ -593,9 +541,9 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (getProcess() == null || getProcess().getPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getProcess().getPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Target(), getId());
+        return EMFSearchUtil.findManyInList(getProcess().getPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Target(),
+                getId());
     }
 
     /**
@@ -607,9 +555,9 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (getProcess() == null || getProcess().getPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getProcess().getPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Source(), getId());
+        return EMFSearchUtil.findManyInList(getProcess().getPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Source(),
+                getId());
     }
 
     /**
@@ -631,8 +579,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRANSITION__FLOW_CONTAINER:
             if (eInternalContainer() != null)
@@ -648,22 +595,18 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getConnectorGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConnectorGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRANSITION__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.TRANSITION__CONDITION:
             return basicSetCondition(null, msgs);
         case Xpdl2Package.TRANSITION__ASSIGNMENTS:
-            return ((InternalEList<?>) getAssignments()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAssignments()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TRANSITION__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.TRANSITION__FLOW_CONTAINER:
@@ -678,14 +621,11 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.TRANSITION__FLOW_CONTAINER:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.FLOW_CONTAINER__TRANSITIONS,
-                    FlowContainer.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.FLOW_CONTAINER__TRANSITIONS, FlowContainer.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -733,13 +673,11 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         switch (featureID) {
         case Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS:
             getConnectorGraphicsInfos().clear();
-            getConnectorGraphicsInfos()
-                    .addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
+            getConnectorGraphicsInfos().addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.TRANSITION__DESCRIPTION:
             setDescription((Description) newValue);
@@ -749,8 +687,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
             return;
         case Xpdl2Package.TRANSITION__ASSIGNMENTS:
             getAssignments().clear();
-            getAssignments()
-                    .addAll((Collection<? extends Assignment>) newValue);
+            getAssignments().addAll((Collection<? extends Assignment>) newValue);
             return;
         case Xpdl2Package.TRANSITION__OBJECT:
             setObject((com.tibco.xpd.xpdl2.Object) newValue);
@@ -824,8 +761,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         case Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES:
             return extendedAttributes != null && !extendedAttributes.isEmpty();
         case Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS:
-            return connectorGraphicsInfos != null
-                    && !connectorGraphicsInfos.isEmpty();
+            return connectorGraphicsInfos != null && !connectorGraphicsInfos.isEmpty();
         case Xpdl2Package.TRANSITION__DESCRIPTION:
             return description != null;
         case Xpdl2Package.TRANSITION__CONDITION:
@@ -835,8 +771,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         case Xpdl2Package.TRANSITION__OBJECT:
             return object != null;
         case Xpdl2Package.TRANSITION__FROM:
-            return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT
-                    .equals(from);
+            return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT.equals(from);
         case Xpdl2Package.TRANSITION__QUANTITY:
             return isSetQuantity();
         case Xpdl2Package.TRANSITION__TO:
@@ -922,7 +857,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (from: "); //$NON-NLS-1$
         result.append(from);
         result.append(", quantity: "); //$NON-NLS-1$

@@ -44,8 +44,7 @@ public enum CatchThrow implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>CATCH</b></em>' literal value.
@@ -83,8 +82,7 @@ public enum CatchThrow implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final CatchThrow[] VALUES_ARRAY = new CatchThrow[] { CATCH,
-            THROW, };
+    private static final CatchThrow[] VALUES_ARRAY = new CatchThrow[] { CATCH, THROW, };
 
     /**
      * A public read-only list of all the '<em><b>Catch Throw</b></em>' enumerators.
@@ -92,13 +90,14 @@ public enum CatchThrow implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<CatchThrow> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<CatchThrow> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Catch Throw</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static CatchThrow get(String literal) {
@@ -115,6 +114,8 @@ public enum CatchThrow implements Enumerator {
      * Returns the '<em><b>Catch Throw</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static CatchThrow getByName(String name) {
@@ -131,6 +132,8 @@ public enum CatchThrow implements Enumerator {
      * Returns the '<em><b>Catch Throw</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static CatchThrow get(int value) {

@@ -15,6 +15,7 @@ import java.math.BigInteger;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopStandard#getLoopCounter <em>Loop Counter</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopStandard#getLoopMaximum <em>Loop Maximum</em>}</li>
@@ -22,7 +23,6 @@ import java.math.BigInteger;
  *   <li>{@link com.tibco.xpd.xpdl2.LoopStandard#getAttributeLoopCondition <em>Attribute Loop Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.LoopStandard#getLoopCondition <em>Loop Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getLoopStandard()
  * @model extendedMetaData="name='LoopStandard_._type' kind='elementOnly' features-order='loopCondition otherElements'"
@@ -34,8 +34,7 @@ public interface LoopStandard extends OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Loop Condition</b></em>' containment reference.

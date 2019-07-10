@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EjbApplicationItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class EjbApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,14 +78,11 @@ public class EjbApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EJB_APPLICATION__JNDI_NAME);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EJB_APPLICATION__HOME_CLASS);
+            childrenFeatures.add(Xpdl2Package.Literals.EJB_APPLICATION__JNDI_NAME);
+            childrenFeatures.add(Xpdl2Package.Literals.EJB_APPLICATION__HOME_CLASS);
             childrenFeatures.add(Xpdl2Package.Literals.EJB_APPLICATION__METHOD);
         }
         return childrenFeatures;
@@ -114,8 +109,7 @@ public class EjbApplicationItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/EjbApplication")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/EjbApplication")); //$NON-NLS-1$
     }
 
     /**
@@ -144,8 +138,7 @@ public class EjbApplicationItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.EJB_APPLICATION__JNDI_NAME:
         case Xpdl2Package.EJB_APPLICATION__HOME_CLASS:
         case Xpdl2Package.EJB_APPLICATION__METHOD:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -159,21 +152,17 @@ public class EjbApplicationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__JNDI_NAME,
-                        Xpdl2Factory.eINSTANCE.createJndiName()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__JNDI_NAME,
+                Xpdl2Factory.eINSTANCE.createJndiName()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__HOME_CLASS,
-                        Xpdl2Factory.eINSTANCE.createHomeClass()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__HOME_CLASS,
+                Xpdl2Factory.eINSTANCE.createHomeClass()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__METHOD,
-                        Xpdl2Factory.eINSTANCE.createMethod()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EJB_APPLICATION__METHOD,
+                Xpdl2Factory.eINSTANCE.createMethod()));
     }
 
     /**

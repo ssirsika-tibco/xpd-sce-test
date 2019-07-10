@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,11 +88,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addBorderColorPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_borderColor_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_borderColor_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_borderColor_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__BORDER_COLOR,
                         true,
                         false,
@@ -112,11 +111,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addFillColorPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_fillColor_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_fillColor_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_fillColor_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__FILL_COLOR,
                         true,
                         false,
@@ -134,11 +134,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addHeightPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_height_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_height_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_height_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__HEIGHT,
                         true,
                         false,
@@ -156,11 +157,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addIsVisiblePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_isVisible_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_isVisible_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_isVisible_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__IS_VISIBLE,
                         true,
                         false,
@@ -178,11 +180,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addLaneIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_laneId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_laneId_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_laneId_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__LANE_ID,
                         true,
                         false,
@@ -200,11 +203,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addPagePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_page_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_page_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_page_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__PAGE,
                         true,
                         false,
@@ -222,11 +226,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addShapePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_shape_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_shape_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_shape_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__SHAPE,
                         true,
                         false,
@@ -244,11 +249,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addToolIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_toolId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_toolId_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_toolId_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__TOOL_ID,
                         true,
                         false,
@@ -266,11 +272,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addWidthPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_width_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_width_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_width_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__WIDTH,
                         true,
                         false,
@@ -288,11 +295,12 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     protected void addPageIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_NodeGraphicsInfo_pageId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_NodeGraphicsInfo_pageId_feature", "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_pageId_feature", //$NON-NLS-1$
+                                "_UI_NodeGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.NODE_GRAPHICS_INFO__PAGE_ID,
                         true,
                         false,
@@ -311,12 +319,10 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.NODE_GRAPHICS_INFO__COORDINATES);
+            childrenFeatures.add(Xpdl2Package.Literals.NODE_GRAPHICS_INFO__COORDINATES);
         }
         return childrenFeatures;
     }
@@ -342,8 +348,7 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/NodeGraphicsInfo")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/NodeGraphicsInfo")); //$NON-NLS-1$
     }
 
     /**
@@ -381,12 +386,10 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.NODE_GRAPHICS_INFO__TOOL_ID:
         case Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH:
         case Xpdl2Package.NODE_GRAPHICS_INFO__PAGE_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -400,13 +403,11 @@ public class NodeGraphicsInfoItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.NODE_GRAPHICS_INFO__COORDINATES,
-                        Xpdl2Factory.eINSTANCE.createCoordinates()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.NODE_GRAPHICS_INFO__COORDINATES,
+                Xpdl2Factory.eINSTANCE.createCoordinates()));
     }
 
     /**

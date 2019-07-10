@@ -38,8 +38,7 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getInitializerActivities() <em>Initializer Activities</em>}' containment reference.
@@ -94,17 +93,14 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInitializerActivities(
-            InitializerActivitiesType newInitializerActivities,
+    public NotificationChain basicSetInitializerActivities(InitializerActivitiesType newInitializerActivities,
             NotificationChain msgs) {
-        InitializerActivitiesType oldInitializerActivities =
-                initializerActivities;
+        InitializerActivitiesType oldInitializerActivities = initializerActivities;
         initializerActivities = newInitializerActivities;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
-                    oldInitializerActivities, newInitializerActivities);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES, oldInitializerActivities,
+                    newInitializerActivities);
             if (msgs == null)
                 msgs = notification;
             else
@@ -118,32 +114,26 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInitializerActivities(
-            InitializerActivitiesType newInitializerActivities) {
+    public void setInitializerActivities(InitializerActivitiesType newInitializerActivities) {
         if (newInitializerActivities != initializerActivities) {
             NotificationChain msgs = null;
             if (initializerActivities != null)
-                msgs = ((InternalEObject) initializerActivities).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
+                msgs = ((InternalEObject) initializerActivities).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
                         null,
                         msgs);
             if (newInitializerActivities != null)
-                msgs = ((InternalEObject) newInitializerActivities).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
+                msgs = ((InternalEObject) newInitializerActivities).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
                         null,
                         msgs);
-            msgs = basicSetInitializerActivities(newInitializerActivities,
-                    msgs);
+            msgs = basicSetInitializerActivities(newInitializerActivities, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES,
-                    newInitializerActivities, newInitializerActivities));
+                    XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES, newInitializerActivities,
+                    newInitializerActivities));
     }
 
     /**
@@ -160,15 +150,14 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPreconditionExpression(
-            Expression newPreconditionExpression, NotificationChain msgs) {
+    public NotificationChain basicSetPreconditionExpression(Expression newPreconditionExpression,
+            NotificationChain msgs) {
         Expression oldPreconditionExpression = preconditionExpression;
         preconditionExpression = newPreconditionExpression;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
-                    oldPreconditionExpression, newPreconditionExpression);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION, oldPreconditionExpression,
+                    newPreconditionExpression);
             if (msgs == null)
                 msgs = notification;
             else
@@ -182,32 +171,26 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPreconditionExpression(
-            Expression newPreconditionExpression) {
+    public void setPreconditionExpression(Expression newPreconditionExpression) {
         if (newPreconditionExpression != preconditionExpression) {
             NotificationChain msgs = null;
             if (preconditionExpression != null)
-                msgs = ((InternalEObject) preconditionExpression)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) preconditionExpression).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
+                        null,
+                        msgs);
             if (newPreconditionExpression != null)
-                msgs = ((InternalEObject) newPreconditionExpression)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
-                                null,
-                                msgs);
-            msgs = basicSetPreconditionExpression(newPreconditionExpression,
-                    msgs);
+                msgs = ((InternalEObject) newPreconditionExpression).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
+                        null,
+                        msgs);
+            msgs = basicSetPreconditionExpression(newPreconditionExpression, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION,
-                    newPreconditionExpression, newPreconditionExpression));
+                    XpdExtensionPackage.ENABLEMENT_TYPE__PRECONDITION_EXPRESSION, newPreconditionExpression,
+                    newPreconditionExpression));
     }
 
     /**
@@ -216,8 +199,7 @@ public class EnablementTypeImpl extends EObjectImpl implements EnablementType {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ENABLEMENT_TYPE__INITIALIZER_ACTIVITIES:
             return basicSetInitializerActivities(null, msgs);

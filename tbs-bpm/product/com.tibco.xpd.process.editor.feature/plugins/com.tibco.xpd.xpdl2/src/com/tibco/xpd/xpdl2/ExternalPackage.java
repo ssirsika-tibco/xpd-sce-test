@@ -13,24 +13,22 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ExternalPackage#getHref <em>Href</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getExternalPackage()
  * @model extendedMetaData="name='ExternalPackage_._type' kind='elementOnly' features-order='extendedAttributes'"
  * @generated
  */
-public interface ExternalPackage extends NamedElement,
-        ExtendedAttributesContainer {
+public interface ExternalPackage extends NamedElement, ExtendedAttributesContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Href</b></em>' attribute.

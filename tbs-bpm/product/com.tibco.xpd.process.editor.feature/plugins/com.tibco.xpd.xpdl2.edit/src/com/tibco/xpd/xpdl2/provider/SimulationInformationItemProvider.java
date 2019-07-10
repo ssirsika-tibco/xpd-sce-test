@@ -38,16 +38,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimulationInformationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SimulationInformationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +81,12 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
      */
     protected void addInstantiationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_SimulationInformation_instantiation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_SimulationInformation_instantiation_feature", "_UI_SimulationInformation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_SimulationInformation_instantiation_feature", //$NON-NLS-1$
+                                "_UI_SimulationInformation_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.SIMULATION_INFORMATION__INSTANTIATION,
                         true,
                         false,
@@ -106,14 +105,11 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.SIMULATION_INFORMATION__COST);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.SIMULATION_INFORMATION__TIME_ESTIMATION);
+            childrenFeatures.add(Xpdl2Package.Literals.SIMULATION_INFORMATION__COST);
+            childrenFeatures.add(Xpdl2Package.Literals.SIMULATION_INFORMATION__TIME_ESTIMATION);
         }
         return childrenFeatures;
     }
@@ -139,9 +135,7 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/SimulationInformation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SimulationInformation")); //$NON-NLS-1$
     }
 
     /**
@@ -152,8 +146,7 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        InstantiationType labelValue =
-                ((SimulationInformation) object).getInstantiation();
+        InstantiationType labelValue = ((SimulationInformation) object).getInstantiation();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? getString("_UI_SimulationInformation_type") : //$NON-NLS-1$
                 getString("_UI_SimulationInformation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -172,13 +165,11 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(SimulationInformation.class)) {
         case Xpdl2Package.SIMULATION_INFORMATION__INSTANTIATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.SIMULATION_INFORMATION__COST:
         case Xpdl2Package.SIMULATION_INFORMATION__TIME_ESTIMATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -192,17 +183,14 @@ public class SimulationInformationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.SIMULATION_INFORMATION__COST,
-                        Xpdl2Factory.eINSTANCE.createCost()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.SIMULATION_INFORMATION__COST,
+                Xpdl2Factory.eINSTANCE.createCost()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.SIMULATION_INFORMATION__TIME_ESTIMATION,
-                        Xpdl2Factory.eINSTANCE.createTimeEstimation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.SIMULATION_INFORMATION__TIME_ESTIMATION,
+                Xpdl2Factory.eINSTANCE.createTimeEstimation()));
     }
 
     /**

@@ -20,12 +20,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.VendorExtensionImpl#getExtensionDescription <em>Extension Description</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.VendorExtensionImpl#getSchemaLocation <em>Schema Location</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.VendorExtensionImpl#getToolId <em>Tool Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,8 +35,7 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getExtensionDescription() <em>Extension Description</em>}' attribute.
@@ -135,8 +134,7 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
         String oldExtensionDescription = extensionDescription;
         extensionDescription = newExtensionDescription;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.VENDOR_EXTENSION__EXTENSION_DESCRIPTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.VENDOR_EXTENSION__EXTENSION_DESCRIPTION,
                     oldExtensionDescription, extensionDescription));
     }
 
@@ -158,8 +156,7 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
         String oldSchemaLocation = schemaLocation;
         schemaLocation = newSchemaLocation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.VENDOR_EXTENSION__SCHEMA_LOCATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.VENDOR_EXTENSION__SCHEMA_LOCATION,
                     oldSchemaLocation, schemaLocation));
     }
 
@@ -181,8 +178,8 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
         String oldToolId = toolId;
         toolId = newToolId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.VENDOR_EXTENSION__TOOL_ID, oldToolId, toolId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.VENDOR_EXTENSION__TOOL_ID, oldToolId,
+                    toolId));
     }
 
     /**
@@ -255,14 +252,12 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
         switch (featureID) {
         case Xpdl2Package.VENDOR_EXTENSION__EXTENSION_DESCRIPTION:
             return EXTENSION_DESCRIPTION_EDEFAULT == null ? extensionDescription != null
-                    : !EXTENSION_DESCRIPTION_EDEFAULT
-                            .equals(extensionDescription);
+                    : !EXTENSION_DESCRIPTION_EDEFAULT.equals(extensionDescription);
         case Xpdl2Package.VENDOR_EXTENSION__SCHEMA_LOCATION:
             return SCHEMA_LOCATION_EDEFAULT == null ? schemaLocation != null
                     : !SCHEMA_LOCATION_EDEFAULT.equals(schemaLocation);
         case Xpdl2Package.VENDOR_EXTENSION__TOOL_ID:
-            return TOOL_ID_EDEFAULT == null ? toolId != null
-                    : !TOOL_ID_EDEFAULT.equals(toolId);
+            return TOOL_ID_EDEFAULT == null ? toolId != null : !TOOL_ID_EDEFAULT.equals(toolId);
         }
         return super.eIsSet(featureID);
     }
@@ -277,7 +272,7 @@ public class VendorExtensionImpl extends EObjectImpl implements VendorExtension 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (extensionDescription: "); //$NON-NLS-1$
         result.append(extensionDescription);
         result.append(", schemaLocation: "); //$NON-NLS-1$

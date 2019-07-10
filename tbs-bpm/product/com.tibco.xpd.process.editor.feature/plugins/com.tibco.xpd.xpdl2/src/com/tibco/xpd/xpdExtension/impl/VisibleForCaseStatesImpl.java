@@ -38,15 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class VisibleForCaseStatesImpl extends EObjectImpl
-        implements VisibleForCaseStates {
+public class VisibleForCaseStatesImpl extends EObjectImpl implements VisibleForCaseStates {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #isVisibleForUnsetCaseState() <em>Visible For Unset Case State</em>}' attribute.
@@ -56,8 +54,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final boolean VISIBLE_FOR_UNSET_CASE_STATE_EDEFAULT =
-            false;
+    protected static final boolean VISIBLE_FOR_UNSET_CASE_STATE_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isVisibleForUnsetCaseState() <em>Visible For Unset Case State</em>}' attribute.
@@ -67,8 +64,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean visibleForUnsetCaseState =
-            VISIBLE_FOR_UNSET_CASE_STATE_EDEFAULT;
+    protected boolean visibleForUnsetCaseState = VISIBLE_FOR_UNSET_CASE_STATE_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getCaseState() <em>Case State</em>}' containment reference list.
@@ -113,8 +109,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setVisibleForUnsetCaseState(
-            boolean newVisibleForUnsetCaseState) {
+    public void setVisibleForUnsetCaseState(boolean newVisibleForUnsetCaseState) {
         boolean oldVisibleForUnsetCaseState = visibleForUnsetCaseState;
         visibleForUnsetCaseState = newVisibleForUnsetCaseState;
         if (eNotificationRequired())
@@ -130,8 +125,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
      */
     public EList<ExternalReference> getCaseState() {
         if (caseState == null) {
-            caseState = new EObjectContainmentEList<ExternalReference>(
-                    ExternalReference.class, this,
+            caseState = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this,
                     XpdExtensionPackage.VISIBLE_FOR_CASE_STATES__CASE_STATE);
         }
         return caseState;
@@ -143,12 +137,10 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.VISIBLE_FOR_CASE_STATES__CASE_STATE:
-            return ((InternalEList<?>) getCaseState()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getCaseState()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -183,8 +175,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.VISIBLE_FOR_CASE_STATES__CASE_STATE:
             getCaseState().clear();
-            getCaseState()
-                    .addAll((Collection<? extends ExternalReference>) newValue);
+            getCaseState().addAll((Collection<? extends ExternalReference>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -234,7 +225,7 @@ public class VisibleForCaseStatesImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (visibleForUnsetCaseState: "); //$NON-NLS-1$
         result.append(visibleForUnsetCaseState);
         result.append(')');

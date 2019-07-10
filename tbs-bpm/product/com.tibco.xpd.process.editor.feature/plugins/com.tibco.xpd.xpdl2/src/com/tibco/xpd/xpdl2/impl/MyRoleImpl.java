@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MyRoleImpl#getRoleName <em>Role Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class MyRoleImpl extends EObjectImpl implements MyRole {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getRoleName() <em>Role Name</em>}' attribute.
@@ -93,8 +92,8 @@ public class MyRoleImpl extends EObjectImpl implements MyRole {
         String oldRoleName = roleName;
         roleName = newRoleName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MY_ROLE__ROLE_NAME, oldRoleName, roleName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MY_ROLE__ROLE_NAME, oldRoleName,
+                    roleName));
     }
 
     /**
@@ -150,8 +149,7 @@ public class MyRoleImpl extends EObjectImpl implements MyRole {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.MY_ROLE__ROLE_NAME:
-            return ROLE_NAME_EDEFAULT == null ? roleName != null
-                    : !ROLE_NAME_EDEFAULT.equals(roleName);
+            return ROLE_NAME_EDEFAULT == null ? roleName != null : !ROLE_NAME_EDEFAULT.equals(roleName);
         }
         return super.eIsSet(featureID);
     }
@@ -166,7 +164,7 @@ public class MyRoleImpl extends EObjectImpl implements MyRole {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (roleName: "); //$NON-NLS-1$
         result.append(roleName);
         result.append(')');

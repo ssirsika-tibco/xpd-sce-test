@@ -29,14 +29,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
-        implements WsSoapHttpInboundBinding {
+public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl implements WsSoapHttpInboundBinding {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getInboundSecurity() <em>Inbound Security</em>}' containment reference.
@@ -86,8 +84,7 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected String httpConnectorInstanceName =
-            HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT;
+    protected String httpConnectorInstanceName = HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,15 +116,13 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInboundSecurity(
-            WsSoapSecurity newInboundSecurity, NotificationChain msgs) {
+    public NotificationChain basicSetInboundSecurity(WsSoapSecurity newInboundSecurity, NotificationChain msgs) {
         WsSoapSecurity oldInboundSecurity = inboundSecurity;
         inboundSecurity = newInboundSecurity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
-                    oldInboundSecurity, newInboundSecurity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY, oldInboundSecurity,
+                    newInboundSecurity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -146,14 +141,12 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
             NotificationChain msgs = null;
             if (inboundSecurity != null)
                 msgs = ((InternalEObject) inboundSecurity).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
                         null,
                         msgs);
             if (newInboundSecurity != null)
                 msgs = ((InternalEObject) newInboundSecurity).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
                         null,
                         msgs);
             msgs = basicSetInboundSecurity(newInboundSecurity, msgs);
@@ -161,8 +154,8 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY,
-                    newInboundSecurity, newInboundSecurity));
+                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY, newInboundSecurity,
+                    newInboundSecurity));
     }
 
     /**
@@ -184,8 +177,8 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
         endpointUrlPath = newEndpointUrlPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH,
-                    oldEndpointUrlPath, endpointUrlPath));
+                    XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__ENDPOINT_URL_PATH, oldEndpointUrlPath,
+                    endpointUrlPath));
     }
 
     /**
@@ -202,8 +195,7 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public void setHttpConnectorInstanceName(
-            String newHttpConnectorInstanceName) {
+    public void setHttpConnectorInstanceName(String newHttpConnectorInstanceName) {
         String oldHttpConnectorInstanceName = httpConnectorInstanceName;
         httpConnectorInstanceName = newHttpConnectorInstanceName;
         if (eNotificationRequired())
@@ -217,8 +209,7 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__INBOUND_SECURITY:
             return basicSetInboundSecurity(null, msgs);
@@ -297,10 +288,8 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
             return ENDPOINT_URL_PATH_EDEFAULT == null ? endpointUrlPath != null
                     : !ENDPOINT_URL_PATH_EDEFAULT.equals(endpointUrlPath);
         case XpdExtensionPackage.WS_SOAP_HTTP_INBOUND_BINDING__HTTP_CONNECTOR_INSTANCE_NAME:
-            return HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT == null
-                    ? httpConnectorInstanceName != null
-                    : !HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT
-                            .equals(httpConnectorInstanceName);
+            return HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT == null ? httpConnectorInstanceName != null
+                    : !HTTP_CONNECTOR_INSTANCE_NAME_EDEFAULT.equals(httpConnectorInstanceName);
         }
         return super.eIsSet(featureID);
     }
@@ -314,7 +303,7 @@ public class WsSoapHttpInboundBindingImpl extends WsSoapBindingImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (endpointUrlPath: "); //$NON-NLS-1$
         result.append(endpointUrlPath);
         result.append(", httpConnectorInstanceName: "); //$NON-NLS-1$

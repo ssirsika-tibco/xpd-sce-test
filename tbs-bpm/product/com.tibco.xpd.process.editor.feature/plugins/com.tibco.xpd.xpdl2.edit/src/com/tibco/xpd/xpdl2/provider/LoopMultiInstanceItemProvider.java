@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LoopMultiInstanceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -87,11 +85,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addComplexMIFlowConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_complexMIFlowCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_complexMIFlowCondition_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_complexMIFlowCondition_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
                         true,
                         false,
@@ -107,14 +106,14 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAttributeComplexMI_FlowConditionPropertyDescriptor(
-            Object object) {
+    protected void addAttributeComplexMI_FlowConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_attributeComplexMI_FlowCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_attributeComplexMI_FlowCondition_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_attributeComplexMI_FlowCondition_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION,
                         true,
                         false,
@@ -132,11 +131,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addAttributeMI_ConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_attributeMI_Condition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_attributeMI_Condition_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_attributeMI_Condition_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION,
                         true,
                         false,
@@ -154,11 +154,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addLoopCounterPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_loopCounter_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_loopCounter_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_loopCounter_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__LOOP_COUNTER,
                         true,
                         false,
@@ -176,11 +177,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addMIConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_mICondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_mICondition_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_mICondition_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__MI_CONDITION,
                         true,
                         false,
@@ -198,11 +200,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addMIFlowConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_mIFlowCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_mIFlowCondition_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_mIFlowCondition_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION,
                         true,
                         false,
@@ -220,11 +223,12 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     protected void addMIOrderingPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_LoopMultiInstance_mIOrdering_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_LoopMultiInstance_mIOrdering_feature", "_UI_LoopMultiInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_mIOrdering_feature", //$NON-NLS-1$
+                                "_UI_LoopMultiInstance_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LOOP_MULTI_INSTANCE__MI_ORDERING,
                         true,
                         false,
@@ -243,12 +247,10 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
         }
         return childrenFeatures;
     }
@@ -274,8 +276,7 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/LoopMultiInstance")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopMultiInstance")); //$NON-NLS-1$
     }
 
     /**
@@ -311,12 +312,10 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
         case Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION:
         case Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION:
         case Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.LOOP_MULTI_INSTANCE__OTHER_ELEMENTS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -330,8 +329,7 @@ public class LoopMultiInstanceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

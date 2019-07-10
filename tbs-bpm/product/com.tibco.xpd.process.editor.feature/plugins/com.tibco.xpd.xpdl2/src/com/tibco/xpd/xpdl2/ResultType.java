@@ -93,22 +93,22 @@ public enum ResultType implements Enumerator {
      * @generated
      * @ordered
      */
-    MULTIPLE_LITERAL(7, "Multiple", "Multiple"), /**
-                                                  * The '<em><b>Deprecated Link</b></em>' literal object.
-                                                  * <!-- begin-user-doc -->
-                                                  * <!-- end-user-doc -->
-                                                  * @see #DEPRECATED_LINK
-                                                  * @generated
-                                                  * @ordered
-                                                  */
+    MULTIPLE_LITERAL(7, "Multiple", "Multiple"),
+    /**
+    * The '<em><b>Deprecated Link</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #DEPRECATED_LINK
+    * @generated
+    * @ordered
+    */
     DEPRECATED_LINK_LITERAL(8, "DeprecatedLink", "DeprecatedLink");
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>None</b></em>' literal value.
@@ -251,10 +251,9 @@ public enum ResultType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ResultType[] VALUES_ARRAY = new ResultType[] {
-            NONE_LITERAL, MESSAGE_LITERAL, ERROR_LITERAL, CANCEL_LITERAL,
-            COMPENSATION_LITERAL, SIGNAL_LITERAL, TERMINATE_LITERAL,
-            MULTIPLE_LITERAL, DEPRECATED_LINK_LITERAL, };
+    private static final ResultType[] VALUES_ARRAY =
+            new ResultType[] { NONE_LITERAL, MESSAGE_LITERAL, ERROR_LITERAL, CANCEL_LITERAL, COMPENSATION_LITERAL,
+                    SIGNAL_LITERAL, TERMINATE_LITERAL, MULTIPLE_LITERAL, DEPRECATED_LINK_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Result Type</b></em>' enumerators.
@@ -262,13 +261,14 @@ public enum ResultType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ResultType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ResultType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Result Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ResultType get(String literal) {
@@ -285,6 +285,8 @@ public enum ResultType implements Enumerator {
      * Returns the '<em><b>Result Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ResultType getByName(String name) {
@@ -301,6 +303,8 @@ public enum ResultType implements Enumerator {
      * Returns the '<em><b>Result Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ResultType get(int value) {

@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
 import com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions.DeleteAction;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.processeditor.xpdl2.properties.AbstractProcessRelevantDataTable;
 import com.tibco.xpd.processeditor.xpdl2.properties.messages.Messages;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
@@ -761,7 +762,13 @@ public class DataFieldTable extends AbstractProcessRelevantDataTable {
                 String currentLength = null;
                 if (lDataType instanceof BasicType) {
                     BasicType basicType = (BasicType) lDataType;
-                    if (basicType.getType() == BasicTypeType.STRING_LITERAL) {
+
+                    /*
+                     * Sid ACE-192 Don't allow length set on URI fields.
+                     */
+                    UIBasicTypes uiBasicType = UIBasicTypes.fromBasicType(basicType);
+
+                    if (UIBasicTypes.String.equals(uiBasicType)) {
                         Length length = basicType.getLength();
                         if (length == null) {
                             currentLength = ""; //$NON-NLS-1$

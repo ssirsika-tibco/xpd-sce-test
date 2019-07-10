@@ -36,16 +36,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExternalPackageItemProvider extends NamedElementItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ExternalPackageItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,11 +78,12 @@ public class ExternalPackageItemProvider extends NamedElementItemProvider
      */
     protected void addHrefPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ExternalPackage_href_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ExternalPackage_href_feature", "_UI_ExternalPackage_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ExternalPackage_href_feature", //$NON-NLS-1$
+                                "_UI_ExternalPackage_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.EXTERNAL_PACKAGE__HREF,
                         true,
                         false,
@@ -104,12 +102,10 @@ public class ExternalPackageItemProvider extends NamedElementItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
         }
         return childrenFeatures;
     }
@@ -135,8 +131,7 @@ public class ExternalPackageItemProvider extends NamedElementItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ExternalPackage")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalPackage")); //$NON-NLS-1$
     }
 
     /**
@@ -165,12 +160,10 @@ public class ExternalPackageItemProvider extends NamedElementItemProvider
 
         switch (notification.getFeatureID(ExternalPackage.class)) {
         case Xpdl2Package.EXTERNAL_PACKAGE__HREF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.EXTERNAL_PACKAGE__EXTENDED_ATTRIBUTES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -184,8 +177,7 @@ public class ExternalPackageItemProvider extends NamedElementItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors

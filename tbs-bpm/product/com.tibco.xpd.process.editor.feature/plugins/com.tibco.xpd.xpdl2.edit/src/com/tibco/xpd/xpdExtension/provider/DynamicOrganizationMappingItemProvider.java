@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -50,8 +48,7 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public DynamicOrganizationMappingItemProvider(
-            AdapterFactory adapterFactory) {
+    public DynamicOrganizationMappingItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -78,21 +75,20 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSourcePathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DynamicOrganizationMapping_sourcePath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DynamicOrganizationMapping_sourcePath_feature", //$NON-NLS-1$
-                        "_UI_DynamicOrganizationMapping_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DynamicOrganizationMapping_sourcePath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DynamicOrganizationMapping_sourcePath_feature", //$NON-NLS-1$
+                                "_UI_DynamicOrganizationMapping_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -104,12 +100,10 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF);
         }
         return childrenFeatures;
     }
@@ -135,9 +129,7 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/DynamicOrganizationMapping")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DynamicOrganizationMapping")); //$NON-NLS-1$
     }
 
     /**
@@ -149,9 +141,8 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((DynamicOrganizationMapping) object).getSourcePath();
-        return label == null || label.length() == 0
-                ? getString("_UI_DynamicOrganizationMapping_type") //$NON-NLS-1$
-                : getString("_UI_DynamicOrganizationMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_DynamicOrganizationMapping_type") : //$NON-NLS-1$
+                getString("_UI_DynamicOrganizationMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -167,12 +158,10 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(DynamicOrganizationMapping.class)) {
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__SOURCE_PATH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.DYNAMIC_ORGANIZATION_MAPPING__DYNAMIC_ORG_IDENTIFIER_REF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -186,8 +175,7 @@ public class DynamicOrganizationMappingItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(

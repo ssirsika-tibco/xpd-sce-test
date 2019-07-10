@@ -32,14 +32,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  * 
  * @generated
  */
-public class WsSoapJmsInboundBindingItemProvider
-        extends WsSoapBindingItemProvider {
+public class WsSoapJmsInboundBindingItemProvider extends WsSoapBindingItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -74,24 +72,21 @@ public class WsSoapJmsInboundBindingItemProvider
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addOutboundConnectionFactoryPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_WsSoapJmsInboundBinding_outboundConnectionFactory_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsSoapJmsInboundBinding_outboundConnectionFactory_feature", //$NON-NLS-1$
-                        "_UI_WsSoapJmsInboundBinding_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+    protected void addOutboundConnectionFactoryPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WsSoapJmsInboundBinding_outboundConnectionFactory_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WsSoapJmsInboundBinding_outboundConnectionFactory_feature", //$NON-NLS-1$
+                                "_UI_WsSoapJmsInboundBinding_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -99,14 +94,11 @@ public class WsSoapJmsInboundBindingItemProvider
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addInboundConnectionFactoryConfigurationPropertyDescriptor(
-            Object object) {
+    protected void addInboundConnectionFactoryConfigurationPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
-                getString(
-                        "_UI_WsSoapJmsInboundBinding_inboundConnectionFactoryConfiguration_feature"), //$NON-NLS-1$
+                getString("_UI_WsSoapJmsInboundBinding_inboundConnectionFactoryConfiguration_feature"), //$NON-NLS-1$
                 getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
                         "_UI_WsSoapJmsInboundBinding_inboundConnectionFactoryConfiguration_feature", //$NON-NLS-1$
                         "_UI_WsSoapJmsInboundBinding_type"), //$NON-NLS-1$
@@ -126,22 +118,20 @@ public class WsSoapJmsInboundBindingItemProvider
      * @generated
      */
     protected void addInboundDestinationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_WsSoapJmsInboundBinding_inboundDestination_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsSoapJmsInboundBinding_inboundDestination_feature", //$NON-NLS-1$
-                        "_UI_WsSoapJmsInboundBinding_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WsSoapJmsInboundBinding_inboundDestination_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WsSoapJmsInboundBinding_inboundDestination_feature", //$NON-NLS-1$
+                                "_UI_WsSoapJmsInboundBinding_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -152,12 +142,10 @@ public class WsSoapJmsInboundBindingItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY);
         }
         return childrenFeatures;
     }
@@ -182,9 +170,7 @@ public class WsSoapJmsInboundBindingItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/WsSoapJmsInboundBinding")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsSoapJmsInboundBinding")); //$NON-NLS-1$
     }
 
     /**
@@ -197,8 +183,7 @@ public class WsSoapJmsInboundBindingItemProvider
     public String getText(Object object) {
         String label = ((WsSoapJmsInboundBinding) object).getName();
         String type = getString("_UI_WsSoapJmsInboundBinding_type_2"); //$NON-NLS-1$
-        return label == null || label.length() == 0
-                ? String.format("(%1$s)", type) //$NON-NLS-1$
+        return label == null || label.length() == 0 ? String.format("(%1$s)", type) //$NON-NLS-1$
                 : String.format("%1$s (%2$s)", label, type); //$NON-NLS-1$
     }
 
@@ -217,12 +202,10 @@ public class WsSoapJmsInboundBindingItemProvider
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY:
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION:
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -236,13 +219,12 @@ public class WsSoapJmsInboundBindingItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
-                XpdExtensionFactory.eINSTANCE.createWsSoapSecurity()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
+                        XpdExtensionFactory.eINSTANCE.createWsSoapSecurity()));
     }
 
 }

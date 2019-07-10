@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskService#getMessageIn <em>Message In</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskService#getMessageOut <em>Message Out</em>}</li>
@@ -22,21 +23,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.TaskService#getWebServiceFaultCatch <em>Web Service Fault Catch</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskService#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTaskService()
  * @model extendedMetaData="name='TaskService_._type' kind='elementOnly' features-order='messageIn messageOut webServiceOperation webServiceFaultCatch otherElements'"
  * @generated
  */
-public interface TaskService extends OtherAttributesContainer,
-        OtherElementsContainer {
+public interface TaskService extends OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Message In</b></em>' containment reference.

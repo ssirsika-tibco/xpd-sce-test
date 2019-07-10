@@ -38,8 +38,7 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getBindingStyle() <em>Binding Style</em>}' attribute.
@@ -49,8 +48,7 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
      * @generated
      * @ordered
      */
-    protected static final SoapBindingStyle BINDING_STYLE_EDEFAULT =
-            SoapBindingStyle.RPC_LITERAL;
+    protected static final SoapBindingStyle BINDING_STYLE_EDEFAULT = SoapBindingStyle.RPC_LITERAL;
 
     /**
      * The cached value of the '{@link #getBindingStyle() <em>Binding Style</em>}' attribute.
@@ -135,13 +133,11 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
      */
     public void setBindingStyle(SoapBindingStyle newBindingStyle) {
         SoapBindingStyle oldBindingStyle = bindingStyle;
-        bindingStyle = newBindingStyle == null ? BINDING_STYLE_EDEFAULT
-                : newBindingStyle;
+        bindingStyle = newBindingStyle == null ? BINDING_STYLE_EDEFAULT : newBindingStyle;
         boolean oldBindingStyleESet = bindingStyleESet;
         bindingStyleESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_BINDING__BINDING_STYLE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_SOAP_BINDING__BINDING_STYLE,
                     oldBindingStyle, bindingStyle, !oldBindingStyleESet));
     }
 
@@ -156,10 +152,8 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
         bindingStyle = BINDING_STYLE_EDEFAULT;
         bindingStyleESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_BINDING__BINDING_STYLE,
-                    oldBindingStyle, BINDING_STYLE_EDEFAULT,
-                    oldBindingStyleESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.WS_SOAP_BINDING__BINDING_STYLE,
+                    oldBindingStyle, BINDING_STYLE_EDEFAULT, oldBindingStyleESet));
     }
 
     /**
@@ -191,8 +185,7 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
         boolean oldSoapVersionESet = soapVersionESet;
         soapVersionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_BINDING__SOAP_VERSION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_SOAP_BINDING__SOAP_VERSION,
                     oldSoapVersion, soapVersion, !oldSoapVersionESet));
     }
 
@@ -207,8 +200,7 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
         soapVersion = SOAP_VERSION_EDEFAULT;
         soapVersionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WS_SOAP_BINDING__SOAP_VERSION,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.WS_SOAP_BINDING__SOAP_VERSION,
                     oldSoapVersion, SOAP_VERSION_EDEFAULT, oldSoapVersionESet));
     }
 
@@ -331,7 +323,7 @@ public class WsSoapBindingImpl extends WsBindingImpl implements WsSoapBinding {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (bindingStyle: "); //$NON-NLS-1$
         if (bindingStyleESet)
             result.append(bindingStyle);

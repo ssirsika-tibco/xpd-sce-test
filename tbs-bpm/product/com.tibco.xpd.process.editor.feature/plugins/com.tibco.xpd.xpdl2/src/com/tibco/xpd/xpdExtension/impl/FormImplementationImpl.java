@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class FormImplementationImpl extends EObjectImpl
-        implements FormImplementation {
+public class FormImplementationImpl extends EObjectImpl implements FormImplementation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFormType() <em>Form Type</em>}' attribute.
@@ -48,8 +46,7 @@ public class FormImplementationImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final FormImplementationType FORM_TYPE_EDEFAULT =
-            FormImplementationType.USER_DEFINED;
+    protected static final FormImplementationType FORM_TYPE_EDEFAULT = FormImplementationType.USER_DEFINED;
 
     /**
      * The cached value of the '{@link #getFormType() <em>Form Type</em>}' attribute.
@@ -129,8 +126,7 @@ public class FormImplementationImpl extends EObjectImpl
         boolean oldFormTypeESet = formTypeESet;
         formTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_TYPE,
                     oldFormType, formType, !oldFormTypeESet));
     }
 
@@ -145,8 +141,7 @@ public class FormImplementationImpl extends EObjectImpl
         formType = FORM_TYPE_EDEFAULT;
         formTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_TYPE,
                     oldFormType, FORM_TYPE_EDEFAULT, oldFormTypeESet));
     }
 
@@ -177,8 +172,7 @@ public class FormImplementationImpl extends EObjectImpl
         String oldFormURI = formURI;
         formURI = newFormURI;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_URI,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_URI,
                     oldFormURI, formURI));
     }
 
@@ -245,8 +239,7 @@ public class FormImplementationImpl extends EObjectImpl
         case XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_TYPE:
             return isSetFormType();
         case XpdExtensionPackage.FORM_IMPLEMENTATION__FORM_URI:
-            return FORM_URI_EDEFAULT == null ? formURI != null
-                    : !FORM_URI_EDEFAULT.equals(formURI);
+            return FORM_URI_EDEFAULT == null ? formURI != null : !FORM_URI_EDEFAULT.equals(formURI);
         }
         return super.eIsSet(featureID);
     }
@@ -261,7 +254,7 @@ public class FormImplementationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (formType: "); //$NON-NLS-1$
         if (formTypeESet)
             result.append(formType);

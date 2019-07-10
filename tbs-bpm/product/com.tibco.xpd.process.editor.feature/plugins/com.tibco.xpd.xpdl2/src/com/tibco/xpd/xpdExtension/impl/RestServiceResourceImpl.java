@@ -38,15 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RestServiceResourceImpl extends EObjectImpl
-        implements RestServiceResource {
+public class RestServiceResourceImpl extends EObjectImpl implements RestServiceResource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getSecurityPolicy() <em>Security Policy</em>}' containment reference list.
@@ -144,10 +142,8 @@ public class RestServiceResourceImpl extends EObjectImpl
      */
     public EList<RestServiceResourceSecurity> getSecurityPolicy() {
         if (securityPolicy == null) {
-            securityPolicy =
-                    new EObjectContainmentEList<RestServiceResourceSecurity>(
-                            RestServiceResourceSecurity.class, this,
-                            XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY);
+            securityPolicy = new EObjectContainmentEList<RestServiceResourceSecurity>(RestServiceResourceSecurity.class,
+                    this, XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY);
         }
         return securityPolicy;
     }
@@ -171,8 +167,7 @@ public class RestServiceResourceImpl extends EObjectImpl
         resourceName = newResourceName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME,
-                    oldResourceName, resourceName));
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME, oldResourceName, resourceName));
     }
 
     /**
@@ -194,8 +189,7 @@ public class RestServiceResourceImpl extends EObjectImpl
         resourceType = newResourceType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE,
-                    oldResourceType, resourceType));
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE, oldResourceType, resourceType));
     }
 
     /**
@@ -217,8 +211,7 @@ public class RestServiceResourceImpl extends EObjectImpl
         description = newDescription;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION,
-                    oldDescription, description));
+                    XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION, oldDescription, description));
     }
 
     /**
@@ -227,12 +220,10 @@ public class RestServiceResourceImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
-            return ((InternalEList<?>) getSecurityPolicy())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSecurityPolicy()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -268,8 +259,7 @@ public class RestServiceResourceImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             getSecurityPolicy().clear();
-            getSecurityPolicy().addAll(
-                    (Collection<? extends RestServiceResourceSecurity>) newValue);
+            getSecurityPolicy().addAll((Collection<? extends RestServiceResourceSecurity>) newValue);
             return;
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
             setResourceName((String) newValue);
@@ -319,14 +309,11 @@ public class RestServiceResourceImpl extends EObjectImpl
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__SECURITY_POLICY:
             return securityPolicy != null && !securityPolicy.isEmpty();
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_NAME:
-            return RESOURCE_NAME_EDEFAULT == null ? resourceName != null
-                    : !RESOURCE_NAME_EDEFAULT.equals(resourceName);
+            return RESOURCE_NAME_EDEFAULT == null ? resourceName != null : !RESOURCE_NAME_EDEFAULT.equals(resourceName);
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__RESOURCE_TYPE:
-            return RESOURCE_TYPE_EDEFAULT == null ? resourceType != null
-                    : !RESOURCE_TYPE_EDEFAULT.equals(resourceType);
+            return RESOURCE_TYPE_EDEFAULT == null ? resourceType != null : !RESOURCE_TYPE_EDEFAULT.equals(resourceType);
         case XpdExtensionPackage.REST_SERVICE_RESOURCE__DESCRIPTION:
-            return DESCRIPTION_EDEFAULT == null ? description != null
-                    : !DESCRIPTION_EDEFAULT.equals(description);
+            return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
         }
         return super.eIsSet(featureID);
     }

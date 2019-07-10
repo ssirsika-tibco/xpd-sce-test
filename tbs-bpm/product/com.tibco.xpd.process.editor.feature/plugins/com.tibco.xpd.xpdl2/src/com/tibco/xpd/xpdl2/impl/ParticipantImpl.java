@@ -36,6 +36,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantImpl#getExtendedAttributes <em>Extended Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantImpl#getDescription <em>Description</em>}</li>
@@ -43,7 +44,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantImpl#getParticipantType <em>Participant Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ParticipantImpl#getExternalReference <em>External Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -53,8 +53,7 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference list.
@@ -132,10 +131,8 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes =
-                    new EObjectContainmentEList<ExtendedAttribute>(
-                            ExtendedAttribute.class, this,
-                            Xpdl2Package.PARTICIPANT__EXTENDED_ATTRIBUTES);
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
+                    Xpdl2Package.PARTICIPANT__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
     }
@@ -154,15 +151,12 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParticipantType(
-            ParticipantTypeElem newParticipantType, NotificationChain msgs) {
+    public NotificationChain basicSetParticipantType(ParticipantTypeElem newParticipantType, NotificationChain msgs) {
         ParticipantTypeElem oldParticipantType = participantType;
         participantType = newParticipantType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
-                            oldParticipantType, newParticipantType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE, oldParticipantType, newParticipantType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -180,27 +174,20 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
         if (newParticipantType != participantType) {
             NotificationChain msgs = null;
             if (participantType != null)
-                msgs =
-                        ((InternalEObject) participantType)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) participantType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
+                        null,
+                        msgs);
             if (newParticipantType != null)
-                msgs =
-                        ((InternalEObject) newParticipantType)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newParticipantType).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
+                        null,
+                        msgs);
             msgs = basicSetParticipantType(newParticipantType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE,
                     newParticipantType, newParticipantType));
     }
 
@@ -218,15 +205,12 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTICIPANT__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTICIPANT__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -244,27 +228,18 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
         if (newDescription != description) {
             NotificationChain msgs = null;
             if (description != null)
-                msgs =
-                        ((InternalEObject) description)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) description).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__DESCRIPTION,
+                        null,
+                        msgs);
             if (newDescription != null)
-                msgs =
-                        ((InternalEObject) newDescription)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__DESCRIPTION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newDescription)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__DESCRIPTION, null, msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTICIPANT__DESCRIPTION, newDescription,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTICIPANT__DESCRIPTION, newDescription,
                     newDescription));
     }
 
@@ -275,9 +250,7 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.PARTICIPANT__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.PARTICIPANT__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -296,15 +269,12 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExternalReference(
-            ExternalReference newExternalReference, NotificationChain msgs) {
+    public NotificationChain basicSetExternalReference(ExternalReference newExternalReference, NotificationChain msgs) {
         ExternalReference oldExternalReference = externalReference;
         externalReference = newExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
-                            oldExternalReference, newExternalReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE, oldExternalReference, newExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -322,27 +292,20 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
         if (newExternalReference != externalReference) {
             NotificationChain msgs = null;
             if (externalReference != null)
-                msgs =
-                        ((InternalEObject) externalReference)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) externalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             if (newExternalReference != null)
-                msgs =
-                        ((InternalEObject) newExternalReference)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             msgs = basicSetExternalReference(newExternalReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE,
                     newExternalReference, newExternalReference));
     }
 
@@ -363,17 +326,14 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.PARTICIPANT__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PARTICIPANT__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case Xpdl2Package.PARTICIPANT__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.PARTICIPANT__PARTICIPANT_TYPE:
             return basicSetParticipantType(null, msgs);
         case Xpdl2Package.PARTICIPANT__EXTERNAL_REFERENCE:
@@ -417,8 +377,7 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
         switch (featureID) {
         case Xpdl2Package.PARTICIPANT__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case Xpdl2Package.PARTICIPANT__DESCRIPTION:
             setDescription((Description) newValue);
@@ -563,7 +522,7 @@ public class ParticipantImpl extends NamedElementImpl implements Participant {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(')');

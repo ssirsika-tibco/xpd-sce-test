@@ -35,15 +35,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Factory;
  * --> <!-- end-user-doc -->
  * @generated
  */
-public class DocumentRootItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DocumentRootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -111,8 +109,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
             addPublishAsRestServicePropertyDescriptor(object);
             addRestActivityIdPropertyDescriptor(object);
             addSignalHandlerAsynchronousPropertyDescriptor(object);
-            addAllowUnqualifiedSubProcessIdentificationPropertyDescriptor(
-                    object);
+            addAllowUnqualifiedSubProcessIdentificationPropertyDescriptor(object);
             addIsCaseServicePropertyDescriptor(object);
             addIsEventSubProcessPropertyDescriptor(object);
             addNonInterruptingEventPropertyDescriptor(object);
@@ -124,6 +121,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
             addTargetContributorIdPropertyDescriptor(object);
             addBusinessServicePublishTypePropertyDescriptor(object);
             addSuppressMaxMappingsErrorPropertyDescriptor(object);
+            addFieldFormatPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -135,21 +133,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addImplementationTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_implementationType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_implementationType_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTATION_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_implementationType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_implementationType_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTATION_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -159,21 +156,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addContinueOnTimeoutPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_continueOnTimeout_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_continueOnTimeout_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_continueOnTimeout_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_continueOnTimeout_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -183,21 +179,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAliasPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_alias_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_alias_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ALIAS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_alias_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_alias_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__ALIAS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -207,21 +202,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addReplyImmediatelyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_replyImmediately_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_replyImmediately_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATELY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_replyImmediately_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_replyImmediately_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATELY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -231,21 +225,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addInitialValuesPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_initialValues_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_initialValues_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_VALUES,
-                true,
-                false,
-                true,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_initialValues_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_initialValues_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_VALUES,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -254,21 +247,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAssociatedParametersPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_associatedParameters_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_associatedParameters_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS,
-                true,
-                false,
-                true,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_associatedParameters_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_associatedParameters_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -278,21 +270,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addInlineSubProcessPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_inlineSubProcess_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_inlineSubProcess_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__INLINE_SUB_PROCESS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_inlineSubProcess_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_inlineSubProcess_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__INLINE_SUB_PROCESS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -302,21 +293,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDocumentationURLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_documentationURL_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_documentationURL_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENTATION_URL,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_documentationURL_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_documentationURL_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENTATION_URL,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -326,21 +316,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addImplementsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_implements_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_implements_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_implements_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_implements_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -349,21 +338,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addProcessIdentifierFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_processIdentifierField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_processIdentifierField_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_processIdentifierField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_processIdentifierField_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -373,21 +361,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addVisibilityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_visibility_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_visibility_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__VISIBILITY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_visibility_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_visibility_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__VISIBILITY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -397,21 +384,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSecurityProfilePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_securityProfile_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_securityProfile_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SECURITY_PROFILE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_securityProfile_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_securityProfile_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SECURITY_PROFILE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -421,21 +407,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addLanguagePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_language_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_language_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__LANGUAGE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_language_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_language_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__LANGUAGE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -444,21 +429,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addInitialValueMappingPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_initialValueMapping_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_initialValueMapping_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_initialValueMapping_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_initialValueMapping_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -468,21 +452,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addTransportPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_transport_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_transport_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSPORT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_transport_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_transport_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSPORT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -492,21 +475,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIsChainedPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_isChained_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_isChained_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_CHAINED,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_isChained_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_isChained_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_CHAINED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -515,21 +497,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addRequireNewTransactionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_requireNewTransaction_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_requireNewTransaction_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_requireNewTransaction_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_requireNewTransaction_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -539,21 +520,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDiscriminatorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_discriminator_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_discriminator_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DISCRIMINATOR,
-                true,
-                false,
-                true,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_discriminator_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_discriminator_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__DISCRIMINATOR,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -563,21 +543,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDisplayNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_displayName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_displayName_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DISPLAY_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_displayName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_displayName_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__DISPLAY_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -587,21 +566,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addCatchThrowPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_catchThrow_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_catchThrow_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_THROW,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_catchThrow_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_catchThrow_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_THROW,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -611,21 +589,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIsRemotePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_isRemote_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_isRemote_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_REMOTE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_isRemote_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_isRemote_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_REMOTE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -633,23 +610,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addPublishAsBusinessServicePropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_publishAsBusinessService_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_publishAsBusinessService_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addPublishAsBusinessServicePropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_publishAsBusinessService_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_publishAsBusinessService_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -658,21 +633,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addBusinessServiceCategoryPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_businessServiceCategory_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_businessServiceCategory_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_businessServiceCategory_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_businessServiceCategory_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -682,21 +656,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addGeneratedPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_generated_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_generated_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__GENERATED,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_generated_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_generated_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__GENERATED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -705,21 +678,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addReplyToActivityIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_replyToActivityId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_replyToActivityId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_replyToActivityId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_replyToActivityId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -728,21 +700,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSetPerformerInProcessPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_setPerformerInProcess_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_setPerformerInProcess_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_setPerformerInProcess_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_setPerformerInProcess_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -750,24 +721,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addEmbSubprocOtherStateHeightPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DocumentRoot_embSubprocOtherStateHeight_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_embSubprocOtherStateHeight_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                null,
-                null));
+    protected void addEmbSubprocOtherStateHeightPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_embSubprocOtherStateHeight_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_embSubprocOtherStateHeight_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -775,23 +743,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addEmbSubprocOtherStateWidthPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_embSubprocOtherStateWidth_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_embSubprocOtherStateWidth_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                null,
-                null));
+    protected void addEmbSubprocOtherStateWidthPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_embSubprocOtherStateWidth_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_embSubprocOtherStateWidth_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -800,21 +766,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addApiEndPointParticipantPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_apiEndPointParticipant_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_apiEndPointParticipant_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_apiEndPointParticipant_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_apiEndPointParticipant_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -824,21 +789,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addRequestActivityIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_requestActivityId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_requestActivityId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUEST_ACTIVITY_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_requestActivityId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_requestActivityId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUEST_ACTIVITY_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -847,21 +811,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addTargetPrimitivePropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_targetPrimitiveProperty_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_targetPrimitiveProperty_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_targetPrimitiveProperty_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_targetPrimitiveProperty_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -870,21 +833,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSourcePrimitivePropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_sourcePrimitiveProperty_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_sourcePrimitiveProperty_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_sourcePrimitiveProperty_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_sourcePrimitiveProperty_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -894,21 +856,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addXpdModelTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_xpdModelType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_xpdModelType_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__XPD_MODEL_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_xpdModelType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_xpdModelType_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__XPD_MODEL_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -918,21 +879,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addFlowRoutingStylePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_flowRoutingStyle_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_flowRoutingStyle_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__FLOW_ROUTING_STYLE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_flowRoutingStyle_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_flowRoutingStyle_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__FLOW_ROUTING_STYLE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -942,21 +902,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addNonCancellingPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_nonCancelling_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_nonCancelling_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__NON_CANCELLING,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_nonCancelling_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_nonCancelling_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__NON_CANCELLING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -965,21 +924,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addActivityDeadlineEventIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_activityDeadlineEventId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_activityDeadlineEventId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_activityDeadlineEventId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_activityDeadlineEventId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -989,21 +947,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addStartStrategyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_startStrategy_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_startStrategy_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__START_STRATEGY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_startStrategy_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_startStrategy_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__START_STRATEGY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1011,24 +968,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addOverwriteAlreadyModifiedTaskDataPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DocumentRoot_overwriteAlreadyModifiedTaskData_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_overwriteAlreadyModifiedTaskData_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addOverwriteAlreadyModifiedTaskDataPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_overwriteAlreadyModifiedTaskData_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_overwriteAlreadyModifiedTaskData_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1036,23 +990,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addEventHandlerFlowStrategyPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_eventHandlerFlowStrategy_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_eventHandlerFlowStrategy_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+    protected void addEventHandlerFlowStrategyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_eventHandlerFlowStrategy_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_eventHandlerFlowStrategy_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1061,21 +1013,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSuspendResumeWithParentPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_suspendResumeWithParent_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_suspendResumeWithParent_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_suspendResumeWithParent_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_suspendResumeWithParent_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1085,21 +1036,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSystemErrorActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_systemErrorAction_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_systemErrorAction_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SYSTEM_ERROR_ACTION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_systemErrorAction_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_systemErrorAction_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SYSTEM_ERROR_ACTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1107,24 +1057,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addBxUseUnqualifiedPropertyNamesPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DocumentRoot_bxUseUnqualifiedPropertyNames_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_bxUseUnqualifiedPropertyNames_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addBxUseUnqualifiedPropertyNamesPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_bxUseUnqualifiedPropertyNames_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_bxUseUnqualifiedPropertyNames_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1133,21 +1080,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPublishAsRestServicePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_publishAsRestService_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_publishAsRestService_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_publishAsRestService_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_publishAsRestService_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1157,21 +1103,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addRestActivityIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_restActivityId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_restActivityId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_ACTIVITY_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_restActivityId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_restActivityId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_ACTIVITY_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1179,23 +1124,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected void addSignalHandlerAsynchronousPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_signalHandlerAsynchronous_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_signalHandlerAsynchronous_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addSignalHandlerAsynchronousPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_signalHandlerAsynchronous_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_signalHandlerAsynchronous_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1204,24 +1147,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAllowUnqualifiedSubProcessIdentificationPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DocumentRoot_allowUnqualifiedSubProcessIdentification_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_allowUnqualifiedSubProcessIdentification_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addAllowUnqualifiedSubProcessIdentificationPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_allowUnqualifiedSubProcessIdentification_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_allowUnqualifiedSubProcessIdentification_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1231,21 +1171,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIsCaseServicePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_isCaseService_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_isCaseService_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_CASE_SERVICE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_isCaseService_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_isCaseService_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_CASE_SERVICE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1255,21 +1194,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIsEventSubProcessPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_isEventSubProcess_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_isEventSubProcess_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_isEventSubProcess_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_isEventSubProcess_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1279,21 +1217,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addNonInterruptingEventPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_nonInterruptingEvent_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_nonInterruptingEvent_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_nonInterruptingEvent_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_nonInterruptingEvent_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1303,21 +1240,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addCorrelateImmediatelyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_correlateImmediately_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_correlateImmediately_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATE_IMMEDIATELY,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_correlateImmediately_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_correlateImmediately_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATE_IMMEDIATELY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1327,21 +1263,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAsyncExecutionModePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_asyncExecutionMode_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_asyncExecutionMode_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_asyncExecutionMode_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_asyncExecutionMode_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1351,21 +1286,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSignalTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_signalType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_signalType_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_signalType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_signalType_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1375,21 +1309,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addLikeMappingPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_likeMapping_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_likeMapping_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_likeMapping_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_likeMapping_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1399,21 +1332,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSourceContributorIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_sourceContributorId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_sourceContributorId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_sourceContributorId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_sourceContributorId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1423,21 +1355,20 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addTargetContributorIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_targetContributorId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_targetContributorId_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_targetContributorId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_targetContributorId_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1446,24 +1377,21 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addBusinessServicePublishTypePropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_DocumentRoot_businessServicePublishType_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_businessServicePublishType_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+    protected void addBusinessServicePublishTypePropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_businessServicePublishType_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_businessServicePublishType_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1472,23 +1400,44 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addSuppressMaxMappingsErrorPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DocumentRoot_suppressMaxMappingsError_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DocumentRoot_suppressMaxMappingsError_feature", //$NON-NLS-1$
-                        "_UI_DocumentRoot_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addSuppressMaxMappingsErrorPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_suppressMaxMappingsError_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_suppressMaxMappingsError_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
+    }
+
+    /**
+     * This adds a property descriptor for the Field Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFieldFormatPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DocumentRoot_fieldFormat_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DocumentRoot_fieldFormat_feature", //$NON-NLS-1$
+                                "_UI_DocumentRoot_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__FIELD_FORMAT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -1499,122 +1448,65 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__USER_TASK_SCRIPTS);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_INTERFACES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PORT_TYPE_OPERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTERNAL_REFERENCE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENT_OPERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__DURATION_CALCULATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSFORM_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__ERROR_THROWER_INFO);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__FORM_IMPLEMENTATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_PROCESS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_GENERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__DECISION_SERVICE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CALENDAR_REFERENCE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RETRY);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__VALIDATION_CONTROL);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_REF_TYPE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_SERVICE);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICE_OPERATION);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__USER_TASK_SCRIPTS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_INTERFACES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PORT_TYPE_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTERNAL_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENT_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DURATION_CALCULATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSFORM_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ERROR_THROWER_INFO);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__FORM_IMPLEMENTATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_PROCESS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_GENERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DECISION_SERVICE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CALENDAR_REFERENCE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RETRY);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__VALIDATION_CONTROL);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_REF_TYPE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_SERVICE);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICE_OPERATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS);
         }
         return childrenFeatures;
     }
@@ -1639,8 +1531,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/DocumentRoot")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot")); //$NON-NLS-1$
     }
 
     /**
@@ -1652,9 +1543,8 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((DocumentRoot) object).getDisplayName();
-        return label == null || label.length() == 0
-                ? getString("_UI_DocumentRoot_type") //$NON-NLS-1$
-                : getString("_UI_DocumentRoot_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_DocumentRoot_type") : //$NON-NLS-1$
+                getString("_UI_DocumentRoot_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -1723,8 +1613,8 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID:
         case XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE:
         case XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+        case XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES:
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES:
@@ -1782,8 +1672,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION:
         case XpdExtensionPackage.DOCUMENT_ROOT__INPUT_MAPPINGS:
         case XpdExtensionPackage.DOCUMENT_ROOT__OUTPUT_MAPPINGS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -1797,255 +1686,201 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES,
-                XpdExtensionFactory.eINSTANCE
-                        .createXpdExtDataObjectAttributes()));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES,
+                XpdExtensionFactory.eINSTANCE.createXpdExtDataObjectAttributes()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES,
                 XpdExtensionFactory.eINSTANCE.createXpdExtAttributes()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD,
                 XpdExtensionFactory.eINSTANCE.createConstantPeriod()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__USER_TASK_SCRIPTS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__USER_TASK_SCRIPTS,
                 XpdExtensionFactory.eINSTANCE.createUserTaskScripts()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                 XpdExtensionFactory.eINSTANCE.createAudit()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createScriptInformation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS,
-                XpdExtensionFactory.eINSTANCE
-                        .createAssociatedCorrelationFields()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS,
+                        XpdExtensionFactory.eINSTANCE.createAssociatedCorrelationFields()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE,
                 XpdExtensionFactory.eINSTANCE.createImplementedInterface()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_INTERFACES,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_INTERFACES,
                 XpdExtensionFactory.eINSTANCE.createProcessInterfaces()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION,
                 XpdExtensionFactory.eINSTANCE.createWsdlEventAssociation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS,
                 XpdExtensionFactory.eINSTANCE.createMultiInstanceScripts()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE,
-                XpdExtensionFactory.eINSTANCE.createInitialParameterValue()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE,
+                        XpdExtensionFactory.eINSTANCE.createInitialParameterValue()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PORT_TYPE_OPERATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PORT_TYPE_OPERATION,
                 XpdExtensionFactory.eINSTANCE.createPortTypeOperation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTERNAL_REFERENCE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXTERNAL_REFERENCE,
                 Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS,
-                XpdExtensionFactory.eINSTANCE.createProcessResourcePatterns()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS,
+                        XpdExtensionFactory.eINSTANCE.createProcessResourcePatterns()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS,
-                XpdExtensionFactory.eINSTANCE
-                        .createEventHandlerInitialisers()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS,
+                        XpdExtensionFactory.eINSTANCE.createEventHandlerInitialisers()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS,
-                XpdExtensionFactory.eINSTANCE
-                        .createActivityResourcePatterns()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS,
+                        XpdExtensionFactory.eINSTANCE.createActivityResourcePatterns()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENT_OPERATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DOCUMENT_OPERATION,
                 XpdExtensionFactory.eINSTANCE.createDocumentOperation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DURATION_CALCULATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DURATION_CALCULATION,
                 XpdExtensionFactory.eINSTANCE.createDurationCalculation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS,
-                XpdExtensionFactory.eINSTANCE.createCorrelationDataMappings()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS,
+                        XpdExtensionFactory.eINSTANCE.createCorrelationDataMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSFORM_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__TRANSFORM_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createTransformScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__ERROR_THROWER_INFO,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__ERROR_THROWER_INFO,
                 XpdExtensionFactory.eINSTANCE.createErrorThrowerInfo()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS,
                 XpdExtensionFactory.eINSTANCE.createCatchErrorMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT,
-                XpdExtensionFactory.eINSTANCE.createConditionalParticipant()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT,
+                        XpdExtensionFactory.eINSTANCE.createConditionalParticipant()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE,
                 XpdExtensionFactory.eINSTANCE.createTaskLibraryReference()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__FORM_IMPLEMENTATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__FORM_IMPLEMENTATION,
                 XpdExtensionFactory.eINSTANCE.createFormImplementation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE,
                 XpdExtensionFactory.eINSTANCE.createFaultMessage()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__FAULT_MESSAGE,
                 Xpdl2Factory.eINSTANCE.createMessage()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_PROCESS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__BUSINESS_PROCESS,
                 XpdExtensionFactory.eINSTANCE.createBusinessProcess()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_GENERATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__WSDL_GENERATION,
                 XpdExtensionFactory.eINSTANCE.createWsdlGeneration()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DECISION_SERVICE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DECISION_SERVICE,
                 Xpdl2Factory.eINSTANCE.createSubFlow()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE,
-                XpdExtensionFactory.eINSTANCE
-                        .createParticipantSharedResource()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE,
+                        XpdExtensionFactory.eINSTANCE.createParticipantSharedResource()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CALENDAR_REFERENCE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CALENDAR_REFERENCE,
                 XpdExtensionFactory.eINSTANCE.createCalendarReference()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                 XpdExtensionFactory.eINSTANCE.createSignalData()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__RETRY,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RETRY,
                 XpdExtensionFactory.eINSTANCE.createRetry()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP,
                 XpdExtensionFactory.eINSTANCE.createNamespacePrefixMap()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT,
                 XpdExtensionFactory.eINSTANCE.createConstantPeriod()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__VALIDATION_CONTROL,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__VALIDATION_CONTROL,
                 XpdExtensionFactory.eINSTANCE.createValidationControl()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS,
-                XpdExtensionFactory.eINSTANCE
-                        .createReplyImmediateDataMappings()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS,
+                        XpdExtensionFactory.eINSTANCE.createReplyImmediateDataMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_REF_TYPE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_REF_TYPE,
                 Xpdl2Factory.eINSTANCE.createRecordType()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICES,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICES,
                 XpdExtensionFactory.eINSTANCE.createRESTServices()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS,
-                XpdExtensionFactory.eINSTANCE
-                        .createDynamicOrganizationMappings()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS,
+                        XpdExtensionFactory.eINSTANCE.createDynamicOrganizationMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION,
                 XpdExtensionFactory.eINSTANCE.createGlobalDataOperation()));
 
         newChildDescriptors.add(createChildParameter(
                 XpdExtensionPackage.Literals.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS,
-                XpdExtensionFactory.eINSTANCE
-                        .createProcessDataWorkItemAttributeMappings()));
+                XpdExtensionFactory.eINSTANCE.createProcessDataWorkItemAttributeMappings()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION,
-                XpdExtensionFactory.eINSTANCE.createBpmRuntimeConfiguration()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION,
+                        XpdExtensionFactory.eINSTANCE.createBpmRuntimeConfiguration()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES,
-                XpdExtensionFactory.eINSTANCE
-                        .createRequiredAccessPrivileges()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES,
+                        XpdExtensionFactory.eINSTANCE.createRequiredAccessPrivileges()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_SERVICE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__CASE_SERVICE,
                 XpdExtensionFactory.eINSTANCE.createCaseService()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION,
-                XpdExtensionFactory.eINSTANCE
-                        .createAdHocTaskConfigurationType()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION,
+                        XpdExtensionFactory.eINSTANCE.createAdHocTaskConfigurationType()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION,
-                XpdExtensionFactory.eINSTANCE
-                        .createServiceProcessConfiguration()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION,
+                        XpdExtensionFactory.eINSTANCE.createServiceProcessConfiguration()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER,
                 XpdExtensionFactory.eINSTANCE.createScriptDataMapper()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS,
-                XpdExtensionFactory.eINSTANCE.createLikeMappingExclusions()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS,
+                        XpdExtensionFactory.eINSTANCE.createLikeMappingExclusions()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICE_OPERATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__REST_SERVICE_OPERATION,
                 XpdExtensionFactory.eINSTANCE.createRestServiceOperation()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS,
                 XpdExtensionFactory.eINSTANCE.createScriptDataMapper()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS,
                 XpdExtensionFactory.eINSTANCE.createScriptDataMapper()));
     }
 
@@ -2057,25 +1892,22 @@ public class DocumentRootItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public String getCreateChildText(Object owner, Object feature, Object child,
-            Collection<?> selection) {
+    public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS;
+        boolean qualify = childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__CONSTANT_PERIOD
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__CORRELATION_TIMEOUT
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__EXPRESSION
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__PARTICIPANT_QUERY
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__INPUT_MAPPINGS
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__OUTPUT_MAPPINGS;
 
         if (qualify) {
             return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText(childObject),
-                            getFeatureText(childFeature), getTypeText(owner) });
+                    new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

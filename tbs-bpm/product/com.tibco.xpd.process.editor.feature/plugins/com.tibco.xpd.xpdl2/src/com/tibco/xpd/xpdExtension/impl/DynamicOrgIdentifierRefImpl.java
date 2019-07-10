@@ -28,15 +28,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DynamicOrgIdentifierRefImpl extends EObjectImpl
-        implements DynamicOrgIdentifierRef {
+public class DynamicOrgIdentifierRefImpl extends EObjectImpl implements DynamicOrgIdentifierRef {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getIdentifierName() <em>Identifier Name</em>}' attribute.
@@ -136,8 +134,8 @@ public class DynamicOrgIdentifierRefImpl extends EObjectImpl
         identifierName = newIdentifierName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME,
-                    oldIdentifierName, identifierName));
+                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME, oldIdentifierName,
+                    identifierName));
     }
 
     /**
@@ -159,8 +157,7 @@ public class DynamicOrgIdentifierRefImpl extends EObjectImpl
         dynamicOrgId = newDynamicOrgId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID,
-                    oldDynamicOrgId, dynamicOrgId));
+                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID, oldDynamicOrgId, dynamicOrgId));
     }
 
     /**
@@ -182,8 +179,7 @@ public class DynamicOrgIdentifierRefImpl extends EObjectImpl
         orgModelPath = newOrgModelPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH,
-                    oldOrgModelPath, orgModelPath));
+                    XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH, oldOrgModelPath, orgModelPath));
     }
 
     /**
@@ -277,7 +273,7 @@ public class DynamicOrgIdentifierRefImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (identifierName: "); //$NON-NLS-1$
         result.append(identifierName);
         result.append(", dynamicOrgId: "); //$NON-NLS-1$

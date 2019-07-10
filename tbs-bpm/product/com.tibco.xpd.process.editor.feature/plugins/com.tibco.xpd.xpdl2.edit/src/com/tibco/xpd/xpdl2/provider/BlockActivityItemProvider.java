@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BlockActivityItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BlockActivityItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,11 +80,12 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      */
     protected void addActivitySetIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_BlockActivity_activitySetId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_BlockActivity_activitySetId_feature", "_UI_BlockActivity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_BlockActivity_activitySetId_feature", //$NON-NLS-1$
+                                "_UI_BlockActivity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.BLOCK_ACTIVITY__ACTIVITY_SET_ID,
                         true,
                         false,
@@ -104,11 +103,12 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      */
     protected void addStartActivityIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_BlockActivity_startActivityId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_BlockActivity_startActivityId_feature", "_UI_BlockActivity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_BlockActivity_startActivityId_feature", //$NON-NLS-1$
+                                "_UI_BlockActivity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.BLOCK_ACTIVITY__START_ACTIVITY_ID,
                         true,
                         false,
@@ -126,11 +126,12 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      */
     protected void addViewPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_BlockActivity_view_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_BlockActivity_view_feature", "_UI_BlockActivity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_BlockActivity_view_feature", //$NON-NLS-1$
+                                "_UI_BlockActivity_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.BLOCK_ACTIVITY__VIEW,
                         true,
                         false,
@@ -149,12 +150,10 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
         }
         return childrenFeatures;
     }
@@ -180,8 +179,7 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/BlockActivity")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/BlockActivity")); //$NON-NLS-1$
     }
 
     /**
@@ -212,12 +210,10 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.BLOCK_ACTIVITY__ACTIVITY_SET_ID:
         case Xpdl2Package.BLOCK_ACTIVITY__START_ACTIVITY_ID:
         case Xpdl2Package.BLOCK_ACTIVITY__VIEW:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.BLOCK_ACTIVITY__OTHER_ATTRIBUTES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -231,8 +227,7 @@ public class BlockActivityItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -43,8 +43,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -354,8 +353,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createBusinessRuleApplicationAdapter() {
         if (businessRuleApplicationItemProvider == null) {
-            businessRuleApplicationItemProvider =
-                    new BusinessRuleApplicationItemProvider(this);
+            businessRuleApplicationItemProvider = new BusinessRuleApplicationItemProvider(this);
         }
 
         return businessRuleApplicationItemProvider;
@@ -470,8 +468,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createConformanceClassAdapter() {
         if (conformanceClassItemProvider == null) {
-            conformanceClassItemProvider =
-                    new ConformanceClassItemProvider(this);
+            conformanceClassItemProvider = new ConformanceClassItemProvider(this);
         }
 
         return conformanceClassItemProvider;
@@ -494,8 +491,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createConnectorGraphicsInfoAdapter() {
         if (connectorGraphicsInfoItemProvider == null) {
-            connectorGraphicsInfoItemProvider =
-                    new ConnectorGraphicsInfoItemProvider(this);
+            connectorGraphicsInfoItemProvider = new ConnectorGraphicsInfoItemProvider(this);
         }
 
         return connectorGraphicsInfoItemProvider;
@@ -748,8 +744,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createDeprecatedResultCompensationAdapter() {
         if (deprecatedResultCompensationItemProvider == null) {
-            deprecatedResultCompensationItemProvider =
-                    new DeprecatedResultCompensationItemProvider(this);
+            deprecatedResultCompensationItemProvider = new DeprecatedResultCompensationItemProvider(this);
         }
 
         return deprecatedResultCompensationItemProvider;
@@ -772,8 +767,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createDeprecatedTriggerRuleAdapter() {
         if (deprecatedTriggerRuleItemProvider == null) {
-            deprecatedTriggerRuleItemProvider =
-                    new DeprecatedTriggerRuleItemProvider(this);
+            deprecatedTriggerRuleItemProvider = new DeprecatedTriggerRuleItemProvider(this);
         }
 
         return deprecatedTriggerRuleItemProvider;
@@ -980,8 +974,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createEnumerationValueAdapter() {
         if (enumerationValueItemProvider == null) {
-            enumerationValueItemProvider =
-                    new EnumerationValueItemProvider(this);
+            enumerationValueItemProvider = new EnumerationValueItemProvider(this);
         }
 
         return enumerationValueItemProvider;
@@ -1050,8 +1043,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createExtendedAttributeAdapter() {
         if (extendedAttributeItemProvider == null) {
-            extendedAttributeItemProvider =
-                    new ExtendedAttributeItemProvider(this);
+            extendedAttributeItemProvider = new ExtendedAttributeItemProvider(this);
         }
 
         return extendedAttributeItemProvider;
@@ -1097,8 +1089,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createExternalReferenceAdapter() {
         if (externalReferenceItemProvider == null) {
-            externalReferenceItemProvider =
-                    new ExternalReferenceItemProvider(this);
+            externalReferenceItemProvider = new ExternalReferenceItemProvider(this);
         }
 
         return externalReferenceItemProvider;
@@ -1282,8 +1273,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createIntermediateEventAdapter() {
         if (intermediateEventItemProvider == null) {
-            intermediateEventItemProvider =
-                    new IntermediateEventItemProvider(this);
+            intermediateEventItemProvider = new IntermediateEventItemProvider(this);
         }
 
         return intermediateEventItemProvider;
@@ -1513,8 +1503,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createLoopMultiInstanceAdapter() {
         if (loopMultiInstanceItemProvider == null) {
-            loopMultiInstanceItemProvider =
-                    new LoopMultiInstanceItemProvider(this);
+            loopMultiInstanceItemProvider = new LoopMultiInstanceItemProvider(this);
         }
 
         return loopMultiInstanceItemProvider;
@@ -1675,8 +1664,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createModificationDateAdapter() {
         if (modificationDateItemProvider == null) {
-            modificationDateItemProvider =
-                    new ModificationDateItemProvider(this);
+            modificationDateItemProvider = new ModificationDateItemProvider(this);
         }
 
         return modificationDateItemProvider;
@@ -1722,8 +1710,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createNodeGraphicsInfoAdapter() {
         if (nodeGraphicsInfoItemProvider == null) {
-            nodeGraphicsInfoItemProvider =
-                    new NodeGraphicsInfoItemProvider(this);
+            nodeGraphicsInfoItemProvider = new NodeGraphicsInfoItemProvider(this);
         }
 
         return nodeGraphicsInfoItemProvider;
@@ -1930,8 +1917,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createDataFieldsContainerAdapter() {
         if (dataFieldsContainerItemProvider == null) {
-            dataFieldsContainerItemProvider =
-                    new DataFieldsContainerItemProvider(this);
+            dataFieldsContainerItemProvider = new DataFieldsContainerItemProvider(this);
         }
 
         return dataFieldsContainerItemProvider;
@@ -1977,8 +1963,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createParticipantTypeElemAdapter() {
         if (participantTypeElemItemProvider == null) {
-            participantTypeElemItemProvider =
-                    new ParticipantTypeElemItemProvider(this);
+            participantTypeElemItemProvider = new ParticipantTypeElemItemProvider(this);
         }
 
         return participantTypeElemItemProvider;
@@ -2323,8 +2308,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createRedefinableHeaderAdapter() {
         if (redefinableHeaderItemProvider == null) {
-            redefinableHeaderItemProvider =
-                    new RedefinableHeaderItemProvider(this);
+            redefinableHeaderItemProvider = new RedefinableHeaderItemProvider(this);
         }
 
         return redefinableHeaderItemProvider;
@@ -2646,8 +2630,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createSimulationInformationAdapter() {
         if (simulationInformationItemProvider == null) {
-            simulationInformationItemProvider =
-                    new SimulationInformationItemProvider(this);
+            simulationInformationItemProvider = new SimulationInformationItemProvider(this);
         }
 
         return simulationInformationItemProvider;
@@ -3015,8 +2998,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTransitionRestrictionAdapter() {
         if (transitionRestrictionItemProvider == null) {
-            transitionRestrictionItemProvider =
-                    new TransitionRestrictionItemProvider(this);
+            transitionRestrictionItemProvider = new TransitionRestrictionItemProvider(this);
         }
 
         return transitionRestrictionItemProvider;
@@ -3062,8 +3044,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerIntermediateMultipleAdapter() {
         if (triggerIntermediateMultipleItemProvider == null) {
-            triggerIntermediateMultipleItemProvider =
-                    new TriggerIntermediateMultipleItemProvider(this);
+            triggerIntermediateMultipleItemProvider = new TriggerIntermediateMultipleItemProvider(this);
         }
 
         return triggerIntermediateMultipleItemProvider;
@@ -3109,8 +3090,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerResultCancelAdapter() {
         if (triggerResultCancelItemProvider == null) {
-            triggerResultCancelItemProvider =
-                    new TriggerResultCancelItemProvider(this);
+            triggerResultCancelItemProvider = new TriggerResultCancelItemProvider(this);
         }
 
         return triggerResultCancelItemProvider;
@@ -3133,8 +3113,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerResultCompensationAdapter() {
         if (triggerResultCompensationItemProvider == null) {
-            triggerResultCompensationItemProvider =
-                    new TriggerResultCompensationItemProvider(this);
+            triggerResultCompensationItemProvider = new TriggerResultCompensationItemProvider(this);
         }
 
         return triggerResultCompensationItemProvider;
@@ -3157,8 +3136,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerResultSignalAdapter() {
         if (triggerResultSignalItemProvider == null) {
-            triggerResultSignalItemProvider =
-                    new TriggerResultSignalItemProvider(this);
+            triggerResultSignalItemProvider = new TriggerResultSignalItemProvider(this);
         }
 
         return triggerResultSignalItemProvider;
@@ -3181,8 +3159,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerResultLinkAdapter() {
         if (triggerResultLinkItemProvider == null) {
-            triggerResultLinkItemProvider =
-                    new TriggerResultLinkItemProvider(this);
+            triggerResultLinkItemProvider = new TriggerResultLinkItemProvider(this);
         }
 
         return triggerResultLinkItemProvider;
@@ -3205,8 +3182,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerResultMessageAdapter() {
         if (triggerResultMessageItemProvider == null) {
-            triggerResultMessageItemProvider =
-                    new TriggerResultMessageItemProvider(this);
+            triggerResultMessageItemProvider = new TriggerResultMessageItemProvider(this);
         }
 
         return triggerResultMessageItemProvider;
@@ -3229,8 +3205,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createTriggerConditionalAdapter() {
         if (triggerConditionalItemProvider == null) {
-            triggerConditionalItemProvider =
-                    new TriggerConditionalItemProvider(this);
+            triggerConditionalItemProvider = new TriggerConditionalItemProvider(this);
         }
 
         return triggerConditionalItemProvider;
@@ -3368,8 +3343,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createVendorExtensionsAdapter() {
         if (vendorExtensionsItemProvider == null) {
-            vendorExtensionsItemProvider =
-                    new VendorExtensionsItemProvider(this);
+            vendorExtensionsItemProvider = new VendorExtensionsItemProvider(this);
         }
 
         return vendorExtensionsItemProvider;
@@ -3438,8 +3412,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createWebServiceFaultCatchAdapter() {
         if (webServiceFaultCatchItemProvider == null) {
-            webServiceFaultCatchItemProvider =
-                    new WebServiceFaultCatchItemProvider(this);
+            webServiceFaultCatchItemProvider = new WebServiceFaultCatchItemProvider(this);
         }
 
         return webServiceFaultCatchItemProvider;
@@ -3462,8 +3435,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createWebServiceOperationAdapter() {
         if (webServiceOperationItemProvider == null) {
-            webServiceOperationItemProvider =
-                    new WebServiceOperationItemProvider(this);
+            webServiceOperationItemProvider = new WebServiceOperationItemProvider(this);
         }
 
         return webServiceOperationItemProvider;
@@ -3486,8 +3458,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     @Override
     public Adapter createWebServiceApplicationAdapter() {
         if (webServiceApplicationItemProvider == null) {
-            webServiceApplicationItemProvider =
-                    new WebServiceApplicationItemProvider(this);
+            webServiceApplicationItemProvider = new WebServiceApplicationItemProvider(this);
         }
 
         return webServiceApplicationItemProvider;
@@ -3569,8 +3540,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
      * @generated
      */
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory
-                .getRootAdapterFactory();
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -3579,8 +3549,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(
-            ComposedAdapterFactory parentAdapterFactory) {
+    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -3614,8 +3583,7 @@ public class Xpdl2ItemProviderAdapterFactory extends Xpdl2AdapterFactory
     public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>)
-                    || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
         }

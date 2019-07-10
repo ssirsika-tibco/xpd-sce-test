@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -86,11 +84,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addBorderColorPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_borderColor_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_borderColor_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_borderColor_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__BORDER_COLOR,
                         true,
                         false,
@@ -108,11 +107,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addFillColorPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_fillColor_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_fillColor_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_fillColor_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__FILL_COLOR,
                         true,
                         false,
@@ -130,11 +130,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addIsVisiblePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_isVisible_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_isVisible_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_isVisible_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__IS_VISIBLE,
                         true,
                         false,
@@ -152,11 +153,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addPageIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_pageId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_pageId_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_pageId_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__PAGE_ID,
                         true,
                         false,
@@ -174,11 +176,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addStylePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_style_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_style_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_style_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__STYLE,
                         true,
                         false,
@@ -196,11 +199,12 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     protected void addToolIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ConnectorGraphicsInfo_toolId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ConnectorGraphicsInfo_toolId_feature", "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_toolId_feature", //$NON-NLS-1$
+                                "_UI_ConnectorGraphicsInfo_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__TOOL_ID,
                         true,
                         false,
@@ -219,12 +223,10 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__COORDINATES);
+            childrenFeatures.add(Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__COORDINATES);
         }
         return childrenFeatures;
     }
@@ -250,9 +252,7 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/ConnectorGraphicsInfo")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ConnectorGraphicsInfo")); //$NON-NLS-1$
     }
 
     /**
@@ -286,12 +286,10 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__PAGE_ID:
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__STYLE:
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__TOOL_ID:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO__COORDINATES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -305,13 +303,11 @@ public class ConnectorGraphicsInfoItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__COORDINATES,
-                        Xpdl2Factory.eINSTANCE.createCoordinates()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.CONNECTOR_GRAPHICS_INFO__COORDINATES,
+                Xpdl2Factory.eINSTANCE.createCoordinates()));
     }
 
     /**

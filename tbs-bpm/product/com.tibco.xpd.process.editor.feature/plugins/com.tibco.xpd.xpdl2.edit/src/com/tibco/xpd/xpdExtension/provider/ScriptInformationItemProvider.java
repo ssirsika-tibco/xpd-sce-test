@@ -47,8 +47,7 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,21 +84,20 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addDirectionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ScriptInformation_direction_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ScriptInformation_direction_feature", //$NON-NLS-1$
-                        "_UI_ScriptInformation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SCRIPT_INFORMATION__DIRECTION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptInformation_direction_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptInformation_direction_feature", //$NON-NLS-1$
+                                "_UI_ScriptInformation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_INFORMATION__DIRECTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -109,21 +107,20 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addActivityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ScriptInformation_activity_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ScriptInformation_activity_feature", //$NON-NLS-1$
-                        "_UI_ScriptInformation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SCRIPT_INFORMATION__ACTIVITY,
-                true,
-                false,
-                true,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptInformation_activity_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptInformation_activity_feature", //$NON-NLS-1$
+                                "_UI_ScriptInformation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_INFORMATION__ACTIVITY,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -133,21 +130,20 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * @generated
      */
     protected void addReferencePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ScriptInformation_reference_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ScriptInformation_reference_feature", //$NON-NLS-1$
-                        "_UI_ScriptInformation_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.SCRIPT_INFORMATION__REFERENCE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ScriptInformation_reference_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ScriptInformation_reference_feature", //$NON-NLS-1$
+                                "_UI_ScriptInformation_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.SCRIPT_INFORMATION__REFERENCE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -159,12 +155,10 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION);
         }
         return childrenFeatures;
     }
@@ -190,8 +184,7 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ScriptInformation")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ScriptInformation")); //$NON-NLS-1$
     }
 
     /**
@@ -203,9 +196,8 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
     @Override
     public String getText(Object object) {
         String label = ((ScriptInformation) object).getName();
-        return label == null || label.length() == 0
-                ? getString("_UI_ScriptInformation_type") //$NON-NLS-1$
-                : getString("_UI_ScriptInformation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_ScriptInformation_type") : //$NON-NLS-1$
+                getString("_UI_ScriptInformation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -222,12 +214,10 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
         switch (notification.getFeatureID(ScriptInformation.class)) {
         case XpdExtensionPackage.SCRIPT_INFORMATION__DIRECTION:
         case XpdExtensionPackage.SCRIPT_INFORMATION__REFERENCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -241,16 +231,13 @@ public class ScriptInformationItemProvider extends NamedElementItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.SCRIPT_INFORMATION__EXPRESSION,
                 Xpdl2Factory.eINSTANCE.createExpression()));
     }
 

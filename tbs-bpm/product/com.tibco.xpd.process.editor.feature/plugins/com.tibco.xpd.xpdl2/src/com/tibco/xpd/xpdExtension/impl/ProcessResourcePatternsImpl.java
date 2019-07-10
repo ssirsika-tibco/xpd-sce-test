@@ -38,15 +38,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class ProcessResourcePatternsImpl extends EObjectImpl
-        implements ProcessResourcePatterns {
+public class ProcessResourcePatternsImpl extends EObjectImpl implements ProcessResourcePatterns {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getSeparationOfDutiesActivities() <em>Separation Of Duties Activities</em>}' containment reference list.
@@ -95,8 +93,7 @@ public class ProcessResourcePatternsImpl extends EObjectImpl
     public EList<SeparationOfDutiesActivities> getSeparationOfDutiesActivities() {
         if (separationOfDutiesActivities == null) {
             separationOfDutiesActivities =
-                    new EObjectContainmentEList<SeparationOfDutiesActivities>(
-                            SeparationOfDutiesActivities.class, this,
+                    new EObjectContainmentEList<SeparationOfDutiesActivities>(SeparationOfDutiesActivities.class, this,
                             XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES);
         }
         return separationOfDutiesActivities;
@@ -110,8 +107,7 @@ public class ProcessResourcePatternsImpl extends EObjectImpl
     public EList<RetainFamiliarActivities> getRetainFamiliarActivities() {
         if (retainFamiliarActivities == null) {
             retainFamiliarActivities =
-                    new EObjectContainmentEList<RetainFamiliarActivities>(
-                            RetainFamiliarActivities.class, this,
+                    new EObjectContainmentEList<RetainFamiliarActivities>(RetainFamiliarActivities.class, this,
                             XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES);
         }
         return retainFamiliarActivities;
@@ -123,15 +119,12 @@ public class ProcessResourcePatternsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES:
-            return ((InternalEList<?>) getSeparationOfDutiesActivities())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSeparationOfDutiesActivities()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES:
-            return ((InternalEList<?>) getRetainFamiliarActivities())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRetainFamiliarActivities()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -163,13 +156,11 @@ public class ProcessResourcePatternsImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES:
             getSeparationOfDutiesActivities().clear();
-            getSeparationOfDutiesActivities().addAll(
-                    (Collection<? extends SeparationOfDutiesActivities>) newValue);
+            getSeparationOfDutiesActivities().addAll((Collection<? extends SeparationOfDutiesActivities>) newValue);
             return;
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES:
             getRetainFamiliarActivities().clear();
-            getRetainFamiliarActivities().addAll(
-                    (Collection<? extends RetainFamiliarActivities>) newValue);
+            getRetainFamiliarActivities().addAll((Collection<? extends RetainFamiliarActivities>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -202,11 +193,9 @@ public class ProcessResourcePatternsImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__SEPARATION_OF_DUTIES_ACTIVITIES:
-            return separationOfDutiesActivities != null
-                    && !separationOfDutiesActivities.isEmpty();
+            return separationOfDutiesActivities != null && !separationOfDutiesActivities.isEmpty();
         case XpdExtensionPackage.PROCESS_RESOURCE_PATTERNS__RETAIN_FAMILIAR_ACTIVITIES:
-            return retainFamiliarActivities != null
-                    && !retainFamiliarActivities.isEmpty();
+            return retainFamiliarActivities != null && !retainFamiliarActivities.isEmpty();
         }
         return super.eIsSet(featureID);
     }

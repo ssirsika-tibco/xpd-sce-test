@@ -24,23 +24,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionRestrictionImpl#getJoin <em>Join</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionRestrictionImpl#getSplit <em>Split</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class TransitionRestrictionImpl extends EObjectImpl implements
-        TransitionRestriction {
+public class TransitionRestrictionImpl extends EObjectImpl implements TransitionRestriction {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getJoin() <em>Join</em>}' containment reference.
@@ -99,10 +97,8 @@ public class TransitionRestrictionImpl extends EObjectImpl implements
         Join oldJoin = join;
         join = newJoin;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRANSITION_RESTRICTION__JOIN, oldJoin,
-                            newJoin);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRANSITION_RESTRICTION__JOIN, oldJoin, newJoin);
             if (msgs == null)
                 msgs = notification;
             else
@@ -120,27 +116,21 @@ public class TransitionRestrictionImpl extends EObjectImpl implements
         if (newJoin != join) {
             NotificationChain msgs = null;
             if (join != null)
-                msgs =
-                        ((InternalEObject) join)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRANSITION_RESTRICTION__JOIN,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) join).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION_RESTRICTION__JOIN,
+                        null,
+                        msgs);
             if (newJoin != null)
-                msgs =
-                        ((InternalEObject) newJoin)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRANSITION_RESTRICTION__JOIN,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newJoin).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION_RESTRICTION__JOIN,
+                        null,
+                        msgs);
             msgs = basicSetJoin(newJoin, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION_RESTRICTION__JOIN, newJoin, newJoin));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION_RESTRICTION__JOIN, newJoin,
+                    newJoin));
     }
 
     /**
@@ -157,15 +147,12 @@ public class TransitionRestrictionImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSplit(Split newSplit,
-            NotificationChain msgs) {
+    public NotificationChain basicSetSplit(Split newSplit, NotificationChain msgs) {
         Split oldSplit = split;
         split = newSplit;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TRANSITION_RESTRICTION__SPLIT,
-                            oldSplit, newSplit);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TRANSITION_RESTRICTION__SPLIT, oldSplit, newSplit);
             if (msgs == null)
                 msgs = notification;
             else
@@ -183,27 +170,20 @@ public class TransitionRestrictionImpl extends EObjectImpl implements
         if (newSplit != split) {
             NotificationChain msgs = null;
             if (split != null)
-                msgs =
-                        ((InternalEObject) split)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRANSITION_RESTRICTION__SPLIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) split).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION_RESTRICTION__SPLIT,
+                        null,
+                        msgs);
             if (newSplit != null)
-                msgs =
-                        ((InternalEObject) newSplit)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TRANSITION_RESTRICTION__SPLIT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newSplit).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TRANSITION_RESTRICTION__SPLIT,
+                        null,
+                        msgs);
             msgs = basicSetSplit(newSplit, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION_RESTRICTION__SPLIT, newSplit,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION_RESTRICTION__SPLIT, newSplit,
                     newSplit));
     }
 
@@ -213,8 +193,7 @@ public class TransitionRestrictionImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TRANSITION_RESTRICTION__JOIN:
             return basicSetJoin(null, msgs);

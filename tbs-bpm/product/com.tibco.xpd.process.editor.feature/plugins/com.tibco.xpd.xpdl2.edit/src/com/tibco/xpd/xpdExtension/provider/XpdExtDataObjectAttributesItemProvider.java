@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -53,8 +51,7 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      * <!-- end-user-doc -->
      * @generated
      */
-    public XpdExtDataObjectAttributesItemProvider(
-            AdapterFactory adapterFactory) {
+    public XpdExtDataObjectAttributesItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -82,21 +79,20 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_XpdExtDataObjectAttributes_description_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_XpdExtDataObjectAttributes_description_feature", //$NON-NLS-1$
-                        "_UI_XpdExtDataObjectAttributes_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_XpdExtDataObjectAttributes_description_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_XpdExtDataObjectAttributes_description_feature", //$NON-NLS-1$
+                                "_UI_XpdExtDataObjectAttributes_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -106,22 +102,20 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addExternalReferencePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_XpdExtDataObjectAttributes_externalReference_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_XpdExtDataObjectAttributes_externalReference_feature", //$NON-NLS-1$
-                        "_UI_XpdExtDataObjectAttributes_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_XpdExtDataObjectAttributes_externalReference_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_XpdExtDataObjectAttributes_externalReference_feature", //$NON-NLS-1$
+                                "_UI_XpdExtDataObjectAttributes_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -133,12 +127,10 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES);
+            childrenFeatures.add(XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -164,9 +156,7 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/XpdExtDataObjectAttributes")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/XpdExtDataObjectAttributes")); //$NON-NLS-1$
     }
 
     /**
@@ -178,9 +168,8 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((XpdExtDataObjectAttributes) object).getDescription();
-        return label == null || label.length() == 0
-                ? getString("_UI_XpdExtDataObjectAttributes_type") //$NON-NLS-1$
-                : getString("_UI_XpdExtDataObjectAttributes_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_XpdExtDataObjectAttributes_type") : //$NON-NLS-1$
+                getString("_UI_XpdExtDataObjectAttributes_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -197,12 +186,10 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(XpdExtDataObjectAttributes.class)) {
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__DESCRIPTION:
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__EXTERNAL_REFERENCE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -216,13 +203,12 @@ public class XpdExtDataObjectAttributesItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES,
-                XpdExtensionFactory.eINSTANCE.createXpdExtProperty()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_DATA_OBJECT_ATTRIBUTES__PROPERTIES,
+                        XpdExtensionFactory.eINSTANCE.createXpdExtProperty()));
     }
 
     /**

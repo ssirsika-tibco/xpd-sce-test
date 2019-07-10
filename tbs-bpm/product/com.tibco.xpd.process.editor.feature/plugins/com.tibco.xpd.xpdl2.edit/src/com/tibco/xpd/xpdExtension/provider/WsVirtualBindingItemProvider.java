@@ -31,8 +31,7 @@ public class WsVirtualBindingItemProvider extends WsBindingItemProvider {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -67,8 +66,7 @@ public class WsVirtualBindingItemProvider extends WsBindingItemProvider {
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WsVirtualBinding")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsVirtualBinding")); //$NON-NLS-1$
     }
 
     /**
@@ -81,8 +79,7 @@ public class WsVirtualBindingItemProvider extends WsBindingItemProvider {
     public String getText(Object object) {
         String label = ((WsVirtualBinding) object).getName();
         String type = getString("_UI_WsVirtualBinding_type"); //$NON-NLS-1$
-        return label == null || label.length() == 0
-                ? String.format("(%1$s)", type) //$NON-NLS-1$
+        return label == null || label.length() == 0 ? String.format("(%1$s)", type) //$NON-NLS-1$
                 : String.format("%1$s (%2$s)", label, type); //$NON-NLS-1$
     }
 
@@ -107,8 +104,7 @@ public class WsVirtualBindingItemProvider extends WsBindingItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

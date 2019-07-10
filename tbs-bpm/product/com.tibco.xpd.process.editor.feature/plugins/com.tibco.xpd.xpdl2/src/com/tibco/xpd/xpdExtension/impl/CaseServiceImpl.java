@@ -44,8 +44,7 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -103,8 +102,7 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements = new BasicFeatureMap(this,
-                    XpdExtensionPackage.CASE_SERVICE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, XpdExtensionPackage.CASE_SERVICE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -123,15 +121,12 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCaseClassType(
-            ExternalReference newCaseClassType, NotificationChain msgs) {
+    public NotificationChain basicSetCaseClassType(ExternalReference newCaseClassType, NotificationChain msgs) {
         ExternalReference oldCaseClassType = caseClassType;
         caseClassType = newCaseClassType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
-                            oldCaseClassType, newCaseClassType);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE, oldCaseClassType, newCaseClassType);
             if (msgs == null)
                 msgs = notification;
             else
@@ -150,22 +145,19 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
             NotificationChain msgs = null;
             if (caseClassType != null)
                 msgs = ((InternalEObject) caseClassType).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
                         null,
                         msgs);
             if (newCaseClassType != null)
                 msgs = ((InternalEObject) newCaseClassType).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
                         null,
                         msgs);
             msgs = basicSetCaseClassType(newCaseClassType, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE,
                     newCaseClassType, newCaseClassType));
     }
 
@@ -183,16 +175,14 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetVisibleForCaseStates(
-            VisibleForCaseStates newVisibleForCaseStates,
+    public NotificationChain basicSetVisibleForCaseStates(VisibleForCaseStates newVisibleForCaseStates,
             NotificationChain msgs) {
         VisibleForCaseStates oldVisibleForCaseStates = visibleForCaseStates;
         visibleForCaseStates = newVisibleForCaseStates;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
-                    oldVisibleForCaseStates, newVisibleForCaseStates);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES, oldVisibleForCaseStates,
+                    newVisibleForCaseStates);
             if (msgs == null)
                 msgs = notification;
             else
@@ -206,22 +196,17 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setVisibleForCaseStates(
-            VisibleForCaseStates newVisibleForCaseStates) {
+    public void setVisibleForCaseStates(VisibleForCaseStates newVisibleForCaseStates) {
         if (newVisibleForCaseStates != visibleForCaseStates) {
             NotificationChain msgs = null;
             if (visibleForCaseStates != null)
-                msgs = ((InternalEObject) visibleForCaseStates).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
+                msgs = ((InternalEObject) visibleForCaseStates).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
                         null,
                         msgs);
             if (newVisibleForCaseStates != null)
-                msgs = ((InternalEObject) newVisibleForCaseStates).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
+                msgs = ((InternalEObject) newVisibleForCaseStates).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
                         null,
                         msgs);
             msgs = basicSetVisibleForCaseStates(newVisibleForCaseStates, msgs);
@@ -229,8 +214,8 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES,
-                    newVisibleForCaseStates, newVisibleForCaseStates));
+                    XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES, newVisibleForCaseStates,
+                    newVisibleForCaseStates));
     }
 
     /**
@@ -250,12 +235,10 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CASE_SERVICE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.CASE_SERVICE__CASE_CLASS_TYPE:
             return basicSetCaseClassType(null, msgs);
         case XpdExtensionPackage.CASE_SERVICE__VISIBLE_FOR_CASE_STATES:
@@ -354,7 +337,7 @@ public class CaseServiceImpl extends EObjectImpl implements CaseService {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(')');

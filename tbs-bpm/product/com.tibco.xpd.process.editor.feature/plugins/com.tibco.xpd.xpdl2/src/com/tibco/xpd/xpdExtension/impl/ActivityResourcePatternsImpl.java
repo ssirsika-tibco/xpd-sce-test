@@ -33,15 +33,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class ActivityResourcePatternsImpl extends EObjectImpl
-        implements ActivityResourcePatterns {
+public class ActivityResourcePatternsImpl extends EObjectImpl implements ActivityResourcePatterns {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAllocationStrategy() <em>Allocation Strategy</em>}' containment reference.
@@ -106,15 +104,14 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetAllocationStrategy(
-            AllocationStrategy newAllocationStrategy, NotificationChain msgs) {
+    public NotificationChain basicSetAllocationStrategy(AllocationStrategy newAllocationStrategy,
+            NotificationChain msgs) {
         AllocationStrategy oldAllocationStrategy = allocationStrategy;
         allocationStrategy = newAllocationStrategy;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
-                    oldAllocationStrategy, newAllocationStrategy);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY, oldAllocationStrategy,
+                    newAllocationStrategy);
             if (msgs == null)
                 msgs = notification;
             else
@@ -128,22 +125,17 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAllocationStrategy(
-            AllocationStrategy newAllocationStrategy) {
+    public void setAllocationStrategy(AllocationStrategy newAllocationStrategy) {
         if (newAllocationStrategy != allocationStrategy) {
             NotificationChain msgs = null;
             if (allocationStrategy != null)
-                msgs = ((InternalEObject) allocationStrategy).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
+                msgs = ((InternalEObject) allocationStrategy).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
                         null,
                         msgs);
             if (newAllocationStrategy != null)
-                msgs = ((InternalEObject) newAllocationStrategy).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
+                msgs = ((InternalEObject) newAllocationStrategy).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
                         null,
                         msgs);
             msgs = basicSetAllocationStrategy(newAllocationStrategy, msgs);
@@ -151,8 +143,8 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY,
-                    newAllocationStrategy, newAllocationStrategy));
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY, newAllocationStrategy,
+                    newAllocationStrategy));
     }
 
     /**
@@ -169,15 +161,12 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPiling(PilingInfo newPiling,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPiling(PilingInfo newPiling, NotificationChain msgs) {
         PilingInfo oldPiling = piling;
         piling = newPiling;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
-                    oldPiling, newPiling);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING, oldPiling, newPiling);
             if (msgs == null)
                 msgs = notification;
             else
@@ -196,14 +185,12 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (piling != null)
                 msgs = ((InternalEObject) piling).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
                         null,
                         msgs);
             if (newPiling != null)
                 msgs = ((InternalEObject) newPiling).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
                         null,
                         msgs);
             msgs = basicSetPiling(newPiling, msgs);
@@ -211,8 +198,7 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING,
-                    newPiling, newPiling));
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__PILING, newPiling, newPiling));
     }
 
     /**
@@ -229,15 +215,13 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWorkItemPriority(
-            WorkItemPriority newWorkItemPriority, NotificationChain msgs) {
+    public NotificationChain basicSetWorkItemPriority(WorkItemPriority newWorkItemPriority, NotificationChain msgs) {
         WorkItemPriority oldWorkItemPriority = workItemPriority;
         workItemPriority = newWorkItemPriority;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
-                    oldWorkItemPriority, newWorkItemPriority);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY, oldWorkItemPriority,
+                    newWorkItemPriority);
             if (msgs == null)
                 msgs = notification;
             else
@@ -256,14 +240,12 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (workItemPriority != null)
                 msgs = ((InternalEObject) workItemPriority).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
                         null,
                         msgs);
             if (newWorkItemPriority != null)
                 msgs = ((InternalEObject) newWorkItemPriority).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
                         null,
                         msgs);
             msgs = basicSetWorkItemPriority(newWorkItemPriority, msgs);
@@ -271,8 +253,8 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY,
-                    newWorkItemPriority, newWorkItemPriority));
+                    XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__WORK_ITEM_PRIORITY, newWorkItemPriority,
+                    newWorkItemPriority));
     }
 
     /**
@@ -281,8 +263,7 @@ public class ActivityResourcePatternsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.ACTIVITY_RESOURCE_PATTERNS__ALLOCATION_STRATEGY:
             return basicSetAllocationStrategy(null, msgs);

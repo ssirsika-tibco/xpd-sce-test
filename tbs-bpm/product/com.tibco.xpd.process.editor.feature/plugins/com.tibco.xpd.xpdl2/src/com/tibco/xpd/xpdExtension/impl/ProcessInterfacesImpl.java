@@ -33,15 +33,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class ProcessInterfacesImpl extends EObjectImpl
-        implements ProcessInterfaces {
+public class ProcessInterfacesImpl extends EObjectImpl implements ProcessInterfaces {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getProcessInterface() <em>Process Interface</em>}' containment reference list.
@@ -79,8 +77,7 @@ public class ProcessInterfacesImpl extends EObjectImpl
      */
     public EList<ProcessInterface> getProcessInterface() {
         if (processInterface == null) {
-            processInterface = new EObjectContainmentEList<ProcessInterface>(
-                    ProcessInterface.class, this,
+            processInterface = new EObjectContainmentEList<ProcessInterface>(ProcessInterface.class, this,
                     XpdExtensionPackage.PROCESS_INTERFACES__PROCESS_INTERFACE);
         }
         return processInterface;
@@ -92,12 +89,10 @@ public class ProcessInterfacesImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_INTERFACES__PROCESS_INTERFACE:
-            return ((InternalEList<?>) getProcessInterface())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProcessInterface()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -127,8 +122,7 @@ public class ProcessInterfacesImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_INTERFACES__PROCESS_INTERFACE:
             getProcessInterface().clear();
-            getProcessInterface()
-                    .addAll((Collection<? extends ProcessInterface>) newValue);
+            getProcessInterface().addAll((Collection<? extends ProcessInterface>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

@@ -31,6 +31,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopMultiInstanceImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopMultiInstanceImpl#getLoopCounter <em>Loop Counter</em>}</li>
@@ -41,19 +42,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopMultiInstanceImpl#getAttributeComplexMI_FlowCondition <em>Attribute Complex MI Flow Condition</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopMultiInstanceImpl#getAttributeMI_Condition <em>Attribute MI Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class LoopMultiInstanceImpl extends EObjectImpl implements
-        LoopMultiInstance {
+public class LoopMultiInstanceImpl extends EObjectImpl implements LoopMultiInstance {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -93,8 +91,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected static final MIFlowConditionType MI_FLOW_CONDITION_EDEFAULT =
-            MIFlowConditionType.ALL_LITERAL;
+    protected static final MIFlowConditionType MI_FLOW_CONDITION_EDEFAULT = MIFlowConditionType.ALL_LITERAL;
 
     /**
      * The cached value of the '{@link #getMIFlowCondition() <em>MI Flow Condition</em>}' attribute.
@@ -123,8 +120,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected static final MIOrderingType MI_ORDERING_EDEFAULT =
-            MIOrderingType.SEQUENTIAL_LITERAL;
+    protected static final MIOrderingType MI_ORDERING_EDEFAULT = MIOrderingType.SEQUENTIAL_LITERAL;
 
     /**
      * The cached value of the '{@link #getMIOrdering() <em>MI Ordering</em>}' attribute.
@@ -173,8 +169,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected static final String ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT =
-            null;
+    protected static final String ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getAttributeComplexMI_FlowCondition() <em>Attribute Complex MI Flow Condition</em>}' attribute.
@@ -184,8 +179,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * @generated
      * @ordered
      */
-    protected String attributeComplexMI_FlowCondition =
-            ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT;
+    protected String attributeComplexMI_FlowCondition = ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getAttributeMI_Condition() <em>Attribute MI Condition</em>}' attribute.
@@ -233,9 +227,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.LOOP_MULTI_INSTANCE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.LOOP_MULTI_INSTANCE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -254,18 +246,14 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetComplexMIFlowCondition(
-            Expression newComplexMIFlowCondition, NotificationChain msgs) {
+    public NotificationChain basicSetComplexMIFlowCondition(Expression newComplexMIFlowCondition,
+            NotificationChain msgs) {
         Expression oldComplexMIFlowCondition = complexMIFlowCondition;
         complexMIFlowCondition = newComplexMIFlowCondition;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(
-                            this,
-                            Notification.SET,
-                            Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
-                            oldComplexMIFlowCondition,
-                            newComplexMIFlowCondition);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION, oldComplexMIFlowCondition,
+                    newComplexMIFlowCondition);
             if (msgs == null)
                 msgs = notification;
             else
@@ -283,32 +271,22 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         if (newComplexMIFlowCondition != complexMIFlowCondition) {
             NotificationChain msgs = null;
             if (complexMIFlowCondition != null)
-                msgs =
-                        ((InternalEObject) complexMIFlowCondition)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) complexMIFlowCondition).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
+                        null,
+                        msgs);
             if (newComplexMIFlowCondition != null)
-                msgs =
-                        ((InternalEObject) newComplexMIFlowCondition)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
-                                        null,
-                                        msgs);
-            msgs =
-                    basicSetComplexMIFlowCondition(newComplexMIFlowCondition,
-                            msgs);
+                msgs = ((InternalEObject) newComplexMIFlowCondition).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
+                        null,
+                        msgs);
+            msgs = basicSetComplexMIFlowCondition(newComplexMIFlowCondition, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION,
-                    newComplexMIFlowCondition, newComplexMIFlowCondition));
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION, newComplexMIFlowCondition,
+                    newComplexMIFlowCondition));
     }
 
     /**
@@ -325,18 +303,13 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAttributeComplexMI_FlowCondition(
-            String newAttributeComplexMI_FlowCondition) {
-        String oldAttributeComplexMI_FlowCondition =
-                attributeComplexMI_FlowCondition;
+    public void setAttributeComplexMI_FlowCondition(String newAttributeComplexMI_FlowCondition) {
+        String oldAttributeComplexMI_FlowCondition = attributeComplexMI_FlowCondition;
         attributeComplexMI_FlowCondition = newAttributeComplexMI_FlowCondition;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION,
-                    oldAttributeComplexMI_FlowCondition,
-                    attributeComplexMI_FlowCondition));
+                    oldAttributeComplexMI_FlowCondition, attributeComplexMI_FlowCondition));
     }
 
     /**
@@ -358,8 +331,8 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         attributeMI_Condition = newAttributeMI_Condition;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION,
-                    oldAttributeMI_Condition, attributeMI_Condition));
+                    Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION, oldAttributeMI_Condition,
+                    attributeMI_Condition));
     }
 
     /**
@@ -380,8 +353,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         BigInteger oldLoopCounter = loopCounter;
         loopCounter = newLoopCounter;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__LOOP_COUNTER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_MULTI_INSTANCE__LOOP_COUNTER,
                     oldLoopCounter, loopCounter));
     }
 
@@ -399,15 +371,12 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMICondition(Expression newMICondition,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMICondition(Expression newMICondition, NotificationChain msgs) {
         Expression oldMICondition = mICondition;
         mICondition = newMICondition;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
-                            oldMICondition, newMICondition);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION, oldMICondition, newMICondition);
             if (msgs == null)
                 msgs = notification;
             else
@@ -425,27 +394,20 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         if (newMICondition != mICondition) {
             NotificationChain msgs = null;
             if (mICondition != null)
-                msgs =
-                        ((InternalEObject) mICondition)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) mICondition).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
+                        null,
+                        msgs);
             if (newMICondition != null)
-                msgs =
-                        ((InternalEObject) newMICondition)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newMICondition).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
+                        null,
+                        msgs);
             msgs = basicSetMICondition(newMICondition, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION,
                     newMICondition, newMICondition));
     }
 
@@ -465,16 +427,12 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      */
     public void setMIFlowCondition(MIFlowConditionType newMIFlowCondition) {
         MIFlowConditionType oldMIFlowCondition = mIFlowCondition;
-        mIFlowCondition =
-                newMIFlowCondition == null ? MI_FLOW_CONDITION_EDEFAULT
-                        : newMIFlowCondition;
+        mIFlowCondition = newMIFlowCondition == null ? MI_FLOW_CONDITION_EDEFAULT : newMIFlowCondition;
         boolean oldMIFlowConditionESet = mIFlowConditionESet;
         mIFlowConditionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION,
-                    oldMIFlowCondition, mIFlowCondition,
-                    !oldMIFlowConditionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION,
+                    oldMIFlowCondition, mIFlowCondition, !oldMIFlowConditionESet));
     }
 
     /**
@@ -488,10 +446,8 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         mIFlowCondition = MI_FLOW_CONDITION_EDEFAULT;
         mIFlowConditionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION,
-                    oldMIFlowCondition, MI_FLOW_CONDITION_EDEFAULT,
-                    oldMIFlowConditionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION,
+                    oldMIFlowCondition, MI_FLOW_CONDITION_EDEFAULT, oldMIFlowConditionESet));
     }
 
     /**
@@ -519,13 +475,11 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      */
     public void setMIOrdering(MIOrderingType newMIOrdering) {
         MIOrderingType oldMIOrdering = mIOrdering;
-        mIOrdering =
-                newMIOrdering == null ? MI_ORDERING_EDEFAULT : newMIOrdering;
+        mIOrdering = newMIOrdering == null ? MI_ORDERING_EDEFAULT : newMIOrdering;
         boolean oldMIOrderingESet = mIOrderingESet;
         mIOrderingESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_ORDERING,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP_MULTI_INSTANCE__MI_ORDERING,
                     oldMIOrdering, mIOrdering, !oldMIOrderingESet));
     }
 
@@ -540,8 +494,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         mIOrdering = MI_ORDERING_EDEFAULT;
         mIOrderingESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.LOOP_MULTI_INSTANCE__MI_ORDERING,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.LOOP_MULTI_INSTANCE__MI_ORDERING,
                     oldMIOrdering, MI_ORDERING_EDEFAULT, oldMIOrderingESet));
     }
 
@@ -571,12 +524,10 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LOOP_MULTI_INSTANCE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.LOOP_MULTI_INSTANCE__MI_CONDITION:
             return basicSetMICondition(null, msgs);
         case Xpdl2Package.LOOP_MULTI_INSTANCE__COMPLEX_MI_FLOW_CONDITION:
@@ -698,8 +649,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         case Xpdl2Package.LOOP_MULTI_INSTANCE__OTHER_ELEMENTS:
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.LOOP_MULTI_INSTANCE__LOOP_COUNTER:
-            return LOOP_COUNTER_EDEFAULT == null ? loopCounter != null
-                    : !LOOP_COUNTER_EDEFAULT.equals(loopCounter);
+            return LOOP_COUNTER_EDEFAULT == null ? loopCounter != null : !LOOP_COUNTER_EDEFAULT.equals(loopCounter);
         case Xpdl2Package.LOOP_MULTI_INSTANCE__MI_FLOW_CONDITION:
             return isSetMIFlowCondition();
         case Xpdl2Package.LOOP_MULTI_INSTANCE__MI_ORDERING:
@@ -710,12 +660,10 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
             return complexMIFlowCondition != null;
         case Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION:
             return ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT == null ? attributeComplexMI_FlowCondition != null
-                    : !ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT
-                            .equals(attributeComplexMI_FlowCondition);
+                    : !ATTRIBUTE_COMPLEX_MI_FLOW_CONDITION_EDEFAULT.equals(attributeComplexMI_FlowCondition);
         case Xpdl2Package.LOOP_MULTI_INSTANCE__ATTRIBUTE_MI_CONDITION:
             return ATTRIBUTE_MI_CONDITION_EDEFAULT == null ? attributeMI_Condition != null
-                    : !ATTRIBUTE_MI_CONDITION_EDEFAULT
-                            .equals(attributeMI_Condition);
+                    : !ATTRIBUTE_MI_CONDITION_EDEFAULT.equals(attributeMI_Condition);
         }
         return super.eIsSet(featureID);
     }
@@ -730,7 +678,7 @@ public class LoopMultiInstanceImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", loopCounter: "); //$NON-NLS-1$

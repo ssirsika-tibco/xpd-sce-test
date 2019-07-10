@@ -108,8 +108,7 @@ public enum BasicTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>STRING</b></em>' literal value.
@@ -252,10 +251,9 @@ public enum BasicTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final BasicTypeType[] VALUES_ARRAY = new BasicTypeType[] {
-            STRING_LITERAL, FLOAT_LITERAL, INTEGER_LITERAL, REFERENCE_LITERAL,
-            DATE_LITERAL, TIME_LITERAL, DATETIME_LITERAL, BOOLEAN_LITERAL,
-            PERFORMER_LITERAL, };
+    private static final BasicTypeType[] VALUES_ARRAY =
+            new BasicTypeType[] { STRING_LITERAL, FLOAT_LITERAL, INTEGER_LITERAL, REFERENCE_LITERAL, DATE_LITERAL,
+                    TIME_LITERAL, DATETIME_LITERAL, BOOLEAN_LITERAL, PERFORMER_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Basic Type Type</b></em>' enumerators.
@@ -263,13 +261,14 @@ public enum BasicTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<BasicTypeType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<BasicTypeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Basic Type Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BasicTypeType get(String literal) {
@@ -286,6 +285,8 @@ public enum BasicTypeType implements Enumerator {
      * Returns the '<em><b>Basic Type Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BasicTypeType getByName(String name) {
@@ -302,6 +303,8 @@ public enum BasicTypeType implements Enumerator {
      * Returns the '<em><b>Basic Type Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static BasicTypeType get(int value) {

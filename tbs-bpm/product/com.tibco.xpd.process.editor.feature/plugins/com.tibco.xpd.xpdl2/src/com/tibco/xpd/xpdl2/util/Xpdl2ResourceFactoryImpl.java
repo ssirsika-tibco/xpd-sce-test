@@ -24,8 +24,7 @@ public class Xpdl2ResourceFactoryImpl extends ResourceFactoryImpl {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Creates an instance of the resource factory.
@@ -45,23 +44,16 @@ public class Xpdl2ResourceFactoryImpl extends ResourceFactoryImpl {
      */
     public Resource createResource(URI uri) {
         XMLResource result = new Xpdl2ResourceImpl(uri);
-        result.getDefaultSaveOptions()
-                .put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-        result.getDefaultLoadOptions()
-                .put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+        result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+        result.getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 
-        result.getDefaultSaveOptions().put(XMLResource.OPTION_SCHEMA_LOCATION,
-                Boolean.TRUE);
-        result.getDefaultSaveOptions()
-                .put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE,
-                        Boolean.TRUE);
+        result.getDefaultSaveOptions().put(XMLResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
+        result.getDefaultSaveOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
 
-        result.getDefaultLoadOptions()
-                .put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
+        result.getDefaultLoadOptions().put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
 
         //Set UTF-8 encoding
-        result.getDefaultSaveOptions()
-                .put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+        result.getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
 
         return result;
     }

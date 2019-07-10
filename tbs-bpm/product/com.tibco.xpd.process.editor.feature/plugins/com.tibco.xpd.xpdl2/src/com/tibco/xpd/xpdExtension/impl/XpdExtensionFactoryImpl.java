@@ -19,15 +19,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * end-user-doc -->
  * @generated
  */
-public class XpdExtensionFactoryImpl extends EFactoryImpl
-        implements XpdExtensionFactory {
+public class XpdExtensionFactoryImpl extends EFactoryImpl implements XpdExtensionFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Creates the default factory implementation.
@@ -38,8 +36,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
     public static XpdExtensionFactory init() {
         try {
             XpdExtensionFactory theXpdExtensionFactory =
-                    (XpdExtensionFactory) EPackage.Registry.INSTANCE
-                            .getEFactory(XpdExtensionPackage.eNS_URI);
+                    (XpdExtensionFactory) EPackage.Registry.INSTANCE.getEFactory(XpdExtensionPackage.eNS_URI);
             if (theXpdExtensionFactory != null) {
                 return theXpdExtensionFactory;
             }
@@ -297,8 +294,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.REST_SERVICE_OPERATION:
             return createRestServiceOperation();
         default:
-            throw new IllegalArgumentException("The class '" + eClass.getName() //$NON-NLS-1$
-                    + "' is not a valid classifier"); //$NON-NLS-1$
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -310,8 +306,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
     public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
         case XpdExtensionPackage.ALLOCATION_STRATEGY_TYPE:
-            return createAllocationStrategyTypeFromString(eDataType,
-                    initialValue);
+            return createAllocationStrategyTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.ALLOCATION_TYPE:
             return createAllocationTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.AUDIT_EVENT_TYPE:
@@ -321,34 +316,29 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.ERROR_THROWER_TYPE:
             return createErrorThrowerTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.EVENT_HANDLER_FLOW_STRATEGY:
-            return createEventHandlerFlowStrategyFromString(eDataType,
-                    initialValue);
+            return createEventHandlerFlowStrategyFromString(eDataType, initialValue);
         case XpdExtensionPackage.FLOW_ROUTING_STYLE:
             return createFlowRoutingStyleFromString(eDataType, initialValue);
         case XpdExtensionPackage.FORM_IMPLEMENTATION_TYPE:
-            return createFormImplementationTypeFromString(eDataType,
-                    initialValue);
+            return createFormImplementationTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.MAX_RETRY_ACTION_TYPE:
             return createMaxRetryActionTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.RESCHEDULE_DURATION_TYPE:
-            return createRescheduleDurationTypeFromString(eDataType,
-                    initialValue);
+            return createRescheduleDurationTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.RESCHEDULE_TIMER_SELECTION_TYPE:
-            return createRescheduleTimerSelectionTypeFromString(eDataType,
-                    initialValue);
+            return createRescheduleTimerSelectionTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.SECURITY_POLICY:
             return createSecurityPolicyFromString(eDataType, initialValue);
         case XpdExtensionPackage.SOAP_BINDING_STYLE:
             return createSoapBindingStyleFromString(eDataType, initialValue);
+        case XpdExtensionPackage.FIELD_FORMAT:
+            return createFieldFormatFromString(eDataType, initialValue);
         case XpdExtensionPackage.SUB_PROCESS_START_STRATEGY:
-            return createSubProcessStartStrategyFromString(eDataType,
-                    initialValue);
+            return createSubProcessStartStrategyFromString(eDataType, initialValue);
         case XpdExtensionPackage.SYSTEM_ERROR_ACTION_TYPE:
-            return createSystemErrorActionTypeFromString(eDataType,
-                    initialValue);
+            return createSystemErrorActionTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE_TYPE:
-            return createValidationIssueOverrideTypeFromString(eDataType,
-                    initialValue);
+            return createValidationIssueOverrideTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.VISIBILITY:
             return createVisibilityFromString(eDataType, initialValue);
         case XpdExtensionPackage.DELIVERY_MODE:
@@ -356,11 +346,9 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.XPD_MODEL_TYPE:
             return createXpdModelTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.AD_HOC_EXECUTION_TYPE_TYPE:
-            return createAdHocExecutionTypeTypeFromString(eDataType,
-                    initialValue);
+            return createAdHocExecutionTypeTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.QUERY_EXPRESSION_JOIN_TYPE:
-            return createQueryExpressionJoinTypeFromString(eDataType,
-                    initialValue);
+            return createQueryExpressionJoinTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.CMIS_QUERY_OPERATOR:
             return createCMISQueryOperatorFromString(eDataType, initialValue);
         case XpdExtensionPackage.ASYNC_EXECUTION_MODE:
@@ -370,23 +358,17 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.XPD_INTERFACE_TYPE:
             return createXpdInterfaceTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION_TYPE:
-            return createDataMapperArrayInflationTypeFromString(eDataType,
-                    initialValue);
+            return createDataMapperArrayInflationTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.BUSINESS_SERVICE_PUBLISH_TYPE:
-            return createBusinessServicePublishTypeFromString(eDataType,
-                    initialValue);
+            return createBusinessServicePublishTypeFromString(eDataType, initialValue);
         case XpdExtensionPackage.AUDIT_EVENT_TYPE_OBJECT:
-            return createAuditEventTypeObjectFromString(eDataType,
-                    initialValue);
+            return createAuditEventTypeObjectFromString(eDataType, initialValue);
         case XpdExtensionPackage.SECURITY_POLICY_OBJECT:
-            return createSecurityPolicyObjectFromString(eDataType,
-                    initialValue);
+            return createSecurityPolicyObjectFromString(eDataType, initialValue);
         case XpdExtensionPackage.SOAP_BINDING_STYLE_OBJECT:
-            return createSoapBindingStyleObjectFromString(eDataType,
-                    initialValue);
+            return createSoapBindingStyleObjectFromString(eDataType, initialValue);
         default:
-            throw new IllegalArgumentException("The datatype '" //$NON-NLS-1$
-                    + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -398,8 +380,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
     public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
         case XpdExtensionPackage.ALLOCATION_STRATEGY_TYPE:
-            return convertAllocationStrategyTypeToString(eDataType,
-                    instanceValue);
+            return convertAllocationStrategyTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.ALLOCATION_TYPE:
             return convertAllocationTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.AUDIT_EVENT_TYPE:
@@ -409,34 +390,29 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.ERROR_THROWER_TYPE:
             return convertErrorThrowerTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.EVENT_HANDLER_FLOW_STRATEGY:
-            return convertEventHandlerFlowStrategyToString(eDataType,
-                    instanceValue);
+            return convertEventHandlerFlowStrategyToString(eDataType, instanceValue);
         case XpdExtensionPackage.FLOW_ROUTING_STYLE:
             return convertFlowRoutingStyleToString(eDataType, instanceValue);
         case XpdExtensionPackage.FORM_IMPLEMENTATION_TYPE:
-            return convertFormImplementationTypeToString(eDataType,
-                    instanceValue);
+            return convertFormImplementationTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.MAX_RETRY_ACTION_TYPE:
             return convertMaxRetryActionTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.RESCHEDULE_DURATION_TYPE:
-            return convertRescheduleDurationTypeToString(eDataType,
-                    instanceValue);
+            return convertRescheduleDurationTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.RESCHEDULE_TIMER_SELECTION_TYPE:
-            return convertRescheduleTimerSelectionTypeToString(eDataType,
-                    instanceValue);
+            return convertRescheduleTimerSelectionTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.SECURITY_POLICY:
             return convertSecurityPolicyToString(eDataType, instanceValue);
         case XpdExtensionPackage.SOAP_BINDING_STYLE:
             return convertSoapBindingStyleToString(eDataType, instanceValue);
+        case XpdExtensionPackage.FIELD_FORMAT:
+            return convertFieldFormatToString(eDataType, instanceValue);
         case XpdExtensionPackage.SUB_PROCESS_START_STRATEGY:
-            return convertSubProcessStartStrategyToString(eDataType,
-                    instanceValue);
+            return convertSubProcessStartStrategyToString(eDataType, instanceValue);
         case XpdExtensionPackage.SYSTEM_ERROR_ACTION_TYPE:
-            return convertSystemErrorActionTypeToString(eDataType,
-                    instanceValue);
+            return convertSystemErrorActionTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.VALIDATION_ISSUE_OVERRIDE_TYPE:
-            return convertValidationIssueOverrideTypeToString(eDataType,
-                    instanceValue);
+            return convertValidationIssueOverrideTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.VISIBILITY:
             return convertVisibilityToString(eDataType, instanceValue);
         case XpdExtensionPackage.DELIVERY_MODE:
@@ -444,11 +420,9 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.XPD_MODEL_TYPE:
             return convertXpdModelTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.AD_HOC_EXECUTION_TYPE_TYPE:
-            return convertAdHocExecutionTypeTypeToString(eDataType,
-                    instanceValue);
+            return convertAdHocExecutionTypeTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.QUERY_EXPRESSION_JOIN_TYPE:
-            return convertQueryExpressionJoinTypeToString(eDataType,
-                    instanceValue);
+            return convertQueryExpressionJoinTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.CMIS_QUERY_OPERATOR:
             return convertCMISQueryOperatorToString(eDataType, instanceValue);
         case XpdExtensionPackage.ASYNC_EXECUTION_MODE:
@@ -458,23 +432,17 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
         case XpdExtensionPackage.XPD_INTERFACE_TYPE:
             return convertXpdInterfaceTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION_TYPE:
-            return convertDataMapperArrayInflationTypeToString(eDataType,
-                    instanceValue);
+            return convertDataMapperArrayInflationTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.BUSINESS_SERVICE_PUBLISH_TYPE:
-            return convertBusinessServicePublishTypeToString(eDataType,
-                    instanceValue);
+            return convertBusinessServicePublishTypeToString(eDataType, instanceValue);
         case XpdExtensionPackage.AUDIT_EVENT_TYPE_OBJECT:
-            return convertAuditEventTypeObjectToString(eDataType,
-                    instanceValue);
+            return convertAuditEventTypeObjectToString(eDataType, instanceValue);
         case XpdExtensionPackage.SECURITY_POLICY_OBJECT:
-            return convertSecurityPolicyObjectToString(eDataType,
-                    instanceValue);
+            return convertSecurityPolicyObjectToString(eDataType, instanceValue);
         case XpdExtensionPackage.SOAP_BINDING_STYLE_OBJECT:
-            return convertSoapBindingStyleObjectToString(eDataType,
-                    instanceValue);
+            return convertSoapBindingStyleObjectToString(eDataType, instanceValue);
         default:
-            throw new IllegalArgumentException("The datatype '" //$NON-NLS-1$
-                    + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -494,8 +462,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ActivityResourcePatterns createActivityResourcePatterns() {
-        ActivityResourcePatternsImpl activityResourcePatterns =
-                new ActivityResourcePatternsImpl();
+        ActivityResourcePatternsImpl activityResourcePatterns = new ActivityResourcePatternsImpl();
         return activityResourcePatterns;
     }
 
@@ -505,8 +472,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AllocationStrategy createAllocationStrategy() {
-        AllocationStrategyImpl allocationStrategy =
-                new AllocationStrategyImpl();
+        AllocationStrategyImpl allocationStrategy = new AllocationStrategyImpl();
         return allocationStrategy;
     }
 
@@ -516,8 +482,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AssociatedCorrelationFields createAssociatedCorrelationFields() {
-        AssociatedCorrelationFieldsImpl associatedCorrelationFields =
-                new AssociatedCorrelationFieldsImpl();
+        AssociatedCorrelationFieldsImpl associatedCorrelationFields = new AssociatedCorrelationFieldsImpl();
         return associatedCorrelationFields;
     }
 
@@ -527,8 +492,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AssociatedCorrelationField createAssociatedCorrelationField() {
-        AssociatedCorrelationFieldImpl associatedCorrelationField =
-                new AssociatedCorrelationFieldImpl();
+        AssociatedCorrelationFieldImpl associatedCorrelationField = new AssociatedCorrelationFieldImpl();
         return associatedCorrelationField;
     }
 
@@ -538,8 +502,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AssociatedParameter createAssociatedParameter() {
-        AssociatedParameterImpl associatedParameter =
-                new AssociatedParameterImpl();
+        AssociatedParameterImpl associatedParameter = new AssociatedParameterImpl();
         return associatedParameter;
     }
 
@@ -549,8 +512,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AssociatedParameters createAssociatedParameters() {
-        AssociatedParametersImpl associatedParameters =
-                new AssociatedParametersImpl();
+        AssociatedParametersImpl associatedParameters = new AssociatedParametersImpl();
         return associatedParameters;
     }
 
@@ -600,8 +562,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CatchErrorMappings createCatchErrorMappings() {
-        CatchErrorMappingsImpl catchErrorMappings =
-                new CatchErrorMappingsImpl();
+        CatchErrorMappingsImpl catchErrorMappings = new CatchErrorMappingsImpl();
         return catchErrorMappings;
     }
 
@@ -621,8 +582,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ConditionalParticipant createConditionalParticipant() {
-        ConditionalParticipantImpl conditionalParticipant =
-                new ConditionalParticipantImpl();
+        ConditionalParticipantImpl conditionalParticipant = new ConditionalParticipantImpl();
         return conditionalParticipant;
     }
 
@@ -632,8 +592,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ReplyImmediateDataMappings createReplyImmediateDataMappings() {
-        ReplyImmediateDataMappingsImpl replyImmediateDataMappings =
-                new ReplyImmediateDataMappingsImpl();
+        ReplyImmediateDataMappingsImpl replyImmediateDataMappings = new ReplyImmediateDataMappingsImpl();
         return replyImmediateDataMappings;
     }
 
@@ -643,8 +602,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CorrelationDataMappings createCorrelationDataMappings() {
-        CorrelationDataMappingsImpl correlationDataMappings =
-                new CorrelationDataMappingsImpl();
+        CorrelationDataMappingsImpl correlationDataMappings = new CorrelationDataMappingsImpl();
         return correlationDataMappings;
     }
 
@@ -674,8 +632,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DurationCalculation createDurationCalculation() {
-        DurationCalculationImpl durationCalculation =
-                new DurationCalculationImpl();
+        DurationCalculationImpl durationCalculation = new DurationCalculationImpl();
         return durationCalculation;
     }
 
@@ -685,8 +642,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DynamicOrganizationMappings createDynamicOrganizationMappings() {
-        DynamicOrganizationMappingsImpl dynamicOrganizationMappings =
-                new DynamicOrganizationMappingsImpl();
+        DynamicOrganizationMappingsImpl dynamicOrganizationMappings = new DynamicOrganizationMappingsImpl();
         return dynamicOrganizationMappings;
     }
 
@@ -696,8 +652,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DynamicOrganizationMapping createDynamicOrganizationMapping() {
-        DynamicOrganizationMappingImpl dynamicOrganizationMapping =
-                new DynamicOrganizationMappingImpl();
+        DynamicOrganizationMappingImpl dynamicOrganizationMapping = new DynamicOrganizationMappingImpl();
         return dynamicOrganizationMapping;
     }
 
@@ -707,8 +662,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DynamicOrgIdentifierRef createDynamicOrgIdentifierRef() {
-        DynamicOrgIdentifierRefImpl dynamicOrgIdentifierRef =
-                new DynamicOrgIdentifierRefImpl();
+        DynamicOrgIdentifierRefImpl dynamicOrgIdentifierRef = new DynamicOrgIdentifierRefImpl();
         return dynamicOrgIdentifierRef;
     }
 
@@ -738,8 +692,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public EventHandlerInitialisers createEventHandlerInitialisers() {
-        EventHandlerInitialisersImpl eventHandlerInitialisers =
-                new EventHandlerInitialisersImpl();
+        EventHandlerInitialisersImpl eventHandlerInitialisers = new EventHandlerInitialisersImpl();
         return eventHandlerInitialisers;
     }
 
@@ -759,8 +712,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public FormImplementation createFormImplementation() {
-        FormImplementationImpl formImplementation =
-                new FormImplementationImpl();
+        FormImplementationImpl formImplementation = new FormImplementationImpl();
         return formImplementation;
     }
 
@@ -770,8 +722,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ImplementedInterface createImplementedInterface() {
-        ImplementedInterfaceImpl implementedInterface =
-                new ImplementedInterfaceImpl();
+        ImplementedInterfaceImpl implementedInterface = new ImplementedInterfaceImpl();
         return implementedInterface;
     }
 
@@ -791,8 +742,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public InitialParameterValue createInitialParameterValue() {
-        InitialParameterValueImpl initialParameterValue =
-                new InitialParameterValueImpl();
+        InitialParameterValueImpl initialParameterValue = new InitialParameterValueImpl();
         return initialParameterValue;
     }
 
@@ -802,8 +752,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public IntermediateMethod createIntermediateMethod() {
-        IntermediateMethodImpl intermediateMethod =
-                new IntermediateMethodImpl();
+        IntermediateMethodImpl intermediateMethod = new IntermediateMethodImpl();
         return intermediateMethod;
     }
 
@@ -813,8 +762,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public MultiInstanceScripts createMultiInstanceScripts() {
-        MultiInstanceScriptsImpl multiInstanceScripts =
-                new MultiInstanceScriptsImpl();
+        MultiInstanceScriptsImpl multiInstanceScripts = new MultiInstanceScriptsImpl();
         return multiInstanceScripts;
     }
 
@@ -824,8 +772,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public NamespacePrefixMap createNamespacePrefixMap() {
-        NamespacePrefixMapImpl namespacePrefixMap =
-                new NamespacePrefixMapImpl();
+        NamespacePrefixMapImpl namespacePrefixMap = new NamespacePrefixMapImpl();
         return namespacePrefixMap;
     }
 
@@ -885,8 +832,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ProcessResourcePatterns createProcessResourcePatterns() {
-        ProcessResourcePatternsImpl processResourcePatterns =
-                new ProcessResourcePatternsImpl();
+        ProcessResourcePatternsImpl processResourcePatterns = new ProcessResourcePatternsImpl();
         return processResourcePatterns;
     }
 
@@ -896,8 +842,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public RescheduleTimerScript createRescheduleTimerScript() {
-        RescheduleTimerScriptImpl rescheduleTimerScript =
-                new RescheduleTimerScriptImpl();
+        RescheduleTimerScriptImpl rescheduleTimerScript = new RescheduleTimerScriptImpl();
         return rescheduleTimerScript;
     }
 
@@ -917,8 +862,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public RetainFamiliarActivities createRetainFamiliarActivities() {
-        RetainFamiliarActivitiesImpl retainFamiliarActivities =
-                new RetainFamiliarActivitiesImpl();
+        RetainFamiliarActivitiesImpl retainFamiliarActivities = new RetainFamiliarActivitiesImpl();
         return retainFamiliarActivities;
     }
 
@@ -948,8 +892,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public SeparationOfDutiesActivities createSeparationOfDutiesActivities() {
-        SeparationOfDutiesActivitiesImpl separationOfDutiesActivities =
-                new SeparationOfDutiesActivitiesImpl();
+        SeparationOfDutiesActivitiesImpl separationOfDutiesActivities = new SeparationOfDutiesActivitiesImpl();
         return separationOfDutiesActivities;
     }
 
@@ -979,8 +922,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public StructuredDiscriminator createStructuredDiscriminator() {
-        StructuredDiscriminatorImpl structuredDiscriminator =
-                new StructuredDiscriminatorImpl();
+        StructuredDiscriminatorImpl structuredDiscriminator = new StructuredDiscriminatorImpl();
         return structuredDiscriminator;
     }
 
@@ -990,8 +932,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public TaskLibraryReference createTaskLibraryReference() {
-        TaskLibraryReferenceImpl taskLibraryReference =
-                new TaskLibraryReferenceImpl();
+        TaskLibraryReferenceImpl taskLibraryReference = new TaskLibraryReferenceImpl();
         return taskLibraryReference;
     }
 
@@ -1031,8 +972,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ValidationIssueOverride createValidationIssueOverride() {
-        ValidationIssueOverrideImpl validationIssueOverride =
-                new ValidationIssueOverrideImpl();
+        ValidationIssueOverrideImpl validationIssueOverride = new ValidationIssueOverrideImpl();
         return validationIssueOverride;
     }
 
@@ -1042,8 +982,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsdlEventAssociation createWsdlEventAssociation() {
-        WsdlEventAssociationImpl wsdlEventAssociation =
-                new WsdlEventAssociationImpl();
+        WsdlEventAssociationImpl wsdlEventAssociation = new WsdlEventAssociationImpl();
         return wsdlEventAssociation;
     }
 
@@ -1063,8 +1002,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public XpdExtDataObjectAttributes createXpdExtDataObjectAttributes() {
-        XpdExtDataObjectAttributesImpl xpdExtDataObjectAttributes =
-                new XpdExtDataObjectAttributesImpl();
+        XpdExtDataObjectAttributesImpl xpdExtDataObjectAttributes = new XpdExtDataObjectAttributesImpl();
         return xpdExtDataObjectAttributes;
     }
 
@@ -1104,8 +1042,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public UpdateCaseOperationType createUpdateCaseOperationType() {
-        UpdateCaseOperationTypeImpl updateCaseOperationType =
-                new UpdateCaseOperationTypeImpl();
+        UpdateCaseOperationTypeImpl updateCaseOperationType = new UpdateCaseOperationTypeImpl();
         return updateCaseOperationType;
     }
 
@@ -1115,8 +1052,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AddLinkAssociationsType createAddLinkAssociationsType() {
-        AddLinkAssociationsTypeImpl addLinkAssociationsType =
-                new AddLinkAssociationsTypeImpl();
+        AddLinkAssociationsTypeImpl addLinkAssociationsType = new AddLinkAssociationsTypeImpl();
         return addLinkAssociationsType;
     }
 
@@ -1126,8 +1062,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public RemoveLinkAssociationsType createRemoveLinkAssociationsType() {
-        RemoveLinkAssociationsTypeImpl removeLinkAssociationsType =
-                new RemoveLinkAssociationsTypeImpl();
+        RemoveLinkAssociationsTypeImpl removeLinkAssociationsType = new RemoveLinkAssociationsTypeImpl();
         return removeLinkAssociationsType;
     }
 
@@ -1137,8 +1072,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CaseReferenceOperationsType createCaseReferenceOperationsType() {
-        CaseReferenceOperationsTypeImpl caseReferenceOperationsType =
-                new CaseReferenceOperationsTypeImpl();
+        CaseReferenceOperationsTypeImpl caseReferenceOperationsType = new CaseReferenceOperationsTypeImpl();
         return caseReferenceOperationsType;
     }
 
@@ -1148,8 +1082,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public GlobalDataOperation createGlobalDataOperation() {
-        GlobalDataOperationImpl globalDataOperation =
-                new GlobalDataOperationImpl();
+        GlobalDataOperationImpl globalDataOperation = new GlobalDataOperationImpl();
         return globalDataOperation;
     }
 
@@ -1159,8 +1092,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DeleteByCaseIdentifierType createDeleteByCaseIdentifierType() {
-        DeleteByCaseIdentifierTypeImpl deleteByCaseIdentifierType =
-                new DeleteByCaseIdentifierTypeImpl();
+        DeleteByCaseIdentifierTypeImpl deleteByCaseIdentifierType = new DeleteByCaseIdentifierTypeImpl();
         return deleteByCaseIdentifierType;
     }
 
@@ -1170,8 +1102,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CompositeIdentifierType createCompositeIdentifierType() {
-        CompositeIdentifierTypeImpl compositeIdentifierType =
-                new CompositeIdentifierTypeImpl();
+        CompositeIdentifierTypeImpl compositeIdentifierType = new CompositeIdentifierTypeImpl();
         return compositeIdentifierType;
     }
 
@@ -1203,8 +1134,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CreateCaseOperationType createCreateCaseOperationType() {
-        CreateCaseOperationTypeImpl createCaseOperationType =
-                new CreateCaseOperationTypeImpl();
+        CreateCaseOperationTypeImpl createCaseOperationType = new CreateCaseOperationTypeImpl();
         return createCaseOperationType;
     }
 
@@ -1214,8 +1144,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CaseAccessOperationsType createCaseAccessOperationsType() {
-        CaseAccessOperationsTypeImpl caseAccessOperationsType =
-                new CaseAccessOperationsTypeImpl();
+        CaseAccessOperationsTypeImpl caseAccessOperationsType = new CaseAccessOperationsTypeImpl();
         return caseAccessOperationsType;
     }
 
@@ -1225,8 +1154,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DataWorkItemAttributeMapping createDataWorkItemAttributeMapping() {
-        DataWorkItemAttributeMappingImpl dataWorkItemAttributeMapping =
-                new DataWorkItemAttributeMappingImpl();
+        DataWorkItemAttributeMappingImpl dataWorkItemAttributeMapping = new DataWorkItemAttributeMappingImpl();
         return dataWorkItemAttributeMapping;
     }
 
@@ -1247,8 +1175,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public BpmRuntimeConfiguration createBpmRuntimeConfiguration() {
-        BpmRuntimeConfigurationImpl bpmRuntimeConfiguration =
-                new BpmRuntimeConfigurationImpl();
+        BpmRuntimeConfigurationImpl bpmRuntimeConfiguration = new BpmRuntimeConfigurationImpl();
         return bpmRuntimeConfiguration;
     }
 
@@ -1268,8 +1195,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public InitializerActivitiesType createInitializerActivitiesType() {
-        InitializerActivitiesTypeImpl initializerActivitiesType =
-                new InitializerActivitiesTypeImpl();
+        InitializerActivitiesTypeImpl initializerActivitiesType = new InitializerActivitiesTypeImpl();
         return initializerActivitiesType;
     }
 
@@ -1279,8 +1205,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public AdHocTaskConfigurationType createAdHocTaskConfigurationType() {
-        AdHocTaskConfigurationTypeImpl adHocTaskConfigurationType =
-                new AdHocTaskConfigurationTypeImpl();
+        AdHocTaskConfigurationTypeImpl adHocTaskConfigurationType = new AdHocTaskConfigurationTypeImpl();
         return adHocTaskConfigurationType;
     }
 
@@ -1290,8 +1215,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public RequiredAccessPrivileges createRequiredAccessPrivileges() {
-        RequiredAccessPrivilegesImpl requiredAccessPrivileges =
-                new RequiredAccessPrivilegesImpl();
+        RequiredAccessPrivilegesImpl requiredAccessPrivileges = new RequiredAccessPrivilegesImpl();
         return requiredAccessPrivileges;
     }
 
@@ -1301,8 +1225,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public VisibleForCaseStates createVisibleForCaseStates() {
-        VisibleForCaseStatesImpl visibleForCaseStates =
-                new VisibleForCaseStatesImpl();
+        VisibleForCaseStatesImpl visibleForCaseStates = new VisibleForCaseStatesImpl();
         return visibleForCaseStates;
     }
 
@@ -1332,8 +1255,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CaseDocRefOperations createCaseDocRefOperations() {
-        CaseDocRefOperationsImpl caseDocRefOperations =
-                new CaseDocRefOperationsImpl();
+        CaseDocRefOperationsImpl caseDocRefOperations = new CaseDocRefOperationsImpl();
         return caseDocRefOperations;
     }
 
@@ -1343,8 +1265,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CaseDocFindOperations createCaseDocFindOperations() {
-        CaseDocFindOperationsImpl caseDocFindOperations =
-                new CaseDocFindOperationsImpl();
+        CaseDocFindOperationsImpl caseDocFindOperations = new CaseDocFindOperationsImpl();
         return caseDocFindOperations;
     }
 
@@ -1354,8 +1275,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public MoveCaseDocOperation createMoveCaseDocOperation() {
-        MoveCaseDocOperationImpl moveCaseDocOperation =
-                new MoveCaseDocOperationImpl();
+        MoveCaseDocOperationImpl moveCaseDocOperation = new MoveCaseDocOperationImpl();
         return moveCaseDocOperation;
     }
 
@@ -1365,8 +1285,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public UnlinkCaseDocOperation createUnlinkCaseDocOperation() {
-        UnlinkCaseDocOperationImpl unlinkCaseDocOperation =
-                new UnlinkCaseDocOperationImpl();
+        UnlinkCaseDocOperationImpl unlinkCaseDocOperation = new UnlinkCaseDocOperationImpl();
         return unlinkCaseDocOperation;
     }
 
@@ -1376,8 +1295,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public LinkCaseDocOperation createLinkCaseDocOperation() {
-        LinkCaseDocOperationImpl linkCaseDocOperation =
-                new LinkCaseDocOperationImpl();
+        LinkCaseDocOperationImpl linkCaseDocOperation = new LinkCaseDocOperationImpl();
         return linkCaseDocOperation;
     }
 
@@ -1387,8 +1305,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public LinkSystemDocumentOperation createLinkSystemDocumentOperation() {
-        LinkSystemDocumentOperationImpl linkSystemDocumentOperation =
-                new LinkSystemDocumentOperationImpl();
+        LinkSystemDocumentOperationImpl linkSystemDocumentOperation = new LinkSystemDocumentOperationImpl();
         return linkSystemDocumentOperation;
     }
 
@@ -1398,8 +1315,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public DeleteCaseDocOperation createDeleteCaseDocOperation() {
-        DeleteCaseDocOperationImpl deleteCaseDocOperation =
-                new DeleteCaseDocOperationImpl();
+        DeleteCaseDocOperationImpl deleteCaseDocOperation = new DeleteCaseDocOperationImpl();
         return deleteCaseDocOperation;
     }
 
@@ -1409,8 +1325,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public FindByFileNameOperation createFindByFileNameOperation() {
-        FindByFileNameOperationImpl findByFileNameOperation =
-                new FindByFileNameOperationImpl();
+        FindByFileNameOperationImpl findByFileNameOperation = new FindByFileNameOperationImpl();
         return findByFileNameOperation;
     }
 
@@ -1420,8 +1335,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public FindByQueryOperation createFindByQueryOperation() {
-        FindByQueryOperationImpl findByQueryOperation =
-                new FindByQueryOperationImpl();
+        FindByQueryOperationImpl findByQueryOperation = new FindByQueryOperationImpl();
         return findByQueryOperation;
     }
 
@@ -1431,8 +1345,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public CaseDocumentQueryExpression createCaseDocumentQueryExpression() {
-        CaseDocumentQueryExpressionImpl caseDocumentQueryExpression =
-                new CaseDocumentQueryExpressionImpl();
+        CaseDocumentQueryExpressionImpl caseDocumentQueryExpression = new CaseDocumentQueryExpressionImpl();
         return caseDocumentQueryExpression;
     }
 
@@ -1442,8 +1355,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public ServiceProcessConfiguration createServiceProcessConfiguration() {
-        ServiceProcessConfigurationImpl serviceProcessConfiguration =
-                new ServiceProcessConfigurationImpl();
+        ServiceProcessConfigurationImpl serviceProcessConfiguration = new ServiceProcessConfigurationImpl();
         return serviceProcessConfiguration;
     }
 
@@ -1463,8 +1375,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public DataMapperArrayInflation createDataMapperArrayInflation() {
-        DataMapperArrayInflationImpl dataMapperArrayInflation =
-                new DataMapperArrayInflationImpl();
+        DataMapperArrayInflationImpl dataMapperArrayInflation = new DataMapperArrayInflationImpl();
         return dataMapperArrayInflation;
     }
 
@@ -1474,8 +1385,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public LikeMappingExclusions createLikeMappingExclusions() {
-        LikeMappingExclusionsImpl likeMappingExclusions =
-                new LikeMappingExclusionsImpl();
+        LikeMappingExclusionsImpl likeMappingExclusions = new LikeMappingExclusionsImpl();
         return likeMappingExclusions;
     }
 
@@ -1485,8 +1395,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public RestServiceOperation createRestServiceOperation() {
-        RestServiceOperationImpl restServiceOperation =
-                new RestServiceOperationImpl();
+        RestServiceOperationImpl restServiceOperation = new RestServiceOperationImpl();
         return restServiceOperation;
     }
 
@@ -1496,8 +1405,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public LikeMappingExclusion createLikeMappingExclusion() {
-        LikeMappingExclusionImpl likeMappingExclusion =
-                new LikeMappingExclusionImpl();
+        LikeMappingExclusionImpl likeMappingExclusion = new LikeMappingExclusionImpl();
         return likeMappingExclusion;
     }
 
@@ -1517,8 +1425,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public RestServiceResource createRestServiceResource() {
-        RestServiceResourceImpl restServiceResource =
-                new RestServiceResourceImpl();
+        RestServiceResourceImpl restServiceResource = new RestServiceResourceImpl();
         return restServiceResource;
     }
 
@@ -1528,8 +1435,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * @generated
      */
     public RestServiceResourceSecurity createRestServiceResourceSecurity() {
-        RestServiceResourceSecurityImpl restServiceResourceSecurity =
-                new RestServiceResourceSecurityImpl();
+        RestServiceResourceSecurityImpl restServiceResourceSecurity = new RestServiceResourceSecurityImpl();
         return restServiceResourceSecurity;
     }
 
@@ -1569,8 +1475,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public ParticipantSharedResource createParticipantSharedResource() {
-        ParticipantSharedResourceImpl participantSharedResource =
-                new ParticipantSharedResourceImpl();
+        ParticipantSharedResourceImpl participantSharedResource = new ParticipantSharedResourceImpl();
         return participantSharedResource;
     }
 
@@ -1664,8 +1569,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapHttpInboundBinding createWsSoapHttpInboundBinding() {
-        WsSoapHttpInboundBindingImpl wsSoapHttpInboundBinding =
-                new WsSoapHttpInboundBindingImpl();
+        WsSoapHttpInboundBindingImpl wsSoapHttpInboundBinding = new WsSoapHttpInboundBindingImpl();
         return wsSoapHttpInboundBinding;
     }
 
@@ -1674,8 +1578,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapHttpInboundBinding createWsSoapHttpInboundBindingDefault() {
-        WsSoapHttpInboundBinding wsSoapHttpInboundBinding =
-                createWsSoapHttpInboundBinding();
+        WsSoapHttpInboundBinding wsSoapHttpInboundBinding = createWsSoapHttpInboundBinding();
         wsSoapHttpInboundBinding.setName("SoapOverHttp"); //$NON-NLS-1$
         wsSoapHttpInboundBinding.setBindingStyle(SoapBindingStyle.RPC_LITERAL);
         wsSoapHttpInboundBinding.setSoapVersion("1.1"); //$NON-NLS-1$
@@ -1690,8 +1593,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapHttpOutboundBinding createWsSoapHttpOutboundBinding() {
-        WsSoapHttpOutboundBindingImpl wsSoapHttpOutboundBinding =
-                new WsSoapHttpOutboundBindingImpl();
+        WsSoapHttpOutboundBindingImpl wsSoapHttpOutboundBinding = new WsSoapHttpOutboundBindingImpl();
         return wsSoapHttpOutboundBinding;
     }
 
@@ -1700,8 +1602,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapHttpOutboundBinding createWsSoapHttpOutboundBindingDefault() {
-        WsSoapHttpOutboundBinding wsSoapHttpOutboundBinding =
-                createWsSoapHttpOutboundBinding();
+        WsSoapHttpOutboundBinding wsSoapHttpOutboundBinding = createWsSoapHttpOutboundBinding();
         wsSoapHttpOutboundBinding.setName("SoapOverHttp"); //$NON-NLS-1$
         WsSoapSecurity wsSoapSecurity = createWsSoapSecurity();
         wsSoapHttpOutboundBinding.setOutboundSecurity(wsSoapSecurity);
@@ -1714,8 +1615,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapJmsInboundBinding createWsSoapJmsInboundBinding() {
-        WsSoapJmsInboundBindingImpl wsSoapJmsInboundBinding =
-                new WsSoapJmsInboundBindingImpl();
+        WsSoapJmsInboundBindingImpl wsSoapJmsInboundBinding = new WsSoapJmsInboundBindingImpl();
         return wsSoapJmsInboundBinding;
     }
 
@@ -1725,8 +1625,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapJmsOutboundBinding createWsSoapJmsOutboundBinding() {
-        WsSoapJmsOutboundBindingImpl wsSoapJmsOutboundBinding =
-                new WsSoapJmsOutboundBindingImpl();
+        WsSoapJmsOutboundBindingImpl wsSoapJmsOutboundBinding = new WsSoapJmsOutboundBindingImpl();
         return wsSoapJmsOutboundBinding;
     }
 
@@ -1764,14 +1663,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AllocationStrategyType createAllocationStrategyTypeFromString(
-            EDataType eDataType, String initialValue) {
-        AllocationStrategyType result =
-                AllocationStrategyType.get(initialValue);
+    public AllocationStrategyType createAllocationStrategyTypeFromString(EDataType eDataType, String initialValue) {
+        AllocationStrategyType result = AllocationStrategyType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1779,8 +1675,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAllocationStrategyTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAllocationStrategyTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1788,13 +1683,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AllocationType createAllocationTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public AllocationType createAllocationTypeFromString(EDataType eDataType, String initialValue) {
         AllocationType result = AllocationType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1802,8 +1695,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAllocationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAllocationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1811,13 +1703,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AuditEventType createAuditEventTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public AuditEventType createAuditEventTypeFromString(EDataType eDataType, String initialValue) {
         AuditEventType result = AuditEventType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1825,8 +1715,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAuditEventTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAuditEventTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1834,13 +1723,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public CorrelationMode createCorrelationModeFromString(EDataType eDataType,
-            String initialValue) {
+    public CorrelationMode createCorrelationModeFromString(EDataType eDataType, String initialValue) {
         CorrelationMode result = CorrelationMode.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1848,8 +1735,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertCorrelationModeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertCorrelationModeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1857,13 +1743,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ErrorThrowerType createErrorThrowerTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public ErrorThrowerType createErrorThrowerTypeFromString(EDataType eDataType, String initialValue) {
         ErrorThrowerType result = ErrorThrowerType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1871,8 +1755,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertErrorThrowerTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertErrorThrowerTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1880,14 +1763,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public EventHandlerFlowStrategy createEventHandlerFlowStrategyFromString(
-            EDataType eDataType, String initialValue) {
-        EventHandlerFlowStrategy result =
-                EventHandlerFlowStrategy.get(initialValue);
+    public EventHandlerFlowStrategy createEventHandlerFlowStrategyFromString(EDataType eDataType, String initialValue) {
+        EventHandlerFlowStrategy result = EventHandlerFlowStrategy.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1895,8 +1775,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertEventHandlerFlowStrategyToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertEventHandlerFlowStrategyToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1904,13 +1783,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public FlowRoutingStyle createFlowRoutingStyleFromString(
-            EDataType eDataType, String initialValue) {
+    public FlowRoutingStyle createFlowRoutingStyleFromString(EDataType eDataType, String initialValue) {
         FlowRoutingStyle result = FlowRoutingStyle.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1918,8 +1795,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertFlowRoutingStyleToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertFlowRoutingStyleToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1927,14 +1803,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public FormImplementationType createFormImplementationTypeFromString(
-            EDataType eDataType, String initialValue) {
-        FormImplementationType result =
-                FormImplementationType.get(initialValue);
+    public FormImplementationType createFormImplementationTypeFromString(EDataType eDataType, String initialValue) {
+        FormImplementationType result = FormImplementationType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1942,8 +1815,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertFormImplementationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertFormImplementationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1951,13 +1823,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public MaxRetryActionType createMaxRetryActionTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public MaxRetryActionType createMaxRetryActionTypeFromString(EDataType eDataType, String initialValue) {
         MaxRetryActionType result = MaxRetryActionType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1965,8 +1835,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertMaxRetryActionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertMaxRetryActionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1974,14 +1843,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public RescheduleDurationType createRescheduleDurationTypeFromString(
-            EDataType eDataType, String initialValue) {
-        RescheduleDurationType result =
-                RescheduleDurationType.get(initialValue);
+    public RescheduleDurationType createRescheduleDurationTypeFromString(EDataType eDataType, String initialValue) {
+        RescheduleDurationType result = RescheduleDurationType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -1989,8 +1855,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertRescheduleDurationTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertRescheduleDurationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -1998,14 +1863,12 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public RescheduleTimerSelectionType createRescheduleTimerSelectionTypeFromString(
-            EDataType eDataType, String initialValue) {
-        RescheduleTimerSelectionType result =
-                RescheduleTimerSelectionType.get(initialValue);
+    public RescheduleTimerSelectionType createRescheduleTimerSelectionTypeFromString(EDataType eDataType,
+            String initialValue) {
+        RescheduleTimerSelectionType result = RescheduleTimerSelectionType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2013,8 +1876,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertRescheduleTimerSelectionTypeToString(
-            EDataType eDataType, Object instanceValue) {
+    public String convertRescheduleTimerSelectionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2023,8 +1885,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * 
      * @generated NOT
      */
-    public Visibility createVisibilityFromString(EDataType eDataType,
-            String initialValue) {
+    public Visibility createVisibilityFromString(EDataType eDataType, String initialValue) {
         Visibility result = Visibility.get(initialValue);
         // if (result == null)
         // throw new IllegalArgumentException(
@@ -2036,13 +1897,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public DeliveryMode createDeliveryModeFromString(EDataType eDataType,
-            String initialValue) {
+    public DeliveryMode createDeliveryModeFromString(EDataType eDataType, String initialValue) {
         DeliveryMode result = DeliveryMode.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2050,8 +1909,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertDeliveryModeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertDeliveryModeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2059,8 +1917,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertVisibilityToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertVisibilityToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2068,13 +1925,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public XpdModelType createXpdModelTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public XpdModelType createXpdModelTypeFromString(EDataType eDataType, String initialValue) {
         XpdModelType result = XpdModelType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2082,8 +1937,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertXpdModelTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertXpdModelTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2091,14 +1945,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AdHocExecutionTypeType createAdHocExecutionTypeTypeFromString(
-            EDataType eDataType, String initialValue) {
-        AdHocExecutionTypeType result =
-                AdHocExecutionTypeType.get(initialValue);
+    public AdHocExecutionTypeType createAdHocExecutionTypeTypeFromString(EDataType eDataType, String initialValue) {
+        AdHocExecutionTypeType result = AdHocExecutionTypeType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2106,8 +1957,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAdHocExecutionTypeTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAdHocExecutionTypeTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2115,14 +1965,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public QueryExpressionJoinType createQueryExpressionJoinTypeFromString(
-            EDataType eDataType, String initialValue) {
-        QueryExpressionJoinType result =
-                QueryExpressionJoinType.get(initialValue);
+    public QueryExpressionJoinType createQueryExpressionJoinTypeFromString(EDataType eDataType, String initialValue) {
+        QueryExpressionJoinType result = QueryExpressionJoinType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2130,8 +1977,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertQueryExpressionJoinTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertQueryExpressionJoinTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2139,13 +1985,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public CMISQueryOperator createCMISQueryOperatorFromString(
-            EDataType eDataType, String initialValue) {
+    public CMISQueryOperator createCMISQueryOperatorFromString(EDataType eDataType, String initialValue) {
         CMISQueryOperator result = CMISQueryOperator.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2153,8 +1997,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertCMISQueryOperatorToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertCMISQueryOperatorToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2162,13 +2005,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AsyncExecutionMode createAsyncExecutionModeFromString(
-            EDataType eDataType, String initialValue) {
+    public AsyncExecutionMode createAsyncExecutionModeFromString(EDataType eDataType, String initialValue) {
         AsyncExecutionMode result = AsyncExecutionMode.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2176,8 +2017,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAsyncExecutionModeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertAsyncExecutionModeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2186,13 +2026,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public SignalType createSignalTypeFromString(EDataType eDataType,
-            String initialValue) {
+    public SignalType createSignalTypeFromString(EDataType eDataType, String initialValue) {
         SignalType result = SignalType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2201,8 +2039,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSignalTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertSignalTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2211,13 +2048,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public XpdInterfaceType createXpdInterfaceTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public XpdInterfaceType createXpdInterfaceTypeFromString(EDataType eDataType, String initialValue) {
         XpdInterfaceType result = XpdInterfaceType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2226,8 +2061,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertXpdInterfaceTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertXpdInterfaceTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2236,14 +2070,12 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataMapperArrayInflationType createDataMapperArrayInflationTypeFromString(
-            EDataType eDataType, String initialValue) {
-        DataMapperArrayInflationType result =
-                DataMapperArrayInflationType.get(initialValue);
+    public DataMapperArrayInflationType createDataMapperArrayInflationTypeFromString(EDataType eDataType,
+            String initialValue) {
+        DataMapperArrayInflationType result = DataMapperArrayInflationType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2252,8 +2084,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDataMapperArrayInflationTypeToString(
-            EDataType eDataType, Object instanceValue) {
+    public String convertDataMapperArrayInflationTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2262,14 +2093,12 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public BusinessServicePublishType createBusinessServicePublishTypeFromString(
-            EDataType eDataType, String initialValue) {
-        BusinessServicePublishType result =
-                BusinessServicePublishType.get(initialValue);
+    public BusinessServicePublishType createBusinessServicePublishTypeFromString(EDataType eDataType,
+            String initialValue) {
+        BusinessServicePublishType result = BusinessServicePublishType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2278,8 +2107,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertBusinessServicePublishTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertBusinessServicePublishTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2287,13 +2115,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SecurityPolicy createSecurityPolicyFromString(EDataType eDataType,
-            String initialValue) {
+    public SecurityPolicy createSecurityPolicyFromString(EDataType eDataType, String initialValue) {
         SecurityPolicy result = SecurityPolicy.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2301,8 +2127,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertSecurityPolicyToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertSecurityPolicyToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2310,13 +2135,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SoapBindingStyle createSoapBindingStyleFromString(
-            EDataType eDataType, String initialValue) {
+    public SoapBindingStyle createSoapBindingStyleFromString(EDataType eDataType, String initialValue) {
         SoapBindingStyle result = SoapBindingStyle.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2324,32 +2147,29 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertSoapBindingStyleToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertSoapBindingStyleToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    public SubProcessStartStrategy createSubProcessStartStrategyFromString(
-            EDataType eDataType, String initialValue) {
-        SubProcessStartStrategy result =
-                SubProcessStartStrategy.get(initialValue);
+    public FieldFormat createFieldFormatFromString(EDataType eDataType, String initialValue) {
+        FieldFormat result = FieldFormat.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSubProcessStartStrategyToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertFieldFormatToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2357,13 +2177,31 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SystemErrorActionType createSystemErrorActionTypeFromString(
-            EDataType eDataType, String initialValue) {
+    public SubProcessStartStrategy createSubProcessStartStrategyFromString(EDataType eDataType, String initialValue) {
+        SubProcessStartStrategy result = SubProcessStartStrategy.get(initialValue);
+        if (result == null)
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertSubProcessStartStrategyToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    public SystemErrorActionType createSystemErrorActionTypeFromString(EDataType eDataType, String initialValue) {
         SystemErrorActionType result = SystemErrorActionType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2371,8 +2209,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertSystemErrorActionTypeToString(EDataType eDataType,
-            Object instanceValue) {
+    public String convertSystemErrorActionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2380,14 +2217,12 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public ValidationIssueOverrideType createValidationIssueOverrideTypeFromString(
-            EDataType eDataType, String initialValue) {
-        ValidationIssueOverrideType result =
-                ValidationIssueOverrideType.get(initialValue);
+    public ValidationIssueOverrideType createValidationIssueOverrideTypeFromString(EDataType eDataType,
+            String initialValue) {
+        ValidationIssueOverrideType result = ValidationIssueOverrideType.get(initialValue);
         if (result == null)
-            throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
-                    + "' is not a valid enumerator of '" + eDataType.getName() //$NON-NLS-1$
-                    + "'"); //$NON-NLS-1$
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -2395,8 +2230,7 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertValidationIssueOverrideTypeToString(
-            EDataType eDataType, Object instanceValue) {
+    public String convertValidationIssueOverrideTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -2404,66 +2238,48 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public AuditEventType createAuditEventTypeObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createAuditEventTypeFromString(
-                XpdExtensionPackage.Literals.AUDIT_EVENT_TYPE,
-                initialValue);
+    public AuditEventType createAuditEventTypeObjectFromString(EDataType eDataType, String initialValue) {
+        return createAuditEventTypeFromString(XpdExtensionPackage.Literals.AUDIT_EVENT_TYPE, initialValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertAuditEventTypeObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertAuditEventTypeToString(
-                XpdExtensionPackage.Literals.AUDIT_EVENT_TYPE,
-                instanceValue);
+    public String convertAuditEventTypeObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertAuditEventTypeToString(XpdExtensionPackage.Literals.AUDIT_EVENT_TYPE, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SecurityPolicy createSecurityPolicyObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createSecurityPolicyFromString(
-                XpdExtensionPackage.Literals.SECURITY_POLICY,
-                initialValue);
+    public SecurityPolicy createSecurityPolicyObjectFromString(EDataType eDataType, String initialValue) {
+        return createSecurityPolicyFromString(XpdExtensionPackage.Literals.SECURITY_POLICY, initialValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertSecurityPolicyObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertSecurityPolicyToString(
-                XpdExtensionPackage.Literals.SECURITY_POLICY,
-                instanceValue);
+    public String convertSecurityPolicyObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertSecurityPolicyToString(XpdExtensionPackage.Literals.SECURITY_POLICY, instanceValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public SoapBindingStyle createSoapBindingStyleObjectFromString(
-            EDataType eDataType, String initialValue) {
-        return createSoapBindingStyleFromString(
-                XpdExtensionPackage.Literals.SOAP_BINDING_STYLE,
-                initialValue);
+    public SoapBindingStyle createSoapBindingStyleObjectFromString(EDataType eDataType, String initialValue) {
+        return createSoapBindingStyleFromString(XpdExtensionPackage.Literals.SOAP_BINDING_STYLE, initialValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public String convertSoapBindingStyleObjectToString(EDataType eDataType,
-            Object instanceValue) {
-        return convertSoapBindingStyleToString(
-                XpdExtensionPackage.Literals.SOAP_BINDING_STYLE,
-                instanceValue);
+    public String convertSoapBindingStyleObjectToString(EDataType eDataType, Object instanceValue) {
+        return convertSoapBindingStyleToString(XpdExtensionPackage.Literals.SOAP_BINDING_STYLE, instanceValue);
     }
 
     /**
@@ -2490,15 +2306,11 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapJmsInboundBinding createWsSoapJmsInboundBindingDefault() {
-        WsSoapJmsInboundBinding wsSoapJmsInboundBinding =
-                createWsSoapJmsInboundBinding();
+        WsSoapJmsInboundBinding wsSoapJmsInboundBinding = createWsSoapJmsInboundBinding();
         wsSoapJmsInboundBinding.setName("SoapOverJms"); //$NON-NLS-1$   
-        wsSoapJmsInboundBinding.setInboundConnectionFactoryConfiguration(
-                "amx.bpm.userapp.jmsConnFactoryConf"); //$NON-NLS-1$
-        wsSoapJmsInboundBinding
-                .setInboundDestination("amx.bpm.userapp.jms.request.conf"); //$NON-NLS-1$
-        wsSoapJmsInboundBinding
-                .setOutboundConnectionFactory("amx.bpm.userapp.jmsConnFactory"); //$NON-NLS-1$
+        wsSoapJmsInboundBinding.setInboundConnectionFactoryConfiguration("amx.bpm.userapp.jmsConnFactoryConf"); //$NON-NLS-1$
+        wsSoapJmsInboundBinding.setInboundDestination("amx.bpm.userapp.jms.request.conf"); //$NON-NLS-1$
+        wsSoapJmsInboundBinding.setOutboundConnectionFactory("amx.bpm.userapp.jmsConnFactory"); //$NON-NLS-1$
         return wsSoapJmsInboundBinding;
     }
 
@@ -2509,14 +2321,10 @@ public class XpdExtensionFactoryImpl extends EFactoryImpl
      */
     @Override
     public WsSoapJmsOutboundBinding createWsSoapJmsOutboundBindingDefault() {
-        WsSoapJmsOutboundBinding wsSoapJmsOutboundBinding =
-                createWsSoapJmsOutboundBinding();
-        wsSoapJmsOutboundBinding
-                .setInboundDestination("amx.bpm.userapp.jmsDest"); //$NON-NLS-1$
-        wsSoapJmsOutboundBinding
-                .setOutboundConnectionFactory("amx.bpm.userapp.jmsConnFactory"); //$NON-NLS-1$
-        wsSoapJmsOutboundBinding
-                .setOutboundDestination("amx.bpm.userapp.jmsDest"); //$NON-NLS-1$
+        WsSoapJmsOutboundBinding wsSoapJmsOutboundBinding = createWsSoapJmsOutboundBinding();
+        wsSoapJmsOutboundBinding.setInboundDestination("amx.bpm.userapp.jmsDest"); //$NON-NLS-1$
+        wsSoapJmsOutboundBinding.setOutboundConnectionFactory("amx.bpm.userapp.jmsConnFactory"); //$NON-NLS-1$
+        wsSoapJmsOutboundBinding.setOutboundDestination("amx.bpm.userapp.jmsDest"); //$NON-NLS-1$
 
         /* XPD-6974: Set Default Soap JMS OutBound Message Configuration */
         wsSoapJmsOutboundBinding.setPriority(4);

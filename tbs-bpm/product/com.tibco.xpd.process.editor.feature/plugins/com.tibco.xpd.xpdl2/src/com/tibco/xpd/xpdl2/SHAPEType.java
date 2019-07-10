@@ -81,8 +81,7 @@ public enum SHAPEType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Round Rectangle</b></em>' literal value.
@@ -180,9 +179,8 @@ public enum SHAPEType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final SHAPEType[] VALUES_ARRAY = new SHAPEType[] {
-            ROUND_RECTANGLE_LITERAL, RECTANGLE_LITERAL, ELLIPSE_LITERAL,
-            DIAMOND_LITERAL, UP_TRIANGLE_LITERAL, DOWN_TRIANGLE_LITERAL, };
+    private static final SHAPEType[] VALUES_ARRAY = new SHAPEType[] { ROUND_RECTANGLE_LITERAL, RECTANGLE_LITERAL,
+            ELLIPSE_LITERAL, DIAMOND_LITERAL, UP_TRIANGLE_LITERAL, DOWN_TRIANGLE_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>SHAPE Type</b></em>' enumerators.
@@ -190,13 +188,14 @@ public enum SHAPEType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<SHAPEType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<SHAPEType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>SHAPE Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static SHAPEType get(String literal) {
@@ -213,6 +212,8 @@ public enum SHAPEType implements Enumerator {
      * Returns the '<em><b>SHAPE Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static SHAPEType getByName(String name) {
@@ -229,6 +230,8 @@ public enum SHAPEType implements Enumerator {
      * Returns the '<em><b>SHAPE Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static SHAPEType get(int value) {

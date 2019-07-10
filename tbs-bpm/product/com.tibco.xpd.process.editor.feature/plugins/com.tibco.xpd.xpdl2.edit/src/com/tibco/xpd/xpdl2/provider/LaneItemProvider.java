@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LaneItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LaneItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,11 +81,12 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      */
     protected void addDeprecatedParentLanePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Lane_deprecatedParentLane_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Lane_deprecatedParentLane_feature", "_UI_Lane_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Lane_deprecatedParentLane_feature", //$NON-NLS-1$
+                                "_UI_Lane_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LANE__DEPRECATED_PARENT_LANE,
                         true,
                         false,
@@ -106,11 +104,12 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      */
     protected void addDeprecatedParentPoolIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Lane_deprecatedParentPoolId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Lane_deprecatedParentPoolId_feature", "_UI_Lane_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Lane_deprecatedParentPoolId_feature", //$NON-NLS-1$
+                                "_UI_Lane_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.LANE__DEPRECATED_PARENT_POOL_ID,
                         true,
                         false,
@@ -128,8 +127,7 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      */
     protected void addParentPoolPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Lane_parentPool_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Lane_parentPool_feature", "_UI_Lane_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -151,14 +149,11 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.LANE__OBJECT);
             childrenFeatures.add(Xpdl2Package.Literals.LANE__PERFORMERS);
             childrenFeatures.add(Xpdl2Package.Literals.LANE__NESTED_LANE);
@@ -187,8 +182,7 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Lane")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Lane")); //$NON-NLS-1$
     }
 
     /**
@@ -216,16 +210,14 @@ public class LaneItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.LANE__DEPRECATED_PARENT_LANE:
         case Xpdl2Package.LANE__DEPRECATED_PARENT_POOL_ID:
         case Xpdl2Package.LANE__PARENT_POOL:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.LANE__NODE_GRAPHICS_INFOS:
         case Xpdl2Package.LANE__OTHER_ELEMENTS:
         case Xpdl2Package.LANE__OBJECT:
         case Xpdl2Package.LANE__PERFORMERS:
         case Xpdl2Package.LANE__NESTED_LANE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -239,25 +231,20 @@ public class LaneItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
-                        Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
+                Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
 
         newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LANE__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+                .add(createChildParameter(Xpdl2Package.Literals.LANE__OBJECT, Xpdl2Factory.eINSTANCE.createObject()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LANE__PERFORMERS,
-                        Xpdl2Factory.eINSTANCE.createPerformers()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LANE__PERFORMERS,
+                Xpdl2Factory.eINSTANCE.createPerformers()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LANE__NESTED_LANE,
-                        Xpdl2Factory.eINSTANCE.createLane()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.LANE__NESTED_LANE, Xpdl2Factory.eINSTANCE.createLane()));
     }
 
 }

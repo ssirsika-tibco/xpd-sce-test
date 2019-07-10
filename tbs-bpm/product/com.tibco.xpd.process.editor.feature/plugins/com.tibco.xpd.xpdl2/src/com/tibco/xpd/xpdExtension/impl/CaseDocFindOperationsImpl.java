@@ -33,15 +33,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CaseDocFindOperationsImpl extends EObjectImpl
-        implements CaseDocFindOperations {
+public class CaseDocFindOperationsImpl extends EObjectImpl implements CaseDocFindOperations {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getFindByFileNameOperation() <em>Find By File Name Operation</em>}' containment reference.
@@ -81,8 +79,7 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected String returnCaseDocRefsField =
-            RETURN_CASE_DOC_REFS_FIELD_EDEFAULT;
+    protected String returnCaseDocRefsField = RETURN_CASE_DOC_REFS_FIELD_EDEFAULT;
 
     /**
      * The default value of the '{@link #getCaseRefField() <em>Case Ref Field</em>}' attribute.
@@ -137,15 +134,12 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFindByFileNameOperation(
-            FindByFileNameOperation newFindByFileNameOperation,
+    public NotificationChain basicSetFindByFileNameOperation(FindByFileNameOperation newFindByFileNameOperation,
             NotificationChain msgs) {
-        FindByFileNameOperation oldFindByFileNameOperation =
-                findByFileNameOperation;
+        FindByFileNameOperation oldFindByFileNameOperation = findByFileNameOperation;
         findByFileNameOperation = newFindByFileNameOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
                     oldFindByFileNameOperation, newFindByFileNameOperation);
             if (msgs == null)
@@ -161,26 +155,22 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFindByFileNameOperation(
-            FindByFileNameOperation newFindByFileNameOperation) {
+    public void setFindByFileNameOperation(FindByFileNameOperation newFindByFileNameOperation) {
         if (newFindByFileNameOperation != findByFileNameOperation) {
             NotificationChain msgs = null;
             if (findByFileNameOperation != null)
-                msgs = ((InternalEObject) findByFileNameOperation)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) findByFileNameOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
+                        null,
+                        msgs);
             if (newFindByFileNameOperation != null)
-                msgs = ((InternalEObject) newFindByFileNameOperation)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
-                                null,
-                                msgs);
-            msgs = basicSetFindByFileNameOperation(newFindByFileNameOperation,
-                    msgs);
+                msgs = ((InternalEObject) newFindByFileNameOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION,
+                        null,
+                        msgs);
+            msgs = basicSetFindByFileNameOperation(newFindByFileNameOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
@@ -203,16 +193,14 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFindByQueryOperation(
-            FindByQueryOperation newFindByQueryOperation,
+    public NotificationChain basicSetFindByQueryOperation(FindByQueryOperation newFindByQueryOperation,
             NotificationChain msgs) {
         FindByQueryOperation oldFindByQueryOperation = findByQueryOperation;
         findByQueryOperation = newFindByQueryOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
-                    oldFindByQueryOperation, newFindByQueryOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION, oldFindByQueryOperation,
+                    newFindByQueryOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -226,22 +214,17 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFindByQueryOperation(
-            FindByQueryOperation newFindByQueryOperation) {
+    public void setFindByQueryOperation(FindByQueryOperation newFindByQueryOperation) {
         if (newFindByQueryOperation != findByQueryOperation) {
             NotificationChain msgs = null;
             if (findByQueryOperation != null)
-                msgs = ((InternalEObject) findByQueryOperation).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
+                msgs = ((InternalEObject) findByQueryOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
                         null,
                         msgs);
             if (newFindByQueryOperation != null)
-                msgs = ((InternalEObject) newFindByQueryOperation).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
+                msgs = ((InternalEObject) newFindByQueryOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
                         null,
                         msgs);
             msgs = basicSetFindByQueryOperation(newFindByQueryOperation, msgs);
@@ -249,8 +232,8 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION,
-                    newFindByQueryOperation, newFindByQueryOperation));
+                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION, newFindByQueryOperation,
+                    newFindByQueryOperation));
     }
 
     /**
@@ -272,8 +255,8 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
         returnCaseDocRefsField = newReturnCaseDocRefsField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD,
-                    oldReturnCaseDocRefsField, returnCaseDocRefsField));
+                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD, oldReturnCaseDocRefsField,
+                    returnCaseDocRefsField));
     }
 
     /**
@@ -295,8 +278,7 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
         caseRefField = newCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD,
-                    oldCaseRefField, caseRefField));
+                    XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD, oldCaseRefField, caseRefField));
     }
 
     /**
@@ -305,8 +287,7 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_FILE_NAME_OPERATION:
             return basicSetFindByFileNameOperation(null, msgs);
@@ -397,10 +378,8 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__FIND_BY_QUERY_OPERATION:
             return findByQueryOperation != null;
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__RETURN_CASE_DOC_REFS_FIELD:
-            return RETURN_CASE_DOC_REFS_FIELD_EDEFAULT == null
-                    ? returnCaseDocRefsField != null
-                    : !RETURN_CASE_DOC_REFS_FIELD_EDEFAULT
-                            .equals(returnCaseDocRefsField);
+            return RETURN_CASE_DOC_REFS_FIELD_EDEFAULT == null ? returnCaseDocRefsField != null
+                    : !RETURN_CASE_DOC_REFS_FIELD_EDEFAULT.equals(returnCaseDocRefsField);
         case XpdExtensionPackage.CASE_DOC_FIND_OPERATIONS__CASE_REF_FIELD:
             return CASE_REF_FIELD_EDEFAULT == null ? caseRefField != null
                     : !CASE_REF_FIELD_EDEFAULT.equals(caseRefField);
@@ -418,7 +397,7 @@ public class CaseDocFindOperationsImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (returnCaseDocRefsField: "); //$NON-NLS-1$
         result.append(returnCaseDocRefsField);
         result.append(", caseRefField: "); //$NON-NLS-1$

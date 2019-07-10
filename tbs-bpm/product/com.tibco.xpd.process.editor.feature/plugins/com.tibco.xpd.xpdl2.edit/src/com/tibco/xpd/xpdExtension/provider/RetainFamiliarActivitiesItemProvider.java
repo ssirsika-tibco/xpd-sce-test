@@ -35,15 +35,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RetainFamiliarActivitiesItemProvider
-        extends NamedElementItemProvider {
+public class RetainFamiliarActivitiesItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,12 +77,10 @@ public class RetainFamiliarActivitiesItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF);
+            childrenFeatures.add(XpdExtensionPackage.Literals.RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF);
         }
         return childrenFeatures;
     }
@@ -110,9 +106,7 @@ public class RetainFamiliarActivitiesItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/RetainFamiliarActivities")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/RetainFamiliarActivities")); //$NON-NLS-1$
     }
 
     /**
@@ -124,9 +118,8 @@ public class RetainFamiliarActivitiesItemProvider
     @Override
     public String getText(Object object) {
         String label = ((RetainFamiliarActivities) object).getName();
-        return label == null || label.length() == 0
-                ? getString("_UI_RetainFamiliarActivities_type") //$NON-NLS-1$
-                : getString("_UI_RetainFamiliarActivities_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_RetainFamiliarActivities_type") : //$NON-NLS-1$
+                getString("_UI_RetainFamiliarActivities_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -142,8 +135,7 @@ public class RetainFamiliarActivitiesItemProvider
 
         switch (notification.getFeatureID(RetainFamiliarActivities.class)) {
         case XpdExtensionPackage.RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -157,13 +149,12 @@ public class RetainFamiliarActivitiesItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF,
-                XpdExtensionFactory.eINSTANCE.createActivityRef()));
+        newChildDescriptors
+                .add(createChildParameter(XpdExtensionPackage.Literals.RETAIN_FAMILIAR_ACTIVITIES__ACTIVITY_REF,
+                        XpdExtensionFactory.eINSTANCE.createActivityRef()));
     }
 
     /**

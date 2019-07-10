@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LikeMappingExclusionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -75,21 +73,20 @@ public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_LikeMappingExclusion_path_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_LikeMappingExclusion_path_feature", //$NON-NLS-1$
-                        "_UI_LikeMappingExclusion_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.LIKE_MAPPING_EXCLUSION__PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_LikeMappingExclusion_path_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_LikeMappingExclusion_path_feature", //$NON-NLS-1$
+                                "_UI_LikeMappingExclusion_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.LIKE_MAPPING_EXCLUSION__PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -100,9 +97,7 @@ public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/LikeMappingExclusion")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/LikeMappingExclusion")); //$NON-NLS-1$
     }
 
     /**
@@ -114,9 +109,8 @@ public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((LikeMappingExclusion) object).getPath();
-        return label == null || label.length() == 0
-                ? getString("_UI_LikeMappingExclusion_type") //$NON-NLS-1$
-                : getString("_UI_LikeMappingExclusion_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_LikeMappingExclusion_type") : //$NON-NLS-1$
+                getString("_UI_LikeMappingExclusion_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -132,8 +126,7 @@ public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(LikeMappingExclusion.class)) {
         case XpdExtensionPackage.LIKE_MAPPING_EXCLUSION__PATH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -147,8 +140,7 @@ public class LikeMappingExclusionItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

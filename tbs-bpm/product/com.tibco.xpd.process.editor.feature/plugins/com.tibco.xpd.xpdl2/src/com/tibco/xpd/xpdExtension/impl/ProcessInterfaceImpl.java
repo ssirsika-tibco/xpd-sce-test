@@ -57,15 +57,13 @@ import com.tibco.xpd.xpdl2.impl.NamedElementImpl;
  *
  * @generated
  */
-public class ProcessInterfaceImpl extends NamedElementImpl
-        implements ProcessInterface {
+public class ProcessInterfaceImpl extends NamedElementImpl implements ProcessInterface {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -135,8 +133,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * @generated
      * @ordered
      */
-    protected static final XpdInterfaceType XPD_INTERFACE_TYPE_EDEFAULT =
-            XpdInterfaceType.PROCESS_INTERFACE;
+    protected static final XpdInterfaceType XPD_INTERFACE_TYPE_EDEFAULT = XpdInterfaceType.PROCESS_INTERFACE;
 
     /**
      * The cached value of the '{@link #getXpdInterfaceType() <em>Xpd Interface Type</em>}' attribute.
@@ -193,8 +190,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public EList<FormalParameter> getFormalParameters() {
         if (formalParameters == null) {
-            formalParameters = new EObjectContainmentEList<FormalParameter>(
-                    FormalParameter.class, this,
+            formalParameters = new EObjectContainmentEList<FormalParameter>(FormalParameter.class, this,
                     XpdExtensionPackage.PROCESS_INTERFACE__FORMAL_PARAMETERS);
         }
         return formalParameters;
@@ -207,8 +203,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements = new BasicFeatureMap(this,
-                    XpdExtensionPackage.PROCESS_INTERFACE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, XpdExtensionPackage.PROCESS_INTERFACE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -220,8 +215,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public EList<StartMethod> getStartMethods() {
         if (startMethods == null) {
-            startMethods = new EObjectContainmentEList<StartMethod>(
-                    StartMethod.class, this,
+            startMethods = new EObjectContainmentEList<StartMethod>(StartMethod.class, this,
                     XpdExtensionPackage.PROCESS_INTERFACE__START_METHODS);
         }
         return startMethods;
@@ -234,10 +228,8 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public EList<IntermediateMethod> getIntermediateMethods() {
         if (intermediateMethods == null) {
-            intermediateMethods =
-                    new EObjectContainmentEList<IntermediateMethod>(
-                            IntermediateMethod.class, this,
-                            XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS);
+            intermediateMethods = new EObjectContainmentEList<IntermediateMethod>(IntermediateMethod.class, this,
+                    XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS);
         }
         return intermediateMethods;
     }
@@ -258,15 +250,12 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public void setXpdInterfaceType(XpdInterfaceType newXpdInterfaceType) {
         XpdInterfaceType oldXpdInterfaceType = xpdInterfaceType;
-        xpdInterfaceType =
-                newXpdInterfaceType == null ? XPD_INTERFACE_TYPE_EDEFAULT
-                        : newXpdInterfaceType;
+        xpdInterfaceType = newXpdInterfaceType == null ? XPD_INTERFACE_TYPE_EDEFAULT : newXpdInterfaceType;
         boolean oldXpdInterfaceTypeESet = xpdInterfaceTypeESet;
         xpdInterfaceTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE,
-                    oldXpdInterfaceType, xpdInterfaceType,
+                    XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE, oldXpdInterfaceType, xpdInterfaceType,
                     !oldXpdInterfaceTypeESet));
     }
 
@@ -282,9 +271,8 @@ public class ProcessInterfaceImpl extends NamedElementImpl
         xpdInterfaceTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE,
-                    oldXpdInterfaceType, XPD_INTERFACE_TYPE_EDEFAULT,
-                    oldXpdInterfaceTypeESet));
+                    XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE, oldXpdInterfaceType,
+                    XPD_INTERFACE_TYPE_EDEFAULT, oldXpdInterfaceTypeESet));
     }
 
     /**
@@ -311,17 +299,13 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * @generated
      */
     public NotificationChain basicSetServiceProcessConfiguration(
-            ServiceProcessConfiguration newServiceProcessConfiguration,
-            NotificationChain msgs) {
-        ServiceProcessConfiguration oldServiceProcessConfiguration =
-                serviceProcessConfiguration;
+            ServiceProcessConfiguration newServiceProcessConfiguration, NotificationChain msgs) {
+        ServiceProcessConfiguration oldServiceProcessConfiguration = serviceProcessConfiguration;
         serviceProcessConfiguration = newServiceProcessConfiguration;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
-                    oldServiceProcessConfiguration,
-                    newServiceProcessConfiguration);
+                    oldServiceProcessConfiguration, newServiceProcessConfiguration);
             if (msgs == null)
                 msgs = notification;
             else
@@ -335,34 +319,26 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setServiceProcessConfiguration(
-            ServiceProcessConfiguration newServiceProcessConfiguration) {
+    public void setServiceProcessConfiguration(ServiceProcessConfiguration newServiceProcessConfiguration) {
         if (newServiceProcessConfiguration != serviceProcessConfiguration) {
             NotificationChain msgs = null;
             if (serviceProcessConfiguration != null)
-                msgs = ((InternalEObject) serviceProcessConfiguration)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) serviceProcessConfiguration).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
+                        null,
+                        msgs);
             if (newServiceProcessConfiguration != null)
-                msgs = ((InternalEObject) newServiceProcessConfiguration)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
-                                null,
-                                msgs);
-            msgs = basicSetServiceProcessConfiguration(
-                    newServiceProcessConfiguration,
-                    msgs);
+                msgs = ((InternalEObject) newServiceProcessConfiguration).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
+                        null,
+                        msgs);
+            msgs = basicSetServiceProcessConfiguration(newServiceProcessConfiguration, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION,
-                    newServiceProcessConfiguration,
-                    newServiceProcessConfiguration));
+                    newServiceProcessConfiguration, newServiceProcessConfiguration));
     }
 
     /**
@@ -383,8 +359,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      */
     public EList<ExtendedAttribute> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(
-                    ExtendedAttribute.class, this,
+            extendedAttributes = new EObjectContainmentEList<ExtendedAttribute>(ExtendedAttribute.class, this,
                     XpdExtensionPackage.PROCESS_INTERFACE__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
@@ -404,15 +379,12 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDescription(Description newDescription,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
         Description oldDescription = description;
         description = newDescription;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
-                            oldDescription, newDescription);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION, oldDescription, newDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -431,22 +403,19 @@ public class ProcessInterfaceImpl extends NamedElementImpl
             NotificationChain msgs = null;
             if (description != null)
                 msgs = ((InternalEObject) description).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
                         null,
                         msgs);
             if (newDescription != null)
                 msgs = ((InternalEObject) newDescription).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
                         null,
                         msgs);
             msgs = basicSetDescription(newDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION,
                     newDescription, newDescription));
     }
 
@@ -456,26 +425,20 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION:
             return basicSetDescription(null, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__FORMAL_PARAMETERS:
-            return ((InternalEList<?>) getFormalParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFormalParameters()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__START_METHODS:
-            return ((InternalEList<?>) getStartMethods()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getStartMethods()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS:
-            return ((InternalEList<?>) getIntermediateMethods())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getIntermediateMethods()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION:
             return basicSetServiceProcessConfiguration(null, msgs);
         }
@@ -526,33 +489,28 @@ public class ProcessInterfaceImpl extends NamedElementImpl
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends ExtendedAttribute>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends ExtendedAttribute>) newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__FORMAL_PARAMETERS:
             getFormalParameters().clear();
-            getFormalParameters()
-                    .addAll((Collection<? extends FormalParameter>) newValue);
+            getFormalParameters().addAll((Collection<? extends FormalParameter>) newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__OTHER_ELEMENTS:
             ((FeatureMap.Internal) getOtherElements()).set(newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__START_METHODS:
             getStartMethods().clear();
-            getStartMethods()
-                    .addAll((Collection<? extends StartMethod>) newValue);
+            getStartMethods().addAll((Collection<? extends StartMethod>) newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS:
             getIntermediateMethods().clear();
-            getIntermediateMethods().addAll(
-                    (Collection<? extends IntermediateMethod>) newValue);
+            getIntermediateMethods().addAll((Collection<? extends IntermediateMethod>) newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE:
             setXpdInterfaceType((XpdInterfaceType) newValue);
             return;
         case XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION:
-            setServiceProcessConfiguration(
-                    (ServiceProcessConfiguration) newValue);
+            setServiceProcessConfiguration((ServiceProcessConfiguration) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -613,8 +571,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
         case XpdExtensionPackage.PROCESS_INTERFACE__START_METHODS:
             return startMethods != null && !startMethods.isEmpty();
         case XpdExtensionPackage.PROCESS_INTERFACE__INTERMEDIATE_METHODS:
-            return intermediateMethods != null
-                    && !intermediateMethods.isEmpty();
+            return intermediateMethods != null && !intermediateMethods.isEmpty();
         case XpdExtensionPackage.PROCESS_INTERFACE__XPD_INTERFACE_TYPE:
             return isSetXpdInterfaceType();
         case XpdExtensionPackage.PROCESS_INTERFACE__SERVICE_PROCESS_CONFIGURATION:
@@ -629,8 +586,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID,
-            Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == DescribedElement.class) {
             switch (derivedFeatureID) {
             case XpdExtensionPackage.PROCESS_INTERFACE__DESCRIPTION:
@@ -672,8 +628,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID,
-            Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == DescribedElement.class) {
             switch (baseFeatureID) {
             case Xpdl2Package.DESCRIBED_ELEMENT__DESCRIPTION:
@@ -719,7 +674,7 @@ public class ProcessInterfaceImpl extends NamedElementImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", xpdInterfaceType: "); //$NON-NLS-1$

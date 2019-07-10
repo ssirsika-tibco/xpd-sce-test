@@ -25,13 +25,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ScriptImpl#getAny <em>Any</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ScriptImpl#getGrammar <em>Grammar</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ScriptImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ScriptImpl#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -41,8 +41,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
@@ -163,8 +162,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
         String oldGrammar = grammar;
         grammar = newGrammar;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SCRIPT__GRAMMAR, oldGrammar, grammar));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SCRIPT__GRAMMAR, oldGrammar, grammar));
     }
 
     /**
@@ -185,8 +183,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
         String oldType = type;
         type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SCRIPT__TYPE, oldType, type));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SCRIPT__TYPE, oldType, type));
     }
 
     /**
@@ -207,8 +204,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
         String oldVersion = version;
         version = newVersion;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.SCRIPT__VERSION, oldVersion, version));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.SCRIPT__VERSION, oldVersion, version));
     }
 
     /**
@@ -217,8 +213,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.SCRIPT__ANY:
             return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
@@ -307,14 +302,11 @@ public class ScriptImpl extends EObjectImpl implements Script {
         case Xpdl2Package.SCRIPT__ANY:
             return any != null && !any.isEmpty();
         case Xpdl2Package.SCRIPT__GRAMMAR:
-            return GRAMMAR_EDEFAULT == null ? grammar != null
-                    : !GRAMMAR_EDEFAULT.equals(grammar);
+            return GRAMMAR_EDEFAULT == null ? grammar != null : !GRAMMAR_EDEFAULT.equals(grammar);
         case Xpdl2Package.SCRIPT__TYPE:
-            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-                    .equals(type);
+            return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
         case Xpdl2Package.SCRIPT__VERSION:
-            return VERSION_EDEFAULT == null ? version != null
-                    : !VERSION_EDEFAULT.equals(version);
+            return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
         }
         return super.eIsSet(featureID);
     }
@@ -329,7 +321,7 @@ public class ScriptImpl extends EObjectImpl implements Script {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (any: "); //$NON-NLS-1$
         result.append(any);
         result.append(", grammar: "); //$NON-NLS-1$

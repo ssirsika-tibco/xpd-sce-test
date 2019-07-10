@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -77,21 +75,20 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIdentifierNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DynamicOrgIdentifierRef_identifierName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_identifierName_feature", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DynamicOrgIdentifierRef_identifierName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_identifierName_feature", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,21 +98,20 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDynamicOrgIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DynamicOrgIdentifierRef_dynamicOrgId_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_dynamicOrgId_feature", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DynamicOrgIdentifierRef_dynamicOrgId_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_dynamicOrgId_feature", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -125,21 +121,20 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addOrgModelPathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_DynamicOrgIdentifierRef_orgModelPath_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_orgModelPath_feature", //$NON-NLS-1$
-                        "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_DynamicOrgIdentifierRef_orgModelPath_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_orgModelPath_feature", //$NON-NLS-1$
+                                "_UI_DynamicOrgIdentifierRef_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -150,9 +145,7 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/DynamicOrgIdentifierRef")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DynamicOrgIdentifierRef")); //$NON-NLS-1$
     }
 
     /**
@@ -164,9 +157,8 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((DynamicOrgIdentifierRef) object).getIdentifierName();
-        return label == null || label.length() == 0
-                ? getString("_UI_DynamicOrgIdentifierRef_type") //$NON-NLS-1$
-                : getString("_UI_DynamicOrgIdentifierRef_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_DynamicOrgIdentifierRef_type") : //$NON-NLS-1$
+                getString("_UI_DynamicOrgIdentifierRef_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -184,8 +176,7 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__IDENTIFIER_NAME:
         case XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__DYNAMIC_ORG_ID:
         case XpdExtensionPackage.DYNAMIC_ORG_IDENTIFIER_REF__ORG_MODEL_PATH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -199,8 +190,7 @@ public class DynamicOrgIdentifierRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

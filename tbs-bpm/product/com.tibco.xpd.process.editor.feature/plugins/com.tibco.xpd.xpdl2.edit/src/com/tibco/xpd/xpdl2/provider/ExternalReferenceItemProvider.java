@@ -34,16 +34,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExternalReferenceItemProvider extends DataTypeItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ExternalReferenceItemProvider extends DataTypeItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,11 +78,12 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
      */
     protected void addLocationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ExternalReference_location_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ExternalReference_location_feature", "_UI_ExternalReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ExternalReference_location_feature", //$NON-NLS-1$
+                                "_UI_ExternalReference_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.EXTERNAL_REFERENCE__LOCATION,
                         true,
                         false,
@@ -103,11 +101,12 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
      */
     protected void addNamespacePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ExternalReference_namespace_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ExternalReference_namespace_feature", "_UI_ExternalReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ExternalReference_namespace_feature", //$NON-NLS-1$
+                                "_UI_ExternalReference_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.EXTERNAL_REFERENCE__NAMESPACE,
                         true,
                         false,
@@ -125,11 +124,12 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
      */
     protected void addXrefPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ExternalReference_xref_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ExternalReference_xref_feature", "_UI_ExternalReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ExternalReference_xref_feature", //$NON-NLS-1$
+                                "_UI_ExternalReference_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.EXTERNAL_REFERENCE__XREF,
                         true,
                         false,
@@ -147,8 +147,7 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ExternalReference")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalReference")); //$NON-NLS-1$
     }
 
     /**
@@ -179,8 +178,7 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
         case Xpdl2Package.EXTERNAL_REFERENCE__LOCATION:
         case Xpdl2Package.EXTERNAL_REFERENCE__NAMESPACE:
         case Xpdl2Package.EXTERNAL_REFERENCE__XREF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -194,8 +192,7 @@ public class ExternalReferenceItemProvider extends DataTypeItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WsBindingItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WsBindingItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,13 +77,10 @@ public class WsBindingItemProvider extends ItemProviderAdapter
      */
     protected void addNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
                 getString("_UI_WsBinding_name_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsBinding_name_feature", //$NON-NLS-1$
-                        "_UI_WsBinding_type"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_WsBinding_name_feature", "_UI_WsBinding_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 XpdExtensionPackage.Literals.WS_BINDING__NAME,
                 true,
                 false,
@@ -102,21 +97,20 @@ public class WsBindingItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addExtendedPropertiesPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_WsBinding_extendedProperties_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_WsBinding_extendedProperties_feature", //$NON-NLS-1$
-                        "_UI_WsBinding_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.WS_BINDING__EXTENDED_PROPERTIES,
-                true,
-                false,
-                true,
-                null,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_WsBinding_extendedProperties_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WsBinding_extendedProperties_feature", //$NON-NLS-1$
+                                "_UI_WsBinding_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.WS_BINDING__EXTENDED_PROPERTIES,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null));
     }
 
     /**
@@ -127,8 +121,7 @@ public class WsBindingItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WsBinding")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsBinding")); //$NON-NLS-1$
     }
 
     /**
@@ -140,9 +133,8 @@ public class WsBindingItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((WsBinding) object).getName();
-        return label == null || label.length() == 0
-                ? getString("_UI_WsBinding_type") //$NON-NLS-1$
-                : getString("_UI_WsBinding_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_WsBinding_type") : //$NON-NLS-1$
+                getString("_UI_WsBinding_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,8 +150,7 @@ public class WsBindingItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(WsBinding.class)) {
         case XpdExtensionPackage.WS_BINDING__NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -173,8 +164,7 @@ public class WsBindingItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

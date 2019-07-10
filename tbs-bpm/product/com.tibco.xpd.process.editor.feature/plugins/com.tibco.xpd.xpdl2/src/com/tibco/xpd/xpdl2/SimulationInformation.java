@@ -15,12 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.SimulationInformation#getCost <em>Cost</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.SimulationInformation#getTimeEstimation <em>Time Estimation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.SimulationInformation#getInstantiation <em>Instantiation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getSimulationInformation()
  * @model extendedMetaData="name='SimulationInformation_._type' kind='elementOnly'"
@@ -32,8 +32,7 @@ public interface SimulationInformation extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Cost</b></em>' containment reference.

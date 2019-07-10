@@ -20,10 +20,10 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskReferenceImpl#getTaskRef <em>Task Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class TaskReferenceImpl extends EObjectImpl implements TaskReference {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTaskRef() <em>Task Ref</em>}' attribute.
@@ -93,8 +92,8 @@ public class TaskReferenceImpl extends EObjectImpl implements TaskReference {
         String oldTaskRef = taskRef;
         taskRef = newTaskRef;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_REFERENCE__TASK_REF, oldTaskRef, taskRef));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_REFERENCE__TASK_REF, oldTaskRef,
+                    taskRef));
     }
 
     /**
@@ -150,8 +149,7 @@ public class TaskReferenceImpl extends EObjectImpl implements TaskReference {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.TASK_REFERENCE__TASK_REF:
-            return TASK_REF_EDEFAULT == null ? taskRef != null
-                    : !TASK_REF_EDEFAULT.equals(taskRef);
+            return TASK_REF_EDEFAULT == null ? taskRef != null : !TASK_REF_EDEFAULT.equals(taskRef);
         }
         return super.eIsSet(featureID);
     }
@@ -166,7 +164,7 @@ public class TaskReferenceImpl extends EObjectImpl implements TaskReference {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (taskRef: "); //$NON-NLS-1$
         result.append(taskRef);
         result.append(')');

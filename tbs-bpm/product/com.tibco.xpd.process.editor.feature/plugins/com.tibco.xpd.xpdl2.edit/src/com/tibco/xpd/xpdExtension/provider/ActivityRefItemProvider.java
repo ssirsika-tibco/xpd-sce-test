@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActivityRefItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ActivityRefItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -77,21 +75,20 @@ public class ActivityRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addIdRefPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ActivityRef_idRef_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ActivityRef_idRef_feature", //$NON-NLS-1$
-                        "_UI_ActivityRef_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ACTIVITY_REF__ID_REF,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ActivityRef_idRef_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ActivityRef_idRef_feature", //$NON-NLS-1$
+                                "_UI_ActivityRef_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ACTIVITY_REF__ID_REF,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -102,8 +99,7 @@ public class ActivityRefItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ActivityRef")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ActivityRef")); //$NON-NLS-1$
     }
 
     /**
@@ -115,9 +111,8 @@ public class ActivityRefItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((ActivityRef) object).getIdRef();
-        return label == null || label.length() == 0
-                ? getString("_UI_ActivityRef_type") //$NON-NLS-1$
-                : getString("_UI_ActivityRef_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_ActivityRef_type") : //$NON-NLS-1$
+                getString("_UI_ActivityRef_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -133,8 +128,7 @@ public class ActivityRefItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(ActivityRef.class)) {
         case XpdExtensionPackage.ACTIVITY_REF__ID_REF:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -148,8 +142,7 @@ public class ActivityRefItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

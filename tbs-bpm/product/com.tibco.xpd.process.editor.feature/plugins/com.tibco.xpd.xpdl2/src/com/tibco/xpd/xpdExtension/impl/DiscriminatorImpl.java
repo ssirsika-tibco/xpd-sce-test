@@ -36,8 +36,7 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDiscriminatorType() <em>Discriminator Type</em>}' attribute.
@@ -106,8 +105,7 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
         String oldDiscriminatorType = discriminatorType;
         discriminatorType = newDiscriminatorType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DISCRIMINATOR__DISCRIMINATOR_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DISCRIMINATOR__DISCRIMINATOR_TYPE,
                     oldDiscriminatorType, discriminatorType));
     }
 
@@ -125,17 +123,14 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetStructuredDiscriminator(
-            StructuredDiscriminator newStructuredDiscriminator,
+    public NotificationChain basicSetStructuredDiscriminator(StructuredDiscriminator newStructuredDiscriminator,
             NotificationChain msgs) {
-        StructuredDiscriminator oldStructuredDiscriminator =
-                structuredDiscriminator;
+        StructuredDiscriminator oldStructuredDiscriminator = structuredDiscriminator;
         structuredDiscriminator = newStructuredDiscriminator;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
-                    oldStructuredDiscriminator, newStructuredDiscriminator);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR, oldStructuredDiscriminator,
+                    newStructuredDiscriminator);
             if (msgs == null)
                 msgs = notification;
             else
@@ -149,32 +144,26 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setStructuredDiscriminator(
-            StructuredDiscriminator newStructuredDiscriminator) {
+    public void setStructuredDiscriminator(StructuredDiscriminator newStructuredDiscriminator) {
         if (newStructuredDiscriminator != structuredDiscriminator) {
             NotificationChain msgs = null;
             if (structuredDiscriminator != null)
-                msgs = ((InternalEObject) structuredDiscriminator)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) structuredDiscriminator).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
+                        null,
+                        msgs);
             if (newStructuredDiscriminator != null)
-                msgs = ((InternalEObject) newStructuredDiscriminator)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
-                                null,
-                                msgs);
-            msgs = basicSetStructuredDiscriminator(newStructuredDiscriminator,
-                    msgs);
+                msgs = ((InternalEObject) newStructuredDiscriminator).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
+                        null,
+                        msgs);
+            msgs = basicSetStructuredDiscriminator(newStructuredDiscriminator, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR,
-                    newStructuredDiscriminator, newStructuredDiscriminator));
+                    XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR, newStructuredDiscriminator,
+                    newStructuredDiscriminator));
     }
 
     /**
@@ -183,8 +172,7 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR:
             return basicSetStructuredDiscriminator(null, msgs);
@@ -253,8 +241,7 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DISCRIMINATOR__DISCRIMINATOR_TYPE:
-            return DISCRIMINATOR_TYPE_EDEFAULT == null
-                    ? discriminatorType != null
+            return DISCRIMINATOR_TYPE_EDEFAULT == null ? discriminatorType != null
                     : !DISCRIMINATOR_TYPE_EDEFAULT.equals(discriminatorType);
         case XpdExtensionPackage.DISCRIMINATOR__STRUCTURED_DISCRIMINATOR:
             return structuredDiscriminator != null;
@@ -272,7 +259,7 @@ public class DiscriminatorImpl extends EObjectImpl implements Discriminator {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (discriminatorType: "); //$NON-NLS-1$
         result.append(discriminatorType);
         result.append(')');

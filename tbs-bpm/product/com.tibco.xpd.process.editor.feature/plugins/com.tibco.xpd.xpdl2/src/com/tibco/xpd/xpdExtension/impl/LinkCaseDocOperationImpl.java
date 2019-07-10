@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class LinkCaseDocOperationImpl extends EObjectImpl
-        implements LinkCaseDocOperation {
+public class LinkCaseDocOperationImpl extends EObjectImpl implements LinkCaseDocOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTargetCaseRefField() <em>Target Case Ref Field</em>}' attribute.
@@ -94,8 +92,8 @@ public class LinkCaseDocOperationImpl extends EObjectImpl
         targetCaseRefField = newTargetCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.LINK_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD,
-                    oldTargetCaseRefField, targetCaseRefField));
+                    XpdExtensionPackage.LINK_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD, oldTargetCaseRefField,
+                    targetCaseRefField));
     }
 
     /**
@@ -151,10 +149,8 @@ public class LinkCaseDocOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.LINK_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD:
-            return TARGET_CASE_REF_FIELD_EDEFAULT == null
-                    ? targetCaseRefField != null
-                    : !TARGET_CASE_REF_FIELD_EDEFAULT
-                            .equals(targetCaseRefField);
+            return TARGET_CASE_REF_FIELD_EDEFAULT == null ? targetCaseRefField != null
+                    : !TARGET_CASE_REF_FIELD_EDEFAULT.equals(targetCaseRefField);
         }
         return super.eIsSet(featureID);
     }
@@ -169,7 +165,7 @@ public class LinkCaseDocOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (targetCaseRefField: "); //$NON-NLS-1$
         result.append(targetCaseRefField);
         result.append(')');

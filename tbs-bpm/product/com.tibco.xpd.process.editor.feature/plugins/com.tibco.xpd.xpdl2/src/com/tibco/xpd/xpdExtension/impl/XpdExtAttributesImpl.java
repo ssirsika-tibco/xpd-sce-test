@@ -33,16 +33,14 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class XpdExtAttributesImpl extends EObjectImpl
-        implements XpdExtAttributes {
+public class XpdExtAttributesImpl extends EObjectImpl implements XpdExtAttributes {
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -80,8 +78,7 @@ public class XpdExtAttributesImpl extends EObjectImpl
      */
     public EList<XpdExtAttribute> getAttributes() {
         if (attributes == null) {
-            attributes = new EObjectContainmentEList<XpdExtAttribute>(
-                    XpdExtAttribute.class, this,
+            attributes = new EObjectContainmentEList<XpdExtAttribute>(XpdExtAttribute.class, this,
                     XpdExtensionPackage.XPD_EXT_ATTRIBUTES__ATTRIBUTES);
         }
         return attributes;
@@ -93,12 +90,10 @@ public class XpdExtAttributesImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTES__ATTRIBUTES:
-            return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -128,8 +123,7 @@ public class XpdExtAttributesImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTES__ATTRIBUTES:
             getAttributes().clear();
-            getAttributes()
-                    .addAll((Collection<? extends XpdExtAttribute>) newValue);
+            getAttributes().addAll((Collection<? extends XpdExtAttribute>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

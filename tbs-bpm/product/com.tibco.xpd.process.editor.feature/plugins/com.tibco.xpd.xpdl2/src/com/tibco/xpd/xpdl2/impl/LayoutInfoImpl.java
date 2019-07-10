@@ -25,11 +25,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LayoutInfoImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LayoutInfoImpl#getPixelsPerMillimeter <em>Pixels Per Millimeter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,8 +39,7 @@ public class LayoutInfoImpl extends EObjectImpl implements LayoutInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -98,9 +97,7 @@ public class LayoutInfoImpl extends EObjectImpl implements LayoutInfo {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.LAYOUT_INFO__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.LAYOUT_INFO__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -123,8 +120,7 @@ public class LayoutInfoImpl extends EObjectImpl implements LayoutInfo {
         float oldPixelsPerMillimeter = pixelsPerMillimeter;
         pixelsPerMillimeter = newPixelsPerMillimeter;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LAYOUT_INFO__PIXELS_PER_MILLIMETER,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LAYOUT_INFO__PIXELS_PER_MILLIMETER,
                     oldPixelsPerMillimeter, pixelsPerMillimeter));
     }
 
@@ -145,12 +141,10 @@ public class LayoutInfoImpl extends EObjectImpl implements LayoutInfo {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LAYOUT_INFO__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -235,7 +229,7 @@ public class LayoutInfoImpl extends EObjectImpl implements LayoutInfo {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", pixelsPerMillimeter: "); //$NON-NLS-1$

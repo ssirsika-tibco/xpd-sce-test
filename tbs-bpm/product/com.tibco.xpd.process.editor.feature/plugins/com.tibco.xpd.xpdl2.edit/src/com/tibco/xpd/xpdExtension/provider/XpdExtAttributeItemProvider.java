@@ -46,16 +46,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdExtAttributeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class XpdExtAttributeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -91,21 +89,20 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_XpdExtAttribute_name_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_XpdExtAttribute_name_feature", //$NON-NLS-1$
-                        "_UI_XpdExtAttribute_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_XpdExtAttribute_name_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_XpdExtAttribute_name_feature", //$NON-NLS-1$
+                                "_UI_XpdExtAttribute_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -115,21 +112,20 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_XpdExtAttribute_value_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_XpdExtAttribute_value_feature", //$NON-NLS-1$
-                        "_UI_XpdExtAttribute_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__VALUE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_XpdExtAttribute_value_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_XpdExtAttribute_value_feature", //$NON-NLS-1$
+                                "_UI_XpdExtAttribute_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__VALUE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -141,12 +137,10 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED);
+            childrenFeatures.add(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED);
         }
         return childrenFeatures;
     }
@@ -172,8 +166,7 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/XpdExtAttribute")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/XpdExtAttribute")); //$NON-NLS-1$
     }
 
     /**
@@ -185,9 +178,8 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((XpdExtAttribute) object).getName();
-        return label == null || label.length() == 0
-                ? getString("_UI_XpdExtAttribute_type") //$NON-NLS-1$
-                : getString("_UI_XpdExtAttribute_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_XpdExtAttribute_type") : //$NON-NLS-1$
+                getString("_UI_XpdExtAttribute_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -204,12 +196,10 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(XpdExtAttribute.class)) {
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__NAME:
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__VALUE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__MIXED:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -223,58 +213,36 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
-                        XMLTypeFactory.eINSTANCE
-                                .createProcessingInstruction())));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+                        XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, ""))); //$NON-NLS-1$
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                         XpdExtensionFactory.eINSTANCE.createAudit())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                         XpdExtensionFactory.eINSTANCE.createSignalData())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                        XpdExtensionFactory.eINSTANCE
-                                .createRescheduleTimerScript())));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript())));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
-                FeatureMapUtil.createEntry(
-                        Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.XPD_EXT_ATTRIBUTE__MIXED,
+                FeatureMapUtil.createEntry(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
                         Xpdl2Factory.eINSTANCE.createPackage())));
     }
 
@@ -285,28 +253,25 @@ public class XpdExtAttributeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public String getCreateChildText(Object owner, Object feature, Object child,
-            Collection<?> selection) {
+    public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
         Object childFeature = feature;
         Object childObject = child;
 
-        if (childFeature instanceof EStructuralFeature && FeatureMapUtil
-                .isFeatureMap((EStructuralFeature) childFeature)) {
+        if (childFeature instanceof EStructuralFeature
+                && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
             FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
             childFeature = entry.getEStructuralFeature();
             childObject = entry.getValue();
         }
 
-        boolean qualify =
-                childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA
-                        || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT
-                        || childFeature == Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE;
+        boolean qualify = childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA
+                || childFeature == XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT
+                || childFeature == Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE;
 
         if (qualify) {
             return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText(childObject),
-                            getFeatureText(childFeature), getTypeText(owner) });
+                    new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

@@ -126,8 +126,7 @@ public class XpdExtensionAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package.
@@ -173,718 +172,642 @@ public class XpdExtensionAdapterFactory extends AdapterFactoryImpl {
      * 
      * @generated
      */
-    protected XpdExtensionSwitch<Adapter> modelSwitch =
-            new XpdExtensionSwitch<Adapter>() {
-                @Override
-                public Adapter caseActivityRef(ActivityRef object) {
-                    return createActivityRefAdapter();
-                }
-
-                @Override
-                public Adapter caseActivityResourcePatterns(
-                        ActivityResourcePatterns object) {
-                    return createActivityResourcePatternsAdapter();
-                }
-
-                @Override
-                public Adapter caseAllocationStrategy(
-                        AllocationStrategy object) {
-                    return createAllocationStrategyAdapter();
-                }
-
-                @Override
-                public Adapter caseAssociatedCorrelationFields(
-                        AssociatedCorrelationFields object) {
-                    return createAssociatedCorrelationFieldsAdapter();
-                }
-
-                @Override
-                public Adapter caseAssociatedCorrelationField(
-                        AssociatedCorrelationField object) {
-                    return createAssociatedCorrelationFieldAdapter();
-                }
-
-                @Override
-                public Adapter caseAssociatedParameter(
-                        AssociatedParameter object) {
-                    return createAssociatedParameterAdapter();
-                }
-
-                @Override
-                public Adapter caseAssociatedParameters(
-                        AssociatedParameters object) {
-                    return createAssociatedParametersAdapter();
-                }
-
-                @Override
-                public Adapter caseAssociatedParametersContainer(
-                        AssociatedParametersContainer object) {
-                    return createAssociatedParametersContainerAdapter();
-                }
-
-                @Override
-                public Adapter caseAudit(Audit object) {
-                    return createAuditAdapter();
-                }
-
-                @Override
-                public Adapter caseAuditEvent(AuditEvent object) {
-                    return createAuditEventAdapter();
-                }
-
-                @Override
-                public Adapter caseBusinessProcess(BusinessProcess object) {
-                    return createBusinessProcessAdapter();
-                }
-
-                @Override
-                public Adapter caseCalendarReference(CalendarReference object) {
-                    return createCalendarReferenceAdapter();
-                }
-
-                @Override
-                public Adapter caseCatchErrorMappings(
-                        CatchErrorMappings object) {
-                    return createCatchErrorMappingsAdapter();
-                }
-
-                @Override
-                public Adapter caseConstantPeriod(ConstantPeriod object) {
-                    return createConstantPeriodAdapter();
-                }
-
-                @Override
-                public Adapter caseConditionalParticipant(
-                        ConditionalParticipant object) {
-                    return createConditionalParticipantAdapter();
-                }
-
-                @Override
-                public Adapter caseReplyImmediateDataMappings(
-                        ReplyImmediateDataMappings object) {
-                    return createReplyImmediateDataMappingsAdapter();
-                }
-
-                @Override
-                public Adapter caseCorrelationDataMappings(
-                        CorrelationDataMappings object) {
-                    return createCorrelationDataMappingsAdapter();
-                }
-
-                @Override
-                public Adapter caseDiscriminator(Discriminator object) {
-                    return createDiscriminatorAdapter();
-                }
-
-                @Override
-                public Adapter caseDocumentRoot(DocumentRoot object) {
-                    return createDocumentRootAdapter();
-                }
-
-                @Override
-                public Adapter caseDurationCalculation(
-                        DurationCalculation object) {
-                    return createDurationCalculationAdapter();
-                }
-
-                @Override
-                public Adapter caseDynamicOrganizationMappings(
-                        DynamicOrganizationMappings object) {
-                    return createDynamicOrganizationMappingsAdapter();
-                }
-
-                @Override
-                public Adapter caseDynamicOrganizationMapping(
-                        DynamicOrganizationMapping object) {
-                    return createDynamicOrganizationMappingAdapter();
-                }
-
-                @Override
-                public Adapter caseDynamicOrgIdentifierRef(
-                        DynamicOrgIdentifierRef object) {
-                    return createDynamicOrgIdentifierRefAdapter();
-                }
-
-                @Override
-                public Adapter caseEmailResource(EmailResource object) {
-                    return createEmailResourceAdapter();
-                }
-
-                @Override
-                public Adapter caseErrorMethod(ErrorMethod object) {
-                    return createErrorMethodAdapter();
-                }
-
-                @Override
-                public Adapter caseErrorThrowerInfo(ErrorThrowerInfo object) {
-                    return createErrorThrowerInfoAdapter();
-                }
-
-                @Override
-                public Adapter caseEventHandlerInitialisers(
-                        EventHandlerInitialisers object) {
-                    return createEventHandlerInitialisersAdapter();
-                }
-
-                @Override
-                public Adapter caseFaultMessage(FaultMessage object) {
-                    return createFaultMessageAdapter();
-                }
-
-                @Override
-                public Adapter caseFormImplementation(
-                        FormImplementation object) {
-                    return createFormImplementationAdapter();
-                }
-
-                @Override
-                public Adapter caseImplementedInterface(
-                        ImplementedInterface object) {
-                    return createImplementedInterfaceAdapter();
-                }
-
-                @Override
-                public Adapter caseInitialValues(InitialValues object) {
-                    return createInitialValuesAdapter();
-                }
-
-                @Override
-                public Adapter caseInitialParameterValue(
-                        InitialParameterValue object) {
-                    return createInitialParameterValueAdapter();
-                }
-
-                @Override
-                public Adapter caseInterfaceMethod(InterfaceMethod object) {
-                    return createInterfaceMethodAdapter();
-                }
-
-                @Override
-                public Adapter caseIntermediateMethod(
-                        IntermediateMethod object) {
-                    return createIntermediateMethodAdapter();
-                }
-
-                @Override
-                public Adapter caseJdbcResource(JdbcResource object) {
-                    return createJdbcResourceAdapter();
-                }
-
-                @Override
-                public Adapter caseMultiInstanceScripts(
-                        MultiInstanceScripts object) {
-                    return createMultiInstanceScriptsAdapter();
-                }
-
-                @Override
-                public Adapter caseNamespacePrefixMap(
-                        NamespacePrefixMap object) {
-                    return createNamespacePrefixMapAdapter();
-                }
-
-                @Override
-                public Adapter caseNamespaceMapEntry(NamespaceMapEntry object) {
-                    return createNamespaceMapEntryAdapter();
-                }
-
-                @Override
-                public Adapter caseParticipantSharedResource(
-                        ParticipantSharedResource object) {
-                    return createParticipantSharedResourceAdapter();
-                }
-
-                @Override
-                public Adapter casePilingInfo(PilingInfo object) {
-                    return createPilingInfoAdapter();
-                }
-
-                @Override
-                public Adapter casePortTypeOperation(PortTypeOperation object) {
-                    return createPortTypeOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseProcessInterface(ProcessInterface object) {
-                    return createProcessInterfaceAdapter();
-                }
-
-                @Override
-                public Adapter caseProcessInterfaces(ProcessInterfaces object) {
-                    return createProcessInterfacesAdapter();
-                }
-
-                @Override
-                public Adapter caseProcessResourcePatterns(
-                        ProcessResourcePatterns object) {
-                    return createProcessResourcePatternsAdapter();
-                }
-
-                @Override
-                public Adapter caseRescheduleTimerScript(
-                        RescheduleTimerScript object) {
-                    return createRescheduleTimerScriptAdapter();
-                }
-
-                @Override
-                public Adapter caseRescheduleTimers(RescheduleTimers object) {
-                    return createRescheduleTimersAdapter();
-                }
-
-                @Override
-                public Adapter caseRESTServices(RESTServices object) {
-                    return createRESTServicesAdapter();
-                }
-
-                @Override
-                public Adapter caseRestServiceResource(
-                        RestServiceResource object) {
-                    return createRestServiceResourceAdapter();
-                }
-
-                @Override
-                public Adapter caseRestServiceResourceSecurity(
-                        RestServiceResourceSecurity object) {
-                    return createRestServiceResourceSecurityAdapter();
-                }
-
-                @Override
-                public Adapter caseRetainFamiliarActivities(
-                        RetainFamiliarActivities object) {
-                    return createRetainFamiliarActivitiesAdapter();
-                }
-
-                @Override
-                public Adapter caseRetry(Retry object) {
-                    return createRetryAdapter();
-                }
-
-                @Override
-                public Adapter caseScriptInformation(ScriptInformation object) {
-                    return createScriptInformationAdapter();
-                }
-
-                @Override
-                public Adapter caseSeparationOfDutiesActivities(
-                        SeparationOfDutiesActivities object) {
-                    return createSeparationOfDutiesActivitiesAdapter();
-                }
-
-                @Override
-                public Adapter caseSignalData(SignalData object) {
-                    return createSignalDataAdapter();
-                }
-
-                @Override
-                public Adapter caseStartMethod(StartMethod object) {
-                    return createStartMethodAdapter();
-                }
-
-                @Override
-                public Adapter caseStructuredDiscriminator(
-                        StructuredDiscriminator object) {
-                    return createStructuredDiscriminatorAdapter();
-                }
-
-                @Override
-                public Adapter caseTaskLibraryReference(
-                        TaskLibraryReference object) {
-                    return createTaskLibraryReferenceAdapter();
-                }
-
-                @Override
-                public Adapter caseTransformScript(TransformScript object) {
-                    return createTransformScriptAdapter();
-                }
-
-                @Override
-                public Adapter caseUserTaskScripts(UserTaskScripts object) {
-                    return createUserTaskScriptsAdapter();
-                }
-
-                @Override
-                public Adapter caseValidationControl(ValidationControl object) {
-                    return createValidationControlAdapter();
-                }
-
-                @Override
-                public Adapter caseValidationIssueOverride(
-                        ValidationIssueOverride object) {
-                    return createValidationIssueOverrideAdapter();
-                }
-
-                @Override
-                public Adapter caseWsdlEventAssociation(
-                        WsdlEventAssociation object) {
-                    return createWsdlEventAssociationAdapter();
-                }
-
-                @Override
-                public Adapter caseWorkItemPriority(WorkItemPriority object) {
-                    return createWorkItemPriorityAdapter();
-                }
-
-                @Override
-                public Adapter caseWsdlGeneration(WsdlGeneration object) {
-                    return createWsdlGenerationAdapter();
-                }
-
-                @Override
-                public Adapter caseWsBinding(WsBinding object) {
-                    return createWsBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsInbound(WsInbound object) {
-                    return createWsInboundAdapter();
-                }
-
-                @Override
-                public Adapter caseWsOutbound(WsOutbound object) {
-                    return createWsOutboundAdapter();
-                }
-
-                @Override
-                public Adapter caseWsResource(WsResource object) {
-                    return createWsResourceAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSecurityPolicy(WsSecurityPolicy object) {
-                    return createWsSecurityPolicyAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapBinding(WsSoapBinding object) {
-                    return createWsSoapBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapHttpInboundBinding(
-                        WsSoapHttpInboundBinding object) {
-                    return createWsSoapHttpInboundBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapHttpOutboundBinding(
-                        WsSoapHttpOutboundBinding object) {
-                    return createWsSoapHttpOutboundBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapJmsInboundBinding(
-                        WsSoapJmsInboundBinding object) {
-                    return createWsSoapJmsInboundBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapJmsOutboundBinding(
-                        WsSoapJmsOutboundBinding object) {
-                    return createWsSoapJmsOutboundBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseWsSoapSecurity(WsSoapSecurity object) {
-                    return createWsSoapSecurityAdapter();
-                }
-
-                @Override
-                public Adapter caseWsVirtualBinding(WsVirtualBinding object) {
-                    return createWsVirtualBindingAdapter();
-                }
-
-                @Override
-                public Adapter caseXpdExtDataObjectAttributes(
-                        XpdExtDataObjectAttributes object) {
-                    return createXpdExtDataObjectAttributesAdapter();
-                }
-
-                @Override
-                public Adapter caseXpdExtProperty(XpdExtProperty object) {
-                    return createXpdExtPropertyAdapter();
-                }
-
-                @Override
-                public Adapter caseXpdExtAttribute(XpdExtAttribute object) {
-                    return createXpdExtAttributeAdapter();
-                }
-
-                @Override
-                public Adapter caseXpdExtAttributes(XpdExtAttributes object) {
-                    return createXpdExtAttributesAdapter();
-                }
-
-                @Override
-                public Adapter caseUpdateCaseOperationType(
-                        UpdateCaseOperationType object) {
-                    return createUpdateCaseOperationTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseAddLinkAssociationsType(
-                        AddLinkAssociationsType object) {
-                    return createAddLinkAssociationsTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseRemoveLinkAssociationsType(
-                        RemoveLinkAssociationsType object) {
-                    return createRemoveLinkAssociationsTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseReferenceOperationsType(
-                        CaseReferenceOperationsType object) {
-                    return createCaseReferenceOperationsTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseGlobalDataOperation(
-                        GlobalDataOperation object) {
-                    return createGlobalDataOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseDeleteByCaseIdentifierType(
-                        DeleteByCaseIdentifierType object) {
-                    return createDeleteByCaseIdentifierTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseCompositeIdentifierType(
-                        CompositeIdentifierType object) {
-                    return createCompositeIdentifierTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseDeleteCaseReferenceOperationType(
-                        DeleteCaseReferenceOperationType object) {
-                    return createDeleteCaseReferenceOperationTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseDeleteByCompositeIdentifiersType(
-                        DeleteByCompositeIdentifiersType object) {
-                    return createDeleteByCompositeIdentifiersTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseCreateCaseOperationType(
-                        CreateCaseOperationType object) {
-                    return createCreateCaseOperationTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseAccessOperationsType(
-                        CaseAccessOperationsType object) {
-                    return createCaseAccessOperationsTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseDataWorkItemAttributeMapping(
-                        DataWorkItemAttributeMapping object) {
-                    return createDataWorkItemAttributeMappingAdapter();
-                }
-
-                @Override
-                public Adapter caseProcessDataWorkItemAttributeMappings(
-                        ProcessDataWorkItemAttributeMappings object) {
-                    return createProcessDataWorkItemAttributeMappingsAdapter();
-                }
-
-                @Override
-                public Adapter caseBpmRuntimeConfiguration(
-                        BpmRuntimeConfiguration object) {
-                    return createBpmRuntimeConfigurationAdapter();
-                }
-
-                @Override
-                public Adapter caseEnablementType(EnablementType object) {
-                    return createEnablementTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseInitializerActivitiesType(
-                        InitializerActivitiesType object) {
-                    return createInitializerActivitiesTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseAdHocTaskConfigurationType(
-                        AdHocTaskConfigurationType object) {
-                    return createAdHocTaskConfigurationTypeAdapter();
-                }
-
-                @Override
-                public Adapter caseRequiredAccessPrivileges(
-                        RequiredAccessPrivileges object) {
-                    return createRequiredAccessPrivilegesAdapter();
-                }
-
-                @Override
-                public Adapter caseVisibleForCaseStates(
-                        VisibleForCaseStates object) {
-                    return createVisibleForCaseStatesAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseService(CaseService object) {
-                    return createCaseServiceAdapter();
-                }
-
-                @Override
-                public Adapter caseDocumentOperation(DocumentOperation object) {
-                    return createDocumentOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseDocRefOperations(
-                        CaseDocRefOperations object) {
-                    return createCaseDocRefOperationsAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseDocFindOperations(
-                        CaseDocFindOperations object) {
-                    return createCaseDocFindOperationsAdapter();
-                }
-
-                @Override
-                public Adapter caseMoveCaseDocOperation(
-                        MoveCaseDocOperation object) {
-                    return createMoveCaseDocOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseUnlinkCaseDocOperation(
-                        UnlinkCaseDocOperation object) {
-                    return createUnlinkCaseDocOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseLinkCaseDocOperation(
-                        LinkCaseDocOperation object) {
-                    return createLinkCaseDocOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseLinkSystemDocumentOperation(
-                        LinkSystemDocumentOperation object) {
-                    return createLinkSystemDocumentOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseDeleteCaseDocOperation(
-                        DeleteCaseDocOperation object) {
-                    return createDeleteCaseDocOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseFindByFileNameOperation(
-                        FindByFileNameOperation object) {
-                    return createFindByFileNameOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseFindByQueryOperation(
-                        FindByQueryOperation object) {
-                    return createFindByQueryOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseCaseDocumentQueryExpression(
-                        CaseDocumentQueryExpression object) {
-                    return createCaseDocumentQueryExpressionAdapter();
-                }
-
-                @Override
-                public Adapter caseServiceProcessConfiguration(
-                        ServiceProcessConfiguration object) {
-                    return createServiceProcessConfigurationAdapter();
-                }
-
-                @Override
-                public Adapter caseScriptDataMapper(ScriptDataMapper object) {
-                    return createScriptDataMapperAdapter();
-                }
-
-                @Override
-                public Adapter caseDataMapperArrayInflation(
-                        DataMapperArrayInflation object) {
-                    return createDataMapperArrayInflationAdapter();
-                }
-
-                @Override
-                public Adapter caseLikeMappingExclusion(
-                        LikeMappingExclusion object) {
-                    return createLikeMappingExclusionAdapter();
-                }
-
-                @Override
-                public Adapter caseLikeMappingExclusions(
-                        LikeMappingExclusions object) {
-                    return createLikeMappingExclusionsAdapter();
-                }
-
-                @Override
-                public Adapter caseRestServiceOperation(
-                        RestServiceOperation object) {
-                    return createRestServiceOperationAdapter();
-                }
-
-                @Override
-                public Adapter caseDescribedElement(DescribedElement object) {
-                    return createDescribedElementAdapter();
-                }
-
-                @Override
-                public Adapter caseUniqueIdElement(UniqueIdElement object) {
-                    return createUniqueIdElementAdapter();
-                }
-
-                @Override
-                public Adapter caseOtherAttributesContainer(
-                        OtherAttributesContainer object) {
-                    return createOtherAttributesContainerAdapter();
-                }
-
-                @Override
-                public Adapter caseNamedElement(NamedElement object) {
-                    return createNamedElementAdapter();
-                }
-
-                @Override
-                public Adapter caseOtherElementsContainer(
-                        OtherElementsContainer object) {
-                    return createOtherElementsContainerAdapter();
-                }
-
-                @Override
-                public Adapter caseMessage(Message object) {
-                    return createMessageAdapter();
-                }
-
-                @Override
-                public Adapter caseExtendedAttributesContainer(
-                        ExtendedAttributesContainer object) {
-                    return createExtendedAttributesContainerAdapter();
-                }
-
-                @Override
-                public Adapter caseFormalParametersContainer(
-                        FormalParametersContainer object) {
-                    return createFormalParametersContainerAdapter();
-                }
-
-                @Override
-                public Adapter caseExpression(Expression object) {
-                    return createExpressionAdapter();
-                }
-
-                @Override
-                public Adapter defaultCase(EObject object) {
-                    return createEObjectAdapter();
-                }
-            };
+    protected XpdExtensionSwitch<Adapter> modelSwitch = new XpdExtensionSwitch<Adapter>() {
+        @Override
+        public Adapter caseActivityRef(ActivityRef object) {
+            return createActivityRefAdapter();
+        }
+
+        @Override
+        public Adapter caseActivityResourcePatterns(ActivityResourcePatterns object) {
+            return createActivityResourcePatternsAdapter();
+        }
+
+        @Override
+        public Adapter caseAllocationStrategy(AllocationStrategy object) {
+            return createAllocationStrategyAdapter();
+        }
+
+        @Override
+        public Adapter caseAssociatedCorrelationFields(AssociatedCorrelationFields object) {
+            return createAssociatedCorrelationFieldsAdapter();
+        }
+
+        @Override
+        public Adapter caseAssociatedCorrelationField(AssociatedCorrelationField object) {
+            return createAssociatedCorrelationFieldAdapter();
+        }
+
+        @Override
+        public Adapter caseAssociatedParameter(AssociatedParameter object) {
+            return createAssociatedParameterAdapter();
+        }
+
+        @Override
+        public Adapter caseAssociatedParameters(AssociatedParameters object) {
+            return createAssociatedParametersAdapter();
+        }
+
+        @Override
+        public Adapter caseAssociatedParametersContainer(AssociatedParametersContainer object) {
+            return createAssociatedParametersContainerAdapter();
+        }
+
+        @Override
+        public Adapter caseAudit(Audit object) {
+            return createAuditAdapter();
+        }
+
+        @Override
+        public Adapter caseAuditEvent(AuditEvent object) {
+            return createAuditEventAdapter();
+        }
+
+        @Override
+        public Adapter caseBusinessProcess(BusinessProcess object) {
+            return createBusinessProcessAdapter();
+        }
+
+        @Override
+        public Adapter caseCalendarReference(CalendarReference object) {
+            return createCalendarReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseCatchErrorMappings(CatchErrorMappings object) {
+            return createCatchErrorMappingsAdapter();
+        }
+
+        @Override
+        public Adapter caseConstantPeriod(ConstantPeriod object) {
+            return createConstantPeriodAdapter();
+        }
+
+        @Override
+        public Adapter caseConditionalParticipant(ConditionalParticipant object) {
+            return createConditionalParticipantAdapter();
+        }
+
+        @Override
+        public Adapter caseReplyImmediateDataMappings(ReplyImmediateDataMappings object) {
+            return createReplyImmediateDataMappingsAdapter();
+        }
+
+        @Override
+        public Adapter caseCorrelationDataMappings(CorrelationDataMappings object) {
+            return createCorrelationDataMappingsAdapter();
+        }
+
+        @Override
+        public Adapter caseDiscriminator(Discriminator object) {
+            return createDiscriminatorAdapter();
+        }
+
+        @Override
+        public Adapter caseDocumentRoot(DocumentRoot object) {
+            return createDocumentRootAdapter();
+        }
+
+        @Override
+        public Adapter caseDurationCalculation(DurationCalculation object) {
+            return createDurationCalculationAdapter();
+        }
+
+        @Override
+        public Adapter caseDynamicOrganizationMappings(DynamicOrganizationMappings object) {
+            return createDynamicOrganizationMappingsAdapter();
+        }
+
+        @Override
+        public Adapter caseDynamicOrganizationMapping(DynamicOrganizationMapping object) {
+            return createDynamicOrganizationMappingAdapter();
+        }
+
+        @Override
+        public Adapter caseDynamicOrgIdentifierRef(DynamicOrgIdentifierRef object) {
+            return createDynamicOrgIdentifierRefAdapter();
+        }
+
+        @Override
+        public Adapter caseEmailResource(EmailResource object) {
+            return createEmailResourceAdapter();
+        }
+
+        @Override
+        public Adapter caseErrorMethod(ErrorMethod object) {
+            return createErrorMethodAdapter();
+        }
+
+        @Override
+        public Adapter caseErrorThrowerInfo(ErrorThrowerInfo object) {
+            return createErrorThrowerInfoAdapter();
+        }
+
+        @Override
+        public Adapter caseEventHandlerInitialisers(EventHandlerInitialisers object) {
+            return createEventHandlerInitialisersAdapter();
+        }
+
+        @Override
+        public Adapter caseFaultMessage(FaultMessage object) {
+            return createFaultMessageAdapter();
+        }
+
+        @Override
+        public Adapter caseFormImplementation(FormImplementation object) {
+            return createFormImplementationAdapter();
+        }
+
+        @Override
+        public Adapter caseImplementedInterface(ImplementedInterface object) {
+            return createImplementedInterfaceAdapter();
+        }
+
+        @Override
+        public Adapter caseInitialValues(InitialValues object) {
+            return createInitialValuesAdapter();
+        }
+
+        @Override
+        public Adapter caseInitialParameterValue(InitialParameterValue object) {
+            return createInitialParameterValueAdapter();
+        }
+
+        @Override
+        public Adapter caseInterfaceMethod(InterfaceMethod object) {
+            return createInterfaceMethodAdapter();
+        }
+
+        @Override
+        public Adapter caseIntermediateMethod(IntermediateMethod object) {
+            return createIntermediateMethodAdapter();
+        }
+
+        @Override
+        public Adapter caseJdbcResource(JdbcResource object) {
+            return createJdbcResourceAdapter();
+        }
+
+        @Override
+        public Adapter caseMultiInstanceScripts(MultiInstanceScripts object) {
+            return createMultiInstanceScriptsAdapter();
+        }
+
+        @Override
+        public Adapter caseNamespacePrefixMap(NamespacePrefixMap object) {
+            return createNamespacePrefixMapAdapter();
+        }
+
+        @Override
+        public Adapter caseNamespaceMapEntry(NamespaceMapEntry object) {
+            return createNamespaceMapEntryAdapter();
+        }
+
+        @Override
+        public Adapter caseParticipantSharedResource(ParticipantSharedResource object) {
+            return createParticipantSharedResourceAdapter();
+        }
+
+        @Override
+        public Adapter casePilingInfo(PilingInfo object) {
+            return createPilingInfoAdapter();
+        }
+
+        @Override
+        public Adapter casePortTypeOperation(PortTypeOperation object) {
+            return createPortTypeOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseProcessInterface(ProcessInterface object) {
+            return createProcessInterfaceAdapter();
+        }
+
+        @Override
+        public Adapter caseProcessInterfaces(ProcessInterfaces object) {
+            return createProcessInterfacesAdapter();
+        }
+
+        @Override
+        public Adapter caseProcessResourcePatterns(ProcessResourcePatterns object) {
+            return createProcessResourcePatternsAdapter();
+        }
+
+        @Override
+        public Adapter caseRescheduleTimerScript(RescheduleTimerScript object) {
+            return createRescheduleTimerScriptAdapter();
+        }
+
+        @Override
+        public Adapter caseRescheduleTimers(RescheduleTimers object) {
+            return createRescheduleTimersAdapter();
+        }
+
+        @Override
+        public Adapter caseRESTServices(RESTServices object) {
+            return createRESTServicesAdapter();
+        }
+
+        @Override
+        public Adapter caseRestServiceResource(RestServiceResource object) {
+            return createRestServiceResourceAdapter();
+        }
+
+        @Override
+        public Adapter caseRestServiceResourceSecurity(RestServiceResourceSecurity object) {
+            return createRestServiceResourceSecurityAdapter();
+        }
+
+        @Override
+        public Adapter caseRetainFamiliarActivities(RetainFamiliarActivities object) {
+            return createRetainFamiliarActivitiesAdapter();
+        }
+
+        @Override
+        public Adapter caseRetry(Retry object) {
+            return createRetryAdapter();
+        }
+
+        @Override
+        public Adapter caseScriptInformation(ScriptInformation object) {
+            return createScriptInformationAdapter();
+        }
+
+        @Override
+        public Adapter caseSeparationOfDutiesActivities(SeparationOfDutiesActivities object) {
+            return createSeparationOfDutiesActivitiesAdapter();
+        }
+
+        @Override
+        public Adapter caseSignalData(SignalData object) {
+            return createSignalDataAdapter();
+        }
+
+        @Override
+        public Adapter caseStartMethod(StartMethod object) {
+            return createStartMethodAdapter();
+        }
+
+        @Override
+        public Adapter caseStructuredDiscriminator(StructuredDiscriminator object) {
+            return createStructuredDiscriminatorAdapter();
+        }
+
+        @Override
+        public Adapter caseTaskLibraryReference(TaskLibraryReference object) {
+            return createTaskLibraryReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseTransformScript(TransformScript object) {
+            return createTransformScriptAdapter();
+        }
+
+        @Override
+        public Adapter caseUserTaskScripts(UserTaskScripts object) {
+            return createUserTaskScriptsAdapter();
+        }
+
+        @Override
+        public Adapter caseValidationControl(ValidationControl object) {
+            return createValidationControlAdapter();
+        }
+
+        @Override
+        public Adapter caseValidationIssueOverride(ValidationIssueOverride object) {
+            return createValidationIssueOverrideAdapter();
+        }
+
+        @Override
+        public Adapter caseWsdlEventAssociation(WsdlEventAssociation object) {
+            return createWsdlEventAssociationAdapter();
+        }
+
+        @Override
+        public Adapter caseWorkItemPriority(WorkItemPriority object) {
+            return createWorkItemPriorityAdapter();
+        }
+
+        @Override
+        public Adapter caseWsdlGeneration(WsdlGeneration object) {
+            return createWsdlGenerationAdapter();
+        }
+
+        @Override
+        public Adapter caseWsBinding(WsBinding object) {
+            return createWsBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsInbound(WsInbound object) {
+            return createWsInboundAdapter();
+        }
+
+        @Override
+        public Adapter caseWsOutbound(WsOutbound object) {
+            return createWsOutboundAdapter();
+        }
+
+        @Override
+        public Adapter caseWsResource(WsResource object) {
+            return createWsResourceAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSecurityPolicy(WsSecurityPolicy object) {
+            return createWsSecurityPolicyAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapBinding(WsSoapBinding object) {
+            return createWsSoapBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapHttpInboundBinding(WsSoapHttpInboundBinding object) {
+            return createWsSoapHttpInboundBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapHttpOutboundBinding(WsSoapHttpOutboundBinding object) {
+            return createWsSoapHttpOutboundBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapJmsInboundBinding(WsSoapJmsInboundBinding object) {
+            return createWsSoapJmsInboundBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapJmsOutboundBinding(WsSoapJmsOutboundBinding object) {
+            return createWsSoapJmsOutboundBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseWsSoapSecurity(WsSoapSecurity object) {
+            return createWsSoapSecurityAdapter();
+        }
+
+        @Override
+        public Adapter caseWsVirtualBinding(WsVirtualBinding object) {
+            return createWsVirtualBindingAdapter();
+        }
+
+        @Override
+        public Adapter caseXpdExtDataObjectAttributes(XpdExtDataObjectAttributes object) {
+            return createXpdExtDataObjectAttributesAdapter();
+        }
+
+        @Override
+        public Adapter caseXpdExtProperty(XpdExtProperty object) {
+            return createXpdExtPropertyAdapter();
+        }
+
+        @Override
+        public Adapter caseXpdExtAttribute(XpdExtAttribute object) {
+            return createXpdExtAttributeAdapter();
+        }
+
+        @Override
+        public Adapter caseXpdExtAttributes(XpdExtAttributes object) {
+            return createXpdExtAttributesAdapter();
+        }
+
+        @Override
+        public Adapter caseUpdateCaseOperationType(UpdateCaseOperationType object) {
+            return createUpdateCaseOperationTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseAddLinkAssociationsType(AddLinkAssociationsType object) {
+            return createAddLinkAssociationsTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseRemoveLinkAssociationsType(RemoveLinkAssociationsType object) {
+            return createRemoveLinkAssociationsTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseReferenceOperationsType(CaseReferenceOperationsType object) {
+            return createCaseReferenceOperationsTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseGlobalDataOperation(GlobalDataOperation object) {
+            return createGlobalDataOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseDeleteByCaseIdentifierType(DeleteByCaseIdentifierType object) {
+            return createDeleteByCaseIdentifierTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseCompositeIdentifierType(CompositeIdentifierType object) {
+            return createCompositeIdentifierTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseDeleteCaseReferenceOperationType(DeleteCaseReferenceOperationType object) {
+            return createDeleteCaseReferenceOperationTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseDeleteByCompositeIdentifiersType(DeleteByCompositeIdentifiersType object) {
+            return createDeleteByCompositeIdentifiersTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseCreateCaseOperationType(CreateCaseOperationType object) {
+            return createCreateCaseOperationTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseAccessOperationsType(CaseAccessOperationsType object) {
+            return createCaseAccessOperationsTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseDataWorkItemAttributeMapping(DataWorkItemAttributeMapping object) {
+            return createDataWorkItemAttributeMappingAdapter();
+        }
+
+        @Override
+        public Adapter caseProcessDataWorkItemAttributeMappings(ProcessDataWorkItemAttributeMappings object) {
+            return createProcessDataWorkItemAttributeMappingsAdapter();
+        }
+
+        @Override
+        public Adapter caseBpmRuntimeConfiguration(BpmRuntimeConfiguration object) {
+            return createBpmRuntimeConfigurationAdapter();
+        }
+
+        @Override
+        public Adapter caseEnablementType(EnablementType object) {
+            return createEnablementTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseInitializerActivitiesType(InitializerActivitiesType object) {
+            return createInitializerActivitiesTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseAdHocTaskConfigurationType(AdHocTaskConfigurationType object) {
+            return createAdHocTaskConfigurationTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseRequiredAccessPrivileges(RequiredAccessPrivileges object) {
+            return createRequiredAccessPrivilegesAdapter();
+        }
+
+        @Override
+        public Adapter caseVisibleForCaseStates(VisibleForCaseStates object) {
+            return createVisibleForCaseStatesAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseService(CaseService object) {
+            return createCaseServiceAdapter();
+        }
+
+        @Override
+        public Adapter caseDocumentOperation(DocumentOperation object) {
+            return createDocumentOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseDocRefOperations(CaseDocRefOperations object) {
+            return createCaseDocRefOperationsAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseDocFindOperations(CaseDocFindOperations object) {
+            return createCaseDocFindOperationsAdapter();
+        }
+
+        @Override
+        public Adapter caseMoveCaseDocOperation(MoveCaseDocOperation object) {
+            return createMoveCaseDocOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseUnlinkCaseDocOperation(UnlinkCaseDocOperation object) {
+            return createUnlinkCaseDocOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseLinkCaseDocOperation(LinkCaseDocOperation object) {
+            return createLinkCaseDocOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseLinkSystemDocumentOperation(LinkSystemDocumentOperation object) {
+            return createLinkSystemDocumentOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseDeleteCaseDocOperation(DeleteCaseDocOperation object) {
+            return createDeleteCaseDocOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseFindByFileNameOperation(FindByFileNameOperation object) {
+            return createFindByFileNameOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseFindByQueryOperation(FindByQueryOperation object) {
+            return createFindByQueryOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseCaseDocumentQueryExpression(CaseDocumentQueryExpression object) {
+            return createCaseDocumentQueryExpressionAdapter();
+        }
+
+        @Override
+        public Adapter caseServiceProcessConfiguration(ServiceProcessConfiguration object) {
+            return createServiceProcessConfigurationAdapter();
+        }
+
+        @Override
+        public Adapter caseScriptDataMapper(ScriptDataMapper object) {
+            return createScriptDataMapperAdapter();
+        }
+
+        @Override
+        public Adapter caseDataMapperArrayInflation(DataMapperArrayInflation object) {
+            return createDataMapperArrayInflationAdapter();
+        }
+
+        @Override
+        public Adapter caseLikeMappingExclusion(LikeMappingExclusion object) {
+            return createLikeMappingExclusionAdapter();
+        }
+
+        @Override
+        public Adapter caseLikeMappingExclusions(LikeMappingExclusions object) {
+            return createLikeMappingExclusionsAdapter();
+        }
+
+        @Override
+        public Adapter caseRestServiceOperation(RestServiceOperation object) {
+            return createRestServiceOperationAdapter();
+        }
+
+        @Override
+        public Adapter caseDescribedElement(DescribedElement object) {
+            return createDescribedElementAdapter();
+        }
+
+        @Override
+        public Adapter caseUniqueIdElement(UniqueIdElement object) {
+            return createUniqueIdElementAdapter();
+        }
+
+        @Override
+        public Adapter caseOtherAttributesContainer(OtherAttributesContainer object) {
+            return createOtherAttributesContainerAdapter();
+        }
+
+        @Override
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
+        }
+
+        @Override
+        public Adapter caseOtherElementsContainer(OtherElementsContainer object) {
+            return createOtherElementsContainerAdapter();
+        }
+
+        @Override
+        public Adapter caseMessage(Message object) {
+            return createMessageAdapter();
+        }
+
+        @Override
+        public Adapter caseExtendedAttributesContainer(ExtendedAttributesContainer object) {
+            return createExtendedAttributesContainerAdapter();
+        }
+
+        @Override
+        public Adapter caseFormalParametersContainer(FormalParametersContainer object) {
+            return createFormalParametersContainerAdapter();
+        }
+
+        @Override
+        public Adapter caseExpression(Expression object) {
+            return createExpressionAdapter();
+        }
+
+        @Override
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

@@ -35,16 +35,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ListTypeItemProvider extends DataTypeItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ListTypeItemProvider extends DataTypeItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,20 +77,16 @@ public class ListTypeItemProvider extends DataTypeItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__BASIC_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.LIST_TYPE__DECLARED_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__DECLARED_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__SCHEMA_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.LIST_TYPE__EXTERNAL_REFERENCE);
+            childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__EXTERNAL_REFERENCE);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__RECORD_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__UNION_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.LIST_TYPE__ENUMERATION_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__ENUMERATION_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__ARRAY_TYPE);
             childrenFeatures.add(Xpdl2Package.Literals.LIST_TYPE__LIST_TYPE);
         }
@@ -121,8 +114,7 @@ public class ListTypeItemProvider extends DataTypeItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ListType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ListType")); //$NON-NLS-1$
     }
 
     /**
@@ -157,8 +149,7 @@ public class ListTypeItemProvider extends DataTypeItemProvider implements
         case Xpdl2Package.LIST_TYPE__ENUMERATION_TYPE:
         case Xpdl2Package.LIST_TYPE__ARRAY_TYPE:
         case Xpdl2Package.LIST_TYPE__LIST_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -172,45 +163,35 @@ public class ListTypeItemProvider extends DataTypeItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__BASIC_TYPE,
-                        Xpdl2Factory.eINSTANCE.createBasicType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__BASIC_TYPE,
+                Xpdl2Factory.eINSTANCE.createBasicType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__DECLARED_TYPE,
-                        Xpdl2Factory.eINSTANCE.createDeclaredType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__DECLARED_TYPE,
+                Xpdl2Factory.eINSTANCE.createDeclaredType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__SCHEMA_TYPE,
-                        Xpdl2Factory.eINSTANCE.createSchema()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__SCHEMA_TYPE,
+                Xpdl2Factory.eINSTANCE.createSchema()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__EXTERNAL_REFERENCE,
-                        Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__EXTERNAL_REFERENCE,
+                Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__RECORD_TYPE,
-                        Xpdl2Factory.eINSTANCE.createRecordType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__RECORD_TYPE,
+                Xpdl2Factory.eINSTANCE.createRecordType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__UNION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createUnionType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__UNION_TYPE,
+                Xpdl2Factory.eINSTANCE.createUnionType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__ENUMERATION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createEnumerationType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__ENUMERATION_TYPE,
+                Xpdl2Factory.eINSTANCE.createEnumerationType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__ARRAY_TYPE,
-                        Xpdl2Factory.eINSTANCE.createArrayType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__ARRAY_TYPE,
+                Xpdl2Factory.eINSTANCE.createArrayType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__LIST_TYPE,
-                        Xpdl2Factory.eINSTANCE.createListType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.LIST_TYPE__LIST_TYPE,
+                Xpdl2Factory.eINSTANCE.createListType()));
     }
 
 }

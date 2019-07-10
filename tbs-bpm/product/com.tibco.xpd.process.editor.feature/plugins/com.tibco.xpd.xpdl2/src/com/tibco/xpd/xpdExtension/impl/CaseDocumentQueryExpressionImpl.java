@@ -31,14 +31,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class CaseDocumentQueryExpressionImpl extends EObjectImpl
-        implements CaseDocumentQueryExpression {
+public class CaseDocumentQueryExpressionImpl extends EObjectImpl implements CaseDocumentQueryExpression {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getQueryExpressionJoinType()
@@ -49,8 +47,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated NOT
      * @ordered
      */
-    protected static final QueryExpressionJoinType QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT =
-            null;
+    protected static final QueryExpressionJoinType QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getQueryExpressionJoinType() <em>Query Expression Join Type</em>}' attribute.
@@ -60,8 +57,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected QueryExpressionJoinType queryExpressionJoinType =
-            QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT;
+    protected QueryExpressionJoinType queryExpressionJoinType = QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT;
 
     /**
      * This is true if the Query Expression Join Type attribute has been set.
@@ -136,8 +132,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final CMISQueryOperator OPERATOR_EDEFAULT =
-            CMISQueryOperator.EQUAL;
+    protected static final CMISQueryOperator OPERATOR_EDEFAULT = CMISQueryOperator.EQUAL;
 
     /**
      * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -223,8 +218,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final boolean CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT =
-            false;
+    protected static final boolean CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isCmisDocumentPropertySelected() <em>Cmis Document Property Selected</em>}' attribute.
@@ -234,8 +228,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean cmisDocumentPropertySelected =
-            CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT;
+    protected boolean cmisDocumentPropertySelected = CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT;
 
     /**
      * This is true if the Cmis Document Property Selected attribute has been set.
@@ -277,20 +270,16 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public void setQueryExpressionJoinType(
-            QueryExpressionJoinType newQueryExpressionJoinType) {
-        QueryExpressionJoinType oldQueryExpressionJoinType =
-                queryExpressionJoinType;
-        queryExpressionJoinType = newQueryExpressionJoinType == null
-                ? QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT
-                : newQueryExpressionJoinType;
+    public void setQueryExpressionJoinType(QueryExpressionJoinType newQueryExpressionJoinType) {
+        QueryExpressionJoinType oldQueryExpressionJoinType = queryExpressionJoinType;
+        queryExpressionJoinType =
+                newQueryExpressionJoinType == null ? QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT : newQueryExpressionJoinType;
         boolean oldQueryExpressionJoinTypeESet = queryExpressionJoinTypeESet;
         queryExpressionJoinTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__QUERY_EXPRESSION_JOIN_TYPE,
-                    oldQueryExpressionJoinType, queryExpressionJoinType,
-                    !oldQueryExpressionJoinTypeESet));
+                    oldQueryExpressionJoinType, queryExpressionJoinType, !oldQueryExpressionJoinTypeESet));
     }
 
     /**
@@ -299,17 +288,14 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      */
     @Override
     public void unsetQueryExpressionJoinType() {
-        QueryExpressionJoinType oldQueryExpressionJoinType =
-                queryExpressionJoinType;
+        QueryExpressionJoinType oldQueryExpressionJoinType = queryExpressionJoinType;
         boolean oldQueryExpressionJoinTypeESet = queryExpressionJoinTypeESet;
         queryExpressionJoinType = QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT;
         queryExpressionJoinTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__QUERY_EXPRESSION_JOIN_TYPE,
-                    oldQueryExpressionJoinType,
-                    QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT,
-                    oldQueryExpressionJoinTypeESet));
+                    oldQueryExpressionJoinType, QUERY_EXPRESSION_JOIN_TYPE_EDEFAULT, oldQueryExpressionJoinTypeESet));
     }
 
     /**
@@ -344,9 +330,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         openBracketCountESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT,
-                    oldOpenBracketCount, openBracketCount,
-                    !oldOpenBracketCountESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT, oldOpenBracketCount,
+                    openBracketCount, !oldOpenBracketCountESet));
     }
 
     /**
@@ -362,9 +347,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         openBracketCountESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT,
-                    oldOpenBracketCount, OPEN_BRACKET_COUNT_EDEFAULT,
-                    oldOpenBracketCountESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPEN_BRACKET_COUNT, oldOpenBracketCount,
+                    OPEN_BRACKET_COUNT_EDEFAULT, oldOpenBracketCountESet));
     }
 
     /**
@@ -398,8 +382,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         operatorESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR,
-                    oldOperator, operator, !oldOperatorESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR, oldOperator, operator,
+                    !oldOperatorESet));
     }
 
     /**
@@ -414,8 +398,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         operatorESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR,
-                    oldOperator, OPERATOR_EDEFAULT, oldOperatorESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__OPERATOR, oldOperator, OPERATOR_EDEFAULT,
+                    oldOperatorESet));
     }
 
     /**
@@ -448,8 +432,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         cmisPropertyESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY,
-                    oldCmisProperty, cmisProperty, !oldCmisPropertyESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY, oldCmisProperty, cmisProperty,
+                    !oldCmisPropertyESet));
     }
 
     /**
@@ -464,9 +448,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         cmisPropertyESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY,
-                    oldCmisProperty, CMIS_PROPERTY_EDEFAULT,
-                    oldCmisPropertyESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_PROPERTY, oldCmisProperty,
+                    CMIS_PROPERTY_EDEFAULT, oldCmisPropertyESet));
     }
 
     /**
@@ -499,9 +482,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         processDataFieldESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD,
-                    oldProcessDataField, processDataField,
-                    !oldProcessDataFieldESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD, oldProcessDataField,
+                    processDataField, !oldProcessDataFieldESet));
     }
 
     /**
@@ -516,9 +498,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         processDataFieldESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD,
-                    oldProcessDataField, PROCESS_DATA_FIELD_EDEFAULT,
-                    oldProcessDataFieldESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__PROCESS_DATA_FIELD, oldProcessDataField,
+                    PROCESS_DATA_FIELD_EDEFAULT, oldProcessDataFieldESet));
     }
 
     /**
@@ -553,9 +534,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         closeBracketCountESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT,
-                    oldCloseBracketCount, closeBracketCount,
-                    !oldCloseBracketCountESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT, oldCloseBracketCount,
+                    closeBracketCount, !oldCloseBracketCountESet));
     }
 
     /**
@@ -571,9 +551,8 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         closeBracketCountESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT,
-                    oldCloseBracketCount, CLOSE_BRACKET_COUNT_EDEFAULT,
-                    oldCloseBracketCountESet));
+                    XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CLOSE_BRACKET_COUNT, oldCloseBracketCount,
+                    CLOSE_BRACKET_COUNT_EDEFAULT, oldCloseBracketCountESet));
     }
 
     /**
@@ -602,18 +581,15 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public void setCmisDocumentPropertySelected(
-            boolean newCmisDocumentPropertySelected) {
+    public void setCmisDocumentPropertySelected(boolean newCmisDocumentPropertySelected) {
         boolean oldCmisDocumentPropertySelected = cmisDocumentPropertySelected;
         cmisDocumentPropertySelected = newCmisDocumentPropertySelected;
-        boolean oldCmisDocumentPropertySelectedESet =
-                cmisDocumentPropertySelectedESet;
+        boolean oldCmisDocumentPropertySelectedESet = cmisDocumentPropertySelectedESet;
         cmisDocumentPropertySelectedESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_DOCUMENT_PROPERTY_SELECTED,
-                    oldCmisDocumentPropertySelected,
-                    cmisDocumentPropertySelected,
+                    oldCmisDocumentPropertySelected, cmisDocumentPropertySelected,
                     !oldCmisDocumentPropertySelectedESet));
     }
 
@@ -625,15 +601,13 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
     @Override
     public void unsetCmisDocumentPropertySelected() {
         boolean oldCmisDocumentPropertySelected = cmisDocumentPropertySelected;
-        boolean oldCmisDocumentPropertySelectedESet =
-                cmisDocumentPropertySelectedESet;
+        boolean oldCmisDocumentPropertySelectedESet = cmisDocumentPropertySelectedESet;
         cmisDocumentPropertySelected = CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT;
         cmisDocumentPropertySelectedESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.CASE_DOCUMENT_QUERY_EXPRESSION__CMIS_DOCUMENT_PROPERTY_SELECTED,
-                    oldCmisDocumentPropertySelected,
-                    CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT,
+                    oldCmisDocumentPropertySelected, CMIS_DOCUMENT_PROPERTY_SELECTED_EDEFAULT,
                     oldCmisDocumentPropertySelectedESet));
     }
 
@@ -770,7 +744,7 @@ public class CaseDocumentQueryExpressionImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (queryExpressionJoinType: "); //$NON-NLS-1$
         if (queryExpressionJoinTypeESet)
             result.append(queryExpressionJoinType);

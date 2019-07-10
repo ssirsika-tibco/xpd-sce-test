@@ -20,8 +20,7 @@ public interface XpdExtensionFactory extends EFactory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The singleton instance of the factory.
@@ -29,8 +28,7 @@ public interface XpdExtensionFactory extends EFactory {
      * end-user-doc -->
      * @generated
      */
-    XpdExtensionFactory eINSTANCE =
-            com.tibco.xpd.xpdExtension.impl.XpdExtensionFactoryImpl.init();
+    XpdExtensionFactory eINSTANCE = com.tibco.xpd.xpdExtension.impl.XpdExtensionFactoryImpl.init();
 
     /**
      * Returns a new object of class '<em>Activity Ref</em>'. <!--

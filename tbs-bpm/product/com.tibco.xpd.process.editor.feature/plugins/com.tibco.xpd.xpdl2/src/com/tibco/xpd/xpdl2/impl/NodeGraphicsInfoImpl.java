@@ -23,6 +23,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NodeGraphicsInfoImpl#getCoordinates <em>Coordinates</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NodeGraphicsInfoImpl#getBorderColor <em>Border Color</em>}</li>
@@ -36,19 +37,16 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NodeGraphicsInfoImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.NodeGraphicsInfoImpl#getPageId <em>Page Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class NodeGraphicsInfoImpl extends EObjectImpl implements
-        NodeGraphicsInfo {
+public class NodeGraphicsInfoImpl extends EObjectImpl implements NodeGraphicsInfo {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getCoordinates() <em>Coordinates</em>}' containment reference.
@@ -320,15 +318,12 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCoordinates(Coordinates newCoordinates,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCoordinates(Coordinates newCoordinates, NotificationChain msgs) {
         Coordinates oldCoordinates = coordinates;
         coordinates = newCoordinates;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
-                            oldCoordinates, newCoordinates);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES, oldCoordinates, newCoordinates);
             if (msgs == null)
                 msgs = notification;
             else
@@ -346,27 +341,20 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         if (newCoordinates != coordinates) {
             NotificationChain msgs = null;
             if (coordinates != null)
-                msgs =
-                        ((InternalEObject) coordinates)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) coordinates).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
+                        null,
+                        msgs);
             if (newCoordinates != null)
-                msgs =
-                        ((InternalEObject) newCoordinates)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newCoordinates).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
+                        null,
+                        msgs);
             msgs = basicSetCoordinates(newCoordinates, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES,
                     newCoordinates, newCoordinates));
     }
 
@@ -388,8 +376,7 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldBorderColor = borderColor;
         borderColor = newBorderColor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__BORDER_COLOR,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__BORDER_COLOR,
                     oldBorderColor, borderColor));
     }
 
@@ -411,9 +398,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldFillColor = fillColor;
         fillColor = newFillColor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__FILL_COLOR, oldFillColor,
-                    fillColor));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__FILL_COLOR,
+                    oldFillColor, fillColor));
     }
 
     /**
@@ -436,9 +422,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         boolean oldHeightESet = heightESet;
         heightESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__HEIGHT, oldHeight, height,
-                    !oldHeightESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__HEIGHT, oldHeight,
+                    height, !oldHeightESet));
     }
 
     /**
@@ -452,8 +437,7 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         height = HEIGHT_EDEFAULT;
         heightESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__HEIGHT, oldHeight,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.NODE_GRAPHICS_INFO__HEIGHT, oldHeight,
                     HEIGHT_EDEFAULT, oldHeightESet));
     }
 
@@ -486,9 +470,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         boolean oldIsVisibleESet = isVisibleESet;
         isVisibleESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__IS_VISIBLE, oldIsVisible,
-                    isVisible, !oldIsVisibleESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__IS_VISIBLE,
+                    oldIsVisible, isVisible, !oldIsVisibleESet));
     }
 
     /**
@@ -502,9 +485,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         isVisible = IS_VISIBLE_EDEFAULT;
         isVisibleESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__IS_VISIBLE, oldIsVisible,
-                    IS_VISIBLE_EDEFAULT, oldIsVisibleESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.NODE_GRAPHICS_INFO__IS_VISIBLE,
+                    oldIsVisible, IS_VISIBLE_EDEFAULT, oldIsVisibleESet));
     }
 
     /**
@@ -534,8 +516,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldLaneId = laneId;
         laneId = newLaneId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__LANE_ID, oldLaneId, laneId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__LANE_ID, oldLaneId,
+                    laneId));
     }
 
     /**
@@ -556,8 +538,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldPage = page;
         page = newPage;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__PAGE, oldPage, page));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__PAGE, oldPage,
+                    page));
     }
 
     /**
@@ -578,8 +560,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldShape = shape;
         shape = newShape;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__SHAPE, oldShape, shape));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__SHAPE, oldShape,
+                    shape));
     }
 
     /**
@@ -600,8 +582,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldToolId = toolId;
         toolId = newToolId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__TOOL_ID, oldToolId, toolId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__TOOL_ID, oldToolId,
+                    toolId));
     }
 
     /**
@@ -624,9 +606,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         boolean oldWidthESet = widthESet;
         widthESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH, oldWidth, width,
-                    !oldWidthESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH, oldWidth,
+                    width, !oldWidthESet));
     }
 
     /**
@@ -640,8 +621,7 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         width = WIDTH_EDEFAULT;
         widthESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH, oldWidth,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH, oldWidth,
                     WIDTH_EDEFAULT, oldWidthESet));
     }
 
@@ -672,8 +652,8 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         String oldPageId = pageId;
         pageId = newPageId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.NODE_GRAPHICS_INFO__PAGE_ID, oldPageId, pageId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.NODE_GRAPHICS_INFO__PAGE_ID, oldPageId,
+                    pageId));
     }
 
     /**
@@ -682,8 +662,7 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES:
             return basicSetCoordinates(null, msgs);
@@ -826,32 +805,25 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         case Xpdl2Package.NODE_GRAPHICS_INFO__COORDINATES:
             return coordinates != null;
         case Xpdl2Package.NODE_GRAPHICS_INFO__BORDER_COLOR:
-            return BORDER_COLOR_EDEFAULT == null ? borderColor != null
-                    : !BORDER_COLOR_EDEFAULT.equals(borderColor);
+            return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
         case Xpdl2Package.NODE_GRAPHICS_INFO__FILL_COLOR:
-            return FILL_COLOR_EDEFAULT == null ? fillColor != null
-                    : !FILL_COLOR_EDEFAULT.equals(fillColor);
+            return FILL_COLOR_EDEFAULT == null ? fillColor != null : !FILL_COLOR_EDEFAULT.equals(fillColor);
         case Xpdl2Package.NODE_GRAPHICS_INFO__HEIGHT:
             return isSetHeight();
         case Xpdl2Package.NODE_GRAPHICS_INFO__IS_VISIBLE:
             return isSetIsVisible();
         case Xpdl2Package.NODE_GRAPHICS_INFO__LANE_ID:
-            return LANE_ID_EDEFAULT == null ? laneId != null
-                    : !LANE_ID_EDEFAULT.equals(laneId);
+            return LANE_ID_EDEFAULT == null ? laneId != null : !LANE_ID_EDEFAULT.equals(laneId);
         case Xpdl2Package.NODE_GRAPHICS_INFO__PAGE:
-            return PAGE_EDEFAULT == null ? page != null : !PAGE_EDEFAULT
-                    .equals(page);
+            return PAGE_EDEFAULT == null ? page != null : !PAGE_EDEFAULT.equals(page);
         case Xpdl2Package.NODE_GRAPHICS_INFO__SHAPE:
-            return SHAPE_EDEFAULT == null ? shape != null : !SHAPE_EDEFAULT
-                    .equals(shape);
+            return SHAPE_EDEFAULT == null ? shape != null : !SHAPE_EDEFAULT.equals(shape);
         case Xpdl2Package.NODE_GRAPHICS_INFO__TOOL_ID:
-            return TOOL_ID_EDEFAULT == null ? toolId != null
-                    : !TOOL_ID_EDEFAULT.equals(toolId);
+            return TOOL_ID_EDEFAULT == null ? toolId != null : !TOOL_ID_EDEFAULT.equals(toolId);
         case Xpdl2Package.NODE_GRAPHICS_INFO__WIDTH:
             return isSetWidth();
         case Xpdl2Package.NODE_GRAPHICS_INFO__PAGE_ID:
-            return PAGE_ID_EDEFAULT == null ? pageId != null
-                    : !PAGE_ID_EDEFAULT.equals(pageId);
+            return PAGE_ID_EDEFAULT == null ? pageId != null : !PAGE_ID_EDEFAULT.equals(pageId);
         }
         return super.eIsSet(featureID);
     }
@@ -866,7 +838,7 @@ public class NodeGraphicsInfoImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (borderColor: "); //$NON-NLS-1$
         result.append(borderColor);
         result.append(", fillColor: "); //$NON-NLS-1$

@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CompositeIdentifierTypeImpl extends EObjectImpl
-        implements CompositeIdentifierType {
+public class CompositeIdentifierTypeImpl extends EObjectImpl implements CompositeIdentifierType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFieldPath() <em>Field Path</em>}' attribute.
@@ -115,8 +113,7 @@ public class CompositeIdentifierTypeImpl extends EObjectImpl
         fieldPath = newFieldPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH,
-                    oldFieldPath, fieldPath));
+                    XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH, oldFieldPath, fieldPath));
     }
 
     /**
@@ -138,8 +135,7 @@ public class CompositeIdentifierTypeImpl extends EObjectImpl
         identifiername = newIdentifiername;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME,
-                    oldIdentifiername, identifiername));
+                    XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME, oldIdentifiername, identifiername));
     }
 
     /**
@@ -203,8 +199,7 @@ public class CompositeIdentifierTypeImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__FIELD_PATH:
-            return FIELD_PATH_EDEFAULT == null ? fieldPath != null
-                    : !FIELD_PATH_EDEFAULT.equals(fieldPath);
+            return FIELD_PATH_EDEFAULT == null ? fieldPath != null : !FIELD_PATH_EDEFAULT.equals(fieldPath);
         case XpdExtensionPackage.COMPOSITE_IDENTIFIER_TYPE__IDENTIFIERNAME:
             return IDENTIFIERNAME_EDEFAULT == null ? identifiername != null
                     : !IDENTIFIERNAME_EDEFAULT.equals(identifiername);
@@ -222,7 +217,7 @@ public class CompositeIdentifierTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (fieldPath: "); //$NON-NLS-1$
         result.append(fieldPath);
         result.append(", identifiername: "); //$NON-NLS-1$

@@ -37,16 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssociationItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AssociationItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,11 +81,12 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      */
     protected void addAssociationDirectionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Association_associationDirection_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Association_associationDirection_feature", "_UI_Association_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Association_associationDirection_feature", //$NON-NLS-1$
+                                "_UI_Association_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ASSOCIATION__ASSOCIATION_DIRECTION,
                         true,
                         false,
@@ -106,11 +104,12 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      */
     protected void addSourcePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Association_source_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Association_source_feature", "_UI_Association_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Association_source_feature", //$NON-NLS-1$
+                                "_UI_Association_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ASSOCIATION__SOURCE,
                         true,
                         false,
@@ -128,11 +127,12 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      */
     protected void addTargetPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Association_target_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Association_target_feature", "_UI_Association_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Association_target_feature", //$NON-NLS-1$
+                                "_UI_Association_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ASSOCIATION__TARGET,
                         true,
                         false,
@@ -151,12 +151,10 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
             childrenFeatures.add(Xpdl2Package.Literals.ASSOCIATION__OBJECT);
         }
         return childrenFeatures;
@@ -183,8 +181,7 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Association")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Association")); //$NON-NLS-1$
     }
 
     /**
@@ -212,13 +209,11 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION:
         case Xpdl2Package.ASSOCIATION__SOURCE:
         case Xpdl2Package.ASSOCIATION__TARGET:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS:
         case Xpdl2Package.ASSOCIATION__OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -232,17 +227,15 @@ public class AssociationItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS,
                         Xpdl2Factory.eINSTANCE.createConnectorGraphicsInfo()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ASSOCIATION__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.ASSOCIATION__OBJECT, Xpdl2Factory.eINSTANCE.createObject()));
     }
 
 }

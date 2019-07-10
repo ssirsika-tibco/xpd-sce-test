@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WsResourceItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WsResourceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,14 +77,11 @@ public class WsResourceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.WS_RESOURCE__INBOUND);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.WS_RESOURCE__OUTBOUND);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_RESOURCE__INBOUND);
+            childrenFeatures.add(XpdExtensionPackage.Literals.WS_RESOURCE__OUTBOUND);
         }
         return childrenFeatures;
     }
@@ -112,8 +107,7 @@ public class WsResourceItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/WsResource")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsResource")); //$NON-NLS-1$
     }
 
     /**
@@ -141,8 +135,7 @@ public class WsResourceItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(WsResource.class)) {
         case XpdExtensionPackage.WS_RESOURCE__INBOUND:
         case XpdExtensionPackage.WS_RESOURCE__OUTBOUND:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -156,16 +149,13 @@ public class WsResourceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_RESOURCE__INBOUND,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.WS_RESOURCE__INBOUND,
                 XpdExtensionFactory.eINSTANCE.createWsInbound()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.WS_RESOURCE__OUTBOUND,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.WS_RESOURCE__OUTBOUND,
                 XpdExtensionFactory.eINSTANCE.createWsOutbound()));
     }
 

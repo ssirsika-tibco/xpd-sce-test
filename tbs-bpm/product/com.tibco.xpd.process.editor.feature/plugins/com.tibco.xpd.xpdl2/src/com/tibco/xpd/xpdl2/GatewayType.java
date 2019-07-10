@@ -84,22 +84,22 @@ public enum GatewayType implements Enumerator {
      * @generated
      * @ordered
      */
-    PARALLEL_LITERAL(6, "Parallel", "Parallel"), /**
-                                                  * The '<em><b>DEPRECATEDXOREVENT</b></em>' literal object.
-                                                  * <!-- begin-user-doc -->
-                                                  * <!-- end-user-doc -->
-                                                  * @see #DEPRECATEDXOREVENT
-                                                  * @generated
-                                                  * @ordered
-                                                  */
+    PARALLEL_LITERAL(6, "Parallel", "Parallel"),
+    /**
+    * The '<em><b>DEPRECATEDXOREVENT</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #DEPRECATEDXOREVENT
+    * @generated
+    * @ordered
+    */
     DEPRECATEDXOREVENT_LITERAL(7, "DEPRECATEDXOREVENT", "DEPRECATEDXOREVENT");
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>AND</b></em>' literal value.
@@ -227,10 +227,8 @@ public enum GatewayType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final GatewayType[] VALUES_ARRAY = new GatewayType[] {
-            AND_LITERAL, XOR_LITERAL, OR_LITERAL, COMPLEX_LITERAL,
-            INCLUSIVE_LITERAL, EXCLUSIVE_LITERAL, PARALLEL_LITERAL,
-            DEPRECATEDXOREVENT_LITERAL, };
+    private static final GatewayType[] VALUES_ARRAY = new GatewayType[] { AND_LITERAL, XOR_LITERAL, OR_LITERAL,
+            COMPLEX_LITERAL, INCLUSIVE_LITERAL, EXCLUSIVE_LITERAL, PARALLEL_LITERAL, DEPRECATEDXOREVENT_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Gateway Type</b></em>' enumerators.
@@ -238,13 +236,14 @@ public enum GatewayType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<GatewayType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<GatewayType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Gateway Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static GatewayType get(String literal) {
@@ -261,6 +260,8 @@ public enum GatewayType implements Enumerator {
      * Returns the '<em><b>Gateway Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static GatewayType getByName(String name) {
@@ -277,6 +278,8 @@ public enum GatewayType implements Enumerator {
      * Returns the '<em><b>Gateway Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static GatewayType get(int value) {

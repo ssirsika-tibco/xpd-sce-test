@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.ListType#getBasicType <em>Basic Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ListType#getDeclaredType <em>Declared Type</em>}</li>
@@ -24,7 +25,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.ListType#getArrayType <em>Array Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.ListType#getListType <em>List Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getListType()
  * @model extendedMetaData="name='ListType_._type' kind='elementOnly'"
@@ -36,8 +36,7 @@ public interface ListType extends DataType {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Basic Type</b></em>' containment reference.

@@ -36,8 +36,7 @@ public class WsdlGenerationImpl extends EObjectImpl implements WsdlGeneration {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getSoapBindingStyle() <em>Soap Binding Style</em>}' attribute.
@@ -47,8 +46,7 @@ public class WsdlGenerationImpl extends EObjectImpl implements WsdlGeneration {
      * @generated
      * @ordered
      */
-    protected static final SoapBindingStyle SOAP_BINDING_STYLE_EDEFAULT =
-            SoapBindingStyle.RPC_LITERAL;
+    protected static final SoapBindingStyle SOAP_BINDING_STYLE_EDEFAULT = SoapBindingStyle.RPC_LITERAL;
 
     /**
      * The cached value of the '{@link #getSoapBindingStyle() <em>Soap Binding Style</em>}' attribute.
@@ -104,15 +102,12 @@ public class WsdlGenerationImpl extends EObjectImpl implements WsdlGeneration {
      */
     public void setSoapBindingStyle(SoapBindingStyle newSoapBindingStyle) {
         SoapBindingStyle oldSoapBindingStyle = soapBindingStyle;
-        soapBindingStyle =
-                newSoapBindingStyle == null ? SOAP_BINDING_STYLE_EDEFAULT
-                        : newSoapBindingStyle;
+        soapBindingStyle = newSoapBindingStyle == null ? SOAP_BINDING_STYLE_EDEFAULT : newSoapBindingStyle;
         boolean oldSoapBindingStyleESet = soapBindingStyleESet;
         soapBindingStyleESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WSDL_GENERATION__SOAP_BINDING_STYLE,
-                    oldSoapBindingStyle, soapBindingStyle,
+                    XpdExtensionPackage.WSDL_GENERATION__SOAP_BINDING_STYLE, oldSoapBindingStyle, soapBindingStyle,
                     !oldSoapBindingStyleESet));
     }
 
@@ -128,9 +123,8 @@ public class WsdlGenerationImpl extends EObjectImpl implements WsdlGeneration {
         soapBindingStyleESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.WSDL_GENERATION__SOAP_BINDING_STYLE,
-                    oldSoapBindingStyle, SOAP_BINDING_STYLE_EDEFAULT,
-                    oldSoapBindingStyleESet));
+                    XpdExtensionPackage.WSDL_GENERATION__SOAP_BINDING_STYLE, oldSoapBindingStyle,
+                    SOAP_BINDING_STYLE_EDEFAULT, oldSoapBindingStyleESet));
     }
 
     /**
@@ -210,7 +204,7 @@ public class WsdlGenerationImpl extends EObjectImpl implements WsdlGeneration {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (soapBindingStyle: "); //$NON-NLS-1$
         if (soapBindingStyleESet)
             result.append(soapBindingStyle);

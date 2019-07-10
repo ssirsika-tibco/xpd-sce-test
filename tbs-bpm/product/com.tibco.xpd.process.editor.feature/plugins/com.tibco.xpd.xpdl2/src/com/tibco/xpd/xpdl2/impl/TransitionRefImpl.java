@@ -20,11 +20,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionRefImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TransitionRefImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,8 +34,7 @@ public class TransitionRefImpl extends EObjectImpl implements TransitionRef {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -114,8 +113,7 @@ public class TransitionRefImpl extends EObjectImpl implements TransitionRef {
         String oldId = id;
         id = newId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION_REF__ID, oldId, id));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION_REF__ID, oldId, id));
     }
 
     /**
@@ -136,8 +134,7 @@ public class TransitionRefImpl extends EObjectImpl implements TransitionRef {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TRANSITION_REF__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TRANSITION_REF__NAME, oldName, name));
     }
 
     /**
@@ -203,8 +200,7 @@ public class TransitionRefImpl extends EObjectImpl implements TransitionRef {
         case Xpdl2Package.TRANSITION_REF__ID:
             return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
         case Xpdl2Package.TRANSITION_REF__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -219,7 +215,7 @@ public class TransitionRefImpl extends EObjectImpl implements TransitionRef {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (id: "); //$NON-NLS-1$
         result.append(id);
         result.append(", name: "); //$NON-NLS-1$

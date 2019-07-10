@@ -29,6 +29,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskImpl#getTaskService <em>Task Service</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskImpl#getTaskReceive <em>Task Receive</em>}</li>
@@ -39,7 +40,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskImpl#getTaskUser <em>Task User</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskImpl#getTaskApplication <em>Task Application</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -49,8 +49,7 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getTaskService() <em>Task Service</em>}' containment reference.
@@ -165,15 +164,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskService(TaskService newTaskService,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskService(TaskService newTaskService, NotificationChain msgs) {
         TaskService oldTaskService = taskService;
         taskService = newTaskService;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_SERVICE, oldTaskService,
-                            newTaskService);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_SERVICE, oldTaskService, newTaskService);
             if (msgs == null)
                 msgs = notification;
             else
@@ -191,25 +187,16 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskService != taskService) {
             NotificationChain msgs = null;
             if (taskService != null)
-                msgs =
-                        ((InternalEObject) taskService).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SERVICE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskService)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SERVICE, null, msgs);
             if (newTaskService != null)
-                msgs =
-                        ((InternalEObject) newTaskService).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SERVICE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskService)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SERVICE, null, msgs);
             msgs = basicSetTaskService(newTaskService, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_SERVICE, newTaskService,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_SERVICE, newTaskService,
                     newTaskService));
     }
 
@@ -227,15 +214,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskReceive(TaskReceive newTaskReceive,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskReceive(TaskReceive newTaskReceive, NotificationChain msgs) {
         TaskReceive oldTaskReceive = taskReceive;
         taskReceive = newTaskReceive;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_RECEIVE, oldTaskReceive,
-                            newTaskReceive);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_RECEIVE, oldTaskReceive, newTaskReceive);
             if (msgs == null)
                 msgs = notification;
             else
@@ -253,25 +237,16 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskReceive != taskReceive) {
             NotificationChain msgs = null;
             if (taskReceive != null)
-                msgs =
-                        ((InternalEObject) taskReceive).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_RECEIVE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskReceive)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_RECEIVE, null, msgs);
             if (newTaskReceive != null)
-                msgs =
-                        ((InternalEObject) newTaskReceive).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_RECEIVE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskReceive)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_RECEIVE, null, msgs);
             msgs = basicSetTaskReceive(newTaskReceive, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_RECEIVE, newTaskReceive,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_RECEIVE, newTaskReceive,
                     newTaskReceive));
     }
 
@@ -289,15 +264,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskManual(TaskManual newTaskManual,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskManual(TaskManual newTaskManual, NotificationChain msgs) {
         TaskManual oldTaskManual = taskManual;
         taskManual = newTaskManual;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_MANUAL, oldTaskManual,
-                            newTaskManual);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_MANUAL, oldTaskManual, newTaskManual);
             if (msgs == null)
                 msgs = notification;
             else
@@ -315,25 +287,16 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskManual != taskManual) {
             NotificationChain msgs = null;
             if (taskManual != null)
-                msgs =
-                        ((InternalEObject) taskManual).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_MANUAL,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskManual)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_MANUAL, null, msgs);
             if (newTaskManual != null)
-                msgs =
-                        ((InternalEObject) newTaskManual).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_MANUAL,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskManual)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_MANUAL, null, msgs);
             msgs = basicSetTaskManual(newTaskManual, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_MANUAL, newTaskManual,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_MANUAL, newTaskManual,
                     newTaskManual));
     }
 
@@ -351,15 +314,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskReference(
-            TaskReference newTaskReference, NotificationChain msgs) {
+    public NotificationChain basicSetTaskReference(TaskReference newTaskReference, NotificationChain msgs) {
         TaskReference oldTaskReference = taskReference;
         taskReference = newTaskReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_REFERENCE,
-                            oldTaskReference, newTaskReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_REFERENCE, oldTaskReference, newTaskReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -377,25 +337,16 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskReference != taskReference) {
             NotificationChain msgs = null;
             if (taskReference != null)
-                msgs =
-                        ((InternalEObject) taskReference).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_REFERENCE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskReference)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_REFERENCE, null, msgs);
             if (newTaskReference != null)
-                msgs =
-                        ((InternalEObject) newTaskReference).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_REFERENCE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskReference)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_REFERENCE, null, msgs);
             msgs = basicSetTaskReference(newTaskReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_REFERENCE, newTaskReference,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_REFERENCE, newTaskReference,
                     newTaskReference));
     }
 
@@ -413,15 +364,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskScript(TaskScript newTaskScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskScript(TaskScript newTaskScript, NotificationChain msgs) {
         TaskScript oldTaskScript = taskScript;
         taskScript = newTaskScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_SCRIPT, oldTaskScript,
-                            newTaskScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_SCRIPT, oldTaskScript, newTaskScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -439,25 +387,16 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskScript != taskScript) {
             NotificationChain msgs = null;
             if (taskScript != null)
-                msgs =
-                        ((InternalEObject) taskScript).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SCRIPT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskScript)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SCRIPT, null, msgs);
             if (newTaskScript != null)
-                msgs =
-                        ((InternalEObject) newTaskScript).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SCRIPT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskScript)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SCRIPT, null, msgs);
             msgs = basicSetTaskScript(newTaskScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_SCRIPT, newTaskScript,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_SCRIPT, newTaskScript,
                     newTaskScript));
     }
 
@@ -475,15 +414,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskSend(TaskSend newTaskSend,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskSend(TaskSend newTaskSend, NotificationChain msgs) {
         TaskSend oldTaskSend = taskSend;
         taskSend = newTaskSend;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_SEND, oldTaskSend,
-                            newTaskSend);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_SEND,
+                    oldTaskSend, newTaskSend);
             if (msgs == null)
                 msgs = notification;
             else
@@ -501,25 +437,17 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskSend != taskSend) {
             NotificationChain msgs = null;
             if (taskSend != null)
-                msgs =
-                        ((InternalEObject) taskSend).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SEND,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskSend)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SEND, null, msgs);
             if (newTaskSend != null)
-                msgs =
-                        ((InternalEObject) newTaskSend).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_SEND,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskSend)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_SEND, null, msgs);
             msgs = basicSetTaskSend(newTaskSend, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_SEND, newTaskSend, newTaskSend));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_SEND, newTaskSend,
+                    newTaskSend));
     }
 
     /**
@@ -536,15 +464,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskUser(TaskUser newTaskUser,
-            NotificationChain msgs) {
+    public NotificationChain basicSetTaskUser(TaskUser newTaskUser, NotificationChain msgs) {
         TaskUser oldTaskUser = taskUser;
         taskUser = newTaskUser;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_USER, oldTaskUser,
-                            newTaskUser);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_USER,
+                    oldTaskUser, newTaskUser);
             if (msgs == null)
                 msgs = notification;
             else
@@ -562,25 +487,17 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskUser != taskUser) {
             NotificationChain msgs = null;
             if (taskUser != null)
-                msgs =
-                        ((InternalEObject) taskUser).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_USER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) taskUser)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_USER, null, msgs);
             if (newTaskUser != null)
-                msgs =
-                        ((InternalEObject) newTaskUser).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK__TASK_USER,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newTaskUser)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_USER, null, msgs);
             msgs = basicSetTaskUser(newTaskUser, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_USER, newTaskUser, newTaskUser));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_USER, newTaskUser,
+                    newTaskUser));
     }
 
     /**
@@ -597,15 +514,12 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTaskApplication(
-            TaskApplication newTaskApplication, NotificationChain msgs) {
+    public NotificationChain basicSetTaskApplication(TaskApplication newTaskApplication, NotificationChain msgs) {
         TaskApplication oldTaskApplication = taskApplication;
         taskApplication = newTaskApplication;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK__TASK_APPLICATION,
-                            oldTaskApplication, newTaskApplication);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK__TASK_APPLICATION, oldTaskApplication, newTaskApplication);
             if (msgs == null)
                 msgs = notification;
             else
@@ -623,28 +537,17 @@ public class TaskImpl extends ImplementationImpl implements Task {
         if (newTaskApplication != taskApplication) {
             NotificationChain msgs = null;
             if (taskApplication != null)
-                msgs =
-                        ((InternalEObject) taskApplication)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK__TASK_APPLICATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) taskApplication)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_APPLICATION, null, msgs);
             if (newTaskApplication != null)
-                msgs =
-                        ((InternalEObject) newTaskApplication)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK__TASK_APPLICATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newTaskApplication)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK__TASK_APPLICATION, null, msgs);
             msgs = basicSetTaskApplication(newTaskApplication, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK__TASK_APPLICATION, newTaskApplication,
-                    newTaskApplication));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK__TASK_APPLICATION,
+                    newTaskApplication, newTaskApplication));
     }
 
     /**
@@ -653,8 +556,7 @@ public class TaskImpl extends ImplementationImpl implements Task {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK__TASK_SERVICE:
             return basicSetTaskService(null, msgs);

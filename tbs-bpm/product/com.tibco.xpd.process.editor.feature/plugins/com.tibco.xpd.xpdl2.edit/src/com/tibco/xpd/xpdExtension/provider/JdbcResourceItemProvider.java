@@ -33,16 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JdbcResourceItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class JdbcResourceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,21 +76,20 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addInstanceNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_JdbcResource_instanceName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_JdbcResource_instanceName_feature", //$NON-NLS-1$
-                        "_UI_JdbcResource_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.JDBC_RESOURCE__INSTANCE_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_JdbcResource_instanceName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_JdbcResource_instanceName_feature", //$NON-NLS-1$
+                                "_UI_JdbcResource_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.JDBC_RESOURCE__INSTANCE_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -102,21 +99,20 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addJdbcProfileNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_JdbcResource_jdbcProfileName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_JdbcResource_jdbcProfileName_feature", //$NON-NLS-1$
-                        "_UI_JdbcResource_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.JDBC_RESOURCE__JDBC_PROFILE_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_JdbcResource_jdbcProfileName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_JdbcResource_jdbcProfileName_feature", //$NON-NLS-1$
+                                "_UI_JdbcResource_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.JDBC_RESOURCE__JDBC_PROFILE_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,8 +123,7 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/JdbcResource")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/JdbcResource")); //$NON-NLS-1$
     }
 
     /**
@@ -140,9 +135,8 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((JdbcResource) object).getInstanceName();
-        return label == null || label.length() == 0
-                ? getString("_UI_JdbcResource_type") //$NON-NLS-1$
-                : getString("_UI_JdbcResource_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_JdbcResource_type") : //$NON-NLS-1$
+                getString("_UI_JdbcResource_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -159,8 +153,7 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(JdbcResource.class)) {
         case XpdExtensionPackage.JDBC_RESOURCE__INSTANCE_NAME:
         case XpdExtensionPackage.JDBC_RESOURCE__JDBC_PROFILE_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -174,8 +167,7 @@ public class JdbcResourceItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

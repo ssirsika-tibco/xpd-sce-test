@@ -30,6 +30,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskReceiveImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskReceiveImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -38,7 +39,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskReceiveImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskReceiveImpl#isInstantiate <em>Instantiate</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -48,8 +48,7 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -99,8 +98,7 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -176,9 +174,7 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_RECEIVE__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TASK_RECEIVE__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -190,9 +186,7 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_RECEIVE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.TASK_RECEIVE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -211,15 +205,12 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessage(Message newMessage,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs) {
         Message oldMessage = message;
         message = newMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_RECEIVE__MESSAGE, oldMessage,
-                            newMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_RECEIVE__MESSAGE, oldMessage, newMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -237,25 +228,17 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
         if (newMessage != message) {
             NotificationChain msgs = null;
             if (message != null)
-                msgs =
-                        ((InternalEObject) message).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_RECEIVE__MESSAGE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) message)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_RECEIVE__MESSAGE, null, msgs);
             if (newMessage != null)
-                msgs =
-                        ((InternalEObject) newMessage).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_RECEIVE__MESSAGE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMessage)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_RECEIVE__MESSAGE, null, msgs);
             msgs = basicSetMessage(newMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_RECEIVE__MESSAGE, newMessage, newMessage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_RECEIVE__MESSAGE, newMessage,
+                    newMessage));
     }
 
     /**
@@ -272,15 +255,13 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebServiceOperation(
-            WebServiceOperation newWebServiceOperation, NotificationChain msgs) {
+    public NotificationChain basicSetWebServiceOperation(WebServiceOperation newWebServiceOperation,
+            NotificationChain msgs) {
         WebServiceOperation oldWebServiceOperation = webServiceOperation;
         webServiceOperation = newWebServiceOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
-                            oldWebServiceOperation, newWebServiceOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION, oldWebServiceOperation, newWebServiceOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -294,32 +275,24 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWebServiceOperation(
-            WebServiceOperation newWebServiceOperation) {
+    public void setWebServiceOperation(WebServiceOperation newWebServiceOperation) {
         if (newWebServiceOperation != webServiceOperation) {
             NotificationChain msgs = null;
             if (webServiceOperation != null)
-                msgs =
-                        ((InternalEObject) webServiceOperation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) webServiceOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             if (newWebServiceOperation != null)
-                msgs =
-                        ((InternalEObject) newWebServiceOperation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWebServiceOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             msgs = basicSetWebServiceOperation(newWebServiceOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION,
                     newWebServiceOperation, newWebServiceOperation));
     }
 
@@ -339,14 +312,11 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_RECEIVE__IMPLEMENTATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_RECEIVE__IMPLEMENTATION,
                     oldImplementation, implementation, !oldImplementationESet));
     }
 
@@ -361,10 +331,8 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TASK_RECEIVE__IMPLEMENTATION,
-                    oldImplementation, IMPLEMENTATION_EDEFAULT,
-                    oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TASK_RECEIVE__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -396,9 +364,8 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
         boolean oldInstantiateESet = instantiateESet;
         instantiateESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_RECEIVE__INSTANTIATE, oldInstantiate,
-                    instantiate, !oldInstantiateESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_RECEIVE__INSTANTIATE,
+                    oldInstantiate, instantiate, !oldInstantiateESet));
     }
 
     /**
@@ -412,9 +379,8 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
         instantiate = INSTANTIATE_EDEFAULT;
         instantiateESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TASK_RECEIVE__INSTANTIATE, oldInstantiate,
-                    INSTANTIATE_EDEFAULT, oldInstantiateESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TASK_RECEIVE__INSTANTIATE,
+                    oldInstantiate, INSTANTIATE_EDEFAULT, oldInstantiateESet));
     }
 
     /**
@@ -441,15 +407,12 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK_RECEIVE__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_RECEIVE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_RECEIVE__MESSAGE:
             return basicSetMessage(null, msgs);
         case Xpdl2Package.TASK_RECEIVE__WEB_SERVICE_OPERATION:
@@ -616,7 +579,7 @@ public class TaskReceiveImpl extends EObjectImpl implements TaskReceive {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

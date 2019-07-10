@@ -24,6 +24,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExtendedAttributeImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExtendedAttributeImpl#getGroup <em>Group</em>}</li>
@@ -31,18 +32,15 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExtendedAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ExtendedAttributeImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ExtendedAttributeImpl extends EObjectImpl implements
-        ExtendedAttribute {
+public class ExtendedAttributeImpl extends EObjectImpl implements ExtendedAttribute {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -121,9 +119,7 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
      */
     public FeatureMap getMixed() {
         if (mixed == null) {
-            mixed =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.EXTENDED_ATTRIBUTE__MIXED);
+            mixed = new BasicFeatureMap(this, Xpdl2Package.EXTENDED_ATTRIBUTE__MIXED);
         }
         return mixed;
     }
@@ -133,8 +129,7 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
      * @generated
      */
     public FeatureMap getGroup() {
-        return (FeatureMap) getMixed()
-                .<FeatureMap.Entry> list(Xpdl2Package.Literals.EXTENDED_ATTRIBUTE__GROUP);
+        return (FeatureMap) getMixed().<FeatureMap.Entry> list(Xpdl2Package.Literals.EXTENDED_ATTRIBUTE__GROUP);
     }
 
     /**
@@ -143,9 +138,7 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
      */
     public FeatureMap getAny() {
         if (any == null) {
-            any =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.EXTENDED_ATTRIBUTE__ANY);
+            any = new BasicFeatureMap(this, Xpdl2Package.EXTENDED_ATTRIBUTE__ANY);
         }
         return any;
     }
@@ -166,8 +159,8 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTENDED_ATTRIBUTE__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTENDED_ATTRIBUTE__NAME, oldName,
+                    name));
     }
 
     /**
@@ -186,8 +179,8 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.EXTENDED_ATTRIBUTE__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.EXTENDED_ATTRIBUTE__VALUE, oldValue,
+                    value));
     }
 
     /**
@@ -195,8 +188,7 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.EXTENDED_ATTRIBUTE__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
@@ -301,11 +293,9 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
         case Xpdl2Package.EXTENDED_ATTRIBUTE__ANY:
             return any != null && !any.isEmpty();
         case Xpdl2Package.EXTENDED_ATTRIBUTE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case Xpdl2Package.EXTENDED_ATTRIBUTE__VALUE:
-            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
-                    .equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         }
         return super.eIsSet(featureID);
     }
@@ -319,7 +309,7 @@ public class ExtendedAttributeImpl extends EObjectImpl implements
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: "); //$NON-NLS-1$
         result.append(mixed);
         result.append(", any: "); //$NON-NLS-1$

@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class MoveCaseDocOperationImpl extends EObjectImpl
-        implements MoveCaseDocOperation {
+public class MoveCaseDocOperationImpl extends EObjectImpl implements MoveCaseDocOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getSourceCaseRefField() <em>Source Case Ref Field</em>}' attribute.
@@ -115,8 +113,8 @@ public class MoveCaseDocOperationImpl extends EObjectImpl
         sourceCaseRefField = newSourceCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD,
-                    oldSourceCaseRefField, sourceCaseRefField));
+                    XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD, oldSourceCaseRefField,
+                    sourceCaseRefField));
     }
 
     /**
@@ -138,8 +136,8 @@ public class MoveCaseDocOperationImpl extends EObjectImpl
         targetCaseRefField = newTargetCaseRefField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD,
-                    oldTargetCaseRefField, targetCaseRefField));
+                    XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD, oldTargetCaseRefField,
+                    targetCaseRefField));
     }
 
     /**
@@ -203,15 +201,11 @@ public class MoveCaseDocOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__SOURCE_CASE_REF_FIELD:
-            return SOURCE_CASE_REF_FIELD_EDEFAULT == null
-                    ? sourceCaseRefField != null
-                    : !SOURCE_CASE_REF_FIELD_EDEFAULT
-                            .equals(sourceCaseRefField);
+            return SOURCE_CASE_REF_FIELD_EDEFAULT == null ? sourceCaseRefField != null
+                    : !SOURCE_CASE_REF_FIELD_EDEFAULT.equals(sourceCaseRefField);
         case XpdExtensionPackage.MOVE_CASE_DOC_OPERATION__TARGET_CASE_REF_FIELD:
-            return TARGET_CASE_REF_FIELD_EDEFAULT == null
-                    ? targetCaseRefField != null
-                    : !TARGET_CASE_REF_FIELD_EDEFAULT
-                            .equals(targetCaseRefField);
+            return TARGET_CASE_REF_FIELD_EDEFAULT == null ? targetCaseRefField != null
+                    : !TARGET_CASE_REF_FIELD_EDEFAULT.equals(targetCaseRefField);
         }
         return super.eIsSet(featureID);
     }
@@ -226,7 +220,7 @@ public class MoveCaseDocOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (sourceCaseRefField: "); //$NON-NLS-1$
         result.append(sourceCaseRefField);
         result.append(", targetCaseRefField: "); //$NON-NLS-1$

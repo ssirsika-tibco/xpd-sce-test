@@ -34,15 +34,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * end-user-doc -->
  * @generated
  */
-public class TransitionItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TransitionItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -81,11 +78,12 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -102,19 +100,18 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addFromPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Transition_from_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Transition_from_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.TRANSITION__FROM,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Transition_from_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Transition_from_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.TRANSITION__FROM,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -125,11 +122,12 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      */
     protected void addQuantityPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Transition_quantity_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Transition_quantity_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Transition_quantity_feature", //$NON-NLS-1$
+                                "_UI_Transition_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TRANSITION__QUANTITY,
                         true,
                         false,
@@ -146,19 +144,18 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addToPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Transition_to_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Transition_to_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.TRANSITION__TO,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Transition_to_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Transition_to_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.TRANSITION__TO,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -169,14 +166,11 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS);
             childrenFeatures.add(Xpdl2Package.Literals.TRANSITION__CONDITION);
             childrenFeatures.add(Xpdl2Package.Literals.TRANSITION__ASSIGNMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.TRANSITION__OBJECT);
@@ -204,8 +198,7 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Transition")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition")); //$NON-NLS-1$
     }
 
     /**
@@ -235,16 +228,14 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.TRANSITION__FROM:
         case Xpdl2Package.TRANSITION__QUANTITY:
         case Xpdl2Package.TRANSITION__TO:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.TRANSITION__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.TRANSITION__CONNECTOR_GRAPHICS_INFOS:
         case Xpdl2Package.TRANSITION__CONDITION:
         case Xpdl2Package.TRANSITION__ASSIGNMENTS:
         case Xpdl2Package.TRANSITION__OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -258,8 +249,7 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
@@ -270,17 +260,14 @@ public class TransitionItemProvider extends NamedElementItemProvider implements
                 .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_CONNECTOR__CONNECTOR_GRAPHICS_INFOS,
                         Xpdl2Factory.eINSTANCE.createConnectorGraphicsInfo()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRANSITION__CONDITION,
-                        Xpdl2Factory.eINSTANCE.createCondition()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRANSITION__CONDITION,
+                Xpdl2Factory.eINSTANCE.createCondition()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRANSITION__ASSIGNMENTS,
-                        Xpdl2Factory.eINSTANCE.createAssignment()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRANSITION__ASSIGNMENTS,
+                Xpdl2Factory.eINSTANCE.createAssignment()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRANSITION__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.TRANSITION__OBJECT, Xpdl2Factory.eINSTANCE.createObject()));
     }
 
 }

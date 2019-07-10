@@ -35,17 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TriggerIntermediateMultipleItemProvider extends
-        ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider,
-        IItemLabelProvider, IItemPropertySource {
+public class TriggerIntermediateMultipleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,26 +78,17 @@ public class TriggerIntermediateMultipleItemProvider extends
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_MESSAGE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_LINK);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_MESSAGE);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL);
+            childrenFeatures.add(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_LINK);
         }
         return childrenFeatures;
     }
@@ -126,9 +114,7 @@ public class TriggerIntermediateMultipleItemProvider extends
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/TriggerIntermediateMultiple")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TriggerIntermediateMultiple")); //$NON-NLS-1$
     }
 
     /**
@@ -162,8 +148,7 @@ public class TriggerIntermediateMultipleItemProvider extends
         case Xpdl2Package.TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION:
         case Xpdl2Package.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL:
         case Xpdl2Package.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_LINK:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -177,31 +162,26 @@ public class TriggerIntermediateMultipleItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_MESSAGE,
                         Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER,
-                        Xpdl2Factory.eINSTANCE.createTriggerTimer()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_TIMER,
+                Xpdl2Factory.eINSTANCE.createTriggerTimer()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR,
-                        Xpdl2Factory.eINSTANCE.createResultError()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__RESULT_ERROR,
+                Xpdl2Factory.eINSTANCE.createResultError()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createTriggerResultCompensation()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_RESULT_COMPENSATION,
+                        Xpdl2Factory.eINSTANCE.createTriggerResultCompensation()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createDeprecatedResultCompensation()));
+        newChildDescriptors.add(createChildParameter(
+                Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__DEPRECATED_RESULT_COMPENSATION,
+                Xpdl2Factory.eINSTANCE.createDeprecatedResultCompensation()));
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.TRIGGER_INTERMEDIATE_MULTIPLE__TRIGGER_CONDITIONAL,

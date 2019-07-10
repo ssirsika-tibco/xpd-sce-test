@@ -43,8 +43,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getDays() <em>Days</em>}' attribute.
@@ -243,8 +242,8 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldDays = days;
         days = newDays;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__DAYS, oldDays, days));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__DAYS, oldDays,
+                    days));
     }
 
     /**
@@ -265,8 +264,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldHours = hours;
         hours = newHours;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__HOURS, oldHours,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__HOURS, oldHours,
                     hours));
     }
 
@@ -288,8 +286,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldMicroSeconds = microSeconds;
         microSeconds = newMicroSeconds;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__MICRO_SECONDS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__MICRO_SECONDS,
                     oldMicroSeconds, microSeconds));
     }
 
@@ -311,9 +308,8 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldMinutes = minutes;
         minutes = newMinutes;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__MINUTES, oldMinutes,
-                    minutes));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__MINUTES,
+                    oldMinutes, minutes));
     }
 
     /**
@@ -334,9 +330,8 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldMonths = months;
         months = newMonths;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__MONTHS, oldMonths,
-                    months));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__MONTHS,
+                    oldMonths, months));
     }
 
     /**
@@ -357,9 +352,8 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldSeconds = seconds;
         seconds = newSeconds;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__SECONDS, oldSeconds,
-                    seconds));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__SECONDS,
+                    oldSeconds, seconds));
     }
 
     /**
@@ -380,8 +374,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldWeeks = weeks;
         weeks = newWeeks;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__WEEKS, oldWeeks,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__WEEKS, oldWeeks,
                     weeks));
     }
 
@@ -403,8 +396,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         BigInteger oldYears = years;
         years = newYears;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.CONSTANT_PERIOD__YEARS, oldYears,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.CONSTANT_PERIOD__YEARS, oldYears,
                     years));
     }
 
@@ -517,29 +509,21 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.CONSTANT_PERIOD__DAYS:
-            return DAYS_EDEFAULT == null ? days != null
-                    : !DAYS_EDEFAULT.equals(days);
+            return DAYS_EDEFAULT == null ? days != null : !DAYS_EDEFAULT.equals(days);
         case XpdExtensionPackage.CONSTANT_PERIOD__HOURS:
-            return HOURS_EDEFAULT == null ? hours != null
-                    : !HOURS_EDEFAULT.equals(hours);
+            return HOURS_EDEFAULT == null ? hours != null : !HOURS_EDEFAULT.equals(hours);
         case XpdExtensionPackage.CONSTANT_PERIOD__MICRO_SECONDS:
-            return MICRO_SECONDS_EDEFAULT == null ? microSeconds != null
-                    : !MICRO_SECONDS_EDEFAULT.equals(microSeconds);
+            return MICRO_SECONDS_EDEFAULT == null ? microSeconds != null : !MICRO_SECONDS_EDEFAULT.equals(microSeconds);
         case XpdExtensionPackage.CONSTANT_PERIOD__MINUTES:
-            return MINUTES_EDEFAULT == null ? minutes != null
-                    : !MINUTES_EDEFAULT.equals(minutes);
+            return MINUTES_EDEFAULT == null ? minutes != null : !MINUTES_EDEFAULT.equals(minutes);
         case XpdExtensionPackage.CONSTANT_PERIOD__MONTHS:
-            return MONTHS_EDEFAULT == null ? months != null
-                    : !MONTHS_EDEFAULT.equals(months);
+            return MONTHS_EDEFAULT == null ? months != null : !MONTHS_EDEFAULT.equals(months);
         case XpdExtensionPackage.CONSTANT_PERIOD__SECONDS:
-            return SECONDS_EDEFAULT == null ? seconds != null
-                    : !SECONDS_EDEFAULT.equals(seconds);
+            return SECONDS_EDEFAULT == null ? seconds != null : !SECONDS_EDEFAULT.equals(seconds);
         case XpdExtensionPackage.CONSTANT_PERIOD__WEEKS:
-            return WEEKS_EDEFAULT == null ? weeks != null
-                    : !WEEKS_EDEFAULT.equals(weeks);
+            return WEEKS_EDEFAULT == null ? weeks != null : !WEEKS_EDEFAULT.equals(weeks);
         case XpdExtensionPackage.CONSTANT_PERIOD__YEARS:
-            return YEARS_EDEFAULT == null ? years != null
-                    : !YEARS_EDEFAULT.equals(years);
+            return YEARS_EDEFAULT == null ? years != null : !YEARS_EDEFAULT.equals(years);
         }
         return super.eIsSet(featureID);
     }
@@ -554,7 +538,7 @@ public class ConstantPeriodImpl extends EObjectImpl implements ConstantPeriod {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (days: "); //$NON-NLS-1$
         result.append(days);
         result.append(", hours: "); //$NON-NLS-1$

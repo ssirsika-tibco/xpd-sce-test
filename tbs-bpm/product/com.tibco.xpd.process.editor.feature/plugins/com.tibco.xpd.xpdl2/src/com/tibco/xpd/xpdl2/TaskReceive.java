@@ -13,27 +13,25 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskReceive#getMessage <em>Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskReceive#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskReceive#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.TaskReceive#isInstantiate <em>Instantiate</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getTaskReceive()
  * @model extendedMetaData="name='TaskReceive_._type' kind='elementOnly' features-order='message webServiceOperation otherElements'"
  * @generated
  */
-public interface TaskReceive extends OtherAttributesContainer,
-        OtherElementsContainer {
+public interface TaskReceive extends OtherAttributesContainer, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Message</b></em>' containment reference.

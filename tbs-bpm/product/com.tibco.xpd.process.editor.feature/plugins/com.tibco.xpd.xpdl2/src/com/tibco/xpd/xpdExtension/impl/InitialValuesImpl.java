@@ -35,8 +35,7 @@ public class InitialValuesImpl extends EObjectImpl implements InitialValues {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
@@ -74,8 +73,7 @@ public class InitialValuesImpl extends EObjectImpl implements InitialValues {
      */
     public EList<String> getValue() {
         if (value == null) {
-            value = new EDataTypeEList<String>(String.class, this,
-                    XpdExtensionPackage.INITIAL_VALUES__VALUE);
+            value = new EDataTypeEList<String>(String.class, this, XpdExtensionPackage.INITIAL_VALUES__VALUE);
         }
         return value;
     }
@@ -150,7 +148,7 @@ public class InitialValuesImpl extends EObjectImpl implements InitialValues {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (value: "); //$NON-NLS-1$
         result.append(value);
         result.append(')');

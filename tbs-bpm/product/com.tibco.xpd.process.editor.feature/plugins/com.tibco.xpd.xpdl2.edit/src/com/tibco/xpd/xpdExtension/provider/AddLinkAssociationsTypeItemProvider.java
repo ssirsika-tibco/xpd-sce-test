@@ -31,16 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,22 +74,20 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAddCaseRefFieldPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AddLinkAssociationsType_addCaseRefField_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AddLinkAssociationsType_addCaseRefField_feature", //$NON-NLS-1$
-                        "_UI_AddLinkAssociationsType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AddLinkAssociationsType_addCaseRefField_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AddLinkAssociationsType_addCaseRefField_feature", //$NON-NLS-1$
+                                "_UI_AddLinkAssociationsType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,22 +97,20 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addAssociationNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AddLinkAssociationsType_associationName_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AddLinkAssociationsType_associationName_feature", //$NON-NLS-1$
-                        "_UI_AddLinkAssociationsType_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AddLinkAssociationsType_associationName_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AddLinkAssociationsType_associationName_feature", //$NON-NLS-1$
+                                "_UI_AddLinkAssociationsType_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -127,9 +121,7 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/AddLinkAssociationsType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/AddLinkAssociationsType")); //$NON-NLS-1$
     }
 
     /**
@@ -141,9 +133,8 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
     @Override
     public String getText(Object object) {
         String label = ((AddLinkAssociationsType) object).getAssociationName();
-        return label == null || label.length() == 0
-                ? getString("_UI_AddLinkAssociationsType_type") //$NON-NLS-1$
-                : getString("_UI_AddLinkAssociationsType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_AddLinkAssociationsType_type") : //$NON-NLS-1$
+                getString("_UI_AddLinkAssociationsType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -160,8 +151,7 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(AddLinkAssociationsType.class)) {
         case XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ADD_CASE_REF_FIELD:
         case XpdExtensionPackage.ADD_LINK_ASSOCIATIONS_TYPE__ASSOCIATION_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -175,8 +165,7 @@ public class AddLinkAssociationsTypeItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

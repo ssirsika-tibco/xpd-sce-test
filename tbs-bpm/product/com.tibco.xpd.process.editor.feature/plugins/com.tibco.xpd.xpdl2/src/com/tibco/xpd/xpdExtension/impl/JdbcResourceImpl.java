@@ -35,8 +35,7 @@ public class JdbcResourceImpl extends EObjectImpl implements JdbcResource {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getInstanceName() <em>Instance Name</em>}' attribute.
@@ -115,8 +114,7 @@ public class JdbcResourceImpl extends EObjectImpl implements JdbcResource {
         String oldInstanceName = instanceName;
         instanceName = newInstanceName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.JDBC_RESOURCE__INSTANCE_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.JDBC_RESOURCE__INSTANCE_NAME,
                     oldInstanceName, instanceName));
     }
 
@@ -138,8 +136,7 @@ public class JdbcResourceImpl extends EObjectImpl implements JdbcResource {
         String oldJdbcProfileName = jdbcProfileName;
         jdbcProfileName = newJdbcProfileName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.JDBC_RESOURCE__JDBC_PROFILE_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.JDBC_RESOURCE__JDBC_PROFILE_NAME,
                     oldJdbcProfileName, jdbcProfileName));
     }
 
@@ -204,8 +201,7 @@ public class JdbcResourceImpl extends EObjectImpl implements JdbcResource {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.JDBC_RESOURCE__INSTANCE_NAME:
-            return INSTANCE_NAME_EDEFAULT == null ? instanceName != null
-                    : !INSTANCE_NAME_EDEFAULT.equals(instanceName);
+            return INSTANCE_NAME_EDEFAULT == null ? instanceName != null : !INSTANCE_NAME_EDEFAULT.equals(instanceName);
         case XpdExtensionPackage.JDBC_RESOURCE__JDBC_PROFILE_NAME:
             return JDBC_PROFILE_NAME_EDEFAULT == null ? jdbcProfileName != null
                     : !JDBC_PROFILE_NAME_EDEFAULT.equals(jdbcProfileName);
@@ -223,7 +219,7 @@ public class JdbcResourceImpl extends EObjectImpl implements JdbcResource {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (instanceName: "); //$NON-NLS-1$
         result.append(instanceName);
         result.append(", jdbcProfileName: "); //$NON-NLS-1$

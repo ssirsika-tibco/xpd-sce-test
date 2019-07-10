@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UserTaskScriptsItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class UserTaskScriptsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,20 +80,14 @@ public class UserTaskScriptsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT);
         }
         return childrenFeatures;
     }
@@ -121,8 +113,7 @@ public class UserTaskScriptsItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/UserTaskScripts")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/UserTaskScripts")); //$NON-NLS-1$
     }
 
     /**
@@ -153,8 +144,7 @@ public class UserTaskScriptsItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT:
         case XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT:
         case XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -168,48 +158,37 @@ public class UserTaskScriptsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
                 Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
                 Xpdl2Factory.eINSTANCE.createExpression()));
     }
 
@@ -220,22 +199,19 @@ public class UserTaskScriptsItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public String getCreateChildText(Object owner, Object feature, Object child,
-            Collection<?> selection) {
+    public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT
-                        || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT
-                        || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT
-                        || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT
-                        || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT;
+        boolean qualify = childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__OPEN_SCRIPT
+                || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__CLOSE_SCRIPT
+                || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SUBMIT_SCRIPT
+                || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT
+                || childFeature == XpdExtensionPackage.Literals.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT;
 
         if (qualify) {
             return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText(childObject),
-                            getFeatureText(childFeature), getTypeText(owner) });
+                    new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

@@ -46,8 +46,7 @@ public enum DeprecatedXorType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>DATA</b></em>' literal value.
@@ -85,8 +84,7 @@ public enum DeprecatedXorType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final DeprecatedXorType[] VALUES_ARRAY =
-            new DeprecatedXorType[] { DATA, EVENT, };
+    private static final DeprecatedXorType[] VALUES_ARRAY = new DeprecatedXorType[] { DATA, EVENT, };
 
     /**
      * A public read-only list of all the '<em><b>Deprecated Xor Type</b></em>' enumerators.
@@ -94,13 +92,14 @@ public enum DeprecatedXorType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<DeprecatedXorType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<DeprecatedXorType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Deprecated Xor Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static DeprecatedXorType get(String literal) {
@@ -117,6 +116,8 @@ public enum DeprecatedXorType implements Enumerator {
      * Returns the '<em><b>Deprecated Xor Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static DeprecatedXorType getByName(String name) {
@@ -133,6 +134,8 @@ public enum DeprecatedXorType implements Enumerator {
      * Returns the '<em><b>Deprecated Xor Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static DeprecatedXorType get(int value) {

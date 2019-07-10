@@ -19,11 +19,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeclaredTypeImpl#getTypeDeclarationId <em>Type Declaration Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.DeclaredTypeImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,8 +33,7 @@ public class DeclaredTypeImpl extends DataTypeImpl implements DeclaredType {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTypeDeclarationId() <em>Type Declaration Id</em>}' attribute.
@@ -113,8 +112,7 @@ public class DeclaredTypeImpl extends DataTypeImpl implements DeclaredType {
         String oldTypeDeclarationId = typeDeclarationId;
         typeDeclarationId = newTypeDeclarationId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DECLARED_TYPE__TYPE_DECLARATION_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DECLARED_TYPE__TYPE_DECLARATION_ID,
                     oldTypeDeclarationId, typeDeclarationId));
     }
 
@@ -136,8 +134,7 @@ public class DeclaredTypeImpl extends DataTypeImpl implements DeclaredType {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.DECLARED_TYPE__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.DECLARED_TYPE__NAME, oldName, name));
     }
 
     /**
@@ -204,8 +201,7 @@ public class DeclaredTypeImpl extends DataTypeImpl implements DeclaredType {
             return TYPE_DECLARATION_ID_EDEFAULT == null ? typeDeclarationId != null
                     : !TYPE_DECLARATION_ID_EDEFAULT.equals(typeDeclarationId);
         case Xpdl2Package.DECLARED_TYPE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -220,7 +216,7 @@ public class DeclaredTypeImpl extends DataTypeImpl implements DeclaredType {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (typeDeclarationId: "); //$NON-NLS-1$
         result.append(typeDeclarationId);
         result.append(", name: "); //$NON-NLS-1$

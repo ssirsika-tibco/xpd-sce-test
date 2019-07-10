@@ -33,8 +33,7 @@ public interface CaseDocumentQueryExpression extends EObject {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     public static final String CMIS_DOCUMENT_PROPERTY = "cmis:document"; //$NON-NLS-1$
 

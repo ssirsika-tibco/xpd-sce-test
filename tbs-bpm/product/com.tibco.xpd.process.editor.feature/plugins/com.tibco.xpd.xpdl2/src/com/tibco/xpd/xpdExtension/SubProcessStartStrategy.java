@@ -48,8 +48,7 @@ public enum SubProcessStartStrategy implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Start Immediately</b></em>' literal value.
@@ -88,8 +87,7 @@ public enum SubProcessStartStrategy implements Enumerator {
      * @generated
      */
     private static final SubProcessStartStrategy[] VALUES_ARRAY =
-            new SubProcessStartStrategy[] { START_IMMEDIATELY,
-                    SCHEDULE_START, };
+            new SubProcessStartStrategy[] { START_IMMEDIATELY, SCHEDULE_START, };
 
     /**
      * A public read-only list of all the '<em><b>Sub Process Start Strategy</b></em>' enumerators.

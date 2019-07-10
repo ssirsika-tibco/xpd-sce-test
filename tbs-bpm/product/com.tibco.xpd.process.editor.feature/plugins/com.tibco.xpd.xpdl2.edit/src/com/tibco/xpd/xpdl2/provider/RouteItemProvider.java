@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RouteItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RouteItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -87,19 +85,18 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addGatewayTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Route_gatewayType_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_gatewayType_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ROUTE__GATEWAY_TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Route_gatewayType_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Route_gatewayType_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ROUTE__GATEWAY_TYPE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -110,11 +107,12 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      */
     protected void addDeprecatedXorTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Route_deprecatedXorType_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_deprecatedXorType_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Route_deprecatedXorType_feature", //$NON-NLS-1$
+                                "_UI_Route_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ROUTE__DEPRECATED_XOR_TYPE,
                         true,
                         false,
@@ -132,11 +130,12 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      */
     protected void addDeprecatedInstantiatePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Route_deprecatedInstantiate_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_deprecatedInstantiate_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Route_deprecatedInstantiate_feature", //$NON-NLS-1$
+                                "_UI_Route_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ROUTE__DEPRECATED_INSTANTIATE,
                         true,
                         false,
@@ -153,19 +152,18 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addExclusiveTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Route_exclusiveType_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_exclusiveType_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ROUTE__EXCLUSIVE_TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Route_exclusiveType_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Route_exclusiveType_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ROUTE__EXCLUSIVE_TYPE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -175,19 +173,18 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     protected void addMarkerVisiblePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Route_markerVisible_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_markerVisible_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ROUTE__MARKER_VISIBLE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Route_markerVisible_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Route_markerVisible_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ROUTE__MARKER_VISIBLE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -198,11 +195,12 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      */
     protected void addIncomingConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Route_incomingCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_incomingCondition_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Route_incomingCondition_feature", //$NON-NLS-1$
+                                "_UI_Route_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ROUTE__INCOMING_CONDITION,
                         true,
                         false,
@@ -220,11 +218,12 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      */
     protected void addOutgoingConditionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Route_outgoingCondition_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Route_outgoingCondition_feature", "_UI_Route_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Route_outgoingCondition_feature", //$NON-NLS-1$
+                                "_UI_Route_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ROUTE__OUTGOING_CONDITION,
                         true,
                         false,
@@ -243,12 +242,10 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
         }
         return childrenFeatures;
     }
@@ -274,8 +271,7 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Route")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Route")); //$NON-NLS-1$
     }
 
     /**
@@ -311,12 +307,10 @@ public class RouteItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.ROUTE__INCOMING_CONDITION:
         case Xpdl2Package.ROUTE__OUTGOING_CONDITION:
         case Xpdl2Package.ROUTE__EXCLUSIVE_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ROUTE__OTHER_ELEMENTS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -330,8 +324,7 @@ public class RouteItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

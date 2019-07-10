@@ -37,15 +37,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class CorrelationDataMappingsImpl extends EObjectImpl
-        implements CorrelationDataMappings {
+public class CorrelationDataMappingsImpl extends EObjectImpl implements CorrelationDataMappings {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getDataMappings() <em>Data Mappings</em>}' containment reference list.
@@ -83,8 +81,7 @@ public class CorrelationDataMappingsImpl extends EObjectImpl
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings = new EObjectContainmentEList<DataMapping>(
-                    DataMapping.class, this,
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
                     XpdExtensionPackage.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS);
         }
         return dataMappings;
@@ -96,12 +93,10 @@ public class CorrelationDataMappingsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -131,8 +126,7 @@ public class CorrelationDataMappingsImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.CORRELATION_DATA_MAPPINGS__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

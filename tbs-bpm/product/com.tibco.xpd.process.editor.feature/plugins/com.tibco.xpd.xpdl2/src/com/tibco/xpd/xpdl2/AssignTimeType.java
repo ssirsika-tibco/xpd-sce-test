@@ -45,8 +45,7 @@ public enum AssignTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Start</b></em>' literal value.
@@ -84,8 +83,7 @@ public enum AssignTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AssignTimeType[] VALUES_ARRAY = new AssignTimeType[] {
-            START_LITERAL, END_LITERAL, };
+    private static final AssignTimeType[] VALUES_ARRAY = new AssignTimeType[] { START_LITERAL, END_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Assign Time Type</b></em>' enumerators.
@@ -93,13 +91,14 @@ public enum AssignTimeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AssignTimeType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AssignTimeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Assign Time Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssignTimeType get(String literal) {
@@ -116,6 +115,8 @@ public enum AssignTimeType implements Enumerator {
      * Returns the '<em><b>Assign Time Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssignTimeType getByName(String name) {
@@ -132,6 +133,8 @@ public enum AssignTimeType implements Enumerator {
      * Returns the '<em><b>Assign Time Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static AssignTimeType get(int value) {

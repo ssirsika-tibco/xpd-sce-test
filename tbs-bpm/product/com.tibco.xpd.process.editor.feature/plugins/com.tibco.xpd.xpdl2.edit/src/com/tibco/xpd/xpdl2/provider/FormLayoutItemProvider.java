@@ -38,16 +38,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormLayoutItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class FormLayoutItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,8 +81,7 @@ public class FormLayoutItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.FORM_LAYOUT__MIXED);
@@ -113,8 +110,7 @@ public class FormLayoutItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/FormLayout")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/FormLayout")); //$NON-NLS-1$
     }
 
     /**
@@ -141,8 +137,7 @@ public class FormLayoutItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(FormLayout.class)) {
         case Xpdl2Package.FORM_LAYOUT__MIXED:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -156,34 +151,21 @@ public class FormLayoutItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
-                                        XMLTypeFactory.eINSTANCE
-                                                .createProcessingInstruction())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+                        XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.FORM_LAYOUT__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, ""))); //$NON-NLS-1$
     }
 
     /**

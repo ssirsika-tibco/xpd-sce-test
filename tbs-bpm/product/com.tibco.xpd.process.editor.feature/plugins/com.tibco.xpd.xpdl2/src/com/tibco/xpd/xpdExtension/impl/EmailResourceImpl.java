@@ -34,8 +34,7 @@ public class EmailResourceImpl extends EObjectImpl implements EmailResource {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getInstanceName() <em>Instance Name</em>}' attribute.
@@ -94,8 +93,7 @@ public class EmailResourceImpl extends EObjectImpl implements EmailResource {
         String oldInstanceName = instanceName;
         instanceName = newInstanceName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.EMAIL_RESOURCE__INSTANCE_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.EMAIL_RESOURCE__INSTANCE_NAME,
                     oldInstanceName, instanceName));
     }
 
@@ -152,8 +150,7 @@ public class EmailResourceImpl extends EObjectImpl implements EmailResource {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.EMAIL_RESOURCE__INSTANCE_NAME:
-            return INSTANCE_NAME_EDEFAULT == null ? instanceName != null
-                    : !INSTANCE_NAME_EDEFAULT.equals(instanceName);
+            return INSTANCE_NAME_EDEFAULT == null ? instanceName != null : !INSTANCE_NAME_EDEFAULT.equals(instanceName);
         }
         return super.eIsSet(featureID);
     }
@@ -168,7 +165,7 @@ public class EmailResourceImpl extends EObjectImpl implements EmailResource {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (instanceName: "); //$NON-NLS-1$
         result.append(instanceName);
         result.append(')');

@@ -51,15 +51,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ScriptDataMapperImpl extends EObjectImpl
-        implements ScriptDataMapper {
+public class ScriptDataMapperImpl extends EObjectImpl implements ScriptDataMapper {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -118,8 +116,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final DirectionType MAPPING_DIRECTION_EDEFAULT =
-            DirectionType.IN_LITERAL;
+    protected static final DirectionType MAPPING_DIRECTION_EDEFAULT = DirectionType.IN_LITERAL;
 
     /**
      * The cached value of the '{@link #getMappingDirection() <em>Mapping Direction</em>}' attribute.
@@ -196,8 +193,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements = new BasicFeatureMap(this,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -209,8 +205,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes = new BasicFeatureMap(this,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -236,8 +231,8 @@ public class ScriptDataMapperImpl extends EObjectImpl
         mapperContextESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT,
-                    oldMapperContext, mapperContext, !oldMapperContextESet));
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT, oldMapperContext, mapperContext,
+                    !oldMapperContextESet));
     }
 
     /**
@@ -252,8 +247,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
         mapperContextESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT,
-                    oldMapperContext, MAPPER_CONTEXT_EDEFAULT,
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPER_CONTEXT, oldMapperContext, MAPPER_CONTEXT_EDEFAULT,
                     oldMapperContextESet));
     }
 
@@ -282,15 +276,12 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public void setMappingDirection(DirectionType newMappingDirection) {
         DirectionType oldMappingDirection = mappingDirection;
-        mappingDirection =
-                newMappingDirection == null ? MAPPING_DIRECTION_EDEFAULT
-                        : newMappingDirection;
+        mappingDirection = newMappingDirection == null ? MAPPING_DIRECTION_EDEFAULT : newMappingDirection;
         boolean oldMappingDirectionESet = mappingDirectionESet;
         mappingDirectionESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION,
-                    oldMappingDirection, mappingDirection,
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION, oldMappingDirection, mappingDirection,
                     !oldMappingDirectionESet));
     }
 
@@ -306,9 +297,8 @@ public class ScriptDataMapperImpl extends EObjectImpl
         mappingDirectionESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION,
-                    oldMappingDirection, MAPPING_DIRECTION_EDEFAULT,
-                    oldMappingDirectionESet));
+                    XpdExtensionPackage.SCRIPT_DATA_MAPPER__MAPPING_DIRECTION, oldMappingDirection,
+                    MAPPING_DIRECTION_EDEFAULT, oldMappingDirectionESet));
     }
 
     /**
@@ -327,8 +317,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings = new EObjectContainmentEList<DataMapping>(
-                    DataMapping.class, this,
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
                     XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS);
         }
         return dataMappings;
@@ -341,8 +330,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public EList<ScriptInformation> getUnmappedScripts() {
         if (unmappedScripts == null) {
-            unmappedScripts = new EObjectContainmentEList<ScriptInformation>(
-                    ScriptInformation.class, this,
+            unmappedScripts = new EObjectContainmentEList<ScriptInformation>(ScriptInformation.class, this,
                     XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS);
         }
         return unmappedScripts;
@@ -355,10 +343,8 @@ public class ScriptDataMapperImpl extends EObjectImpl
      */
     public EList<DataMapperArrayInflation> getArrayInflationType() {
         if (arrayInflationType == null) {
-            arrayInflationType =
-                    new EObjectContainmentEList<DataMapperArrayInflation>(
-                            DataMapperArrayInflation.class, this,
-                            XpdExtensionPackage.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
+            arrayInflationType = new EObjectContainmentEList<DataMapperArrayInflation>(DataMapperArrayInflation.class,
+                    this, XpdExtensionPackage.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE);
         }
         return arrayInflationType;
     }
@@ -380,24 +366,18 @@ public class ScriptDataMapperImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS:
-            return ((InternalEList<?>) getUnmappedScripts())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getUnmappedScripts()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE:
-            return ((InternalEList<?>) getArrayInflationType())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getArrayInflationType()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -455,18 +435,15 @@ public class ScriptDataMapperImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__UNMAPPED_SCRIPTS:
             getUnmappedScripts().clear();
-            getUnmappedScripts()
-                    .addAll((Collection<? extends ScriptInformation>) newValue);
+            getUnmappedScripts().addAll((Collection<? extends ScriptInformation>) newValue);
             return;
         case XpdExtensionPackage.SCRIPT_DATA_MAPPER__ARRAY_INFLATION_TYPE:
             getArrayInflationType().clear();
-            getArrayInflationType().addAll(
-                    (Collection<? extends DataMapperArrayInflation>) newValue);
+            getArrayInflationType().addAll((Collection<? extends DataMapperArrayInflation>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -537,8 +514,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID,
-            Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == OtherAttributesContainer.class) {
             switch (derivedFeatureID) {
             case XpdExtensionPackage.SCRIPT_DATA_MAPPER__OTHER_ATTRIBUTES:
@@ -556,8 +532,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID,
-            Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == OtherAttributesContainer.class) {
             switch (baseFeatureID) {
             case Xpdl2Package.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES:
@@ -579,7 +554,7 @@ public class ScriptDataMapperImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", otherAttributes: "); //$NON-NLS-1$

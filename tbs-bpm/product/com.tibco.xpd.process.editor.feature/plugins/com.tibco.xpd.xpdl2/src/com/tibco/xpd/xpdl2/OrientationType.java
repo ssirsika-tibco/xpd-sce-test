@@ -45,8 +45,7 @@ public enum OrientationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>HORIZONTAL</b></em>' literal value.
@@ -93,13 +92,14 @@ public enum OrientationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<OrientationType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<OrientationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Orientation Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static OrientationType get(String literal) {
@@ -116,6 +116,8 @@ public enum OrientationType implements Enumerator {
      * Returns the '<em><b>Orientation Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static OrientationType getByName(String name) {
@@ -132,6 +134,8 @@ public enum OrientationType implements Enumerator {
      * Returns the '<em><b>Orientation Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static OrientationType get(int value) {

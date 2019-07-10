@@ -38,8 +38,7 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getVirtualBinding() <em>Virtual Binding</em>}' containment reference.
@@ -100,15 +99,12 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetVirtualBinding(
-            WsVirtualBinding newVirtualBinding, NotificationChain msgs) {
+    public NotificationChain basicSetVirtualBinding(WsVirtualBinding newVirtualBinding, NotificationChain msgs) {
         WsVirtualBinding oldVirtualBinding = virtualBinding;
         virtualBinding = newVirtualBinding;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
-                            oldVirtualBinding, newVirtualBinding);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING, oldVirtualBinding, newVirtualBinding);
             if (msgs == null)
                 msgs = notification;
             else
@@ -126,22 +122,19 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
             NotificationChain msgs = null;
             if (virtualBinding != null)
                 msgs = ((InternalEObject) virtualBinding).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
                         null,
                         msgs);
             if (newVirtualBinding != null)
                 msgs = ((InternalEObject) newVirtualBinding).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
                         null,
                         msgs);
             msgs = basicSetVirtualBinding(newVirtualBinding, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING,
                     newVirtualBinding, newVirtualBinding));
     }
 
@@ -157,16 +150,13 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSoapHttpBinding(
-            WsSoapHttpOutboundBinding newSoapHttpBinding,
+    public NotificationChain basicSetSoapHttpBinding(WsSoapHttpOutboundBinding newSoapHttpBinding,
             NotificationChain msgs) {
         WsSoapHttpOutboundBinding oldSoapHttpBinding = soapHttpBinding;
         soapHttpBinding = newSoapHttpBinding;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
-                            oldSoapHttpBinding, newSoapHttpBinding);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING, oldSoapHttpBinding, newSoapHttpBinding);
             if (msgs == null)
                 msgs = notification;
             else
@@ -179,28 +169,24 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public void setSoapHttpBinding(
-            WsSoapHttpOutboundBinding newSoapHttpBinding) {
+    public void setSoapHttpBinding(WsSoapHttpOutboundBinding newSoapHttpBinding) {
         if (newSoapHttpBinding != soapHttpBinding) {
             NotificationChain msgs = null;
             if (soapHttpBinding != null)
                 msgs = ((InternalEObject) soapHttpBinding).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
                         null,
                         msgs);
             if (newSoapHttpBinding != null)
                 msgs = ((InternalEObject) newSoapHttpBinding).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
                         null,
                         msgs);
             msgs = basicSetSoapHttpBinding(newSoapHttpBinding, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_OUTBOUND__SOAP_HTTP_BINDING,
                     newSoapHttpBinding, newSoapHttpBinding));
     }
 
@@ -216,16 +202,13 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSoapJmsBinding(
-            WsSoapJmsOutboundBinding newSoapJmsBinding,
+    public NotificationChain basicSetSoapJmsBinding(WsSoapJmsOutboundBinding newSoapJmsBinding,
             NotificationChain msgs) {
         WsSoapJmsOutboundBinding oldSoapJmsBinding = soapJmsBinding;
         soapJmsBinding = newSoapJmsBinding;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
-                            oldSoapJmsBinding, newSoapJmsBinding);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING, oldSoapJmsBinding, newSoapJmsBinding);
             if (msgs == null)
                 msgs = notification;
             else
@@ -243,22 +226,19 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
             NotificationChain msgs = null;
             if (soapJmsBinding != null)
                 msgs = ((InternalEObject) soapJmsBinding).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
                         null,
                         msgs);
             if (newSoapJmsBinding != null)
                 msgs = ((InternalEObject) newSoapJmsBinding).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
                         null,
                         msgs);
             msgs = basicSetSoapJmsBinding(newSoapJmsBinding, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_OUTBOUND__SOAP_JMS_BINDING,
                     newSoapJmsBinding, newSoapJmsBinding));
     }
 
@@ -302,9 +282,8 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
             setSoapHttpBinding(null);
             setSoapJmsBinding(null);
         } else {
-            throw new IllegalArgumentException(
-                    "'outBinding' parameter is incorrect. (" + outboundBinding //$NON-NLS-1$
-                            + ")"); //$NON-NLS-1$
+            throw new IllegalArgumentException("'outBinding' parameter is incorrect. (" + outboundBinding //$NON-NLS-1$
+                    + ")"); //$NON-NLS-1$
         }
     }
 
@@ -313,8 +292,7 @@ public class WsOutboundImpl extends EObjectImpl implements WsOutbound {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_OUTBOUND__VIRTUAL_BINDING:
             return basicSetVirtualBinding(null, msgs);

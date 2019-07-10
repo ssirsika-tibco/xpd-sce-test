@@ -32,6 +32,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageImpl#getActualParameters <em>Actual Parameters</em>}</li>
@@ -40,7 +41,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageImpl#getTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -50,8 +50,7 @@ public class MessageImpl extends NamedElementImpl implements Message {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -169,9 +168,7 @@ public class MessageImpl extends NamedElementImpl implements Message {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.MESSAGE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.MESSAGE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -183,9 +180,8 @@ public class MessageImpl extends NamedElementImpl implements Message {
      */
     public EList<Expression> getActualParameters() {
         if (actualParameters == null) {
-            actualParameters =
-                    new EObjectContainmentEList<Expression>(Expression.class,
-                            this, Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS);
+            actualParameters = new EObjectContainmentEList<Expression>(Expression.class, this,
+                    Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS);
         }
         return actualParameters;
     }
@@ -197,9 +193,8 @@ public class MessageImpl extends NamedElementImpl implements Message {
      */
     public EList<DataMapping> getDataMappings() {
         if (dataMappings == null) {
-            dataMappings =
-                    new EObjectContainmentEList<DataMapping>(DataMapping.class,
-                            this, Xpdl2Package.MESSAGE__DATA_MAPPINGS);
+            dataMappings = new EObjectContainmentEList<DataMapping>(DataMapping.class, this,
+                    Xpdl2Package.MESSAGE__DATA_MAPPINGS);
         }
         return dataMappings;
     }
@@ -222,8 +217,8 @@ public class MessageImpl extends NamedElementImpl implements Message {
         String oldFaultName = faultName;
         faultName = newFaultName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE__FAULT_NAME, oldFaultName, faultName));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE__FAULT_NAME, oldFaultName,
+                    faultName));
     }
 
     /**
@@ -244,8 +239,7 @@ public class MessageImpl extends NamedElementImpl implements Message {
         String oldFrom = from;
         from = newFrom;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE__FROM, oldFrom, from));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE__FROM, oldFrom, from));
     }
 
     /**
@@ -266,8 +260,7 @@ public class MessageImpl extends NamedElementImpl implements Message {
         String oldTo = to;
         to = newTo;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE__TO, oldTo, to));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE__TO, oldTo, to));
     }
 
     /**
@@ -287,18 +280,14 @@ public class MessageImpl extends NamedElementImpl implements Message {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.MESSAGE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS:
-            return ((InternalEList<?>) getActualParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getActualParameters()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.MESSAGE__DATA_MAPPINGS:
-            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDataMappings()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -343,13 +332,11 @@ public class MessageImpl extends NamedElementImpl implements Message {
             return;
         case Xpdl2Package.MESSAGE__ACTUAL_PARAMETERS:
             getActualParameters().clear();
-            getActualParameters()
-                    .addAll((Collection<? extends Expression>) newValue);
+            getActualParameters().addAll((Collection<? extends Expression>) newValue);
             return;
         case Xpdl2Package.MESSAGE__DATA_MAPPINGS:
             getDataMappings().clear();
-            getDataMappings()
-                    .addAll((Collection<? extends DataMapping>) newValue);
+            getDataMappings().addAll((Collection<? extends DataMapping>) newValue);
             return;
         case Xpdl2Package.MESSAGE__FAULT_NAME:
             setFaultName((String) newValue);
@@ -409,11 +396,9 @@ public class MessageImpl extends NamedElementImpl implements Message {
         case Xpdl2Package.MESSAGE__DATA_MAPPINGS:
             return dataMappings != null && !dataMappings.isEmpty();
         case Xpdl2Package.MESSAGE__FAULT_NAME:
-            return FAULT_NAME_EDEFAULT == null ? faultName != null
-                    : !FAULT_NAME_EDEFAULT.equals(faultName);
+            return FAULT_NAME_EDEFAULT == null ? faultName != null : !FAULT_NAME_EDEFAULT.equals(faultName);
         case Xpdl2Package.MESSAGE__FROM:
-            return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT
-                    .equals(from);
+            return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT.equals(from);
         case Xpdl2Package.MESSAGE__TO:
             return TO_EDEFAULT == null ? to != null : !TO_EDEFAULT.equals(to);
         }
@@ -466,7 +451,7 @@ public class MessageImpl extends NamedElementImpl implements Message {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", faultName: "); //$NON-NLS-1$

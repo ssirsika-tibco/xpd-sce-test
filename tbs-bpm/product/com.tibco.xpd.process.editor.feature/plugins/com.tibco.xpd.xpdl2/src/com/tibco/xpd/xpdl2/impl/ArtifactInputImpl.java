@@ -25,12 +25,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactInputImpl#getOtherElements <em>Other Elements</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactInputImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactInputImpl#isRequiredForStart <em>Required For Start</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,8 +40,7 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherElements() <em>Other Elements</em>}' attribute list.
@@ -119,9 +118,7 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.ARTIFACT_INPUT__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.ARTIFACT_INPUT__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -144,9 +141,8 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
         String oldArtifactId = artifactId;
         artifactId = newArtifactId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT_INPUT__ARTIFACT_ID, oldArtifactId,
-                    artifactId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT_INPUT__ARTIFACT_ID,
+                    oldArtifactId, artifactId));
     }
 
     /**
@@ -167,8 +163,7 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
         boolean oldRequiredForStart = requiredForStart;
         requiredForStart = newRequiredForStart;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT_INPUT__REQUIRED_FOR_START,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT_INPUT__REQUIRED_FOR_START,
                     oldRequiredForStart, requiredForStart));
     }
 
@@ -189,12 +184,10 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ARTIFACT_INPUT__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -272,8 +265,7 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
         case Xpdl2Package.ARTIFACT_INPUT__OTHER_ELEMENTS:
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.ARTIFACT_INPUT__ARTIFACT_ID:
-            return ARTIFACT_ID_EDEFAULT == null ? artifactId != null
-                    : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+            return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
         case Xpdl2Package.ARTIFACT_INPUT__REQUIRED_FOR_START:
             return requiredForStart != REQUIRED_FOR_START_EDEFAULT;
         }
@@ -290,7 +282,7 @@ public class ArtifactInputImpl extends EObjectImpl implements ArtifactInput {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", artifactId: "); //$NON-NLS-1$

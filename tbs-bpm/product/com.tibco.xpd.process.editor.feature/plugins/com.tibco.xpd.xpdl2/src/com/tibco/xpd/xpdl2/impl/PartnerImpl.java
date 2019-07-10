@@ -21,11 +21,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerImpl#getPartnerLinkId <em>Partner Link Id</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.PartnerImpl#getRoleType <em>Role Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,8 +35,7 @@ public class PartnerImpl extends EObjectImpl implements Partner {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPartnerLinkId() <em>Partner Link Id</em>}' attribute.
@@ -66,8 +65,7 @@ public class PartnerImpl extends EObjectImpl implements Partner {
      * @generated
      * @ordered
      */
-    protected static final RoleType ROLE_TYPE_EDEFAULT =
-            RoleType.MY_ROLE_LITERAL;
+    protected static final RoleType ROLE_TYPE_EDEFAULT = RoleType.MY_ROLE_LITERAL;
 
     /**
      * The cached value of the '{@link #getRoleType() <em>Role Type</em>}' attribute.
@@ -125,9 +123,8 @@ public class PartnerImpl extends EObjectImpl implements Partner {
         String oldPartnerLinkId = partnerLinkId;
         partnerLinkId = newPartnerLinkId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER__PARTNER_LINK_ID, oldPartnerLinkId,
-                    partnerLinkId));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER__PARTNER_LINK_ID,
+                    oldPartnerLinkId, partnerLinkId));
     }
 
     /**
@@ -150,9 +147,8 @@ public class PartnerImpl extends EObjectImpl implements Partner {
         boolean oldRoleTypeESet = roleTypeESet;
         roleTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.PARTNER__ROLE_TYPE, oldRoleType, roleType,
-                    !oldRoleTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.PARTNER__ROLE_TYPE, oldRoleType,
+                    roleType, !oldRoleTypeESet));
     }
 
     /**
@@ -166,8 +162,7 @@ public class PartnerImpl extends EObjectImpl implements Partner {
         roleType = ROLE_TYPE_EDEFAULT;
         roleTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.PARTNER__ROLE_TYPE, oldRoleType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.PARTNER__ROLE_TYPE, oldRoleType,
                     ROLE_TYPE_EDEFAULT, oldRoleTypeESet));
     }
 
@@ -259,7 +254,7 @@ public class PartnerImpl extends EObjectImpl implements Partner {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (partnerLinkId: "); //$NON-NLS-1$
         result.append(partnerLinkId);
         result.append(", roleType: "); //$NON-NLS-1$

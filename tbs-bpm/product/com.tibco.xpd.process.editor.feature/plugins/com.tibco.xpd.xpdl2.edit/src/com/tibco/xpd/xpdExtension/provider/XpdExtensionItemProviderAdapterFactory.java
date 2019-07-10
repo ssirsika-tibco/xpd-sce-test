@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdExtensionItemProviderAdapterFactory
-        extends XpdExtensionAdapterFactory
+public class XpdExtensionItemProviderAdapterFactory extends XpdExtensionAdapterFactory
         implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -125,8 +123,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createActivityResourcePatternsAdapter() {
         if (activityResourcePatternsItemProvider == null) {
-            activityResourcePatternsItemProvider =
-                    new ActivityResourcePatternsItemProvider(this);
+            activityResourcePatternsItemProvider = new ActivityResourcePatternsItemProvider(this);
         }
 
         return activityResourcePatternsItemProvider;
@@ -149,8 +146,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAllocationStrategyAdapter() {
         if (allocationStrategyItemProvider == null) {
-            allocationStrategyItemProvider =
-                    new AllocationStrategyItemProvider(this);
+            allocationStrategyItemProvider = new AllocationStrategyItemProvider(this);
         }
 
         return allocationStrategyItemProvider;
@@ -173,8 +169,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAssociatedCorrelationFieldsAdapter() {
         if (associatedCorrelationFieldsItemProvider == null) {
-            associatedCorrelationFieldsItemProvider =
-                    new AssociatedCorrelationFieldsItemProvider(this);
+            associatedCorrelationFieldsItemProvider = new AssociatedCorrelationFieldsItemProvider(this);
         }
 
         return associatedCorrelationFieldsItemProvider;
@@ -197,8 +192,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAssociatedCorrelationFieldAdapter() {
         if (associatedCorrelationFieldItemProvider == null) {
-            associatedCorrelationFieldItemProvider =
-                    new AssociatedCorrelationFieldItemProvider(this);
+            associatedCorrelationFieldItemProvider = new AssociatedCorrelationFieldItemProvider(this);
         }
 
         return associatedCorrelationFieldItemProvider;
@@ -221,8 +215,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAssociatedParameterAdapter() {
         if (associatedParameterItemProvider == null) {
-            associatedParameterItemProvider =
-                    new AssociatedParameterItemProvider(this);
+            associatedParameterItemProvider = new AssociatedParameterItemProvider(this);
         }
 
         return associatedParameterItemProvider;
@@ -245,8 +238,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAssociatedParametersAdapter() {
         if (associatedParametersItemProvider == null) {
-            associatedParametersItemProvider =
-                    new AssociatedParametersItemProvider(this);
+            associatedParametersItemProvider = new AssociatedParametersItemProvider(this);
         }
 
         return associatedParametersItemProvider;
@@ -338,8 +330,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCalendarReferenceAdapter() {
         if (calendarReferenceItemProvider == null) {
-            calendarReferenceItemProvider =
-                    new CalendarReferenceItemProvider(this);
+            calendarReferenceItemProvider = new CalendarReferenceItemProvider(this);
         }
 
         return calendarReferenceItemProvider;
@@ -362,8 +353,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCatchErrorMappingsAdapter() {
         if (catchErrorMappingsItemProvider == null) {
-            catchErrorMappingsItemProvider =
-                    new CatchErrorMappingsItemProvider(this);
+            catchErrorMappingsItemProvider = new CatchErrorMappingsItemProvider(this);
         }
 
         return catchErrorMappingsItemProvider;
@@ -409,8 +399,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createConditionalParticipantAdapter() {
         if (conditionalParticipantItemProvider == null) {
-            conditionalParticipantItemProvider =
-                    new ConditionalParticipantItemProvider(this);
+            conditionalParticipantItemProvider = new ConditionalParticipantItemProvider(this);
         }
 
         return conditionalParticipantItemProvider;
@@ -433,8 +422,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createReplyImmediateDataMappingsAdapter() {
         if (replyImmediateDataMappingsItemProvider == null) {
-            replyImmediateDataMappingsItemProvider =
-                    new ReplyImmediateDataMappingsItemProvider(this);
+            replyImmediateDataMappingsItemProvider = new ReplyImmediateDataMappingsItemProvider(this);
         }
 
         return replyImmediateDataMappingsItemProvider;
@@ -457,8 +445,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCorrelationDataMappingsAdapter() {
         if (correlationDataMappingsItemProvider == null) {
-            correlationDataMappingsItemProvider =
-                    new CorrelationDataMappingsItemProvider(this);
+            correlationDataMappingsItemProvider = new CorrelationDataMappingsItemProvider(this);
         }
 
         return correlationDataMappingsItemProvider;
@@ -527,8 +514,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDurationCalculationAdapter() {
         if (durationCalculationItemProvider == null) {
-            durationCalculationItemProvider =
-                    new DurationCalculationItemProvider(this);
+            durationCalculationItemProvider = new DurationCalculationItemProvider(this);
         }
 
         return durationCalculationItemProvider;
@@ -551,8 +537,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDynamicOrganizationMappingsAdapter() {
         if (dynamicOrganizationMappingsItemProvider == null) {
-            dynamicOrganizationMappingsItemProvider =
-                    new DynamicOrganizationMappingsItemProvider(this);
+            dynamicOrganizationMappingsItemProvider = new DynamicOrganizationMappingsItemProvider(this);
         }
 
         return dynamicOrganizationMappingsItemProvider;
@@ -575,8 +560,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDynamicOrganizationMappingAdapter() {
         if (dynamicOrganizationMappingItemProvider == null) {
-            dynamicOrganizationMappingItemProvider =
-                    new DynamicOrganizationMappingItemProvider(this);
+            dynamicOrganizationMappingItemProvider = new DynamicOrganizationMappingItemProvider(this);
         }
 
         return dynamicOrganizationMappingItemProvider;
@@ -599,8 +583,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDynamicOrgIdentifierRefAdapter() {
         if (dynamicOrgIdentifierRefItemProvider == null) {
-            dynamicOrgIdentifierRefItemProvider =
-                    new DynamicOrgIdentifierRefItemProvider(this);
+            dynamicOrgIdentifierRefItemProvider = new DynamicOrgIdentifierRefItemProvider(this);
         }
 
         return dynamicOrgIdentifierRefItemProvider;
@@ -646,8 +629,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createErrorThrowerInfoAdapter() {
         if (errorThrowerInfoItemProvider == null) {
-            errorThrowerInfoItemProvider =
-                    new ErrorThrowerInfoItemProvider(this);
+            errorThrowerInfoItemProvider = new ErrorThrowerInfoItemProvider(this);
         }
 
         return errorThrowerInfoItemProvider;
@@ -670,8 +652,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createEventHandlerInitialisersAdapter() {
         if (eventHandlerInitialisersItemProvider == null) {
-            eventHandlerInitialisersItemProvider =
-                    new EventHandlerInitialisersItemProvider(this);
+            eventHandlerInitialisersItemProvider = new EventHandlerInitialisersItemProvider(this);
         }
 
         return eventHandlerInitialisersItemProvider;
@@ -717,8 +698,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createFormImplementationAdapter() {
         if (formImplementationItemProvider == null) {
-            formImplementationItemProvider =
-                    new FormImplementationItemProvider(this);
+            formImplementationItemProvider = new FormImplementationItemProvider(this);
         }
 
         return formImplementationItemProvider;
@@ -741,8 +721,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createImplementedInterfaceAdapter() {
         if (implementedInterfaceItemProvider == null) {
-            implementedInterfaceItemProvider =
-                    new ImplementedInterfaceItemProvider(this);
+            implementedInterfaceItemProvider = new ImplementedInterfaceItemProvider(this);
         }
 
         return implementedInterfaceItemProvider;
@@ -788,8 +767,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createInitialParameterValueAdapter() {
         if (initialParameterValueItemProvider == null) {
-            initialParameterValueItemProvider =
-                    new InitialParameterValueItemProvider(this);
+            initialParameterValueItemProvider = new InitialParameterValueItemProvider(this);
         }
 
         return initialParameterValueItemProvider;
@@ -812,8 +790,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createIntermediateMethodAdapter() {
         if (intermediateMethodItemProvider == null) {
-            intermediateMethodItemProvider =
-                    new IntermediateMethodItemProvider(this);
+            intermediateMethodItemProvider = new IntermediateMethodItemProvider(this);
         }
 
         return intermediateMethodItemProvider;
@@ -836,8 +813,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createMultiInstanceScriptsAdapter() {
         if (multiInstanceScriptsItemProvider == null) {
-            multiInstanceScriptsItemProvider =
-                    new MultiInstanceScriptsItemProvider(this);
+            multiInstanceScriptsItemProvider = new MultiInstanceScriptsItemProvider(this);
         }
 
         return multiInstanceScriptsItemProvider;
@@ -860,8 +836,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createNamespacePrefixMapAdapter() {
         if (namespacePrefixMapItemProvider == null) {
-            namespacePrefixMapItemProvider =
-                    new NamespacePrefixMapItemProvider(this);
+            namespacePrefixMapItemProvider = new NamespacePrefixMapItemProvider(this);
         }
 
         return namespacePrefixMapItemProvider;
@@ -884,8 +859,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createNamespaceMapEntryAdapter() {
         if (namespaceMapEntryItemProvider == null) {
-            namespaceMapEntryItemProvider =
-                    new NamespaceMapEntryItemProvider(this);
+            namespaceMapEntryItemProvider = new NamespaceMapEntryItemProvider(this);
         }
 
         return namespaceMapEntryItemProvider;
@@ -931,8 +905,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createPortTypeOperationAdapter() {
         if (portTypeOperationItemProvider == null) {
-            portTypeOperationItemProvider =
-                    new PortTypeOperationItemProvider(this);
+            portTypeOperationItemProvider = new PortTypeOperationItemProvider(this);
         }
 
         return portTypeOperationItemProvider;
@@ -955,8 +928,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createProcessInterfaceAdapter() {
         if (processInterfaceItemProvider == null) {
-            processInterfaceItemProvider =
-                    new ProcessInterfaceItemProvider(this);
+            processInterfaceItemProvider = new ProcessInterfaceItemProvider(this);
         }
 
         return processInterfaceItemProvider;
@@ -979,8 +951,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createProcessInterfacesAdapter() {
         if (processInterfacesItemProvider == null) {
-            processInterfacesItemProvider =
-                    new ProcessInterfacesItemProvider(this);
+            processInterfacesItemProvider = new ProcessInterfacesItemProvider(this);
         }
 
         return processInterfacesItemProvider;
@@ -1003,8 +974,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createProcessResourcePatternsAdapter() {
         if (processResourcePatternsItemProvider == null) {
-            processResourcePatternsItemProvider =
-                    new ProcessResourcePatternsItemProvider(this);
+            processResourcePatternsItemProvider = new ProcessResourcePatternsItemProvider(this);
         }
 
         return processResourcePatternsItemProvider;
@@ -1027,8 +997,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRescheduleTimerScriptAdapter() {
         if (rescheduleTimerScriptItemProvider == null) {
-            rescheduleTimerScriptItemProvider =
-                    new RescheduleTimerScriptItemProvider(this);
+            rescheduleTimerScriptItemProvider = new RescheduleTimerScriptItemProvider(this);
         }
 
         return rescheduleTimerScriptItemProvider;
@@ -1051,8 +1020,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRescheduleTimersAdapter() {
         if (rescheduleTimersItemProvider == null) {
-            rescheduleTimersItemProvider =
-                    new RescheduleTimersItemProvider(this);
+            rescheduleTimersItemProvider = new RescheduleTimersItemProvider(this);
         }
 
         return rescheduleTimersItemProvider;
@@ -1075,8 +1043,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRetainFamiliarActivitiesAdapter() {
         if (retainFamiliarActivitiesItemProvider == null) {
-            retainFamiliarActivitiesItemProvider =
-                    new RetainFamiliarActivitiesItemProvider(this);
+            retainFamiliarActivitiesItemProvider = new RetainFamiliarActivitiesItemProvider(this);
         }
 
         return retainFamiliarActivitiesItemProvider;
@@ -1122,8 +1089,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createScriptInformationAdapter() {
         if (scriptInformationItemProvider == null) {
-            scriptInformationItemProvider =
-                    new ScriptInformationItemProvider(this);
+            scriptInformationItemProvider = new ScriptInformationItemProvider(this);
         }
 
         return scriptInformationItemProvider;
@@ -1146,8 +1112,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createSeparationOfDutiesActivitiesAdapter() {
         if (separationOfDutiesActivitiesItemProvider == null) {
-            separationOfDutiesActivitiesItemProvider =
-                    new SeparationOfDutiesActivitiesItemProvider(this);
+            separationOfDutiesActivitiesItemProvider = new SeparationOfDutiesActivitiesItemProvider(this);
         }
 
         return separationOfDutiesActivitiesItemProvider;
@@ -1216,8 +1181,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createStructuredDiscriminatorAdapter() {
         if (structuredDiscriminatorItemProvider == null) {
-            structuredDiscriminatorItemProvider =
-                    new StructuredDiscriminatorItemProvider(this);
+            structuredDiscriminatorItemProvider = new StructuredDiscriminatorItemProvider(this);
         }
 
         return structuredDiscriminatorItemProvider;
@@ -1240,8 +1204,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createTaskLibraryReferenceAdapter() {
         if (taskLibraryReferenceItemProvider == null) {
-            taskLibraryReferenceItemProvider =
-                    new TaskLibraryReferenceItemProvider(this);
+            taskLibraryReferenceItemProvider = new TaskLibraryReferenceItemProvider(this);
         }
 
         return taskLibraryReferenceItemProvider;
@@ -1310,8 +1273,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createValidationControlAdapter() {
         if (validationControlItemProvider == null) {
-            validationControlItemProvider =
-                    new ValidationControlItemProvider(this);
+            validationControlItemProvider = new ValidationControlItemProvider(this);
         }
 
         return validationControlItemProvider;
@@ -1334,8 +1296,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createValidationIssueOverrideAdapter() {
         if (validationIssueOverrideItemProvider == null) {
-            validationIssueOverrideItemProvider =
-                    new ValidationIssueOverrideItemProvider(this);
+            validationIssueOverrideItemProvider = new ValidationIssueOverrideItemProvider(this);
         }
 
         return validationIssueOverrideItemProvider;
@@ -1358,8 +1319,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsdlEventAssociationAdapter() {
         if (wsdlEventAssociationItemProvider == null) {
-            wsdlEventAssociationItemProvider =
-                    new WsdlEventAssociationItemProvider(this);
+            wsdlEventAssociationItemProvider = new WsdlEventAssociationItemProvider(this);
         }
 
         return wsdlEventAssociationItemProvider;
@@ -1382,8 +1342,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWorkItemPriorityAdapter() {
         if (workItemPriorityItemProvider == null) {
-            workItemPriorityItemProvider =
-                    new WorkItemPriorityItemProvider(this);
+            workItemPriorityItemProvider = new WorkItemPriorityItemProvider(this);
         }
 
         return workItemPriorityItemProvider;
@@ -1406,8 +1365,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createXpdExtDataObjectAttributesAdapter() {
         if (xpdExtDataObjectAttributesItemProvider == null) {
-            xpdExtDataObjectAttributesItemProvider =
-                    new XpdExtDataObjectAttributesItemProvider(this);
+            xpdExtDataObjectAttributesItemProvider = new XpdExtDataObjectAttributesItemProvider(this);
         }
 
         return xpdExtDataObjectAttributesItemProvider;
@@ -1476,8 +1434,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createXpdExtAttributesAdapter() {
         if (xpdExtAttributesItemProvider == null) {
-            xpdExtAttributesItemProvider =
-                    new XpdExtAttributesItemProvider(this);
+            xpdExtAttributesItemProvider = new XpdExtAttributesItemProvider(this);
         }
 
         return xpdExtAttributesItemProvider;
@@ -1500,8 +1457,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createUpdateCaseOperationTypeAdapter() {
         if (updateCaseOperationTypeItemProvider == null) {
-            updateCaseOperationTypeItemProvider =
-                    new UpdateCaseOperationTypeItemProvider(this);
+            updateCaseOperationTypeItemProvider = new UpdateCaseOperationTypeItemProvider(this);
         }
 
         return updateCaseOperationTypeItemProvider;
@@ -1524,8 +1480,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAddLinkAssociationsTypeAdapter() {
         if (addLinkAssociationsTypeItemProvider == null) {
-            addLinkAssociationsTypeItemProvider =
-                    new AddLinkAssociationsTypeItemProvider(this);
+            addLinkAssociationsTypeItemProvider = new AddLinkAssociationsTypeItemProvider(this);
         }
 
         return addLinkAssociationsTypeItemProvider;
@@ -1548,8 +1503,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRemoveLinkAssociationsTypeAdapter() {
         if (removeLinkAssociationsTypeItemProvider == null) {
-            removeLinkAssociationsTypeItemProvider =
-                    new RemoveLinkAssociationsTypeItemProvider(this);
+            removeLinkAssociationsTypeItemProvider = new RemoveLinkAssociationsTypeItemProvider(this);
         }
 
         return removeLinkAssociationsTypeItemProvider;
@@ -1572,8 +1526,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCaseReferenceOperationsTypeAdapter() {
         if (caseReferenceOperationsTypeItemProvider == null) {
-            caseReferenceOperationsTypeItemProvider =
-                    new CaseReferenceOperationsTypeItemProvider(this);
+            caseReferenceOperationsTypeItemProvider = new CaseReferenceOperationsTypeItemProvider(this);
         }
 
         return caseReferenceOperationsTypeItemProvider;
@@ -1596,8 +1549,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createGlobalDataOperationAdapter() {
         if (globalDataOperationItemProvider == null) {
-            globalDataOperationItemProvider =
-                    new GlobalDataOperationItemProvider(this);
+            globalDataOperationItemProvider = new GlobalDataOperationItemProvider(this);
         }
 
         return globalDataOperationItemProvider;
@@ -1620,8 +1572,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDeleteByCaseIdentifierTypeAdapter() {
         if (deleteByCaseIdentifierTypeItemProvider == null) {
-            deleteByCaseIdentifierTypeItemProvider =
-                    new DeleteByCaseIdentifierTypeItemProvider(this);
+            deleteByCaseIdentifierTypeItemProvider = new DeleteByCaseIdentifierTypeItemProvider(this);
         }
 
         return deleteByCaseIdentifierTypeItemProvider;
@@ -1644,8 +1595,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCompositeIdentifierTypeAdapter() {
         if (compositeIdentifierTypeItemProvider == null) {
-            compositeIdentifierTypeItemProvider =
-                    new CompositeIdentifierTypeItemProvider(this);
+            compositeIdentifierTypeItemProvider = new CompositeIdentifierTypeItemProvider(this);
         }
 
         return compositeIdentifierTypeItemProvider;
@@ -1668,8 +1618,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDeleteCaseReferenceOperationTypeAdapter() {
         if (deleteCaseReferenceOperationTypeItemProvider == null) {
-            deleteCaseReferenceOperationTypeItemProvider =
-                    new DeleteCaseReferenceOperationTypeItemProvider(this);
+            deleteCaseReferenceOperationTypeItemProvider = new DeleteCaseReferenceOperationTypeItemProvider(this);
         }
 
         return deleteCaseReferenceOperationTypeItemProvider;
@@ -1692,8 +1641,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDeleteByCompositeIdentifiersTypeAdapter() {
         if (deleteByCompositeIdentifiersTypeItemProvider == null) {
-            deleteByCompositeIdentifiersTypeItemProvider =
-                    new DeleteByCompositeIdentifiersTypeItemProvider(this);
+            deleteByCompositeIdentifiersTypeItemProvider = new DeleteByCompositeIdentifiersTypeItemProvider(this);
         }
 
         return deleteByCompositeIdentifiersTypeItemProvider;
@@ -1716,8 +1664,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCreateCaseOperationTypeAdapter() {
         if (createCaseOperationTypeItemProvider == null) {
-            createCaseOperationTypeItemProvider =
-                    new CreateCaseOperationTypeItemProvider(this);
+            createCaseOperationTypeItemProvider = new CreateCaseOperationTypeItemProvider(this);
         }
 
         return createCaseOperationTypeItemProvider;
@@ -1740,8 +1687,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCaseAccessOperationsTypeAdapter() {
         if (caseAccessOperationsTypeItemProvider == null) {
-            caseAccessOperationsTypeItemProvider =
-                    new CaseAccessOperationsTypeItemProvider(this);
+            caseAccessOperationsTypeItemProvider = new CaseAccessOperationsTypeItemProvider(this);
         }
 
         return caseAccessOperationsTypeItemProvider;
@@ -1764,8 +1710,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDataWorkItemAttributeMappingAdapter() {
         if (dataWorkItemAttributeMappingItemProvider == null) {
-            dataWorkItemAttributeMappingItemProvider =
-                    new DataWorkItemAttributeMappingItemProvider(this);
+            dataWorkItemAttributeMappingItemProvider = new DataWorkItemAttributeMappingItemProvider(this);
         }
 
         return dataWorkItemAttributeMappingItemProvider;
@@ -1812,8 +1757,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createBpmRuntimeConfigurationAdapter() {
         if (bpmRuntimeConfigurationItemProvider == null) {
-            bpmRuntimeConfigurationItemProvider =
-                    new BpmRuntimeConfigurationItemProvider(this);
+            bpmRuntimeConfigurationItemProvider = new BpmRuntimeConfigurationItemProvider(this);
         }
 
         return bpmRuntimeConfigurationItemProvider;
@@ -1859,8 +1803,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createInitializerActivitiesTypeAdapter() {
         if (initializerActivitiesTypeItemProvider == null) {
-            initializerActivitiesTypeItemProvider =
-                    new InitializerActivitiesTypeItemProvider(this);
+            initializerActivitiesTypeItemProvider = new InitializerActivitiesTypeItemProvider(this);
         }
 
         return initializerActivitiesTypeItemProvider;
@@ -1883,8 +1826,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createAdHocTaskConfigurationTypeAdapter() {
         if (adHocTaskConfigurationTypeItemProvider == null) {
-            adHocTaskConfigurationTypeItemProvider =
-                    new AdHocTaskConfigurationTypeItemProvider(this);
+            adHocTaskConfigurationTypeItemProvider = new AdHocTaskConfigurationTypeItemProvider(this);
         }
 
         return adHocTaskConfigurationTypeItemProvider;
@@ -1907,8 +1849,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRequiredAccessPrivilegesAdapter() {
         if (requiredAccessPrivilegesItemProvider == null) {
-            requiredAccessPrivilegesItemProvider =
-                    new RequiredAccessPrivilegesItemProvider(this);
+            requiredAccessPrivilegesItemProvider = new RequiredAccessPrivilegesItemProvider(this);
         }
 
         return requiredAccessPrivilegesItemProvider;
@@ -1931,8 +1872,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createVisibleForCaseStatesAdapter() {
         if (visibleForCaseStatesItemProvider == null) {
-            visibleForCaseStatesItemProvider =
-                    new VisibleForCaseStatesItemProvider(this);
+            visibleForCaseStatesItemProvider = new VisibleForCaseStatesItemProvider(this);
         }
 
         return visibleForCaseStatesItemProvider;
@@ -1978,8 +1918,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDocumentOperationAdapter() {
         if (documentOperationItemProvider == null) {
-            documentOperationItemProvider =
-                    new DocumentOperationItemProvider(this);
+            documentOperationItemProvider = new DocumentOperationItemProvider(this);
         }
 
         return documentOperationItemProvider;
@@ -2002,8 +1941,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCaseDocRefOperationsAdapter() {
         if (caseDocRefOperationsItemProvider == null) {
-            caseDocRefOperationsItemProvider =
-                    new CaseDocRefOperationsItemProvider(this);
+            caseDocRefOperationsItemProvider = new CaseDocRefOperationsItemProvider(this);
         }
 
         return caseDocRefOperationsItemProvider;
@@ -2026,8 +1964,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCaseDocFindOperationsAdapter() {
         if (caseDocFindOperationsItemProvider == null) {
-            caseDocFindOperationsItemProvider =
-                    new CaseDocFindOperationsItemProvider(this);
+            caseDocFindOperationsItemProvider = new CaseDocFindOperationsItemProvider(this);
         }
 
         return caseDocFindOperationsItemProvider;
@@ -2050,8 +1987,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createMoveCaseDocOperationAdapter() {
         if (moveCaseDocOperationItemProvider == null) {
-            moveCaseDocOperationItemProvider =
-                    new MoveCaseDocOperationItemProvider(this);
+            moveCaseDocOperationItemProvider = new MoveCaseDocOperationItemProvider(this);
         }
 
         return moveCaseDocOperationItemProvider;
@@ -2074,8 +2010,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createUnlinkCaseDocOperationAdapter() {
         if (unlinkCaseDocOperationItemProvider == null) {
-            unlinkCaseDocOperationItemProvider =
-                    new UnlinkCaseDocOperationItemProvider(this);
+            unlinkCaseDocOperationItemProvider = new UnlinkCaseDocOperationItemProvider(this);
         }
 
         return unlinkCaseDocOperationItemProvider;
@@ -2098,8 +2033,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createLinkCaseDocOperationAdapter() {
         if (linkCaseDocOperationItemProvider == null) {
-            linkCaseDocOperationItemProvider =
-                    new LinkCaseDocOperationItemProvider(this);
+            linkCaseDocOperationItemProvider = new LinkCaseDocOperationItemProvider(this);
         }
 
         return linkCaseDocOperationItemProvider;
@@ -2122,8 +2056,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createLinkSystemDocumentOperationAdapter() {
         if (linkSystemDocumentOperationItemProvider == null) {
-            linkSystemDocumentOperationItemProvider =
-                    new LinkSystemDocumentOperationItemProvider(this);
+            linkSystemDocumentOperationItemProvider = new LinkSystemDocumentOperationItemProvider(this);
         }
 
         return linkSystemDocumentOperationItemProvider;
@@ -2146,8 +2079,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDeleteCaseDocOperationAdapter() {
         if (deleteCaseDocOperationItemProvider == null) {
-            deleteCaseDocOperationItemProvider =
-                    new DeleteCaseDocOperationItemProvider(this);
+            deleteCaseDocOperationItemProvider = new DeleteCaseDocOperationItemProvider(this);
         }
 
         return deleteCaseDocOperationItemProvider;
@@ -2170,8 +2102,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createFindByFileNameOperationAdapter() {
         if (findByFileNameOperationItemProvider == null) {
-            findByFileNameOperationItemProvider =
-                    new FindByFileNameOperationItemProvider(this);
+            findByFileNameOperationItemProvider = new FindByFileNameOperationItemProvider(this);
         }
 
         return findByFileNameOperationItemProvider;
@@ -2194,8 +2125,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createFindByQueryOperationAdapter() {
         if (findByQueryOperationItemProvider == null) {
-            findByQueryOperationItemProvider =
-                    new FindByQueryOperationItemProvider(this);
+            findByQueryOperationItemProvider = new FindByQueryOperationItemProvider(this);
         }
 
         return findByQueryOperationItemProvider;
@@ -2218,8 +2148,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createCaseDocumentQueryExpressionAdapter() {
         if (caseDocumentQueryExpressionItemProvider == null) {
-            caseDocumentQueryExpressionItemProvider =
-                    new CaseDocumentQueryExpressionItemProvider(this);
+            caseDocumentQueryExpressionItemProvider = new CaseDocumentQueryExpressionItemProvider(this);
         }
 
         return caseDocumentQueryExpressionItemProvider;
@@ -2242,8 +2171,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createServiceProcessConfigurationAdapter() {
         if (serviceProcessConfigurationItemProvider == null) {
-            serviceProcessConfigurationItemProvider =
-                    new ServiceProcessConfigurationItemProvider(this);
+            serviceProcessConfigurationItemProvider = new ServiceProcessConfigurationItemProvider(this);
         }
 
         return serviceProcessConfigurationItemProvider;
@@ -2266,8 +2194,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createScriptDataMapperAdapter() {
         if (scriptDataMapperItemProvider == null) {
-            scriptDataMapperItemProvider =
-                    new ScriptDataMapperItemProvider(this);
+            scriptDataMapperItemProvider = new ScriptDataMapperItemProvider(this);
         }
 
         return scriptDataMapperItemProvider;
@@ -2290,8 +2217,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createDataMapperArrayInflationAdapter() {
         if (dataMapperArrayInflationItemProvider == null) {
-            dataMapperArrayInflationItemProvider =
-                    new DataMapperArrayInflationItemProvider(this);
+            dataMapperArrayInflationItemProvider = new DataMapperArrayInflationItemProvider(this);
         }
 
         return dataMapperArrayInflationItemProvider;
@@ -2314,8 +2240,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createLikeMappingExclusionAdapter() {
         if (likeMappingExclusionItemProvider == null) {
-            likeMappingExclusionItemProvider =
-                    new LikeMappingExclusionItemProvider(this);
+            likeMappingExclusionItemProvider = new LikeMappingExclusionItemProvider(this);
         }
 
         return likeMappingExclusionItemProvider;
@@ -2338,8 +2263,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createLikeMappingExclusionsAdapter() {
         if (likeMappingExclusionsItemProvider == null) {
-            likeMappingExclusionsItemProvider =
-                    new LikeMappingExclusionsItemProvider(this);
+            likeMappingExclusionsItemProvider = new LikeMappingExclusionsItemProvider(this);
         }
 
         return likeMappingExclusionsItemProvider;
@@ -2362,8 +2286,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRestServiceOperationAdapter() {
         if (restServiceOperationItemProvider == null) {
-            restServiceOperationItemProvider =
-                    new RestServiceOperationItemProvider(this);
+            restServiceOperationItemProvider = new RestServiceOperationItemProvider(this);
         }
 
         return restServiceOperationItemProvider;
@@ -2409,8 +2332,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRestServiceResourceAdapter() {
         if (restServiceResourceItemProvider == null) {
-            restServiceResourceItemProvider =
-                    new RestServiceResourceItemProvider(this);
+            restServiceResourceItemProvider = new RestServiceResourceItemProvider(this);
         }
 
         return restServiceResourceItemProvider;
@@ -2433,8 +2355,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createRestServiceResourceSecurityAdapter() {
         if (restServiceResourceSecurityItemProvider == null) {
-            restServiceResourceSecurityItemProvider =
-                    new RestServiceResourceSecurityItemProvider(this);
+            restServiceResourceSecurityItemProvider = new RestServiceResourceSecurityItemProvider(this);
         }
 
         return restServiceResourceSecurityItemProvider;
@@ -2526,8 +2447,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createParticipantSharedResourceAdapter() {
         if (participantSharedResourceItemProvider == null) {
-            participantSharedResourceItemProvider =
-                    new ParticipantSharedResourceItemProvider(this);
+            participantSharedResourceItemProvider = new ParticipantSharedResourceItemProvider(this);
         }
 
         return participantSharedResourceItemProvider;
@@ -2642,8 +2562,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsSecurityPolicyAdapter() {
         if (wsSecurityPolicyItemProvider == null) {
-            wsSecurityPolicyItemProvider =
-                    new WsSecurityPolicyItemProvider(this);
+            wsSecurityPolicyItemProvider = new WsSecurityPolicyItemProvider(this);
         }
 
         return wsSecurityPolicyItemProvider;
@@ -2689,8 +2608,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsSoapHttpInboundBindingAdapter() {
         if (wsSoapHttpInboundBindingItemProvider == null) {
-            wsSoapHttpInboundBindingItemProvider =
-                    new WsSoapHttpInboundBindingItemProvider(this);
+            wsSoapHttpInboundBindingItemProvider = new WsSoapHttpInboundBindingItemProvider(this);
         }
 
         return wsSoapHttpInboundBindingItemProvider;
@@ -2713,8 +2631,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsSoapHttpOutboundBindingAdapter() {
         if (wsSoapHttpOutboundBindingItemProvider == null) {
-            wsSoapHttpOutboundBindingItemProvider =
-                    new WsSoapHttpOutboundBindingItemProvider(this);
+            wsSoapHttpOutboundBindingItemProvider = new WsSoapHttpOutboundBindingItemProvider(this);
         }
 
         return wsSoapHttpOutboundBindingItemProvider;
@@ -2737,8 +2654,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsSoapJmsInboundBindingAdapter() {
         if (wsSoapJmsInboundBindingItemProvider == null) {
-            wsSoapJmsInboundBindingItemProvider =
-                    new WsSoapJmsInboundBindingItemProvider(this);
+            wsSoapJmsInboundBindingItemProvider = new WsSoapJmsInboundBindingItemProvider(this);
         }
 
         return wsSoapJmsInboundBindingItemProvider;
@@ -2761,8 +2677,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsSoapJmsOutboundBindingAdapter() {
         if (wsSoapJmsOutboundBindingItemProvider == null) {
-            wsSoapJmsOutboundBindingItemProvider =
-                    new WsSoapJmsOutboundBindingItemProvider(this);
+            wsSoapJmsOutboundBindingItemProvider = new WsSoapJmsOutboundBindingItemProvider(this);
         }
 
         return wsSoapJmsOutboundBindingItemProvider;
@@ -2808,8 +2723,7 @@ public class XpdExtensionItemProviderAdapterFactory
     @Override
     public Adapter createWsVirtualBindingAdapter() {
         if (wsVirtualBindingItemProvider == null) {
-            wsVirtualBindingItemProvider =
-                    new WsVirtualBindingItemProvider(this);
+            wsVirtualBindingItemProvider = new WsVirtualBindingItemProvider(this);
         }
 
         return wsVirtualBindingItemProvider;
@@ -2822,8 +2736,7 @@ public class XpdExtensionItemProviderAdapterFactory
      * @generated
      */
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this
-                : parentAdapterFactory.getRootAdapterFactory();
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -2832,8 +2745,7 @@ public class XpdExtensionItemProviderAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(
-            ComposedAdapterFactory parentAdapterFactory) {
+    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -2867,8 +2779,7 @@ public class XpdExtensionItemProviderAdapterFactory
     public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>)
-                    || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
         }

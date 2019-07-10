@@ -27,13 +27,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConditionImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConditionImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConditionImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ConditionImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -43,8 +43,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -74,8 +73,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * @generated
      * @ordered
      */
-    protected static final ConditionType TYPE_EDEFAULT =
-            ConditionType.CONDITION_LITERAL;
+    protected static final ConditionType TYPE_EDEFAULT = ConditionType.CONDITION_LITERAL;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -122,9 +120,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.CONDITION__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.CONDITION__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -147,8 +143,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * @generated
      */
     public Expression getExpression() {
-        return (Expression) getMixed()
-                .get(Xpdl2Package.Literals.CONDITION__EXPRESSION, true);
+        return (Expression) getMixed().get(Xpdl2Package.Literals.CONDITION__EXPRESSION, true);
     }
 
     /**
@@ -156,12 +151,9 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExpression(Expression newExpression,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
         return ((FeatureMap.Internal) getMixed())
-                .basicAdd(Xpdl2Package.Literals.CONDITION__EXPRESSION,
-                        newExpression,
-                        msgs);
+                .basicAdd(Xpdl2Package.Literals.CONDITION__EXPRESSION, newExpression, msgs);
     }
 
     /**
@@ -170,8 +162,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * @generated
      */
     public void setExpression(Expression newExpression) {
-        ((FeatureMap.Internal) getMixed())
-                .set(Xpdl2Package.Literals.CONDITION__EXPRESSION, newExpression);
+        ((FeatureMap.Internal) getMixed()).set(Xpdl2Package.Literals.CONDITION__EXPRESSION, newExpression);
     }
 
     /**
@@ -194,8 +185,8 @@ public class ConditionImpl extends EObjectImpl implements Condition {
         boolean oldTypeESet = typeESet;
         typeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.CONDITION__TYPE, oldType, type, !oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.CONDITION__TYPE, oldType, type,
+                    !oldTypeESet));
     }
 
     /**
@@ -209,9 +200,8 @@ public class ConditionImpl extends EObjectImpl implements Condition {
         type = TYPE_EDEFAULT;
         typeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.CONDITION__TYPE, oldType, TYPE_EDEFAULT,
-                    oldTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.CONDITION__TYPE, oldType,
+                    TYPE_EDEFAULT, oldTypeESet));
     }
 
     /**
@@ -229,12 +219,10 @@ public class ConditionImpl extends EObjectImpl implements Condition {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.CONDITION__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.CONDITION__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.CONDITION__EXPRESSION:
@@ -345,7 +333,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", mixed: "); //$NON-NLS-1$

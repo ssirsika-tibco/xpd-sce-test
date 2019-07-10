@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class BpmRuntimeConfigurationImpl extends EObjectImpl
-        implements BpmRuntimeConfiguration {
+public class BpmRuntimeConfigurationImpl extends EObjectImpl implements BpmRuntimeConfiguration {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getIncomingRequestTimeout() <em>Incoming Request Timeout</em>}' attribute.
@@ -54,8 +52,7 @@ public class BpmRuntimeConfigurationImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected Integer incomingRequestTimeout =
-            INCOMING_REQUEST_TIMEOUT_EDEFAULT;
+    protected Integer incomingRequestTimeout = INCOMING_REQUEST_TIMEOUT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -95,8 +92,8 @@ public class BpmRuntimeConfigurationImpl extends EObjectImpl
         incomingRequestTimeout = newIncomingRequestTimeout;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.BPM_RUNTIME_CONFIGURATION__INCOMING_REQUEST_TIMEOUT,
-                    oldIncomingRequestTimeout, incomingRequestTimeout));
+                    XpdExtensionPackage.BPM_RUNTIME_CONFIGURATION__INCOMING_REQUEST_TIMEOUT, oldIncomingRequestTimeout,
+                    incomingRequestTimeout));
     }
 
     /**
@@ -152,10 +149,8 @@ public class BpmRuntimeConfigurationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.BPM_RUNTIME_CONFIGURATION__INCOMING_REQUEST_TIMEOUT:
-            return INCOMING_REQUEST_TIMEOUT_EDEFAULT == null
-                    ? incomingRequestTimeout != null
-                    : !INCOMING_REQUEST_TIMEOUT_EDEFAULT
-                            .equals(incomingRequestTimeout);
+            return INCOMING_REQUEST_TIMEOUT_EDEFAULT == null ? incomingRequestTimeout != null
+                    : !INCOMING_REQUEST_TIMEOUT_EDEFAULT.equals(incomingRequestTimeout);
         }
         return super.eIsSet(featureID);
     }
@@ -170,7 +165,7 @@ public class BpmRuntimeConfigurationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (incomingRequestTimeout: "); //$NON-NLS-1$
         result.append(incomingRequestTimeout);
         result.append(')');

@@ -23,6 +23,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IconImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IconImpl#getHeight <em>Height</em>}</li>
@@ -31,7 +32,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IconImpl#getXCoord <em>XCoord</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.IconImpl#getYCoord <em>YCoord</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -41,8 +41,7 @@ public class IconImpl extends EObjectImpl implements Icon {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -92,8 +91,7 @@ public class IconImpl extends EObjectImpl implements Icon {
      * @generated
      * @ordered
      */
-    protected static final SHAPEType SHAPE_EDEFAULT =
-            SHAPEType.ROUND_RECTANGLE_LITERAL;
+    protected static final SHAPEType SHAPE_EDEFAULT = SHAPEType.ROUND_RECTANGLE_LITERAL;
 
     /**
      * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.
@@ -211,8 +209,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__VALUE, oldValue, value));
     }
 
     /**
@@ -233,8 +230,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         BigInteger oldHeight = height;
         height = newHeight;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__HEIGHT, oldHeight, height));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__HEIGHT, oldHeight, height));
     }
 
     /**
@@ -257,8 +253,8 @@ public class IconImpl extends EObjectImpl implements Icon {
         boolean oldShapeESet = shapeESet;
         shapeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__SHAPE, oldShape, shape, !oldShapeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__SHAPE, oldShape, shape,
+                    !oldShapeESet));
     }
 
     /**
@@ -272,8 +268,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         shape = SHAPE_EDEFAULT;
         shapeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ICON__SHAPE, oldShape, SHAPE_EDEFAULT,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ICON__SHAPE, oldShape, SHAPE_EDEFAULT,
                     oldShapeESet));
     }
 
@@ -304,8 +299,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         BigInteger oldWidth = width;
         width = newWidth;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__WIDTH, oldWidth, width));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__WIDTH, oldWidth, width));
     }
 
     /**
@@ -326,8 +320,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         BigInteger oldXCoord = xCoord;
         xCoord = newXCoord;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__XCOORD, oldXCoord, xCoord));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__XCOORD, oldXCoord, xCoord));
     }
 
     /**
@@ -348,8 +341,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         BigInteger oldYCoord = yCoord;
         yCoord = newYCoord;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ICON__YCOORD, oldYCoord, yCoord));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ICON__YCOORD, oldYCoord, yCoord));
     }
 
     /**
@@ -445,22 +437,17 @@ public class IconImpl extends EObjectImpl implements Icon {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.ICON__VALUE:
-            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
-                    .equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         case Xpdl2Package.ICON__HEIGHT:
-            return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT
-                    .equals(height);
+            return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals(height);
         case Xpdl2Package.ICON__SHAPE:
             return isSetShape();
         case Xpdl2Package.ICON__WIDTH:
-            return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT
-                    .equals(width);
+            return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals(width);
         case Xpdl2Package.ICON__XCOORD:
-            return XCOORD_EDEFAULT == null ? xCoord != null : !XCOORD_EDEFAULT
-                    .equals(xCoord);
+            return XCOORD_EDEFAULT == null ? xCoord != null : !XCOORD_EDEFAULT.equals(xCoord);
         case Xpdl2Package.ICON__YCOORD:
-            return YCOORD_EDEFAULT == null ? yCoord != null : !YCOORD_EDEFAULT
-                    .equals(yCoord);
+            return YCOORD_EDEFAULT == null ? yCoord != null : !YCOORD_EDEFAULT.equals(yCoord);
         }
         return super.eIsSet(featureID);
     }
@@ -475,7 +462,7 @@ public class IconImpl extends EObjectImpl implements Icon {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (value: "); //$NON-NLS-1$
         result.append(value);
         result.append(", height: "); //$NON-NLS-1$

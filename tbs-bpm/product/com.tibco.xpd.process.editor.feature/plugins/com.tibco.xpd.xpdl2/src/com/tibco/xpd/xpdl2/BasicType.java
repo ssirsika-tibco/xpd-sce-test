@@ -13,26 +13,25 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.BasicType#getLength <em>Length</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.BasicType#getPrecision <em>Precision</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.BasicType#getScale <em>Scale</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.BasicType#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getBasicType()
  * @model extendedMetaData="name='BasicType_._type' kind='elementOnly' features-order='length precision scale otherElements'"
  * @generated
  */
-public interface BasicType extends DataType, OtherElementsContainer {
+public interface BasicType extends DataType, OtherElementsContainer, OtherAttributesContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Length</b></em>' containment reference.

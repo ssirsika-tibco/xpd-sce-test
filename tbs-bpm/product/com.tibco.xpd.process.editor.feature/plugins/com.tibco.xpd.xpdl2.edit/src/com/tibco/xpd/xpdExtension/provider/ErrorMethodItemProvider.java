@@ -38,8 +38,7 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -74,24 +73,21 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDisableImplicitAssociationPropertyDescriptor(
-            Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString(
-                        "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature", //$NON-NLS-1$
-                        "_UI_AssociatedParametersContainer_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                null,
-                null));
+    protected void addDisableImplicitAssociationPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_AssociatedParametersContainer_disableImplicitAssociation_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_AssociatedParametersContainer_disableImplicitAssociation_feature", //$NON-NLS-1$
+                                "_UI_AssociatedParametersContainer_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__DISABLE_IMPLICIT_ASSOCIATION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -101,21 +97,20 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      * @generated
      */
     protected void addErrorCodePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ErrorMethod_errorCode_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ErrorMethod_errorCode_feature", //$NON-NLS-1$
-                        "_UI_ErrorMethod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.ERROR_METHOD__ERROR_CODE,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ErrorMethod_errorCode_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ErrorMethod_errorCode_feature", //$NON-NLS-1$
+                                "_UI_ErrorMethod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.ERROR_METHOD__ERROR_CODE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -126,12 +121,10 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(
-                    XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
+            childrenFeatures.add(XpdExtensionPackage.Literals.ASSOCIATED_PARAMETERS_CONTAINER__ASSOCIATED_PARAMETERS);
         }
         return childrenFeatures;
     }
@@ -156,8 +149,7 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ErrorMethodCustom")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ErrorMethodCustom")); //$NON-NLS-1$
     }
 
     /**
@@ -172,8 +164,7 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
         if (object instanceof ErrorMethod) {
             label = ((ErrorMethod) object).getErrorCode();
         }
-        return label == null || label.length() == 0
-                ? getString("_UI_ErrorMethod_type") //$NON-NLS-1$
+        return label == null || label.length() == 0 ? getString("_UI_ErrorMethod_type") //$NON-NLS-1$
                 : label;
     }
 
@@ -191,12 +182,10 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
         switch (notification.getFeatureID(ErrorMethod.class)) {
         case XpdExtensionPackage.ERROR_METHOD__DISABLE_IMPLICIT_ASSOCIATION:
         case XpdExtensionPackage.ERROR_METHOD__ERROR_CODE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.ERROR_METHOD__ASSOCIATED_PARAMETERS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -210,8 +199,7 @@ public class ErrorMethodItemProvider extends UniqueIdElementItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(

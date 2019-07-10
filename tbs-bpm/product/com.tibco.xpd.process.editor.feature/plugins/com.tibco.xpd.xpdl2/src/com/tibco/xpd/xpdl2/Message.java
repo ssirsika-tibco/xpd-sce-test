@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Message#getActualParameters <em>Actual Parameters</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Message#getDataMappings <em>Data Mappings</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.tibco.xpd.xpdl2.Message#getFrom <em>From</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Message#getTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getMessage()
  * @model extendedMetaData="name='MessageType' kind='elementOnly' features-order='actualParameters dataMappings otherElements'"
@@ -38,8 +38,7 @@ public interface Message extends NamedElement, OtherElementsContainer {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Actual Parameters</b></em>' containment reference list.

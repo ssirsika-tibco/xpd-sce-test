@@ -28,15 +28,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class ImplementedInterfaceImpl extends EObjectImpl
-        implements ImplementedInterface {
+public class ImplementedInterfaceImpl extends EObjectImpl implements ImplementedInterface {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPackageRef() <em>Package Ref</em>}' attribute.
@@ -116,8 +114,7 @@ public class ImplementedInterfaceImpl extends EObjectImpl
         packageRef = newPackageRef;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.IMPLEMENTED_INTERFACE__PACKAGE_REF,
-                    oldPackageRef, packageRef));
+                    XpdExtensionPackage.IMPLEMENTED_INTERFACE__PACKAGE_REF, oldPackageRef, packageRef));
     }
 
     /**
@@ -139,8 +136,8 @@ public class ImplementedInterfaceImpl extends EObjectImpl
         processInterfaceId = newProcessInterfaceId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID,
-                    oldProcessInterfaceId, processInterfaceId));
+                    XpdExtensionPackage.IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID, oldProcessInterfaceId,
+                    processInterfaceId));
     }
 
     /**
@@ -204,11 +201,9 @@ public class ImplementedInterfaceImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.IMPLEMENTED_INTERFACE__PACKAGE_REF:
-            return PACKAGE_REF_EDEFAULT == null ? packageRef != null
-                    : !PACKAGE_REF_EDEFAULT.equals(packageRef);
+            return PACKAGE_REF_EDEFAULT == null ? packageRef != null : !PACKAGE_REF_EDEFAULT.equals(packageRef);
         case XpdExtensionPackage.IMPLEMENTED_INTERFACE__PROCESS_INTERFACE_ID:
-            return PROCESS_INTERFACE_ID_EDEFAULT == null
-                    ? processInterfaceId != null
+            return PROCESS_INTERFACE_ID_EDEFAULT == null ? processInterfaceId != null
                     : !PROCESS_INTERFACE_ID_EDEFAULT.equals(processInterfaceId);
         }
         return super.eIsSet(featureID);
@@ -224,7 +219,7 @@ public class ImplementedInterfaceImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (packageRef: "); //$NON-NLS-1$
         result.append(packageRef);
         result.append(", processInterfaceId: "); //$NON-NLS-1$

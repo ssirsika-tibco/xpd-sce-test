@@ -32,15 +32,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class ArtifactItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ArtifactItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -78,11 +75,12 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
      */
     protected void addArtifactTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Artifact_artifactType_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Artifact_artifactType_feature", "_UI_Artifact_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Artifact_artifactType_feature", //$NON-NLS-1$
+                                "_UI_Artifact_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ARTIFACT__ARTIFACT_TYPE,
                         true,
                         false,
@@ -99,19 +97,18 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addGroupPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Artifact_group_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Artifact_group_feature", "_UI_Artifact_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.ARTIFACT__GROUP,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Artifact_group_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Artifact_group_feature", "_UI_Artifact_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.ARTIFACT__GROUP,
+                true,
+                false,
+                false,
+                null,
+                null,
+                null));
     }
 
     /**
@@ -122,11 +119,12 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
      */
     protected void addTextAnnotationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Artifact_textAnnotation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Artifact_textAnnotation_feature", "_UI_Artifact_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Artifact_textAnnotation_feature", //$NON-NLS-1$
+                                "_UI_Artifact_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.ARTIFACT__TEXT_ANNOTATION,
                         true,
                         false,
@@ -144,12 +142,10 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
             childrenFeatures.add(Xpdl2Package.Literals.ARTIFACT__OBJECT);
             childrenFeatures.add(Xpdl2Package.Literals.ARTIFACT__DATA_OBJECT);
         }
@@ -180,16 +176,13 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
         if (object instanceof Artifact) {
             Artifact artifact = (Artifact) object;
 
-            if (ArtifactType.ANNOTATION_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            if (ArtifactType.ANNOTATION_LITERAL.equals(artifact.getArtifactType())) {
                 img = "full/obj16/Annotation"; //$NON-NLS-1$
 
-            } else if (ArtifactType.GROUP_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            } else if (ArtifactType.GROUP_LITERAL.equals(artifact.getArtifactType())) {
                 img = "full/obj16/Group"; //$NON-NLS-1$
 
-            } else if (ArtifactType.DATA_OBJECT_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            } else if (ArtifactType.DATA_OBJECT_LITERAL.equals(artifact.getArtifactType())) {
                 img = "full/obj16/DataObject"; //$NON-NLS-1$
             }
         }
@@ -210,16 +203,13 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
         if (object instanceof Artifact) {
             Artifact artifact = (Artifact) object;
 
-            if (ArtifactType.ANNOTATION_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            if (ArtifactType.ANNOTATION_LITERAL.equals(artifact.getArtifactType())) {
                 text = artifact.getTextAnnotation();
 
-            } else if (ArtifactType.GROUP_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            } else if (ArtifactType.GROUP_LITERAL.equals(artifact.getArtifactType())) {
                 text = super.getText(object);
 
-            } else if (ArtifactType.DATA_OBJECT_LITERAL.equals(artifact
-                    .getArtifactType())) {
+            } else if (ArtifactType.DATA_OBJECT_LITERAL.equals(artifact.getArtifactType())) {
                 text = super.getText(object);
             }
         }
@@ -242,14 +232,12 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.ARTIFACT__ARTIFACT_TYPE:
         case Xpdl2Package.ARTIFACT__TEXT_ANNOTATION:
         case Xpdl2Package.ARTIFACT__GROUP:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.ARTIFACT__NODE_GRAPHICS_INFOS:
         case Xpdl2Package.ARTIFACT__OBJECT:
         case Xpdl2Package.ARTIFACT__DATA_OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -263,21 +251,17 @@ public class ArtifactItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
-                        Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
+                Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARTIFACT__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.ARTIFACT__OBJECT, Xpdl2Factory.eINSTANCE.createObject()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.ARTIFACT__DATA_OBJECT,
-                        Xpdl2Factory.eINSTANCE.createDataObject()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.ARTIFACT__DATA_OBJECT,
+                Xpdl2Factory.eINSTANCE.createDataObject()));
     }
 
 }

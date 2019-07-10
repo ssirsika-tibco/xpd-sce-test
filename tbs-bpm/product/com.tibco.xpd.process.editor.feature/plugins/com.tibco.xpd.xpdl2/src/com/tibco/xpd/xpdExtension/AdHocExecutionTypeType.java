@@ -44,8 +44,7 @@ public enum AdHocExecutionTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Automatic</b></em>' literal value.
@@ -83,8 +82,7 @@ public enum AdHocExecutionTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AdHocExecutionTypeType[] VALUES_ARRAY =
-            new AdHocExecutionTypeType[] { AUTOMATIC, MANUAL, };
+    private static final AdHocExecutionTypeType[] VALUES_ARRAY = new AdHocExecutionTypeType[] { AUTOMATIC, MANUAL, };
 
     /**
      * A public read-only list of all the '<em><b>Ad Hoc Execution Type Type</b></em>' enumerators.
@@ -92,8 +90,7 @@ public enum AdHocExecutionTypeType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AdHocExecutionTypeType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<AdHocExecutionTypeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Ad Hoc Execution Type Type</b></em>' literal with the specified literal value.

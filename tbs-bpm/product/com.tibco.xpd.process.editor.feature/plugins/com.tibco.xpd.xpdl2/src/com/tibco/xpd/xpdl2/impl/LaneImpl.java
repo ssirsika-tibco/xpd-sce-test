@@ -38,6 +38,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LaneImpl#getNodeGraphicsInfos <em>Node Graphics Infos</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LaneImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -48,7 +49,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LaneImpl#getPerformers <em>Performers</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LaneImpl#getNestedLane <em>Nested Lane</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -57,8 +57,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getNodeGraphicsInfos() <em>Node Graphics Infos</em>}' containment reference list.
@@ -126,8 +125,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * @generated
      * @ordered
      */
-    protected String deprecatedParentPoolId =
-            DEPRECATED_PARENT_POOL_ID_EDEFAULT;
+    protected String deprecatedParentPoolId = DEPRECATED_PARENT_POOL_ID_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getPerformers() <em>Performers</em>}' containment reference.
@@ -172,10 +170,8 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      */
     public EList<NodeGraphicsInfo> getNodeGraphicsInfos() {
         if (nodeGraphicsInfos == null) {
-            nodeGraphicsInfos =
-                    new EObjectContainmentEList<NodeGraphicsInfo>(
-                            NodeGraphicsInfo.class, this,
-                            Xpdl2Package.LANE__NODE_GRAPHICS_INFOS);
+            nodeGraphicsInfos = new EObjectContainmentEList<NodeGraphicsInfo>(NodeGraphicsInfo.class, this,
+                    Xpdl2Package.LANE__NODE_GRAPHICS_INFOS);
         }
         return nodeGraphicsInfos;
     }
@@ -187,8 +183,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this, Xpdl2Package.LANE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.LANE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -205,14 +200,12 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LANE__OBJECT, oldObject, newObject);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -229,25 +222,16 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LANE__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LANE__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LANE__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LANE__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LANE__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__OBJECT, newObject, newObject));
     }
 
     /**
@@ -268,8 +252,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         String oldDeprecatedParentLane = deprecatedParentLane;
         deprecatedParentLane = newDeprecatedParentLane;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LANE__DEPRECATED_PARENT_LANE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__DEPRECATED_PARENT_LANE,
                     oldDeprecatedParentLane, deprecatedParentLane));
     }
 
@@ -291,8 +274,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         String oldDeprecatedParentPoolId = deprecatedParentPoolId;
         deprecatedParentPoolId = newDeprecatedParentPoolId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LANE__DEPRECATED_PARENT_POOL_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__DEPRECATED_PARENT_POOL_ID,
                     oldDeprecatedParentPoolId, deprecatedParentPoolId));
     }
 
@@ -310,12 +292,8 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentPool(Pool newParentPool,
-            NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newParentPool,
-                        Xpdl2Package.LANE__PARENT_POOL,
-                        msgs);
+    public NotificationChain basicSetParentPool(Pool newParentPool, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newParentPool, Xpdl2Package.LANE__PARENT_POOL, msgs);
         return msgs;
     }
 
@@ -327,23 +305,17 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         if (newParentPool != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.LANE__PARENT_POOL && newParentPool != null)) {
             if (EcoreUtil.isAncestor(this, newParentPool))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newParentPool != null)
-                msgs =
-                        ((InternalEObject) newParentPool).eInverseAdd(this,
-                                Xpdl2Package.POOL__LANES,
-                                Pool.class,
-                                msgs);
+                msgs = ((InternalEObject) newParentPool).eInverseAdd(this, Xpdl2Package.POOL__LANES, Pool.class, msgs);
             msgs = basicSetParentPool(newParentPool, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LANE__PARENT_POOL, newParentPool,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__PARENT_POOL, newParentPool,
                     newParentPool));
     }
 
@@ -361,15 +333,12 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPerformers(Performers newPerformers,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPerformers(Performers newPerformers, NotificationChain msgs) {
         Performers oldPerformers = performers;
         performers = newPerformers;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LANE__PERFORMERS, oldPerformers,
-                            newPerformers);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LANE__PERFORMERS, oldPerformers, newPerformers);
             if (msgs == null)
                 msgs = notification;
             else
@@ -387,25 +356,17 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         if (newPerformers != performers) {
             NotificationChain msgs = null;
             if (performers != null)
-                msgs =
-                        ((InternalEObject) performers).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LANE__PERFORMERS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) performers)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LANE__PERFORMERS, null, msgs);
             if (newPerformers != null)
-                msgs =
-                        ((InternalEObject) newPerformers).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LANE__PERFORMERS,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPerformers)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LANE__PERFORMERS, null, msgs);
             msgs = basicSetPerformers(newPerformers, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LANE__PERFORMERS, newPerformers, newPerformers));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LANE__PERFORMERS, newPerformers,
+                    newPerformers));
     }
 
     /**
@@ -415,9 +376,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      */
     public EList<Lane> getNestedLane() {
         if (nestedLane == null) {
-            nestedLane =
-                    new EObjectContainmentEList<Lane>(Lane.class, this,
-                            Xpdl2Package.LANE__NESTED_LANE);
+            nestedLane = new EObjectContainmentEList<Lane>(Lane.class, this, Xpdl2Package.LANE__NESTED_LANE);
         }
         return nestedLane;
     }
@@ -473,13 +432,12 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * @generated NOT
      */
     public EList getOutgoingAssociations() {
-        if (getParentPool() == null
-                || getParentPool().getParentPackage() == null) {
+        if (getParentPool() == null || getParentPool().getParentPackage() == null) {
             return new BasicEList();
         }
-        return EMFSearchUtil.findManyInList(getParentPool().getParentPackage()
-                .getAssociations(), Xpdl2Package.eINSTANCE
-                .getAssociation_Source(), getId());
+        return EMFSearchUtil.findManyInList(getParentPool().getParentPackage().getAssociations(),
+                Xpdl2Package.eINSTANCE.getAssociation_Source(),
+                getId());
     }
 
     /**
@@ -487,8 +445,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LANE__PARENT_POOL:
             if (eInternalContainer() != null)
@@ -503,15 +460,12 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LANE__NODE_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getNodeGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNodeGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.LANE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.LANE__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.LANE__PARENT_POOL:
@@ -519,8 +473,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         case Xpdl2Package.LANE__PERFORMERS:
             return basicSetPerformers(null, msgs);
         case Xpdl2Package.LANE__NESTED_LANE:
-            return ((InternalEList<?>) getNestedLane()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getNestedLane()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -530,14 +483,10 @@ public class LaneImpl extends NamedElementImpl implements Lane {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.LANE__PARENT_POOL:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.POOL__LANES,
-                    Pool.class,
-                    msgs);
+            return eInternalContainer().eInverseRemove(this, Xpdl2Package.POOL__LANES, Pool.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -581,8 +530,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         switch (featureID) {
         case Xpdl2Package.LANE__NODE_GRAPHICS_INFOS:
             getNodeGraphicsInfos().clear();
-            getNodeGraphicsInfos()
-                    .addAll((Collection<? extends NodeGraphicsInfo>) newValue);
+            getNodeGraphicsInfos().addAll((Collection<? extends NodeGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.LANE__OTHER_ELEMENTS:
             ((FeatureMap.Internal) getOtherElements()).set(newValue);
@@ -660,12 +608,10 @@ public class LaneImpl extends NamedElementImpl implements Lane {
             return object != null;
         case Xpdl2Package.LANE__DEPRECATED_PARENT_LANE:
             return DEPRECATED_PARENT_LANE_EDEFAULT == null ? deprecatedParentLane != null
-                    : !DEPRECATED_PARENT_LANE_EDEFAULT
-                            .equals(deprecatedParentLane);
+                    : !DEPRECATED_PARENT_LANE_EDEFAULT.equals(deprecatedParentLane);
         case Xpdl2Package.LANE__DEPRECATED_PARENT_POOL_ID:
             return DEPRECATED_PARENT_POOL_ID_EDEFAULT == null ? deprecatedParentPoolId != null
-                    : !DEPRECATED_PARENT_POOL_ID_EDEFAULT
-                            .equals(deprecatedParentPoolId);
+                    : !DEPRECATED_PARENT_POOL_ID_EDEFAULT.equals(deprecatedParentPoolId);
         case Xpdl2Package.LANE__PARENT_POOL:
             return getParentPool() != null;
         case Xpdl2Package.LANE__PERFORMERS:
@@ -735,7 +681,7 @@ public class LaneImpl extends NamedElementImpl implements Lane {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", deprecatedParentLane: "); //$NON-NLS-1$

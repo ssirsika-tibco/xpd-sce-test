@@ -32,6 +32,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssociationImpl#getConnectorGraphicsInfos <em>Connector Graphics Infos</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssociationImpl#getObject <em>Object</em>}</li>
@@ -40,7 +41,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssociationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.AssociationImpl#getPackage <em>Package</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -50,8 +50,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getConnectorGraphicsInfos() <em>Connector Graphics Infos</em>}' containment reference list.
@@ -92,8 +91,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * @generated
      * @ordered
      */
-    protected AssociationDirectionType associationDirection =
-            ASSOCIATION_DIRECTION_EDEFAULT;
+    protected AssociationDirectionType associationDirection = ASSOCIATION_DIRECTION_EDEFAULT;
 
     /**
      * This is true if the Association Direction attribute has been set.
@@ -170,10 +168,8 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      */
     public EList<ConnectorGraphicsInfo> getConnectorGraphicsInfos() {
         if (connectorGraphicsInfos == null) {
-            connectorGraphicsInfos =
-                    new EObjectContainmentEList<ConnectorGraphicsInfo>(
-                            ConnectorGraphicsInfo.class, this,
-                            Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS);
+            connectorGraphicsInfos = new EObjectContainmentEList<ConnectorGraphicsInfo>(ConnectorGraphicsInfo.class,
+                    this, Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS);
         }
         return connectorGraphicsInfos;
     }
@@ -192,15 +188,12 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ASSOCIATION__OBJECT, oldObject,
-                            newObject);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ASSOCIATION__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -218,25 +211,17 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSOCIATION__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSOCIATION__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ASSOCIATION__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ASSOCIATION__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSOCIATION__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSOCIATION__OBJECT, newObject,
+                    newObject));
     }
 
     /**
@@ -253,19 +238,15 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAssociationDirection(
-            AssociationDirectionType newAssociationDirection) {
+    public void setAssociationDirection(AssociationDirectionType newAssociationDirection) {
         AssociationDirectionType oldAssociationDirection = associationDirection;
         associationDirection =
-                newAssociationDirection == null ? ASSOCIATION_DIRECTION_EDEFAULT
-                        : newAssociationDirection;
+                newAssociationDirection == null ? ASSOCIATION_DIRECTION_EDEFAULT : newAssociationDirection;
         boolean oldAssociationDirectionESet = associationDirectionESet;
         associationDirectionESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION,
-                    oldAssociationDirection, associationDirection,
-                    !oldAssociationDirectionESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION,
+                    oldAssociationDirection, associationDirection, !oldAssociationDirectionESet));
     }
 
     /**
@@ -279,10 +260,8 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         associationDirection = ASSOCIATION_DIRECTION_EDEFAULT;
         associationDirectionESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION,
-                    oldAssociationDirection, ASSOCIATION_DIRECTION_EDEFAULT,
-                    oldAssociationDirectionESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION,
+                    oldAssociationDirection, ASSOCIATION_DIRECTION_EDEFAULT, oldAssociationDirectionESet));
     }
 
     /**
@@ -312,8 +291,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         String oldSource = source;
         source = newSource;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSOCIATION__SOURCE, oldSource, source));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSOCIATION__SOURCE, oldSource, source));
     }
 
     /**
@@ -334,8 +312,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         String oldTarget = target;
         target = newTarget;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSOCIATION__TARGET, oldTarget, target));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSOCIATION__TARGET, oldTarget, target));
     }
 
     /**
@@ -354,12 +331,8 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackage(
-            com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newPackage,
-                        Xpdl2Package.ASSOCIATION__PACKAGE,
-                        msgs);
+    public NotificationChain basicSetPackage(com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newPackage, Xpdl2Package.ASSOCIATION__PACKAGE, msgs);
         return msgs;
     }
 
@@ -372,23 +345,19 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         if (newPackage != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.ASSOCIATION__PACKAGE && newPackage != null)) {
             if (EcoreUtil.isAncestor(this, newPackage))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newPackage != null)
-                msgs =
-                        ((InternalEObject) newPackage).eInverseAdd(this,
-                                Xpdl2Package.PACKAGE__ASSOCIATIONS,
-                                com.tibco.xpd.xpdl2.Package.class,
-                                msgs);
+                msgs = ((InternalEObject) newPackage)
+                        .eInverseAdd(this, Xpdl2Package.PACKAGE__ASSOCIATIONS, com.tibco.xpd.xpdl2.Package.class, msgs);
             msgs = basicSetPackage(newPackage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ASSOCIATION__PACKAGE, newPackage, newPackage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ASSOCIATION__PACKAGE, newPackage,
+                    newPackage));
     }
 
     /**
@@ -450,8 +419,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ASSOCIATION__PACKAGE:
             if (eInternalContainer() != null)
@@ -467,12 +435,10 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getConnectorGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConnectorGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ASSOCIATION__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.ASSOCIATION__PACKAGE:
@@ -487,14 +453,11 @@ public class AssociationImpl extends NamedElementImpl implements Association {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.ASSOCIATION__PACKAGE:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PACKAGE__ASSOCIATIONS,
-                    com.tibco.xpd.xpdl2.Package.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PACKAGE__ASSOCIATIONS, com.tibco.xpd.xpdl2.Package.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -534,8 +497,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         switch (featureID) {
         case Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS:
             getConnectorGraphicsInfos().clear();
-            getConnectorGraphicsInfos()
-                    .addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
+            getConnectorGraphicsInfos().addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.ASSOCIATION__OBJECT:
             setObject((com.tibco.xpd.xpdl2.Object) newValue);
@@ -595,18 +557,15 @@ public class AssociationImpl extends NamedElementImpl implements Association {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.ASSOCIATION__CONNECTOR_GRAPHICS_INFOS:
-            return connectorGraphicsInfos != null
-                    && !connectorGraphicsInfos.isEmpty();
+            return connectorGraphicsInfos != null && !connectorGraphicsInfos.isEmpty();
         case Xpdl2Package.ASSOCIATION__OBJECT:
             return object != null;
         case Xpdl2Package.ASSOCIATION__ASSOCIATION_DIRECTION:
             return isSetAssociationDirection();
         case Xpdl2Package.ASSOCIATION__SOURCE:
-            return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT
-                    .equals(source);
+            return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
         case Xpdl2Package.ASSOCIATION__TARGET:
-            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT
-                    .equals(target);
+            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
         case Xpdl2Package.ASSOCIATION__PACKAGE:
             return getPackage() != null;
         }
@@ -659,7 +618,7 @@ public class AssociationImpl extends NamedElementImpl implements Association {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (associationDirection: "); //$NON-NLS-1$
         if (associationDirectionESet)
             result.append(associationDirection);

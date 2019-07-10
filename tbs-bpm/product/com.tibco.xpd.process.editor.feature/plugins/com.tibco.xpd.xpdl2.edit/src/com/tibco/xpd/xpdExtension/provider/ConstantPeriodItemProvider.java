@@ -36,16 +36,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConstantPeriodItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ConstantPeriodItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -87,21 +85,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addDaysPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_days_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_days_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__DAYS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_days_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_days_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__DAYS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -111,21 +108,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addHoursPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_hours_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_hours_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__HOURS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_hours_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_hours_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__HOURS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -135,21 +131,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMicroSecondsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_microSeconds_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_microSeconds_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__MICRO_SECONDS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_microSeconds_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_microSeconds_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__MICRO_SECONDS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -159,21 +154,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMinutesPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_minutes_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_minutes_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__MINUTES,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_minutes_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_minutes_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__MINUTES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -183,21 +177,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addMonthsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_months_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_months_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__MONTHS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_months_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_months_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__MONTHS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -207,21 +200,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addSecondsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_seconds_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_seconds_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__SECONDS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_seconds_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_seconds_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__SECONDS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -231,21 +223,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addWeeksPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_weeks_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_weeks_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__WEEKS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_weeks_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_weeks_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__WEEKS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -255,21 +246,20 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     protected void addYearsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ConstantPeriod_years_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_years_feature", //$NON-NLS-1$
-                        "_UI_ConstantPeriod_type"), //$NON-NLS-1$
-                XpdExtensionPackage.Literals.CONSTANT_PERIOD__YEARS,
-                true,
-                false,
-                false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                null,
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                        getResourceLocator(),
+                        getString("_UI_ConstantPeriod_years_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_years_feature", //$NON-NLS-1$
+                                "_UI_ConstantPeriod_type"), //$NON-NLS-1$
+                        XpdExtensionPackage.Literals.CONSTANT_PERIOD__YEARS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null));
     }
 
     /**
@@ -280,8 +270,7 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ConstantPeriod")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantPeriod")); //$NON-NLS-1$
     }
 
     /**
@@ -294,9 +283,8 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
     public String getText(Object object) {
         BigInteger labelValue = ((ConstantPeriod) object).getDays();
         String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0
-                ? getString("_UI_ConstantPeriod_type") //$NON-NLS-1$
-                : getString("_UI_ConstantPeriod_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_ConstantPeriod_type") : //$NON-NLS-1$
+                getString("_UI_ConstantPeriod_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -319,8 +307,7 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
         case XpdExtensionPackage.CONSTANT_PERIOD__SECONDS:
         case XpdExtensionPackage.CONSTANT_PERIOD__WEEKS:
         case XpdExtensionPackage.CONSTANT_PERIOD__YEARS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -334,8 +321,7 @@ public class ConstantPeriodItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

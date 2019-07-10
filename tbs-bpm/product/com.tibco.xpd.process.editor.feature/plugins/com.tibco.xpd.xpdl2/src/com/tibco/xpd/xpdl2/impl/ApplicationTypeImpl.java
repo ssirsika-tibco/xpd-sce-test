@@ -32,6 +32,7 @@ import com.tibco.xpd.xpdl2.XsltApplication;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationTypeImpl#getEjb <em>Ejb</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationTypeImpl#getPojo <em>Pojo</em>}</li>
@@ -42,7 +43,6 @@ import com.tibco.xpd.xpdl2.XsltApplication;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationTypeImpl#getForm <em>Form</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ApplicationTypeImpl#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -52,8 +52,7 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getEjb() <em>Ejb</em>}' containment reference.
@@ -168,14 +167,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEjb(EjbApplication newEjb,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEjb(EjbApplication newEjb, NotificationChain msgs) {
         EjbApplication oldEjb = ejb;
         ejb = newEjb;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__EJB, oldEjb, newEjb);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__EJB, oldEjb, newEjb);
             if (msgs == null)
                 msgs = notification;
             else
@@ -193,25 +190,16 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newEjb != ejb) {
             NotificationChain msgs = null;
             if (ejb != null)
-                msgs =
-                        ((InternalEObject) ejb).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__EJB,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) ejb)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__EJB, null, msgs);
             if (newEjb != null)
-                msgs =
-                        ((InternalEObject) newEjb).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__EJB,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newEjb)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__EJB, null, msgs);
             msgs = basicSetEjb(newEjb, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__EJB, newEjb, newEjb));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__EJB, newEjb, newEjb));
     }
 
     /**
@@ -228,15 +216,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPojo(PojoApplication newPojo,
-            NotificationChain msgs) {
+    public NotificationChain basicSetPojo(PojoApplication newPojo, NotificationChain msgs) {
         PojoApplication oldPojo = pojo;
         pojo = newPojo;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__POJO, oldPojo,
-                            newPojo);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__POJO, oldPojo, newPojo);
             if (msgs == null)
                 msgs = notification;
             else
@@ -254,25 +239,17 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newPojo != pojo) {
             NotificationChain msgs = null;
             if (pojo != null)
-                msgs =
-                        ((InternalEObject) pojo).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__POJO,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) pojo)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__POJO, null, msgs);
             if (newPojo != null)
-                msgs =
-                        ((InternalEObject) newPojo).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__POJO,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newPojo)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__POJO, null, msgs);
             msgs = basicSetPojo(newPojo, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__POJO, newPojo, newPojo));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__POJO, newPojo,
+                    newPojo));
     }
 
     /**
@@ -289,15 +266,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetXslt(XsltApplication newXslt,
-            NotificationChain msgs) {
+    public NotificationChain basicSetXslt(XsltApplication newXslt, NotificationChain msgs) {
         XsltApplication oldXslt = xslt;
         xslt = newXslt;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__XSLT, oldXslt,
-                            newXslt);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__XSLT, oldXslt, newXslt);
             if (msgs == null)
                 msgs = notification;
             else
@@ -315,25 +289,17 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newXslt != xslt) {
             NotificationChain msgs = null;
             if (xslt != null)
-                msgs =
-                        ((InternalEObject) xslt).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__XSLT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) xslt)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__XSLT, null, msgs);
             if (newXslt != null)
-                msgs =
-                        ((InternalEObject) newXslt).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__XSLT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newXslt)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__XSLT, null, msgs);
             msgs = basicSetXslt(newXslt, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__XSLT, newXslt, newXslt));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__XSLT, newXslt,
+                    newXslt));
     }
 
     /**
@@ -350,15 +316,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScript(Script newScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetScript(Script newScript, NotificationChain msgs) {
         Script oldScript = script;
         script = newScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__SCRIPT, oldScript,
-                            newScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__SCRIPT, oldScript, newScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -376,27 +339,19 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newScript != script) {
             NotificationChain msgs = null;
             if (script != null)
-                msgs =
-                        ((InternalEObject) script)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__SCRIPT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) script).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__SCRIPT,
+                        null,
+                        msgs);
             if (newScript != null)
-                msgs =
-                        ((InternalEObject) newScript)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__SCRIPT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newScript)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__SCRIPT, null, msgs);
             msgs = basicSetScript(newScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__SCRIPT, newScript, newScript));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__SCRIPT, newScript,
+                    newScript));
     }
 
     /**
@@ -413,15 +368,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebService(
-            WebServiceApplication newWebService, NotificationChain msgs) {
+    public NotificationChain basicSetWebService(WebServiceApplication newWebService, NotificationChain msgs) {
         WebServiceApplication oldWebService = webService;
         webService = newWebService;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
-                            oldWebService, newWebService);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE, oldWebService, newWebService);
             if (msgs == null)
                 msgs = notification;
             else
@@ -439,28 +391,21 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newWebService != webService) {
             NotificationChain msgs = null;
             if (webService != null)
-                msgs =
-                        ((InternalEObject) webService)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) webService).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
+                        null,
+                        msgs);
             if (newWebService != null)
-                msgs =
-                        ((InternalEObject) newWebService)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWebService).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
+                        null,
+                        msgs);
             msgs = basicSetWebService(newWebService, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE, newWebService,
-                    newWebService));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__WEB_SERVICE,
+                    newWebService, newWebService));
     }
 
     /**
@@ -477,15 +422,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBusinessRule(
-            BusinessRuleApplication newBusinessRule, NotificationChain msgs) {
+    public NotificationChain basicSetBusinessRule(BusinessRuleApplication newBusinessRule, NotificationChain msgs) {
         BusinessRuleApplication oldBusinessRule = businessRule;
         businessRule = newBusinessRule;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
-                            oldBusinessRule, newBusinessRule);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE, oldBusinessRule, newBusinessRule);
             if (msgs == null)
                 msgs = notification;
             else
@@ -503,27 +445,20 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newBusinessRule != businessRule) {
             NotificationChain msgs = null;
             if (businessRule != null)
-                msgs =
-                        ((InternalEObject) businessRule)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) businessRule).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
+                        null,
+                        msgs);
             if (newBusinessRule != null)
-                msgs =
-                        ((InternalEObject) newBusinessRule)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newBusinessRule).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
+                        null,
+                        msgs);
             msgs = basicSetBusinessRule(newBusinessRule, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE,
                     newBusinessRule, newBusinessRule));
     }
 
@@ -541,15 +476,12 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetForm(FormApplication newForm,
-            NotificationChain msgs) {
+    public NotificationChain basicSetForm(FormApplication newForm, NotificationChain msgs) {
         FormApplication oldForm = form;
         form = newForm;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.APPLICATION_TYPE__FORM, oldForm,
-                            newForm);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.APPLICATION_TYPE__FORM, oldForm, newForm);
             if (msgs == null)
                 msgs = notification;
             else
@@ -567,25 +499,17 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (newForm != form) {
             NotificationChain msgs = null;
             if (form != null)
-                msgs =
-                        ((InternalEObject) form).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__FORM,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) form)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__FORM, null, msgs);
             if (newForm != null)
-                msgs =
-                        ((InternalEObject) newForm).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.APPLICATION_TYPE__FORM,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newForm)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.APPLICATION_TYPE__FORM, null, msgs);
             msgs = basicSetForm(newForm, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.APPLICATION_TYPE__FORM, newForm, newForm));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.APPLICATION_TYPE__FORM, newForm,
+                    newForm));
     }
 
     /**
@@ -595,9 +519,7 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      */
     public FeatureMap getAnyAttribute() {
         if (anyAttribute == null) {
-            anyAttribute =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.APPLICATION_TYPE__ANY_ATTRIBUTE);
+            anyAttribute = new BasicFeatureMap(this, Xpdl2Package.APPLICATION_TYPE__ANY_ATTRIBUTE);
         }
         return anyAttribute;
     }
@@ -608,8 +530,7 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.APPLICATION_TYPE__EJB:
             return basicSetEjb(null, msgs);
@@ -626,8 +547,7 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         case Xpdl2Package.APPLICATION_TYPE__FORM:
             return basicSetForm(null, msgs);
         case Xpdl2Package.APPLICATION_TYPE__ANY_ATTRIBUTE:
-            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -772,7 +692,7 @@ public class ApplicationTypeImpl extends EObjectImpl implements ApplicationType 
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (anyAttribute: "); //$NON-NLS-1$
         result.append(anyAttribute);
         result.append(')');

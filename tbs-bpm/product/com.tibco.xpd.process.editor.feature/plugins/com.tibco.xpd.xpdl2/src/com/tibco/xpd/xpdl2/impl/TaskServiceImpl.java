@@ -35,6 +35,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskServiceImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskServiceImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -44,7 +45,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskServiceImpl#getWebServiceFaultCatch <em>Web Service Fault Catch</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskServiceImpl#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -54,8 +54,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -125,8 +124,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -173,9 +171,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_SERVICE__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TASK_SERVICE__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -187,9 +183,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_SERVICE__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.TASK_SERVICE__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -208,15 +202,12 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessageIn(Message newMessageIn,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessageIn(Message newMessageIn, NotificationChain msgs) {
         Message oldMessageIn = messageIn;
         messageIn = newMessageIn;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_SERVICE__MESSAGE_IN,
-                            oldMessageIn, newMessageIn);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_SERVICE__MESSAGE_IN, oldMessageIn, newMessageIn);
             if (msgs == null)
                 msgs = notification;
             else
@@ -234,27 +225,18 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         if (newMessageIn != messageIn) {
             NotificationChain msgs = null;
             if (messageIn != null)
-                msgs =
-                        ((InternalEObject) messageIn)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__MESSAGE_IN,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) messageIn).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__MESSAGE_IN,
+                        null,
+                        msgs);
             if (newMessageIn != null)
-                msgs =
-                        ((InternalEObject) newMessageIn)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__MESSAGE_IN,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newMessageIn)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__MESSAGE_IN, null, msgs);
             msgs = basicSetMessageIn(newMessageIn, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_SERVICE__MESSAGE_IN, newMessageIn,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_SERVICE__MESSAGE_IN, newMessageIn,
                     newMessageIn));
     }
 
@@ -272,15 +254,12 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessageOut(Message newMessageOut,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessageOut(Message newMessageOut, NotificationChain msgs) {
         Message oldMessageOut = messageOut;
         messageOut = newMessageOut;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_SERVICE__MESSAGE_OUT,
-                            oldMessageOut, newMessageOut);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_SERVICE__MESSAGE_OUT, oldMessageOut, newMessageOut);
             if (msgs == null)
                 msgs = notification;
             else
@@ -298,27 +277,18 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         if (newMessageOut != messageOut) {
             NotificationChain msgs = null;
             if (messageOut != null)
-                msgs =
-                        ((InternalEObject) messageOut)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__MESSAGE_OUT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) messageOut).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__MESSAGE_OUT,
+                        null,
+                        msgs);
             if (newMessageOut != null)
-                msgs =
-                        ((InternalEObject) newMessageOut)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__MESSAGE_OUT,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newMessageOut)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__MESSAGE_OUT, null, msgs);
             msgs = basicSetMessageOut(newMessageOut, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_SERVICE__MESSAGE_OUT, newMessageOut,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_SERVICE__MESSAGE_OUT, newMessageOut,
                     newMessageOut));
     }
 
@@ -336,15 +306,13 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebServiceOperation(
-            WebServiceOperation newWebServiceOperation, NotificationChain msgs) {
+    public NotificationChain basicSetWebServiceOperation(WebServiceOperation newWebServiceOperation,
+            NotificationChain msgs) {
         WebServiceOperation oldWebServiceOperation = webServiceOperation;
         webServiceOperation = newWebServiceOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
-                            oldWebServiceOperation, newWebServiceOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION, oldWebServiceOperation, newWebServiceOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -358,32 +326,24 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWebServiceOperation(
-            WebServiceOperation newWebServiceOperation) {
+    public void setWebServiceOperation(WebServiceOperation newWebServiceOperation) {
         if (newWebServiceOperation != webServiceOperation) {
             NotificationChain msgs = null;
             if (webServiceOperation != null)
-                msgs =
-                        ((InternalEObject) webServiceOperation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) webServiceOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             if (newWebServiceOperation != null)
-                msgs =
-                        ((InternalEObject) newWebServiceOperation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWebServiceOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             msgs = basicSetWebServiceOperation(newWebServiceOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION,
                     newWebServiceOperation, newWebServiceOperation));
     }
 
@@ -394,10 +354,8 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      */
     public EList<WebServiceFaultCatch> getWebServiceFaultCatch() {
         if (webServiceFaultCatch == null) {
-            webServiceFaultCatch =
-                    new EObjectContainmentEList<WebServiceFaultCatch>(
-                            WebServiceFaultCatch.class, this,
-                            Xpdl2Package.TASK_SERVICE__WEB_SERVICE_FAULT_CATCH);
+            webServiceFaultCatch = new EObjectContainmentEList<WebServiceFaultCatch>(WebServiceFaultCatch.class, this,
+                    Xpdl2Package.TASK_SERVICE__WEB_SERVICE_FAULT_CATCH);
         }
         return webServiceFaultCatch;
     }
@@ -418,14 +376,11 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_SERVICE__IMPLEMENTATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_SERVICE__IMPLEMENTATION,
                     oldImplementation, implementation, !oldImplementationESet));
     }
 
@@ -440,10 +395,8 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TASK_SERVICE__IMPLEMENTATION,
-                    oldImplementation, IMPLEMENTATION_EDEFAULT,
-                    oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TASK_SERVICE__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -470,15 +423,12 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK_SERVICE__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_SERVICE__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_SERVICE__MESSAGE_IN:
             return basicSetMessageIn(null, msgs);
         case Xpdl2Package.TASK_SERVICE__MESSAGE_OUT:
@@ -486,8 +436,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         case Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION:
             return basicSetWebServiceOperation(null, msgs);
         case Xpdl2Package.TASK_SERVICE__WEB_SERVICE_FAULT_CATCH:
-            return ((InternalEList<?>) getWebServiceFaultCatch())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getWebServiceFaultCatch()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -548,8 +497,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
             return;
         case Xpdl2Package.TASK_SERVICE__WEB_SERVICE_FAULT_CATCH:
             getWebServiceFaultCatch().clear();
-            getWebServiceFaultCatch()
-                    .addAll((Collection<? extends WebServiceFaultCatch>) newValue);
+            getWebServiceFaultCatch().addAll((Collection<? extends WebServiceFaultCatch>) newValue);
             return;
         case Xpdl2Package.TASK_SERVICE__IMPLEMENTATION:
             setImplementation((ImplementationType) newValue);
@@ -610,8 +558,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         case Xpdl2Package.TASK_SERVICE__WEB_SERVICE_OPERATION:
             return webServiceOperation != null;
         case Xpdl2Package.TASK_SERVICE__WEB_SERVICE_FAULT_CATCH:
-            return webServiceFaultCatch != null
-                    && !webServiceFaultCatch.isEmpty();
+            return webServiceFaultCatch != null && !webServiceFaultCatch.isEmpty();
         case Xpdl2Package.TASK_SERVICE__IMPLEMENTATION:
             return isSetImplementation();
         }
@@ -664,7 +611,7 @@ public class TaskServiceImpl extends EObjectImpl implements TaskService {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

@@ -70,8 +70,7 @@ public enum XpdModelType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Page Flow</b></em>' literal value.
@@ -139,8 +138,8 @@ public enum XpdModelType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final XpdModelType[] VALUES_ARRAY = new XpdModelType[] {
-            PAGE_FLOW, TASK_LIBRARY, DECISION_FLOW, SERVICE_PROCESS, };
+    private static final XpdModelType[] VALUES_ARRAY =
+            new XpdModelType[] { PAGE_FLOW, TASK_LIBRARY, DECISION_FLOW, SERVICE_PROCESS, };
 
     /**
      * A public read-only list of all the '<em><b>Xpd Model Type</b></em>' enumerators.
@@ -148,8 +147,7 @@ public enum XpdModelType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<XpdModelType> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<XpdModelType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Xpd Model Type</b></em>' literal with the specified literal value.

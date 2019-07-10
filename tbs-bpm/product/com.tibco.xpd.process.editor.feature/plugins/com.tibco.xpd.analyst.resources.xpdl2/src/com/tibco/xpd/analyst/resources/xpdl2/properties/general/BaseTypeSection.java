@@ -1270,6 +1270,8 @@ public abstract class BaseTypeSection extends
 
         typeNameMap.put(UIBasicTypes.Time, ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.Time.getDefaultBasicType()));
 
+        /* Sid ACE-1192 - added URI data type. */
+        typeNameMap.put(UIBasicTypes.URI, ProcessDataUtil.getBasicTypeLabel(UIBasicTypes.URI.getDefaultBasicType()));
 
         // ***********************************************************
         // NOTE: THE ABOVE TYPE NAMES ARE DELIBERATLY NON TRANSLATEABLE

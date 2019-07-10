@@ -35,15 +35,13 @@ import com.tibco.xpd.xpdl2.impl.NamedElementImpl;
  *
  * @generated
  */
-public class ScriptInformationImpl extends NamedElementImpl
-        implements ScriptInformation {
+public class ScriptInformationImpl extends NamedElementImpl implements ScriptInformation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -63,8 +61,7 @@ public class ScriptInformationImpl extends NamedElementImpl
      * @generated
      * @ordered
      */
-    protected static final DirectionType DIRECTION_EDEFAULT =
-            DirectionType.IN_LITERAL;
+    protected static final DirectionType DIRECTION_EDEFAULT = DirectionType.IN_LITERAL;
 
     /**
      * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -139,15 +136,12 @@ public class ScriptInformationImpl extends NamedElementImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExpression(Expression newExpression,
-            NotificationChain msgs) {
+    public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
         Expression oldExpression = expression;
         expression = newExpression;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
-                            oldExpression, newExpression);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION, oldExpression, newExpression);
             if (msgs == null)
                 msgs = notification;
             else
@@ -166,22 +160,19 @@ public class ScriptInformationImpl extends NamedElementImpl
             NotificationChain msgs = null;
             if (expression != null)
                 msgs = ((InternalEObject) expression).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
                         null,
                         msgs);
             if (newExpression != null)
                 msgs = ((InternalEObject) newExpression).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
                         null,
                         msgs);
             msgs = basicSetExpression(newExpression, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION,
                     newExpression, newExpression));
     }
 
@@ -203,8 +194,7 @@ public class ScriptInformationImpl extends NamedElementImpl
         DirectionType oldDirection = direction;
         direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_INFORMATION__DIRECTION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SCRIPT_INFORMATION__DIRECTION,
                     oldDirection, direction));
     }
 
@@ -220,8 +210,7 @@ public class ScriptInformationImpl extends NamedElementImpl
             if (activity != oldActivity) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            XpdExtensionPackage.SCRIPT_INFORMATION__ACTIVITY,
-                            oldActivity, activity));
+                            XpdExtensionPackage.SCRIPT_INFORMATION__ACTIVITY, oldActivity, activity));
             }
         }
         return activity;
@@ -245,8 +234,7 @@ public class ScriptInformationImpl extends NamedElementImpl
         Activity oldActivity = activity;
         activity = newActivity;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_INFORMATION__ACTIVITY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SCRIPT_INFORMATION__ACTIVITY,
                     oldActivity, activity));
     }
 
@@ -268,8 +256,7 @@ public class ScriptInformationImpl extends NamedElementImpl
         boolean oldReference = reference;
         reference = newReference;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.SCRIPT_INFORMATION__REFERENCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.SCRIPT_INFORMATION__REFERENCE,
                     oldReference, reference));
     }
 
@@ -279,8 +266,7 @@ public class ScriptInformationImpl extends NamedElementImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.SCRIPT_INFORMATION__EXPRESSION:
             return basicSetExpression(null, msgs);
@@ -388,7 +374,7 @@ public class ScriptInformationImpl extends NamedElementImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (direction: "); //$NON-NLS-1$
         result.append(direction);
         result.append(", reference: "); //$NON-NLS-1$

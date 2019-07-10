@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class UpdateCaseOperationTypeImpl extends EObjectImpl
-        implements UpdateCaseOperationType {
+public class UpdateCaseOperationTypeImpl extends EObjectImpl implements UpdateCaseOperationType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getFromFieldPath() <em>From Field Path</em>}' attribute.
@@ -94,8 +92,7 @@ public class UpdateCaseOperationTypeImpl extends EObjectImpl
         fromFieldPath = newFromFieldPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH,
-                    oldFromFieldPath, fromFieldPath));
+                    XpdExtensionPackage.UPDATE_CASE_OPERATION_TYPE__FROM_FIELD_PATH, oldFromFieldPath, fromFieldPath));
     }
 
     /**
@@ -167,7 +164,7 @@ public class UpdateCaseOperationTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (fromFieldPath: "); //$NON-NLS-1$
         result.append(fromFieldPath);
         result.append(')');

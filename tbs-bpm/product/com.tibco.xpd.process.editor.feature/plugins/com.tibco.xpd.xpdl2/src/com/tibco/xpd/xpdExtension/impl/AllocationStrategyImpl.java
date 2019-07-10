@@ -32,15 +32,13 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class AllocationStrategyImpl extends EObjectImpl
-        implements AllocationStrategy {
+public class AllocationStrategyImpl extends EObjectImpl implements AllocationStrategy {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getOffer() <em>Offer</em>}' attribute.
@@ -50,8 +48,7 @@ public class AllocationStrategyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final AllocationType OFFER_EDEFAULT =
-            AllocationType.OFFER_ALL;
+    protected static final AllocationType OFFER_EDEFAULT = AllocationType.OFFER_ALL;
 
     /**
      * The cached value of the '{@link #getOffer() <em>Offer</em>}' attribute.
@@ -80,8 +77,7 @@ public class AllocationStrategyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final AllocationStrategyType STRATEGY_EDEFAULT =
-            AllocationStrategyType.SYSTEM_DETERMINED;
+    protected static final AllocationStrategyType STRATEGY_EDEFAULT = AllocationStrategyType.SYSTEM_DETERMINED;
 
     /**
      * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' attribute.
@@ -168,8 +164,7 @@ public class AllocationStrategyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final String ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT =
-            null;
+    protected static final String ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getAllocateToOfferSetMemberIdentifier() <em>Allocate To Offer Set Member Identifier</em>}' attribute.
@@ -179,8 +174,7 @@ public class AllocationStrategyImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected String allocateToOfferSetMemberIdentifier =
-            ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT;
+    protected String allocateToOfferSetMemberIdentifier = ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT;
 
     /**
      * This is true if the Allocate To Offer Set Member Identifier attribute has been set.
@@ -230,9 +224,8 @@ public class AllocationStrategyImpl extends EObjectImpl
         boolean oldOfferESet = offerESet;
         offerESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__OFFER, oldOffer,
-                    offer, !oldOfferESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ALLOCATION_STRATEGY__OFFER,
+                    oldOffer, offer, !oldOfferESet));
     }
 
     /**
@@ -246,9 +239,8 @@ public class AllocationStrategyImpl extends EObjectImpl
         offer = OFFER_EDEFAULT;
         offerESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__OFFER, oldOffer,
-                    OFFER_EDEFAULT, oldOfferESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.ALLOCATION_STRATEGY__OFFER,
+                    oldOffer, OFFER_EDEFAULT, oldOfferESet));
     }
 
     /**
@@ -280,8 +272,7 @@ public class AllocationStrategyImpl extends EObjectImpl
         boolean oldStrategyESet = strategyESet;
         strategyESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__STRATEGY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.ALLOCATION_STRATEGY__STRATEGY,
                     oldStrategy, strategy, !oldStrategyESet));
     }
 
@@ -296,8 +287,7 @@ public class AllocationStrategyImpl extends EObjectImpl
         strategy = STRATEGY_EDEFAULT;
         strategyESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__STRATEGY,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.ALLOCATION_STRATEGY__STRATEGY,
                     oldStrategy, STRATEGY_EDEFAULT, oldStrategyESet));
     }
 
@@ -331,8 +321,8 @@ public class AllocationStrategyImpl extends EObjectImpl
         reOfferOnCloseESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE,
-                    oldReOfferOnClose, reOfferOnClose, !oldReOfferOnCloseESet));
+                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE, oldReOfferOnClose, reOfferOnClose,
+                    !oldReOfferOnCloseESet));
     }
 
     /**
@@ -347,9 +337,8 @@ public class AllocationStrategyImpl extends EObjectImpl
         reOfferOnCloseESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE,
-                    oldReOfferOnClose, RE_OFFER_ON_CLOSE_EDEFAULT,
-                    oldReOfferOnCloseESet));
+                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CLOSE, oldReOfferOnClose,
+                    RE_OFFER_ON_CLOSE_EDEFAULT, oldReOfferOnCloseESet));
     }
 
     /**
@@ -382,8 +371,7 @@ public class AllocationStrategyImpl extends EObjectImpl
         reOfferOnCancelESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL,
-                    oldReOfferOnCancel, reOfferOnCancel,
+                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL, oldReOfferOnCancel, reOfferOnCancel,
                     !oldReOfferOnCancelESet));
     }
 
@@ -399,9 +387,8 @@ public class AllocationStrategyImpl extends EObjectImpl
         reOfferOnCancelESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL,
-                    oldReOfferOnCancel, RE_OFFER_ON_CANCEL_EDEFAULT,
-                    oldReOfferOnCancelESet));
+                    XpdExtensionPackage.ALLOCATION_STRATEGY__RE_OFFER_ON_CANCEL, oldReOfferOnCancel,
+                    RE_OFFER_ON_CANCEL_EDEFAULT, oldReOfferOnCancelESet));
     }
 
     /**
@@ -427,20 +414,15 @@ public class AllocationStrategyImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAllocateToOfferSetMemberIdentifier(
-            String newAllocateToOfferSetMemberIdentifier) {
-        String oldAllocateToOfferSetMemberIdentifier =
-                allocateToOfferSetMemberIdentifier;
-        allocateToOfferSetMemberIdentifier =
-                newAllocateToOfferSetMemberIdentifier;
-        boolean oldAllocateToOfferSetMemberIdentifierESet =
-                allocateToOfferSetMemberIdentifierESet;
+    public void setAllocateToOfferSetMemberIdentifier(String newAllocateToOfferSetMemberIdentifier) {
+        String oldAllocateToOfferSetMemberIdentifier = allocateToOfferSetMemberIdentifier;
+        allocateToOfferSetMemberIdentifier = newAllocateToOfferSetMemberIdentifier;
+        boolean oldAllocateToOfferSetMemberIdentifierESet = allocateToOfferSetMemberIdentifierESet;
         allocateToOfferSetMemberIdentifierESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.ALLOCATION_STRATEGY__ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER,
-                    oldAllocateToOfferSetMemberIdentifier,
-                    allocateToOfferSetMemberIdentifier,
+                    oldAllocateToOfferSetMemberIdentifier, allocateToOfferSetMemberIdentifier,
                     !oldAllocateToOfferSetMemberIdentifierESet));
     }
 
@@ -450,18 +432,14 @@ public class AllocationStrategyImpl extends EObjectImpl
      * @generated
      */
     public void unsetAllocateToOfferSetMemberIdentifier() {
-        String oldAllocateToOfferSetMemberIdentifier =
-                allocateToOfferSetMemberIdentifier;
-        boolean oldAllocateToOfferSetMemberIdentifierESet =
-                allocateToOfferSetMemberIdentifierESet;
-        allocateToOfferSetMemberIdentifier =
-                ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT;
+        String oldAllocateToOfferSetMemberIdentifier = allocateToOfferSetMemberIdentifier;
+        boolean oldAllocateToOfferSetMemberIdentifierESet = allocateToOfferSetMemberIdentifierESet;
+        allocateToOfferSetMemberIdentifier = ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT;
         allocateToOfferSetMemberIdentifierESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.ALLOCATION_STRATEGY__ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER,
-                    oldAllocateToOfferSetMemberIdentifier,
-                    ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT,
+                    oldAllocateToOfferSetMemberIdentifier, ALLOCATE_TO_OFFER_SET_MEMBER_IDENTIFIER_EDEFAULT,
                     oldAllocateToOfferSetMemberIdentifierESet));
     }
 
@@ -582,7 +560,7 @@ public class AllocationStrategyImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (offer: "); //$NON-NLS-1$
         if (offerESet)
             result.append(offer);

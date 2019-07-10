@@ -39,8 +39,7 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getInbound() <em>Inbound</em>}' containment reference.
@@ -95,14 +94,12 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInbound(WsInbound newInbound,
-            NotificationChain msgs) {
+    public NotificationChain basicSetInbound(WsInbound newInbound, NotificationChain msgs) {
         WsInbound oldInbound = inbound;
         inbound = newInbound;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET, XpdExtensionPackage.WS_RESOURCE__INBOUND,
-                    oldInbound, newInbound);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_RESOURCE__INBOUND, oldInbound, newInbound);
             if (msgs == null)
                 msgs = notification;
             else
@@ -121,22 +118,19 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
             NotificationChain msgs = null;
             if (inbound != null)
                 msgs = ((InternalEObject) inbound).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_RESOURCE__INBOUND,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_RESOURCE__INBOUND,
                         null,
                         msgs);
             if (newInbound != null)
                 msgs = ((InternalEObject) newInbound).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_RESOURCE__INBOUND,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_RESOURCE__INBOUND,
                         null,
                         msgs);
             msgs = basicSetInbound(newInbound, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_RESOURCE__INBOUND, newInbound,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_RESOURCE__INBOUND, newInbound,
                     newInbound));
     }
 
@@ -154,14 +148,12 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutbound(WsOutbound newOutbound,
-            NotificationChain msgs) {
+    public NotificationChain basicSetOutbound(WsOutbound newOutbound, NotificationChain msgs) {
         WsOutbound oldOutbound = outbound;
         outbound = newOutbound;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET, XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
-                    oldOutbound, newOutbound);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_RESOURCE__OUTBOUND, oldOutbound, newOutbound);
             if (msgs == null)
                 msgs = notification;
             else
@@ -180,23 +172,20 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
             NotificationChain msgs = null;
             if (outbound != null)
                 msgs = ((InternalEObject) outbound).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
                         null,
                         msgs);
             if (newOutbound != null)
                 msgs = ((InternalEObject) newOutbound).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
                         null,
                         msgs);
             msgs = basicSetOutbound(newOutbound, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_RESOURCE__OUTBOUND, newOutbound,
-                    newOutbound));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_RESOURCE__OUTBOUND,
+                    newOutbound, newOutbound));
     }
 
     /**
@@ -205,8 +194,7 @@ public class WsResourceImpl extends EObjectImpl implements WsResource {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_RESOURCE__INBOUND:
             return basicSetInbound(null, msgs);

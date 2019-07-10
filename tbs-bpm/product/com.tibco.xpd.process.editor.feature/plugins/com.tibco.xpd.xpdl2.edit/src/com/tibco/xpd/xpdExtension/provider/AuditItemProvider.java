@@ -40,16 +40,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AuditItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AuditItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,12 +83,10 @@ public class AuditItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.AUDIT__AUDIT_EVENT);
+            childrenFeatures.add(XpdExtensionPackage.Literals.AUDIT__AUDIT_EVENT);
             childrenFeatures.add(XpdExtensionPackage.Literals.AUDIT__ANY);
         }
         return childrenFeatures;
@@ -117,8 +113,7 @@ public class AuditItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Audit")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Audit")); //$NON-NLS-1$
     }
 
     /**
@@ -146,8 +141,7 @@ public class AuditItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(Audit.class)) {
         case XpdExtensionPackage.AUDIT__AUDIT_EVENT:
         case XpdExtensionPackage.AUDIT__ANY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -161,19 +155,15 @@ public class AuditItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.AUDIT__AUDIT_EVENT,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.AUDIT__AUDIT_EVENT,
                 XpdExtensionFactory.eINSTANCE.createAuditEvent()));
 
-        newChildDescriptors.add(
-                createChildParameter(XpdExtensionPackage.Literals.AUDIT__ANY,
-                        FeatureMapUtil.createEntry(
-                                Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
-                                Xpdl2Factory.eINSTANCE.createPackage())));
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.AUDIT__ANY,
+                FeatureMapUtil.createEntry(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
+                        Xpdl2Factory.eINSTANCE.createPackage())));
     }
 
     /**

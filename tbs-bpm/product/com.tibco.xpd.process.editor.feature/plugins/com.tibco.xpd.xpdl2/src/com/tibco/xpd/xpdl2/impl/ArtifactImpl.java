@@ -35,6 +35,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactImpl#getNodeGraphicsInfos <em>Node Graphics Infos</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactImpl#getObject <em>Object</em>}</li>
@@ -44,7 +45,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.ArtifactImpl#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -54,8 +54,7 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getNodeGraphicsInfos() <em>Node Graphics Infos</em>}' containment reference list.
@@ -95,8 +94,7 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * @generated
      * @ordered
      */
-    protected static final ArtifactType ARTIFACT_TYPE_EDEFAULT =
-            ArtifactType.DATA_OBJECT_LITERAL;
+    protected static final ArtifactType ARTIFACT_TYPE_EDEFAULT = ArtifactType.DATA_OBJECT_LITERAL;
 
     /**
      * The cached value of the '{@link #getArtifactType() <em>Artifact Type</em>}' attribute.
@@ -173,10 +171,8 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      */
     public EList<NodeGraphicsInfo> getNodeGraphicsInfos() {
         if (nodeGraphicsInfos == null) {
-            nodeGraphicsInfos =
-                    new EObjectContainmentEList<NodeGraphicsInfo>(
-                            NodeGraphicsInfo.class, this,
-                            Xpdl2Package.ARTIFACT__NODE_GRAPHICS_INFOS);
+            nodeGraphicsInfos = new EObjectContainmentEList<NodeGraphicsInfo>(NodeGraphicsInfo.class, this,
+                    Xpdl2Package.ARTIFACT__NODE_GRAPHICS_INFOS);
         }
         return nodeGraphicsInfos;
     }
@@ -195,14 +191,12 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ARTIFACT__OBJECT, oldObject, newObject);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -220,25 +214,16 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__OBJECT, newObject, newObject));
     }
 
     /**
@@ -255,15 +240,12 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDataObject(DataObject newDataObject,
-            NotificationChain msgs) {
+    public NotificationChain basicSetDataObject(DataObject newDataObject, NotificationChain msgs) {
         DataObject oldDataObject = dataObject;
         dataObject = newDataObject;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ARTIFACT__DATA_OBJECT, oldDataObject,
-                            newDataObject);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.ARTIFACT__DATA_OBJECT, oldDataObject, newDataObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -281,25 +263,16 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         if (newDataObject != dataObject) {
             NotificationChain msgs = null;
             if (dataObject != null)
-                msgs =
-                        ((InternalEObject) dataObject).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__DATA_OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) dataObject)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__DATA_OBJECT, null, msgs);
             if (newDataObject != null)
-                msgs =
-                        ((InternalEObject) newDataObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__DATA_OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newDataObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__DATA_OBJECT, null, msgs);
             msgs = basicSetDataObject(newDataObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__DATA_OBJECT, newDataObject,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__DATA_OBJECT, newDataObject,
                     newDataObject));
     }
 
@@ -319,14 +292,11 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      */
     public void setArtifactType(ArtifactType newArtifactType) {
         ArtifactType oldArtifactType = artifactType;
-        artifactType =
-                newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT
-                        : newArtifactType;
+        artifactType = newArtifactType == null ? ARTIFACT_TYPE_EDEFAULT : newArtifactType;
         boolean oldArtifactTypeESet = artifactTypeESet;
         artifactTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__ARTIFACT_TYPE, oldArtifactType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__ARTIFACT_TYPE, oldArtifactType,
                     artifactType, !oldArtifactTypeESet));
     }
 
@@ -341,9 +311,8 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         artifactType = ARTIFACT_TYPE_EDEFAULT;
         artifactTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.ARTIFACT__ARTIFACT_TYPE, oldArtifactType,
-                    ARTIFACT_TYPE_EDEFAULT, oldArtifactTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.ARTIFACT__ARTIFACT_TYPE,
+                    oldArtifactType, ARTIFACT_TYPE_EDEFAULT, oldArtifactTypeESet));
     }
 
     /**
@@ -369,14 +338,12 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetGroup(Group newGroup,
-            NotificationChain msgs) {
+    public NotificationChain basicSetGroup(Group newGroup, NotificationChain msgs) {
         Group oldGroup = group;
         group = newGroup;
         if (eNotificationRequired()) {
             ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.ARTIFACT__GROUP, oldGroup, newGroup);
+                    new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__GROUP, oldGroup, newGroup);
             if (msgs == null)
                 msgs = notification;
             else
@@ -394,25 +361,16 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         if (newGroup != group) {
             NotificationChain msgs = null;
             if (group != null)
-                msgs =
-                        ((InternalEObject) group).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__GROUP,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) group)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__GROUP, null, msgs);
             if (newGroup != null)
-                msgs =
-                        ((InternalEObject) newGroup).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.ARTIFACT__GROUP,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newGroup)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.ARTIFACT__GROUP, null, msgs);
             msgs = basicSetGroup(newGroup, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__GROUP, newGroup, newGroup));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__GROUP, newGroup, newGroup));
     }
 
     /**
@@ -433,9 +391,8 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         String oldTextAnnotation = textAnnotation;
         textAnnotation = newTextAnnotation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__TEXT_ANNOTATION, oldTextAnnotation,
-                    textAnnotation));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__TEXT_ANNOTATION,
+                    oldTextAnnotation, textAnnotation));
     }
 
     /**
@@ -454,12 +411,8 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackage(
-            com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newPackage,
-                        Xpdl2Package.ARTIFACT__PACKAGE,
-                        msgs);
+    public NotificationChain basicSetPackage(com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newPackage, Xpdl2Package.ARTIFACT__PACKAGE, msgs);
         return msgs;
     }
 
@@ -472,23 +425,19 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         if (newPackage != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.ARTIFACT__PACKAGE && newPackage != null)) {
             if (EcoreUtil.isAncestor(this, newPackage))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newPackage != null)
-                msgs =
-                        ((InternalEObject) newPackage).eInverseAdd(this,
-                                Xpdl2Package.PACKAGE__ARTIFACTS,
-                                com.tibco.xpd.xpdl2.Package.class,
-                                msgs);
+                msgs = ((InternalEObject) newPackage)
+                        .eInverseAdd(this, Xpdl2Package.PACKAGE__ARTIFACTS, com.tibco.xpd.xpdl2.Package.class, msgs);
             msgs = basicSetPackage(newPackage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ARTIFACT__PACKAGE, newPackage, newPackage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ARTIFACT__PACKAGE, newPackage,
+                    newPackage));
     }
 
     /**
@@ -550,8 +499,7 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ARTIFACT__PACKAGE:
             if (eInternalContainer() != null)
@@ -567,12 +515,10 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.ARTIFACT__NODE_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getNodeGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNodeGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.ARTIFACT__OBJECT:
             return basicSetObject(null, msgs);
         case Xpdl2Package.ARTIFACT__DATA_OBJECT:
@@ -591,14 +537,11 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.ARTIFACT__PACKAGE:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PACKAGE__ARTIFACTS,
-                    com.tibco.xpd.xpdl2.Package.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PACKAGE__ARTIFACTS, com.tibco.xpd.xpdl2.Package.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -640,8 +583,7 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         switch (featureID) {
         case Xpdl2Package.ARTIFACT__NODE_GRAPHICS_INFOS:
             getNodeGraphicsInfos().clear();
-            getNodeGraphicsInfos()
-                    .addAll((Collection<? extends NodeGraphicsInfo>) newValue);
+            getNodeGraphicsInfos().addAll((Collection<? extends NodeGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.ARTIFACT__OBJECT:
             setObject((com.tibco.xpd.xpdl2.Object) newValue);
@@ -771,7 +713,7 @@ public class ArtifactImpl extends NamedElementImpl implements Artifact {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (artifactType: "); //$NON-NLS-1$
         if (artifactTypeESet)
             result.append(artifactType);

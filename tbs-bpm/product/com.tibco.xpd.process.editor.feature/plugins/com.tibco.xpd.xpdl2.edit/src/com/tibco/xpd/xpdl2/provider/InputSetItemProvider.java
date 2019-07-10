@@ -34,16 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InputSetItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class InputSetItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,15 +77,12 @@ public class InputSetItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.INPUT_SET__INPUT);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INPUT_SET__ARTIFACT_INPUT);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.INPUT_SET__PROPERTY_INPUT);
+            childrenFeatures.add(Xpdl2Package.Literals.INPUT_SET__ARTIFACT_INPUT);
+            childrenFeatures.add(Xpdl2Package.Literals.INPUT_SET__PROPERTY_INPUT);
         }
         return childrenFeatures;
     }
@@ -113,8 +108,7 @@ public class InputSetItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/InputSet")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/InputSet")); //$NON-NLS-1$
     }
 
     /**
@@ -143,8 +137,7 @@ public class InputSetItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.INPUT_SET__INPUT:
         case Xpdl2Package.INPUT_SET__ARTIFACT_INPUT:
         case Xpdl2Package.INPUT_SET__PROPERTY_INPUT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -158,21 +151,17 @@ public class InputSetItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INPUT_SET__INPUT,
-                        Xpdl2Factory.eINSTANCE.createInput()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.INPUT_SET__INPUT, Xpdl2Factory.eINSTANCE.createInput()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INPUT_SET__ARTIFACT_INPUT,
-                        Xpdl2Factory.eINSTANCE.createArtifactInput()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INPUT_SET__ARTIFACT_INPUT,
+                Xpdl2Factory.eINSTANCE.createArtifactInput()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.INPUT_SET__PROPERTY_INPUT,
-                        Xpdl2Factory.eINSTANCE.createPropertyInput()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.INPUT_SET__PROPERTY_INPUT,
+                Xpdl2Factory.eINSTANCE.createPropertyInput()));
     }
 
     /**

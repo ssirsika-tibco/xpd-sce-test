@@ -24,15 +24,13 @@ import com.tibco.xpd.xpdl2.NamedElement;
  * @model extendedMetaData="name='ErrorMethod' kind='element'"
  * @generated
  */
-public interface ErrorMethod
-        extends UniqueIdElement, AssociatedParametersContainer {
+public interface ErrorMethod extends UniqueIdElement, AssociatedParametersContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Error Code</b></em>' attribute.

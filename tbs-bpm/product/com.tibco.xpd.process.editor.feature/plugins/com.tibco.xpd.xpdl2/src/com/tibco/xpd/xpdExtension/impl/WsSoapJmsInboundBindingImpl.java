@@ -30,14 +30,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
-        implements WsSoapJmsInboundBinding {
+public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl implements WsSoapJmsInboundBinding {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getOutboundConnectionFactory() <em>Outbound Connection Factory</em>}' attribute.
@@ -57,8 +55,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected String outboundConnectionFactory =
-            OUTBOUND_CONNECTION_FACTORY_EDEFAULT;
+    protected String outboundConnectionFactory = OUTBOUND_CONNECTION_FACTORY_EDEFAULT;
 
     /**
      * The default value of the '
@@ -70,8 +67,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected static final String INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT =
-            null;
+    protected static final String INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT = null;
 
     /**
      * The cached value of the '
@@ -83,8 +79,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected String inboundConnectionFactoryConfiguration =
-            INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT;
+    protected String inboundConnectionFactoryConfiguration = INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT;
 
     /**
      * The default value of the '{@link #getInboundDestination() <em>Inbound Destination</em>}' attribute.
@@ -147,8 +142,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public void setOutboundConnectionFactory(
-            String newOutboundConnectionFactory) {
+    public void setOutboundConnectionFactory(String newOutboundConnectionFactory) {
         String oldOutboundConnectionFactory = outboundConnectionFactory;
         outboundConnectionFactory = newOutboundConnectionFactory;
         if (eNotificationRequired())
@@ -171,17 +165,13 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public void setInboundConnectionFactoryConfiguration(
-            String newInboundConnectionFactoryConfiguration) {
-        String oldInboundConnectionFactoryConfiguration =
-                inboundConnectionFactoryConfiguration;
-        inboundConnectionFactoryConfiguration =
-                newInboundConnectionFactoryConfiguration;
+    public void setInboundConnectionFactoryConfiguration(String newInboundConnectionFactoryConfiguration) {
+        String oldInboundConnectionFactoryConfiguration = inboundConnectionFactoryConfiguration;
+        inboundConnectionFactoryConfiguration = newInboundConnectionFactoryConfiguration;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION,
-                    oldInboundConnectionFactoryConfiguration,
-                    inboundConnectionFactoryConfiguration));
+                    oldInboundConnectionFactoryConfiguration, inboundConnectionFactoryConfiguration));
     }
 
     /**
@@ -203,8 +193,8 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
         inboundDestination = newInboundDestination;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION,
-                    oldInboundDestination, inboundDestination));
+                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION, oldInboundDestination,
+                    inboundDestination));
     }
 
     /**
@@ -220,15 +210,13 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInboundSecurity(
-            WsSoapSecurity newInboundSecurity, NotificationChain msgs) {
+    public NotificationChain basicSetInboundSecurity(WsSoapSecurity newInboundSecurity, NotificationChain msgs) {
         WsSoapSecurity oldInboundSecurity = inboundSecurity;
         inboundSecurity = newInboundSecurity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
-                    oldInboundSecurity, newInboundSecurity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY, oldInboundSecurity,
+                    newInboundSecurity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -247,14 +235,12 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
             NotificationChain msgs = null;
             if (inboundSecurity != null)
                 msgs = ((InternalEObject) inboundSecurity).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
                         null,
                         msgs);
             if (newInboundSecurity != null)
                 msgs = ((InternalEObject) newInboundSecurity).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
                         null,
                         msgs);
             msgs = basicSetInboundSecurity(newInboundSecurity, msgs);
@@ -262,8 +248,8 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY,
-                    newInboundSecurity, newInboundSecurity));
+                    XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY, newInboundSecurity,
+                    newInboundSecurity));
     }
 
     /**
@@ -271,8 +257,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY:
             return basicSetInboundSecurity(null, msgs);
@@ -333,8 +318,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
             setOutboundConnectionFactory(OUTBOUND_CONNECTION_FACTORY_EDEFAULT);
             return;
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION:
-            setInboundConnectionFactoryConfiguration(
-                    INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT);
+            setInboundConnectionFactoryConfiguration(INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT);
             return;
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION:
             setInboundDestination(INBOUND_DESTINATION_EDEFAULT);
@@ -354,18 +338,14 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__OUTBOUND_CONNECTION_FACTORY:
-            return OUTBOUND_CONNECTION_FACTORY_EDEFAULT == null
-                    ? outboundConnectionFactory != null
-                    : !OUTBOUND_CONNECTION_FACTORY_EDEFAULT
-                            .equals(outboundConnectionFactory);
+            return OUTBOUND_CONNECTION_FACTORY_EDEFAULT == null ? outboundConnectionFactory != null
+                    : !OUTBOUND_CONNECTION_FACTORY_EDEFAULT.equals(outboundConnectionFactory);
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_CONNECTION_FACTORY_CONFIGURATION:
             return INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT == null
                     ? inboundConnectionFactoryConfiguration != null
-                    : !INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT
-                            .equals(inboundConnectionFactoryConfiguration);
+                    : !INBOUND_CONNECTION_FACTORY_CONFIGURATION_EDEFAULT.equals(inboundConnectionFactoryConfiguration);
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_DESTINATION:
-            return INBOUND_DESTINATION_EDEFAULT == null
-                    ? inboundDestination != null
+            return INBOUND_DESTINATION_EDEFAULT == null ? inboundDestination != null
                     : !INBOUND_DESTINATION_EDEFAULT.equals(inboundDestination);
         case XpdExtensionPackage.WS_SOAP_JMS_INBOUND_BINDING__INBOUND_SECURITY:
             return inboundSecurity != null;
@@ -382,7 +362,7 @@ public class WsSoapJmsInboundBindingImpl extends WsSoapBindingImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (outboundConnectionFactory: "); //$NON-NLS-1$
         result.append(outboundConnectionFactory);
         result.append(", inboundConnectionFactoryConfiguration: "); //$NON-NLS-1$

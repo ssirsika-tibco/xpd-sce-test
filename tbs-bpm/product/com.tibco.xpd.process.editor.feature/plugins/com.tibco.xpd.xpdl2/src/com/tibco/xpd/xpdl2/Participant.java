@@ -13,25 +13,24 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Participant#getParticipantType <em>Participant Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Participant#getExternalReference <em>External Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getParticipant()
  * @model extendedMetaData="name='Participant_._type' kind='elementOnly' features-order='participantType description externalReference extendedAttributes otherElements'"
  * @generated
  */
-public interface Participant extends NamedElement, ExtendedAttributesContainer,
-        DescribedElement, OtherElementsContainer {
+public interface Participant
+        extends NamedElement, ExtendedAttributesContainer, DescribedElement, OtherElementsContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Participant Type</b></em>' containment reference.

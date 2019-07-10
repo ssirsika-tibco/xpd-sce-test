@@ -13,20 +13,13 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import com.tibco.xpd.ui.util.CapabilityUtil;
+import com.tibco.xpd.xpdExtension.FieldFormat;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
-import com.tibco.xpd.xpdl2.NamedElement;
-import com.tibco.xpd.xpdl2.OtherAttributesContainer;
 import com.tibco.xpd.xpdl2.TypeDeclaration;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
@@ -38,15 +31,12 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeDeclarationItemProvider extends NamedElementItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TypeDeclarationItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -82,11 +72,12 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -104,30 +95,19 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__BASIC_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__DECLARED_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__SCHEMA_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__EXTERNAL_REFERENCE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__RECORD_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__UNION_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__ENUMERATION_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__ARRAY_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.TYPE_DECLARATION__LIST_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__BASIC_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__DECLARED_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__SCHEMA_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__EXTERNAL_REFERENCE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__RECORD_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__UNION_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__ENUMERATION_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__ARRAY_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.TYPE_DECLARATION__LIST_TYPE);
         }
         return childrenFeatures;
     }
@@ -150,6 +130,7 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
      * 
      * @generated NOT
      */
+    @Override
     public Object getImage(Object object) {
 
         String img = "TypeDeclaration"; //$NON-NLS-1$
@@ -164,7 +145,7 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
                 img = "TypeDeclExtRef"; //$NON-NLS-1$
 
             } else if (td.getBasicType() != null) {
-                BasicType bt = (BasicType) td.getBasicType();
+                BasicType bt = td.getBasicType();
 
                 switch (bt.getType().getValue()) {
                 case BasicTypeType.BOOLEAN:
@@ -187,13 +168,23 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
 
                     break;
                 case BasicTypeType.STRING:
-                    img = "TypeDeclString"; //$NON-NLS-1$
+                    /*
+                     * Sid ACE-1192 use different image for URI
+                     */
+                    Object fieldFormat = Xpdl2ModelUtil.getOtherAttribute(bt,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_FieldFormat());
+
+                    if (fieldFormat != null && FieldFormat.URI.equals(fieldFormat)) {
+                        img = "TypeDeclURI"; //$NON-NLS-1$
+                    } else {
+                        img = "TypeDeclString"; //$NON-NLS-1$
+                    }
+
                     break;
                 }
             }
         }
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
     }
 
     /**
@@ -202,6 +193,7 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
      * 
      * @generated NOT
      */
+    @Override
     public String getText(Object object) {
         return super.getText(object);
     }
@@ -219,8 +211,7 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
 
         switch (notification.getFeatureID(TypeDeclaration.class)) {
         case Xpdl2Package.TYPE_DECLARATION__DESCRIPTION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.TYPE_DECLARATION__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.TYPE_DECLARATION__BASIC_TYPE:
@@ -232,8 +223,7 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
         case Xpdl2Package.TYPE_DECLARATION__ENUMERATION_TYPE:
         case Xpdl2Package.TYPE_DECLARATION__ARRAY_TYPE:
         case Xpdl2Package.TYPE_DECLARATION__LIST_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -247,49 +237,39 @@ public class TypeDeclarationItemProvider extends NamedElementItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
                 .add(createChildParameter(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES,
                         Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__BASIC_TYPE,
-                        Xpdl2Factory.eINSTANCE.createBasicType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__BASIC_TYPE,
+                Xpdl2Factory.eINSTANCE.createBasicType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__DECLARED_TYPE,
-                        Xpdl2Factory.eINSTANCE.createDeclaredType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__DECLARED_TYPE,
+                Xpdl2Factory.eINSTANCE.createDeclaredType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__SCHEMA_TYPE,
-                        Xpdl2Factory.eINSTANCE.createSchema()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__SCHEMA_TYPE,
+                Xpdl2Factory.eINSTANCE.createSchema()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__EXTERNAL_REFERENCE,
-                        Xpdl2Factory.eINSTANCE.createExternalReference()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__EXTERNAL_REFERENCE,
+                Xpdl2Factory.eINSTANCE.createExternalReference()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__RECORD_TYPE,
-                        Xpdl2Factory.eINSTANCE.createRecordType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__RECORD_TYPE,
+                Xpdl2Factory.eINSTANCE.createRecordType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__UNION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createUnionType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__UNION_TYPE,
+                Xpdl2Factory.eINSTANCE.createUnionType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__ENUMERATION_TYPE,
-                        Xpdl2Factory.eINSTANCE.createEnumerationType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__ENUMERATION_TYPE,
+                Xpdl2Factory.eINSTANCE.createEnumerationType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__ARRAY_TYPE,
-                        Xpdl2Factory.eINSTANCE.createArrayType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__ARRAY_TYPE,
+                Xpdl2Factory.eINSTANCE.createArrayType()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__LIST_TYPE,
-                        Xpdl2Factory.eINSTANCE.createListType()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TYPE_DECLARATION__LIST_TYPE,
+                Xpdl2Factory.eINSTANCE.createListType()));
     }
 
 }

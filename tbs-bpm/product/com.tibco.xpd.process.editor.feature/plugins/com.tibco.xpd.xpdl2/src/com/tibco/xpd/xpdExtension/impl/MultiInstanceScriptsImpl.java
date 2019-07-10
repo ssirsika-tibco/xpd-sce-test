@@ -30,15 +30,13 @@ import com.tibco.xpd.xpdl2.Expression;
  *
  * @generated
  */
-public class MultiInstanceScriptsImpl extends EObjectImpl
-        implements MultiInstanceScripts {
+public class MultiInstanceScriptsImpl extends EObjectImpl implements MultiInstanceScripts {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getAdditionalInstances() <em>Additional Instances</em>}' containment reference.
@@ -83,15 +81,13 @@ public class MultiInstanceScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetAdditionalInstances(
-            Expression newAdditionalInstances, NotificationChain msgs) {
+    public NotificationChain basicSetAdditionalInstances(Expression newAdditionalInstances, NotificationChain msgs) {
         Expression oldAdditionalInstances = additionalInstances;
         additionalInstances = newAdditionalInstances;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
-                    oldAdditionalInstances, newAdditionalInstances);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES, oldAdditionalInstances,
+                    newAdditionalInstances);
             if (msgs == null)
                 msgs = notification;
             else
@@ -109,17 +105,13 @@ public class MultiInstanceScriptsImpl extends EObjectImpl
         if (newAdditionalInstances != additionalInstances) {
             NotificationChain msgs = null;
             if (additionalInstances != null)
-                msgs = ((InternalEObject) additionalInstances).eInverseRemove(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
+                msgs = ((InternalEObject) additionalInstances).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
                         null,
                         msgs);
             if (newAdditionalInstances != null)
-                msgs = ((InternalEObject) newAdditionalInstances).eInverseAdd(
-                        this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
+                msgs = ((InternalEObject) newAdditionalInstances).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
                         null,
                         msgs);
             msgs = basicSetAdditionalInstances(newAdditionalInstances, msgs);
@@ -127,8 +119,8 @@ public class MultiInstanceScriptsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES,
-                    newAdditionalInstances, newAdditionalInstances));
+                    XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES, newAdditionalInstances,
+                    newAdditionalInstances));
     }
 
     /**
@@ -137,8 +129,7 @@ public class MultiInstanceScriptsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.MULTI_INSTANCE_SCRIPTS__ADDITIONAL_INSTANCES:
             return basicSetAdditionalInstances(null, msgs);

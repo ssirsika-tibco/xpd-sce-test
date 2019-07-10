@@ -36,16 +36,14 @@ import com.tibco.xpd.xpdl2.Xpdl2Factory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AuditEventItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AuditEventItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -81,13 +79,10 @@ public class AuditEventItemProvider extends ItemProviderAdapter
      */
     protected void addTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                 getResourceLocator(),
                 getString("_UI_AuditEvent_type_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-                        "_UI_AuditEvent_type_feature", //$NON-NLS-1$
-                        "_UI_AuditEvent_type"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_AuditEvent_type_feature", "_UI_AuditEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 XpdExtensionPackage.Literals.AUDIT_EVENT__TYPE,
                 true,
                 false,
@@ -106,12 +101,10 @@ public class AuditEventItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION);
+            childrenFeatures.add(XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION);
         }
         return childrenFeatures;
     }
@@ -137,8 +130,7 @@ public class AuditEventItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/AuditEvent")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/AuditEvent")); //$NON-NLS-1$
     }
 
     /**
@@ -151,9 +143,8 @@ public class AuditEventItemProvider extends ItemProviderAdapter
     public String getText(Object object) {
         AuditEventType labelValue = ((AuditEvent) object).getType();
         String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0
-                ? getString("_UI_AuditEvent_type") //$NON-NLS-1$
-                : getString("_UI_AuditEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_AuditEvent_type") : //$NON-NLS-1$
+                getString("_UI_AuditEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -169,12 +160,10 @@ public class AuditEventItemProvider extends ItemProviderAdapter
 
         switch (notification.getFeatureID(AuditEvent.class)) {
         case XpdExtensionPackage.AUDIT_EVENT__TYPE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case XpdExtensionPackage.AUDIT_EVENT__INFORMATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -188,16 +177,13 @@ public class AuditEventItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
 
-        newChildDescriptors.add(createChildParameter(
-                XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION,
+        newChildDescriptors.add(createChildParameter(XpdExtensionPackage.Literals.AUDIT_EVENT__INFORMATION,
                 Xpdl2Factory.eINSTANCE.createExpression()));
     }
 

@@ -42,8 +42,7 @@ public class FaultMessageItemProvider extends MessageItemProvider {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,8 +77,7 @@ public class FaultMessageItemProvider extends MessageItemProvider {
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/FaultMessage")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/FaultMessage")); //$NON-NLS-1$
     }
 
     /**
@@ -91,9 +89,8 @@ public class FaultMessageItemProvider extends MessageItemProvider {
     @Override
     public String getText(Object object) {
         String label = ((FaultMessage) object).getName();
-        return label == null || label.length() == 0
-                ? getString("_UI_FaultMessage_type") //$NON-NLS-1$
-                : getString("_UI_FaultMessage_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length() == 0 ? getString("_UI_FaultMessage_type") : //$NON-NLS-1$
+                getString("_UI_FaultMessage_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -117,31 +114,22 @@ public class FaultMessageItemProvider extends MessageItemProvider {
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__AUDIT,
                         XpdExtensionFactory.eINSTANCE.createAudit())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__SIGNAL_DATA,
                         XpdExtensionFactory.eINSTANCE.createSignalData())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
-                FeatureMapUtil.createEntry(
-                        XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
-                        XpdExtensionFactory.eINSTANCE
-                                .createRescheduleTimerScript())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS,
+                FeatureMapUtil.createEntry(XpdExtensionPackage.Literals.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT,
+                        XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript())));
 
-        newChildDescriptors.add(createChildParameter(
-                Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS,
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.MESSAGE__ACTUAL_PARAMETERS,
                 XpdExtensionFactory.eINSTANCE.createRescheduleTimerScript()));
     }
 

@@ -46,8 +46,7 @@ public enum DataMapperArrayInflationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Append List</b></em>' literal value.
@@ -178,8 +177,7 @@ public enum DataMapperArrayInflationType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private DataMapperArrayInflationType(int value, String name,
-            String literal) {
+    private DataMapperArrayInflationType(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;

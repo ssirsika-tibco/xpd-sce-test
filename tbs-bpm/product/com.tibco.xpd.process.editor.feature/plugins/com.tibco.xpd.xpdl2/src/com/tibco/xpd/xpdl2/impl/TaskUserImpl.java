@@ -35,6 +35,7 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskUserImpl#getOtherAttributes <em>Other Attributes</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskUserImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -44,7 +45,6 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskUserImpl#getWebServiceOperation <em>Web Service Operation</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.TaskUserImpl#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -54,8 +54,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOtherAttributes() <em>Other Attributes</em>}' attribute list.
@@ -125,8 +124,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * @generated
      * @ordered
      */
-    protected static final ImplementationType IMPLEMENTATION_EDEFAULT =
-            ImplementationType.WEB_SERVICE_LITERAL;
+    protected static final ImplementationType IMPLEMENTATION_EDEFAULT = ImplementationType.WEB_SERVICE_LITERAL;
 
     /**
      * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' attribute.
@@ -173,9 +171,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      */
     public FeatureMap getOtherAttributes() {
         if (otherAttributes == null) {
-            otherAttributes =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_USER__OTHER_ATTRIBUTES);
+            otherAttributes = new BasicFeatureMap(this, Xpdl2Package.TASK_USER__OTHER_ATTRIBUTES);
         }
         return otherAttributes;
     }
@@ -187,9 +183,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.TASK_USER__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.TASK_USER__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -202,8 +196,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
     public EList<Performer> getPerformers() {
         if (performers == null) {
             performers =
-                    new EObjectContainmentEList<Performer>(Performer.class,
-                            this, Xpdl2Package.TASK_USER__PERFORMERS);
+                    new EObjectContainmentEList<Performer>(Performer.class, this, Xpdl2Package.TASK_USER__PERFORMERS);
         }
         return performers;
     }
@@ -222,15 +215,12 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessageIn(Message newMessageIn,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessageIn(Message newMessageIn, NotificationChain msgs) {
         Message oldMessageIn = messageIn;
         messageIn = newMessageIn;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_USER__MESSAGE_IN, oldMessageIn,
-                            newMessageIn);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_USER__MESSAGE_IN, oldMessageIn, newMessageIn);
             if (msgs == null)
                 msgs = notification;
             else
@@ -248,25 +238,16 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
         if (newMessageIn != messageIn) {
             NotificationChain msgs = null;
             if (messageIn != null)
-                msgs =
-                        ((InternalEObject) messageIn).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_USER__MESSAGE_IN,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) messageIn)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__MESSAGE_IN, null, msgs);
             if (newMessageIn != null)
-                msgs =
-                        ((InternalEObject) newMessageIn).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_USER__MESSAGE_IN,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMessageIn)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__MESSAGE_IN, null, msgs);
             msgs = basicSetMessageIn(newMessageIn, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_USER__MESSAGE_IN, newMessageIn,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_USER__MESSAGE_IN, newMessageIn,
                     newMessageIn));
     }
 
@@ -284,15 +265,12 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessageOut(Message newMessageOut,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessageOut(Message newMessageOut, NotificationChain msgs) {
         Message oldMessageOut = messageOut;
         messageOut = newMessageOut;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_USER__MESSAGE_OUT, oldMessageOut,
-                            newMessageOut);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_USER__MESSAGE_OUT, oldMessageOut, newMessageOut);
             if (msgs == null)
                 msgs = notification;
             else
@@ -310,25 +288,16 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
         if (newMessageOut != messageOut) {
             NotificationChain msgs = null;
             if (messageOut != null)
-                msgs =
-                        ((InternalEObject) messageOut).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_USER__MESSAGE_OUT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) messageOut)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__MESSAGE_OUT, null, msgs);
             if (newMessageOut != null)
-                msgs =
-                        ((InternalEObject) newMessageOut).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.TASK_USER__MESSAGE_OUT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMessageOut)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__MESSAGE_OUT, null, msgs);
             msgs = basicSetMessageOut(newMessageOut, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_USER__MESSAGE_OUT, newMessageOut,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_USER__MESSAGE_OUT, newMessageOut,
                     newMessageOut));
     }
 
@@ -346,15 +315,13 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWebServiceOperation(
-            WebServiceOperation newWebServiceOperation, NotificationChain msgs) {
+    public NotificationChain basicSetWebServiceOperation(WebServiceOperation newWebServiceOperation,
+            NotificationChain msgs) {
         WebServiceOperation oldWebServiceOperation = webServiceOperation;
         webServiceOperation = newWebServiceOperation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
-                            oldWebServiceOperation, newWebServiceOperation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION, oldWebServiceOperation, newWebServiceOperation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -368,32 +335,24 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWebServiceOperation(
-            WebServiceOperation newWebServiceOperation) {
+    public void setWebServiceOperation(WebServiceOperation newWebServiceOperation) {
         if (newWebServiceOperation != webServiceOperation) {
             NotificationChain msgs = null;
             if (webServiceOperation != null)
-                msgs =
-                        ((InternalEObject) webServiceOperation)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) webServiceOperation).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             if (newWebServiceOperation != null)
-                msgs =
-                        ((InternalEObject) newWebServiceOperation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newWebServiceOperation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
+                        null,
+                        msgs);
             msgs = basicSetWebServiceOperation(newWebServiceOperation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_USER__WEB_SERVICE_OPERATION,
                     newWebServiceOperation, newWebServiceOperation));
     }
 
@@ -413,15 +372,12 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      */
     public void setImplementation(ImplementationType newImplementation) {
         ImplementationType oldImplementation = implementation;
-        implementation =
-                newImplementation == null ? IMPLEMENTATION_EDEFAULT
-                        : newImplementation;
+        implementation = newImplementation == null ? IMPLEMENTATION_EDEFAULT : newImplementation;
         boolean oldImplementationESet = implementationESet;
         implementationESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.TASK_USER__IMPLEMENTATION, oldImplementation,
-                    implementation, !oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.TASK_USER__IMPLEMENTATION,
+                    oldImplementation, implementation, !oldImplementationESet));
     }
 
     /**
@@ -435,9 +391,8 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
         implementation = IMPLEMENTATION_EDEFAULT;
         implementationESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.TASK_USER__IMPLEMENTATION, oldImplementation,
-                    IMPLEMENTATION_EDEFAULT, oldImplementationESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.TASK_USER__IMPLEMENTATION,
+                    oldImplementation, IMPLEMENTATION_EDEFAULT, oldImplementationESet));
     }
 
     /**
@@ -464,18 +419,14 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.TASK_USER__OTHER_ATTRIBUTES:
-            return ((InternalEList<?>) getOtherAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherAttributes()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_USER__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_USER__PERFORMERS:
-            return ((InternalEList<?>) getPerformers()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getPerformers()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.TASK_USER__MESSAGE_IN:
             return basicSetMessageIn(null, msgs);
         case Xpdl2Package.TASK_USER__MESSAGE_OUT:
@@ -656,7 +607,7 @@ public class TaskUserImpl extends EObjectImpl implements TaskUser {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherAttributes: "); //$NON-NLS-1$
         result.append(otherAttributes);
         result.append(", otherElements: "); //$NON-NLS-1$

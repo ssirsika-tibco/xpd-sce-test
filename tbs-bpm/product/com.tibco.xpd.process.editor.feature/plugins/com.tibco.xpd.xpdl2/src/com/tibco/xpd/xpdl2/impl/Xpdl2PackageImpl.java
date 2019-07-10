@@ -36,8 +36,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1523,7 +1522,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
 
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
+     *
      * <p>This method is used to initialize {@link Xpdl2Package#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1532,13 +1531,13 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      */
     public static Xpdl2Package init() {
         if (isInited)
-            return (Xpdl2Package) EPackage.Registry.INSTANCE
-                    .getEPackage(Xpdl2Package.eNS_URI);
+            return (Xpdl2Package) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI);
 
         // Obtain or create and register package
+        Object registeredXpdl2Package = EPackage.Registry.INSTANCE.get(eNS_URI);
         Xpdl2PackageImpl theXpdl2Package =
-                (Xpdl2PackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Xpdl2PackageImpl ? EPackage.Registry.INSTANCE
-                        .get(eNS_URI) : new Xpdl2PackageImpl());
+                registeredXpdl2Package instanceof Xpdl2PackageImpl ? (Xpdl2PackageImpl) registeredXpdl2Package
+                        : new Xpdl2PackageImpl();
 
         isInited = true;
 
@@ -1566,9 +1565,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getActivitySet() {
         if (activitySetEClass == null) {
             activitySetEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(2);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(2);
         }
         return activitySetEClass;
     }
@@ -1596,9 +1593,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getActivity() {
         if (activityEClass == null) {
             activityEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(3);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(3);
         }
         return activityEClass;
     }
@@ -1860,9 +1855,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getApplicationType() {
         if (applicationTypeEClass == null) {
             applicationTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(6);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(6);
         }
         return applicationTypeEClass;
     }
@@ -1872,8 +1865,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_Ejb() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1881,8 +1873,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_Pojo() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1890,8 +1881,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_Xslt() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1899,8 +1889,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_Script() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1908,8 +1897,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_WebService() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1917,8 +1905,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_BusinessRule() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(5);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -1926,8 +1913,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationType_Form() {
-        return (EReference) getApplicationType().getEStructuralFeatures()
-                .get(6);
+        return (EReference) getApplicationType().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -1935,8 +1921,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getApplicationType_AnyAttribute() {
-        return (EAttribute) getApplicationType().getEStructuralFeatures()
-                .get(7);
+        return (EAttribute) getApplicationType().getEStructuralFeatures().get(7);
     }
 
     /**
@@ -1946,9 +1931,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getApplication() {
         if (applicationEClass == null) {
             applicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(7);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(7);
         }
         return applicationEClass;
     }
@@ -1976,9 +1959,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExtendedAttributesContainer() {
         if (extendedAttributesContainerEClass == null) {
             extendedAttributesContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(71);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(71);
         }
         return extendedAttributesContainerEClass;
     }
@@ -1988,8 +1969,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getExtendedAttributesContainer_ExtendedAttributes() {
-        return (EReference) getExtendedAttributesContainer()
-                .getEStructuralFeatures().get(0);
+        return (EReference) getExtendedAttributesContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1999,9 +1979,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getArrayType() {
         if (arrayTypeEClass == null) {
             arrayTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(9);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(9);
         }
         return arrayTypeEClass;
     }
@@ -2101,9 +2079,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getArtifact() {
         if (artifactEClass == null) {
             artifactEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(10);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(10);
         }
         return artifactEClass;
     }
@@ -2148,9 +2124,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getArtifactInput() {
         if (artifactInputEClass == null) {
             artifactInputEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(11);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(11);
         }
         return artifactInputEClass;
     }
@@ -2196,9 +2170,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getGraphicalNode() {
         if (graphicalNodeEClass == null) {
             graphicalNodeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(85);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(85);
         }
         return graphicalNodeEClass;
     }
@@ -2218,9 +2190,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getGraphicalConnector() {
         if (graphicalConnectorEClass == null) {
             graphicalConnectorEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(86);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(86);
         }
         return graphicalConnectorEClass;
     }
@@ -2230,8 +2200,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getGraphicalConnector_ConnectorGraphicsInfos() {
-        return (EReference) getGraphicalConnector().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getGraphicalConnector().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2242,9 +2211,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getGroup() {
         if (groupEClass == null) {
             groupEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(87);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(87);
         }
         return groupEClass;
     }
@@ -2274,9 +2241,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getAssignment() {
         if (assignmentEClass == null) {
             assignmentEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(14);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(14);
         }
         return assignmentEClass;
     }
@@ -2312,9 +2277,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getAssociation() {
         if (associationEClass == null) {
             associationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(20);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(20);
         }
         return associationEClass;
     }
@@ -2367,9 +2330,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getBasicType() {
         if (basicTypeEClass == null) {
             basicTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(21);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(21);
         }
         return basicTypeEClass;
     }
@@ -2413,9 +2374,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getBlockActivity() {
         if (blockActivityEClass == null) {
             blockActivityEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(23);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(23);
         }
         return blockActivityEClass;
     }
@@ -2452,9 +2411,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getBusinessRuleApplication() {
         if (businessRuleApplicationEClass == null) {
             businessRuleApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(25);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(25);
         }
         return businessRuleApplicationEClass;
     }
@@ -2464,8 +2421,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getBusinessRuleApplication_RuleName() {
-        return (EReference) getBusinessRuleApplication()
-                .getEStructuralFeatures().get(0);
+        return (EReference) getBusinessRuleApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2473,8 +2429,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getBusinessRuleApplication_Location() {
-        return (EReference) getBusinessRuleApplication()
-                .getEStructuralFeatures().get(1);
+        return (EReference) getBusinessRuleApplication().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2484,9 +2439,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCategory() {
         if (categoryEClass == null) {
             categoryEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(27);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(27);
         }
         return categoryEClass;
     }
@@ -2498,9 +2451,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getClass_() {
         if (classEClass == null) {
             classEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(28);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(28);
         }
         return classEClass;
     }
@@ -2520,9 +2471,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCodepage() {
         if (codepageEClass == null) {
             codepageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(29);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(29);
         }
         return codepageEClass;
     }
@@ -2542,9 +2491,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCondition() {
         if (conditionEClass == null) {
             conditionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(30);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(30);
         }
         return conditionEClass;
     }
@@ -2580,9 +2527,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getConformanceClass() {
         if (conformanceClassEClass == null) {
             conformanceClassEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(32);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(32);
         }
         return conformanceClassEClass;
     }
@@ -2592,8 +2537,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConformanceClass_GraphConformance() {
-        return (EAttribute) getConformanceClass().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getConformanceClass().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2602,8 +2546,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConformanceClass_BpmnModelPortabilityConformance() {
-        return (EAttribute) getConformanceClass().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getConformanceClass().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2613,9 +2556,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getConnectorGraphicsInfo() {
         if (connectorGraphicsInfoEClass == null) {
             connectorGraphicsInfoEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(33);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(33);
         }
         return connectorGraphicsInfoEClass;
     }
@@ -2625,8 +2566,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getConnectorGraphicsInfo_Coordinates() {
-        return (EReference) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getConnectorGraphicsInfo().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2634,8 +2574,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_BorderColor() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2643,8 +2582,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_FillColor() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2652,8 +2590,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_IsVisible() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2662,8 +2599,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_PageId() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2671,8 +2607,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_Style() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(5);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -2680,8 +2615,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getConnectorGraphicsInfo_ToolId() {
-        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures()
-                .get(6);
+        return (EAttribute) getConnectorGraphicsInfo().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -2691,9 +2625,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCoordinates() {
         if (coordinatesEClass == null) {
             coordinatesEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(34);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(34);
         }
         return coordinatesEClass;
     }
@@ -2721,9 +2653,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCost() {
         if (costEClass == null) {
             costEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(35);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(35);
         }
         return costEClass;
     }
@@ -2744,9 +2674,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCostStructure() {
         if (costStructureEClass == null) {
             costStructureEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(36);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(36);
         }
         return costStructureEClass;
     }
@@ -2776,9 +2704,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCostUnit() {
         if (costUnitEClass == null) {
             costUnitEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(37);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(37);
         }
         return costUnitEClass;
     }
@@ -2798,9 +2724,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getCountryKey() {
         if (countryKeyEClass == null) {
             countryKeyEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(38);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(38);
         }
         return countryKeyEClass;
     }
@@ -2820,9 +2744,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDataField() {
         if (dataFieldEClass == null) {
             dataFieldEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(39);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(39);
         }
         return dataFieldEClass;
     }
@@ -2859,9 +2781,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDataMapping() {
         if (dataMappingEClass == null) {
             dataMappingEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(41);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(41);
         }
         return dataMappingEClass;
     }
@@ -2906,9 +2826,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDataObject() {
         if (dataObjectEClass == null) {
             dataObjectEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(42);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(42);
         }
         return dataObjectEClass;
     }
@@ -2946,9 +2864,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDataType() {
         if (dataTypeEClass == null) {
             dataTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(43);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(43);
         }
         return dataTypeEClass;
     }
@@ -2960,9 +2876,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDeadline() {
         if (deadlineEClass == null) {
             deadlineEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(44);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(44);
         }
         return deadlineEClass;
     }
@@ -2998,9 +2912,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDeclaredType() {
         if (declaredTypeEClass == null) {
             declaredTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(45);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(45);
         }
         return declaredTypeEClass;
     }
@@ -3029,9 +2941,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDeprecatedResultCompensation() {
         if (deprecatedResultCompensationEClass == null) {
             deprecatedResultCompensationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(46);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(46);
         }
         return deprecatedResultCompensationEClass;
     }
@@ -3042,8 +2952,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getDeprecatedResultCompensation_ActivityId() {
-        return (EAttribute) getDeprecatedResultCompensation()
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) getDeprecatedResultCompensation().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3054,9 +2963,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDeprecatedTriggerRule() {
         if (deprecatedTriggerRuleEClass == null) {
             deprecatedTriggerRuleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(47);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(47);
         }
         return deprecatedTriggerRuleEClass;
     }
@@ -3067,8 +2974,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getDeprecatedTriggerRule_RuleName() {
-        return (EAttribute) getDeprecatedTriggerRule().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getDeprecatedTriggerRule().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3078,9 +2984,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDescription() {
         if (descriptionEClass == null) {
             descriptionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(49);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(49);
         }
         return descriptionEClass;
     }
@@ -3100,9 +3004,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDocumentation() {
         if (documentationEClass == null) {
             documentationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(52);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(52);
         }
         return documentationEClass;
     }
@@ -3122,9 +3024,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDocumentRoot() {
         if (documentRootEClass == null) {
             documentRootEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(53);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(53);
         }
         return documentRootEClass;
     }
@@ -3170,9 +3070,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDuration() {
         if (durationEClass == null) {
             durationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(54);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(54);
         }
         return durationEClass;
     }
@@ -3192,9 +3090,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEjbApplication() {
         if (ejbApplicationEClass == null) {
             ejbApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(57);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(57);
         }
         return ejbApplicationEClass;
     }
@@ -3230,9 +3126,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEndEvent() {
         if (endEventEClass == null) {
             endEventEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(58);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(58);
         }
         return endEventEClass;
     }
@@ -3320,9 +3214,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEndPoint() {
         if (endPointEClass == null) {
             endPointEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(59);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(59);
         }
         return endPointEClass;
     }
@@ -3350,9 +3242,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEnumerationType() {
         if (enumerationTypeEClass == null) {
             enumerationTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(62);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(62);
         }
         return enumerationTypeEClass;
     }
@@ -3362,8 +3252,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getEnumerationType_EnumerationValue() {
-        return (EReference) getEnumerationType().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getEnumerationType().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3373,9 +3262,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEnumerationValue() {
         if (enumerationValueEClass == null) {
             enumerationValueEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(63);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(63);
         }
         return enumerationValueEClass;
     }
@@ -3385,8 +3272,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getEnumerationValue_Name() {
-        return (EAttribute) getEnumerationValue().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getEnumerationValue().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3396,9 +3282,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getEvent() {
         if (eventEClass == null) {
             eventEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(64);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(64);
         }
         return eventEClass;
     }
@@ -3410,9 +3294,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExceptionName() {
         if (exceptionNameEClass == null) {
             exceptionNameEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(65);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(65);
         }
         return exceptionNameEClass;
     }
@@ -3432,9 +3314,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExpression() {
         if (expressionEClass == null) {
             expressionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(69);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(69);
         }
         return expressionEClass;
     }
@@ -3479,9 +3359,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExtendedAttribute() {
         if (extendedAttributeEClass == null) {
             extendedAttributeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(70);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(70);
         }
         return extendedAttributeEClass;
     }
@@ -3491,8 +3369,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExtendedAttribute_Mixed() {
-        return (EAttribute) getExtendedAttribute().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getExtendedAttribute().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3500,8 +3377,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExtendedAttribute_Group() {
-        return (EAttribute) getExtendedAttribute().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getExtendedAttribute().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3510,8 +3386,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExtendedAttribute_Any() {
-        return (EAttribute) getExtendedAttribute().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getExtendedAttribute().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3519,8 +3394,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExtendedAttribute_Name() {
-        return (EAttribute) getExtendedAttribute().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getExtendedAttribute().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3528,8 +3402,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExtendedAttribute_Value() {
-        return (EAttribute) getExtendedAttribute().getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) getExtendedAttribute().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3539,9 +3412,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExternalPackage() {
         if (externalPackageEClass == null) {
             externalPackageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(72);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(72);
         }
         return externalPackageEClass;
     }
@@ -3551,8 +3422,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExternalPackage_Href() {
-        return (EAttribute) getExternalPackage().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getExternalPackage().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3562,9 +3432,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getExternalReference() {
         if (externalReferenceEClass == null) {
             externalReferenceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(73);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(73);
         }
         return externalReferenceEClass;
     }
@@ -3574,8 +3442,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExternalReference_Location() {
-        return (EAttribute) getExternalReference().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getExternalReference().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3583,8 +3450,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExternalReference_Namespace() {
-        return (EAttribute) getExternalReference().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getExternalReference().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3592,8 +3458,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getExternalReference_Xref() {
-        return (EAttribute) getExternalReference().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getExternalReference().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3603,9 +3468,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getFormalParameter() {
         if (formalParameterEClass == null) {
             formalParameterEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(77);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(77);
         }
         return formalParameterEClass;
     }
@@ -3615,8 +3478,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getFormalParameter_Mode() {
-        return (EAttribute) getFormalParameter().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getFormalParameter().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3625,8 +3487,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getFormalParameter_Required() {
-        return (EAttribute) getFormalParameter().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getFormalParameter().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3636,9 +3497,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getFormLayout() {
         if (formLayoutEClass == null) {
             formLayoutEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(78);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(78);
         }
         return formLayoutEClass;
     }
@@ -3658,9 +3517,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getFormApplication() {
         if (formApplicationEClass == null) {
             formApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(79);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(79);
         }
         return formApplicationEClass;
     }
@@ -3670,8 +3527,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getFormApplication_FormLayout() {
-        return (EReference) getFormApplication().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getFormApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3681,9 +3537,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getHomeClass() {
         if (homeClassEClass == null) {
             homeClassEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(88);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(88);
         }
         return homeClassEClass;
     }
@@ -3703,9 +3557,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getIcon() {
         if (iconEClass == null) {
             iconEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(89);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(89);
         }
         return iconEClass;
     }
@@ -3765,9 +3617,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getImplementation() {
         if (implementationEClass == null) {
             implementationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(92);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(92);
         }
         return implementationEClass;
     }
@@ -3787,9 +3637,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getInputSet() {
         if (inputSetEClass == null) {
             inputSetEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(94);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(94);
         }
         return inputSetEClass;
     }
@@ -3827,9 +3675,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getInput() {
         if (inputEClass == null) {
             inputEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(95);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(95);
         }
         return inputEClass;
     }
@@ -3849,9 +3695,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getIntermediateEvent() {
         if (intermediateEventEClass == null) {
             intermediateEventEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(98);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(98);
         }
         return intermediateEventEClass;
     }
@@ -3861,8 +3705,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerResultMessage() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3870,8 +3713,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerTimer() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3879,8 +3721,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_ResultError() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3889,8 +3730,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerResultCompensation() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3899,8 +3739,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerConditional() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -3908,8 +3747,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerResultLink() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(5);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -3917,8 +3755,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerIntermediateMultiple() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(6);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -3926,8 +3763,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getIntermediateEvent_Implementation() {
-        return (EAttribute) getIntermediateEvent().getEStructuralFeatures()
-                .get(7);
+        return (EAttribute) getIntermediateEvent().getEStructuralFeatures().get(7);
     }
 
     /**
@@ -3935,8 +3771,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getIntermediateEvent_Target() {
-        return (EAttribute) getIntermediateEvent().getEStructuralFeatures()
-                .get(8);
+        return (EAttribute) getIntermediateEvent().getEStructuralFeatures().get(8);
     }
 
     /**
@@ -3944,8 +3779,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getIntermediateEvent_Trigger() {
-        return (EAttribute) getIntermediateEvent().getEStructuralFeatures()
-                .get(9);
+        return (EAttribute) getIntermediateEvent().getEStructuralFeatures().get(9);
     }
 
     /**
@@ -3953,8 +3787,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getIntermediateEvent_AnyAttribute() {
-        return (EAttribute) getIntermediateEvent().getEStructuralFeatures()
-                .get(10);
+        return (EAttribute) getIntermediateEvent().getEStructuralFeatures().get(10);
     }
 
     /**
@@ -3963,8 +3796,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerResultCancel() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(11);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(11);
     }
 
     /**
@@ -3973,8 +3805,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_TriggerResultSignal() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(12);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(12);
     }
 
     /**
@@ -3983,8 +3814,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_DeprecatedTriggerRule() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(13);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(13);
     }
 
     /**
@@ -3993,8 +3823,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getIntermediateEvent_DeprecatedResultCompensation() {
-        return (EReference) getIntermediateEvent().getEStructuralFeatures()
-                .get(14);
+        return (EReference) getIntermediateEvent().getEStructuralFeatures().get(14);
     }
 
     /**
@@ -4004,9 +3833,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getIORules() {
         if (ioRulesEClass == null) {
             ioRulesEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(99);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(99);
         }
         return ioRulesEClass;
     }
@@ -4026,9 +3853,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getJndiName() {
         if (jndiNameEClass == null) {
             jndiNameEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(102);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(102);
         }
         return jndiNameEClass;
     }
@@ -4048,9 +3873,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getJoin() {
         if (joinEClass == null) {
             joinEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(103);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(103);
         }
         return joinEClass;
     }
@@ -4088,9 +3911,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLayoutInfo() {
         if (layoutInfoEClass == null) {
             layoutInfoEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(104);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(104);
         }
         return layoutInfoEClass;
     }
@@ -4111,9 +3932,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLane() {
         if (laneEClass == null) {
             laneEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(105);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(105);
         }
         return laneEClass;
     }
@@ -4177,9 +3996,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLength() {
         if (lengthEClass == null) {
             lengthEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(106);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(106);
         }
         return lengthEClass;
     }
@@ -4199,9 +4016,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLimit() {
         if (limitEClass == null) {
             limitEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(107);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(107);
         }
         return limitEClass;
     }
@@ -4221,9 +4036,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getListType() {
         if (listTypeEClass == null) {
             listTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(108);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(108);
         }
         return listTypeEClass;
     }
@@ -4307,9 +4120,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLocation() {
         if (locationEClass == null) {
             locationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(109);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(109);
         }
         return locationEClass;
     }
@@ -4329,9 +4140,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLoopMultiInstance() {
         if (loopMultiInstanceEClass == null) {
             loopMultiInstanceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(110);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(110);
         }
         return loopMultiInstanceEClass;
     }
@@ -4341,8 +4150,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getLoopMultiInstance_ComplexMIFlowCondition() {
-        return (EReference) getLoopMultiInstance().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getLoopMultiInstance().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -4351,8 +4159,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getLoopMultiInstance_AttributeComplexMI_FlowCondition() {
-        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures()
-                .get(5);
+        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -4361,8 +4168,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getLoopMultiInstance_AttributeMI_Condition() {
-        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures()
-                .get(6);
+        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -4370,8 +4176,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getLoopMultiInstance_LoopCounter() {
-        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4379,8 +4184,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getLoopMultiInstance_MICondition() {
-        return (EReference) getLoopMultiInstance().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getLoopMultiInstance().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4388,8 +4192,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getLoopMultiInstance_MIFlowCondition() {
-        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4397,8 +4200,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getLoopMultiInstance_MIOrdering() {
-        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getLoopMultiInstance().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4408,9 +4210,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLoopStandard() {
         if (loopStandardEClass == null) {
             loopStandardEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(111);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(111);
         }
         return loopStandardEClass;
     }
@@ -4463,9 +4263,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getLoop() {
         if (loopEClass == null) {
             loopEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(112);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(112);
         }
         return loopEClass;
     }
@@ -4509,9 +4307,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getMember() {
         if (memberEClass == null) {
             memberEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(115);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(115);
         }
         return memberEClass;
     }
@@ -4603,9 +4399,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getMessageFlow() {
         if (messageFlowEClass == null) {
             messageFlowEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(116);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(116);
         }
         return messageFlowEClass;
     }
@@ -4657,9 +4451,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getMessage() {
         if (messageEClass == null) {
             messageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(117);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(117);
         }
         return messageEClass;
     }
@@ -4711,9 +4503,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getMethod() {
         if (methodEClass == null) {
             methodEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(118);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(118);
         }
         return methodEClass;
     }
@@ -4734,9 +4524,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getModificationDate() {
         if (modificationDateEClass == null) {
             modificationDateEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(125);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(125);
         }
         return modificationDateEClass;
     }
@@ -4748,9 +4536,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getMyRole() {
         if (myRoleEClass == null) {
             myRoleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(126);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(126);
         }
         return myRoleEClass;
     }
@@ -4770,9 +4556,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getNodeGraphicsInfo() {
         if (nodeGraphicsInfoEClass == null) {
             nodeGraphicsInfoEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(128);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(128);
         }
         return nodeGraphicsInfoEClass;
     }
@@ -4782,8 +4566,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getNodeGraphicsInfo_Coordinates() {
-        return (EReference) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getNodeGraphicsInfo().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4791,8 +4574,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_BorderColor() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -4800,8 +4582,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_FillColor() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -4809,8 +4590,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_Height() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4818,8 +4598,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_IsVisible() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(4);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -4827,8 +4606,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_LaneId() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(5);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -4836,8 +4614,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_Page() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(6);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -4845,8 +4622,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_Shape() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(7);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(7);
     }
 
     /**
@@ -4854,8 +4630,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_ToolId() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(8);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(8);
     }
 
     /**
@@ -4863,8 +4638,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_Width() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(9);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(9);
     }
 
     /**
@@ -4873,8 +4647,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getNodeGraphicsInfo_PageId() {
-        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures()
-                .get(10);
+        return (EAttribute) getNodeGraphicsInfo().getEStructuralFeatures().get(10);
     }
 
     /**
@@ -4883,10 +4656,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      */
     public EClass getNo() {
         if (noEClass == null) {
-            noEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(129);
+            noEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(129);
         }
         return noEClass;
     }
@@ -4898,9 +4668,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getObject() {
         if (objectEClass == null) {
             objectEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(130);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(130);
         }
         return objectEClass;
     }
@@ -4928,9 +4696,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getOutputSet() {
         if (outputSetEClass == null) {
             outputSetEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(135);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(135);
         }
         return outputSetEClass;
     }
@@ -4950,9 +4716,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getOutput() {
         if (outputEClass == null) {
             outputEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(136);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(136);
         }
         return outputEClass;
     }
@@ -4972,9 +4736,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPackageHeader() {
         if (packageHeaderEClass == null) {
             packageHeaderEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(137);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(137);
         }
         return packageHeaderEClass;
     }
@@ -5060,9 +4822,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPackage() {
         if (packageEClass == null) {
             packageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(138);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(138);
         }
         return packageEClass;
     }
@@ -5189,9 +4949,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPage() {
         if (pageEClass == null) {
             pageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(139);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(139);
         }
         return pageEClass;
     }
@@ -5222,9 +4980,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPages() {
         if (pagesEClass == null) {
             pagesEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(140);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(140);
         }
         return pagesEClass;
     }
@@ -5245,9 +5001,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getApplicationsContainer() {
         if (applicationsContainerEClass == null) {
             applicationsContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(8);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(8);
         }
         return applicationsContainerEClass;
     }
@@ -5257,8 +5011,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getApplicationsContainer_Applications() {
-        return (EReference) getApplicationsContainer().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getApplicationsContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5268,9 +5021,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getParticipantsContainer() {
         if (participantsContainerEClass == null) {
             participantsContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(141);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(141);
         }
         return participantsContainerEClass;
     }
@@ -5280,8 +5031,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getParticipantsContainer_Participants() {
-        return (EReference) getParticipantsContainer().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getParticipantsContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5291,9 +5041,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDataFieldsContainer() {
         if (dataFieldsContainerEClass == null) {
             dataFieldsContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(40);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(40);
         }
         return dataFieldsContainerEClass;
     }
@@ -5303,8 +5051,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getDataFieldsContainer_DataFields() {
-        return (EReference) getDataFieldsContainer().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getDataFieldsContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5314,9 +5061,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getParticipant() {
         if (participantEClass == null) {
             participantEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(142);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(142);
         }
         return participantEClass;
     }
@@ -5344,9 +5089,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getParticipantTypeElem() {
         if (participantTypeElemEClass == null) {
             participantTypeElemEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(144);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(144);
         }
         return participantTypeElemEClass;
     }
@@ -5356,8 +5099,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getParticipantTypeElem_Type() {
-        return (EAttribute) getParticipantTypeElem().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getParticipantTypeElem().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5367,9 +5109,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPartnerLink() {
         if (partnerLinkEClass == null) {
             partnerLinkEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(145);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(145);
         }
         return partnerLinkEClass;
     }
@@ -5413,9 +5153,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPartnerLinkType() {
         if (partnerLinkTypeEClass == null) {
             partnerLinkTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(146);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(146);
         }
         return partnerLinkTypeEClass;
     }
@@ -5425,8 +5163,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getPartnerLinkType_Role() {
-        return (EReference) getPartnerLinkType().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getPartnerLinkType().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5434,8 +5171,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getPartnerLinkType_Name() {
-        return (EAttribute) getPartnerLinkType().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getPartnerLinkType().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5445,9 +5181,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPartnerRole() {
         if (partnerRoleEClass == null) {
             partnerRoleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(147);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(147);
         }
         return partnerRoleEClass;
     }
@@ -5491,9 +5225,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPartner() {
         if (partnerEClass == null) {
             partnerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(148);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(148);
         }
         return partnerEClass;
     }
@@ -5521,9 +5253,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPerformer() {
         if (performerEClass == null) {
             performerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(149);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(149);
         }
         return performerEClass;
     }
@@ -5543,9 +5273,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPojoApplication() {
         if (pojoApplicationEClass == null) {
             pojoApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(151);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(151);
         }
         return pojoApplicationEClass;
     }
@@ -5555,8 +5283,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getPojoApplication_Class() {
-        return (EReference) getPojoApplication().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getPojoApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5564,8 +5291,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getPojoApplication_Method() {
-        return (EReference) getPojoApplication().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getPojoApplication().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -5575,9 +5301,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPool() {
         if (poolEClass == null) {
             poolEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(152);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(152);
         }
         return poolEClass;
     }
@@ -5654,9 +5378,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPrecision() {
         if (precisionEClass == null) {
             precisionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(153);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(153);
         }
         return precisionEClass;
     }
@@ -5676,9 +5398,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPriority() {
         if (priorityEClass == null) {
             priorityEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(154);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(154);
         }
         return priorityEClass;
     }
@@ -5698,9 +5418,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPriorityUnit() {
         if (priorityUnitEClass == null) {
             priorityUnitEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(155);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(155);
         }
         return priorityUnitEClass;
     }
@@ -5720,9 +5438,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getProcessHeader() {
         if (processHeaderEClass == null) {
             processHeaderEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(156);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(156);
         }
         return processHeaderEClass;
     }
@@ -5790,9 +5506,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getProcess() {
         if (processEClass == null) {
             processEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(157);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(157);
         }
         return processEClass;
     }
@@ -5908,9 +5622,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getFormalParametersContainer() {
         if (formalParametersContainerEClass == null) {
             formalParametersContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(158);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(158);
         }
         return formalParametersContainerEClass;
     }
@@ -5920,8 +5632,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getFormalParametersContainer_FormalParameters() {
-        return (EReference) getFormalParametersContainer()
-                .getEStructuralFeatures().get(0);
+        return (EReference) getFormalParametersContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5931,9 +5642,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getAssigmentsContainer() {
         if (assigmentsContainerEClass == null) {
             assigmentsContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(15);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(15);
         }
         return assigmentsContainerEClass;
     }
@@ -5943,8 +5652,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getAssigmentsContainer_Assignments() {
-        return (EReference) getAssigmentsContainer().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getAssigmentsContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5954,9 +5662,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRecordType() {
         if (recordTypeEClass == null) {
             recordTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(165);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(165);
         }
         return recordTypeEClass;
     }
@@ -5976,9 +5682,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRedefinableHeader() {
         if (redefinableHeaderEClass == null) {
             redefinableHeaderEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(166);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(166);
         }
         return redefinableHeaderEClass;
     }
@@ -5988,8 +5692,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getRedefinableHeader_Author() {
-        return (EAttribute) getRedefinableHeader().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getRedefinableHeader().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -5997,8 +5700,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getRedefinableHeader_Version() {
-        return (EAttribute) getRedefinableHeader().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getRedefinableHeader().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -6006,8 +5708,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getRedefinableHeader_Codepage() {
-        return (EReference) getRedefinableHeader().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getRedefinableHeader().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -6015,8 +5716,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getRedefinableHeader_Countrykey() {
-        return (EReference) getRedefinableHeader().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getRedefinableHeader().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -6024,8 +5724,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getRedefinableHeader_Responsibles() {
-        return (EReference) getRedefinableHeader().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getRedefinableHeader().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -6033,8 +5732,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getRedefinableHeader_PublicationStatus() {
-        return (EAttribute) getRedefinableHeader().getEStructuralFeatures()
-                .get(5);
+        return (EAttribute) getRedefinableHeader().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -6044,9 +5742,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getReference() {
         if (referenceEClass == null) {
             referenceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(167);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(167);
         }
         return referenceEClass;
     }
@@ -6067,9 +5763,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getResourceCosts() {
         if (resourceCostsEClass == null) {
             resourceCostsEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(168);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(168);
         }
         return resourceCostsEClass;
     }
@@ -6099,9 +5793,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getResponsible() {
         if (responsibleEClass == null) {
             responsibleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(169);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(169);
         }
         return responsibleEClass;
     }
@@ -6121,9 +5813,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getResultError() {
         if (resultErrorEClass == null) {
             resultErrorEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(170);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(170);
         }
         return resultErrorEClass;
     }
@@ -6143,9 +5833,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getResultMultiple() {
         if (resultMultipleEClass == null) {
             resultMultipleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(171);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(171);
         }
         return resultMultipleEClass;
     }
@@ -6189,9 +5877,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRole() {
         if (roleEClass == null) {
             roleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(174);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(174);
         }
         return roleEClass;
     }
@@ -6219,9 +5905,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRoute() {
         if (routeEClass == null) {
             routeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(177);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(177);
         }
         return routeEClass;
     }
@@ -6294,9 +5978,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRuleName() {
         if (ruleNameEClass == null) {
             ruleNameEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(178);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(178);
         }
         return ruleNameEClass;
     }
@@ -6316,9 +5998,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getRule() {
         if (ruleEClass == null) {
             ruleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(179);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(179);
         }
         return ruleEClass;
     }
@@ -6338,9 +6018,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getScale() {
         if (scaleEClass == null) {
             scaleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(180);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(180);
         }
         return scaleEClass;
     }
@@ -6360,9 +6038,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getSchema() {
         if (schemaEClass == null) {
             schemaEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(181);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(181);
         }
         return schemaEClass;
     }
@@ -6382,9 +6058,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getScript() {
         if (scriptEClass == null) {
             scriptEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(182);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(182);
         }
         return scriptEClass;
     }
@@ -6428,9 +6102,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getService() {
         if (serviceEClass == null) {
             serviceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(183);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(183);
         }
         return serviceEClass;
     }
@@ -6466,9 +6138,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getSimulationInformation() {
         if (simulationInformationEClass == null) {
             simulationInformationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(186);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(186);
         }
         return simulationInformationEClass;
     }
@@ -6478,8 +6148,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getSimulationInformation_Cost() {
-        return (EReference) getSimulationInformation().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getSimulationInformation().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -6487,8 +6156,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getSimulationInformation_TimeEstimation() {
-        return (EReference) getSimulationInformation().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getSimulationInformation().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -6496,8 +6164,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getSimulationInformation_Instantiation() {
-        return (EAttribute) getSimulationInformation().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getSimulationInformation().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -6507,9 +6174,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getSplit() {
         if (splitEClass == null) {
             splitEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(187);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(187);
         }
         return splitEClass;
     }
@@ -6554,9 +6219,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getStartEvent() {
         if (startEventEClass == null) {
             startEventEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(188);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(188);
         }
         return startEventEClass;
     }
@@ -6644,9 +6307,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getSubFlow() {
         if (subFlowEClass == null) {
             subFlowEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(193);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(193);
         }
         return subFlowEClass;
     }
@@ -6731,9 +6392,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskApplication() {
         if (taskApplicationEClass == null) {
             taskApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(194);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(194);
         }
         return taskApplicationEClass;
     }
@@ -6743,8 +6402,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTaskApplication_ActualParameters() {
-        return (EReference) getTaskApplication().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getTaskApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -6752,8 +6410,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTaskApplication_DataMappings() {
-        return (EReference) getTaskApplication().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTaskApplication().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -6761,8 +6418,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTaskApplication_PackageRef() {
-        return (EAttribute) getTaskApplication().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getTaskApplication().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -6770,8 +6426,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTaskApplication_ApplicationId() {
-        return (EAttribute) getTaskApplication().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getTaskApplication().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -6781,9 +6436,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskManual() {
         if (taskManualEClass == null) {
             taskManualEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(195);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(195);
         }
         return taskManualEClass;
     }
@@ -6803,9 +6456,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskReceive() {
         if (taskReceiveEClass == null) {
             taskReceiveEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(196);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(196);
         }
         return taskReceiveEClass;
     }
@@ -6849,9 +6500,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskReference() {
         if (taskReferenceEClass == null) {
             taskReferenceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(197);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(197);
         }
         return taskReferenceEClass;
     }
@@ -6871,9 +6520,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskScript() {
         if (taskScriptEClass == null) {
             taskScriptEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(198);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(198);
         }
         return taskScriptEClass;
     }
@@ -6893,9 +6540,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskSend() {
         if (taskSendEClass == null) {
             taskSendEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(199);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(199);
         }
         return taskSendEClass;
     }
@@ -6939,9 +6584,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskService() {
         if (taskServiceEClass == null) {
             taskServiceEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(200);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(200);
         }
         return taskServiceEClass;
     }
@@ -6993,9 +6636,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTask() {
         if (taskEClass == null) {
             taskEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(201);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(201);
         }
         return taskEClass;
     }
@@ -7071,9 +6712,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTaskUser() {
         if (taskUserEClass == null) {
             taskUserEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(202);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(202);
         }
         return taskUserEClass;
     }
@@ -7125,9 +6764,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTimeEstimation() {
         if (timeEstimationEClass == null) {
             timeEstimationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(205);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(205);
         }
         return timeEstimationEClass;
     }
@@ -7163,9 +6800,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTransaction() {
         if (transactionEClass == null) {
             transactionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(208);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(208);
         }
         return transactionEClass;
     }
@@ -7201,9 +6836,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTransitionRef() {
         if (transitionRefEClass == null) {
             transitionRefEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(209);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(209);
         }
         return transitionRefEClass;
     }
@@ -7231,9 +6864,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTransitionRestriction() {
         if (transitionRestrictionEClass == null) {
             transitionRestrictionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(210);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(210);
         }
         return transitionRestrictionEClass;
     }
@@ -7243,8 +6874,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTransitionRestriction_Join() {
-        return (EReference) getTransitionRestriction().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getTransitionRestriction().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7252,8 +6882,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTransitionRestriction_Split() {
-        return (EReference) getTransitionRestriction().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTransitionRestriction().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7263,9 +6892,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTransition() {
         if (transitionEClass == null) {
             transitionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(211);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(211);
         }
         return transitionEClass;
     }
@@ -7333,9 +6960,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerIntermediateMultiple() {
         if (triggerIntermediateMultipleEClass == null) {
             triggerIntermediateMultipleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(212);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(212);
         }
         return triggerIntermediateMultipleEClass;
     }
@@ -7345,8 +6970,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_TriggerResultMessage() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(0);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7354,8 +6978,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_TriggerTimer() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(1);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7363,8 +6986,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_ResultError() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(2);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7373,8 +6995,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_TriggerResultCompensation() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(3);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -7383,8 +7004,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_DeprecatedResultCompensation() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(4);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -7393,8 +7013,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_TriggerConditional() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(5);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -7402,8 +7021,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerIntermediateMultiple_TriggerResultLink() {
-        return (EReference) getTriggerIntermediateMultiple()
-                .getEStructuralFeatures().get(6);
+        return (EReference) getTriggerIntermediateMultiple().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -7413,9 +7031,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerMultiple() {
         if (triggerMultipleEClass == null) {
             triggerMultipleEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(213);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(213);
         }
         return triggerMultipleEClass;
     }
@@ -7425,8 +7041,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerMultiple_TriggerResultMessage() {
-        return (EReference) getTriggerMultiple().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getTriggerMultiple().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7434,8 +7049,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerMultiple_TriggerTimer() {
-        return (EReference) getTriggerMultiple().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTriggerMultiple().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7444,8 +7058,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerMultiple_TriggerConditional() {
-        return (EReference) getTriggerMultiple().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getTriggerMultiple().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7453,8 +7066,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerMultiple_TriggerResultLink() {
-        return (EReference) getTriggerMultiple().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getTriggerMultiple().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -7463,8 +7075,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerMultiple_DeprecatedTriggerRule() {
-        return (EReference) getTriggerMultiple().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getTriggerMultiple().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -7475,9 +7086,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerResultCancel() {
         if (triggerResultCancelEClass == null) {
             triggerResultCancelEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(214);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(214);
         }
         return triggerResultCancelEClass;
     }
@@ -7490,9 +7099,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerResultCompensation() {
         if (triggerResultCompensationEClass == null) {
             triggerResultCompensationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(215);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(215);
         }
         return triggerResultCompensationEClass;
     }
@@ -7503,8 +7110,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultCompensation_ActivityId() {
-        return (EAttribute) getTriggerResultCompensation()
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) getTriggerResultCompensation().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7515,9 +7121,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerResultSignal() {
         if (triggerResultSignalEClass == null) {
             triggerResultSignalEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(216);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(216);
         }
         return triggerResultSignalEClass;
     }
@@ -7528,8 +7132,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerResultSignal_Properties() {
-        return (EReference) getTriggerResultSignal().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getTriggerResultSignal().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7538,8 +7141,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultSignal_CatchThrow() {
-        return (EAttribute) getTriggerResultSignal().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getTriggerResultSignal().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7548,8 +7150,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultSignal_Name() {
-        return (EAttribute) getTriggerResultSignal().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getTriggerResultSignal().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7559,9 +7160,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerResultLink() {
         if (triggerResultLinkEClass == null) {
             triggerResultLinkEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(217);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(217);
         }
         return triggerResultLinkEClass;
     }
@@ -7572,8 +7171,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultLink_DeprecatedLinkId() {
-        return (EAttribute) getTriggerResultLink().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getTriggerResultLink().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7582,8 +7180,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultLink_DeprecatedProcessRef() {
-        return (EAttribute) getTriggerResultLink().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getTriggerResultLink().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7592,8 +7189,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultLink_CatchThrow() {
-        return (EAttribute) getTriggerResultLink().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getTriggerResultLink().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7602,8 +7198,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultLink_Name() {
-        return (EAttribute) getTriggerResultLink().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getTriggerResultLink().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -7613,9 +7208,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerResultMessage() {
         if (triggerResultMessageEClass == null) {
             triggerResultMessageEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(218);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(218);
         }
         return triggerResultMessageEClass;
     }
@@ -7625,8 +7218,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerResultMessage_Message() {
-        return (EReference) getTriggerResultMessage().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getTriggerResultMessage().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7634,8 +7226,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerResultMessage_WebServiceOperation() {
-        return (EReference) getTriggerResultMessage().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTriggerResultMessage().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7644,8 +7235,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerResultMessage_CatchThrow() {
-        return (EAttribute) getTriggerResultMessage().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getTriggerResultMessage().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7656,9 +7246,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerConditional() {
         if (triggerConditionalEClass == null) {
             triggerConditionalEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(219);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(219);
         }
         return triggerConditionalEClass;
     }
@@ -7669,8 +7257,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getTriggerConditional_ConditionName() {
-        return (EAttribute) getTriggerConditional().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getTriggerConditional().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7679,8 +7266,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTriggerConditional_Expression() {
-        return (EReference) getTriggerConditional().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTriggerConditional().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7690,9 +7276,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTriggerTimer() {
         if (triggerTimerEClass == null) {
             triggerTimerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(220);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(220);
         }
         return triggerTimerEClass;
     }
@@ -7738,9 +7322,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getTypeDeclaration() {
         if (typeDeclarationEClass == null) {
             typeDeclarationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(223);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(223);
         }
         return typeDeclarationEClass;
     }
@@ -7750,8 +7332,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_BasicType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7759,8 +7340,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_DeclaredType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7768,8 +7348,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_SchemaType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7777,8 +7356,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_ExternalReference() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(3);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -7786,8 +7364,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_RecordType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(4);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(4);
     }
 
     /**
@@ -7795,8 +7372,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_UnionType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(5);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(5);
     }
 
     /**
@@ -7804,8 +7380,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_EnumerationType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(6);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(6);
     }
 
     /**
@@ -7813,8 +7388,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_ArrayType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(7);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(7);
     }
 
     /**
@@ -7822,8 +7396,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getTypeDeclaration_ListType() {
-        return (EReference) getTypeDeclaration().getEStructuralFeatures()
-                .get(8);
+        return (EReference) getTypeDeclaration().getEStructuralFeatures().get(8);
     }
 
     /**
@@ -7833,9 +7406,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getUnionType() {
         if (unionTypeEClass == null) {
             unionTypeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(224);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(224);
         }
         return unionTypeEClass;
     }
@@ -7855,9 +7426,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getValidFrom() {
         if (validFromEClass == null) {
             validFromEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(226);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(226);
         }
         return validFromEClass;
     }
@@ -7877,9 +7446,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getValidTo() {
         if (validToEClass == null) {
             validToEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(227);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(227);
         }
         return validToEClass;
     }
@@ -7899,9 +7466,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getVendorExtensions() {
         if (vendorExtensionsEClass == null) {
             vendorExtensionsEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(228);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(228);
         }
         return vendorExtensionsEClass;
     }
@@ -7911,8 +7476,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getVendorExtensions_VendorExtension() {
-        return (EReference) getVendorExtensions().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getVendorExtensions().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7922,9 +7486,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getVendorExtension() {
         if (vendorExtensionEClass == null) {
             vendorExtensionEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(229);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(229);
         }
         return vendorExtensionEClass;
     }
@@ -7934,8 +7496,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getVendorExtension_ExtensionDescription() {
-        return (EAttribute) getVendorExtension().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getVendorExtension().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -7943,8 +7504,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getVendorExtension_SchemaLocation() {
-        return (EAttribute) getVendorExtension().getEStructuralFeatures()
-                .get(1);
+        return (EAttribute) getVendorExtension().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -7952,8 +7512,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getVendorExtension_ToolId() {
-        return (EAttribute) getVendorExtension().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getVendorExtension().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -7963,9 +7522,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getWaitingTime() {
         if (waitingTimeEClass == null) {
             waitingTimeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(231);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(231);
         }
         return waitingTimeEClass;
     }
@@ -7985,9 +7542,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getWebServiceFaultCatch() {
         if (webServiceFaultCatchEClass == null) {
             webServiceFaultCatchEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(232);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(232);
         }
         return webServiceFaultCatchEClass;
     }
@@ -7997,8 +7552,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceFaultCatch_Message() {
-        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8006,8 +7560,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceFaultCatch_BlockActivity() {
-        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -8015,8 +7568,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceFaultCatch_TransitionRef() {
-        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures()
-                .get(2);
+        return (EReference) getWebServiceFaultCatch().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -8024,8 +7576,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getWebServiceFaultCatch_FaultName() {
-        return (EAttribute) getWebServiceFaultCatch().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getWebServiceFaultCatch().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -8035,9 +7586,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getWebServiceOperation() {
         if (webServiceOperationEClass == null) {
             webServiceOperationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(233);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(233);
         }
         return webServiceOperationEClass;
     }
@@ -8047,8 +7596,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceOperation_Partner() {
-        return (EReference) getWebServiceOperation().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getWebServiceOperation().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8056,8 +7604,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceOperation_Service() {
-        return (EReference) getWebServiceOperation().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getWebServiceOperation().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -8065,8 +7612,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getWebServiceOperation_OperationName() {
-        return (EAttribute) getWebServiceOperation().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getWebServiceOperation().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -8076,9 +7622,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getWebServiceApplication() {
         if (webServiceApplicationEClass == null) {
             webServiceApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(234);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(234);
         }
         return webServiceApplicationEClass;
     }
@@ -8088,8 +7632,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceApplication_WebServiceOperation() {
-        return (EReference) getWebServiceApplication().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getWebServiceApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8097,8 +7640,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getWebServiceApplication_WebServiceFaultCatch() {
-        return (EReference) getWebServiceApplication().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getWebServiceApplication().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -8106,8 +7648,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getWebServiceApplication_InputMsgName() {
-        return (EAttribute) getWebServiceApplication().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getWebServiceApplication().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -8115,8 +7656,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getWebServiceApplication_OutputMsgName() {
-        return (EAttribute) getWebServiceApplication().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getWebServiceApplication().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -8126,9 +7666,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getWorkingTime() {
         if (workingTimeEClass == null) {
             workingTimeEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(235);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(235);
         }
         return workingTimeEClass;
     }
@@ -8148,9 +7686,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getXsltApplication() {
         if (xsltApplicationEClass == null) {
             xsltApplicationEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(236);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(236);
         }
         return xsltApplicationEClass;
     }
@@ -8160,8 +7696,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getXsltApplication_Location() {
-        return (EAttribute) getXsltApplication().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getXsltApplication().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8171,9 +7706,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getNamedElement() {
         if (namedElementEClass == null) {
             namedElementEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(127);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(127);
         }
         return namedElementEClass;
     }
@@ -8193,9 +7726,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getFlowContainer() {
         if (flowContainerEClass == null) {
             flowContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(76);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(76);
         }
         return flowContainerEClass;
     }
@@ -8255,9 +7786,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getDescribedElement() {
         if (describedElementEClass == null) {
             describedElementEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(48);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(48);
         }
         return describedElementEClass;
     }
@@ -8267,8 +7796,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getDescribedElement_Description() {
-        return (EReference) getDescribedElement().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getDescribedElement().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8278,9 +7806,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getProcessRelevantData() {
         if (processRelevantDataEClass == null) {
             processRelevantDataEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(159);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(159);
         }
         return processRelevantDataEClass;
     }
@@ -8290,8 +7816,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getProcessRelevantData_DataType() {
-        return (EReference) getProcessRelevantData().getEStructuralFeatures()
-                .get(0);
+        return (EReference) getProcessRelevantData().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8299,8 +7824,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EReference getProcessRelevantData_Length() {
-        return (EReference) getProcessRelevantData().getEStructuralFeatures()
-                .get(1);
+        return (EReference) getProcessRelevantData().getEStructuralFeatures().get(1);
     }
 
     /**
@@ -8308,8 +7832,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getProcessRelevantData_IsArray() {
-        return (EAttribute) getProcessRelevantData().getEStructuralFeatures()
-                .get(2);
+        return (EAttribute) getProcessRelevantData().getEStructuralFeatures().get(2);
     }
 
     /**
@@ -8318,8 +7841,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getProcessRelevantData_ReadOnly() {
-        return (EAttribute) getProcessRelevantData().getEStructuralFeatures()
-                .get(3);
+        return (EAttribute) getProcessRelevantData().getEStructuralFeatures().get(3);
     }
 
     /**
@@ -8330,9 +7852,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPropertyInput() {
         if (propertyInputEClass == null) {
             propertyInputEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(162);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(162);
         }
         return propertyInputEClass;
     }
@@ -8353,9 +7873,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getUniqueIdElement() {
         if (uniqueIdElementEClass == null) {
             uniqueIdElementEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(225);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(225);
         }
         return uniqueIdElementEClass;
     }
@@ -8365,8 +7883,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getUniqueIdElement_Id() {
-        return (EAttribute) getUniqueIdElement().getEStructuralFeatures()
-                .get(0);
+        return (EAttribute) getUniqueIdElement().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8377,9 +7894,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getOtherAttributesContainer() {
         if (otherAttributesContainerEClass == null) {
             otherAttributesContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(133);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(133);
         }
         return otherAttributesContainerEClass;
     }
@@ -8390,8 +7905,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getOtherAttributesContainer_OtherAttributes() {
-        return (EAttribute) getOtherAttributesContainer()
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) getOtherAttributesContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8402,9 +7916,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getOtherElementsContainer() {
         if (otherElementsContainerEClass == null) {
             otherElementsContainerEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(134);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(134);
         }
         return otherElementsContainerEClass;
     }
@@ -8415,8 +7927,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
      * @generated
      */
     public EAttribute getOtherElementsContainer_OtherElements() {
-        return (EAttribute) getOtherElementsContainer()
-                .getEStructuralFeatures().get(0);
+        return (EAttribute) getOtherElementsContainer().getEStructuralFeatures().get(0);
     }
 
     /**
@@ -8427,9 +7938,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EClass getPerformers() {
         if (performersEClass == null) {
             performersEClass =
-                    (EClass) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(150);
+                    (EClass) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(150);
         }
         return performersEClass;
     }
@@ -8450,9 +7959,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getAccessLevelType() {
         if (accessLevelTypeEEnum == null) {
             accessLevelTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(0);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(0);
         }
         return accessLevelTypeEEnum;
     }
@@ -8464,9 +7971,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getAdHocOrderingType() {
         if (adHocOrderingTypeEEnum == null) {
             adHocOrderingTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(4);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(4);
         }
         return adHocOrderingTypeEEnum;
     }
@@ -8478,9 +7983,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getArtifactType() {
         if (artifactTypeEEnum == null) {
             artifactTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(12);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(12);
         }
         return artifactTypeEEnum;
     }
@@ -8492,9 +7995,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getAssignTimeType() {
         if (assignTimeTypeEEnum == null) {
             assignTimeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(16);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(16);
         }
         return assignTimeTypeEEnum;
     }
@@ -8506,9 +8007,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getAssociationDirectionType() {
         if (associationDirectionTypeEEnum == null) {
             associationDirectionTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(18);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(18);
         }
         return associationDirectionTypeEEnum;
     }
@@ -8520,9 +8019,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getDirectionType() {
         if (directionTypeEEnum == null) {
             directionTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(50);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(50);
         }
         return directionTypeEEnum;
     }
@@ -8534,9 +8031,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getDurationUnitType() {
         if (durationUnitTypeEEnum == null) {
             durationUnitTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(55);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(55);
         }
         return durationUnitTypeEEnum;
     }
@@ -8548,9 +8043,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getEndPointTypeType() {
         if (endPointTypeTypeEEnum == null) {
             endPointTypeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(60);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(60);
         }
         return endPointTypeTypeEEnum;
     }
@@ -8563,9 +8056,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getExclusiveType() {
         if (exclusiveTypeEEnum == null) {
             exclusiveTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(66);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(66);
         }
         return exclusiveTypeEEnum;
     }
@@ -8577,9 +8068,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getExecutionType() {
         if (executionTypeEEnum == null) {
             executionTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(67);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(67);
         }
         return executionTypeEEnum;
     }
@@ -8591,9 +8080,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getFinishModeType() {
         if (finishModeTypeEEnum == null) {
             finishModeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(74);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(74);
         }
         return finishModeTypeEEnum;
     }
@@ -8605,9 +8092,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getJoinSplitType() {
         if (joinSplitTypeEEnum == null) {
             joinSplitTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(80);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(80);
         }
         return joinSplitTypeEEnum;
     }
@@ -8619,9 +8104,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getGraphConformanceType() {
         if (graphConformanceTypeEEnum == null) {
             graphConformanceTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(83);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(83);
         }
         return graphConformanceTypeEEnum;
     }
@@ -8633,9 +8116,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getImplementationType() {
         if (implementationTypeEEnum == null) {
             implementationTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(91);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(91);
         }
         return implementationTypeEEnum;
     }
@@ -8647,9 +8128,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getInstantiationType() {
         if (instantiationTypeEEnum == null) {
             instantiationTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(96);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(96);
         }
         return instantiationTypeEEnum;
     }
@@ -8661,9 +8140,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getIsArrayType() {
         if (isArrayTypeEEnum == null) {
             isArrayTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(100);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(100);
         }
         return isArrayTypeEEnum;
     }
@@ -8675,9 +8152,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getLoopType() {
         if (loopTypeEEnum == null) {
             loopTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(113);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(113);
         }
         return loopTypeEEnum;
     }
@@ -8689,9 +8164,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getMIFlowConditionType() {
         if (miFlowConditionTypeEEnum == null) {
             miFlowConditionTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(119);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(119);
         }
         return miFlowConditionTypeEEnum;
     }
@@ -8703,9 +8176,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getMIOrderingType() {
         if (miOrderingTypeEEnum == null) {
             miOrderingTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(121);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(121);
         }
         return miOrderingTypeEEnum;
     }
@@ -8717,9 +8188,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getModeType() {
         if (modeTypeEEnum == null) {
             modeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(123);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(123);
         }
         return modeTypeEEnum;
     }
@@ -8731,9 +8200,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getOrientationType() {
         if (orientationTypeEEnum == null) {
             orientationTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(131);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(131);
         }
         return orientationTypeEEnum;
     }
@@ -8745,9 +8212,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getProcessType() {
         if (processTypeEEnum == null) {
             processTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(160);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(160);
         }
         return processTypeEEnum;
     }
@@ -8759,9 +8224,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getPublicationStatusType() {
         if (publicationStatusTypeEEnum == null) {
             publicationStatusTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(163);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(163);
         }
         return publicationStatusTypeEEnum;
     }
@@ -8773,9 +8236,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getResultType() {
         if (resultTypeEEnum == null) {
             resultTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(172);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(172);
         }
         return resultTypeEEnum;
     }
@@ -8787,9 +8248,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getRoleType() {
         if (roleTypeEEnum == null) {
             roleTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(175);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(175);
         }
         return roleTypeEEnum;
     }
@@ -8801,9 +8260,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getSHAPEType() {
         if (shapeTypeEEnum == null) {
             shapeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(184);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(184);
         }
         return shapeTypeEEnum;
     }
@@ -8815,9 +8272,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getStartModeType() {
         if (startModeTypeEEnum == null) {
             startModeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(189);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(189);
         }
         return startModeTypeEEnum;
     }
@@ -8829,9 +8284,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getStatusType() {
         if (statusTypeEEnum == null) {
             statusTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(191);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(191);
         }
         return statusTypeEEnum;
     }
@@ -8843,9 +8296,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getTestTimeType() {
         if (testTimeTypeEEnum == null) {
             testTimeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(203);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(203);
         }
         return testTimeTypeEEnum;
     }
@@ -8857,9 +8308,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getTransactionMethodType() {
         if (transactionMethodTypeEEnum == null) {
             transactionMethodTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(206);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(206);
         }
         return transactionMethodTypeEEnum;
     }
@@ -8871,9 +8320,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getTriggerType() {
         if (triggerTypeEEnum == null) {
             triggerTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(221);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(221);
         }
         return triggerTypeEEnum;
     }
@@ -8886,9 +8333,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getViewType() {
         if (viewTypeEEnum == null) {
             viewTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(230);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(230);
         }
         return viewTypeEEnum;
     }
@@ -8901,9 +8346,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getDeprecatedXorType() {
         if (deprecatedXorTypeEEnum == null) {
             deprecatedXorTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(237);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(237);
         }
         return deprecatedXorTypeEEnum;
     }
@@ -8915,9 +8358,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getConditionType() {
         if (conditionTypeEEnum == null) {
             conditionTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(31);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(31);
         }
         return conditionTypeEEnum;
     }
@@ -8929,9 +8370,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getParticipantType() {
         if (participantTypeEEnum == null) {
             participantTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(143);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(143);
         }
         return participantTypeEEnum;
     }
@@ -8943,9 +8382,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getBasicTypeType() {
         if (basicTypeTypeEEnum == null) {
             basicTypeTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(22);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(22);
         }
         return basicTypeTypeEEnum;
     }
@@ -8958,9 +8395,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getBPMNModelPortabilityConformance() {
         if (bpmnModelPortabilityConformanceEEnum == null) {
             bpmnModelPortabilityConformanceEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(24);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(24);
         }
         return bpmnModelPortabilityConformanceEEnum;
     }
@@ -8973,9 +8408,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getCatchThrow() {
         if (catchThrowEEnum == null) {
             catchThrowEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(26);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(26);
         }
         return catchThrowEEnum;
     }
@@ -8987,9 +8420,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EEnum getGatewayType() {
         if (gatewayTypeEEnum == null) {
             gatewayTypeEEnum =
-                    (EEnum) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(81);
+                    (EEnum) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(81);
         }
         return gatewayTypeEEnum;
     }
@@ -9001,9 +8432,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getAccessLevelTypeObject() {
         if (accessLevelTypeObjectEDataType == null) {
             accessLevelTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(1);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(1);
         }
         return accessLevelTypeObjectEDataType;
     }
@@ -9015,9 +8444,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getAdHocOrderingTypeObject() {
         if (adHocOrderingTypeObjectEDataType == null) {
             adHocOrderingTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(5);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(5);
         }
         return adHocOrderingTypeObjectEDataType;
     }
@@ -9029,9 +8456,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getArtifactTypeObject() {
         if (artifactTypeObjectEDataType == null) {
             artifactTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(13);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(13);
         }
         return artifactTypeObjectEDataType;
     }
@@ -9043,9 +8468,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getAssignTimeTypeObject() {
         if (assignTimeTypeObjectEDataType == null) {
             assignTimeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(17);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(17);
         }
         return assignTimeTypeObjectEDataType;
     }
@@ -9057,9 +8480,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getAssociationDirectionTypeObject() {
         if (associationDirectionTypeObjectEDataType == null) {
             associationDirectionTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(19);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(19);
         }
         return associationDirectionTypeObjectEDataType;
     }
@@ -9071,9 +8492,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getDirectionTypeObject() {
         if (directionTypeObjectEDataType == null) {
             directionTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(51);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(51);
         }
         return directionTypeObjectEDataType;
     }
@@ -9085,9 +8504,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getDurationUnitTypeObject() {
         if (durationUnitTypeObjectEDataType == null) {
             durationUnitTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(56);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(56);
         }
         return durationUnitTypeObjectEDataType;
     }
@@ -9099,9 +8516,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getEndPointTypeTypeObject() {
         if (endPointTypeTypeObjectEDataType == null) {
             endPointTypeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(61);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(61);
         }
         return endPointTypeTypeObjectEDataType;
     }
@@ -9113,9 +8528,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getExecutionTypeObject() {
         if (executionTypeObjectEDataType == null) {
             executionTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(68);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(68);
         }
         return executionTypeObjectEDataType;
     }
@@ -9127,9 +8540,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getFinishModeTypeObject() {
         if (finishModeTypeObjectEDataType == null) {
             finishModeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(75);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(75);
         }
         return finishModeTypeObjectEDataType;
     }
@@ -9141,9 +8552,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getGatewayTypeObject() {
         if (gatewayTypeObjectEDataType == null) {
             gatewayTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(82);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(82);
         }
         return gatewayTypeObjectEDataType;
     }
@@ -9155,9 +8564,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getGraphConformanceTypeObject() {
         if (graphConformanceTypeObjectEDataType == null) {
             graphConformanceTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(84);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(84);
         }
         return graphConformanceTypeObjectEDataType;
     }
@@ -9169,9 +8576,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getImplementationTypeObject() {
         if (implementationTypeObjectEDataType == null) {
             implementationTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(93);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(93);
         }
         return implementationTypeObjectEDataType;
     }
@@ -9183,9 +8588,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getInstantiationTypeObject() {
         if (instantiationTypeObjectEDataType == null) {
             instantiationTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(97);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(97);
         }
         return instantiationTypeObjectEDataType;
     }
@@ -9197,9 +8600,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getIsArrayTypeObject() {
         if (isArrayTypeObjectEDataType == null) {
             isArrayTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(101);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(101);
         }
         return isArrayTypeObjectEDataType;
     }
@@ -9211,9 +8612,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getLoopTypeObject() {
         if (loopTypeObjectEDataType == null) {
             loopTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(114);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(114);
         }
         return loopTypeObjectEDataType;
     }
@@ -9225,9 +8624,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getMIFlowConditionTypeObject() {
         if (miFlowConditionTypeObjectEDataType == null) {
             miFlowConditionTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(120);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(120);
         }
         return miFlowConditionTypeObjectEDataType;
     }
@@ -9239,9 +8636,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getMIOrderingTypeObject() {
         if (miOrderingTypeObjectEDataType == null) {
             miOrderingTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(122);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(122);
         }
         return miOrderingTypeObjectEDataType;
     }
@@ -9253,9 +8648,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getModeTypeObject() {
         if (modeTypeObjectEDataType == null) {
             modeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(124);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(124);
         }
         return modeTypeObjectEDataType;
     }
@@ -9267,9 +8660,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getOrientationTypeObject() {
         if (orientationTypeObjectEDataType == null) {
             orientationTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(132);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(132);
         }
         return orientationTypeObjectEDataType;
     }
@@ -9281,9 +8672,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getProcessTypeObject() {
         if (processTypeObjectEDataType == null) {
             processTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(161);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(161);
         }
         return processTypeObjectEDataType;
     }
@@ -9295,9 +8684,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getPublicationStatusTypeObject() {
         if (publicationStatusTypeObjectEDataType == null) {
             publicationStatusTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(164);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(164);
         }
         return publicationStatusTypeObjectEDataType;
     }
@@ -9309,9 +8696,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getResultTypeObject() {
         if (resultTypeObjectEDataType == null) {
             resultTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(173);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(173);
         }
         return resultTypeObjectEDataType;
     }
@@ -9323,9 +8708,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getRoleTypeObject() {
         if (roleTypeObjectEDataType == null) {
             roleTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(176);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(176);
         }
         return roleTypeObjectEDataType;
     }
@@ -9337,9 +8720,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getSHAPETypeObject() {
         if (shapeTypeObjectEDataType == null) {
             shapeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(185);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(185);
         }
         return shapeTypeObjectEDataType;
     }
@@ -9351,9 +8732,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getStartModeTypeObject() {
         if (startModeTypeObjectEDataType == null) {
             startModeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(190);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(190);
         }
         return startModeTypeObjectEDataType;
     }
@@ -9365,9 +8744,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getStatusTypeObject() {
         if (statusTypeObjectEDataType == null) {
             statusTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(192);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(192);
         }
         return statusTypeObjectEDataType;
     }
@@ -9379,9 +8756,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getTestTimeTypeObject() {
         if (testTimeTypeObjectEDataType == null) {
             testTimeTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(204);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(204);
         }
         return testTimeTypeObjectEDataType;
     }
@@ -9393,9 +8768,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getTransactionMethodTypeObject() {
         if (transactionMethodTypeObjectEDataType == null) {
             transactionMethodTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(207);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(207);
         }
         return transactionMethodTypeObjectEDataType;
     }
@@ -9407,9 +8780,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getTriggerTypeObject() {
         if (triggerTypeObjectEDataType == null) {
             triggerTypeObjectEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(222);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(222);
         }
         return triggerTypeObjectEDataType;
     }
@@ -9421,9 +8792,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     public EDataType getIdReferenceString() {
         if (idReferenceStringEDataType == null) {
             idReferenceStringEDataType =
-                    (EDataType) EPackage.Registry.INSTANCE
-                            .getEPackage(Xpdl2Package.eNS_URI)
-                            .getEClassifiers().get(90);
+                    (EDataType) EPackage.Registry.INSTANCE.getEPackage(Xpdl2Package.eNS_URI).getEClassifiers().get(90);
         }
         return idReferenceStringEDataType;
     }
@@ -9455,8 +8824,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
 
         URL url = getClass().getResource(packageFilename);
         if (url == null) {
-            throw new RuntimeException(
-                    "Missing serialized package: " + packageFilename); //$NON-NLS-1$
+            throw new RuntimeException("Missing serialized package: " + packageFilename); //$NON-NLS-1$
         }
         URI uri = URI.createURI(url.toString());
         Resource resource = new EcoreResourceFactoryImpl().createResource(uri);
@@ -9465,8 +8833,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
         } catch (IOException exception) {
             throw new WrappedException(exception);
         }
-        initializeFromLoadedEPackage(this, (EPackage) resource.getContents()
-                .get(0));
+        initializeFromLoadedEPackage(this, (EPackage) resource.getContents().get(0));
         createResource(eNS_URI);
     }
 
@@ -9518,8 +8885,7 @@ public class Xpdl2PackageImpl extends EPackageImpl implements Xpdl2Package {
     @Override
     protected void fixInstanceClass(EClassifier eClassifier) {
         if (eClassifier.getInstanceClassName() == null) {
-            eClassifier
-                    .setInstanceClassName("com.tibco.xpd.xpdl2." + eClassifier.getName()); //$NON-NLS-1$
+            eClassifier.setInstanceClassName("com.tibco.xpd.xpdl2." + eClassifier.getName()); //$NON-NLS-1$
             setGeneratedClassName(eClassifier);
         }
     }

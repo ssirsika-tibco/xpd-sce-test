@@ -197,8 +197,7 @@ public class Xpdl2Switch<T> {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached model package
@@ -243,8 +242,7 @@ public class Xpdl2Switch<T> {
             return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
             List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject)
-                    : doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -322,8 +320,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.APPLICATIONS_CONTAINER: {
-            ApplicationsContainer applicationsContainer =
-                    (ApplicationsContainer) theEObject;
+            ApplicationsContainer applicationsContainer = (ApplicationsContainer) theEObject;
             T result = caseApplicationsContainer(applicationsContainer);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -372,8 +369,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.ASSIGMENTS_CONTAINER: {
-            AssigmentsContainer assigmentsContainer =
-                    (AssigmentsContainer) theEObject;
+            AssigmentsContainer assigmentsContainer = (AssigmentsContainer) theEObject;
             T result = caseAssigmentsContainer(assigmentsContainer);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -402,6 +398,8 @@ public class Xpdl2Switch<T> {
             if (result == null)
                 result = caseOtherElementsContainer(basicType);
             if (result == null)
+                result = caseOtherAttributesContainer(basicType);
+            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -415,8 +413,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.BUSINESS_RULE_APPLICATION: {
-            BusinessRuleApplication businessRuleApplication =
-                    (BusinessRuleApplication) theEObject;
+            BusinessRuleApplication businessRuleApplication = (BusinessRuleApplication) theEObject;
             T result = caseBusinessRuleApplication(businessRuleApplication);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -436,8 +433,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.CLASS: {
-            com.tibco.xpd.xpdl2.Class class_ =
-                    (com.tibco.xpd.xpdl2.Class) theEObject;
+            com.tibco.xpd.xpdl2.Class class_ = (com.tibco.xpd.xpdl2.Class) theEObject;
             T result = caseClass(class_);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -467,8 +463,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.CONNECTOR_GRAPHICS_INFO: {
-            ConnectorGraphicsInfo connectorGraphicsInfo =
-                    (ConnectorGraphicsInfo) theEObject;
+            ConnectorGraphicsInfo connectorGraphicsInfo = (ConnectorGraphicsInfo) theEObject;
             T result = caseConnectorGraphicsInfo(connectorGraphicsInfo);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -531,8 +526,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.DATA_FIELDS_CONTAINER: {
-            DataFieldsContainer dataFieldsContainer =
-                    (DataFieldsContainer) theEObject;
+            DataFieldsContainer dataFieldsContainer = (DataFieldsContainer) theEObject;
             T result = caseDataFieldsContainer(dataFieldsContainer);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -590,17 +584,14 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.DEPRECATED_RESULT_COMPENSATION: {
-            DeprecatedResultCompensation deprecatedResultCompensation =
-                    (DeprecatedResultCompensation) theEObject;
-            T result =
-                    caseDeprecatedResultCompensation(deprecatedResultCompensation);
+            DeprecatedResultCompensation deprecatedResultCompensation = (DeprecatedResultCompensation) theEObject;
+            T result = caseDeprecatedResultCompensation(deprecatedResultCompensation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.DEPRECATED_TRIGGER_RULE: {
-            DeprecatedTriggerRule deprecatedTriggerRule =
-                    (DeprecatedTriggerRule) theEObject;
+            DeprecatedTriggerRule deprecatedTriggerRule = (DeprecatedTriggerRule) theEObject;
             T result = caseDeprecatedTriggerRule(deprecatedTriggerRule);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -708,18 +699,15 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.EXTENDED_ATTRIBUTE: {
-            ExtendedAttribute extendedAttribute =
-                    (ExtendedAttribute) theEObject;
+            ExtendedAttribute extendedAttribute = (ExtendedAttribute) theEObject;
             T result = caseExtendedAttribute(extendedAttribute);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.EXTENDED_ATTRIBUTES_CONTAINER: {
-            ExtendedAttributesContainer extendedAttributesContainer =
-                    (ExtendedAttributesContainer) theEObject;
-            T result =
-                    caseExtendedAttributesContainer(extendedAttributesContainer);
+            ExtendedAttributesContainer extendedAttributesContainer = (ExtendedAttributesContainer) theEObject;
+            T result = caseExtendedAttributesContainer(extendedAttributesContainer);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -740,8 +728,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.EXTERNAL_REFERENCE: {
-            ExternalReference externalReference =
-                    (ExternalReference) theEObject;
+            ExternalReference externalReference = (ExternalReference) theEObject;
             T result = caseExternalReference(externalReference);
             if (result == null)
                 result = caseDataType(externalReference);
@@ -797,8 +784,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.GRAPHICAL_CONNECTOR: {
-            GraphicalConnector graphicalConnector =
-                    (GraphicalConnector) theEObject;
+            GraphicalConnector graphicalConnector = (GraphicalConnector) theEObject;
             T result = caseGraphicalConnector(graphicalConnector);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -855,8 +841,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.INTERMEDIATE_EVENT: {
-            IntermediateEvent intermediateEvent =
-                    (IntermediateEvent) theEObject;
+            IntermediateEvent intermediateEvent = (IntermediateEvent) theEObject;
             T result = caseIntermediateEvent(intermediateEvent);
             if (result == null)
                 result = caseEvent(intermediateEvent);
@@ -944,8 +929,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.LOOP_MULTI_INSTANCE: {
-            LoopMultiInstance loopMultiInstance =
-                    (LoopMultiInstance) theEObject;
+            LoopMultiInstance loopMultiInstance = (LoopMultiInstance) theEObject;
             T result = caseLoopMultiInstance(loopMultiInstance);
             if (result == null)
                 result = caseOtherElementsContainer(loopMultiInstance);
@@ -1059,8 +1043,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.OBJECT: {
-            com.tibco.xpd.xpdl2.Object object =
-                    (com.tibco.xpd.xpdl2.Object) theEObject;
+            com.tibco.xpd.xpdl2.Object object = (com.tibco.xpd.xpdl2.Object) theEObject;
             T result = caseObject(object);
             if (result == null)
                 result = caseNamedElement(object);
@@ -1073,16 +1056,14 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.OTHER_ATTRIBUTES_CONTAINER: {
-            OtherAttributesContainer otherAttributesContainer =
-                    (OtherAttributesContainer) theEObject;
+            OtherAttributesContainer otherAttributesContainer = (OtherAttributesContainer) theEObject;
             T result = caseOtherAttributesContainer(otherAttributesContainer);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.OTHER_ELEMENTS_CONTAINER: {
-            OtherElementsContainer otherElementsContainer =
-                    (OtherElementsContainer) theEObject;
+            OtherElementsContainer otherElementsContainer = (OtherElementsContainer) theEObject;
             T result = caseOtherElementsContainer(otherElementsContainer);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1114,8 +1095,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.PACKAGE: {
-            com.tibco.xpd.xpdl2.Package package_ =
-                    (com.tibco.xpd.xpdl2.Package) theEObject;
+            com.tibco.xpd.xpdl2.Package package_ = (com.tibco.xpd.xpdl2.Package) theEObject;
             T result = casePackage(package_);
             if (result == null)
                 result = caseNamedElement(package_);
@@ -1160,8 +1140,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.PARTICIPANTS_CONTAINER: {
-            ParticipantsContainer participantsContainer =
-                    (ParticipantsContainer) theEObject;
+            ParticipantsContainer participantsContainer = (ParticipantsContainer) theEObject;
             T result = caseParticipantsContainer(participantsContainer);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1187,8 +1166,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.PARTICIPANT_TYPE_ELEM: {
-            ParticipantTypeElem participantTypeElem =
-                    (ParticipantTypeElem) theEObject;
+            ParticipantTypeElem participantTypeElem = (ParticipantTypeElem) theEObject;
             T result = caseParticipantTypeElem(participantTypeElem);
             if (result == null)
                 result = caseOtherAttributesContainer(participantTypeElem);
@@ -1299,8 +1277,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.PROCESS: {
-            com.tibco.xpd.xpdl2.Process process =
-                    (com.tibco.xpd.xpdl2.Process) theEObject;
+            com.tibco.xpd.xpdl2.Process process = (com.tibco.xpd.xpdl2.Process) theEObject;
             T result = caseProcess(process);
             if (result == null)
                 result = caseNamedElement(process);
@@ -1329,16 +1306,14 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.FORMAL_PARAMETERS_CONTAINER: {
-            FormalParametersContainer formalParametersContainer =
-                    (FormalParametersContainer) theEObject;
+            FormalParametersContainer formalParametersContainer = (FormalParametersContainer) theEObject;
             T result = caseFormalParametersContainer(formalParametersContainer);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.PROCESS_RELEVANT_DATA: {
-            ProcessRelevantData processRelevantData =
-                    (ProcessRelevantData) theEObject;
+            ProcessRelevantData processRelevantData = (ProcessRelevantData) theEObject;
             T result = caseProcessRelevantData(processRelevantData);
             if (result == null)
                 result = caseNamedElement(processRelevantData);
@@ -1375,8 +1350,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.REDEFINABLE_HEADER: {
-            RedefinableHeader redefinableHeader =
-                    (RedefinableHeader) theEObject;
+            RedefinableHeader redefinableHeader = (RedefinableHeader) theEObject;
             T result = caseRedefinableHeader(redefinableHeader);
             if (result == null)
                 result = caseOtherAttributesContainer(redefinableHeader);
@@ -1506,8 +1480,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.SIMULATION_INFORMATION: {
-            SimulationInformation simulationInformation =
-                    (SimulationInformation) theEObject;
+            SimulationInformation simulationInformation = (SimulationInformation) theEObject;
             T result = caseSimulationInformation(simulationInformation);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1649,8 +1622,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.TRANSITION_RESTRICTION: {
-            TransitionRestriction transitionRestriction =
-                    (TransitionRestriction) theEObject;
+            TransitionRestriction transitionRestriction = (TransitionRestriction) theEObject;
             T result = caseTransitionRestriction(transitionRestriction);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1676,13 +1648,10 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.TRIGGER_INTERMEDIATE_MULTIPLE: {
-            TriggerIntermediateMultiple triggerIntermediateMultiple =
-                    (TriggerIntermediateMultiple) theEObject;
-            T result =
-                    caseTriggerIntermediateMultiple(triggerIntermediateMultiple);
+            TriggerIntermediateMultiple triggerIntermediateMultiple = (TriggerIntermediateMultiple) theEObject;
+            T result = caseTriggerIntermediateMultiple(triggerIntermediateMultiple);
             if (result == null)
-                result =
-                        caseOtherAttributesContainer(triggerIntermediateMultiple);
+                result = caseOtherAttributesContainer(triggerIntermediateMultiple);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -1697,27 +1666,23 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.TRIGGER_RESULT_CANCEL: {
-            TriggerResultCancel triggerResultCancel =
-                    (TriggerResultCancel) theEObject;
+            TriggerResultCancel triggerResultCancel = (TriggerResultCancel) theEObject;
             T result = caseTriggerResultCancel(triggerResultCancel);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.TRIGGER_RESULT_COMPENSATION: {
-            TriggerResultCompensation triggerResultCompensation =
-                    (TriggerResultCompensation) theEObject;
+            TriggerResultCompensation triggerResultCompensation = (TriggerResultCompensation) theEObject;
             T result = caseTriggerResultCompensation(triggerResultCompensation);
             if (result == null)
-                result =
-                        caseOtherAttributesContainer(triggerResultCompensation);
+                result = caseOtherAttributesContainer(triggerResultCompensation);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.TRIGGER_RESULT_SIGNAL: {
-            TriggerResultSignal triggerResultSignal =
-                    (TriggerResultSignal) theEObject;
+            TriggerResultSignal triggerResultSignal = (TriggerResultSignal) theEObject;
             T result = caseTriggerResultSignal(triggerResultSignal);
             if (result == null)
                 result = caseOtherAttributesContainer(triggerResultSignal);
@@ -1728,16 +1693,14 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.TRIGGER_RESULT_LINK: {
-            TriggerResultLink triggerResultLink =
-                    (TriggerResultLink) theEObject;
+            TriggerResultLink triggerResultLink = (TriggerResultLink) theEObject;
             T result = caseTriggerResultLink(triggerResultLink);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.TRIGGER_RESULT_MESSAGE: {
-            TriggerResultMessage triggerResultMessage =
-                    (TriggerResultMessage) theEObject;
+            TriggerResultMessage triggerResultMessage = (TriggerResultMessage) theEObject;
             T result = caseTriggerResultMessage(triggerResultMessage);
             if (result == null)
                 result = caseOtherAttributesContainer(triggerResultMessage);
@@ -1748,8 +1711,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.TRIGGER_CONDITIONAL: {
-            TriggerConditional triggerConditional =
-                    (TriggerConditional) theEObject;
+            TriggerConditional triggerConditional = (TriggerConditional) theEObject;
             T result = caseTriggerConditional(triggerConditional);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -1835,16 +1797,14 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.WEB_SERVICE_FAULT_CATCH: {
-            WebServiceFaultCatch webServiceFaultCatch =
-                    (WebServiceFaultCatch) theEObject;
+            WebServiceFaultCatch webServiceFaultCatch = (WebServiceFaultCatch) theEObject;
             T result = caseWebServiceFaultCatch(webServiceFaultCatch);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
         case Xpdl2Package.WEB_SERVICE_OPERATION: {
-            WebServiceOperation webServiceOperation =
-                    (WebServiceOperation) theEObject;
+            WebServiceOperation webServiceOperation = (WebServiceOperation) theEObject;
             T result = caseWebServiceOperation(webServiceOperation);
             if (result == null)
                 result = caseOtherAttributesContainer(webServiceOperation);
@@ -1853,8 +1813,7 @@ public class Xpdl2Switch<T> {
             return result;
         }
         case Xpdl2Package.WEB_SERVICE_APPLICATION: {
-            WebServiceApplication webServiceApplication =
-                    (WebServiceApplication) theEObject;
+            WebServiceApplication webServiceApplication = (WebServiceApplication) theEObject;
             T result = caseWebServiceApplication(webServiceApplication);
             if (result == null)
                 result = defaultCase(theEObject);
@@ -2385,8 +2344,7 @@ public class Xpdl2Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDeprecatedResultCompensation(
-            DeprecatedResultCompensation object) {
+    public T caseDeprecatedResultCompensation(DeprecatedResultCompensation object) {
         return null;
     }
 

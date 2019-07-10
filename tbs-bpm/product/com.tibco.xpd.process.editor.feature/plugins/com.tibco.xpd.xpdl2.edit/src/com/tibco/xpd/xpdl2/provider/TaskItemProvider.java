@@ -35,16 +35,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskItemProvider extends ImplementationItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TaskItemProvider extends ImplementationItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,8 +77,7 @@ public class TaskItemProvider extends ImplementationItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.TASK__TASK_SERVICE);
@@ -117,8 +113,7 @@ public class TaskItemProvider extends ImplementationItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Task")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Task")); //$NON-NLS-1$
     }
 
     /**
@@ -152,8 +147,7 @@ public class TaskItemProvider extends ImplementationItemProvider implements
         case Xpdl2Package.TASK__TASK_SEND:
         case Xpdl2Package.TASK__TASK_USER:
         case Xpdl2Package.TASK__TASK_APPLICATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -167,41 +161,32 @@ public class TaskItemProvider extends ImplementationItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_SERVICE,
-                        Xpdl2Factory.eINSTANCE.createTaskService()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_SERVICE,
+                Xpdl2Factory.eINSTANCE.createTaskService()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_RECEIVE,
-                        Xpdl2Factory.eINSTANCE.createTaskReceive()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_RECEIVE,
+                Xpdl2Factory.eINSTANCE.createTaskReceive()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_MANUAL,
-                        Xpdl2Factory.eINSTANCE.createTaskManual()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_MANUAL,
+                Xpdl2Factory.eINSTANCE.createTaskManual()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_REFERENCE,
-                        Xpdl2Factory.eINSTANCE.createTaskReference()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_REFERENCE,
+                Xpdl2Factory.eINSTANCE.createTaskReference()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_SCRIPT,
-                        Xpdl2Factory.eINSTANCE.createTaskScript()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_SCRIPT,
+                Xpdl2Factory.eINSTANCE.createTaskScript()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_SEND,
-                        Xpdl2Factory.eINSTANCE.createTaskSend()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.TASK__TASK_SEND, Xpdl2Factory.eINSTANCE.createTaskSend()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_USER,
-                        Xpdl2Factory.eINSTANCE.createTaskUser()));
+        newChildDescriptors.add(
+                createChildParameter(Xpdl2Package.Literals.TASK__TASK_USER, Xpdl2Factory.eINSTANCE.createTaskUser()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_APPLICATION,
-                        Xpdl2Factory.eINSTANCE.createTaskApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.TASK__TASK_APPLICATION,
+                Xpdl2Factory.eINSTANCE.createTaskApplication()));
     }
 
 }

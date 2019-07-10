@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.PackageHeader#getXpdlVersion <em>Xpdl Version</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.PackageHeader#getVendor <em>Vendor</em>}</li>
@@ -24,21 +25,18 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.PackageHeader#getLayoutInfo <em>Layout Info</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.PackageHeader#getModificationDate <em>Modification Date</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getPackageHeader()
  * @model extendedMetaData="name='PackageHeader_._type' kind='elementOnly' features-order='xPDLVersion vendor created description documentation priorityUnit costUnit vendorExtensions'"
  * @generated
  */
-public interface PackageHeader extends DescribedElement,
-        OtherAttributesContainer {
+public interface PackageHeader extends DescribedElement, OtherAttributesContainer {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Xpdl Version</b></em>' attribute.

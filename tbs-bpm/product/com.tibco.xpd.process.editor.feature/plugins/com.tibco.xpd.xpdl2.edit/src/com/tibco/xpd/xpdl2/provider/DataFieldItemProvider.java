@@ -13,15 +13,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import com.tibco.xpd.xpdExtension.FieldFormat;
+import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
 import com.tibco.xpd.xpdl2.DataField;
@@ -31,21 +28,19 @@ import com.tibco.xpd.xpdl2.ExternalReference;
 import com.tibco.xpd.xpdl2.RecordType;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
 import com.tibco.xpd.xpdl2.Xpdl2Package;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * This is the item provider adapter for a {@link com.tibco.xpd.xpdl2.DataField} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class DataFieldItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DataFieldItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -85,11 +80,12 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -107,11 +103,12 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      */
     protected void addCorrelationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DataField_correlation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DataField_correlation_feature", "_UI_DataField_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DataField_correlation_feature", //$NON-NLS-1$
+                                "_UI_DataField_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DATA_FIELD__CORRELATION,
                         true,
                         false,
@@ -128,11 +125,12 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      */
     protected void addDeprecatedDataIsArrayPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DataField_deprecatedDataIsArray_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DataField_deprecatedDataIsArray_feature", "_UI_DataField_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DataField_deprecatedDataIsArray_feature", //$NON-NLS-1$
+                                "_UI_DataField_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY,
                         true,
                         false,
@@ -150,11 +148,12 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      */
     protected void addReadOnlyPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ProcessRelevantData_readOnly_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ProcessRelevantData_readOnly_feature", "_UI_ProcessRelevantData_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_readOnly_feature", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__READ_ONLY,
                         true,
                         false,
@@ -172,11 +171,12 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      */
     protected void addIsArrayPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ProcessRelevantData_isArray_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ProcessRelevantData_isArray_feature", "_UI_ProcessRelevantData_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_isArray_feature", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__IS_ARRAY,
                         true,
                         false,
@@ -194,20 +194,14 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__DATA_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__LENGTH);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.DATA_FIELD__INITIAL_VALUE);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__DATA_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__LENGTH);
+            childrenFeatures.add(Xpdl2Package.Literals.EXTENDED_ATTRIBUTES_CONTAINER__EXTENDED_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.DATA_FIELD__INITIAL_VALUE);
         }
         return childrenFeatures;
     }
@@ -271,7 +265,18 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
 
                         break;
                     case BasicTypeType.STRING:
-                        img = "DataFieldString"; //$NON-NLS-1$
+                        /*
+                         * Sid ACE-1192 use different image for URI
+                         */
+                        Object fieldFormat = Xpdl2ModelUtil.getOtherAttribute(bt,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_FieldFormat());
+
+                        if (fieldFormat != null && FieldFormat.URI.equals(fieldFormat)) {
+                            img = "DataFieldURI"; //$NON-NLS-1$
+                        } else {
+                            img = "DataFieldString"; //$NON-NLS-1$
+                        }
+
                         break;
                     }
                 }
@@ -286,8 +291,7 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
                 img += "Array"; //$NON-NLS-1$
             }
         }
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
     }
 
     /**
@@ -318,16 +322,14 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.DATA_FIELD__READ_ONLY:
         case Xpdl2Package.DATA_FIELD__CORRELATION:
         case Xpdl2Package.DATA_FIELD__DEPRECATED_DATA_IS_ARRAY:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.DATA_FIELD__OTHER_ELEMENTS:
         case Xpdl2Package.DATA_FIELD__DATA_TYPE:
         case Xpdl2Package.DATA_FIELD__LENGTH:
         case Xpdl2Package.DATA_FIELD__EXTENDED_ATTRIBUTES:
         case Xpdl2Package.DATA_FIELD__INITIAL_VALUE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -342,25 +344,21 @@ public class DataFieldItemProvider extends NamedElementItemProvider implements
      * @generated not
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getExtendedAttributesContainer_ExtendedAttributes(),
-                Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
+        newChildDescriptors
+                .add(createChildParameter(Xpdl2Package.eINSTANCE.getExtendedAttributesContainer_ExtendedAttributes(),
+                        Xpdl2Factory.eINSTANCE.createExtendedAttribute()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getDataField_InitialValue(), Xpdl2Factory.eINSTANCE
-                .createExpression()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getDataField_InitialValue(),
+                Xpdl2Factory.eINSTANCE.createExpression()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getProcessRelevantData_Length(), Xpdl2Factory.eINSTANCE
-                .createLength()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getProcessRelevantData_Length(),
+                Xpdl2Factory.eINSTANCE.createLength()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getDescribedElement_Description(), Xpdl2Factory.eINSTANCE
-                .createDescription()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getDescribedElement_Description(),
+                Xpdl2Factory.eINSTANCE.createDescription()));
     }
 
 }

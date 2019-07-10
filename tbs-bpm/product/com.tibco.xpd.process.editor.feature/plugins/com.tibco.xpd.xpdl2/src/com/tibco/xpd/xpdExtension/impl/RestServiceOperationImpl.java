@@ -27,15 +27,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class RestServiceOperationImpl extends EObjectImpl
-        implements RestServiceOperation {
+public class RestServiceOperationImpl extends EObjectImpl implements RestServiceOperation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -114,8 +112,7 @@ public class RestServiceOperationImpl extends EObjectImpl
         String oldLocation = location;
         location = newLocation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_OPERATION__LOCATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.REST_SERVICE_OPERATION__LOCATION,
                     oldLocation, location));
     }
 
@@ -137,8 +134,7 @@ public class RestServiceOperationImpl extends EObjectImpl
         String oldMethodId = methodId;
         methodId = newMethodId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.REST_SERVICE_OPERATION__METHOD_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.REST_SERVICE_OPERATION__METHOD_ID,
                     oldMethodId, methodId));
     }
 
@@ -203,11 +199,9 @@ public class RestServiceOperationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICE_OPERATION__LOCATION:
-            return LOCATION_EDEFAULT == null ? location != null
-                    : !LOCATION_EDEFAULT.equals(location);
+            return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
         case XpdExtensionPackage.REST_SERVICE_OPERATION__METHOD_ID:
-            return METHOD_ID_EDEFAULT == null ? methodId != null
-                    : !METHOD_ID_EDEFAULT.equals(methodId);
+            return METHOD_ID_EDEFAULT == null ? methodId != null : !METHOD_ID_EDEFAULT.equals(methodId);
         }
         return super.eIsSet(featureID);
     }
@@ -222,7 +216,7 @@ public class RestServiceOperationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (location: "); //$NON-NLS-1$
         result.append(location);
         result.append(", methodId: "); //$NON-NLS-1$

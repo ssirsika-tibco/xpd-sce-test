@@ -23,8 +23,7 @@ public class XpdExtensionResourceImpl extends ResourceExtensions {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Creates an instance of the resource.

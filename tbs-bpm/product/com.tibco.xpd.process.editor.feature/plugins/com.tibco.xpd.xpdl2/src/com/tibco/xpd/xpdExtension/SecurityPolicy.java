@@ -74,8 +74,7 @@ public enum SecurityPolicy implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>Username Token</b></em>' literal value.
@@ -158,8 +157,8 @@ public enum SecurityPolicy implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final SecurityPolicy[] VALUES_ARRAY = new SecurityPolicy[] {
-            USERNAME_TOKEN, X509_TOKEN, SAML_TOKEN, CUSTOM, BASIC, };
+    private static final SecurityPolicy[] VALUES_ARRAY =
+            new SecurityPolicy[] { USERNAME_TOKEN, X509_TOKEN, SAML_TOKEN, CUSTOM, BASIC, };
 
     /**
      * A public read-only list of all the '<em><b>Security Policy</b></em>' enumerators.
@@ -167,8 +166,7 @@ public enum SecurityPolicy implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<SecurityPolicy> VALUES =
-            Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<SecurityPolicy> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Security Policy</b></em>' literal with the specified literal value.

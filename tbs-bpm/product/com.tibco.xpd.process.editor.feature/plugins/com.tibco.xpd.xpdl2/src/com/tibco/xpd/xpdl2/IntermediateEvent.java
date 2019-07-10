@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.IntermediateEvent#getTriggerResultMessage <em>Trigger Result Message</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.IntermediateEvent#getTriggerTimer <em>Trigger Timer</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link com.tibco.xpd.xpdl2.IntermediateEvent#getDeprecatedTriggerRule <em>Deprecated Trigger Rule</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.IntermediateEvent#getDeprecatedResultCompensation <em>Deprecated Result Compensation</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getIntermediateEvent()
  * @model extendedMetaData="name='IntermediateEvent_._type' kind='elementOnly' features-order='triggerResultMessage triggerTimer resultError triggerResultCompensation triggerConditional triggerResultLink triggerIntermediateMultiple'"
@@ -44,8 +44,7 @@ public interface IntermediateEvent extends Event {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Trigger Result Message</b></em>' containment reference.

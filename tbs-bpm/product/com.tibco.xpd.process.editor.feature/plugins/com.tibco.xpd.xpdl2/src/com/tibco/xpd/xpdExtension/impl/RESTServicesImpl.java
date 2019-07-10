@@ -42,8 +42,7 @@ public class RESTServicesImpl extends EObjectImpl implements RESTServices {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getRESTServices() <em>REST Services</em>}' containment reference list.
@@ -81,10 +80,8 @@ public class RESTServicesImpl extends EObjectImpl implements RESTServices {
      */
     public EList<com.tibco.xpd.xpdl2.Process> getRESTServices() {
         if (restServices == null) {
-            restServices =
-                    new EObjectContainmentEList<com.tibco.xpd.xpdl2.Process>(
-                            com.tibco.xpd.xpdl2.Process.class, this,
-                            XpdExtensionPackage.REST_SERVICES__REST_SERVICES);
+            restServices = new EObjectContainmentEList<com.tibco.xpd.xpdl2.Process>(com.tibco.xpd.xpdl2.Process.class,
+                    this, XpdExtensionPackage.REST_SERVICES__REST_SERVICES);
         }
         return restServices;
     }
@@ -95,12 +92,10 @@ public class RESTServicesImpl extends EObjectImpl implements RESTServices {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICES__REST_SERVICES:
-            return ((InternalEList<?>) getRESTServices()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getRESTServices()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -130,8 +125,7 @@ public class RESTServicesImpl extends EObjectImpl implements RESTServices {
         switch (featureID) {
         case XpdExtensionPackage.REST_SERVICES__REST_SERVICES:
             getRESTServices().clear();
-            getRESTServices().addAll(
-                    (Collection<? extends com.tibco.xpd.xpdl2.Process>) newValue);
+            getRESTServices().addAll((Collection<? extends com.tibco.xpd.xpdl2.Process>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

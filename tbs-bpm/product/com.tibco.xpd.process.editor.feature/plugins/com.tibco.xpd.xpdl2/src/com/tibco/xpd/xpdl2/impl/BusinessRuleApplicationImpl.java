@@ -24,23 +24,21 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BusinessRuleApplicationImpl#getRuleName <em>Rule Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.BusinessRuleApplicationImpl#getLocation <em>Location</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BusinessRuleApplicationImpl extends EObjectImpl implements
-        BusinessRuleApplication {
+public class BusinessRuleApplicationImpl extends EObjectImpl implements BusinessRuleApplication {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getRuleName() <em>Rule Name</em>}' containment reference.
@@ -95,15 +93,12 @@ public class BusinessRuleApplicationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRuleName(RuleName newRuleName,
-            NotificationChain msgs) {
+    public NotificationChain basicSetRuleName(RuleName newRuleName, NotificationChain msgs) {
         RuleName oldRuleName = ruleName;
         ruleName = newRuleName;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
-                            oldRuleName, newRuleName);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME, oldRuleName, newRuleName);
             if (msgs == null)
                 msgs = notification;
             else
@@ -121,27 +116,20 @@ public class BusinessRuleApplicationImpl extends EObjectImpl implements
         if (newRuleName != ruleName) {
             NotificationChain msgs = null;
             if (ruleName != null)
-                msgs =
-                        ((InternalEObject) ruleName)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) ruleName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
+                        null,
+                        msgs);
             if (newRuleName != null)
-                msgs =
-                        ((InternalEObject) newRuleName)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newRuleName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
+                        null,
+                        msgs);
             msgs = basicSetRuleName(newRuleName, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME,
                     newRuleName, newRuleName));
     }
 
@@ -159,15 +147,12 @@ public class BusinessRuleApplicationImpl extends EObjectImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocation(Location newLocation,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLocation(Location newLocation, NotificationChain msgs) {
         Location oldLocation = location;
         location = newLocation;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
-                            oldLocation, newLocation);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION, oldLocation, newLocation);
             if (msgs == null)
                 msgs = notification;
             else
@@ -185,27 +170,20 @@ public class BusinessRuleApplicationImpl extends EObjectImpl implements
         if (newLocation != location) {
             NotificationChain msgs = null;
             if (location != null)
-                msgs =
-                        ((InternalEObject) location)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) location).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
+                        null,
+                        msgs);
             if (newLocation != null)
-                msgs =
-                        ((InternalEObject) newLocation)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newLocation).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
+                        null,
+                        msgs);
             msgs = basicSetLocation(newLocation, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.BUSINESS_RULE_APPLICATION__LOCATION,
                     newLocation, newLocation));
     }
 
@@ -215,8 +193,7 @@ public class BusinessRuleApplicationImpl extends EObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.BUSINESS_RULE_APPLICATION__RULE_NAME:
             return basicSetRuleName(null, msgs);

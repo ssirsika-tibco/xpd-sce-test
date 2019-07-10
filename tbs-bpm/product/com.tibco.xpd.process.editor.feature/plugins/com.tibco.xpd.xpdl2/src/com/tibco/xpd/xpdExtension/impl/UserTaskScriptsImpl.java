@@ -34,16 +34,14 @@ import com.tibco.xpd.xpdl2.Expression;
  *
  * @generated
  */
-public class UserTaskScriptsImpl extends EObjectImpl
-        implements UserTaskScripts {
+public class UserTaskScriptsImpl extends EObjectImpl implements UserTaskScripts {
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOpenScript() <em>Open Script</em>}' containment reference.
@@ -128,15 +126,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOpenScript(Expression newOpenScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetOpenScript(Expression newOpenScript, NotificationChain msgs) {
         Expression oldOpenScript = openScript;
         openScript = newOpenScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
-                            oldOpenScript, newOpenScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT, oldOpenScript, newOpenScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -155,22 +150,19 @@ public class UserTaskScriptsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (openScript != null)
                 msgs = ((InternalEObject) openScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
                         null,
                         msgs);
             if (newOpenScript != null)
                 msgs = ((InternalEObject) newOpenScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetOpenScript(newOpenScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT,
                     newOpenScript, newOpenScript));
     }
 
@@ -188,15 +180,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCloseScript(Expression newCloseScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetCloseScript(Expression newCloseScript, NotificationChain msgs) {
         Expression oldCloseScript = closeScript;
         closeScript = newCloseScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
-                            oldCloseScript, newCloseScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT, oldCloseScript, newCloseScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -215,22 +204,19 @@ public class UserTaskScriptsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (closeScript != null)
                 msgs = ((InternalEObject) closeScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
                         null,
                         msgs);
             if (newCloseScript != null)
                 msgs = ((InternalEObject) newCloseScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetCloseScript(newCloseScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.USER_TASK_SCRIPTS__CLOSE_SCRIPT,
                     newCloseScript, newCloseScript));
     }
 
@@ -248,15 +234,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSubmitScript(Expression newSubmitScript,
-            NotificationChain msgs) {
+    public NotificationChain basicSetSubmitScript(Expression newSubmitScript, NotificationChain msgs) {
         Expression oldSubmitScript = submitScript;
         submitScript = newSubmitScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
-                    oldSubmitScript, newSubmitScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT, oldSubmitScript, newSubmitScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -275,22 +258,19 @@ public class UserTaskScriptsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (submitScript != null)
                 msgs = ((InternalEObject) submitScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
                         null,
                         msgs);
             if (newSubmitScript != null)
                 msgs = ((InternalEObject) newSubmitScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetSubmitScript(newSubmitScript, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.USER_TASK_SCRIPTS__SUBMIT_SCRIPT,
                     newSubmitScript, newSubmitScript));
     }
 
@@ -308,15 +288,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScheduleScript(
-            Expression newScheduleScript, NotificationChain msgs) {
+    public NotificationChain basicSetScheduleScript(Expression newScheduleScript, NotificationChain msgs) {
         Expression oldScheduleScript = scheduleScript;
         scheduleScript = newScheduleScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
-                    oldScheduleScript, newScheduleScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT, oldScheduleScript, newScheduleScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -335,14 +312,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (scheduleScript != null)
                 msgs = ((InternalEObject) scheduleScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
                         null,
                         msgs);
             if (newScheduleScript != null)
                 msgs = ((InternalEObject) newScheduleScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetScheduleScript(newScheduleScript, msgs);
@@ -350,8 +325,7 @@ public class UserTaskScriptsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT,
-                    newScheduleScript, newScheduleScript));
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__SCHEDULE_SCRIPT, newScheduleScript, newScheduleScript));
     }
 
     /**
@@ -368,15 +342,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRescheduleScript(
-            Expression newRescheduleScript, NotificationChain msgs) {
+    public NotificationChain basicSetRescheduleScript(Expression newRescheduleScript, NotificationChain msgs) {
         Expression oldRescheduleScript = rescheduleScript;
         rescheduleScript = newRescheduleScript;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
-                    oldRescheduleScript, newRescheduleScript);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT, oldRescheduleScript, newRescheduleScript);
             if (msgs == null)
                 msgs = notification;
             else
@@ -395,14 +366,12 @@ public class UserTaskScriptsImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (rescheduleScript != null)
                 msgs = ((InternalEObject) rescheduleScript).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
                         null,
                         msgs);
             if (newRescheduleScript != null)
                 msgs = ((InternalEObject) newRescheduleScript).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
                         null,
                         msgs);
             msgs = basicSetRescheduleScript(newRescheduleScript, msgs);
@@ -410,8 +379,8 @@ public class UserTaskScriptsImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT,
-                    newRescheduleScript, newRescheduleScript));
+                    XpdExtensionPackage.USER_TASK_SCRIPTS__RESCHEDULE_SCRIPT, newRescheduleScript,
+                    newRescheduleScript));
     }
 
     /**
@@ -420,8 +389,7 @@ public class UserTaskScriptsImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.USER_TASK_SCRIPTS__OPEN_SCRIPT:
             return basicSetOpenScript(null, msgs);

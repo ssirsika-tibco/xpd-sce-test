@@ -13,6 +13,7 @@ package com.tibco.xpd.xpdl2;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.Artifact#getObject <em>Object</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Artifact#getDataObject <em>Data Object</em>}</li>
@@ -21,7 +22,6 @@ package com.tibco.xpd.xpdl2;
  *   <li>{@link com.tibco.xpd.xpdl2.Artifact#getPackage <em>Package</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.Artifact#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.tibco.xpd.xpdl2.Xpdl2Package#getArtifact()
  * @model extendedMetaData="name='Artifact_._type' kind='elementOnly' features-order='object dataObject nodeGraphicsInfos'"
@@ -33,8 +33,7 @@ public interface Artifact extends NamedElement, GraphicalNode {
      * <!-- end-user-doc -->
      * @generated
      */
-    String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * Returns the value of the '<em><b>Object</b></em>' containment reference.

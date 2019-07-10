@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class WorkItemPriorityImpl extends EObjectImpl
-        implements WorkItemPriority {
+public class WorkItemPriorityImpl extends EObjectImpl implements WorkItemPriority {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getInitialPriority() <em>Initial Priority</em>}' attribute.
@@ -98,8 +96,7 @@ public class WorkItemPriorityImpl extends EObjectImpl
         initialPriority = newInitialPriority;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WORK_ITEM_PRIORITY__INITIAL_PRIORITY,
-                    oldInitialPriority, initialPriority));
+                    XpdExtensionPackage.WORK_ITEM_PRIORITY__INITIAL_PRIORITY, oldInitialPriority, initialPriority));
     }
 
     /**
@@ -171,7 +168,7 @@ public class WorkItemPriorityImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (initialPriority: "); //$NON-NLS-1$
         result.append(initialPriority);
         result.append(')');

@@ -111,22 +111,22 @@ public enum TriggerType implements Enumerator {
      * @generated
      * @ordered
      */
-    SIGNAL_LITERAL(9, "Signal", "Signal"), /**
-                                            * The '<em><b>Deprecated Rule</b></em>' literal object.
-                                            * <!-- begin-user-doc -->
-                                            * <!-- end-user-doc -->
-                                            * @see #DEPRECATED_RULE
-                                            * @generated
-                                            * @ordered
-                                            */
+    SIGNAL_LITERAL(9, "Signal", "Signal"),
+    /**
+    * The '<em><b>Deprecated Rule</b></em>' literal object.
+    * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+    * @see #DEPRECATED_RULE
+    * @generated
+    * @ordered
+    */
     DEPRECATED_RULE_LITERAL(10, "DeprecatedRule", "DeprecatedRule");
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>None</b></em>' literal value.
@@ -299,11 +299,9 @@ public enum TriggerType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final TriggerType[] VALUES_ARRAY = new TriggerType[] {
-            NONE_LITERAL, MESSAGE_LITERAL, TIMER_LITERAL, ERROR_LITERAL,
-            CANCEL_LITERAL, CONDITIONAL_LITERAL, LINK_LITERAL,
-            COMPENSATION_LITERAL, MULTIPLE_LITERAL, SIGNAL_LITERAL,
-            DEPRECATED_RULE_LITERAL, };
+    private static final TriggerType[] VALUES_ARRAY = new TriggerType[] { NONE_LITERAL, MESSAGE_LITERAL, TIMER_LITERAL,
+            ERROR_LITERAL, CANCEL_LITERAL, CONDITIONAL_LITERAL, LINK_LITERAL, COMPENSATION_LITERAL, MULTIPLE_LITERAL,
+            SIGNAL_LITERAL, DEPRECATED_RULE_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Trigger Type</b></em>' enumerators.
@@ -311,13 +309,14 @@ public enum TriggerType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<TriggerType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<TriggerType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Trigger Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TriggerType get(String literal) {
@@ -334,6 +333,8 @@ public enum TriggerType implements Enumerator {
      * Returns the '<em><b>Trigger Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TriggerType getByName(String name) {
@@ -350,6 +351,8 @@ public enum TriggerType implements Enumerator {
      * Returns the '<em><b>Trigger Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static TriggerType get(int value) {

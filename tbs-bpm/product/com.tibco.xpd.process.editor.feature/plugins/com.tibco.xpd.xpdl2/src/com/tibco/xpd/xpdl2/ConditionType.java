@@ -61,8 +61,7 @@ public enum ConditionType implements Enumerator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The '<em><b>CONDITION</b></em>' literal value.
@@ -131,21 +130,21 @@ public enum ConditionType implements Enumerator {
      * 
      * @generated
      */
-    private static final ConditionType[] VALUES_ARRAY = new ConditionType[] {
-            CONDITION_LITERAL, OTHERWISE_LITERAL, EXCEPTION_LITERAL,
-            DEFAULTEXCEPTION_LITERAL, };
+    private static final ConditionType[] VALUES_ARRAY =
+            new ConditionType[] { CONDITION_LITERAL, OTHERWISE_LITERAL, EXCEPTION_LITERAL, DEFAULTEXCEPTION_LITERAL, };
 
     /**
      * A public read-only list of all the '<em><b>Condition Type</b></em>' enumerators.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final List<ConditionType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ConditionType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Condition Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ConditionType get(String literal) {
@@ -161,6 +160,8 @@ public enum ConditionType implements Enumerator {
     /**
      * Returns the '<em><b>Condition Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ConditionType getByName(String name) {
@@ -176,6 +177,8 @@ public enum ConditionType implements Enumerator {
     /**
      * Returns the '<em><b>Condition Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ConditionType get(int value) {

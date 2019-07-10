@@ -38,6 +38,7 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageFlowImpl#getConnectorGraphicsInfos <em>Connector Graphics Infos</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageFlowImpl#getOtherElements <em>Other Elements</em>}</li>
@@ -47,7 +48,6 @@ import com.tibco.xpd.xpdl2.extension.EMFSearchUtil;
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageFlowImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.MessageFlowImpl#getPackage <em>Package</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -57,8 +57,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getConnectorGraphicsInfos() <em>Connector Graphics Infos</em>}' containment reference list.
@@ -166,10 +165,8 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      */
     public EList<ConnectorGraphicsInfo> getConnectorGraphicsInfos() {
         if (connectorGraphicsInfos == null) {
-            connectorGraphicsInfos =
-                    new EObjectContainmentEList<ConnectorGraphicsInfo>(
-                            ConnectorGraphicsInfo.class, this,
-                            Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS);
+            connectorGraphicsInfos = new EObjectContainmentEList<ConnectorGraphicsInfo>(ConnectorGraphicsInfo.class,
+                    this, Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS);
         }
         return connectorGraphicsInfos;
     }
@@ -181,9 +178,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      */
     public FeatureMap getOtherElements() {
         if (otherElements == null) {
-            otherElements =
-                    new BasicFeatureMap(this,
-                            Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS);
+            otherElements = new BasicFeatureMap(this, Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS);
         }
         return otherElements;
     }
@@ -202,15 +197,12 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMessage(Message newMessage,
-            NotificationChain msgs) {
+    public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs) {
         Message oldMessage = message;
         message = newMessage;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.MESSAGE_FLOW__MESSAGE, oldMessage,
-                            newMessage);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.MESSAGE_FLOW__MESSAGE, oldMessage, newMessage);
             if (msgs == null)
                 msgs = notification;
             else
@@ -228,25 +220,17 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         if (newMessage != message) {
             NotificationChain msgs = null;
             if (message != null)
-                msgs =
-                        ((InternalEObject) message).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.MESSAGE_FLOW__MESSAGE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) message)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.MESSAGE_FLOW__MESSAGE, null, msgs);
             if (newMessage != null)
-                msgs =
-                        ((InternalEObject) newMessage).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.MESSAGE_FLOW__MESSAGE,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newMessage)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.MESSAGE_FLOW__MESSAGE, null, msgs);
             msgs = basicSetMessage(newMessage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE_FLOW__MESSAGE, newMessage, newMessage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE_FLOW__MESSAGE, newMessage,
+                    newMessage));
     }
 
     /**
@@ -263,15 +247,12 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetObject(
-            com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
+    public NotificationChain basicSetObject(com.tibco.xpd.xpdl2.Object newObject, NotificationChain msgs) {
         com.tibco.xpd.xpdl2.Object oldObject = object;
         object = newObject;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.MESSAGE_FLOW__OBJECT, oldObject,
-                            newObject);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.MESSAGE_FLOW__OBJECT, oldObject, newObject);
             if (msgs == null)
                 msgs = notification;
             else
@@ -289,25 +270,17 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         if (newObject != object) {
             NotificationChain msgs = null;
             if (object != null)
-                msgs =
-                        ((InternalEObject) object).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.MESSAGE_FLOW__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) object)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.MESSAGE_FLOW__OBJECT, null, msgs);
             if (newObject != null)
-                msgs =
-                        ((InternalEObject) newObject).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.MESSAGE_FLOW__OBJECT,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newObject)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.MESSAGE_FLOW__OBJECT, null, msgs);
             msgs = basicSetObject(newObject, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE_FLOW__OBJECT, newObject, newObject));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE_FLOW__OBJECT, newObject,
+                    newObject));
     }
 
     /**
@@ -328,8 +301,8 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         String oldSource = source;
         source = newSource;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE_FLOW__SOURCE, oldSource, source));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE_FLOW__SOURCE, oldSource,
+                    source));
     }
 
     /**
@@ -350,8 +323,8 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         String oldTarget = target;
         target = newTarget;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE_FLOW__TARGET, oldTarget, target));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE_FLOW__TARGET, oldTarget,
+                    target));
     }
 
     /**
@@ -370,12 +343,8 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPackage(
-            com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
-        msgs =
-                eBasicSetContainer((InternalEObject) newPackage,
-                        Xpdl2Package.MESSAGE_FLOW__PACKAGE,
-                        msgs);
+    public NotificationChain basicSetPackage(com.tibco.xpd.xpdl2.Package newPackage, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newPackage, Xpdl2Package.MESSAGE_FLOW__PACKAGE, msgs);
         return msgs;
     }
 
@@ -388,23 +357,21 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         if (newPackage != eInternalContainer()
                 || (eContainerFeatureID() != Xpdl2Package.MESSAGE_FLOW__PACKAGE && newPackage != null)) {
             if (EcoreUtil.isAncestor(this, newPackage))
-                throw new IllegalArgumentException(
-                        "Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newPackage != null)
-                msgs =
-                        ((InternalEObject) newPackage).eInverseAdd(this,
-                                Xpdl2Package.PACKAGE__MESSAGE_FLOWS,
-                                com.tibco.xpd.xpdl2.Package.class,
-                                msgs);
+                msgs = ((InternalEObject) newPackage).eInverseAdd(this,
+                        Xpdl2Package.PACKAGE__MESSAGE_FLOWS,
+                        com.tibco.xpd.xpdl2.Package.class,
+                        msgs);
             msgs = basicSetPackage(newPackage, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.MESSAGE_FLOW__PACKAGE, newPackage, newPackage));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.MESSAGE_FLOW__PACKAGE, newPackage,
+                    newPackage));
     }
 
     /**
@@ -475,8 +442,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.MESSAGE_FLOW__PACKAGE:
             if (eInternalContainer() != null)
@@ -492,15 +458,12 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS:
-            return ((InternalEList<?>) getConnectorGraphicsInfos())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConnectorGraphicsInfos()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS:
-            return ((InternalEList<?>) getOtherElements())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOtherElements()).basicRemove(otherEnd, msgs);
         case Xpdl2Package.MESSAGE_FLOW__MESSAGE:
             return basicSetMessage(null, msgs);
         case Xpdl2Package.MESSAGE_FLOW__OBJECT:
@@ -517,14 +480,11 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(
-            NotificationChain msgs) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case Xpdl2Package.MESSAGE_FLOW__PACKAGE:
-            return eInternalContainer().eInverseRemove(this,
-                    Xpdl2Package.PACKAGE__MESSAGE_FLOWS,
-                    com.tibco.xpd.xpdl2.Package.class,
-                    msgs);
+            return eInternalContainer()
+                    .eInverseRemove(this, Xpdl2Package.PACKAGE__MESSAGE_FLOWS, com.tibco.xpd.xpdl2.Package.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -568,8 +528,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         switch (featureID) {
         case Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS:
             getConnectorGraphicsInfos().clear();
-            getConnectorGraphicsInfos()
-                    .addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
+            getConnectorGraphicsInfos().addAll((Collection<? extends ConnectorGraphicsInfo>) newValue);
             return;
         case Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS:
             ((FeatureMap.Internal) getOtherElements()).set(newValue);
@@ -635,8 +594,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.MESSAGE_FLOW__CONNECTOR_GRAPHICS_INFOS:
-            return connectorGraphicsInfos != null
-                    && !connectorGraphicsInfos.isEmpty();
+            return connectorGraphicsInfos != null && !connectorGraphicsInfos.isEmpty();
         case Xpdl2Package.MESSAGE_FLOW__OTHER_ELEMENTS:
             return otherElements != null && !otherElements.isEmpty();
         case Xpdl2Package.MESSAGE_FLOW__MESSAGE:
@@ -644,11 +602,9 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         case Xpdl2Package.MESSAGE_FLOW__OBJECT:
             return object != null;
         case Xpdl2Package.MESSAGE_FLOW__SOURCE:
-            return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT
-                    .equals(source);
+            return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
         case Xpdl2Package.MESSAGE_FLOW__TARGET:
-            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT
-                    .equals(target);
+            return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
         case Xpdl2Package.MESSAGE_FLOW__PACKAGE:
             return getPackage() != null;
         }
@@ -717,7 +673,7 @@ public class MessageFlowImpl extends NamedElementImpl implements MessageFlow {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (otherElements: "); //$NON-NLS-1$
         result.append(otherElements);
         result.append(", source: "); //$NON-NLS-1$

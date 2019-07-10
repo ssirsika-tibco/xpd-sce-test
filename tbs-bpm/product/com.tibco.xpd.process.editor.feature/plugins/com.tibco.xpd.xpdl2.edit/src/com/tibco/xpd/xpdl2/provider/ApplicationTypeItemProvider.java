@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationTypeItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ApplicationTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,22 +78,17 @@ public class ApplicationTypeItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__EJB);
             childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__POJO);
             childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__XSLT);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATION_TYPE__SCRIPT);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATION_TYPE__WEB_SERVICE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATION_TYPE__BUSINESS_RULE);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__SCRIPT);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__WEB_SERVICE);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__BUSINESS_RULE);
             childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__FORM);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.APPLICATION_TYPE__ANY_ATTRIBUTE);
+            childrenFeatures.add(Xpdl2Package.Literals.APPLICATION_TYPE__ANY_ATTRIBUTE);
         }
         return childrenFeatures;
     }
@@ -121,8 +114,7 @@ public class ApplicationTypeItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ApplicationType")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationType")); //$NON-NLS-1$
     }
 
     /**
@@ -156,8 +148,7 @@ public class ApplicationTypeItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.APPLICATION_TYPE__BUSINESS_RULE:
         case Xpdl2Package.APPLICATION_TYPE__FORM:
         case Xpdl2Package.APPLICATION_TYPE__ANY_ATTRIBUTE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -171,37 +162,29 @@ public class ApplicationTypeItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__EJB,
-                        Xpdl2Factory.eINSTANCE.createEjbApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__EJB,
+                Xpdl2Factory.eINSTANCE.createEjbApplication()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__POJO,
-                        Xpdl2Factory.eINSTANCE.createPojoApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__POJO,
+                Xpdl2Factory.eINSTANCE.createPojoApplication()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__XSLT,
-                        Xpdl2Factory.eINSTANCE.createXsltApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__XSLT,
+                Xpdl2Factory.eINSTANCE.createXsltApplication()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__SCRIPT,
-                        Xpdl2Factory.eINSTANCE.createScript()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__SCRIPT,
+                Xpdl2Factory.eINSTANCE.createScript()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__WEB_SERVICE,
-                        Xpdl2Factory.eINSTANCE.createWebServiceApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__WEB_SERVICE,
+                Xpdl2Factory.eINSTANCE.createWebServiceApplication()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__BUSINESS_RULE,
-                        Xpdl2Factory.eINSTANCE.createBusinessRuleApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__BUSINESS_RULE,
+                Xpdl2Factory.eINSTANCE.createBusinessRuleApplication()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__FORM,
-                        Xpdl2Factory.eINSTANCE.createFormApplication()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.APPLICATION_TYPE__FORM,
+                Xpdl2Factory.eINSTANCE.createFormApplication()));
     }
 
     /**

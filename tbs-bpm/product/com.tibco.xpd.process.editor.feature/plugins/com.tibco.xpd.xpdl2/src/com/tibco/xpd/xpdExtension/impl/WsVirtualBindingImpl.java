@@ -17,15 +17,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class WsVirtualBindingImpl extends WsBindingImpl
-        implements WsVirtualBinding {
+public class WsVirtualBindingImpl extends WsBindingImpl implements WsVirtualBinding {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->

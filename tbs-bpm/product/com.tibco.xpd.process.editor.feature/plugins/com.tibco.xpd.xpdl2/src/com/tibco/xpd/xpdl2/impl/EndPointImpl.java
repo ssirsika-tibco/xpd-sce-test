@@ -24,11 +24,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndPointImpl#getExternalReference <em>External Reference</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.EndPointImpl#getEndPointType <em>End Point Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -38,8 +38,7 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getExternalReference() <em>External Reference</em>}' containment reference.
@@ -59,8 +58,7 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
      * @generated
      * @ordered
      */
-    protected static final EndPointTypeType END_POINT_TYPE_EDEFAULT =
-            EndPointTypeType.WSDL_LITERAL;
+    protected static final EndPointTypeType END_POINT_TYPE_EDEFAULT = EndPointTypeType.WSDL_LITERAL;
 
     /**
      * The cached value of the '{@link #getEndPointType() <em>End Point Type</em>}' attribute.
@@ -114,15 +112,12 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetExternalReference(
-            ExternalReference newExternalReference, NotificationChain msgs) {
+    public NotificationChain basicSetExternalReference(ExternalReference newExternalReference, NotificationChain msgs) {
         ExternalReference oldExternalReference = externalReference;
         externalReference = newExternalReference;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
-                            oldExternalReference, newExternalReference);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.END_POINT__EXTERNAL_REFERENCE, oldExternalReference, newExternalReference);
             if (msgs == null)
                 msgs = notification;
             else
@@ -140,27 +135,20 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
         if (newExternalReference != externalReference) {
             NotificationChain msgs = null;
             if (externalReference != null)
-                msgs =
-                        ((InternalEObject) externalReference)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) externalReference).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             if (newExternalReference != null)
-                msgs =
-                        ((InternalEObject) newExternalReference)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newExternalReference).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
+                        null,
+                        msgs);
             msgs = basicSetExternalReference(newExternalReference, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_POINT__EXTERNAL_REFERENCE,
                     newExternalReference, newExternalReference));
     }
 
@@ -180,15 +168,12 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
      */
     public void setEndPointType(EndPointTypeType newEndPointType) {
         EndPointTypeType oldEndPointType = endPointType;
-        endPointType =
-                newEndPointType == null ? END_POINT_TYPE_EDEFAULT
-                        : newEndPointType;
+        endPointType = newEndPointType == null ? END_POINT_TYPE_EDEFAULT : newEndPointType;
         boolean oldEndPointTypeESet = endPointTypeESet;
         endPointTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.END_POINT__END_POINT_TYPE, oldEndPointType,
-                    endPointType, !oldEndPointTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.END_POINT__END_POINT_TYPE,
+                    oldEndPointType, endPointType, !oldEndPointTypeESet));
     }
 
     /**
@@ -202,9 +187,8 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
         endPointType = END_POINT_TYPE_EDEFAULT;
         endPointTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.END_POINT__END_POINT_TYPE, oldEndPointType,
-                    END_POINT_TYPE_EDEFAULT, oldEndPointTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.END_POINT__END_POINT_TYPE,
+                    oldEndPointType, END_POINT_TYPE_EDEFAULT, oldEndPointTypeESet));
     }
 
     /**
@@ -222,8 +206,7 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.END_POINT__EXTERNAL_REFERENCE:
             return basicSetExternalReference(null, msgs);
@@ -309,7 +292,7 @@ public class EndPointImpl extends EObjectImpl implements EndPoint {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (endPointType: "); //$NON-NLS-1$
         if (endPointTypeESet)
             result.append(endPointType);

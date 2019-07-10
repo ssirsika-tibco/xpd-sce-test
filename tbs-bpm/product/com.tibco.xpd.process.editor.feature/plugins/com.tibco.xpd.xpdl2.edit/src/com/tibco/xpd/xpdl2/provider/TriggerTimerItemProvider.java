@@ -35,16 +35,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TriggerTimerItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TriggerTimerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +81,12 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      */
     protected void addDeprecatedTimeCyclePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TriggerTimer_deprecatedTimeCycle_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TriggerTimer_deprecatedTimeCycle_feature", "_UI_TriggerTimer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TriggerTimer_deprecatedTimeCycle_feature", //$NON-NLS-1$
+                                "_UI_TriggerTimer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TRIGGER_TIMER__DEPRECATED_TIME_CYCLE,
                         true,
                         false,
@@ -105,11 +104,12 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      */
     protected void addDeprecatedTimeDatePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TriggerTimer_deprecatedTimeDate_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TriggerTimer_deprecatedTimeDate_feature", "_UI_TriggerTimer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TriggerTimer_deprecatedTimeDate_feature", //$NON-NLS-1$
+                                "_UI_TriggerTimer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TRIGGER_TIMER__DEPRECATED_TIME_DATE,
                         true,
                         false,
@@ -127,11 +127,12 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      */
     protected void addTimeCyclePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TriggerTimer_timeCycle_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TriggerTimer_timeCycle_feature", "_UI_TriggerTimer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TriggerTimer_timeCycle_feature", //$NON-NLS-1$
+                                "_UI_TriggerTimer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TRIGGER_TIMER__TIME_CYCLE,
                         true,
                         false,
@@ -149,11 +150,12 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      */
     protected void addTimeDatePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_TriggerTimer_timeDate_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_TriggerTimer_timeDate_feature", "_UI_TriggerTimer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_TriggerTimer_timeDate_feature", //$NON-NLS-1$
+                                "_UI_TriggerTimer_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.TRIGGER_TIMER__TIME_DATE,
                         true,
                         false,
@@ -172,14 +174,11 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ATTRIBUTES_CONTAINER__OTHER_ATTRIBUTES);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
         }
         return childrenFeatures;
     }
@@ -205,8 +204,7 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/TriggerTimer")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/TriggerTimer")); //$NON-NLS-1$
     }
 
     /**
@@ -238,13 +236,11 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
         case Xpdl2Package.TRIGGER_TIMER__DEPRECATED_TIME_DATE:
         case Xpdl2Package.TRIGGER_TIMER__TIME_DATE:
         case Xpdl2Package.TRIGGER_TIMER__TIME_CYCLE:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.TRIGGER_TIMER__OTHER_ATTRIBUTES:
         case Xpdl2Package.TRIGGER_TIMER__OTHER_ELEMENTS:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -258,8 +254,7 @@ public class TriggerTimerItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

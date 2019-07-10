@@ -43,16 +43,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExpressionItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ExpressionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -88,11 +86,12 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
      */
     protected void addScriptGrammarPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Expression_scriptGrammar_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Expression_scriptGrammar_feature", "_UI_Expression_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_Expression_scriptGrammar_feature", //$NON-NLS-1$
+                                "_UI_Expression_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.EXPRESSION__SCRIPT_GRAMMAR,
                         true,
                         false,
@@ -111,8 +110,7 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(Xpdl2Package.Literals.EXPRESSION__MIXED);
@@ -141,8 +139,7 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Expression")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Expression")); //$NON-NLS-1$
     }
 
     /**
@@ -171,12 +168,10 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 
         switch (notification.getFeatureID(Expression.class)) {
         case Xpdl2Package.EXPRESSION__SCRIPT_GRAMMAR:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.EXPRESSION__MIXED:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -190,40 +185,25 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT, ""))); //$NON-NLS-1$
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
-                                        XMLTypeFactory.eINSTANCE
-                                                .createProcessingInstruction())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+                        XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
-                        FeatureMapUtil
-                                .createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
-                                        ""))); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
+                FeatureMapUtil.createEntry(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA, ""))); //$NON-NLS-1$
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
-                        FeatureMapUtil
-                                .createEntry(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
-                                        Xpdl2Factory.eINSTANCE.createPackage())));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.EXPRESSION__MIXED,
+                FeatureMapUtil.createEntry(Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE,
+                        Xpdl2Factory.eINSTANCE.createPackage())));
     }
 
     /**
@@ -233,26 +213,22 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public String getCreateChildText(Object owner, Object feature,
-            Object child, Collection<?> selection) {
+    public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
         Object childFeature = feature;
         Object childObject = child;
 
         if (childFeature instanceof EStructuralFeature
-                && FeatureMapUtil
-                        .isFeatureMap((EStructuralFeature) childFeature)) {
+                && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
             FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
             childFeature = entry.getEStructuralFeature();
             childObject = entry.getValue();
         }
 
-        boolean qualify =
-                childFeature == Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE;
+        boolean qualify = childFeature == Xpdl2Package.Literals.DOCUMENT_ROOT__PACKAGE;
 
         if (qualify) {
             return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText(childObject),
-                            getFeatureText(childFeature), getTypeText(owner) });
+                    new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

@@ -36,16 +36,14 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class XpdExtAttributeImpl extends EObjectImpl
-        implements XpdExtAttribute {
+public class XpdExtAttributeImpl extends EObjectImpl implements XpdExtAttribute {
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -143,8 +141,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
      */
     public FeatureMap getMixed() {
         if (mixed == null) {
-            mixed = new BasicFeatureMap(this,
-                    XpdExtensionPackage.XPD_EXT_ATTRIBUTE__MIXED);
+            mixed = new BasicFeatureMap(this, XpdExtensionPackage.XPD_EXT_ATTRIBUTE__MIXED);
         }
         return mixed;
     }
@@ -156,8 +153,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
      */
     public FeatureMap getGroup() {
         if (group == null) {
-            group = new BasicFeatureMap(this,
-                    XpdExtensionPackage.XPD_EXT_ATTRIBUTE__GROUP);
+            group = new BasicFeatureMap(this, XpdExtensionPackage.XPD_EXT_ATTRIBUTE__GROUP);
         }
         return group;
     }
@@ -169,8 +165,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
      */
     public FeatureMap getAny() {
         if (any == null) {
-            any = new BasicFeatureMap(this,
-                    XpdExtensionPackage.XPD_EXT_ATTRIBUTE__ANY);
+            any = new BasicFeatureMap(this, XpdExtensionPackage.XPD_EXT_ATTRIBUTE__ANY);
         }
         return any;
     }
@@ -193,8 +188,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_ATTRIBUTE__NAME, oldName,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.XPD_EXT_ATTRIBUTE__NAME, oldName,
                     name));
     }
 
@@ -216,9 +210,8 @@ public class XpdExtAttributeImpl extends EObjectImpl
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.XPD_EXT_ATTRIBUTE__VALUE, oldValue,
-                    value));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.XPD_EXT_ATTRIBUTE__VALUE,
+                    oldValue, value));
     }
 
     /**
@@ -227,8 +220,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__MIXED:
             return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
@@ -337,11 +329,9 @@ public class XpdExtAttributeImpl extends EObjectImpl
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__ANY:
             return any != null && !any.isEmpty();
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__NAME:
-            return NAME_EDEFAULT == null ? name != null
-                    : !NAME_EDEFAULT.equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case XpdExtensionPackage.XPD_EXT_ATTRIBUTE__VALUE:
-            return VALUE_EDEFAULT == null ? value != null
-                    : !VALUE_EDEFAULT.equals(value);
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
         }
         return super.eIsSet(featureID);
     }
@@ -356,7 +346,7 @@ public class XpdExtAttributeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (mixed: "); //$NON-NLS-1$
         result.append(mixed);
         result.append(", group: "); //$NON-NLS-1$

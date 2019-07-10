@@ -28,13 +28,13 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopImpl#getLoopStandard <em>Loop Standard</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopImpl#getLoopMultiInstance <em>Loop Multi Instance</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopImpl#getLoopType <em>Loop Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.LoopImpl#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -44,8 +44,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getLoopStandard() <em>Loop Standard</em>}' containment reference.
@@ -75,8 +74,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
      * @generated
      * @ordered
      */
-    protected static final LoopType LOOP_TYPE_EDEFAULT =
-            LoopType.STANDARD_LITERAL;
+    protected static final LoopType LOOP_TYPE_EDEFAULT = LoopType.STANDARD_LITERAL;
 
     /**
      * The cached value of the '{@link #getLoopType() <em>Loop Type</em>}' attribute.
@@ -140,15 +138,12 @@ public class LoopImpl extends EObjectImpl implements Loop {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLoopStandard(LoopStandard newLoopStandard,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLoopStandard(LoopStandard newLoopStandard, NotificationChain msgs) {
         LoopStandard oldLoopStandard = loopStandard;
         loopStandard = newLoopStandard;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LOOP__LOOP_STANDARD, oldLoopStandard,
-                            newLoopStandard);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP__LOOP_STANDARD, oldLoopStandard, newLoopStandard);
             if (msgs == null)
                 msgs = notification;
             else
@@ -166,25 +161,16 @@ public class LoopImpl extends EObjectImpl implements Loop {
         if (newLoopStandard != loopStandard) {
             NotificationChain msgs = null;
             if (loopStandard != null)
-                msgs =
-                        ((InternalEObject) loopStandard).eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LOOP__LOOP_STANDARD,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) loopStandard)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP__LOOP_STANDARD, null, msgs);
             if (newLoopStandard != null)
-                msgs =
-                        ((InternalEObject) newLoopStandard).eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - Xpdl2Package.LOOP__LOOP_STANDARD,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) newLoopStandard)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP__LOOP_STANDARD, null, msgs);
             msgs = basicSetLoopStandard(newLoopStandard, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP__LOOP_STANDARD, newLoopStandard,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP__LOOP_STANDARD, newLoopStandard,
                     newLoopStandard));
     }
 
@@ -202,15 +188,12 @@ public class LoopImpl extends EObjectImpl implements Loop {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLoopMultiInstance(
-            LoopMultiInstance newLoopMultiInstance, NotificationChain msgs) {
+    public NotificationChain basicSetLoopMultiInstance(LoopMultiInstance newLoopMultiInstance, NotificationChain msgs) {
         LoopMultiInstance oldLoopMultiInstance = loopMultiInstance;
         loopMultiInstance = newLoopMultiInstance;
         if (eNotificationRequired()) {
-            ENotificationImpl notification =
-                    new ENotificationImpl(this, Notification.SET,
-                            Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
-                            oldLoopMultiInstance, newLoopMultiInstance);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE, oldLoopMultiInstance, newLoopMultiInstance);
             if (msgs == null)
                 msgs = notification;
             else
@@ -228,27 +211,18 @@ public class LoopImpl extends EObjectImpl implements Loop {
         if (newLoopMultiInstance != loopMultiInstance) {
             NotificationChain msgs = null;
             if (loopMultiInstance != null)
-                msgs =
-                        ((InternalEObject) loopMultiInstance)
-                                .eInverseRemove(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) loopMultiInstance).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
+                        null,
+                        msgs);
             if (newLoopMultiInstance != null)
-                msgs =
-                        ((InternalEObject) newLoopMultiInstance)
-                                .eInverseAdd(this,
-                                        EOPPOSITE_FEATURE_BASE
-                                                - Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
-                                        null,
-                                        msgs);
+                msgs = ((InternalEObject) newLoopMultiInstance)
+                        .eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE, null, msgs);
             msgs = basicSetLoopMultiInstance(newLoopMultiInstance, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE,
                     newLoopMultiInstance, newLoopMultiInstance));
     }
 
@@ -272,8 +246,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
         boolean oldLoopTypeESet = loopTypeESet;
         loopTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.LOOP__LOOP_TYPE, oldLoopType, loopType,
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.LOOP__LOOP_TYPE, oldLoopType, loopType,
                     !oldLoopTypeESet));
     }
 
@@ -288,8 +261,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
         loopType = LOOP_TYPE_EDEFAULT;
         loopTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    Xpdl2Package.LOOP__LOOP_TYPE, oldLoopType,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, Xpdl2Package.LOOP__LOOP_TYPE, oldLoopType,
                     LOOP_TYPE_EDEFAULT, oldLoopTypeESet));
     }
 
@@ -309,8 +281,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
      */
     public FeatureMap getAnyAttribute() {
         if (anyAttribute == null) {
-            anyAttribute =
-                    new BasicFeatureMap(this, Xpdl2Package.LOOP__ANY_ATTRIBUTE);
+            anyAttribute = new BasicFeatureMap(this, Xpdl2Package.LOOP__ANY_ATTRIBUTE);
         }
         return anyAttribute;
     }
@@ -321,16 +292,14 @@ public class LoopImpl extends EObjectImpl implements Loop {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case Xpdl2Package.LOOP__LOOP_STANDARD:
             return basicSetLoopStandard(null, msgs);
         case Xpdl2Package.LOOP__LOOP_MULTI_INSTANCE:
             return basicSetLoopMultiInstance(null, msgs);
         case Xpdl2Package.LOOP__ANY_ATTRIBUTE:
-            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getAnyAttribute()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -435,7 +404,7 @@ public class LoopImpl extends EObjectImpl implements Loop {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (loopType: "); //$NON-NLS-1$
         if (loopTypeESet)
             result.append(loopType);

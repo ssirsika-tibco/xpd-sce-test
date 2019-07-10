@@ -33,15 +33,12 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * end-user-doc -->
  * @generated
  */
-public class PoolItemProvider extends NamedElementItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PoolItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -80,19 +77,18 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addBoundaryVisiblePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Pool_boundaryVisible_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Pool_boundaryVisible_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.POOL__BOUNDARY_VISIBLE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Pool_boundaryVisible_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Pool_boundaryVisible_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.POOL__BOUNDARY_VISIBLE,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -102,19 +98,18 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addOrientationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Pool_orientation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Pool_orientation_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.POOL__ORIENTATION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Pool_orientation_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Pool_orientation_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.POOL__ORIENTATION,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -124,19 +119,18 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     protected void addParticipantIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_Pool_participantId_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Pool_participantId_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.POOL__PARTICIPANT_ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_Pool_participantId_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Pool_participantId_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.POOL__PARTICIPANT_ID,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -147,8 +141,7 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      */
     protected void addProcessIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Pool_processId_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Pool_processId_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -169,8 +162,7 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      */
     protected void addMainPoolPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_Pool_mainPool_feature"), //$NON-NLS-1$
                         getString("_UI_PropertyDescriptor_description", "_UI_Pool_mainPool_feature", "_UI_Pool_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -191,14 +183,11 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
             childrenFeatures.add(Xpdl2Package.Literals.POOL__LANES);
             childrenFeatures.add(Xpdl2Package.Literals.POOL__OBJECT);
         }
@@ -224,8 +213,7 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/Pool")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Pool")); //$NON-NLS-1$
     }
 
     /**
@@ -255,15 +243,13 @@ public class PoolItemProvider extends NamedElementItemProvider implements
         case Xpdl2Package.POOL__PARTICIPANT_ID:
         case Xpdl2Package.POOL__PROCESS_ID:
         case Xpdl2Package.POOL__MAIN_POOL:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.POOL__NODE_GRAPHICS_INFOS:
         case Xpdl2Package.POOL__OTHER_ELEMENTS:
         case Xpdl2Package.POOL__LANES:
         case Xpdl2Package.POOL__OBJECT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -277,21 +263,17 @@ public class PoolItemProvider extends NamedElementItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
-                        Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.GRAPHICAL_NODE__NODE_GRAPHICS_INFOS,
+                Xpdl2Factory.eINSTANCE.createNodeGraphicsInfo()));
 
         newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.POOL__LANES,
-                        Xpdl2Factory.eINSTANCE.createLane()));
+                .add(createChildParameter(Xpdl2Package.Literals.POOL__LANES, Xpdl2Factory.eINSTANCE.createLane()));
 
         newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.POOL__OBJECT,
-                        Xpdl2Factory.eINSTANCE.createObject()));
+                .add(createChildParameter(Xpdl2Package.Literals.POOL__OBJECT, Xpdl2Factory.eINSTANCE.createObject()));
     }
 
 }

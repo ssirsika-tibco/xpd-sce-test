@@ -28,14 +28,12 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
  *
  * @generated
  */
-public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
-        implements WsSoapHttpOutboundBinding {
+public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl implements WsSoapHttpOutboundBinding {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getOutboundSecurity() <em>Outbound Security</em>}' containment reference.
@@ -65,8 +63,7 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
      * @generated
      * @ordered
      */
-    protected String httpClientInstanceName =
-            HTTP_CLIENT_INSTANCE_NAME_EDEFAULT;
+    protected String httpClientInstanceName = HTTP_CLIENT_INSTANCE_NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -98,15 +95,13 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutboundSecurity(
-            WsSoapSecurity newOutboundSecurity, NotificationChain msgs) {
+    public NotificationChain basicSetOutboundSecurity(WsSoapSecurity newOutboundSecurity, NotificationChain msgs) {
         WsSoapSecurity oldOutboundSecurity = outboundSecurity;
         outboundSecurity = newOutboundSecurity;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
-                    oldOutboundSecurity, newOutboundSecurity);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY, oldOutboundSecurity,
+                    newOutboundSecurity);
             if (msgs == null)
                 msgs = notification;
             else
@@ -125,14 +120,12 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
             NotificationChain msgs = null;
             if (outboundSecurity != null)
                 msgs = ((InternalEObject) outboundSecurity).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
                         null,
                         msgs);
             if (newOutboundSecurity != null)
                 msgs = ((InternalEObject) newOutboundSecurity).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
                         null,
                         msgs);
             msgs = basicSetOutboundSecurity(newOutboundSecurity, msgs);
@@ -140,8 +133,8 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY,
-                    newOutboundSecurity, newOutboundSecurity));
+                    XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY, newOutboundSecurity,
+                    newOutboundSecurity));
     }
 
     /**
@@ -172,8 +165,7 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY:
             return basicSetOutboundSecurity(null, msgs);
@@ -240,10 +232,8 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
         case XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__OUTBOUND_SECURITY:
             return outboundSecurity != null;
         case XpdExtensionPackage.WS_SOAP_HTTP_OUTBOUND_BINDING__HTTP_CLIENT_INSTANCE_NAME:
-            return HTTP_CLIENT_INSTANCE_NAME_EDEFAULT == null
-                    ? httpClientInstanceName != null
-                    : !HTTP_CLIENT_INSTANCE_NAME_EDEFAULT
-                            .equals(httpClientInstanceName);
+            return HTTP_CLIENT_INSTANCE_NAME_EDEFAULT == null ? httpClientInstanceName != null
+                    : !HTTP_CLIENT_INSTANCE_NAME_EDEFAULT.equals(httpClientInstanceName);
         }
         return super.eIsSet(featureID);
     }
@@ -257,7 +247,7 @@ public class WsSoapHttpOutboundBindingImpl extends WsSoapBindingImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (httpClientInstanceName: "); //$NON-NLS-1$
         result.append(httpClientInstanceName);
         result.append(')');

@@ -47,6 +47,7 @@ import com.tibco.xpd.xpdExtension.DynamicOrganizationMappings;
 import com.tibco.xpd.xpdExtension.ErrorThrowerInfo;
 import com.tibco.xpd.xpdExtension.EventHandlerFlowStrategy;
 import com.tibco.xpd.xpdExtension.EventHandlerInitialisers;
+import com.tibco.xpd.xpdExtension.FieldFormat;
 import com.tibco.xpd.xpdExtension.FlowRoutingStyle;
 import com.tibco.xpd.xpdExtension.FormImplementation;
 import com.tibco.xpd.xpdExtension.GlobalDataOperation;
@@ -215,6 +216,7 @@ import com.tibco.xpd.xpdl2.SubFlow;
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.DocumentRootImpl#getOutputMappings <em>Output Mappings</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.DocumentRootImpl#getBusinessServicePublishType <em>Business Service Publish Type</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdExtension.impl.DocumentRootImpl#isSuppressMaxMappingsError <em>Suppress Max Mappings Error</em>}</li>
+ *   <li>{@link com.tibco.xpd.xpdExtension.impl.DocumentRootImpl#getFieldFormat <em>Field Format</em>}</li>
  * </ul>
  *
  * @generated
@@ -225,8 +227,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getXMLNSPrefixMap() <em>XMLNS Prefix Map</em>}' map.
@@ -901,8 +902,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean publishAsBusinessService =
-            PUBLISH_AS_BUSINESS_SERVICE_EDEFAULT;
+    protected boolean publishAsBusinessService = PUBLISH_AS_BUSINESS_SERVICE_EDEFAULT;
 
     /**
      * This is true if the Publish As Business Service attribute has been set.
@@ -930,8 +930,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected String businessServiceCategory =
-            BUSINESS_SERVICE_CATEGORY_EDEFAULT;
+    protected String businessServiceCategory = BUSINESS_SERVICE_CATEGORY_EDEFAULT;
 
     /**
      * This is true if the Business Service Category attribute has been set.
@@ -1070,8 +1069,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected double embSubprocOtherStateHeight =
-            EMB_SUBPROC_OTHER_STATE_HEIGHT_EDEFAULT;
+    protected double embSubprocOtherStateHeight = EMB_SUBPROC_OTHER_STATE_HEIGHT_EDEFAULT;
 
     /**
      * This is true if the Emb Subproc Other State Height attribute has been set.
@@ -1099,8 +1097,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected double embSubprocOtherStateWidth =
-            EMB_SUBPROC_OTHER_STATE_WIDTH_EDEFAULT;
+    protected double embSubprocOtherStateWidth = EMB_SUBPROC_OTHER_STATE_WIDTH_EDEFAULT;
 
     /**
      * This is true if the Emb Subproc Other State Width attribute has been set.
@@ -1150,8 +1147,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected String apiEndPointParticipant =
-            API_END_POINT_PARTICIPANT_EDEFAULT;
+    protected String apiEndPointParticipant = API_END_POINT_PARTICIPANT_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getFaultMessage() <em>Fault Message</em>}' containment reference list.
@@ -1223,8 +1219,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean targetPrimitiveProperty =
-            TARGET_PRIMITIVE_PROPERTY_EDEFAULT;
+    protected boolean targetPrimitiveProperty = TARGET_PRIMITIVE_PROPERTY_EDEFAULT;
 
     /**
      * This is true if the Target Primitive Property attribute has been set.
@@ -1252,8 +1247,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean sourcePrimitiveProperty =
-            SOURCE_PRIMITIVE_PROPERTY_EDEFAULT;
+    protected boolean sourcePrimitiveProperty = SOURCE_PRIMITIVE_PROPERTY_EDEFAULT;
 
     /**
      * This is true if the Source Primitive Property attribute has been set.
@@ -1293,8 +1287,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final XpdModelType XPD_MODEL_TYPE_EDEFAULT =
-            XpdModelType.PAGE_FLOW;
+    protected static final XpdModelType XPD_MODEL_TYPE_EDEFAULT = XpdModelType.PAGE_FLOW;
 
     /**
      * The cached value of the '{@link #getXpdModelType() <em>Xpd Model Type</em>}' attribute.
@@ -1323,8 +1316,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final FlowRoutingStyle FLOW_ROUTING_STYLE_EDEFAULT =
-            FlowRoutingStyle.UNCENTERED_ON_TASKS;
+    protected static final FlowRoutingStyle FLOW_ROUTING_STYLE_EDEFAULT = FlowRoutingStyle.UNCENTERED_ON_TASKS;
 
     /**
      * The cached value of the '{@link #getFlowRoutingStyle() <em>Flow Routing Style</em>}' attribute.
@@ -1394,8 +1386,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected String activityDeadlineEventId =
-            ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT;
+    protected String activityDeadlineEventId = ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT;
 
     /**
      * The default value of the '{@link #getStartStrategy() <em>Start Strategy</em>}' attribute.
@@ -1405,8 +1396,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final SubProcessStartStrategy START_STRATEGY_EDEFAULT =
-            SubProcessStartStrategy.START_IMMEDIATELY;
+    protected static final SubProcessStartStrategy START_STRATEGY_EDEFAULT = SubProcessStartStrategy.START_IMMEDIATELY;
 
     /**
      * The cached value of the '{@link #getStartStrategy() <em>Start Strategy</em>}' attribute.
@@ -1427,8 +1417,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final boolean OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT =
-            false;
+    protected static final boolean OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isOverwriteAlreadyModifiedTaskData()
@@ -1439,8 +1428,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean overwriteAlreadyModifiedTaskData =
-            OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT;
+    protected boolean overwriteAlreadyModifiedTaskData = OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT;
 
     /**
      * The default value of the '{@link #getEventHandlerFlowStrategy() <em>Event Handler Flow Strategy</em>}' attribute.
@@ -1461,8 +1449,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected EventHandlerFlowStrategy eventHandlerFlowStrategy =
-            EVENT_HANDLER_FLOW_STRATEGY_EDEFAULT;
+    protected EventHandlerFlowStrategy eventHandlerFlowStrategy = EVENT_HANDLER_FLOW_STRATEGY_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getNamespacePrefixMap()
@@ -1493,8 +1480,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean suspendResumeWithParent =
-            SUSPEND_RESUME_WITH_PARENT_EDEFAULT;
+    protected boolean suspendResumeWithParent = SUSPEND_RESUME_WITH_PARENT_EDEFAULT;
 
     /**
      * The default value of the '{@link #getSystemErrorAction() <em>System Error Action</em>}' attribute.
@@ -1504,8 +1490,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final SystemErrorActionType SYSTEM_ERROR_ACTION_EDEFAULT =
-            SystemErrorActionType.HALT;
+    protected static final SystemErrorActionType SYSTEM_ERROR_ACTION_EDEFAULT = SystemErrorActionType.HALT;
 
     /**
      * The cached value of the '{@link #getSystemErrorAction() <em>System Error Action</em>}' attribute.
@@ -1515,8 +1500,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected SystemErrorActionType systemErrorAction =
-            SYSTEM_ERROR_ACTION_EDEFAULT;
+    protected SystemErrorActionType systemErrorAction = SYSTEM_ERROR_ACTION_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getCorrelationTimeout()
@@ -1560,8 +1544,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final boolean BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT =
-            false;
+    protected static final boolean BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isBxUseUnqualifiedPropertyNames()
@@ -1572,8 +1555,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean bxUseUnqualifiedPropertyNames =
-            BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT;
+    protected boolean bxUseUnqualifiedPropertyNames = BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getCaseRefType() <em>Case Ref Type</em>}
@@ -1665,8 +1647,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean signalHandlerAsynchronous =
-            SIGNAL_HANDLER_ASYNCHRONOUS_EDEFAULT;
+    protected boolean signalHandlerAsynchronous = SIGNAL_HANDLER_ASYNCHRONOUS_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getGlobalDataOperation() <em>Global Data Operation</em>}' containment reference list.
@@ -1695,8 +1676,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final boolean ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT =
-            false;
+    protected static final boolean ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isAllowUnqualifiedSubProcessIdentification() <em>Allow Unqualified Sub Process Identification</em>}' attribute.
@@ -1706,8 +1686,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean allowUnqualifiedSubProcessIdentification =
-            ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT;
+    protected boolean allowUnqualifiedSubProcessIdentification = ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getBpmRuntimeConfiguration() <em>Bpm Runtime Configuration</em>}' containment reference list.
@@ -1864,8 +1843,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected static final AsyncExecutionMode ASYNC_EXECUTION_MODE_EDEFAULT =
-            AsyncExecutionMode.ATTACHED;
+    protected static final AsyncExecutionMode ASYNC_EXECUTION_MODE_EDEFAULT = AsyncExecutionMode.ATTACHED;
 
     /**
      * The cached value of the '{@link #getAsyncExecutionMode() <em>Async Execution Mode</em>}' attribute.
@@ -1875,8 +1853,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected AsyncExecutionMode asyncExecutionMode =
-            ASYNC_EXECUTION_MODE_EDEFAULT;
+    protected AsyncExecutionMode asyncExecutionMode = ASYNC_EXECUTION_MODE_EDEFAULT;
 
     /**
      * This is true if the Async Execution Mode attribute has been set.
@@ -2054,8 +2031,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected BusinessServicePublishType businessServicePublishType =
-            BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT;
+    protected BusinessServicePublishType businessServicePublishType = BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT;
 
     /**
      * This is true if the Business Service Publish Type attribute has been set.
@@ -2084,8 +2060,27 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      * @ordered
      */
-    protected boolean suppressMaxMappingsError =
-            SUPPRESS_MAX_MAPPINGS_ERROR_EDEFAULT;
+    protected boolean suppressMaxMappingsError = SUPPRESS_MAX_MAPPINGS_ERROR_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getFieldFormat() <em>Field Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFieldFormat()
+     * @generated
+     * @ordered
+     */
+    protected static final FieldFormat FIELD_FORMAT_EDEFAULT = FieldFormat.URI;
+
+    /**
+     * The cached value of the '{@link #getFieldFormat() <em>Field Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFieldFormat()
+     * @generated
+     * @ordered
+     */
+    protected FieldFormat fieldFormat = FIELD_FORMAT_EDEFAULT;
 
     /**
     
@@ -2111,10 +2106,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EMap<String, String> getXMLNSPrefixMap() {
         if (xMLNSPrefixMap == null) {
-            xMLNSPrefixMap = new EcoreEMap<String, String>(
-                    EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                    EStringToStringMapEntryImpl.class, this,
-                    XpdExtensionPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+            xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, XpdExtensionPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
         }
         return xMLNSPrefixMap;
     }
@@ -2126,10 +2119,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EMap<String, String> getXSISchemaLocation() {
         if (xSISchemaLocation == null) {
-            xSISchemaLocation = new EcoreEMap<String, String>(
-                    EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-                    EStringToStringMapEntryImpl.class, this,
-                    XpdExtensionPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+            xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+                    EStringToStringMapEntryImpl.class, this, XpdExtensionPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
         }
         return xSISchemaLocation;
     }
@@ -2153,8 +2144,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         implementationType = newImplementationType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTATION_TYPE,
-                    oldImplementationType, implementationType));
+                    XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTATION_TYPE, oldImplementationType, implementationType));
     }
 
     /**
@@ -2164,10 +2154,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<XpdExtDataObjectAttributes> getDataObjectAttributes() {
         if (dataObjectAttributes == null) {
-            dataObjectAttributes =
-                    new EObjectContainmentEList<XpdExtDataObjectAttributes>(
-                            XpdExtDataObjectAttributes.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
+            dataObjectAttributes = new EObjectContainmentEList<XpdExtDataObjectAttributes>(
+                    XpdExtDataObjectAttributes.class, this, XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES);
         }
         return dataObjectAttributes;
     }
@@ -2179,8 +2167,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<XpdExtAttributes> getExtendedAttributes() {
         if (extendedAttributes == null) {
-            extendedAttributes = new EObjectContainmentEList<XpdExtAttributes>(
-                    XpdExtAttributes.class, this,
+            extendedAttributes = new EObjectContainmentEList<XpdExtAttributes>(XpdExtAttributes.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES);
         }
         return extendedAttributes;
@@ -2205,8 +2192,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         continueOnTimeout = newContinueOnTimeout;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT,
-                    oldContinueOnTimeout, continueOnTimeout));
+                    XpdExtensionPackage.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT, oldContinueOnTimeout, continueOnTimeout));
     }
 
     /**
@@ -2227,8 +2213,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldAlias = alias;
         alias = newAlias;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__ALIAS, oldAlias, alias));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__ALIAS, oldAlias,
+                    alias));
     }
 
     /**
@@ -2238,8 +2224,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ConstantPeriod> getConstantPeriod() {
         if (constantPeriod == null) {
-            constantPeriod = new EObjectContainmentEList<ConstantPeriod>(
-                    ConstantPeriod.class, this,
+            constantPeriod = new EObjectContainmentEList<ConstantPeriod>(ConstantPeriod.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__CONSTANT_PERIOD);
         }
         return constantPeriod;
@@ -2252,8 +2237,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<UserTaskScripts> getUserTaskScripts() {
         if (userTaskScripts == null) {
-            userTaskScripts = new EObjectContainmentEList<UserTaskScripts>(
-                    UserTaskScripts.class, this,
+            userTaskScripts = new EObjectContainmentEList<UserTaskScripts>(UserTaskScripts.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__USER_TASK_SCRIPTS);
         }
         return userTaskScripts;
@@ -2279,8 +2263,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ScriptInformation> getScript() {
         if (script == null) {
-            script = new EObjectContainmentEList<ScriptInformation>(
-                    ScriptInformation.class, this,
+            script = new EObjectContainmentEList<ScriptInformation>(ScriptInformation.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT);
         }
         return script;
@@ -2304,8 +2287,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldReplyImmediately = replyImmediately;
         replyImmediately = newReplyImmediately;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATELY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATELY,
                     oldReplyImmediately, replyImmediately));
     }
 
@@ -2316,8 +2298,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<InitialValues> getInitialValues() {
         if (initialValues == null) {
-            initialValues = new EObjectContainmentEList<InitialValues>(
-                    InitialValues.class, this,
+            initialValues = new EObjectContainmentEList<InitialValues>(InitialValues.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUES);
         }
         return initialValues;
@@ -2331,8 +2312,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<AssociatedCorrelationFields> getAssociatedCorrelationFields() {
         if (associatedCorrelationFields == null) {
             associatedCorrelationFields =
-                    new EObjectContainmentEList<AssociatedCorrelationFields>(
-                            AssociatedCorrelationFields.class, this,
+                    new EObjectContainmentEList<AssociatedCorrelationFields>(AssociatedCorrelationFields.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS);
         }
         return associatedCorrelationFields;
@@ -2345,10 +2325,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<AssociatedParameters> getAssociatedParameters() {
         if (associatedParameters == null) {
-            associatedParameters =
-                    new EObjectContainmentEList<AssociatedParameters>(
-                            AssociatedParameters.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS);
+            associatedParameters = new EObjectContainmentEList<AssociatedParameters>(AssociatedParameters.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS);
         }
         return associatedParameters;
     }
@@ -2360,10 +2338,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ImplementedInterface> getImplementedInterface() {
         if (implementedInterface == null) {
-            implementedInterface =
-                    new EObjectContainmentEList<ImplementedInterface>(
-                            ImplementedInterface.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
+            implementedInterface = new EObjectContainmentEList<ImplementedInterface>(ImplementedInterface.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE);
         }
         return implementedInterface;
     }
@@ -2375,8 +2351,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ProcessInterfaces> getProcessInterfaces() {
         if (processInterfaces == null) {
-            processInterfaces = new EObjectContainmentEList<ProcessInterfaces>(
-                    ProcessInterfaces.class, this,
+            processInterfaces = new EObjectContainmentEList<ProcessInterfaces>(ProcessInterfaces.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_INTERFACES);
         }
         return processInterfaces;
@@ -2389,10 +2364,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<WsdlEventAssociation> getWsdlEventAssociation() {
         if (wsdlEventAssociation == null) {
-            wsdlEventAssociation =
-                    new EObjectContainmentEList<WsdlEventAssociation>(
-                            WsdlEventAssociation.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
+            wsdlEventAssociation = new EObjectContainmentEList<WsdlEventAssociation>(WsdlEventAssociation.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION);
         }
         return wsdlEventAssociation;
     }
@@ -2415,8 +2388,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldInlineSubProcess = inlineSubProcess;
         inlineSubProcess = newInlineSubProcess;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__INLINE_SUB_PROCESS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__INLINE_SUB_PROCESS,
                     oldInlineSubProcess, inlineSubProcess));
     }
 
@@ -2438,8 +2410,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldDocumentationURL = documentationURL;
         documentationURL = newDocumentationURL;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENTATION_URL,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENTATION_URL,
                     oldDocumentationURL, documentationURL));
     }
 
@@ -2461,8 +2432,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldImplements = implements_;
         implements_ = newImplements;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTS,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTS,
                     oldImplements, implements_));
     }
 
@@ -2473,10 +2443,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<MultiInstanceScripts> getMultiInstanceScripts() {
         if (multiInstanceScripts == null) {
-            multiInstanceScripts =
-                    new EObjectContainmentEList<MultiInstanceScripts>(
-                            MultiInstanceScripts.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
+            multiInstanceScripts = new EObjectContainmentEList<MultiInstanceScripts>(MultiInstanceScripts.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS);
         }
         return multiInstanceScripts;
     }
@@ -2500,8 +2468,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         processIdentifierField = newProcessIdentifierField;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD,
-                    oldProcessIdentifierField, processIdentifierField));
+                    XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD, oldProcessIdentifierField,
+                    processIdentifierField));
     }
 
     /**
@@ -2511,8 +2479,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<Expression> getExpression() {
         if (expression == null) {
-            expression = new EObjectContainmentEList<Expression>(
-                    Expression.class, this,
+            expression = new EObjectContainmentEList<Expression>(Expression.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__EXPRESSION);
         }
         return expression;
@@ -2534,13 +2501,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void setVisibility(Visibility newVisibility) {
         Visibility oldVisibility = visibility;
-        visibility =
-                newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+        visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
         boolean oldVisibilityESet = visibilityESet;
         visibilityESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__VISIBILITY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__VISIBILITY,
                     oldVisibility, visibility, !oldVisibilityESet));
     }
 
@@ -2555,8 +2520,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         visibility = VISIBILITY_EDEFAULT;
         visibilityESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__VISIBILITY,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__VISIBILITY,
                     oldVisibility, VISIBILITY_EDEFAULT, oldVisibilityESet));
     }
 
@@ -2587,8 +2551,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldSecurityProfile = securityProfile;
         securityProfile = newSecurityProfile;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SECURITY_PROFILE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__SECURITY_PROFILE,
                     oldSecurityProfile, securityProfile));
     }
 
@@ -2610,9 +2573,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldLanguage = language;
         language = newLanguage;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__LANGUAGE, oldLanguage,
-                    language));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__LANGUAGE,
+                    oldLanguage, language));
     }
 
     /**
@@ -2622,10 +2584,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<InitialParameterValue> getInitialParameterValue() {
         if (initialParameterValue == null) {
-            initialParameterValue =
-                    new EObjectContainmentEList<InitialParameterValue>(
-                            InitialParameterValue.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
+            initialParameterValue = new EObjectContainmentEList<InitialParameterValue>(InitialParameterValue.class,
+                    this, XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE);
         }
         return initialParameterValue;
     }
@@ -2649,8 +2609,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         initialValueMapping = newInitialValueMapping;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING,
-                    oldInitialValueMapping, initialValueMapping));
+                    XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING, oldInitialValueMapping,
+                    initialValueMapping));
     }
 
     /**
@@ -2660,8 +2620,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<PortTypeOperation> getPortTypeOperation() {
         if (portTypeOperation == null) {
-            portTypeOperation = new EObjectContainmentEList<PortTypeOperation>(
-                    PortTypeOperation.class, this,
+            portTypeOperation = new EObjectContainmentEList<PortTypeOperation>(PortTypeOperation.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__PORT_TYPE_OPERATION);
         }
         return portTypeOperation;
@@ -2685,9 +2644,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldTransport = transport;
         transport = newTransport;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__TRANSPORT, oldTransport,
-                    transport));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__TRANSPORT,
+                    oldTransport, transport));
     }
 
     /**
@@ -2710,9 +2668,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldIsChainedESet = isChainedESet;
         isChainedESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_CHAINED, oldIsChained,
-                    isChained, !oldIsChainedESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__IS_CHAINED,
+                    oldIsChained, isChained, !oldIsChainedESet));
     }
 
     /**
@@ -2726,9 +2683,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         isChained = IS_CHAINED_EDEFAULT;
         isChainedESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_CHAINED, oldIsChained,
-                    IS_CHAINED_EDEFAULT, oldIsChainedESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__IS_CHAINED,
+                    oldIsChained, IS_CHAINED_EDEFAULT, oldIsChainedESet));
     }
 
     /**
@@ -2747,8 +2703,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ExternalReference> getExternalReference() {
         if (externalReference == null) {
-            externalReference = new EObjectContainmentEList<ExternalReference>(
-                    ExternalReference.class, this,
+            externalReference = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__EXTERNAL_REFERENCE);
         }
         return externalReference;
@@ -2761,10 +2716,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ProcessResourcePatterns> getProcessResourcePatterns() {
         if (processResourcePatterns == null) {
-            processResourcePatterns =
-                    new EObjectContainmentEList<ProcessResourcePatterns>(
-                            ProcessResourcePatterns.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
+            processResourcePatterns = new EObjectContainmentEList<ProcessResourcePatterns>(
+                    ProcessResourcePatterns.class, this, XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS);
         }
         return processResourcePatterns;
     }
@@ -2777,8 +2730,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<EventHandlerInitialisers> getEventHandlerInitialisers() {
         if (eventHandlerInitialisers == null) {
             eventHandlerInitialisers =
-                    new EObjectContainmentEList<EventHandlerInitialisers>(
-                            EventHandlerInitialisers.class, this,
+                    new EObjectContainmentEList<EventHandlerInitialisers>(EventHandlerInitialisers.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS);
         }
         return eventHandlerInitialisers;
@@ -2792,8 +2744,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<ActivityResourcePatterns> getActivityResourcePatterns() {
         if (activityResourcePatterns == null) {
             activityResourcePatterns =
-                    new EObjectContainmentEList<ActivityResourcePatterns>(
-                            ActivityResourcePatterns.class, this,
+                    new EObjectContainmentEList<ActivityResourcePatterns>(ActivityResourcePatterns.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS);
         }
         return activityResourcePatterns;
@@ -2818,8 +2769,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         requireNewTransaction = newRequireNewTransaction;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION,
-                    oldRequireNewTransaction, requireNewTransaction));
+                    XpdExtensionPackage.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION, oldRequireNewTransaction,
+                    requireNewTransaction));
     }
 
     /**
@@ -2829,8 +2780,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<DocumentOperation> getDocumentOperation() {
         if (documentOperation == null) {
-            documentOperation = new EObjectContainmentEList<DocumentOperation>(
-                    DocumentOperation.class, this,
+            documentOperation = new EObjectContainmentEList<DocumentOperation>(DocumentOperation.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENT_OPERATION);
         }
         return documentOperation;
@@ -2843,10 +2793,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<DurationCalculation> getDurationCalculation() {
         if (durationCalculation == null) {
-            durationCalculation =
-                    new EObjectContainmentEList<DurationCalculation>(
-                            DurationCalculation.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__DURATION_CALCULATION);
+            durationCalculation = new EObjectContainmentEList<DurationCalculation>(DurationCalculation.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__DURATION_CALCULATION);
         }
         return durationCalculation;
     }
@@ -2858,8 +2806,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<Discriminator> getDiscriminator() {
         if (discriminator == null) {
-            discriminator = new EObjectContainmentEList<Discriminator>(
-                    Discriminator.class, this,
+            discriminator = new EObjectContainmentEList<Discriminator>(Discriminator.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__DISCRIMINATOR);
         }
         return discriminator;
@@ -2885,8 +2832,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldDisplayNameESet = displayNameESet;
         displayNameESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME,
                     oldDisplayName, displayName, !oldDisplayNameESet));
     }
 
@@ -2901,8 +2847,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         displayName = DISPLAY_NAME_EDEFAULT;
         displayNameESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME,
                     oldDisplayName, DISPLAY_NAME_EDEFAULT, oldDisplayNameESet));
     }
 
@@ -2931,11 +2876,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void setCatchThrow(CatchThrow newCatchThrow) {
         CatchThrow oldCatchThrow = catchThrow;
-        catchThrow =
-                newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
+        catchThrow = newCatchThrow == null ? CATCH_THROW_EDEFAULT : newCatchThrow;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__CATCH_THROW,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__CATCH_THROW,
                     oldCatchThrow, catchThrow));
     }
 
@@ -2959,9 +2902,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldIsRemoteESet = isRemoteESet;
         isRemoteESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_REMOTE, oldIsRemote,
-                    isRemote, !oldIsRemoteESet));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__IS_REMOTE,
+                    oldIsRemote, isRemote, !oldIsRemoteESet));
     }
 
     /**
@@ -2975,9 +2917,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         isRemote = IS_REMOTE_EDEFAULT;
         isRemoteESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_REMOTE, oldIsRemote,
-                    IS_REMOTE_EDEFAULT, oldIsRemoteESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__IS_REMOTE,
+                    oldIsRemote, IS_REMOTE_EDEFAULT, oldIsRemoteESet));
     }
 
     /**
@@ -2996,10 +2937,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<CorrelationDataMappings> getCorrelationDataMappings() {
         if (correlationDataMappings == null) {
-            correlationDataMappings =
-                    new EObjectContainmentEList<CorrelationDataMappings>(
-                            CorrelationDataMappings.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
+            correlationDataMappings = new EObjectContainmentEList<CorrelationDataMappings>(
+                    CorrelationDataMappings.class, this, XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS);
         }
         return correlationDataMappings;
     }
@@ -3011,8 +2950,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<TransformScript> getTransformScript() {
         if (transformScript == null) {
-            transformScript = new EObjectContainmentEList<TransformScript>(
-                    TransformScript.class, this,
+            transformScript = new EObjectContainmentEList<TransformScript>(TransformScript.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__TRANSFORM_SCRIPT);
         }
         return transformScript;
@@ -3032,17 +2970,15 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setPublishAsBusinessService(
-            boolean newPublishAsBusinessService) {
+    public void setPublishAsBusinessService(boolean newPublishAsBusinessService) {
         boolean oldPublishAsBusinessService = publishAsBusinessService;
         publishAsBusinessService = newPublishAsBusinessService;
         boolean oldPublishAsBusinessServiceESet = publishAsBusinessServiceESet;
         publishAsBusinessServiceESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE,
-                    oldPublishAsBusinessService, publishAsBusinessService,
-                    !oldPublishAsBusinessServiceESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE, oldPublishAsBusinessService,
+                    publishAsBusinessService, !oldPublishAsBusinessServiceESet));
     }
 
     /**
@@ -3057,10 +2993,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         publishAsBusinessServiceESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE,
-                    oldPublishAsBusinessService,
-                    PUBLISH_AS_BUSINESS_SERVICE_EDEFAULT,
-                    oldPublishAsBusinessServiceESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE, oldPublishAsBusinessService,
+                    PUBLISH_AS_BUSINESS_SERVICE_EDEFAULT, oldPublishAsBusinessServiceESet));
     }
 
     /**
@@ -3093,9 +3027,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         businessServiceCategoryESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY,
-                    oldBusinessServiceCategory, businessServiceCategory,
-                    !oldBusinessServiceCategoryESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY, oldBusinessServiceCategory,
+                    businessServiceCategory, !oldBusinessServiceCategoryESet));
     }
 
     /**
@@ -3110,10 +3043,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         businessServiceCategoryESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY,
-                    oldBusinessServiceCategory,
-                    BUSINESS_SERVICE_CATEGORY_EDEFAULT,
-                    oldBusinessServiceCategoryESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_CATEGORY, oldBusinessServiceCategory,
+                    BUSINESS_SERVICE_CATEGORY_EDEFAULT, oldBusinessServiceCategoryESet));
     }
 
     /**
@@ -3132,8 +3063,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ErrorThrowerInfo> getErrorThrowerInfo() {
         if (errorThrowerInfo == null) {
-            errorThrowerInfo = new EObjectContainmentEList<ErrorThrowerInfo>(
-                    ErrorThrowerInfo.class, this,
+            errorThrowerInfo = new EObjectContainmentEList<ErrorThrowerInfo>(ErrorThrowerInfo.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__ERROR_THROWER_INFO);
         }
         return errorThrowerInfo;
@@ -3146,10 +3076,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<CatchErrorMappings> getCatchErrorMappings() {
         if (catchErrorMappings == null) {
-            catchErrorMappings =
-                    new EObjectContainmentEList<CatchErrorMappings>(
-                            CatchErrorMappings.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
+            catchErrorMappings = new EObjectContainmentEList<CatchErrorMappings>(CatchErrorMappings.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS);
         }
         return catchErrorMappings;
     }
@@ -3161,10 +3089,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ConditionalParticipant> getConditionalParticipant() {
         if (conditionalParticipant == null) {
-            conditionalParticipant =
-                    new EObjectContainmentEList<ConditionalParticipant>(
-                            ConditionalParticipant.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
+            conditionalParticipant = new EObjectContainmentEList<ConditionalParticipant>(ConditionalParticipant.class,
+                    this, XpdExtensionPackage.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT);
         }
         return conditionalParticipant;
     }
@@ -3187,9 +3113,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldGenerated = generated;
         generated = newGenerated;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__GENERATED, oldGenerated,
-                    generated));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__GENERATED,
+                    oldGenerated, generated));
     }
 
     /**
@@ -3211,8 +3136,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         replyToActivityId = newReplyToActivityId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID,
-                    oldReplyToActivityId, replyToActivityId));
+                    XpdExtensionPackage.DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID, oldReplyToActivityId, replyToActivityId));
     }
 
     /**
@@ -3222,10 +3146,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<TaskLibraryReference> getTaskLibraryReference() {
         if (taskLibraryReference == null) {
-            taskLibraryReference =
-                    new EObjectContainmentEList<TaskLibraryReference>(
-                            TaskLibraryReference.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
+            taskLibraryReference = new EObjectContainmentEList<TaskLibraryReference>(TaskLibraryReference.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE);
         }
         return taskLibraryReference;
     }
@@ -3251,9 +3173,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         setPerformerInProcessESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS,
-                    oldSetPerformerInProcess, setPerformerInProcess,
-                    !oldSetPerformerInProcessESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS, oldSetPerformerInProcess,
+                    setPerformerInProcess, !oldSetPerformerInProcessESet));
     }
 
     /**
@@ -3268,9 +3189,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         setPerformerInProcessESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS,
-                    oldSetPerformerInProcess, SET_PERFORMER_IN_PROCESS_EDEFAULT,
-                    oldSetPerformerInProcessESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS, oldSetPerformerInProcess,
+                    SET_PERFORMER_IN_PROCESS_EDEFAULT, oldSetPerformerInProcessESet));
     }
 
     /**
@@ -3296,18 +3216,15 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setEmbSubprocOtherStateHeight(
-            double newEmbSubprocOtherStateHeight) {
+    public void setEmbSubprocOtherStateHeight(double newEmbSubprocOtherStateHeight) {
         double oldEmbSubprocOtherStateHeight = embSubprocOtherStateHeight;
         embSubprocOtherStateHeight = newEmbSubprocOtherStateHeight;
-        boolean oldEmbSubprocOtherStateHeightESet =
-                embSubprocOtherStateHeightESet;
+        boolean oldEmbSubprocOtherStateHeightESet = embSubprocOtherStateHeightESet;
         embSubprocOtherStateHeightESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT,
-                    oldEmbSubprocOtherStateHeight, embSubprocOtherStateHeight,
-                    !oldEmbSubprocOtherStateHeightESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT, oldEmbSubprocOtherStateHeight,
+                    embSubprocOtherStateHeight, !oldEmbSubprocOtherStateHeightESet));
     }
 
     /**
@@ -3317,16 +3234,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void unsetEmbSubprocOtherStateHeight() {
         double oldEmbSubprocOtherStateHeight = embSubprocOtherStateHeight;
-        boolean oldEmbSubprocOtherStateHeightESet =
-                embSubprocOtherStateHeightESet;
+        boolean oldEmbSubprocOtherStateHeightESet = embSubprocOtherStateHeightESet;
         embSubprocOtherStateHeight = EMB_SUBPROC_OTHER_STATE_HEIGHT_EDEFAULT;
         embSubprocOtherStateHeightESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT,
-                    oldEmbSubprocOtherStateHeight,
-                    EMB_SUBPROC_OTHER_STATE_HEIGHT_EDEFAULT,
-                    oldEmbSubprocOtherStateHeightESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT, oldEmbSubprocOtherStateHeight,
+                    EMB_SUBPROC_OTHER_STATE_HEIGHT_EDEFAULT, oldEmbSubprocOtherStateHeightESet));
     }
 
     /**
@@ -3352,18 +3266,15 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setEmbSubprocOtherStateWidth(
-            double newEmbSubprocOtherStateWidth) {
+    public void setEmbSubprocOtherStateWidth(double newEmbSubprocOtherStateWidth) {
         double oldEmbSubprocOtherStateWidth = embSubprocOtherStateWidth;
         embSubprocOtherStateWidth = newEmbSubprocOtherStateWidth;
-        boolean oldEmbSubprocOtherStateWidthESet =
-                embSubprocOtherStateWidthESet;
+        boolean oldEmbSubprocOtherStateWidthESet = embSubprocOtherStateWidthESet;
         embSubprocOtherStateWidthESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH,
-                    oldEmbSubprocOtherStateWidth, embSubprocOtherStateWidth,
-                    !oldEmbSubprocOtherStateWidthESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH, oldEmbSubprocOtherStateWidth,
+                    embSubprocOtherStateWidth, !oldEmbSubprocOtherStateWidthESet));
     }
 
     /**
@@ -3373,16 +3284,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void unsetEmbSubprocOtherStateWidth() {
         double oldEmbSubprocOtherStateWidth = embSubprocOtherStateWidth;
-        boolean oldEmbSubprocOtherStateWidthESet =
-                embSubprocOtherStateWidthESet;
+        boolean oldEmbSubprocOtherStateWidthESet = embSubprocOtherStateWidthESet;
         embSubprocOtherStateWidth = EMB_SUBPROC_OTHER_STATE_WIDTH_EDEFAULT;
         embSubprocOtherStateWidthESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH,
-                    oldEmbSubprocOtherStateWidth,
-                    EMB_SUBPROC_OTHER_STATE_WIDTH_EDEFAULT,
-                    oldEmbSubprocOtherStateWidthESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_WIDTH, oldEmbSubprocOtherStateWidth,
+                    EMB_SUBPROC_OTHER_STATE_WIDTH_EDEFAULT, oldEmbSubprocOtherStateWidthESet));
     }
 
     /**
@@ -3401,10 +3309,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<FormImplementation> getFormImplementation() {
         if (formImplementation == null) {
-            formImplementation =
-                    new EObjectContainmentEList<FormImplementation>(
-                            FormImplementation.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__FORM_IMPLEMENTATION);
+            formImplementation = new EObjectContainmentEList<FormImplementation>(FormImplementation.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__FORM_IMPLEMENTATION);
         }
         return formImplementation;
     }
@@ -3416,8 +3322,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<Expression> getParticipantQuery() {
         if (participantQuery == null) {
-            participantQuery = new EObjectContainmentEList<Expression>(
-                    Expression.class, this,
+            participantQuery = new EObjectContainmentEList<Expression>(Expression.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_QUERY);
         }
         return participantQuery;
@@ -3442,8 +3347,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         apiEndPointParticipant = newApiEndPointParticipant;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT,
-                    oldApiEndPointParticipant, apiEndPointParticipant));
+                    XpdExtensionPackage.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT, oldApiEndPointParticipant,
+                    apiEndPointParticipant));
     }
 
     /**
@@ -3453,8 +3358,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<Message> getFaultMessage() {
         if (faultMessage == null) {
-            faultMessage = new EObjectContainmentEList<Message>(Message.class,
-                    this, XpdExtensionPackage.DOCUMENT_ROOT__FAULT_MESSAGE);
+            faultMessage = new EObjectContainmentEList<Message>(Message.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__FAULT_MESSAGE);
         }
         return faultMessage;
     }
@@ -3478,8 +3383,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         requestActivityId = newRequestActivityId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__REQUEST_ACTIVITY_ID,
-                    oldRequestActivityId, requestActivityId));
+                    XpdExtensionPackage.DOCUMENT_ROOT__REQUEST_ACTIVITY_ID, oldRequestActivityId, requestActivityId));
     }
 
     /**
@@ -3489,8 +3393,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<BusinessProcess> getBusinessProcess() {
         if (businessProcess == null) {
-            businessProcess = new EObjectContainmentEList<BusinessProcess>(
-                    BusinessProcess.class, this,
+            businessProcess = new EObjectContainmentEList<BusinessProcess>(BusinessProcess.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_PROCESS);
         }
         return businessProcess;
@@ -3503,8 +3406,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<WsdlGeneration> getWsdlGeneration() {
         if (wsdlGeneration == null) {
-            wsdlGeneration = new EObjectContainmentEList<WsdlGeneration>(
-                    WsdlGeneration.class, this,
+            wsdlGeneration = new EObjectContainmentEList<WsdlGeneration>(WsdlGeneration.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__WSDL_GENERATION);
         }
         return wsdlGeneration;
@@ -3531,9 +3433,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         targetPrimitivePropertyESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY,
-                    oldTargetPrimitiveProperty, targetPrimitiveProperty,
-                    !oldTargetPrimitivePropertyESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY, oldTargetPrimitiveProperty,
+                    targetPrimitiveProperty, !oldTargetPrimitivePropertyESet));
     }
 
     /**
@@ -3548,10 +3449,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         targetPrimitivePropertyESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY,
-                    oldTargetPrimitiveProperty,
-                    TARGET_PRIMITIVE_PROPERTY_EDEFAULT,
-                    oldTargetPrimitivePropertyESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY, oldTargetPrimitiveProperty,
+                    TARGET_PRIMITIVE_PROPERTY_EDEFAULT, oldTargetPrimitivePropertyESet));
     }
 
     /**
@@ -3584,9 +3483,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         sourcePrimitivePropertyESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY,
-                    oldSourcePrimitiveProperty, sourcePrimitiveProperty,
-                    !oldSourcePrimitivePropertyESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY, oldSourcePrimitiveProperty,
+                    sourcePrimitiveProperty, !oldSourcePrimitivePropertyESet));
     }
 
     /**
@@ -3601,10 +3499,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         sourcePrimitivePropertyESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY,
-                    oldSourcePrimitiveProperty,
-                    SOURCE_PRIMITIVE_PROPERTY_EDEFAULT,
-                    oldSourcePrimitivePropertyESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_PRIMITIVE_PROPERTY, oldSourcePrimitiveProperty,
+                    SOURCE_PRIMITIVE_PROPERTY_EDEFAULT, oldSourcePrimitivePropertyESet));
     }
 
     /**
@@ -3623,8 +3519,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<SubFlow> getDecisionService() {
         if (decisionService == null) {
-            decisionService = new EObjectContainmentEList<SubFlow>(
-                    SubFlow.class, this,
+            decisionService = new EObjectContainmentEList<SubFlow>(SubFlow.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__DECISION_SERVICE);
         }
         return decisionService;
@@ -3638,8 +3533,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<ParticipantSharedResource> getParticipantSharedResource() {
         if (participantSharedResource == null) {
             participantSharedResource =
-                    new EObjectContainmentEList<ParticipantSharedResource>(
-                            ParticipantSharedResource.class, this,
+                    new EObjectContainmentEList<ParticipantSharedResource>(ParticipantSharedResource.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE);
         }
         return participantSharedResource;
@@ -3661,13 +3555,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void setXpdModelType(XpdModelType newXpdModelType) {
         XpdModelType oldXpdModelType = xpdModelType;
-        xpdModelType = newXpdModelType == null ? XPD_MODEL_TYPE_EDEFAULT
-                : newXpdModelType;
+        xpdModelType = newXpdModelType == null ? XPD_MODEL_TYPE_EDEFAULT : newXpdModelType;
         boolean oldXpdModelTypeESet = xpdModelTypeESet;
         xpdModelTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE,
                     oldXpdModelType, xpdModelType, !oldXpdModelTypeESet));
     }
 
@@ -3682,10 +3574,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         xpdModelType = XPD_MODEL_TYPE_EDEFAULT;
         xpdModelTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE,
-                    oldXpdModelType, XPD_MODEL_TYPE_EDEFAULT,
-                    oldXpdModelTypeESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE,
+                    oldXpdModelType, XPD_MODEL_TYPE_EDEFAULT, oldXpdModelTypeESet));
     }
 
     /**
@@ -3695,8 +3585,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<RecordType> getCaseRefType() {
         if (caseRefType == null) {
-            caseRefType = new EObjectContainmentEList<RecordType>(
-                    RecordType.class, this,
+            caseRefType = new EObjectContainmentEList<RecordType>(RecordType.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__CASE_REF_TYPE);
         }
         return caseRefType;
@@ -3709,8 +3598,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<RESTServices> getRESTServices() {
         if (restServices == null) {
-            restServices = new EObjectContainmentEList<RESTServices>(
-                    RESTServices.class, this,
+            restServices = new EObjectContainmentEList<RESTServices>(RESTServices.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICES);
         }
         return restServices;
@@ -3735,8 +3623,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         publishAsRestService = newPublishAsRestService;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE,
-                    oldPublishAsRestService, publishAsRestService));
+                    XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE, oldPublishAsRestService,
+                    publishAsRestService));
     }
 
     /**
@@ -3757,8 +3645,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         String oldRestActivityId = restActivityId;
         restActivityId = newRestActivityId;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__REST_ACTIVITY_ID,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__REST_ACTIVITY_ID,
                     oldRestActivityId, restActivityId));
     }
 
@@ -3783,8 +3670,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<DynamicOrganizationMappings> getDynamicOrganizationMappings() {
         if (dynamicOrganizationMappings == null) {
             dynamicOrganizationMappings =
-                    new EObjectContainmentEList<DynamicOrganizationMappings>(
-                            DynamicOrganizationMappings.class, this,
+                    new EObjectContainmentEList<DynamicOrganizationMappings>(DynamicOrganizationMappings.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS);
         }
         return dynamicOrganizationMappings;
@@ -3804,14 +3690,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSignalHandlerAsynchronous(
-            boolean newSignalHandlerAsynchronous) {
+    public void setSignalHandlerAsynchronous(boolean newSignalHandlerAsynchronous) {
         boolean oldSignalHandlerAsynchronous = signalHandlerAsynchronous;
         signalHandlerAsynchronous = newSignalHandlerAsynchronous;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS,
-                    oldSignalHandlerAsynchronous, signalHandlerAsynchronous));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS, oldSignalHandlerAsynchronous,
+                    signalHandlerAsynchronous));
     }
 
     /**
@@ -3821,10 +3706,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<GlobalDataOperation> getGlobalDataOperation() {
         if (globalDataOperation == null) {
-            globalDataOperation =
-                    new EObjectContainmentEList<GlobalDataOperation>(
-                            GlobalDataOperation.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
+            globalDataOperation = new EObjectContainmentEList<GlobalDataOperation>(GlobalDataOperation.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION);
         }
         return globalDataOperation;
     }
@@ -3836,10 +3719,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ProcessDataWorkItemAttributeMappings> getProcessDataWorkItemAttributeMappings() {
         if (processDataWorkItemAttributeMappings == null) {
-            processDataWorkItemAttributeMappings =
-                    new EObjectContainmentEList<ProcessDataWorkItemAttributeMappings>(
-                            ProcessDataWorkItemAttributeMappings.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
+            processDataWorkItemAttributeMappings = new EObjectContainmentEList<ProcessDataWorkItemAttributeMappings>(
+                    ProcessDataWorkItemAttributeMappings.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS);
         }
         return processDataWorkItemAttributeMappings;
     }
@@ -3858,17 +3740,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAllowUnqualifiedSubProcessIdentification(
-            boolean newAllowUnqualifiedSubProcessIdentification) {
-        boolean oldAllowUnqualifiedSubProcessIdentification =
-                allowUnqualifiedSubProcessIdentification;
-        allowUnqualifiedSubProcessIdentification =
-                newAllowUnqualifiedSubProcessIdentification;
+    public void setAllowUnqualifiedSubProcessIdentification(boolean newAllowUnqualifiedSubProcessIdentification) {
+        boolean oldAllowUnqualifiedSubProcessIdentification = allowUnqualifiedSubProcessIdentification;
+        allowUnqualifiedSubProcessIdentification = newAllowUnqualifiedSubProcessIdentification;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION,
-                    oldAllowUnqualifiedSubProcessIdentification,
-                    allowUnqualifiedSubProcessIdentification));
+                    oldAllowUnqualifiedSubProcessIdentification, allowUnqualifiedSubProcessIdentification));
     }
 
     /**
@@ -3878,10 +3756,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<BpmRuntimeConfiguration> getBpmRuntimeConfiguration() {
         if (bpmRuntimeConfiguration == null) {
-            bpmRuntimeConfiguration =
-                    new EObjectContainmentEList<BpmRuntimeConfiguration>(
-                            BpmRuntimeConfiguration.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
+            bpmRuntimeConfiguration = new EObjectContainmentEList<BpmRuntimeConfiguration>(
+                    BpmRuntimeConfiguration.class, this, XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION);
         }
         return bpmRuntimeConfiguration;
     }
@@ -3906,8 +3782,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldIsCaseServiceESet = isCaseServiceESet;
         isCaseServiceESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE,
                     oldIsCaseService, isCaseService, !oldIsCaseServiceESet));
     }
 
@@ -3922,10 +3797,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         isCaseService = IS_CASE_SERVICE_EDEFAULT;
         isCaseServiceESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE,
-                    oldIsCaseService, IS_CASE_SERVICE_EDEFAULT,
-                    oldIsCaseServiceESet));
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE,
+                    oldIsCaseService, IS_CASE_SERVICE_EDEFAULT, oldIsCaseServiceESet));
     }
 
     /**
@@ -3945,8 +3818,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<RequiredAccessPrivileges> getRequiredAccessPrivileges() {
         if (requiredAccessPrivileges == null) {
             requiredAccessPrivileges =
-                    new EObjectContainmentEList<RequiredAccessPrivileges>(
-                            RequiredAccessPrivileges.class, this,
+                    new EObjectContainmentEList<RequiredAccessPrivileges>(RequiredAccessPrivileges.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES);
         }
         return requiredAccessPrivileges;
@@ -3959,8 +3831,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<CaseService> getCaseService() {
         if (caseService == null) {
-            caseService = new EObjectContainmentEList<CaseService>(
-                    CaseService.class, this,
+            caseService = new EObjectContainmentEList<CaseService>(CaseService.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__CASE_SERVICE);
         }
         return caseService;
@@ -3974,8 +3845,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<AdHocTaskConfigurationType> getAdHocTaskConfiguration() {
         if (adHocTaskConfiguration == null) {
             adHocTaskConfiguration =
-                    new EObjectContainmentEList<AdHocTaskConfigurationType>(
-                            AdHocTaskConfigurationType.class, this,
+                    new EObjectContainmentEList<AdHocTaskConfigurationType>(AdHocTaskConfigurationType.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION);
         }
         return adHocTaskConfiguration;
@@ -4002,8 +3872,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         isEventSubProcessESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS,
-                    oldIsEventSubProcess, isEventSubProcess,
+                    XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS, oldIsEventSubProcess, isEventSubProcess,
                     !oldIsEventSubProcessESet));
     }
 
@@ -4019,9 +3888,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         isEventSubProcessESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS,
-                    oldIsEventSubProcess, IS_EVENT_SUB_PROCESS_EDEFAULT,
-                    oldIsEventSubProcessESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS, oldIsEventSubProcess,
+                    IS_EVENT_SUB_PROCESS_EDEFAULT, oldIsEventSubProcessESet));
     }
 
     /**
@@ -4054,9 +3922,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         nonInterruptingEventESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT,
-                    oldNonInterruptingEvent, nonInterruptingEvent,
-                    !oldNonInterruptingEventESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT, oldNonInterruptingEvent,
+                    nonInterruptingEvent, !oldNonInterruptingEventESet));
     }
 
     /**
@@ -4071,9 +3938,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         nonInterruptingEventESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT,
-                    oldNonInterruptingEvent, NON_INTERRUPTING_EVENT_EDEFAULT,
-                    oldNonInterruptingEventESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT, oldNonInterruptingEvent,
+                    NON_INTERRUPTING_EVENT_EDEFAULT, oldNonInterruptingEventESet));
     }
 
     /**
@@ -4104,8 +3970,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         correlateImmediately = newCorrelateImmediately;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__CORRELATE_IMMEDIATELY,
-                    oldCorrelateImmediately, correlateImmediately));
+                    XpdExtensionPackage.DOCUMENT_ROOT__CORRELATE_IMMEDIATELY, oldCorrelateImmediately,
+                    correlateImmediately));
     }
 
     /**
@@ -4122,18 +3988,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAsyncExecutionMode(
-            AsyncExecutionMode newAsyncExecutionMode) {
+    public void setAsyncExecutionMode(AsyncExecutionMode newAsyncExecutionMode) {
         AsyncExecutionMode oldAsyncExecutionMode = asyncExecutionMode;
-        asyncExecutionMode =
-                newAsyncExecutionMode == null ? ASYNC_EXECUTION_MODE_EDEFAULT
-                        : newAsyncExecutionMode;
+        asyncExecutionMode = newAsyncExecutionMode == null ? ASYNC_EXECUTION_MODE_EDEFAULT : newAsyncExecutionMode;
         boolean oldAsyncExecutionModeESet = asyncExecutionModeESet;
         asyncExecutionModeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE,
-                    oldAsyncExecutionMode, asyncExecutionMode,
+                    XpdExtensionPackage.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE, oldAsyncExecutionMode, asyncExecutionMode,
                     !oldAsyncExecutionModeESet));
     }
 
@@ -4149,9 +4011,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         asyncExecutionModeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE,
-                    oldAsyncExecutionMode, ASYNC_EXECUTION_MODE_EDEFAULT,
-                    oldAsyncExecutionModeESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__ASYNC_EXECUTION_MODE, oldAsyncExecutionMode,
+                    ASYNC_EXECUTION_MODE_EDEFAULT, oldAsyncExecutionModeESet));
     }
 
     /**
@@ -4179,13 +4040,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public void setSignalType(SignalType newSignalType) {
         SignalType oldSignalType = signalType;
-        signalType =
-                newSignalType == null ? SIGNAL_TYPE_EDEFAULT : newSignalType;
+        signalType = newSignalType == null ? SIGNAL_TYPE_EDEFAULT : newSignalType;
         boolean oldSignalTypeESet = signalTypeESet;
         signalTypeESet = true;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_TYPE,
                     oldSignalType, signalType, !oldSignalTypeESet));
     }
 
@@ -4200,8 +4059,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         signalType = SIGNAL_TYPE_EDEFAULT;
         signalTypeESet = false;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_TYPE,
+            eNotify(new ENotificationImpl(this, Notification.UNSET, XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_TYPE,
                     oldSignalType, SIGNAL_TYPE_EDEFAULT, oldSignalTypeESet));
     }
 
@@ -4222,8 +4080,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<ServiceProcessConfiguration> getServiceProcessConfiguration() {
         if (serviceProcessConfiguration == null) {
             serviceProcessConfiguration =
-                    new EObjectContainmentEList<ServiceProcessConfiguration>(
-                            ServiceProcessConfiguration.class, this,
+                    new EObjectContainmentEList<ServiceProcessConfiguration>(ServiceProcessConfiguration.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION);
         }
         return serviceProcessConfiguration;
@@ -4247,8 +4104,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldLikeMapping = likeMapping;
         likeMapping = newLikeMapping;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING,
                     oldLikeMapping, likeMapping));
     }
 
@@ -4259,8 +4115,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<ScriptDataMapper> getScriptDataMapper() {
         if (scriptDataMapper == null) {
-            scriptDataMapper = new EObjectContainmentEList<ScriptDataMapper>(
-                    ScriptDataMapper.class, this,
+            scriptDataMapper = new EObjectContainmentEList<ScriptDataMapper>(ScriptDataMapper.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER);
         }
         return scriptDataMapper;
@@ -4273,10 +4128,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<LikeMappingExclusions> getLikeMappingExclusions() {
         if (likeMappingExclusions == null) {
-            likeMappingExclusions =
-                    new EObjectContainmentEList<LikeMappingExclusions>(
-                            LikeMappingExclusions.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
+            likeMappingExclusions = new EObjectContainmentEList<LikeMappingExclusions>(LikeMappingExclusions.class,
+                    this, XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS);
         }
         return likeMappingExclusions;
     }
@@ -4300,8 +4153,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         sourceContributorId = newSourceContributorId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID,
-                    oldSourceContributorId, sourceContributorId));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID, oldSourceContributorId,
+                    sourceContributorId));
     }
 
     /**
@@ -4323,8 +4176,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         targetContributorId = newTargetContributorId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID,
-                    oldTargetContributorId, targetContributorId));
+                    XpdExtensionPackage.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID, oldTargetContributorId,
+                    targetContributorId));
     }
 
     /**
@@ -4333,10 +4186,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<RestServiceOperation> getRestServiceOperation() {
         if (restServiceOperation == null) {
-            restServiceOperation =
-                    new EObjectContainmentEList<RestServiceOperation>(
-                            RestServiceOperation.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION);
+            restServiceOperation = new EObjectContainmentEList<RestServiceOperation>(RestServiceOperation.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION);
         }
         return restServiceOperation;
     }
@@ -4348,8 +4199,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<ScriptDataMapper> getInputMappings() {
         if (inputMappings == null) {
-            inputMappings = new EObjectContainmentEList<ScriptDataMapper>(
-                    ScriptDataMapper.class, this,
+            inputMappings = new EObjectContainmentEList<ScriptDataMapper>(ScriptDataMapper.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__INPUT_MAPPINGS);
         }
         return inputMappings;
@@ -4362,8 +4212,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      */
     public EList<ScriptDataMapper> getOutputMappings() {
         if (outputMappings == null) {
-            outputMappings = new EObjectContainmentEList<ScriptDataMapper>(
-                    ScriptDataMapper.class, this,
+            outputMappings = new EObjectContainmentEList<ScriptDataMapper>(ScriptDataMapper.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__OUTPUT_MAPPINGS);
         }
         return outputMappings;
@@ -4383,21 +4232,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBusinessServicePublishType(
-            BusinessServicePublishType newBusinessServicePublishType) {
-        BusinessServicePublishType oldBusinessServicePublishType =
-                businessServicePublishType;
-        businessServicePublishType = newBusinessServicePublishType == null
-                ? BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT
+    public void setBusinessServicePublishType(BusinessServicePublishType newBusinessServicePublishType) {
+        BusinessServicePublishType oldBusinessServicePublishType = businessServicePublishType;
+        businessServicePublishType = newBusinessServicePublishType == null ? BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT
                 : newBusinessServicePublishType;
-        boolean oldBusinessServicePublishTypeESet =
-                businessServicePublishTypeESet;
+        boolean oldBusinessServicePublishTypeESet = businessServicePublishTypeESet;
         businessServicePublishTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE,
-                    oldBusinessServicePublishType, businessServicePublishType,
-                    !oldBusinessServicePublishTypeESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE, oldBusinessServicePublishType,
+                    businessServicePublishType, !oldBusinessServicePublishTypeESet));
     }
 
     /**
@@ -4406,18 +4250,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     public void unsetBusinessServicePublishType() {
-        BusinessServicePublishType oldBusinessServicePublishType =
-                businessServicePublishType;
-        boolean oldBusinessServicePublishTypeESet =
-                businessServicePublishTypeESet;
+        BusinessServicePublishType oldBusinessServicePublishType = businessServicePublishType;
+        boolean oldBusinessServicePublishTypeESet = businessServicePublishTypeESet;
         businessServicePublishType = BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT;
         businessServicePublishTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE,
-                    oldBusinessServicePublishType,
-                    BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT,
-                    oldBusinessServicePublishTypeESet));
+                    XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE, oldBusinessServicePublishType,
+                    BUSINESS_SERVICE_PUBLISH_TYPE_EDEFAULT, oldBusinessServicePublishTypeESet));
     }
 
     /**
@@ -4443,14 +4283,35 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSuppressMaxMappingsError(
-            boolean newSuppressMaxMappingsError) {
+    public void setSuppressMaxMappingsError(boolean newSuppressMaxMappingsError) {
         boolean oldSuppressMaxMappingsError = suppressMaxMappingsError;
         suppressMaxMappingsError = newSuppressMaxMappingsError;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR,
-                    oldSuppressMaxMappingsError, suppressMaxMappingsError));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR, oldSuppressMaxMappingsError,
+                    suppressMaxMappingsError));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public FieldFormat getFieldFormat() {
+        return fieldFormat;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFieldFormat(FieldFormat newFieldFormat) {
+        FieldFormat oldFieldFormat = fieldFormat;
+        fieldFormat = newFieldFormat == null ? FIELD_FORMAT_EDEFAULT : newFieldFormat;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT,
+                    oldFieldFormat, fieldFormat));
     }
 
     /**
@@ -4478,12 +4339,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void setFlowRoutingStyle(FlowRoutingStyle newFlowRoutingStyle) {
         FlowRoutingStyle oldFlowRoutingStyle = flowRoutingStyle;
-        flowRoutingStyle =
-                newFlowRoutingStyle == null ? FLOW_ROUTING_STYLE_EDEFAULT
-                        : newFlowRoutingStyle;
+        flowRoutingStyle = newFlowRoutingStyle == null ? FLOW_ROUTING_STYLE_EDEFAULT : newFlowRoutingStyle;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__FLOW_ROUTING_STYLE,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__FLOW_ROUTING_STYLE,
                     oldFlowRoutingStyle, flowRoutingStyle));
     }
 
@@ -4494,8 +4352,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<CalendarReference> getCalendarReference() {
         if (calendarReference == null) {
-            calendarReference = new EObjectContainmentEList<CalendarReference>(
-                    CalendarReference.class, this,
+            calendarReference = new EObjectContainmentEList<CalendarReference>(CalendarReference.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__CALENDAR_REFERENCE);
         }
         return calendarReference;
@@ -4519,8 +4376,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         boolean oldNonCancelling = nonCancelling;
         nonCancelling = newNonCancelling;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__NON_CANCELLING,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__NON_CANCELLING,
                     oldNonCancelling, nonCancelling));
     }
 
@@ -4544,8 +4400,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<Retry> getRetry() {
         if (retry == null) {
-            retry = new EObjectContainmentEList<Retry>(Retry.class, this,
-                    XpdExtensionPackage.DOCUMENT_ROOT__RETRY);
+            retry = new EObjectContainmentEList<Retry>(Retry.class, this, XpdExtensionPackage.DOCUMENT_ROOT__RETRY);
         }
         return retry;
     }
@@ -4569,8 +4424,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         activityDeadlineEventId = newActivityDeadlineEventId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID,
-                    oldActivityDeadlineEventId, activityDeadlineEventId));
+                    XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID, oldActivityDeadlineEventId,
+                    activityDeadlineEventId));
     }
 
     /**
@@ -4589,11 +4444,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public void setStartStrategy(SubProcessStartStrategy newStartStrategy) {
         SubProcessStartStrategy oldStartStrategy = startStrategy;
-        startStrategy = newStartStrategy == null ? START_STRATEGY_EDEFAULT
-                : newStartStrategy;
+        startStrategy = newStartStrategy == null ? START_STRATEGY_EDEFAULT : newStartStrategy;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__START_STRATEGY,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DOCUMENT_ROOT__START_STRATEGY,
                     oldStartStrategy, startStrategy));
     }
 
@@ -4611,16 +4464,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setOverwriteAlreadyModifiedTaskData(
-            boolean newOverwriteAlreadyModifiedTaskData) {
-        boolean oldOverwriteAlreadyModifiedTaskData =
-                overwriteAlreadyModifiedTaskData;
+    public void setOverwriteAlreadyModifiedTaskData(boolean newOverwriteAlreadyModifiedTaskData) {
+        boolean oldOverwriteAlreadyModifiedTaskData = overwriteAlreadyModifiedTaskData;
         overwriteAlreadyModifiedTaskData = newOverwriteAlreadyModifiedTaskData;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA,
-                    oldOverwriteAlreadyModifiedTaskData,
-                    overwriteAlreadyModifiedTaskData));
+                    oldOverwriteAlreadyModifiedTaskData, overwriteAlreadyModifiedTaskData));
     }
 
     /**
@@ -4637,17 +4487,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setEventHandlerFlowStrategy(
-            EventHandlerFlowStrategy newEventHandlerFlowStrategy) {
-        EventHandlerFlowStrategy oldEventHandlerFlowStrategy =
-                eventHandlerFlowStrategy;
-        eventHandlerFlowStrategy = newEventHandlerFlowStrategy == null
-                ? EVENT_HANDLER_FLOW_STRATEGY_EDEFAULT
+    public void setEventHandlerFlowStrategy(EventHandlerFlowStrategy newEventHandlerFlowStrategy) {
+        EventHandlerFlowStrategy oldEventHandlerFlowStrategy = eventHandlerFlowStrategy;
+        eventHandlerFlowStrategy = newEventHandlerFlowStrategy == null ? EVENT_HANDLER_FLOW_STRATEGY_EDEFAULT
                 : newEventHandlerFlowStrategy;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY,
-                    oldEventHandlerFlowStrategy, eventHandlerFlowStrategy));
+                    XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY, oldEventHandlerFlowStrategy,
+                    eventHandlerFlowStrategy));
     }
 
     /**
@@ -4657,10 +4504,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<NamespacePrefixMap> getNamespacePrefixMap() {
         if (namespacePrefixMap == null) {
-            namespacePrefixMap =
-                    new EObjectContainmentEList<NamespacePrefixMap>(
-                            NamespacePrefixMap.class, this,
-                            XpdExtensionPackage.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
+            namespacePrefixMap = new EObjectContainmentEList<NamespacePrefixMap>(NamespacePrefixMap.class, this,
+                    XpdExtensionPackage.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP);
         }
         return namespacePrefixMap;
     }
@@ -4684,8 +4529,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         suspendResumeWithParent = newSuspendResumeWithParent;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT,
-                    oldSuspendResumeWithParent, suspendResumeWithParent));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT, oldSuspendResumeWithParent,
+                    suspendResumeWithParent));
     }
 
     /**
@@ -4702,16 +4547,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setSystemErrorAction(
-            SystemErrorActionType newSystemErrorAction) {
+    public void setSystemErrorAction(SystemErrorActionType newSystemErrorAction) {
         SystemErrorActionType oldSystemErrorAction = systemErrorAction;
-        systemErrorAction =
-                newSystemErrorAction == null ? SYSTEM_ERROR_ACTION_EDEFAULT
-                        : newSystemErrorAction;
+        systemErrorAction = newSystemErrorAction == null ? SYSTEM_ERROR_ACTION_EDEFAULT : newSystemErrorAction;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DOCUMENT_ROOT__SYSTEM_ERROR_ACTION,
-                    oldSystemErrorAction, systemErrorAction));
+                    XpdExtensionPackage.DOCUMENT_ROOT__SYSTEM_ERROR_ACTION, oldSystemErrorAction, systemErrorAction));
     }
 
     /**
@@ -4721,8 +4562,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ConstantPeriod> getCorrelationTimeout() {
         if (correlationTimeout == null) {
-            correlationTimeout = new EObjectContainmentEList<ConstantPeriod>(
-                    ConstantPeriod.class, this,
+            correlationTimeout = new EObjectContainmentEList<ConstantPeriod>(ConstantPeriod.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_TIMEOUT);
         }
         return correlationTimeout;
@@ -4735,8 +4575,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     @Override
     public EList<ValidationControl> getValidationControl() {
         if (validationControl == null) {
-            validationControl = new EObjectContainmentEList<ValidationControl>(
-                    ValidationControl.class, this,
+            validationControl = new EObjectContainmentEList<ValidationControl>(ValidationControl.class, this,
                     XpdExtensionPackage.DOCUMENT_ROOT__VALIDATION_CONTROL);
         }
         return validationControl;
@@ -4750,8 +4589,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
     public EList<ReplyImmediateDataMappings> getReplyImmediateDataMappings() {
         if (replyImmediateDataMappings == null) {
             replyImmediateDataMappings =
-                    new EObjectContainmentEList<ReplyImmediateDataMappings>(
-                            ReplyImmediateDataMappings.class, this,
+                    new EObjectContainmentEList<ReplyImmediateDataMappings>(ReplyImmediateDataMappings.class, this,
                             XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS);
         }
         return replyImmediateDataMappings;
@@ -4771,16 +4609,13 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public void setBxUseUnqualifiedPropertyNames(
-            boolean newBxUseUnqualifiedPropertyNames) {
-        boolean oldBxUseUnqualifiedPropertyNames =
-                bxUseUnqualifiedPropertyNames;
+    public void setBxUseUnqualifiedPropertyNames(boolean newBxUseUnqualifiedPropertyNames) {
+        boolean oldBxUseUnqualifiedPropertyNames = bxUseUnqualifiedPropertyNames;
         bxUseUnqualifiedPropertyNames = newBxUseUnqualifiedPropertyNames;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES,
-                    oldBxUseUnqualifiedPropertyNames,
-                    bxUseUnqualifiedPropertyNames));
+                    oldBxUseUnqualifiedPropertyNames, bxUseUnqualifiedPropertyNames));
     }
 
     /**
@@ -4788,189 +4623,130 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-            return ((InternalEList<?>) getXMLNSPrefixMap())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-            return ((InternalEList<?>) getXSISchemaLocation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES:
-            return ((InternalEList<?>) getDataObjectAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDataObjectAttributes()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES:
-            return ((InternalEList<?>) getExtendedAttributes())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExtendedAttributes()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CONSTANT_PERIOD:
-            return ((InternalEList<?>) getConstantPeriod())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConstantPeriod()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__USER_TASK_SCRIPTS:
-            return ((InternalEList<?>) getUserTaskScripts())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getUserTaskScripts()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__AUDIT:
             return ((InternalEList<?>) getAudit()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT:
             return ((InternalEList<?>) getScript()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUES:
-            return ((InternalEList<?>) getInitialValues()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getInitialValues()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS:
-            return ((InternalEList<?>) getAssociatedCorrelationFields())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssociatedCorrelationFields()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS:
-            return ((InternalEList<?>) getAssociatedParameters())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssociatedParameters()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE:
-            return ((InternalEList<?>) getImplementedInterface())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getImplementedInterface()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_INTERFACES:
-            return ((InternalEList<?>) getProcessInterfaces())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProcessInterfaces()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION:
-            return ((InternalEList<?>) getWsdlEventAssociation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getWsdlEventAssociation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS:
-            return ((InternalEList<?>) getMultiInstanceScripts())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getMultiInstanceScripts()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__EXPRESSION:
-            return ((InternalEList<?>) getExpression()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getExpression()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE:
-            return ((InternalEList<?>) getInitialParameterValue())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getInitialParameterValue()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PORT_TYPE_OPERATION:
-            return ((InternalEList<?>) getPortTypeOperation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getPortTypeOperation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTERNAL_REFERENCE:
-            return ((InternalEList<?>) getExternalReference())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExternalReference()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS:
-            return ((InternalEList<?>) getProcessResourcePatterns())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProcessResourcePatterns()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS:
-            return ((InternalEList<?>) getEventHandlerInitialisers())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getEventHandlerInitialisers()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS:
-            return ((InternalEList<?>) getActivityResourcePatterns())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getActivityResourcePatterns()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENT_OPERATION:
-            return ((InternalEList<?>) getDocumentOperation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDocumentOperation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DURATION_CALCULATION:
-            return ((InternalEList<?>) getDurationCalculation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDurationCalculation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DISCRIMINATOR:
-            return ((InternalEList<?>) getDiscriminator()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getDiscriminator()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS:
-            return ((InternalEList<?>) getCorrelationDataMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCorrelationDataMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__TRANSFORM_SCRIPT:
-            return ((InternalEList<?>) getTransformScript())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getTransformScript()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__ERROR_THROWER_INFO:
-            return ((InternalEList<?>) getErrorThrowerInfo())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getErrorThrowerInfo()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS:
-            return ((InternalEList<?>) getCatchErrorMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCatchErrorMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT:
-            return ((InternalEList<?>) getConditionalParticipant())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConditionalParticipant()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE:
-            return ((InternalEList<?>) getTaskLibraryReference())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getTaskLibraryReference()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__FORM_IMPLEMENTATION:
-            return ((InternalEList<?>) getFormImplementation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFormImplementation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_QUERY:
-            return ((InternalEList<?>) getParticipantQuery())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getParticipantQuery()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__FAULT_MESSAGE:
-            return ((InternalEList<?>) getFaultMessage()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getFaultMessage()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_PROCESS:
-            return ((InternalEList<?>) getBusinessProcess())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getBusinessProcess()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__WSDL_GENERATION:
-            return ((InternalEList<?>) getWsdlGeneration())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getWsdlGeneration()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DECISION_SERVICE:
-            return ((InternalEList<?>) getDecisionService())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDecisionService()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE:
-            return ((InternalEList<?>) getParticipantSharedResource())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getParticipantSharedResource()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CALENDAR_REFERENCE:
-            return ((InternalEList<?>) getCalendarReference())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCalendarReference()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_DATA:
-            return ((InternalEList<?>) getSignalData()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getSignalData()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__RETRY:
             return ((InternalEList<?>) getRetry()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP:
-            return ((InternalEList<?>) getNamespacePrefixMap())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNamespacePrefixMap()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_TIMEOUT:
-            return ((InternalEList<?>) getCorrelationTimeout())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getCorrelationTimeout()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__VALIDATION_CONTROL:
-            return ((InternalEList<?>) getValidationControl())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getValidationControl()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS:
-            return ((InternalEList<?>) getReplyImmediateDataMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getReplyImmediateDataMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_REF_TYPE:
-            return ((InternalEList<?>) getCaseRefType()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getCaseRefType()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICES:
-            return ((InternalEList<?>) getRESTServices()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getRESTServices()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT:
-            return ((InternalEList<?>) getRescheduleTimerScript())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRescheduleTimerScript()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS:
-            return ((InternalEList<?>) getDynamicOrganizationMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDynamicOrganizationMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION:
-            return ((InternalEList<?>) getGlobalDataOperation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getGlobalDataOperation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS:
-            return ((InternalEList<?>) getProcessDataWorkItemAttributeMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProcessDataWorkItemAttributeMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION:
-            return ((InternalEList<?>) getBpmRuntimeConfiguration())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getBpmRuntimeConfiguration()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES:
-            return ((InternalEList<?>) getRequiredAccessPrivileges())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRequiredAccessPrivileges()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_SERVICE:
-            return ((InternalEList<?>) getCaseService()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getCaseService()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION:
-            return ((InternalEList<?>) getAdHocTaskConfiguration())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAdHocTaskConfiguration()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION:
-            return ((InternalEList<?>) getServiceProcessConfiguration())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getServiceProcessConfiguration()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER:
-            return ((InternalEList<?>) getScriptDataMapper())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getScriptDataMapper()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS:
-            return ((InternalEList<?>) getLikeMappingExclusions())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getLikeMappingExclusions()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION:
-            return ((InternalEList<?>) getRestServiceOperation())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRestServiceOperation()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__INPUT_MAPPINGS:
-            return ((InternalEList<?>) getInputMappings()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getInputMappings()).basicRemove(otherEnd, msgs);
         case XpdExtensionPackage.DOCUMENT_ROOT__OUTPUT_MAPPINGS:
-            return ((InternalEList<?>) getOutputMappings())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getOutputMappings()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -5218,6 +4994,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return getBusinessServicePublishType();
         case XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR:
             return isSuppressMaxMappingsError();
+        case XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT:
+            return getFieldFormat();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -5241,13 +5019,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES:
             getDataObjectAttributes().clear();
-            getDataObjectAttributes().addAll(
-                    (Collection<? extends XpdExtDataObjectAttributes>) newValue);
+            getDataObjectAttributes().addAll((Collection<? extends XpdExtDataObjectAttributes>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES:
             getExtendedAttributes().clear();
-            getExtendedAttributes()
-                    .addAll((Collection<? extends XpdExtAttributes>) newValue);
+            getExtendedAttributes().addAll((Collection<? extends XpdExtAttributes>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT:
             setContinueOnTimeout((Boolean) newValue);
@@ -5257,13 +5033,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CONSTANT_PERIOD:
             getConstantPeriod().clear();
-            getConstantPeriod()
-                    .addAll((Collection<? extends ConstantPeriod>) newValue);
+            getConstantPeriod().addAll((Collection<? extends ConstantPeriod>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__USER_TASK_SCRIPTS:
             getUserTaskScripts().clear();
-            getUserTaskScripts()
-                    .addAll((Collection<? extends UserTaskScripts>) newValue);
+            getUserTaskScripts().addAll((Collection<? extends UserTaskScripts>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__AUDIT:
             getAudit().clear();
@@ -5271,41 +5045,34 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT:
             getScript().clear();
-            getScript()
-                    .addAll((Collection<? extends ScriptInformation>) newValue);
+            getScript().addAll((Collection<? extends ScriptInformation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATELY:
             setReplyImmediately((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUES:
             getInitialValues().clear();
-            getInitialValues()
-                    .addAll((Collection<? extends InitialValues>) newValue);
+            getInitialValues().addAll((Collection<? extends InitialValues>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS:
             getAssociatedCorrelationFields().clear();
-            getAssociatedCorrelationFields().addAll(
-                    (Collection<? extends AssociatedCorrelationFields>) newValue);
+            getAssociatedCorrelationFields().addAll((Collection<? extends AssociatedCorrelationFields>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS:
             getAssociatedParameters().clear();
-            getAssociatedParameters().addAll(
-                    (Collection<? extends AssociatedParameters>) newValue);
+            getAssociatedParameters().addAll((Collection<? extends AssociatedParameters>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE:
             getImplementedInterface().clear();
-            getImplementedInterface().addAll(
-                    (Collection<? extends ImplementedInterface>) newValue);
+            getImplementedInterface().addAll((Collection<? extends ImplementedInterface>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_INTERFACES:
             getProcessInterfaces().clear();
-            getProcessInterfaces()
-                    .addAll((Collection<? extends ProcessInterfaces>) newValue);
+            getProcessInterfaces().addAll((Collection<? extends ProcessInterfaces>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION:
             getWsdlEventAssociation().clear();
-            getWsdlEventAssociation().addAll(
-                    (Collection<? extends WsdlEventAssociation>) newValue);
+            getWsdlEventAssociation().addAll((Collection<? extends WsdlEventAssociation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__INLINE_SUB_PROCESS:
             setInlineSubProcess((Boolean) newValue);
@@ -5318,8 +5085,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS:
             getMultiInstanceScripts().clear();
-            getMultiInstanceScripts().addAll(
-                    (Collection<? extends MultiInstanceScripts>) newValue);
+            getMultiInstanceScripts().addAll((Collection<? extends MultiInstanceScripts>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD:
             setProcessIdentifierField((String) newValue);
@@ -5339,16 +5105,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE:
             getInitialParameterValue().clear();
-            getInitialParameterValue().addAll(
-                    (Collection<? extends InitialParameterValue>) newValue);
+            getInitialParameterValue().addAll((Collection<? extends InitialParameterValue>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING:
             setInitialValueMapping((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PORT_TYPE_OPERATION:
             getPortTypeOperation().clear();
-            getPortTypeOperation()
-                    .addAll((Collection<? extends PortTypeOperation>) newValue);
+            getPortTypeOperation().addAll((Collection<? extends PortTypeOperation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__TRANSPORT:
             setTransport((String) newValue);
@@ -5358,41 +5122,34 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTERNAL_REFERENCE:
             getExternalReference().clear();
-            getExternalReference()
-                    .addAll((Collection<? extends ExternalReference>) newValue);
+            getExternalReference().addAll((Collection<? extends ExternalReference>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS:
             getProcessResourcePatterns().clear();
-            getProcessResourcePatterns().addAll(
-                    (Collection<? extends ProcessResourcePatterns>) newValue);
+            getProcessResourcePatterns().addAll((Collection<? extends ProcessResourcePatterns>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS:
             getEventHandlerInitialisers().clear();
-            getEventHandlerInitialisers().addAll(
-                    (Collection<? extends EventHandlerInitialisers>) newValue);
+            getEventHandlerInitialisers().addAll((Collection<? extends EventHandlerInitialisers>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS:
             getActivityResourcePatterns().clear();
-            getActivityResourcePatterns().addAll(
-                    (Collection<? extends ActivityResourcePatterns>) newValue);
+            getActivityResourcePatterns().addAll((Collection<? extends ActivityResourcePatterns>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION:
             setRequireNewTransaction((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENT_OPERATION:
             getDocumentOperation().clear();
-            getDocumentOperation()
-                    .addAll((Collection<? extends DocumentOperation>) newValue);
+            getDocumentOperation().addAll((Collection<? extends DocumentOperation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DURATION_CALCULATION:
             getDurationCalculation().clear();
-            getDurationCalculation().addAll(
-                    (Collection<? extends DurationCalculation>) newValue);
+            getDurationCalculation().addAll((Collection<? extends DurationCalculation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DISCRIMINATOR:
             getDiscriminator().clear();
-            getDiscriminator()
-                    .addAll((Collection<? extends Discriminator>) newValue);
+            getDiscriminator().addAll((Collection<? extends Discriminator>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME:
             setDisplayName((String) newValue);
@@ -5405,13 +5162,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS:
             getCorrelationDataMappings().clear();
-            getCorrelationDataMappings().addAll(
-                    (Collection<? extends CorrelationDataMappings>) newValue);
+            getCorrelationDataMappings().addAll((Collection<? extends CorrelationDataMappings>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__TRANSFORM_SCRIPT:
             getTransformScript().clear();
-            getTransformScript()
-                    .addAll((Collection<? extends TransformScript>) newValue);
+            getTransformScript().addAll((Collection<? extends TransformScript>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE:
             setPublishAsBusinessService((Boolean) newValue);
@@ -5421,18 +5176,15 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ERROR_THROWER_INFO:
             getErrorThrowerInfo().clear();
-            getErrorThrowerInfo()
-                    .addAll((Collection<? extends ErrorThrowerInfo>) newValue);
+            getErrorThrowerInfo().addAll((Collection<? extends ErrorThrowerInfo>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS:
             getCatchErrorMappings().clear();
-            getCatchErrorMappings().addAll(
-                    (Collection<? extends CatchErrorMappings>) newValue);
+            getCatchErrorMappings().addAll((Collection<? extends CatchErrorMappings>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT:
             getConditionalParticipant().clear();
-            getConditionalParticipant().addAll(
-                    (Collection<? extends ConditionalParticipant>) newValue);
+            getConditionalParticipant().addAll((Collection<? extends ConditionalParticipant>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__GENERATED:
             setGenerated((Boolean) newValue);
@@ -5442,8 +5194,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE:
             getTaskLibraryReference().clear();
-            getTaskLibraryReference().addAll(
-                    (Collection<? extends TaskLibraryReference>) newValue);
+            getTaskLibraryReference().addAll((Collection<? extends TaskLibraryReference>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS:
             setSetPerformerInProcess((Boolean) newValue);
@@ -5456,13 +5207,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__FORM_IMPLEMENTATION:
             getFormImplementation().clear();
-            getFormImplementation().addAll(
-                    (Collection<? extends FormImplementation>) newValue);
+            getFormImplementation().addAll((Collection<? extends FormImplementation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_QUERY:
             getParticipantQuery().clear();
-            getParticipantQuery()
-                    .addAll((Collection<? extends Expression>) newValue);
+            getParticipantQuery().addAll((Collection<? extends Expression>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT:
             setApiEndPointParticipant((String) newValue);
@@ -5476,13 +5225,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_PROCESS:
             getBusinessProcess().clear();
-            getBusinessProcess()
-                    .addAll((Collection<? extends BusinessProcess>) newValue);
+            getBusinessProcess().addAll((Collection<? extends BusinessProcess>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__WSDL_GENERATION:
             getWsdlGeneration().clear();
-            getWsdlGeneration()
-                    .addAll((Collection<? extends WsdlGeneration>) newValue);
+            getWsdlGeneration().addAll((Collection<? extends WsdlGeneration>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__TARGET_PRIMITIVE_PROPERTY:
             setTargetPrimitiveProperty((Boolean) newValue);
@@ -5492,13 +5239,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DECISION_SERVICE:
             getDecisionService().clear();
-            getDecisionService()
-                    .addAll((Collection<? extends SubFlow>) newValue);
+            getDecisionService().addAll((Collection<? extends SubFlow>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE:
             getParticipantSharedResource().clear();
-            getParticipantSharedResource().addAll(
-                    (Collection<? extends ParticipantSharedResource>) newValue);
+            getParticipantSharedResource().addAll((Collection<? extends ParticipantSharedResource>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE:
             setXpdModelType((XpdModelType) newValue);
@@ -5508,8 +5253,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CALENDAR_REFERENCE:
             getCalendarReference().clear();
-            getCalendarReference()
-                    .addAll((Collection<? extends CalendarReference>) newValue);
+            getCalendarReference().addAll((Collection<? extends CalendarReference>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__NON_CANCELLING:
             setNonCancelling((Boolean) newValue);
@@ -5536,8 +5280,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__NAMESPACE_PREFIX_MAP:
             getNamespacePrefixMap().clear();
-            getNamespacePrefixMap().addAll(
-                    (Collection<? extends NamespacePrefixMap>) newValue);
+            getNamespacePrefixMap().addAll((Collection<? extends NamespacePrefixMap>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SUSPEND_RESUME_WITH_PARENT:
             setSuspendResumeWithParent((Boolean) newValue);
@@ -5547,31 +5290,26 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_TIMEOUT:
             getCorrelationTimeout().clear();
-            getCorrelationTimeout()
-                    .addAll((Collection<? extends ConstantPeriod>) newValue);
+            getCorrelationTimeout().addAll((Collection<? extends ConstantPeriod>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__VALIDATION_CONTROL:
             getValidationControl().clear();
-            getValidationControl()
-                    .addAll((Collection<? extends ValidationControl>) newValue);
+            getValidationControl().addAll((Collection<? extends ValidationControl>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS:
             getReplyImmediateDataMappings().clear();
-            getReplyImmediateDataMappings().addAll(
-                    (Collection<? extends ReplyImmediateDataMappings>) newValue);
+            getReplyImmediateDataMappings().addAll((Collection<? extends ReplyImmediateDataMappings>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES:
             setBxUseUnqualifiedPropertyNames((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_REF_TYPE:
             getCaseRefType().clear();
-            getCaseRefType()
-                    .addAll((Collection<? extends RecordType>) newValue);
+            getCaseRefType().addAll((Collection<? extends RecordType>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICES:
             getRESTServices().clear();
-            getRESTServices()
-                    .addAll((Collection<? extends RESTServices>) newValue);
+            getRESTServices().addAll((Collection<? extends RESTServices>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_REST_SERVICE:
             setPublishAsRestService((Boolean) newValue);
@@ -5581,52 +5319,45 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT:
             getRescheduleTimerScript().clear();
-            getRescheduleTimerScript().addAll(
-                    (Collection<? extends RescheduleTimerScript>) newValue);
+            getRescheduleTimerScript().addAll((Collection<? extends RescheduleTimerScript>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS:
             getDynamicOrganizationMappings().clear();
-            getDynamicOrganizationMappings().addAll(
-                    (Collection<? extends DynamicOrganizationMappings>) newValue);
+            getDynamicOrganizationMappings().addAll((Collection<? extends DynamicOrganizationMappings>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS:
             setSignalHandlerAsynchronous((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION:
             getGlobalDataOperation().clear();
-            getGlobalDataOperation().addAll(
-                    (Collection<? extends GlobalDataOperation>) newValue);
+            getGlobalDataOperation().addAll((Collection<? extends GlobalDataOperation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS:
             getProcessDataWorkItemAttributeMappings().clear();
-            getProcessDataWorkItemAttributeMappings().addAll(
-                    (Collection<? extends ProcessDataWorkItemAttributeMappings>) newValue);
+            getProcessDataWorkItemAttributeMappings()
+                    .addAll((Collection<? extends ProcessDataWorkItemAttributeMappings>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION:
             setAllowUnqualifiedSubProcessIdentification((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION:
             getBpmRuntimeConfiguration().clear();
-            getBpmRuntimeConfiguration().addAll(
-                    (Collection<? extends BpmRuntimeConfiguration>) newValue);
+            getBpmRuntimeConfiguration().addAll((Collection<? extends BpmRuntimeConfiguration>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE:
             setIsCaseService((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES:
             getRequiredAccessPrivileges().clear();
-            getRequiredAccessPrivileges().addAll(
-                    (Collection<? extends RequiredAccessPrivileges>) newValue);
+            getRequiredAccessPrivileges().addAll((Collection<? extends RequiredAccessPrivileges>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_SERVICE:
             getCaseService().clear();
-            getCaseService()
-                    .addAll((Collection<? extends CaseService>) newValue);
+            getCaseService().addAll((Collection<? extends CaseService>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION:
             getAdHocTaskConfiguration().clear();
-            getAdHocTaskConfiguration().addAll(
-                    (Collection<? extends AdHocTaskConfigurationType>) newValue);
+            getAdHocTaskConfiguration().addAll((Collection<? extends AdHocTaskConfigurationType>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS:
             setIsEventSubProcess((Boolean) newValue);
@@ -5645,21 +5376,18 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION:
             getServiceProcessConfiguration().clear();
-            getServiceProcessConfiguration().addAll(
-                    (Collection<? extends ServiceProcessConfiguration>) newValue);
+            getServiceProcessConfiguration().addAll((Collection<? extends ServiceProcessConfiguration>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING:
             setLikeMapping((Boolean) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER:
             getScriptDataMapper().clear();
-            getScriptDataMapper()
-                    .addAll((Collection<? extends ScriptDataMapper>) newValue);
+            getScriptDataMapper().addAll((Collection<? extends ScriptDataMapper>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS:
             getLikeMappingExclusions().clear();
-            getLikeMappingExclusions().addAll(
-                    (Collection<? extends LikeMappingExclusions>) newValue);
+            getLikeMappingExclusions().addAll((Collection<? extends LikeMappingExclusions>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID:
             setSourceContributorId((String) newValue);
@@ -5669,25 +5397,24 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION:
             getRestServiceOperation().clear();
-            getRestServiceOperation().addAll(
-                    (Collection<? extends RestServiceOperation>) newValue);
+            getRestServiceOperation().addAll((Collection<? extends RestServiceOperation>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__INPUT_MAPPINGS:
             getInputMappings().clear();
-            getInputMappings()
-                    .addAll((Collection<? extends ScriptDataMapper>) newValue);
+            getInputMappings().addAll((Collection<? extends ScriptDataMapper>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__OUTPUT_MAPPINGS:
             getOutputMappings().clear();
-            getOutputMappings()
-                    .addAll((Collection<? extends ScriptDataMapper>) newValue);
+            getOutputMappings().addAll((Collection<? extends ScriptDataMapper>) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_SERVICE_PUBLISH_TYPE:
-            setBusinessServicePublishType(
-                    (BusinessServicePublishType) newValue);
+            setBusinessServicePublishType((BusinessServicePublishType) newValue);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR:
             setSuppressMaxMappingsError((Boolean) newValue);
+            return;
+        case XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT:
+            setFieldFormat((FieldFormat) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -5926,8 +5653,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             setStartStrategy(START_STRATEGY_EDEFAULT);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA:
-            setOverwriteAlreadyModifiedTaskData(
-                    OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT);
+            setOverwriteAlreadyModifiedTaskData(OVERWRITE_ALREADY_MODIFIED_TASK_DATA_EDEFAULT);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_FLOW_STRATEGY:
             setEventHandlerFlowStrategy(EVENT_HANDLER_FLOW_STRATEGY_EDEFAULT);
@@ -5951,8 +5677,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             getReplyImmediateDataMappings().clear();
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES:
-            setBxUseUnqualifiedPropertyNames(
-                    BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT);
+            setBxUseUnqualifiedPropertyNames(BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_REF_TYPE:
             getCaseRefType().clear();
@@ -5982,8 +5707,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             getProcessDataWorkItemAttributeMappings().clear();
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION:
-            setAllowUnqualifiedSubProcessIdentification(
-                    ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT);
+            setAllowUnqualifiedSubProcessIdentification(ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT);
             return;
         case XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION:
             getBpmRuntimeConfiguration().clear();
@@ -6048,6 +5772,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR:
             setSuppressMaxMappingsError(SUPPRESS_MAX_MAPPINGS_ERROR_EDEFAULT);
             return;
+        case XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT:
+            setFieldFormat(FIELD_FORMAT_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -6064,19 +5791,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
             return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTATION_TYPE:
-            return IMPLEMENTATION_TYPE_EDEFAULT == null
-                    ? implementationType != null
+            return IMPLEMENTATION_TYPE_EDEFAULT == null ? implementationType != null
                     : !IMPLEMENTATION_TYPE_EDEFAULT.equals(implementationType);
         case XpdExtensionPackage.DOCUMENT_ROOT__DATA_OBJECT_ATTRIBUTES:
-            return dataObjectAttributes != null
-                    && !dataObjectAttributes.isEmpty();
+            return dataObjectAttributes != null && !dataObjectAttributes.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTENDED_ATTRIBUTES:
             return extendedAttributes != null && !extendedAttributes.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__CONTINUE_ON_TIMEOUT:
             return continueOnTimeout != CONTINUE_ON_TIMEOUT_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__ALIAS:
-            return ALIAS_EDEFAULT == null ? alias != null
-                    : !ALIAS_EDEFAULT.equals(alias);
+            return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
         case XpdExtensionPackage.DOCUMENT_ROOT__CONSTANT_PERIOD:
             return constantPeriod != null && !constantPeriod.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__USER_TASK_SCRIPTS:
@@ -6090,35 +5814,27 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUES:
             return initialValues != null && !initialValues.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_CORRELATION_FIELDS:
-            return associatedCorrelationFields != null
-                    && !associatedCorrelationFields.isEmpty();
+            return associatedCorrelationFields != null && !associatedCorrelationFields.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__ASSOCIATED_PARAMETERS:
-            return associatedParameters != null
-                    && !associatedParameters.isEmpty();
+            return associatedParameters != null && !associatedParameters.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTED_INTERFACE:
-            return implementedInterface != null
-                    && !implementedInterface.isEmpty();
+            return implementedInterface != null && !implementedInterface.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_INTERFACES:
             return processInterfaces != null && !processInterfaces.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__WSDL_EVENT_ASSOCIATION:
-            return wsdlEventAssociation != null
-                    && !wsdlEventAssociation.isEmpty();
+            return wsdlEventAssociation != null && !wsdlEventAssociation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__INLINE_SUB_PROCESS:
             return inlineSubProcess != INLINE_SUB_PROCESS_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENTATION_URL:
             return DOCUMENTATION_URL_EDEFAULT == null ? documentationURL != null
                     : !DOCUMENTATION_URL_EDEFAULT.equals(documentationURL);
         case XpdExtensionPackage.DOCUMENT_ROOT__IMPLEMENTS:
-            return IMPLEMENTS_EDEFAULT == null ? implements_ != null
-                    : !IMPLEMENTS_EDEFAULT.equals(implements_);
+            return IMPLEMENTS_EDEFAULT == null ? implements_ != null : !IMPLEMENTS_EDEFAULT.equals(implements_);
         case XpdExtensionPackage.DOCUMENT_ROOT__MULTI_INSTANCE_SCRIPTS:
-            return multiInstanceScripts != null
-                    && !multiInstanceScripts.isEmpty();
+            return multiInstanceScripts != null && !multiInstanceScripts.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_IDENTIFIER_FIELD:
-            return PROCESS_IDENTIFIER_FIELD_EDEFAULT == null
-                    ? processIdentifierField != null
-                    : !PROCESS_IDENTIFIER_FIELD_EDEFAULT
-                            .equals(processIdentifierField);
+            return PROCESS_IDENTIFIER_FIELD_EDEFAULT == null ? processIdentifierField != null
+                    : !PROCESS_IDENTIFIER_FIELD_EDEFAULT.equals(processIdentifierField);
         case XpdExtensionPackage.DOCUMENT_ROOT__EXPRESSION:
             return expression != null && !expression.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__VISIBILITY:
@@ -6127,38 +5843,31 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return SECURITY_PROFILE_EDEFAULT == null ? securityProfile != null
                     : !SECURITY_PROFILE_EDEFAULT.equals(securityProfile);
         case XpdExtensionPackage.DOCUMENT_ROOT__LANGUAGE:
-            return LANGUAGE_EDEFAULT == null ? language != null
-                    : !LANGUAGE_EDEFAULT.equals(language);
+            return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_PARAMETER_VALUE:
-            return initialParameterValue != null
-                    && !initialParameterValue.isEmpty();
+            return initialParameterValue != null && !initialParameterValue.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__INITIAL_VALUE_MAPPING:
             return initialValueMapping != INITIAL_VALUE_MAPPING_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__PORT_TYPE_OPERATION:
             return portTypeOperation != null && !portTypeOperation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__TRANSPORT:
-            return TRANSPORT_EDEFAULT == null ? transport != null
-                    : !TRANSPORT_EDEFAULT.equals(transport);
+            return TRANSPORT_EDEFAULT == null ? transport != null : !TRANSPORT_EDEFAULT.equals(transport);
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_CHAINED:
             return isSetIsChained();
         case XpdExtensionPackage.DOCUMENT_ROOT__EXTERNAL_REFERENCE:
             return externalReference != null && !externalReference.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_RESOURCE_PATTERNS:
-            return processResourcePatterns != null
-                    && !processResourcePatterns.isEmpty();
+            return processResourcePatterns != null && !processResourcePatterns.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__EVENT_HANDLER_INITIALISERS:
-            return eventHandlerInitialisers != null
-                    && !eventHandlerInitialisers.isEmpty();
+            return eventHandlerInitialisers != null && !eventHandlerInitialisers.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_RESOURCE_PATTERNS:
-            return activityResourcePatterns != null
-                    && !activityResourcePatterns.isEmpty();
+            return activityResourcePatterns != null && !activityResourcePatterns.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUIRE_NEW_TRANSACTION:
             return requireNewTransaction != REQUIRE_NEW_TRANSACTION_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__DOCUMENT_OPERATION:
             return documentOperation != null && !documentOperation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__DURATION_CALCULATION:
-            return durationCalculation != null
-                    && !durationCalculation.isEmpty();
+            return durationCalculation != null && !durationCalculation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__DISCRIMINATOR:
             return discriminator != null && !discriminator.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__DISPLAY_NAME:
@@ -6168,8 +5877,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_REMOTE:
             return isSetIsRemote();
         case XpdExtensionPackage.DOCUMENT_ROOT__CORRELATION_DATA_MAPPINGS:
-            return correlationDataMappings != null
-                    && !correlationDataMappings.isEmpty();
+            return correlationDataMappings != null && !correlationDataMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__TRANSFORM_SCRIPT:
             return transformScript != null && !transformScript.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PUBLISH_AS_BUSINESS_SERVICE:
@@ -6181,17 +5889,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__CATCH_ERROR_MAPPINGS:
             return catchErrorMappings != null && !catchErrorMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__CONDITIONAL_PARTICIPANT:
-            return conditionalParticipant != null
-                    && !conditionalParticipant.isEmpty();
+            return conditionalParticipant != null && !conditionalParticipant.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__GENERATED:
             return generated != GENERATED_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__REPLY_TO_ACTIVITY_ID:
-            return REPLY_TO_ACTIVITY_ID_EDEFAULT == null
-                    ? replyToActivityId != null
+            return REPLY_TO_ACTIVITY_ID_EDEFAULT == null ? replyToActivityId != null
                     : !REPLY_TO_ACTIVITY_ID_EDEFAULT.equals(replyToActivityId);
         case XpdExtensionPackage.DOCUMENT_ROOT__TASK_LIBRARY_REFERENCE:
-            return taskLibraryReference != null
-                    && !taskLibraryReference.isEmpty();
+            return taskLibraryReference != null && !taskLibraryReference.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__SET_PERFORMER_IN_PROCESS:
             return isSetSetPerformerInProcess();
         case XpdExtensionPackage.DOCUMENT_ROOT__EMB_SUBPROC_OTHER_STATE_HEIGHT:
@@ -6203,15 +5908,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_QUERY:
             return participantQuery != null && !participantQuery.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__API_END_POINT_PARTICIPANT:
-            return API_END_POINT_PARTICIPANT_EDEFAULT == null
-                    ? apiEndPointParticipant != null
-                    : !API_END_POINT_PARTICIPANT_EDEFAULT
-                            .equals(apiEndPointParticipant);
+            return API_END_POINT_PARTICIPANT_EDEFAULT == null ? apiEndPointParticipant != null
+                    : !API_END_POINT_PARTICIPANT_EDEFAULT.equals(apiEndPointParticipant);
         case XpdExtensionPackage.DOCUMENT_ROOT__FAULT_MESSAGE:
             return faultMessage != null && !faultMessage.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUEST_ACTIVITY_ID:
-            return REQUEST_ACTIVITY_ID_EDEFAULT == null
-                    ? requestActivityId != null
+            return REQUEST_ACTIVITY_ID_EDEFAULT == null ? requestActivityId != null
                     : !REQUEST_ACTIVITY_ID_EDEFAULT.equals(requestActivityId);
         case XpdExtensionPackage.DOCUMENT_ROOT__BUSINESS_PROCESS:
             return businessProcess != null && !businessProcess.isEmpty();
@@ -6224,8 +5926,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__DECISION_SERVICE:
             return decisionService != null && !decisionService.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PARTICIPANT_SHARED_RESOURCE:
-            return participantSharedResource != null
-                    && !participantSharedResource.isEmpty();
+            return participantSharedResource != null && !participantSharedResource.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__XPD_MODEL_TYPE:
             return isSetXpdModelType();
         case XpdExtensionPackage.DOCUMENT_ROOT__FLOW_ROUTING_STYLE:
@@ -6239,10 +5940,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__RETRY:
             return retry != null && !retry.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__ACTIVITY_DEADLINE_EVENT_ID:
-            return ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT == null
-                    ? activityDeadlineEventId != null
-                    : !ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT
-                            .equals(activityDeadlineEventId);
+            return ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT == null ? activityDeadlineEventId != null
+                    : !ACTIVITY_DEADLINE_EVENT_ID_EDEFAULT.equals(activityDeadlineEventId);
         case XpdExtensionPackage.DOCUMENT_ROOT__START_STRATEGY:
             return startStrategy != START_STRATEGY_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__OVERWRITE_ALREADY_MODIFIED_TASK_DATA:
@@ -6260,8 +5959,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__VALIDATION_CONTROL:
             return validationControl != null && !validationControl.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__REPLY_IMMEDIATE_DATA_MAPPINGS:
-            return replyImmediateDataMappings != null
-                    && !replyImmediateDataMappings.isEmpty();
+            return replyImmediateDataMappings != null && !replyImmediateDataMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__BX_USE_UNQUALIFIED_PROPERTY_NAMES:
             return bxUseUnqualifiedPropertyNames != BX_USE_UNQUALIFIED_PROPERTY_NAMES_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_REF_TYPE:
@@ -6276,31 +5974,25 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__RESCHEDULE_TIMER_SCRIPT:
             return !getRescheduleTimerScript().isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__DYNAMIC_ORGANIZATION_MAPPINGS:
-            return dynamicOrganizationMappings != null
-                    && !dynamicOrganizationMappings.isEmpty();
+            return dynamicOrganizationMappings != null && !dynamicOrganizationMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_HANDLER_ASYNCHRONOUS:
             return signalHandlerAsynchronous != SIGNAL_HANDLER_ASYNCHRONOUS_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__GLOBAL_DATA_OPERATION:
-            return globalDataOperation != null
-                    && !globalDataOperation.isEmpty();
+            return globalDataOperation != null && !globalDataOperation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__PROCESS_DATA_WORK_ITEM_ATTRIBUTE_MAPPINGS:
-            return processDataWorkItemAttributeMappings != null
-                    && !processDataWorkItemAttributeMappings.isEmpty();
+            return processDataWorkItemAttributeMappings != null && !processDataWorkItemAttributeMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION:
             return allowUnqualifiedSubProcessIdentification != ALLOW_UNQUALIFIED_SUB_PROCESS_IDENTIFICATION_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__BPM_RUNTIME_CONFIGURATION:
-            return bpmRuntimeConfiguration != null
-                    && !bpmRuntimeConfiguration.isEmpty();
+            return bpmRuntimeConfiguration != null && !bpmRuntimeConfiguration.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_CASE_SERVICE:
             return isSetIsCaseService();
         case XpdExtensionPackage.DOCUMENT_ROOT__REQUIRED_ACCESS_PRIVILEGES:
-            return requiredAccessPrivileges != null
-                    && !requiredAccessPrivileges.isEmpty();
+            return requiredAccessPrivileges != null && !requiredAccessPrivileges.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__CASE_SERVICE:
             return caseService != null && !caseService.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__AD_HOC_TASK_CONFIGURATION:
-            return adHocTaskConfiguration != null
-                    && !adHocTaskConfiguration.isEmpty();
+            return adHocTaskConfiguration != null && !adHocTaskConfiguration.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__IS_EVENT_SUB_PROCESS:
             return isSetIsEventSubProcess();
         case XpdExtensionPackage.DOCUMENT_ROOT__NON_INTERRUPTING_EVENT:
@@ -6312,28 +6004,21 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         case XpdExtensionPackage.DOCUMENT_ROOT__SIGNAL_TYPE:
             return isSetSignalType();
         case XpdExtensionPackage.DOCUMENT_ROOT__SERVICE_PROCESS_CONFIGURATION:
-            return serviceProcessConfiguration != null
-                    && !serviceProcessConfiguration.isEmpty();
+            return serviceProcessConfiguration != null && !serviceProcessConfiguration.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING:
             return likeMapping != LIKE_MAPPING_EDEFAULT;
         case XpdExtensionPackage.DOCUMENT_ROOT__SCRIPT_DATA_MAPPER:
             return scriptDataMapper != null && !scriptDataMapper.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__LIKE_MAPPING_EXCLUSIONS:
-            return likeMappingExclusions != null
-                    && !likeMappingExclusions.isEmpty();
+            return likeMappingExclusions != null && !likeMappingExclusions.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__SOURCE_CONTRIBUTOR_ID:
-            return SOURCE_CONTRIBUTOR_ID_EDEFAULT == null
-                    ? sourceContributorId != null
-                    : !SOURCE_CONTRIBUTOR_ID_EDEFAULT
-                            .equals(sourceContributorId);
+            return SOURCE_CONTRIBUTOR_ID_EDEFAULT == null ? sourceContributorId != null
+                    : !SOURCE_CONTRIBUTOR_ID_EDEFAULT.equals(sourceContributorId);
         case XpdExtensionPackage.DOCUMENT_ROOT__TARGET_CONTRIBUTOR_ID:
-            return TARGET_CONTRIBUTOR_ID_EDEFAULT == null
-                    ? targetContributorId != null
-                    : !TARGET_CONTRIBUTOR_ID_EDEFAULT
-                            .equals(targetContributorId);
+            return TARGET_CONTRIBUTOR_ID_EDEFAULT == null ? targetContributorId != null
+                    : !TARGET_CONTRIBUTOR_ID_EDEFAULT.equals(targetContributorId);
         case XpdExtensionPackage.DOCUMENT_ROOT__REST_SERVICE_OPERATION:
-            return restServiceOperation != null
-                    && !restServiceOperation.isEmpty();
+            return restServiceOperation != null && !restServiceOperation.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__INPUT_MAPPINGS:
             return inputMappings != null && !inputMappings.isEmpty();
         case XpdExtensionPackage.DOCUMENT_ROOT__OUTPUT_MAPPINGS:
@@ -6342,6 +6027,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             return isSetBusinessServicePublishType();
         case XpdExtensionPackage.DOCUMENT_ROOT__SUPPRESS_MAX_MAPPINGS_ERROR:
             return suppressMaxMappingsError != SUPPRESS_MAX_MAPPINGS_ERROR_EDEFAULT;
+        case XpdExtensionPackage.DOCUMENT_ROOT__FIELD_FORMAT:
+            return fieldFormat != FIELD_FORMAT_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -6355,7 +6042,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (implementationType: "); //$NON-NLS-1$
         result.append(implementationType);
         result.append(", continueOnTimeout: "); //$NON-NLS-1$
@@ -6518,6 +6205,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
             result.append("<unset>"); //$NON-NLS-1$
         result.append(", suppressMaxMappingsError: "); //$NON-NLS-1$
         result.append(suppressMaxMappingsError);
+        result.append(", fieldFormat: "); //$NON-NLS-1$
+        result.append(fieldFormat);
         result.append(')');
         return result.toString();
     }

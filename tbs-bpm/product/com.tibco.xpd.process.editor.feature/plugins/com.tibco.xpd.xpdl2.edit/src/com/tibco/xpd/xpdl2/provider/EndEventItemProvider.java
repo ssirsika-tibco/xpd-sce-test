@@ -38,16 +38,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndEventItemProvider extends EventItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class EndEventItemProvider extends EventItemProvider {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,11 +81,12 @@ public class EndEventItemProvider extends EventItemProvider implements
      */
     protected void addImplementationPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_EndEvent_implementation_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_EndEvent_implementation_feature", "_UI_EndEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_EndEvent_implementation_feature", //$NON-NLS-1$
+                                "_UI_EndEvent_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.END_EVENT__IMPLEMENTATION,
                         true,
                         false,
@@ -105,19 +103,18 @@ public class EndEventItemProvider extends EventItemProvider implements
      * @generated
      */
     protected void addResultPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_EndEvent_result_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_EndEvent_result_feature", "_UI_EndEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        Xpdl2Package.Literals.END_EVENT__RESULT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null));
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+                getResourceLocator(),
+                getString("_UI_EndEvent_result_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_EndEvent_result_feature", "_UI_EndEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                Xpdl2Package.Literals.END_EVENT__RESULT,
+                true,
+                false,
+                false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                null,
+                null));
     }
 
     /**
@@ -129,23 +126,16 @@ public class EndEventItemProvider extends EventItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_MESSAGE);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_MESSAGE);
             childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__RESULT_ERROR);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_COMPENSATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_SIGNAL);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__RESULT_MULTIPLE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.END_EVENT__DEPRECATED_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_COMPENSATION);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_SIGNAL);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__RESULT_MULTIPLE);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK);
+            childrenFeatures.add(Xpdl2Package.Literals.END_EVENT__DEPRECATED_RESULT_COMPENSATION);
         }
         return childrenFeatures;
     }
@@ -171,8 +161,7 @@ public class EndEventItemProvider extends EventItemProvider implements
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/EndEvent")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/EndEvent")); //$NON-NLS-1$
     }
 
     /**
@@ -203,8 +192,7 @@ public class EndEventItemProvider extends EventItemProvider implements
         switch (notification.getFeatureID(EndEvent.class)) {
         case Xpdl2Package.END_EVENT__IMPLEMENTATION:
         case Xpdl2Package.END_EVENT__RESULT:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.END_EVENT__TRIGGER_RESULT_MESSAGE:
         case Xpdl2Package.END_EVENT__RESULT_ERROR:
@@ -213,8 +201,7 @@ public class EndEventItemProvider extends EventItemProvider implements
         case Xpdl2Package.END_EVENT__RESULT_MULTIPLE:
         case Xpdl2Package.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK:
         case Xpdl2Package.END_EVENT__DEPRECATED_RESULT_COMPENSATION:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -228,39 +215,29 @@ public class EndEventItemProvider extends EventItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_MESSAGE,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_MESSAGE,
+                Xpdl2Factory.eINSTANCE.createTriggerResultMessage()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__RESULT_ERROR,
-                        Xpdl2Factory.eINSTANCE.createResultError()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__RESULT_ERROR,
+                Xpdl2Factory.eINSTANCE.createResultError()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createTriggerResultCompensation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_COMPENSATION,
+                Xpdl2Factory.eINSTANCE.createTriggerResultCompensation()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_SIGNAL,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultSignal()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__TRIGGER_RESULT_SIGNAL,
+                Xpdl2Factory.eINSTANCE.createTriggerResultSignal()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__RESULT_MULTIPLE,
-                        Xpdl2Factory.eINSTANCE.createResultMultiple()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__RESULT_MULTIPLE,
+                Xpdl2Factory.eINSTANCE.createResultMultiple()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
-                        Xpdl2Factory.eINSTANCE.createTriggerResultLink()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__DEPRECATED_TRIGGER_RESULT_LINK,
+                Xpdl2Factory.eINSTANCE.createTriggerResultLink()));
 
-        newChildDescriptors
-                .add(createChildParameter(Xpdl2Package.Literals.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
-                        Xpdl2Factory.eINSTANCE
-                                .createDeprecatedResultCompensation()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.Literals.END_EVENT__DEPRECATED_RESULT_COMPENSATION,
+                Xpdl2Factory.eINSTANCE.createDeprecatedResultCompensation()));
     }
 
 }

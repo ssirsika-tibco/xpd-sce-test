@@ -29,15 +29,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DataMapperArrayInflationImpl extends EObjectImpl
-        implements DataMapperArrayInflation {
+public class DataMapperArrayInflationImpl extends EObjectImpl implements DataMapperArrayInflation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -146,8 +144,7 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
         String oldPath = path;
         path = newPath;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__PATH,
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__PATH,
                     oldPath, path));
     }
 
@@ -167,14 +164,13 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
      */
     public void setMappingType(DataMapperArrayInflationType newMappingType) {
         DataMapperArrayInflationType oldMappingType = mappingType;
-        mappingType =
-                newMappingType == null ? MAPPING_TYPE_EDEFAULT : newMappingType;
+        mappingType = newMappingType == null ? MAPPING_TYPE_EDEFAULT : newMappingType;
         boolean oldMappingTypeESet = mappingTypeESet;
         mappingTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE,
-                    oldMappingType, mappingType, !oldMappingTypeESet));
+                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE, oldMappingType, mappingType,
+                    !oldMappingTypeESet));
     }
 
     /**
@@ -189,8 +185,8 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
         mappingTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE,
-                    oldMappingType, MAPPING_TYPE_EDEFAULT, oldMappingTypeESet));
+                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE, oldMappingType,
+                    MAPPING_TYPE_EDEFAULT, oldMappingTypeESet));
     }
 
     /**
@@ -221,8 +217,7 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
         contributorId = newContributorId;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID,
-                    oldContributorId, contributorId));
+                    XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID, oldContributorId, contributorId));
     }
 
     /**
@@ -294,8 +289,7 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__PATH:
-            return PATH_EDEFAULT == null ? path != null
-                    : !PATH_EDEFAULT.equals(path);
+            return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__MAPPING_TYPE:
             return isSetMappingType();
         case XpdExtensionPackage.DATA_MAPPER_ARRAY_INFLATION__CONTRIBUTOR_ID:
@@ -315,7 +309,7 @@ public class DataMapperArrayInflationImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (path: "); //$NON-NLS-1$
         result.append(path);
         result.append(", mappingType: "); //$NON-NLS-1$

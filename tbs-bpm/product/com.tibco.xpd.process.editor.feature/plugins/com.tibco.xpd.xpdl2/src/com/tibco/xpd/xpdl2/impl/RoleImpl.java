@@ -20,11 +20,11 @@ import com.tibco.xpd.xpdl2.Xpdl2Package;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RoleImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.tibco.xpd.xpdl2.impl.RoleImpl#getPortType <em>Port Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,8 +34,7 @@ public class RoleImpl extends EObjectImpl implements Role {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -114,8 +113,7 @@ public class RoleImpl extends EObjectImpl implements Role {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROLE__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROLE__NAME, oldName, name));
     }
 
     /**
@@ -136,8 +134,7 @@ public class RoleImpl extends EObjectImpl implements Role {
         String oldPortType = portType;
         portType = newPortType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    Xpdl2Package.ROLE__PORT_TYPE, oldPortType, portType));
+            eNotify(new ENotificationImpl(this, Notification.SET, Xpdl2Package.ROLE__PORT_TYPE, oldPortType, portType));
     }
 
     /**
@@ -201,11 +198,9 @@ public class RoleImpl extends EObjectImpl implements Role {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case Xpdl2Package.ROLE__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-                    .equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case Xpdl2Package.ROLE__PORT_TYPE:
-            return PORT_TYPE_EDEFAULT == null ? portType != null
-                    : !PORT_TYPE_EDEFAULT.equals(portType);
+            return PORT_TYPE_EDEFAULT == null ? portType != null : !PORT_TYPE_EDEFAULT.equals(portType);
         }
         return super.eIsSet(featureID);
     }
@@ -220,7 +215,7 @@ public class RoleImpl extends EObjectImpl implements Role {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(", portType: "); //$NON-NLS-1$

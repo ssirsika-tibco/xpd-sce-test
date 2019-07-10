@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."
     modelDirectory="/com.tibco.xpd.xpdl2/src" editDirectory="/com.tibco.xpd.xpdl2.edit/src"
     editorDirectory="/com.tibco.xpd.processeditor.xpdl2/src" modelPluginID="com.tibco.xpd.xpdl2"
     modelName="XpdExtension" nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
@@ -77,6 +77,10 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//SoapBindingStyle">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SoapBindingStyle/RpcLiteral"/>
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SoapBindingStyle/DocumentLiteral"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//FieldFormat">
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//FieldFormat/URI"/>
+      <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//FieldFormat/Email"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="XpdExtension.ecore#//SubProcessStartStrategy">
       <genEnumLiterals ecoreEnumLiteral="XpdExtension.ecore#//SubProcessStartStrategy/StartImmediately"/>
@@ -348,6 +352,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DocumentRoot/outputMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/businessServicePublishType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/suppressMaxMappingsError"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XpdExtension.ecore#//DocumentRoot/fieldFormat"/>
     </genClasses>
     <genClasses ecoreClass="XpdExtension.ecore#//DurationCalculation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XpdExtension.ecore#//DurationCalculation/years"/>

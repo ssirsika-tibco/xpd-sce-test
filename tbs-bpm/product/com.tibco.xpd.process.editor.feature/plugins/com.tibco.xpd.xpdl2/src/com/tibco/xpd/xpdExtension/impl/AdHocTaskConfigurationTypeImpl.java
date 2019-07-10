@@ -40,15 +40,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
-        implements AdHocTaskConfigurationType {
+public class AdHocTaskConfigurationTypeImpl extends EObjectImpl implements AdHocTaskConfigurationType {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getEnablement() <em>Enablement</em>}' containment reference.
@@ -68,8 +66,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected static final AdHocExecutionTypeType AD_HOC_EXECUTION_TYPE_EDEFAULT =
-            AdHocExecutionTypeType.AUTOMATIC;
+    protected static final AdHocExecutionTypeType AD_HOC_EXECUTION_TYPE_EDEFAULT = AdHocExecutionTypeType.AUTOMATIC;
 
     /**
      * The cached value of the '{@link #getAdHocExecutionType() <em>Ad Hoc Execution Type</em>}' attribute.
@@ -79,8 +76,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected AdHocExecutionTypeType adHocExecutionType =
-            AD_HOC_EXECUTION_TYPE_EDEFAULT;
+    protected AdHocExecutionTypeType adHocExecutionType = AD_HOC_EXECUTION_TYPE_EDEFAULT;
 
     /**
      * This is true if the Ad Hoc Execution Type attribute has been set.
@@ -138,8 +134,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected boolean allowMultipleInvocations =
-            ALLOW_MULTIPLE_INVOCATIONS_EDEFAULT;
+    protected boolean allowMultipleInvocations = ALLOW_MULTIPLE_INVOCATIONS_EDEFAULT;
 
     /**
      * This is true if the Allow Multiple Invocations attribute has been set.
@@ -193,15 +188,12 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetEnablement(EnablementType newEnablement,
-            NotificationChain msgs) {
+    public NotificationChain basicSetEnablement(EnablementType newEnablement, NotificationChain msgs) {
         EnablementType oldEnablement = enablement;
         enablement = newEnablement;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
-                    oldEnablement, newEnablement);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT, oldEnablement, newEnablement);
             if (msgs == null)
                 msgs = notification;
             else
@@ -220,14 +212,12 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
             NotificationChain msgs = null;
             if (enablement != null)
                 msgs = ((InternalEObject) enablement).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
                         null,
                         msgs);
             if (newEnablement != null)
                 msgs = ((InternalEObject) newEnablement).eInverseAdd(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
+                        EOPPOSITE_FEATURE_BASE - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
                         null,
                         msgs);
             msgs = basicSetEnablement(newEnablement, msgs);
@@ -235,8 +225,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
                 msgs.dispatch();
         } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT,
-                    newEnablement, newEnablement));
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT, newEnablement, newEnablement));
     }
 
     /**
@@ -253,19 +242,15 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAdHocExecutionType(
-            AdHocExecutionTypeType newAdHocExecutionType) {
+    public void setAdHocExecutionType(AdHocExecutionTypeType newAdHocExecutionType) {
         AdHocExecutionTypeType oldAdHocExecutionType = adHocExecutionType;
-        adHocExecutionType =
-                newAdHocExecutionType == null ? AD_HOC_EXECUTION_TYPE_EDEFAULT
-                        : newAdHocExecutionType;
+        adHocExecutionType = newAdHocExecutionType == null ? AD_HOC_EXECUTION_TYPE_EDEFAULT : newAdHocExecutionType;
         boolean oldAdHocExecutionTypeESet = adHocExecutionTypeESet;
         adHocExecutionTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE,
-                    oldAdHocExecutionType, adHocExecutionType,
-                    !oldAdHocExecutionTypeESet));
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE, oldAdHocExecutionType,
+                    adHocExecutionType, !oldAdHocExecutionTypeESet));
     }
 
     /**
@@ -280,9 +265,8 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         adHocExecutionTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE,
-                    oldAdHocExecutionType, AD_HOC_EXECUTION_TYPE_EDEFAULT,
-                    oldAdHocExecutionTypeESet));
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__AD_HOC_EXECUTION_TYPE, oldAdHocExecutionType,
+                    AD_HOC_EXECUTION_TYPE_EDEFAULT, oldAdHocExecutionTypeESet));
     }
 
     /**
@@ -315,9 +299,8 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         suspendMainFlowESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW,
-                    oldSuspendMainFlow, suspendMainFlow,
-                    !oldSuspendMainFlowESet));
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW, oldSuspendMainFlow,
+                    suspendMainFlow, !oldSuspendMainFlowESet));
     }
 
     /**
@@ -332,9 +315,8 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         suspendMainFlowESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW,
-                    oldSuspendMainFlow, SUSPEND_MAIN_FLOW_EDEFAULT,
-                    oldSuspendMainFlowESet));
+                    XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__SUSPEND_MAIN_FLOW, oldSuspendMainFlow,
+                    SUSPEND_MAIN_FLOW_EDEFAULT, oldSuspendMainFlowESet));
     }
 
     /**
@@ -360,8 +342,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAllowMultipleInvocations(
-            boolean newAllowMultipleInvocations) {
+    public void setAllowMultipleInvocations(boolean newAllowMultipleInvocations) {
         boolean oldAllowMultipleInvocations = allowMultipleInvocations;
         allowMultipleInvocations = newAllowMultipleInvocations;
         boolean oldAllowMultipleInvocationsESet = allowMultipleInvocationsESet;
@@ -369,8 +350,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS,
-                    oldAllowMultipleInvocations, allowMultipleInvocations,
-                    !oldAllowMultipleInvocationsESet));
+                    oldAllowMultipleInvocations, allowMultipleInvocations, !oldAllowMultipleInvocationsESet));
     }
 
     /**
@@ -386,9 +366,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
                     XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ALLOW_MULTIPLE_INVOCATIONS,
-                    oldAllowMultipleInvocations,
-                    ALLOW_MULTIPLE_INVOCATIONS_EDEFAULT,
-                    oldAllowMultipleInvocationsESet));
+                    oldAllowMultipleInvocations, ALLOW_MULTIPLE_INVOCATIONS_EDEFAULT, oldAllowMultipleInvocationsESet));
     }
 
     /**
@@ -414,15 +392,12 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRequiredAccessPrivileges(
-            RequiredAccessPrivileges newRequiredAccessPrivileges,
+    public NotificationChain basicSetRequiredAccessPrivileges(RequiredAccessPrivileges newRequiredAccessPrivileges,
             NotificationChain msgs) {
-        RequiredAccessPrivileges oldRequiredAccessPrivileges =
-                requiredAccessPrivileges;
+        RequiredAccessPrivileges oldRequiredAccessPrivileges = requiredAccessPrivileges;
         requiredAccessPrivileges = newRequiredAccessPrivileges;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this,
-                    Notification.SET,
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
                     oldRequiredAccessPrivileges, newRequiredAccessPrivileges);
             if (msgs == null)
@@ -438,26 +413,22 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRequiredAccessPrivileges(
-            RequiredAccessPrivileges newRequiredAccessPrivileges) {
+    public void setRequiredAccessPrivileges(RequiredAccessPrivileges newRequiredAccessPrivileges) {
         if (newRequiredAccessPrivileges != requiredAccessPrivileges) {
             NotificationChain msgs = null;
             if (requiredAccessPrivileges != null)
-                msgs = ((InternalEObject) requiredAccessPrivileges)
-                        .eInverseRemove(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
-                                null,
-                                msgs);
+                msgs = ((InternalEObject) requiredAccessPrivileges).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
+                        null,
+                        msgs);
             if (newRequiredAccessPrivileges != null)
-                msgs = ((InternalEObject) newRequiredAccessPrivileges)
-                        .eInverseAdd(this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
-                                null,
-                                msgs);
-            msgs = basicSetRequiredAccessPrivileges(newRequiredAccessPrivileges,
-                    msgs);
+                msgs = ((InternalEObject) newRequiredAccessPrivileges).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__REQUIRED_ACCESS_PRIVILEGES,
+                        null,
+                        msgs);
+            msgs = basicSetRequiredAccessPrivileges(newRequiredAccessPrivileges, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
@@ -472,8 +443,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.AD_HOC_TASK_CONFIGURATION_TYPE__ENABLEMENT:
             return basicSetEnablement(null, msgs);
@@ -591,7 +561,7 @@ public class AdHocTaskConfigurationTypeImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (adHocExecutionType: "); //$NON-NLS-1$
         if (adHocExecutionTypeESet)
             result.append(adHocExecutionType);

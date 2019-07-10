@@ -35,15 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RequiredAccessPrivilegesImpl extends EObjectImpl
-        implements RequiredAccessPrivileges {
+public class RequiredAccessPrivilegesImpl extends EObjectImpl implements RequiredAccessPrivileges {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getPrivilegeReference() <em>Privilege Reference</em>}' containment reference list.
@@ -81,8 +79,7 @@ public class RequiredAccessPrivilegesImpl extends EObjectImpl
      */
     public EList<ExternalReference> getPrivilegeReference() {
         if (privilegeReference == null) {
-            privilegeReference = new EObjectContainmentEList<ExternalReference>(
-                    ExternalReference.class, this,
+            privilegeReference = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this,
                     XpdExtensionPackage.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE);
         }
         return privilegeReference;
@@ -94,12 +91,10 @@ public class RequiredAccessPrivilegesImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE:
-            return ((InternalEList<?>) getPrivilegeReference())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getPrivilegeReference()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -129,8 +124,7 @@ public class RequiredAccessPrivilegesImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.REQUIRED_ACCESS_PRIVILEGES__PRIVILEGE_REFERENCE:
             getPrivilegeReference().clear();
-            getPrivilegeReference()
-                    .addAll((Collection<? extends ExternalReference>) newValue);
+            getPrivilegeReference().addAll((Collection<? extends ExternalReference>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

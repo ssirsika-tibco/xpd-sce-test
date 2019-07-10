@@ -35,15 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RescheduleTimersImpl extends EObjectImpl
-        implements RescheduleTimers {
+public class RescheduleTimersImpl extends EObjectImpl implements RescheduleTimers {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getTimerSelectionType() <em>Timer Selection Type</em>}' attribute.
@@ -64,8 +62,7 @@ public class RescheduleTimersImpl extends EObjectImpl
      * @generated
      * @ordered
      */
-    protected RescheduleTimerSelectionType timerSelectionType =
-            TIMER_SELECTION_TYPE_EDEFAULT;
+    protected RescheduleTimerSelectionType timerSelectionType = TIMER_SELECTION_TYPE_EDEFAULT;
 
     /**
      * This is true if the Timer Selection Type attribute has been set.
@@ -119,19 +116,15 @@ public class RescheduleTimersImpl extends EObjectImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTimerSelectionType(
-            RescheduleTimerSelectionType newTimerSelectionType) {
+    public void setTimerSelectionType(RescheduleTimerSelectionType newTimerSelectionType) {
         RescheduleTimerSelectionType oldTimerSelectionType = timerSelectionType;
-        timerSelectionType =
-                newTimerSelectionType == null ? TIMER_SELECTION_TYPE_EDEFAULT
-                        : newTimerSelectionType;
+        timerSelectionType = newTimerSelectionType == null ? TIMER_SELECTION_TYPE_EDEFAULT : newTimerSelectionType;
         boolean oldTimerSelectionTypeESet = timerSelectionTypeESet;
         timerSelectionTypeESet = true;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE,
-                    oldTimerSelectionType, timerSelectionType,
-                    !oldTimerSelectionTypeESet));
+                    XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE, oldTimerSelectionType,
+                    timerSelectionType, !oldTimerSelectionTypeESet));
     }
 
     /**
@@ -146,9 +139,8 @@ public class RescheduleTimersImpl extends EObjectImpl
         timerSelectionTypeESet = false;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.UNSET,
-                    XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE,
-                    oldTimerSelectionType, TIMER_SELECTION_TYPE_EDEFAULT,
-                    oldTimerSelectionTypeESet));
+                    XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_SELECTION_TYPE, oldTimerSelectionType,
+                    TIMER_SELECTION_TYPE_EDEFAULT, oldTimerSelectionTypeESet));
     }
 
     /**
@@ -167,8 +159,7 @@ public class RescheduleTimersImpl extends EObjectImpl
      */
     public EList<ActivityRef> getTimerEvents() {
         if (timerEvents == null) {
-            timerEvents = new EObjectContainmentEList<ActivityRef>(
-                    ActivityRef.class, this,
+            timerEvents = new EObjectContainmentEList<ActivityRef>(ActivityRef.class, this,
                     XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_EVENTS);
         }
         return timerEvents;
@@ -180,12 +171,10 @@ public class RescheduleTimersImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_EVENTS:
-            return ((InternalEList<?>) getTimerEvents()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) getTimerEvents()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -220,8 +209,7 @@ public class RescheduleTimersImpl extends EObjectImpl
             return;
         case XpdExtensionPackage.RESCHEDULE_TIMERS__TIMER_EVENTS:
             getTimerEvents().clear();
-            getTimerEvents()
-                    .addAll((Collection<? extends ActivityRef>) newValue);
+            getTimerEvents().addAll((Collection<? extends ActivityRef>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -271,7 +259,7 @@ public class RescheduleTimersImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (timerSelectionType: "); //$NON-NLS-1$
         if (timerSelectionTypeESet)
             result.append(timerSelectionType);

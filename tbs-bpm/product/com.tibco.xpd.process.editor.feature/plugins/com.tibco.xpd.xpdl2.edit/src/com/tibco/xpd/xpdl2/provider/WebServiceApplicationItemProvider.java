@@ -37,16 +37,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WebServiceApplicationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class WebServiceApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,11 +81,12 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
      */
     protected void addInputMsgNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_WebServiceApplication_inputMsgName_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_WebServiceApplication_inputMsgName_feature", "_UI_WebServiceApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WebServiceApplication_inputMsgName_feature", //$NON-NLS-1$
+                                "_UI_WebServiceApplication_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME,
                         true,
                         false,
@@ -105,11 +104,12 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
      */
     protected void addOutputMsgNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_WebServiceApplication_outputMsgName_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_WebServiceApplication_outputMsgName_feature", "_UI_WebServiceApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_WebServiceApplication_outputMsgName_feature", //$NON-NLS-1$
+                                "_UI_WebServiceApplication_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME,
                         true,
                         false,
@@ -128,14 +128,11 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH);
+            childrenFeatures.add(Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION);
+            childrenFeatures.add(Xpdl2Package.Literals.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH);
         }
         return childrenFeatures;
     }
@@ -161,9 +158,7 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator()
-                        .getImage("full/obj16/WebServiceApplication")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/WebServiceApplication")); //$NON-NLS-1$
     }
 
     /**
@@ -193,13 +188,11 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
         switch (notification.getFeatureID(WebServiceApplication.class)) {
         case Xpdl2Package.WEB_SERVICE_APPLICATION__INPUT_MSG_NAME:
         case Xpdl2Package.WEB_SERVICE_APPLICATION__OUTPUT_MSG_NAME:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_OPERATION:
         case Xpdl2Package.WEB_SERVICE_APPLICATION__WEB_SERVICE_FAULT_CATCH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -213,8 +206,7 @@ public class WebServiceApplicationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(
-            Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors

@@ -39,15 +39,12 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormalParameterItemProvider extends NamedElementItemProvider
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class FormalParameterItemProvider extends NamedElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * This constructs an instance from a factory and a notifier. <!--
@@ -87,11 +84,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      */
     protected void addDescriptionPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_DescribedElement_description_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_DescribedElement_description_feature", "_UI_DescribedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_DescribedElement_description_feature", //$NON-NLS-1$
+                                "_UI_DescribedElement_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.DESCRIBED_ELEMENT__DESCRIPTION,
                         true,
                         false,
@@ -109,11 +107,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      */
     protected void addIsArrayPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ProcessRelevantData_isArray_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ProcessRelevantData_isArray_feature", "_UI_ProcessRelevantData_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_isArray_feature", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__IS_ARRAY,
                         true,
                         false,
@@ -131,11 +130,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      */
     protected void addModePropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FormalParameter_mode_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FormalParameter_mode_feature", "_UI_FormalParameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FormalParameter_mode_feature", //$NON-NLS-1$
+                                "_UI_FormalParameter_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FORMAL_PARAMETER__MODE,
                         true,
                         false,
@@ -153,11 +153,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      */
     protected void addRequiredPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_FormalParameter_required_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_FormalParameter_required_feature", "_UI_FormalParameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_FormalParameter_required_feature", //$NON-NLS-1$
+                                "_UI_FormalParameter_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.FORMAL_PARAMETER__REQUIRED,
                         true,
                         false,
@@ -175,11 +176,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      */
     protected void addReadOnlyPropertyDescriptor(Object object) {
         itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory)
-                        .getRootAdapterFactory(),
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
                         getResourceLocator(),
                         getString("_UI_ProcessRelevantData_readOnly_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_ProcessRelevantData_readOnly_feature", "_UI_ProcessRelevantData_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_readOnly_feature", //$NON-NLS-1$
+                                "_UI_ProcessRelevantData_type"), //$NON-NLS-1$
                         Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__READ_ONLY,
                         true,
                         false,
@@ -197,16 +199,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(
-            Object object) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__DATA_TYPE);
-            childrenFeatures
-                    .add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__LENGTH);
+            childrenFeatures.add(Xpdl2Package.Literals.OTHER_ELEMENTS_CONTAINER__OTHER_ELEMENTS);
+            childrenFeatures.add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__DATA_TYPE);
+            childrenFeatures.add(Xpdl2Package.Literals.PROCESS_RELEVANT_DATA__LENGTH);
         }
         return childrenFeatures;
     }
@@ -241,8 +239,7 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
              * container, hence we need to check for it explicitly.
              */
             if (fp.eContainer() instanceof com.tibco.xpd.xpdl2.Process
-                    || Xpdl2ModelUtil.REPLY_IMMEDIATE_PROCESS_ID_PARAMETER_NAME
-                            .equals(fp.getName())) {
+                    || Xpdl2ModelUtil.REPLY_IMMEDIATE_PROCESS_ID_PARAMETER_NAME.equals(fp.getName())) {
 
                 if (ModeType.IN_LITERAL.equals(fp.getMode())) {
                     img = "FormalParamIn"; //$NON-NLS-1$
@@ -271,8 +268,7 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
                 img += "Array"; //$NON-NLS-1$
             }
         }
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/" + img)); //$NON-NLS-1$
     }
 
     /**
@@ -303,14 +299,12 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
         case Xpdl2Package.FORMAL_PARAMETER__READ_ONLY:
         case Xpdl2Package.FORMAL_PARAMETER__MODE:
         case Xpdl2Package.FORMAL_PARAMETER__REQUIRED:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), false, true));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case Xpdl2Package.FORMAL_PARAMETER__OTHER_ELEMENTS:
         case Xpdl2Package.FORMAL_PARAMETER__DATA_TYPE:
         case Xpdl2Package.FORMAL_PARAMETER__LENGTH:
-            fireNotifyChanged(new ViewerNotification(notification,
-                    notification.getNotifier(), true, false));
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -325,50 +319,29 @@ public class FormalParameterItemProvider extends NamedElementItemProvider
      * @generated not
      */
     @Override
-    protected void collectNewChildDescriptors(Collection newChildDescriptors,
-            Object object) {
+    protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getDescribedElement_Description(), Xpdl2Factory.eINSTANCE
-                .createDescription()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getDescribedElement_Description(),
+                Xpdl2Factory.eINSTANCE.createDescription()));
 
-        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE
-                .getProcessRelevantData_Length(), Xpdl2Factory.eINSTANCE
-                .createLength()));
+        newChildDescriptors.add(createChildParameter(Xpdl2Package.eINSTANCE.getProcessRelevantData_Length(),
+                Xpdl2Factory.eINSTANCE.createLength()));
     }
 
     @Override
-    protected Command createSetCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Object value, int index) {
-        Command cmd =
-                super.createSetCommand(domain, owner, feature, value, index);
-        cmd =
-                CommandsUtils.checkExternalSetWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        value,
-                        index);
+    protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+            int index) {
+        Command cmd = super.createSetCommand(domain, owner, feature, value, index);
+        cmd = CommandsUtils.checkExternalSetWrappers(cmd, domain, owner, feature, value, index);
         return cmd;
     }
 
     @Override
-    protected Command createAddCommand(EditingDomain domain, EObject owner,
-            EStructuralFeature feature, Collection collection, int index) {
-        Command cmd =
-                super.createAddCommand(domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
-        cmd =
-                CommandsUtils.checkExternalAddWrappers(cmd,
-                        domain,
-                        owner,
-                        feature,
-                        collection,
-                        index);
+    protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+            Collection collection, int index) {
+        Command cmd = super.createAddCommand(domain, owner, feature, collection, index);
+        cmd = CommandsUtils.checkExternalAddWrappers(cmd, domain, owner, feature, collection, index);
         return cmd;
     }
 

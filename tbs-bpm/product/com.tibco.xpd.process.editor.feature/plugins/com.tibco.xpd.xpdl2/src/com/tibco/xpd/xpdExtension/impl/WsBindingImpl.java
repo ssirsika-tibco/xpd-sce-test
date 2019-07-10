@@ -39,8 +39,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -109,8 +108,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.WS_BINDING__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, XpdExtensionPackage.WS_BINDING__NAME, oldName, name));
     }
 
     /**
@@ -120,8 +118,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
      */
     public EList<XpdExtProperty> getExtendedProperties() {
         if (extendedProperties == null) {
-            extendedProperties = new EObjectResolvingEList<XpdExtProperty>(
-                    XpdExtProperty.class, this,
+            extendedProperties = new EObjectResolvingEList<XpdExtProperty>(XpdExtProperty.class, this,
                     XpdExtensionPackage.WS_BINDING__EXTENDED_PROPERTIES);
         }
         return extendedProperties;
@@ -157,8 +154,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
             return;
         case XpdExtensionPackage.WS_BINDING__EXTENDED_PROPERTIES:
             getExtendedProperties().clear();
-            getExtendedProperties()
-                    .addAll((Collection<? extends XpdExtProperty>) newValue);
+            getExtendedProperties().addAll((Collection<? extends XpdExtProperty>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -191,8 +187,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
         case XpdExtensionPackage.WS_BINDING__NAME:
-            return NAME_EDEFAULT == null ? name != null
-                    : !NAME_EDEFAULT.equals(name);
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         case XpdExtensionPackage.WS_BINDING__EXTENDED_PROPERTIES:
             return extendedProperties != null && !extendedProperties.isEmpty();
         }
@@ -209,7 +204,7 @@ public class WsBindingImpl extends EObjectImpl implements WsBinding {
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
         result.append(')');

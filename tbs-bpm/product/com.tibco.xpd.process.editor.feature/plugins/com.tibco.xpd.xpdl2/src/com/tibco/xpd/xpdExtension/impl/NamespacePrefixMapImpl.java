@@ -37,15 +37,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class NamespacePrefixMapImpl extends EObjectImpl
-        implements NamespacePrefixMap {
+public class NamespacePrefixMapImpl extends EObjectImpl implements NamespacePrefixMap {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String copyright =
-            "Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved."; //$NON-NLS-1$
+    public static final String copyright = "Copyright (c) TIBCO Software Inc 2004 - 2019. All rights reserved."; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getNamespaceEntries() <em>Namespace Entries</em>}' containment reference list.
@@ -103,8 +101,7 @@ public class NamespacePrefixMapImpl extends EObjectImpl
      */
     public EList<NamespaceMapEntry> getNamespaceEntries() {
         if (namespaceEntries == null) {
-            namespaceEntries = new EObjectContainmentEList<NamespaceMapEntry>(
-                    NamespaceMapEntry.class, this,
+            namespaceEntries = new EObjectContainmentEList<NamespaceMapEntry>(NamespaceMapEntry.class, this,
                     XpdExtensionPackage.NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES);
         }
         return namespaceEntries;
@@ -129,8 +126,8 @@ public class NamespacePrefixMapImpl extends EObjectImpl
         prefixMappingDisabled = newPrefixMappingDisabled;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    XpdExtensionPackage.NAMESPACE_PREFIX_MAP__PREFIX_MAPPING_DISABLED,
-                    oldPrefixMappingDisabled, prefixMappingDisabled));
+                    XpdExtensionPackage.NAMESPACE_PREFIX_MAP__PREFIX_MAPPING_DISABLED, oldPrefixMappingDisabled,
+                    prefixMappingDisabled));
     }
 
     /**
@@ -139,12 +136,10 @@ public class NamespacePrefixMapImpl extends EObjectImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd,
-            int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case XpdExtensionPackage.NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES:
-            return ((InternalEList<?>) getNamespaceEntries())
-                    .basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getNamespaceEntries()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -176,8 +171,7 @@ public class NamespacePrefixMapImpl extends EObjectImpl
         switch (featureID) {
         case XpdExtensionPackage.NAMESPACE_PREFIX_MAP__NAMESPACE_ENTRIES:
             getNamespaceEntries().clear();
-            getNamespaceEntries()
-                    .addAll((Collection<? extends NamespaceMapEntry>) newValue);
+            getNamespaceEntries().addAll((Collection<? extends NamespaceMapEntry>) newValue);
             return;
         case XpdExtensionPackage.NAMESPACE_PREFIX_MAP__PREFIX_MAPPING_DISABLED:
             setPrefixMappingDisabled((Boolean) newValue);
@@ -230,7 +224,7 @@ public class NamespacePrefixMapImpl extends EObjectImpl
         if (eIsProxy())
             return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (PrefixMappingDisabled: "); //$NON-NLS-1$
         result.append(prefixMappingDisabled);
         result.append(')');
