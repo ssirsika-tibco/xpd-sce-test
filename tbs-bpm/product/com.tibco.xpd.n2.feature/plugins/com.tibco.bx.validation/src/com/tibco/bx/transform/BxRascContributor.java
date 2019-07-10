@@ -13,6 +13,7 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
@@ -136,32 +137,34 @@ public class BxRascContributor implements RascContributor {
             return;
         }
 
-        if (aProgressMonitor.isCanceled()) {
-            return;
-        }
-
-        aProgressMonitor.beginTask(Messages.BxRascContributor_creatingGsdComponents, 1);
-
-        Collection<GlobalSignalDefinitions> gsds = getSignalDefinitions(gsdResources);
-        Collection<GlobalSignalDefinition> newSignals = convertSignalDefinitions(gsds);
-
-        BxGlobalSignalModel model = ModelFactory.eINSTANCE.createBxGlobalSignalModel();
-        model.setName(details.getId());
-        model.setVersion(String.valueOf(new Version(projectVersion).getMajor()));
-        model.getGlobalSignalDefinitions().addAll(newSignals);
-
-        OutputStream output = aWriter
-                .addContent(BxRascContributor.ARTIFACT_NAME,
-                        BxRascContributor.ARTIFACT_NAME,
-                        BxRascContributor.ARTIFACT_NAME,
-                        BxRascContributor.GSD_DESTINATION_SERVICES);
+        SubMonitor monitor = SubMonitor.convert(aProgressMonitor, Messages.BxRascContributor_creatingGsdComponents, 1);
         try {
-            writeModel(model, output);
-        } finally {
-            output.close();
-        }
+            if (monitor.isCanceled()) {
+                return;
+            }
 
-        aProgressMonitor.worked(1);
+            Collection<GlobalSignalDefinitions> gsds = getSignalDefinitions(gsdResources);
+            Collection<GlobalSignalDefinition> newSignals = convertSignalDefinitions(gsds);
+
+            BxGlobalSignalModel model = ModelFactory.eINSTANCE.createBxGlobalSignalModel();
+            model.setName(details.getId());
+            model.setVersion(String.valueOf(new Version(projectVersion).getMajor()));
+            model.getGlobalSignalDefinitions().addAll(newSignals);
+
+            OutputStream output = aWriter.addContent(BxRascContributor.ARTIFACT_NAME,
+                    BxRascContributor.ARTIFACT_NAME,
+                    BxRascContributor.ARTIFACT_NAME,
+                    BxRascContributor.GSD_DESTINATION_SERVICES);
+            try {
+                writeModel(model, output);
+            } finally {
+                output.close();
+            }
+        } finally {
+            monitor.worked(1);
+            monitor.subTask(""); //$NON-NLS-1$
+            monitor.done();
+        }
     }
 
     private Collection<GlobalSignalDefinitions> getSignalDefinitions(List<IResource> gsdResources) {
