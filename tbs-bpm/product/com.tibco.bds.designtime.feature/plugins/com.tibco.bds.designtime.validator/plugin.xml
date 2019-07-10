@@ -41,6 +41,10 @@
 	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceBomClassRules"/>
 	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceCaseClassRules"/>
 	     <rule class="com.tibco.bds.designtime.validator.ace.rules.AceTemporalDefaultValueRule"/>
+      <rule
+            class="com.tibco.bds.designtime.validator.ace.rules.AceBomPackageRules"
+            validateOnSaveOnly="false">
+      </rule>
       </provider>
       <issue 
       		id="bom.cds.name.clash.getternoun.class.issue"
@@ -590,6 +594,11 @@
        <issue
              id="ace.bom.class.property.is.case.class"
              message="%ace.bom.class.property.is.case.class"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="ace.bom.package.id.too.long"
+             message="%ace.bom.package.id.too.long"
              severity="ERROR">
        </issue>
    </extension>

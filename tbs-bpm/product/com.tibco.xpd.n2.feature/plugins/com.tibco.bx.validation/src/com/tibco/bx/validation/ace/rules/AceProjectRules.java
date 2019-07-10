@@ -26,6 +26,9 @@ import com.tibco.xpd.validation.provider.IValidationScope;
  * 
  * <li>Business Object assets must be in a Business Data project.</li>
  * 
+ * <li>Project names must not exceed 100 characters.</li>
+ * 
+ * <li>Project ID must not exceed 100 characters.</li>
  * 
  * @author aallway
  * @since 25 April 2019
@@ -41,6 +44,10 @@ public class AceProjectRules implements
 
     private static final String ACE_ISSUE_BOM_ASSET_MUST_BE_BIZDATA =
             "ace.bom.asset.must.be.in.biz.data"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_PROJECT_NAME_TOO_LONG = "ace.project.name.too.long"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_PROJECT_ID_TOO_LONG = "ace.project.id.too.long"; //$NON-NLS-1$
 
     @Override
     public void validate(IValidationScope scope, IResource resource) {
@@ -98,6 +105,22 @@ public class AceProjectRules implements
                             project.getProjectRelativePath().toString());
                 }
             }
+
+            /*
+             * Sid ACE-1586 Validate project name length.
+             */
+            if (project.getName().length() > 100) {
+                scope.createIssue(ACE_ISSUE_PROJECT_NAME_TOO_LONG,
+                        project.getName(),
+                        project.getProjectRelativePath().toString());
+            }
+
+            if (projectConfig.getProjectDetails().getId().length() > 100) {
+                scope.createIssue(ACE_ISSUE_PROJECT_ID_TOO_LONG,
+                        project.getName(),
+                        project.getProjectRelativePath().toString());
+            }
+
         }
     }
 

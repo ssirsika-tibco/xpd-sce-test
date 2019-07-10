@@ -75,8 +75,6 @@ public class AceBomFactoryValidationsTest extends AbstractN2BaseValidationTest {
      * @throws Exception
      */
     public void testAceBomFactoryValidationsTest() throws Exception {
-        cleanProjectAtEnd = false;
-
         doTestValidations();
 
         /*

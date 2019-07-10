@@ -23,7 +23,6 @@ public class JavascriptNumberValidTest extends AbstractN2BaseValidationTest {
 
     public JavascriptNumberValidTest() {
         super(true);
-        cleanProjectAtEnd = false;
     }
 
     /**

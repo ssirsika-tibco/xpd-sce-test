@@ -23,7 +23,6 @@ public class JavascriptDateValidTest extends AbstractN2BaseValidationTest {
 
     public JavascriptDateValidTest() {
         super(true);
-        cleanProjectAtEnd = false;
     }
 
     /**

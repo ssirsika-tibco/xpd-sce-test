@@ -3619,6 +3619,11 @@ s         <scriptContribution
                validateType="PROJECT">
          </validator>
          <validator
+               class="com.tibco.bx.validation.ace.rules.AceProjectFileRules"
+               id="com.tibco.bx.validation.ace.projectFileRules"
+               validateType="FILE">
+         </validator>
+         <validator
                class="com.tibco.bx.validation.rules.IdenticalFolderNamesInPresentationResourcesSpecialFolderRule"
                id="com.tibco.bx.validation.identicalFolderNamesInPresentationResourcesSpecialFolderRule"
                validateType="PROJECT">
@@ -3717,6 +3722,25 @@ s         <scriptContribution
                   canApplyToMultiple="false"
                   id="resolution.ace.move.bom.to.bizdata.project">
             </resolution>
+         </issue>
+         <issue
+               id="ace.project.name.too.long"
+               message="%ace.project.name.too.long"
+               severity="ERROR">
+            <resolution
+                  canApplyToMultiple="false"
+                  id="resolution.bx.renameProject">
+            </resolution>
+         </issue>
+         <issue
+               id="ace.filepath.too.long"
+               message="%ace.filepath.too.long"
+               severity="ERROR">
+         </issue>
+         <issue
+               id="ace.project.id.too.long"
+               message="%ace.project.id.too.long"
+               severity="ERROR">
          </issue>
       </issues>
    </extension>
@@ -4949,6 +4973,10 @@ s         <scriptContribution
          <rule
                class="com.tibco.bx.validation.ace.rules.ProcessInterfaceMessageEventsRule">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.ace.rules.AceProcessRules"
+               validateOnSaveOnly="false">
+         </rule>
 	  </provider>
       <issue
             id="ace.invoke.businessprocess.not.supported"
@@ -5026,6 +5054,15 @@ s         <scriptContribution
             id="ace.interface.message.event.not.supported"
             message="%ace.interface.message.event.not.supported"
             severity="ERROR">
+      </issue>
+      <issue
+            id="ace.process.name.too.long"
+            message="%ace.process.name.too.long"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.renameProcess">
+         </resolution>
       </issue>
 	</extension>
 
