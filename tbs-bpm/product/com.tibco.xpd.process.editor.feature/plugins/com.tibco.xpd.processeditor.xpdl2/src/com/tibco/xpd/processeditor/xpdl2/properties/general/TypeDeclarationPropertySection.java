@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 import com.tibco.xpd.analyst.resources.xpdl2.properties.general.BaseTypeSection;
+import com.tibco.xpd.analyst.resources.xpdl2.properties.general.UIBasicTypes;
 import com.tibco.xpd.ui.properties.ExpandableSectionStacker;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.ui.util.NameUtil;
@@ -97,12 +98,28 @@ public class TypeDeclarationPropertySection extends BaseTypeSection {
     @Override
     protected Command setBasicTypeCmd(BasicType basicType) {
 
-        BasicType bt = getModelBasicType();
-        if (bt != null) {
-            if (bt.getType().equals(basicType.getType())) {
-                return null; // don't bother if changing to same as already
-                // is
+        boolean doIt = false;
+
+        /*
+         * Sid ACE-1094 - use the UIBasicType a this takes into account the
+         * difference between FixedPoint and FLoatingPoint numbers and hence
+         * will allow the types not to be considered as equal.
+         */
+        UIBasicTypes newBasicType = UIBasicTypes.fromBasicType(basicType);
+
+        UIBasicTypes currentBasicType = UIBasicTypes.fromBasicType(getModelBasicType());
+        if (currentBasicType != null) {
+            if (!currentBasicType.equals(newBasicType)) {
+                // type is changing.
+                doIt = true;
             }
+        } else {
+            // curr type is other than basic type.
+            doIt = true;
+        }
+
+        if (!doIt) {
+            return null;
         }
 
         CompoundCommand cmpCommand = new CompoundCommand();
