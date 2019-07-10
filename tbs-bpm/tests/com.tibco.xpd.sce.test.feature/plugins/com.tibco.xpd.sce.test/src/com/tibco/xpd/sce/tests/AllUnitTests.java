@@ -20,6 +20,7 @@ import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptNumberValidTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
+import com.tibco.xpd.sce.tests.rasc.contributors.BxRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.OrgModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
@@ -62,6 +63,7 @@ public class AllUnitTests {
          */
         suite.addTestSuite(OrgModelRascContributorTest.class);
         suite.addTestSuite(PERascContributorTest.class);
+        suite.addTestSuite(BxRascContributorTest.class);
         suite.addTestSuite(CdmRascContributorTest.class);
         suite.addTestSuite(BrmModelRascContributorTest.class);
         suite.addTestSuite(WpModelRascContributorTest.class);
