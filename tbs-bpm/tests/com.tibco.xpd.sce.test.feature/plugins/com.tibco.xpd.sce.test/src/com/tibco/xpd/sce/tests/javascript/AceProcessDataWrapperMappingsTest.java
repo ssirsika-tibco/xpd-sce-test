@@ -509,6 +509,11 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         /*
          * Check content of script.
          */
+        /*
+         * Sid ACE-2036 update test to cover the target work manager data
+         * attribs changing from WorkManagerFactory.xxx to bpm.workManager.xxxx
+         */
+
         String scriptText = workModelScript.getScriptBody();
 
         assertTrue("Data used in conditions is wrapped in 'data' object", //$NON-NLS-1$
@@ -520,8 +525,18 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
 
         assertTrue("Data used in assignments is wrapped in 'data' object", //$NON-NLS-1$
                 scriptText.contains(
-                        "workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
+                        "bpm.workManager.getWorkItem().workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
 
+        assertTrue("New bpm.workManager factory is used for atributes", //$NON-NLS-1$
+                scriptText.contains(
+                        "bpm.workManager.getWorkItem().workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
+
+        assertTrue("New bpm.workManager factory is used for atributes", //$NON-NLS-1$
+                scriptText.contains(
+                        "bpm.workManager.getWorkItem().workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
+
+        assertFalse("Old WorkManagerFactory should never be used", //$NON-NLS-1$
+                scriptText.contains("WorkManagerFactory")); //$NON-NLS-1$
     }
 
     /**

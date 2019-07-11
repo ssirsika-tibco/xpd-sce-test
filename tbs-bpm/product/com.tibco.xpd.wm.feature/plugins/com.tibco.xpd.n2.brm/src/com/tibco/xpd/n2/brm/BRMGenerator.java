@@ -175,19 +175,19 @@ public class BRMGenerator {
      * as new line character.
      */
     private static final String NULL_CHECK_BLOCK_SCRIPT =
-            "if(%1s == null) {%n \tWorkManagerFactory.getWorkItem().workItemAttributes.%2s = null; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
+            "if(%1s == null) {%n \tbpm.workManager.getWorkItem().workItemAttributes.%2s = null; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
 
     private static final String NULL_CHECK_BLOCK_SCRIPT_FOR_INTEGER =
-            "if(%1s == null) {%n \tWorkManagerFactory.getWorkItem().workItemAttributes.%2s = 0; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
+            "if(%1s == null) {%n \tbpm.workManager.getWorkItem().workItemAttributes.%2s = 0; %n \tLog.write(\"%3s\");%n}"; //$NON-NLS-1$
 
     private static final String LOG_STATEMENT_SCRIPT =
             "%1s/%2s: Info: Work item attribute mapping: mapping from attribute `%3s` was unset because parent element `%4s` of source path `%5s` is null."; //$NON-NLS-1$
 
     private static final String MAPPING_ASSIGNMENT_SCRIPT =
-            " WorkManagerFactory.getWorkItem().workItemAttributes.%1s = %2s; %n"; //$NON-NLS-1$
+            " bpm.workManager.getWorkItem().workItemAttributes.%1s = %2s; %n"; //$NON-NLS-1$
 
     private static final String MAPPING_ASSIGNMENT_SCRIPT_INTEGER =
-            "if \t(%1s == null) {%n \t WorkManagerFactory.getWorkItem().workItemAttributes.%2s = 0; %n} else {%n \tWorkManagerFactory.getWorkItem().workItemAttributes.%3s = %4s; %n }%n%n"; //$NON-NLS-1$
+            "if \t(%1s == null) {%n \t bpm.workManager.getWorkItem().workItemAttributes.%2s = 0; %n} else {%n \tbpm.workManager.getWorkItem().workItemAttributes.%3s = %4s; %n }%n%n"; //$NON-NLS-1$
 
     /** Work list facade runtime model base name. */
     private static final String WLF_MODULE_FILE_NAME_BASE = "workListFacade"; //$NON-NLS-1$
