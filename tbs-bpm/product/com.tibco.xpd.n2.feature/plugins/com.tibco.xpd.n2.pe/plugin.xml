@@ -13,6 +13,18 @@
             priority="3">
       </mapperContentContributor>
       <mapperContentContributor
+      		applicableContext="GlobalSignalThrow"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
+            priority="4">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalCatch"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
+            priority="4">
+      </mapperContentContributor>
+      <mapperContentContributor
             applicableContext="ScriptTask"
             applyToMapperRHS="false"
             contributorId="com.tibco.xpd.n2.pe"
@@ -240,6 +252,14 @@
               contributor="com.tibco.xpd.n2.pe.rest.datamapper.RestScriptGeneratorInfoProvider"
               contributorID="RestServiceToProcess.DataMapperContent">
         </scriptGeneratorInfoProviderContributor>
+        <scriptGeneratorInfoProviderContributor
+               contributor="com.tibco.xpd.n2.pe.globalsignal.datamapper.GlobalSignalDataMapperScriptGeneratorInfoProvider"
+               contributorID="GlobalSignalCatch.DataMapperContent">
+         </scriptGeneratorInfoProviderContributor>
+         <scriptGeneratorInfoProviderContributor
+               contributor="com.tibco.xpd.n2.pe.globalsignal.datamapper.GlobalSignalDataMapperScriptGeneratorInfoProvider"
+               contributorID="GlobalSignalThrow.DataMapperContent">
+         </scriptGeneratorInfoProviderContributor>
      </extension>
    <extension
          point="com.tibco.xpd.rasc.core.rascContributors">

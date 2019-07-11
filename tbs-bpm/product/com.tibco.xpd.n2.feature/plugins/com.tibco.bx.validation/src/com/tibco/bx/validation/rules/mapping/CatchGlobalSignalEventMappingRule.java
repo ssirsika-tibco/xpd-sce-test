@@ -22,6 +22,8 @@ import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.mapper.Mapping;
 import com.tibco.xpd.mapper.MappingDirection;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.PayloadDataMappingRuleInfoProvider;
+import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperFilter;
 import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperTargetContentProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappingContentProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
@@ -102,7 +104,9 @@ public class CatchGlobalSignalEventMappingRule
         if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
                 .equals(EventObjectUtil.getEventTriggerType(activity))) {
 
-            return GlobalSignalUtil.isGlobalSignalEvent(activity);
+         // disable for DataMapper
+            return GlobalSignalUtil.isGlobalSignalEvent(activity) 
+                    && new CatchGlobalSignalMapperFilter().select(activity);
         }
         return false;
     }

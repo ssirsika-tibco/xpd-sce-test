@@ -8,12 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.js.validation.rules.AbstractExpressionRule;
 import com.tibco.xpd.js.validation.rules.MappingRuleUtil;
 import com.tibco.xpd.js.validation.tools.ScriptTool;
 import com.tibco.xpd.mapper.MapperContentProvider;
-import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappingScriptTool;
+import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappedScriptTool;
+import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalUnmappedScriptTool;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
@@ -81,10 +84,20 @@ public class BxJsCatchGlobalSignalMappingScriptRule extends
                                     .equals(EventObjectUtil
                                             .getEventTriggerType(activity))
                             && GlobalSignalUtil.isGlobalSignalEvent(activity)) {
-
-                        return getScope()
-                                .getTool(CatchGlobalSignalMappingScriptTool.class,
-                                        scriptInformation);
+                        EObject dataMapping =
+                                Xpdl2ModelUtil.getAncestor(scriptInformation,
+                                        DataMapping.class);
+                        if (dataMapping != null) {
+                            // for mapped scenario
+                            return getScope()
+                                    .getTool(CatchGlobalSignalMappedScriptTool.class,
+                                            dataMapping);
+                        } else {
+                            // for unmapped scenario
+                            return getScope()
+                                    .getTool(CatchGlobalSignalUnmappedScriptTool.class,
+                                            scriptInformation);
+                        }
                     }
                 }
             }

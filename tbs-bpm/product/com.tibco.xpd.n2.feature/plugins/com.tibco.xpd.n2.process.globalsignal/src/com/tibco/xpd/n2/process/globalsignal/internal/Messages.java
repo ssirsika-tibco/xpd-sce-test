@@ -170,6 +170,10 @@ public class Messages extends NLS {
 
     public static String GSEventScriptGSDReferenceChange_CatchSignalEvent;
 
+    public static String GlobalSignalThrowDataMapperSection_Title;
+
+    public static String GlobalSignalCatchDataMapperSection_Title;
+
     public static String PayloadDataMappingReferenceChange_Name;
 
     public static String PayloadDataMappingReferenceChange_ProgressMonitor_Label;

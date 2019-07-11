@@ -32,26 +32,6 @@
       <propertySections
             contributorId="com.tibco.xpd.processeditor.xpdl2.propertyContributor">
          <propertySection
-               class="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperSection$Filter"
-               id="catchGlobalSignalMapperOut"
-               tab="com.tibco.xpd.processeditor.propertyTabs.CatchSignalEventMapperOut">
-            <input
-                  type="com.tibco.xpd.xpdl2.Activity">
-            </input> 
-         </propertySection>
-         <propertySection
-               class="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperSection"
-               enablesFor="1"
-               filter="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperSection$Filter"
-               id="throwGlobalSignalMapperIn"
-               tab="com.tibco.xpd.n2.process.globalsignal.propertyTabs.GlobalSignalEventMapperIn">
-            <input
-                  type="com.tibco.xpd.xpdl2.Activity">
-            </input> 
-         </propertySection>
-         <propertySection
               class="com.tibco.xpd.n2.process.globalsignal.controls.StartSignalEventsAssociatedParameterSection"
               enablesFor="1"
               filter="com.tibco.xpd.n2.process.globalsignal.controls.StartSignalEventsAssociatedParameterSection"
@@ -61,33 +41,81 @@
                  type="com.tibco.xpd.xpdl2.Activity">
            </input>
         </propertySection>
-      </propertySections>
-   </extension>
-    <extension
-          name="PropertySections Contributed to tabs when PROJECT EXPLORER is selection provider."
-          point="org.eclipse.ui.views.properties.tabbed.propertySections">
-      <propertySections
-            contributorId="org.eclipse.ui.navigator.ProjectExplorer">
-         <propertySection
-               class="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperSection"
+        <propertySection
+               class="com.tibco.xpd.n2.process.globalsignal.datamapper.sections.GlobalSignalCatchDataMapperSection"
                enablesFor="1"
-               filter="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperSection$Filter"
-               id="catchGlobalSignalMapperOut"
+               filter="com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalCatchDataMapperFilter"
+               id="catchGlobalSignalDataMapper"
                tab="com.tibco.xpd.processeditor.propertyTabs.CatchSignalEventMapperOut">
             <input
                   type="com.tibco.xpd.xpdl2.Activity">
             </input> 
          </propertySection>
          <propertySection
-               class="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperSection"
+               class="com.tibco.xpd.n2.process.globalsignal.datamapper.sections.GlobalSignalThrowDataMapperSection"
                enablesFor="1"
-               filter="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperSection$Filter"
-               id="throwGlobalSignalMapperIn"
+               filter="com.tibco.xpd.n2.process.globalsignal.datamapper.sections.GlobalSignalThrowDataMapperSection$Filter"
+               id="throwGlobalSignalDataMapper"
                tab="com.tibco.xpd.n2.process.globalsignal.propertyTabs.GlobalSignalEventMapperIn">
             <input
                   type="com.tibco.xpd.xpdl2.Activity">
             </input> 
          </propertySection>
+      </propertySections>
+   </extension>
+   
+   <extension
+         point="com.tibco.xpd.datamapper.DataMapperContentContribution">
+      <mapperContentContributor
+            applicableContext="GlobalSignalCatch"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.ProcessCorrelationDataContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalCatch"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.GlobalSignalCatchTargetDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalCatch"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.GlobalSignalCatchSourceDataMapperContentContributor"
+            priority="4">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalThrow"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="4">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalThrow"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.GlobalSignalThrowTargetDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="GlobalSignalThrow"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.GlobalSignalCorrelationDataContentContributor"
+            priority="2">
+      </mapperContentContributor>
+   </extension>
+   
+     <extension
+           point="com.tibco.xpd.process.datamapper.dataReferenceContextProvider">
+        <provider
+              providerClass="com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataReferenceContextProvider">
+        </provider>
+     </extension>
+   
+    <extension
+          name="PropertySections Contributed to tabs when PROJECT EXPLORER is selection provider."
+          point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.ui.navigator.ProjectExplorer">
          <propertySection
               class="com.tibco.xpd.n2.process.globalsignal.controls.StartSignalEventsAssociatedParameterSection"
               enablesFor="1"
@@ -135,18 +163,28 @@
         <scriptContextGrammarBinding
               scriptContextReference="GlobalThrowSignalEventMapping">
            <defaultGrammar
-                 id="JavaScript"
+                 id="DataMapper"
                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
                  scriptInfoProvider="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperScriptProvider">
            </defaultGrammar>
+           <grammar
+                 id="JavaScript"
+                 resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                 scriptInfoProvider="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperScriptProvider">
+           </grammar>
         </scriptContextGrammarBinding>
         <scriptContextGrammarBinding
               scriptContextReference="GlobalCatchSignalEventMapping">
            <defaultGrammar
-                 id="JavaScript"
+                 id="DataMapper"
                  resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
                  scriptInfoProvider="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperScriptProvider">
            </defaultGrammar>
+           <grammar
+                 id="JavaScript"
+                 resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                 scriptInfoProvider="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperScriptProvider">
+           </grammar>
         </scriptContextGrammarBinding>
      </destination>
   </extension>
@@ -154,11 +192,18 @@
   <extension
         point="com.tibco.xpd.validation.preProcessor">
      <processor
-           factory="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMappingScriptToolFactory">
+           factory="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMappedScriptToolFactory">
      </processor>
      <processor
-           factory="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappingScriptToolFactory">
+           factory="com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalUnmappedScriptToolFactory">
      </processor>
+     <processor
+           factory="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappedScriptToolFactory">
+     </processor>
+     <processor
+           factory="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalUnmappedScriptToolFactory">
+     </processor>
+     
   </extension>
   <!-- Script Grammar binding for PE Destination -->
   <extension

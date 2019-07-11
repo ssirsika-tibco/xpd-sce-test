@@ -13,8 +13,10 @@ import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.mapper.Mapping;
 import com.tibco.xpd.mapper.MappingDirection;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.PayloadDataMappingRuleInfoProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadDataMapperContentProvider;
+import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperFilter;
 import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMapperSourceContentProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMappingContentProvider;
 import com.tibco.xpd.process.js.parser.util.ScriptMappingUtil;
@@ -73,7 +75,7 @@ public class ThrowGlobalSignalEventMappingRule extends
     protected MappingRuleContentInfoProvider createSourceInfoProvider(
             EObject objectToValidate) {
         sourceContentProvider =
-                new ThrowGlobalSignalMapperSourceContentProvider(true);
+                new ThrowGlobalSignalMapperSourceContentProvider();
 
         return new ProcessDataMappingRuleInfoProvider(sourceContentProvider);
     }
@@ -360,8 +362,10 @@ public class ThrowGlobalSignalEventMappingRule extends
          */
         if (EventTriggerType.EVENT_SIGNAL_THROW_LITERAL.equals(EventObjectUtil
                 .getEventTriggerType(activity))) {
-
-            return GlobalSignalUtil.isGlobalSignalEvent(activity);
+            //disable for DataMapper
+            return GlobalSignalUtil.isGlobalSignalEvent(activity)
+                    && new ThrowGlobalSignalMapperFilter()
+                            .select(activity);
         }
         return false;
     }

@@ -12,6 +12,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.datamapper.api.AbstractDataMapperInfoProvider;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
+import com.tibco.xpd.validation.bpmn.rules.baserules.MappingRuleContentInfoProviderBase;
 import com.tibco.xpd.validation.bpmn.rules.baserules.ProcessDataMappingRuleInfoProvider;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.BasicType;
@@ -40,7 +41,7 @@ public class ProcessDataMapperInfoProvider extends
      * {@link ProcessDataMappingRuleInfoProvider}. So we'll create one to
      * delegate to.
      */
-    private ProcessDataMappingRuleInfoProvider baseInfoProvider;
+    private MappingRuleContentInfoProviderBase baseInfoProvider;
 
     /**
      * @param contentProvider
@@ -65,7 +66,7 @@ public class ProcessDataMapperInfoProvider extends
      * @return <code>ProcessDataMappingRuleInfoProvider</code> instance for the
      *         specified tree content provider.
      */
-    protected ProcessDataMappingRuleInfoProvider createBaseInfoProvider(
+    protected MappingRuleContentInfoProviderBase createBaseInfoProvider(
             ITreeContentProvider contentProvider) {
 
         return new ProcessDataMappingRuleInfoProvider(contentProvider);

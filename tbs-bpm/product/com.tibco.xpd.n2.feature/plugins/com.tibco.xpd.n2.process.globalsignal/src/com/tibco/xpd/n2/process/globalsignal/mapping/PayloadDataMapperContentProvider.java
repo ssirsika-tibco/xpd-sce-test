@@ -43,6 +43,11 @@ public class PayloadDataMapperContentProvider implements ITreeContentProvider {
     private boolean wantScripts;
 
     /**
+     * Specifies if we need Correlation.
+     */
+    private boolean wantCorrelation;
+
+    /**
      * Script content provider.
      */
     private ActivityScriptContentProvider scriptContentProvider;
@@ -67,6 +72,23 @@ public class PayloadDataMapperContentProvider implements ITreeContentProvider {
      */
     public PayloadDataMapperContentProvider(boolean wantScripts,
             MappingDirection direction) {
+        this.wantCorrelation = true;
+        this.wantScripts = wantScripts;
+        scriptContentProvider = new ActivityScriptContentProvider(direction);
+    }
+
+    /**
+     * 
+     * @param wantCorrelation
+     *            pass true if we want to display correlation data
+     * @param wantScripts
+     *            pass true if we want to create script contents
+     * @param direction
+     *            the mapping direction.
+     */
+    public PayloadDataMapperContentProvider(boolean wantCorrelation,
+            boolean wantScripts, MappingDirection direction) {
+        this.wantCorrelation = wantCorrelation;
         this.wantScripts = wantScripts;
         scriptContentProvider = new ActivityScriptContentProvider(direction);
     }
@@ -133,7 +155,9 @@ public class PayloadDataMapperContentProvider implements ITreeContentProvider {
                 /*
                  * add dummy Correlation Folder which will be the parent root..
                  */
-                treeElements.add(new CorrelationDataFolder(null));
+                if (wantCorrelation) {
+                    treeElements.add(new CorrelationDataFolder(null));
+                }
 
                 /*
                  * Add all the non-correlation playload data to the list which
@@ -233,6 +257,28 @@ public class PayloadDataMapperContentProvider implements ITreeContentProvider {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @param selectedActivity
+     *            the selectedActivity to set
+     */
+    protected void setSelectedActivity(Activity selectedActivity) {
+        this.selectedActivity = selectedActivity;
+    }
+
+    /**
+     * @return the wantScripts
+     */
+    protected boolean isWantScripts() {
+        return wantScripts;
+    }
+
+    /**
+     * @return the scriptContentProvider
+     */
+    protected ActivityScriptContentProvider getScriptContentProvider() {
+        return scriptContentProvider;
     }
 
     /**

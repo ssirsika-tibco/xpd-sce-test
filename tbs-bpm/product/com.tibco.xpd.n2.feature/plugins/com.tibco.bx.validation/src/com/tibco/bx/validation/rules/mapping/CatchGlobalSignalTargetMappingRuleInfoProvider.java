@@ -25,7 +25,7 @@ public class CatchGlobalSignalTargetMappingRuleInfoProvider extends
     /**
      * @param contentProvider
      */
-    protected CatchGlobalSignalTargetMappingRuleInfoProvider(
+    public CatchGlobalSignalTargetMappingRuleInfoProvider(
             ITreeContentProvider contentProvider) {
         super(contentProvider);
 

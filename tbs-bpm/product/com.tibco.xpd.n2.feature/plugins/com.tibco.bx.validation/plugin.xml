@@ -733,6 +733,12 @@
          <rule
                class="com.tibco.bx.validation.rules.datamapper.CatchGlobalDataEventMapFromErrorDataMapperMappingRule">
          </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.datamapper.CatchGlobalSignalEventDataMapperMappingRule">
+         </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.datamapper.ThrowGlobalSignalEventDataMapperMappingRule">
+         </rule>  
       </provider>
        <preferenceGroup
              id="com.tibco.bx.validation.processManagerProblems"
@@ -4525,6 +4531,12 @@ s         <scriptContribution
                   id="com.tibco.bx.validation.validator.N2JScriptValidationStrategy"
                   name="com.tibco.bx.validation.validator.N2JScriptValidationStrategy">
             </validationStrategy>
+            <validationStrategy
+                  class="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  name="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy">
+            </validationStrategy>
          </scriptContribution>
          <scriptContribution
                scriptContext="GlobalCatchSignalEventMapping">
@@ -4539,6 +4551,12 @@ s         <scriptContribution
                   grammarId="JavaScript"
                   id="com.tibco.bx.validation.validator.N2JScriptValidationStrategy"
                   name="com.tibco.bx.validation.validator.N2JScriptValidationStrategy">
+            </validationStrategy>
+            <validationStrategy
+                  class="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  name="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy">
             </validationStrategy>
          </scriptContribution>
          <scriptContribution

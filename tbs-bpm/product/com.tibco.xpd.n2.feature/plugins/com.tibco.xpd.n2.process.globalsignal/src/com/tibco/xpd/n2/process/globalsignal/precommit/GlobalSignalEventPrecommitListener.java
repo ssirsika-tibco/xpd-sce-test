@@ -22,6 +22,7 @@ import com.tibco.xpd.xpdExtension.AssociatedParameters;
 import com.tibco.xpd.xpdExtension.EventHandlerFlowStrategy;
 import com.tibco.xpd.xpdExtension.EventHandlerInitialisers;
 import com.tibco.xpd.xpdExtension.SignalType;
+import com.tibco.xpd.xpdExtension.XpdExtensionFactory;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
@@ -123,6 +124,16 @@ public class GlobalSignalEventPrecommitListener extends
                 }
             }
             if (activity != null) {
+
+                /*
+                 * XPD-8000: Saket: We need <xpdExt:SignalData> to be created
+                 * for Global Signal events as it's our ScriptDataMapper
+                 * container.
+                 */
+                if (GlobalSignalUtil.isGlobalSignalEvent(activity)) {
+                    setUpSignalData(cmd, editingDomain, activity);
+                }
+
                 /*
                  * Add Or Remove event handler initialiser data for valid or
                  * invalid events resp.
@@ -165,6 +176,40 @@ public class GlobalSignalEventPrecommitListener extends
         }
 
         return null;
+    }
+
+    /**
+     * Set up <xpdExt:SignalData> for the specified signal activity.
+     * 
+     * @param cmd
+     * @param editingDomain
+     * @param activity
+     */
+    private void setUpSignalData(CompoundCommand cmd,
+            TransactionalEditingDomain editingDomain, Activity activity) {
+
+        TriggerResultSignal trs =
+                (TriggerResultSignal) activity.getEvent()
+                        .getEventTriggerTypeNode();
+
+        if (trs != null) {
+
+            Object signalData =
+                    Xpdl2ModelUtil.getOtherElement(trs,
+                            XpdExtensionPackage.eINSTANCE
+                                    .getDocumentRoot_SignalData());
+
+            if (signalData == null) {
+
+                cmd.append(Xpdl2ModelUtil
+                        .getSetOtherElementCommand(editingDomain,
+                                trs,
+                                XpdExtensionPackage.eINSTANCE
+                                        .getDocumentRoot_SignalData(),
+                                XpdExtensionFactory.eINSTANCE
+                                        .createSignalData()));
+            }
+        }
     }
 
     /**

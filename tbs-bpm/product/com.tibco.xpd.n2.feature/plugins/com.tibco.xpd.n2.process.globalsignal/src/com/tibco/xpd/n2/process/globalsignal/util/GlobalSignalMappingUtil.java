@@ -16,6 +16,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.mapper.Mapping;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.ProcessCorrelationDataContentContributor;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
@@ -688,5 +690,26 @@ public final class GlobalSignalMappingUtil {
             return resultMappings.toArray();
         }
         return new Object[0];
+    }
+
+    /**
+     * Return <code>true</code> if target contributor ID is the same as that of
+     * the contributor ID of
+     * {@link ProcessCorrelationDataContentContributor},
+     * <code>false</code> otherwise.
+     * 
+     * @param dataMapping
+     * @return return <code>true</code> if the target of the specified mapping
+     *         is correlation data, <code>false</code> otherwise.
+     */
+    public static boolean isMappedToCorrelationData(DataMapping dataMapping) {
+
+        Object targetAttributeName =
+                Xpdl2ModelUtil.getOtherAttribute(dataMapping,
+                        XpdExtensionPackage.eINSTANCE
+                                .getDocumentRoot_TargetContributorId());
+
+        return GlobalSignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID
+                .equals(targetAttributeName);
     }
 }

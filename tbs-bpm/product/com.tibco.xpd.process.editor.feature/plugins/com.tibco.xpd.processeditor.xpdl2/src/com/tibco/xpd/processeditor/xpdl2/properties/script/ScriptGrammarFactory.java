@@ -511,24 +511,26 @@ public class ScriptGrammarFactory {
 
                     } else if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
                             .equals(EventObjectUtil
+                                    .getEventTriggerType(activity))
+                            && isGlobalSignalEvent(activity)) {
+                        grammar = DATAMAPPER;
+                        scriptContext =
+                                ProcessScriptContextConstants.GLOBAL_CATCH_SIGNAL_EVENTMAPPING;
+
+                    } else if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
+                            .equals(EventObjectUtil
                                     .getEventTriggerType(activity))) {
                         grammar = JAVASCRIPT;
                         scriptContext =
                                 ProcessScriptContextConstants.CATCH_SIGNAL_EVENTMAPPING;
+
                     } else if (EventTriggerType.EVENT_SIGNAL_THROW_LITERAL
                             .equals(EventObjectUtil
                                     .getEventTriggerType(activity))
                             && isGlobalSignalEvent(activity)) {
-                        grammar = JAVASCRIPT;
+                        grammar = DATAMAPPER;
                         scriptContext =
                                 ProcessScriptContextConstants.GLOBAL_THROW_SIGNAL_EVENTMAPPING;
-                    } else if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
-                            .equals(EventObjectUtil
-                                    .getEventTriggerType(activity))
-                            && isGlobalSignalEvent(activity)) {
-                        grammar = JAVASCRIPT;
-                        scriptContext =
-                                ProcessScriptContextConstants.GLOBAL_CATCH_SIGNAL_EVENTMAPPING;
                     }
                 }
             }

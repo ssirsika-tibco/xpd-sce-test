@@ -18,10 +18,15 @@ Require-Bundle: com.tibco.xpd.processeditor.xpdl2,
  com.tibco.xpd.n2.globalsignal.resource,
  com.tibco.xpd.n2.globalsignal.model,
  com.tibco.xpd.validation.xpdl2,
- com.tibco.xpd.implementer.nativeservices
+ com.tibco.xpd.implementer.nativeservices,
+ com.tibco.xpd.datamapper,
+ com.tibco.xpd.process.datamapper,
+ org.junit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: com.tibco.xpd.n2.process.globalsignal.mapping,
+Export-Package: com.tibco.xpd.n2.process.globalsignal.datamapper,
+ com.tibco.xpd.n2.process.globalsignal.datamapper.sections,
+ com.tibco.xpd.n2.process.globalsignal.mapping,
  com.tibco.xpd.n2.process.globalsignal.util
 Import-Package: com.tibco.xpd.n2.resources.refactoring,
  org.eclipse.ltk.ui.refactoring

@@ -8,12 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.js.validation.rules.AbstractExpressionRule;
 import com.tibco.xpd.js.validation.rules.MappingRuleUtil;
 import com.tibco.xpd.js.validation.tools.ScriptTool;
 import com.tibco.xpd.mapper.MapperContentProvider;
-import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMappingScriptTool;
+import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalMappedScriptTool;
+import com.tibco.xpd.n2.process.globalsignal.mapping.ThrowGlobalSignalUnmappedScriptTool;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
@@ -83,10 +86,23 @@ public class BxJsThrowGlobalSignalMappingScriptRule extends
                                     .equals(EventObjectUtil
                                             .getEventTriggerType(activity))
                             && GlobalSignalUtil.isGlobalSignalEvent(activity)) {
-
-                        return getScope()
-                                .getTool(ThrowGlobalSignalMappingScriptTool.class,
-                                        expression.eContainer());
+                        EObject container = expression.eContainer();
+                        EObject dataMapping =
+                                Xpdl2ModelUtil.getAncestor(container,
+                                        DataMapping.class);
+                        if (dataMapping != null) {
+                            // for mapped scenarios
+                            return getScope()
+                                    .getTool(ThrowGlobalSignalMappedScriptTool.class,
+                                            dataMapping);
+                        } else {
+                            // for unmapped scenarios
+                            if (dataMapping == null) {
+                                return getScope()
+                                        .getTool(ThrowGlobalSignalUnmappedScriptTool.class,
+                                                container);
+                            }
+                        }
                     }
                 }
             }
