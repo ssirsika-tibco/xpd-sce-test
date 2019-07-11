@@ -14,12 +14,12 @@ import com.tibco.xpd.processwidget.adapters.EventTriggerType;
 import com.tibco.xpd.xpdl2.Activity;
 
 /**
- * Filter for Global Signal Catch Data Mapper Validations.
+ * Filter for Global Signal Throw Data Mapper Section.
  * 
  * @author sajain
  * @since Apr 27, 2016
  */
-public class GlobalSignalCatchDataMapperFilter implements IFilter {
+public class GlobalSignalThrowDataMapperFilter implements IFilter {
 
     /**
      * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
@@ -40,9 +40,7 @@ public class GlobalSignalCatchDataMapperFilter implements IFilter {
 
         if (eo != null && eo instanceof Activity) {
             Activity activity = (Activity) eo;
-
-            if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
-                    .equals(EventObjectUtil.getEventTriggerType(activity))) {
+            if (EventTriggerType.EVENT_SIGNAL_THROW_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity))) {
 
                 if (GlobalSignalUtil.isGlobalSignalEvent(activity)) {
                     return true;

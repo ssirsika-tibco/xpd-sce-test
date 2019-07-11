@@ -13,7 +13,7 @@ import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalScriptDataMapperProvider;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.sections.GlobalSignalThrowDataMapperSection;
+import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalThrowDataMapperFilter;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
@@ -55,7 +55,7 @@ public class ThrowGlobalSignalEventDataMapperMappingRule extends
         if (eo instanceof Activity) {
             activity = (Activity) eo;
 
-            IFilter filter = new GlobalSignalThrowDataMapperSection.Filter();
+            IFilter filter = new GlobalSignalThrowDataMapperFilter();
 
             return filter.select(activity) && super.objectIsApplicable(eo);
         }
