@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo Copyright TIBCO Software Inc 2004 - 2019. All rights reserved.
 
 # is this a call for help
@@ -15,7 +16,7 @@ if [ -n "$1" ]; then
 fi
 
 # does the installer file exist
-if [[ ! -e .\image_template\TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip ]]; then
+if [ ! -f ./image_template/TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip ]; then
   echo You must provide a Linux version of the TIBCO Business Studio - Cloud BPM Edition installer.
   echo The installer\'s name follows the pattern TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip
   echo and must be copied to the sub-folder image_template. Alternatively, specify the location of the file on the command line.
