@@ -41,14 +41,15 @@ public class AceProjectFileRules implements WorkspaceResourceValidator {
             /*
              * Sid ACE-1586 Validate project-relative filepath/name length.
              */
-            if (resource.getName().length() > 100) {
+            if (resource.getName() != null && resource.getName().length() > 100) {
                 scope.createIssue(ACE_ISSUE_FILENAME_TOO_LONG,
                         resource.getName(),
                         resource.getProjectRelativePath().toString(),
                         Collections.singletonList("100")); //$NON-NLS-1$
             }
 
-            if (resource.getProjectRelativePath().toString().length() > 250) {
+            if (resource.getProjectRelativePath() != null
+                    && resource.getProjectRelativePath().toString().length() > 250) {
                 scope.createIssue(ACE_ISSUE_FILEPATH_TOO_LONG,
                         resource.getName(),
                         resource.getProjectRelativePath().toString(),

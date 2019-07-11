@@ -29,7 +29,7 @@ public class AceProcessRules extends ProcessValidationRule {
     @Override
     public void validate(Process process) {
 
-        if (process.getName().length() > 100) {
+        if (process.getName() != null && process.getName().length() > 100) {
             addIssue(ACE_ISSUE_PROCESS_NAME_TOO_LONG, process, Collections.singletonList("100")); //$NON-NLS-1$
         }
 

@@ -111,14 +111,15 @@ public class AceProjectRules implements
             /*
              * Sid ACE-1586 Validate project name length.
              */
-            if (project.getName().length() > 100) {
+            if (project.getName() != null && project.getName().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PROJECT_NAME_TOO_LONG,
                         project.getName(),
                         project.getProjectRelativePath().toString(),
                         Collections.singletonList("100")); //$NON-NLS-1$
             }
 
-            if (projectConfig.getProjectDetails().getId().length() > 100) {
+            if (projectConfig.getProjectDetails() != null && projectConfig.getProjectDetails().getId() != null
+                    && projectConfig.getProjectDetails().getId().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PROJECT_ID_TOO_LONG,
                         project.getName(),
                         project.getProjectRelativePath().toString(),

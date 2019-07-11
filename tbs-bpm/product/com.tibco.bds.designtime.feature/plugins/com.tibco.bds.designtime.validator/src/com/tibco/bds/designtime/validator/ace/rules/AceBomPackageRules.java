@@ -31,7 +31,7 @@ public class AceBomPackageRules implements IValidationRule {
         if (obj instanceof org.eclipse.uml2.uml.Package) {
             Package pkg = (org.eclipse.uml2.uml.Package) obj;
 
-            if (pkg.getName().length() > 100) {
+            if (pkg.getName() != null && pkg.getName().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PKG_ID_TOO_LONG,
                         BOMValidationUtil.getLocation(pkg),
                         pkg.eResource().getURIFragment(pkg),
