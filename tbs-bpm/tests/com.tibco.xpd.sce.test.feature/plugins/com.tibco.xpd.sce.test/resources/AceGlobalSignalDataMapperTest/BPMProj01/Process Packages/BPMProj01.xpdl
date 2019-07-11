@@ -92,15 +92,42 @@
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
         </xpdl2:Activity>
-        <xpdl2:Activity Id="_f5xSc6O1EemPWuwNNqkLrg" Name="EndEvent" xpdExt:DisplayName="End Event">
+        <xpdl2:Activity Id="_f5xSc6O1EemPWuwNNqkLrg" Name="ThrowGlobalGlobalSignal" xpdExt:DisplayName="Throw Global: GlobalSignal">
           <xpdl2:Event>
-            <xpdl2:EndEvent Result="None"/>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.gsdproj01/GSDProj01.gsd#GlobalSignal">
+                <xpdExt:SignalData>
+                  <xpdExt:InputScriptDataMapper MapperContext="GlobalSignalThrow" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="PayloadData4">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData3">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData5">
+                        <xpdExt:ScriptInformation Id="_PMfnkKPbEemEKbvWnYsXsQ" Name="SampleScript">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return &quot;abc&quot;;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:InputScriptDataMapper>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
           </xpdl2:Event>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_f5xScaO1EemPWuwNNqkLrg" Width="30.0">
               <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
         </xpdl2:Activity>
       </xpdl2:Activities>
       <xpdl2:Transitions>

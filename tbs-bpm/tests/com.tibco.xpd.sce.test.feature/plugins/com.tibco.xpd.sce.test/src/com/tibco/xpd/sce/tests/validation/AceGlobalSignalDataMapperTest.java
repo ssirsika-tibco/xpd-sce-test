@@ -119,6 +119,30 @@ public class AceGlobalSignalDataMapperTest extends AbstractN2BaseValidationTest 
                         "abstractMappingRule.incompatibleTypes",
                         "//@package/@processes.0/@activities.0/@event/@triggerResultSignal/@otherElements.0/@outputScriptDataMapper/@dataMappings.2",
                         "BPM  : Data Mapper: The data types are incompatible for mapping 'PayloadData3' to 'Field2'. (BPMProj01Process:CatchGlobalGlobalSignal:Field2)",
+                        "Remove mapping"),
+
+                new ValidationsTestProblemMarkerInfo("/BPMProj01/Process Packages/BPMProj01.xpdl",
+                        "abstractMappingRule.incompatibleTypes",
+                        "//@package/@processes.0/@activities.1/@event/@triggerResultSignal/@otherElements.0/@inputScriptDataMapper/@dataMappings.3",
+                        "BPM  : Data Mapper: The data types are incompatible for mapping 'SampleScript' to 'PayloadData5'. (BPMProj01Process:ThrowGlobalGlobalSignal:PayloadData5)",
+                        "Remove mapping"),
+
+                new ValidationsTestProblemMarkerInfo("/BPMProj01/Process Packages/BPMProj01.xpdl",
+                        "abstractMappingRule.incompatibleTypes",
+                        "//@package/@processes.0/@activities.1/@event/@triggerResultSignal/@otherElements.0/@inputScriptDataMapper/@dataMappings.0",
+                        "BPM  : Data Mapper: The data types are incompatible for mapping 'Field3' to 'PayloadData2'. (BPMProj01Process:ThrowGlobalGlobalSignal:PayloadData2)",
+                        "Remove mapping"),
+
+                new ValidationsTestProblemMarkerInfo("/BPMProj01/Process Packages/BPMProj01.xpdl",
+                        "abstractMappingRule.incompatibleTypes",
+                        "//@package/@processes.0/@activities.1/@event/@triggerResultSignal/@otherElements.0/@outputScriptDataMapper/@dataMappings.1",
+                        "BPM  : Data Mapper: The data types are incompatible for mapping 'Field2' to 'PayloadData4'. (BPMProj01Process:ThrowGlobalGlobalSignal:PayloadData4)",
+                        "Remove mapping"),
+
+                new ValidationsTestProblemMarkerInfo("/BPMProj01/Process Packages/BPMProj01.xpdl",
+                        "abstractMappingRule.incompatibleTypes",
+                        "//@package/@processes.0/@activities.0/@event/@triggerResultSignal/@otherElements.0/@outputScriptDataMapper/@dataMappings.0",
+                        "BPM  : Data Mapper: Source correlation payload data (PayloadData) must be mapped to a correlation data field. (BPMProj01Process:CatchGlobalGlobalSignal:Field)",
                         "Remove mapping")
         };
         return markerInfos;
