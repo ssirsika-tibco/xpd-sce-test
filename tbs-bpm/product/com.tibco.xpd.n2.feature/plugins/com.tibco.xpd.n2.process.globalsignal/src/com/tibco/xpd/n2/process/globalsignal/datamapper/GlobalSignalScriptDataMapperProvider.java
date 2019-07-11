@@ -193,11 +193,6 @@ public class GlobalSignalScriptDataMapperProvider extends
                         }
                     }
                 }
-
-                if (sigData == null) {
-                    Activator.log(new RuntimeException(
-                            "Script Data Mapper Container cannot be null.")); //$NON-NLS-1$
-                }
             }
         }
         return sigData;
