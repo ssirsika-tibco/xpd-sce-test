@@ -1,5 +1,7 @@
 package com.tibco.bds.designtime.validator.ace.rules;
 
+import java.util.Collections;
+
 import org.eclipse.uml2.uml.Package;
 
 import com.tibco.xpd.bom.validator.util.BOMValidationUtil;
@@ -32,7 +34,8 @@ public class AceBomPackageRules implements IValidationRule {
             if (pkg.getName().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PKG_ID_TOO_LONG,
                         BOMValidationUtil.getLocation(pkg),
-                        pkg.eResource().getURIFragment(pkg));
+                        pkg.eResource().getURIFragment(pkg),
+                        Collections.singletonList("100")); //$NON-NLS-1$
 
             }
         }

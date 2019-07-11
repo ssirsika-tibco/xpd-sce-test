@@ -1,5 +1,7 @@
 package com.tibco.bx.validation.ace.rules;
 
+import java.util.Collections;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 
@@ -112,13 +114,15 @@ public class AceProjectRules implements
             if (project.getName().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PROJECT_NAME_TOO_LONG,
                         project.getName(),
-                        project.getProjectRelativePath().toString());
+                        project.getProjectRelativePath().toString(),
+                        Collections.singletonList("100")); //$NON-NLS-1$
             }
 
             if (projectConfig.getProjectDetails().getId().length() > 100) {
                 scope.createIssue(ACE_ISSUE_PROJECT_ID_TOO_LONG,
                         project.getName(),
-                        project.getProjectRelativePath().toString());
+                        project.getProjectRelativePath().toString(),
+                        Collections.singletonList("100")); //$NON-NLS-1$
             }
 
         }

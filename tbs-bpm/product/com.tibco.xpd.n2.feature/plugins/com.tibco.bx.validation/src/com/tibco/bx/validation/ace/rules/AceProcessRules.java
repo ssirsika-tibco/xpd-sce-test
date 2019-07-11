@@ -4,6 +4,8 @@
 
 package com.tibco.bx.validation.ace.rules;
 
+import java.util.Collections;
+
 import com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule;
 import com.tibco.xpd.xpdl2.Process;
 
@@ -28,7 +30,7 @@ public class AceProcessRules extends ProcessValidationRule {
     public void validate(Process process) {
 
         if (process.getName().length() > 100) {
-            addIssue(ACE_ISSUE_PROCESS_NAME_TOO_LONG, process);
+            addIssue(ACE_ISSUE_PROCESS_NAME_TOO_LONG, process, Collections.singletonList("100")); //$NON-NLS-1$
         }
 
     }
