@@ -154,6 +154,10 @@ public class Messages extends NLS {
 
     public static String GlobalSignalPropertySection_NameMustBeUnique;
 
+    public static String GlobalSignalRascContributor_addingGsdComponents;
+
+    public static String GlobalSignalRascContributor_buildingGdsComponents;
+
     public static String GlobalSignalsGroup_title;
 
     public static String GlobalSignalXsltGeneratorHelper_CaseRef_label;

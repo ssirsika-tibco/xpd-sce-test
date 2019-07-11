@@ -56,6 +56,14 @@
    </asset>
    </extension>
   
+   <extension
+         point="com.tibco.xpd.rasc.core.rascContributors">
+      <contributor
+            class="com.tibco.xpd.n2.globalsignal.transform.GlobalSignalxRascContributor"
+            id="com.tibco.xpd.n2.globalsignal.transform.contributor">
+      </contributor>
+   </extension>
+  
    <!-- Define Global Signal Definition nature -->
    <extension
          id="gsdProjectNature"

@@ -11,8 +11,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 
 import com.tibco.bpm.dt.rasc.MicroService;
 import com.tibco.bpm.dt.rasc.Version;
-import com.tibco.bx.transform.BxRascContributor;
 import com.tibco.xpd.core.test.util.TestUtil;
+import com.tibco.xpd.n2.globalsignal.transform.GlobalSignalRascContributor;
 import com.tibco.xpd.rasc.core.RascAppSummary;
 import com.tibco.xpd.rasc.core.RascContext;
 import com.tibco.xpd.rasc.core.RascContributor;
@@ -29,7 +29,7 @@ import junit.framework.TestCase;
  * @since 10 July 2019
  */
 @SuppressWarnings("nls")
-public class BxRascContributorTest extends TestCase {
+public class GlobalSignalRascContributorTest extends TestCase {
 
     /**
      * Test that the hasContributionsFor and RASC generation contribution for
@@ -42,7 +42,7 @@ public class BxRascContributorTest extends TestCase {
 
         ProjectImporter projectImporter = importProject("resources/GlobalSignalsRascTest/", projectName);
         try {
-            RascContributor fixture = new BxRascContributor();
+            RascContributor fixture = new GlobalSignalRascContributor();
 
             IProject project = ResourcesPlugin.getWorkspace().getRoot()
                     .getProject(projectName);
@@ -90,7 +90,7 @@ public class BxRascContributorTest extends TestCase {
 
             // some data was written to the artifacts
             assertTrue(projectName
-                    + " project workModel.wm artifact should have content",
+                    + " project globalSignal.gsd artifact should have content",
                     gsdArtifact.getContent().size() > 0);
 
             assertTrue(projectName
@@ -122,7 +122,7 @@ public class BxRascContributorTest extends TestCase {
 
         ProjectImporter projectImporter = importProject("resources/BrmRascTest/", projectName);
         try {
-            RascContributor fixture = new BxRascContributor();
+            RascContributor fixture = new GlobalSignalRascContributor();
 
             IProject project = ResourcesPlugin.getWorkspace().getRoot()
                     .getProject(projectName);

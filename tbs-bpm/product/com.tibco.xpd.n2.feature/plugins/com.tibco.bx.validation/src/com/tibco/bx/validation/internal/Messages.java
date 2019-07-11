@@ -32,8 +32,6 @@ public class Messages extends NLS {
 
     public static String BpmErrorsWarningsPreferencePage_desc;
 
-    public static String BxRascContributor_creatingGsdComponents;
-
     public static String CancelScriptDataMapperMappingRule_ScriptDescription;
 
     public static String CatchGlobalSignalEventMappingRule_CatchGlobalSignalMappingType_desc;
