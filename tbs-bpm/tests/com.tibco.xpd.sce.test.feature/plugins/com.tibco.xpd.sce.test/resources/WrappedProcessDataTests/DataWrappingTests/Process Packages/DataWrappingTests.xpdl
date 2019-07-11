@@ -165,25 +165,25 @@
                 <xpdl2:StartEvent xpdExt:NonInterruptingEvent="false" Trigger="Signal">
                   <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" CatchThrow="CATCH" Name="com.example.datawappingglobalsignal/DataWappingGlobalSignal.gsd#GlobalSignal">
                     <xpdExt:SignalData>
-                      <xpdExt:CorrelationMappings>
-                        <xpdExt:DataMapping Direction="OUT" Formal="TextPayloadData">
-                          <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
-                        </xpdExt:DataMapping>
-                      </xpdExt:CorrelationMappings>
-                      <xpdExt:DataMappings>
-                        <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
-                          <xpdExt:ScriptInformation Id="_pyGA8IeyEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
-                            <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_ClassPayloadData + SIGNAL_ClassPayloadData.text + SIGNAL_TextPayloadData.concat(&quot; &quot;, &quot;Hey!&quot;);</xpdExt:Expression>
-                          </xpdExt:ScriptInformation>
-                          <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
-                        </xpdExt:DataMapping>
-                        <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
-                          <xpdExt:ScriptInformation Id="_30PGAIeyEemmHL5LWHEcVw" Name="Script2" Direction="OUT">
-                            <xpdExt:Expression ScriptGrammar="JavaScript">SIGNAL_NumberPayloadData + 1;</xpdExt:Expression>
-                          </xpdExt:ScriptInformation>
-                          <xpdl2:Actual ScriptGrammar="JavaScript">FixedNumberTypeDecl</xpdl2:Actual>
-                        </xpdExt:DataMapping>
-                      </xpdExt:DataMappings>
+                      <xpdExt:OutputScriptDataMapper MapperContext="GlobalSignalCatch" MappingDirection="OUT">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TextPayloadData</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="TextField">
+                            <xpdExt:ScriptInformation Id="_Hv778KPGEemADNiIlXErTw" Name="Script1" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_ClassPayloadData + SIGNAL_ClassPayloadData.text + SIGNAL_TextPayloadData.concat(&quot;Hey!&quot;);</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="FixedNumberTypeDecl">
+                            <xpdExt:ScriptInformation Id="_ODyfoKPGEemADNiIlXErTw" Name="Script2" Direction="OUT">
+                              <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_NumberPayloadData + 1;</xpdExt:Expression>
+                            </xpdExt:ScriptInformation>
+                            <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:OutputScriptDataMapper>
                     </xpdExt:SignalData>
                     <xpdExt:EventHandlerInitialisers Id="_2npXEIeyEemmHL5LWHEcVw">
                       <xpdExt:ActivityRef xpdExt:IdRef="_qpqqcoX3EemzgbDVShI3Yw"/>
@@ -249,28 +249,28 @@
             <xpdl2:EndEvent Result="Signal">
               <xpdl2:TriggerResultSignal xpdExt:SignalType="Global" CatchThrow="THROW" Name="com.example.datawappingglobalsignal/DataWappingGlobalSignal.gsd#GlobalSignal">
                 <xpdExt:SignalData>
-                  <xpdExt:CorrelationMappings>
-                    <xpdExt:DataMapping Direction="IN" Formal="TextPayloadData">
-                      <xpdExt:ScriptInformation Id="__FrTUIeyEemmHL5LWHEcVw" Name="Script1">
-                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
-                      </xpdExt:ScriptInformation>
-                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField.text.concat(&quot; &quot;, &quot;Hey back!&quot;);</xpdl2:Actual>
-                    </xpdExt:DataMapping>
-                  </xpdExt:CorrelationMappings>
-                  <xpdExt:DataMappings>
-                    <xpdExt:DataMapping Direction="IN" Formal="ClassPayloadData">
-                      <xpdExt:ScriptInformation Id="_IAggUIezEemmHL5LWHEcVw" Name="Script2">
-                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
-                      </xpdExt:ScriptInformation>
-                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField;</xpdl2:Actual>
-                    </xpdExt:DataMapping>
-                    <xpdExt:DataMapping Direction="IN" Formal="NumberPayloadData">
-                      <xpdExt:ScriptInformation Id="_MOIXUIezEemmHL5LWHEcVw" Name="Script3">
-                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
-                      </xpdExt:ScriptInformation>
-                      <xpdl2:Actual ScriptGrammar="JavaScript">data.ClassField.fixed;</xpdl2:Actual>
-                    </xpdExt:DataMapping>
-                  </xpdExt:DataMappings>
+                  <xpdExt:InputScriptDataMapper MapperContext="GlobalSignalThrow" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="TextPayloadData">
+                        <xpdExt:ScriptInformation Id="_zT1EIKPFEemADNiIlXErTw" Name="Script1">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.text.concat(&quot;Hey Back&quot;);</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="ClassPayloadData">
+                        <xpdExt:ScriptInformation Id="_8zSoMKPFEemADNiIlXErTw" Name="Script2">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="NumberPayloadData">
+                        <xpdExt:ScriptInformation Id="_DIEY8KPGEemADNiIlXErTw" Name="Script3">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.fixed;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:InputScriptDataMapper>
                 </xpdExt:SignalData>
                 <xpdl2:Properties/>
               </xpdl2:TriggerResultSignal>
