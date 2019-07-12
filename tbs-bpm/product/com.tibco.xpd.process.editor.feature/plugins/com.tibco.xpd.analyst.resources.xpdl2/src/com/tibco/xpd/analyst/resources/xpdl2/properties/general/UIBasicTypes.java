@@ -75,27 +75,7 @@ public enum UIBasicTypes {
     }
 
     UIBasicTypes(BasicTypeType basicTypeType, Short length, Short precision, Short scale, FieldFormat fieldFormat) {
-        basicType = Xpdl2Factory.eINSTANCE.createBasicType();
-
-        basicType.setType(basicTypeType);
-
-        if (length != null) {
-            Length modelLength = Xpdl2Factory.eINSTANCE.createLength();
-            modelLength.setValue(length.toString());
-            basicType.setLength(modelLength);
-        }
-
-        if (precision != null) {
-            Precision modelPrecision = Xpdl2Factory.eINSTANCE.createPrecision();
-            modelPrecision.setValue(precision.shortValue());
-            basicType.setPrecision(modelPrecision);
-        }
-
-        if (scale != null) {
-            Scale modelScale = Xpdl2Factory.eINSTANCE.createScale();
-            modelScale.setValue(scale.shortValue());
-            basicType.setScale(modelScale);
-        }
+        this(basicTypeType, length, precision, scale);
 
         if (fieldFormat != null) {
             Xpdl2ModelUtil.setOtherAttribute(basicType,
