@@ -12,7 +12,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.datamapper.scripts.AbstractScriptDataMapperEditorProvider;
 import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.n2.process.globalsignal.Activator;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
@@ -24,7 +23,6 @@ import com.tibco.xpd.xpdl2.DirectionType;
 import com.tibco.xpd.xpdl2.EndEvent;
 import com.tibco.xpd.xpdl2.Event;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
-import com.tibco.xpd.xpdl2.OtherElementsContainer;
 import com.tibco.xpd.xpdl2.StartEvent;
 import com.tibco.xpd.xpdl2.TriggerResultSignal;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
@@ -79,6 +77,27 @@ public class GlobalSignalScriptDataMapperProvider extends
             }
         }
         return sdm;
+    }
+
+    /**
+     * Remove any pre-existing JavaScript based mappings.
+     * 
+     * @param sigData
+     * @param editingDomain
+     * @param optionalCreationCommand 
+     */
+    private void clearJavaScriptMappings(SignalData sigData, EditingDomain editingDomain, CompoundCommand optionalCreationCommand) {
+        if (null != sigData.getDataMappings() && !sigData.getDataMappings().isEmpty()) {
+            optionalCreationCommand.append(RemoveCommand
+                    .create(editingDomain, sigData.getDataMappings()));
+        }
+
+        if (null != sigData.getCorrelationMappings()) {
+            optionalCreationCommand.append(SetCommand.create(editingDomain,
+                    sigData,
+                    XpdExtensionPackage.eINSTANCE.getSignalData_CorrelationMappings(),
+                    null));
+        }
     }
 
     /**
@@ -222,6 +241,11 @@ public class GlobalSignalScriptDataMapperProvider extends
                     XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
 
             if (optionalCreationCommand != null) {
+                
+                /*
+                 * Remove old JavaScript based mappings.
+                 */
+                clearJavaScriptMappings(scriptDataMapperContainer, editingDomain, optionalCreationCommand);
 
                 if (MappingDirection.IN.equals(direction)) {
 
