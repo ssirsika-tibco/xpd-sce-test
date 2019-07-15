@@ -39,6 +39,13 @@
 			<property name="classname" value="com.tibco.xpd.sce.tests.AllUnitTests" />
 			<property name="junit-report-output" value="${results.dir}" />
 		</ant>
+
+		<ant target="ui-test" antfile="${library-file}" dir="${eclipse-home}">
+			<property name="data-dir" value="${core-workspace}" />
+			<property name="plugin-name" value="${plugin-name}" />
+			<property name="classname" value="com.tibco.xpd.sce.tests.AllUnitTests2" />
+			<property name="junit-report-output" value="${results.dir}" />
+		</ant>
 	</target>
 
 	<!-- This target holds code to cleanup the testing environment after -->

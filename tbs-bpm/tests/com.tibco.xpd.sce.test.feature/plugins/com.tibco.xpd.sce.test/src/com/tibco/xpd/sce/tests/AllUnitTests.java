@@ -4,21 +4,12 @@
 
 package com.tibco.xpd.sce.tests;
 
-import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
-import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
-import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
-import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
-import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
-import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
-import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
-import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptNumberValidTest;
-import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.GlobalSignalRascContributorTest;
@@ -36,7 +27,6 @@ import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
 import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
@@ -93,8 +83,7 @@ public class AllUnitTests {
         /*
          * Validations
          */
-        suite.addTestSuite(
-                AceAllowCrossClassTypeAndCrosssProjectReferenceTest.class);
+        suite.addTestSuite(AceAllowCrossClassTypeAndCrosssProjectReferenceTest.class);
         suite.addTestSuite(AceBomMigrationValidationsTest.class);
         suite.addTestSuite(AceCaseAttributesValidationTest.class);
         suite.addTestSuite(AceCaseServiceValidationRulesTest.class);
@@ -111,30 +100,6 @@ public class AllUnitTests {
         suite.addTestSuite(AceBomFactoryValidationsTest.class);
         suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
         suite.addTestSuite(AceNameLengthRestrictionsTest.class);
-        suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
-
-        /*
-         * Miscellaneous
-         */
-        suite.addTestSuite(NewCeProjectsTest.class);
-        suite.addTestSuite(BpmProjectMustBeCeTest.class);
-
-        suite.addTestSuite(BRMGenUC2FTest.class);
-        suite.addTestSuite(GenerateRascTaskTest.class);
-
-        suite.addTestSuite(AceDataWrapperScriptObjectTest.class);
-        suite.addTestSuite(AceProcessDataWrapperMappingsTest.class);
-
-        /*
-         * Related Legacy Studio tests moved to SCE once proved work
-         */
-        suite.addTestSuite(WorkListFacadeGenTest.class);
-
-        /*
-         * BPEL transformation tests
-         */
-        suite.addTestSuite(BpelSharedResourceTest.class);
-        suite.addTestSuite(BpelDataFieldDescriptorTest.class);
 
         return suite;
     }
