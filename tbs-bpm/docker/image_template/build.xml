@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateRASC">
-
-    <target name="clean" description="Deletes the content of the workspace.">
-        <echo>Cleaning workspace</echo>
-        <delete dir="${workspace.dir}" failonerror="false"/>
-    </target>
  
-    <target name="importProjects" depends="clean" description="Imports the given project into the workspace.">
+    <target name="importProjects" description="Imports the given project into the workspace.">
         <echo>Importing project</echo>
 		<tbs.importProjects dir="${projects.dir}" copyProjects="true"/>       
     </target>
