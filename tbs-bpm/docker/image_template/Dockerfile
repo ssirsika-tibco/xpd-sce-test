@@ -42,7 +42,7 @@ RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
 COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIBCO/studio-cloud-bpm
 
 # copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh TIBCOBusinessStudio.ini /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
+COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
 
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECTS_DIR  = the folder in which the project to be imported is located
