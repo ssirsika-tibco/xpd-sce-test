@@ -79,6 +79,7 @@ c.txt = c.details.join(',');&#xD;
 c.num = c.details.lastIndexOf(data.Detail,0);&#xD;
 data.Detail = c.details.pop();&#xD;
 c.details.push(data.Detail);&#xD;
+c.details.pushAll(c.details);&#xD;
 c.num = c.details.reverse().length;&#xD;
 data.Detail = c.details.shift();&#xD;
 c.num = c.details.slice(1,2).length;&#xD;
