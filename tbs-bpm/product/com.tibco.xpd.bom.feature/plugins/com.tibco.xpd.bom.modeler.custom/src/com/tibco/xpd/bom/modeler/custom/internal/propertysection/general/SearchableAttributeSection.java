@@ -76,7 +76,7 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
         if (obj == searchCheck) {
             // Get Stereotype for Search-able
             boolean existingValue = false;
-            final Stereotype stereotype = GlobalDataProfileManager.getInstance()
+            final Stereotype serchableStereotype = GlobalDataProfileManager.getInstance()
                     .getStereotype(StereotypeKind.SEARCHABLE);
 
             // Check if the stereotype is already applied
@@ -96,13 +96,17 @@ public class SearchableAttributeSection extends AbstractGeneralSection {
                     protected void doExecute() {
                         // If ticked then enable the stereotype
                         if (searchCheck.getSelection()) {
-                            prop.applyStereotype(stereotype);
-                            prop.setValue(stereotype,
+                            if (!prop.getAppliedStereotypes().contains(serchableStereotype)) {
+                                prop.applyStereotype(serchableStereotype);
+                            }
+                            prop.setValue(serchableStereotype,
                                     BOMResourcesPlugin.ModelGlobalDataProfile_attribute_Searchable,
                                     true);
                         } else {
                             // Remove the stereotype if not enabled
-                            prop.unapplyStereotype(stereotype);
+                            if (prop.getAppliedStereotypes().contains(serchableStereotype)) {
+                                prop.unapplyStereotype(serchableStereotype);
+                            }
                         }
                     }
                 };

@@ -173,9 +173,16 @@ public class TextLengthSection extends AbstractGeneralSection {
                         maxLengthTxt.setVisible(false);
                     }
                 }
+            } else {
+                // Check if already visible
+                if (maxLengthTxt.isVisible()) {
+                    label.setVisible(false);
+                    maxLengthTxt.setVisible(false);
+                }
             }
         }
     }
+
 
     /**
      * Retrieves the property or association (as NamedElement)
