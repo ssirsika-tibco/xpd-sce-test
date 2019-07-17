@@ -17,8 +17,14 @@ public final class RestServicesUtil {
 
     /**
      * Version of the Rest project asset (used by migration).
+     * 
+     * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition
+     * between BPM and SCE Studio - and leaves a gap between this and AMX BPM -
+     * therefore future AMX BPM releases with incremented formatversion numbers
+     * will still migrate to ACE).</i>
+     * 
      */
-    public static final String REST_ASSET_VERSION = "1".toString(); //$NON-NLS-1$
+    public static final String REST_ASSET_VERSION = "1000".toString(); //$NON-NLS-1$
 
     /**
      * REST special folder kind.

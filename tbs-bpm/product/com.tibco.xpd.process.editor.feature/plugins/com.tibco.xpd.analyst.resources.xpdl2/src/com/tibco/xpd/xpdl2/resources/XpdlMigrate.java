@@ -198,8 +198,10 @@ public class XpdlMigrate {
      * <li>21 - Studio version 4.3.0 (V01)</li>
      * <li>22 - Studio version 4.3.0 (V09)</li>
      * ==============================================
-     * <li>23 - Studio Container Edition 5.0.0 (V88) (marks the transition
-     * between BPMN and SCE Studio)</i>
+     * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition
+     * between BPM and SCE Studio - and leaves a gap between this and AMX BPM -
+     * therefore future AMX BPM releases with incremented formatversion numbers
+     * will still migrate to ACE).</i>
      * 
      * Note that this is defined as "nn".toString() to prevent Java compiler
      * statically compiling the value into referencing code (otherwise
@@ -207,10 +209,16 @@ public class XpdlMigrate {
      * in a different feature (like decisions add-in) then that won't always
      * happen.
      */
-    public static final String FORMAT_VERSION_ATT_VALUE = "23".toString(); //$NON-NLS-1$
+    public static final String FORMAT_VERSION_ATT_VALUE = "1000".toString(); //$NON-NLS-1$
 
-    private static final int nCurrentFormatVersion =
-            Integer.parseInt(FORMAT_VERSION_ATT_VALUE);
+    /*
+     * Sid ACE-1592 DO NOT CHANGE - this is the initial formatVersion for all
+     * ACE XPDL's This can be used to control migrations that must run only once
+     * when migrating from AMX BPM projects
+     */
+    public static final int ACE_INITIAL_FORMAT_VERSION = 1000;
+
+    private static final int nCurrentFormatVersion = Integer.parseInt(FORMAT_VERSION_ATT_VALUE);
 
     private static String XPDL_V1_URI = "http://www.wfmc.org/2002/XPDL1.0"; //$NON-NLS-1$
 
@@ -461,7 +469,7 @@ public class XpdlMigrate {
                                  */
                                 if (performPostMigrateCommandInjection) {
                                     executeEndOfMigrationCommands(
-                                            inputResource);
+                                            inputResource, formatVer);
                                 }
 
                                 // Force reindexing of the file (only if this
@@ -531,8 +539,10 @@ public class XpdlMigrate {
      * After executing the migration execute any command injectors.
      * 
      * @param xpdlResource
+     * @param originalFormatVersion
+     *            format-version prior to the migration thru XSLTs
      */
-    public static void executeEndOfMigrationCommands(IResource xpdlResource) {
+    public static void executeEndOfMigrationCommands(IResource xpdlResource, int originalFormatVersion) {
 
         WorkingCopy wc =
                 XpdResourcesPlugin.getDefault().getWorkingCopy(xpdlResource);
@@ -549,7 +559,7 @@ public class XpdlMigrate {
 
             for (MigrationCommandInjector commandInjector : endOfMigrationCommandInjectors) {
                 Command command =
-                        commandInjector.getCommand(wc.getEditingDomain(), pkg);
+                        commandInjector.getCommand(wc.getEditingDomain(), pkg, originalFormatVersion);
 
                 try {
                     if (command != null) {

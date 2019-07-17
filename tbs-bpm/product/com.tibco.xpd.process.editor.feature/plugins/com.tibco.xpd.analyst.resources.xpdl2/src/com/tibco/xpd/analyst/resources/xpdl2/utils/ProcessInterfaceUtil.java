@@ -63,6 +63,7 @@ import com.tibco.xpd.xpdl2.ResultType;
 import com.tibco.xpd.xpdl2.StartEvent;
 import com.tibco.xpd.xpdl2.SubFlow;
 import com.tibco.xpd.xpdl2.Task;
+import com.tibco.xpd.xpdl2.Transition;
 import com.tibco.xpd.xpdl2.TriggerResultMessage;
 import com.tibco.xpd.xpdl2.TriggerType;
 import com.tibco.xpd.xpdl2.Xpdl2Factory;
@@ -1855,6 +1856,43 @@ public class ProcessInterfaceUtil {
         }
         return Collections.unmodifiableList(processRelevantData);
 
+    }
+
+    /**
+     * Return all the data fields and formal parameters that are in the scope of
+     * the given sequence flow.
+     * <p>
+     * That is, the parent process fields/params, the parent package fields and
+     * the params of implemented interface (if process implements an interface.
+     * </p>
+     * 
+     * @param transition
+     * @return List of all available relevant data for an activity.
+     */
+    public static List<ProcessRelevantData> getAllAvailableRelevantDataForSequenceFlow(Transition sequenceFlow) {
+        
+        if (sequenceFlow != null) {
+            /* If it's in an activity set then we need to grab all the data available in the activity that is the embedded sub-process. */
+            Process process = sequenceFlow.getProcess();
+
+            if (process != null) {
+                if (sequenceFlow.eContainer() instanceof ActivitySet) {
+
+                    Activity embSubprocActivity = Xpdl2ModelUtil.getEmbSubProcActivityForActSet(process,
+                            ((ActivitySet) sequenceFlow.eContainer()).getId());
+
+                    if (embSubprocActivity != null) {
+                        return getAllAvailableRelevantDataForActivity(embSubprocActivity);
+
+                    }
+                }
+
+                /* Else fall back on all data in process. */
+                return getAllProcessRelevantData(process);
+            }
+        }
+
+        return Collections.emptyList();
     }
 
     /**

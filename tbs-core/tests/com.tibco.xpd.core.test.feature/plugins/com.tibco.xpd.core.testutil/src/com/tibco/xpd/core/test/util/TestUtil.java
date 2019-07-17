@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -744,6 +745,7 @@ public class TestUtil {
         return;
     }
 
+
     public static void buildAndWait(IProject project) {
         try {
             // If auto-build is on no need to rebuild.
@@ -1108,6 +1110,58 @@ public class TestUtil {
             e.printStackTrace();
         }
         return markerList;
+    }
+
+    /**
+     * 
+     * @param resource
+     * @param depthInfinite
+     *            <code>true</code> to check this resource and all it's
+     *            descendants <code>false</code> to check only this resource.
+     * 
+     * @return <code>true</code> if given resource has given problem marker
+     *         raised on it.
+     */
+    public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite) {
+        return hasErrorProblemMarker(resource, depthInfinite, Collections.emptySet());
+    }
+
+    /**
+     * 
+     * @param resource
+     * @param depthInfinite
+     *            <code>true</code> to check this resource and all it's
+     *            descendants <code>false</code> to check only this resource.
+     * @param exceptIds
+     *            Marker id's to ignore.
+     * 
+     * @return <code>true</code> if given resource has given problem marker
+     *         raised on it.
+     */
+    public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite,
+            Collection<String> exceptIds) {
+        try {
+            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
+                    true,
+                    depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
+
+            if (markers != null) {
+                for (IMarker marker : markers) {
+                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR
+                            && !exceptIds.contains(marker.getAttribute("issueId", ""))) {
+                        System.out.println(
+                                "TestUtil.hasErrorProblemMarker() = true: " + marker.getAttribute(IMarker.MESSAGE, ""));
+                        return true;
+                    }
+                }
+
+            }
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     private static final String COMPOSITE_SF_KIND = "composite"; //$NON-NLS-1$

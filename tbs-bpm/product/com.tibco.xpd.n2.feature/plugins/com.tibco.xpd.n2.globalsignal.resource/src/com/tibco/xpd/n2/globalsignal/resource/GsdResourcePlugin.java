@@ -70,8 +70,13 @@ public class GsdResourcePlugin extends AbstractUIPlugin {
      * <p>
      * This might get moved to Migration related code, when available, as done
      * for XPDL.
+     * 
+     * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition
+     * between BPM and SCE Studio - and leaves a gap between this and AMX BPM -
+     * therefore future AMX BPM releases with incremented formatversion numbers
+     * will still migrate to ACE).</i>
      */
-    public static final String FORMAT_VERSION = "1"; //$NON-NLS-1$
+    public static final String FORMAT_VERSION = "1000"; //$NON-NLS-1$
 
     /**
      * Image used in Form Header

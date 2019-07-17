@@ -5,7 +5,6 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
-import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
@@ -67,10 +66,6 @@ public class AllUnitTests {
          */
         suite.addTest(AllBomCdmTransformTests.suite());
 
-        /*
-         * AMX BPM project migration
-         */
-        suite.addTestSuite(Bpm2CeProjectMigrationTest.class);
 
         /*
          * Javascript

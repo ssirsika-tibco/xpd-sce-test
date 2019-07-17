@@ -286,7 +286,8 @@ public class XpdlMigrationInjectorHelper {
         }
 
         /* Create the command to esxecute. */
-        public Command getCommand(EditingDomain editingDomain, Package pkg) {
+        public Command getCommand(EditingDomain editingDomain, Package pkg, int originalFormatVersion) {
+            injector.setOriginalFormatVersion(originalFormatVersion);
             return injector.getCommand(editingDomain, pkg);
         }
 

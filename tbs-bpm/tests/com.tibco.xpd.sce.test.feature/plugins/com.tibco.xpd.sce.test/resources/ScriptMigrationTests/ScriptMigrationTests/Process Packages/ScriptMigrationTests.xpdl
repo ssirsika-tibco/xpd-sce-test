@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_2PB7EKPzEemkJeE8TShGsg" xpdExt:DisplayName="ScriptMigrationTests" Name="ScriptMigrationTests">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-07-11</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_0KPFoKcQEemaf4ToGXKYng" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;xyz&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_NmJH9afEEemaf4ToGXKYng" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_NmEPcKfEEemaf4ToGXKYng">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_NmJH9qfEEemaf4ToGXKYng" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_4GWpEKPzEemkJeE8TShGsg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_2PSZwKPzEemkJeE8TShGsg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_4GWpEaPzEemkJeE8TShGsg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="466.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_2PSZwKPzEemkJeE8TShGsg" xpdExt:DisplayName="ScriptMigrationTests-Process" Name="ScriptMigrationTestsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_5tT_0KPzEemkJeE8TShGsg" xpdExt:DisplayName="FieldInMainProc" Name="FieldInMainProc" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_rBUtQKb4Eemaf4ToGXKYng" xpdExt:DisplayName="ProcessFieldAndBOMAttrWithSameName" Name="ProcessFieldAndBOMAttrWithSameName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_4Wn6cKb4Eemaf4ToGXKYng" xpdExt:DisplayName="Process Class1 Field" Name="ProcessClass1Field">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_iYRz0Kb4Eemaf4ToGXKYng"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_M8VIQKb7Eemaf4ToGXKYng" xpdExt:DisplayName="NumberField" Name="NumberField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_8i6AwKcQEemaf4ToGXKYng" xpdExt:DisplayName="DateTimeField" Name="DateTimeField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_o30wcafEEemaf4ToGXKYng" xpdExt:DisplayName="Process Class1 Field 2" Name="ProcessClass1Field2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_iYRz0Kb4Eemaf4ToGXKYng"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_1-k0EaR-EemRRZbfKWoDXw">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_5x_bUKR-EemRRZbfKWoDXw" Name="StartEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Event 2">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="36.0" YCoordinate="72.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_6cvogKR-EemRRZbfKWoDXw">
+              <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+              <xpdl2:TransitionRestrictions>
+                <xpdl2:TransitionRestriction>
+                  <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                    <xpdl2:TransitionRefs>
+                      <xpdl2:TransitionRef Id="_7CKpw6R-EemRRZbfKWoDXw"/>
+                      <xpdl2:TransitionRef Id="_7ndvM6R-EemRRZbfKWoDXw"/>
+                    </xpdl2:TransitionRefs>
+                  </xpdl2:Split>
+                </xpdl2:TransitionRestriction>
+              </xpdl2:TransitionRestrictions>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" Width="41.0">
+                  <xpdl2:Coordinates XCoordinate="124.0" YCoordinate="72.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_7CKpwqR-EemRRZbfKWoDXw" Name="Useslocalfieldinembeddedsubprocandmainprocfield" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Uses local field in embedded subproc and main proc field">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="JavaScript">FieldInEmbeddedSubproc = FieldInMainProc;</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Loop LoopType="MultiInstance">
+                <xpdl2:LoopMultiInstance MI_FlowCondition="All" MI_Ordering="Parallel">
+                  <xpdl2:MI_Condition ScriptGrammar="JavaScript">NumberField + 10;</xpdl2:MI_Condition>
+                  <xpdl2:ComplexMI_FlowCondition ScriptGrammar="JavaScript">FieldInEmbeddedSubproc != FieldInMainProc;</xpdl2:ComplexMI_FlowCondition>
+                  <xpdExt:MultiInstanceScripts>
+                    <xpdExt:AdditionalInstances ScriptGrammar="JavaScript">NumberField + 1;</xpdExt:AdditionalInstances>
+                  </xpdExt:MultiInstanceScripts>
+                </xpdl2:LoopMultiInstance>
+              </xpdl2:Loop>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="348.0" YCoordinate="72.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_7ndvMqR-EemRRZbfKWoDXw" Name="Taskscripts" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:ActivityDeadlineEventId="_4C-RwKcQEemaf4ToGXKYng" xpdExt:DisplayName="Task scripts">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskUser Implementation="Unspecified">
+                    <xpdl2:Performers>
+                      <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                    </xpdl2:Performers>
+                    <xpdl2:MessageIn Id="_y5KfUKcQEemaf4ToGXKYng"/>
+                    <xpdl2:MessageOut Id="_y5KfUacQEemaf4ToGXKYng"/>
+                    <xpdExt:UserTaskScripts>
+                      <xpdExt:OpenScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:OpenScript>
+                      <xpdExt:CloseScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:CloseScript>
+                      <xpdExt:SubmitScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:SubmitScript>
+                      <xpdExt:ScheduleScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:ScheduleScript>
+                      <xpdExt:RescheduleScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:RescheduleScript>
+                    </xpdExt:UserTaskScripts>
+                  </xpdl2:TaskUser>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Performers>
+                <xpdl2:Performer>_0KPFoKcQEemaf4ToGXKYng</xpdl2:Performer>
+              </xpdl2:Performers>
+              <xpdl2:Loop LoopType="Standard">
+                <xpdl2:LoopStandard TestTime="Before">
+                  <xpdl2:LoopCondition ScriptGrammar="JavaScript">ProcessClass1Field.class2.attribute2 != FieldInMainProc;</xpdl2:LoopCondition>
+                </xpdl2:LoopStandard>
+              </xpdl2:Loop>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="316.0" YCoordinate="163.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:Audit>
+                <xpdExt:AuditEvent Type="Initiated">
+                  <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:Information>
+                </xpdExt:AuditEvent>
+                <xpdExt:AuditEvent Type="Completed">
+                  <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:Information>
+                </xpdExt:AuditEvent>
+                <xpdExt:AuditEvent Type="DeadlineExpired">
+                  <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:Information>
+                </xpdExt:AuditEvent>
+                <xpdExt:AuditEvent Type="Cancelled">
+                  <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;</xpdExt:Information>
+                </xpdExt:AuditEvent>
+              </xpdExt:Audit>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+                <xpdExt:WorkItemPriority InitialPriority="50"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_4C-RwKcQEemaf4ToGXKYng" Name="TimerEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Timer Event">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Target="_7ndvMqR-EemRRZbfKWoDXw" Trigger="Timer">
+                  <xpdl2:TriggerTimer>
+                    <xpdl2:TimeDate/>
+                    <xpdExt:RescheduleTimerScript ScriptGrammar="JavaScript" DurationRelativeTo="RescheduleTime">DateTimeField;</xpdExt:RescheduleTimerScript>
+                  </xpdl2:TriggerTimer>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:Deadline>
+                <xpdl2:DeadlineDuration ScriptGrammar="JavaScript">DateTimeField;</xpdl2:DeadlineDuration>
+              </xpdl2:Deadline>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+                </xpdl2:NodeGraphicsInfo>
+                <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+                  <xpdl2:Coordinates XCoordinate="23.125" YCoordinate="0.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_7GlzwacQEemaf4ToGXKYng" Name="EndEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 2">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="467.0" YCoordinate="249.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_6cvogaR-EemRRZbfKWoDXw" Name="" From="_5x_bUKR-EemRRZbfKWoDXw" To="_6cvogKR-EemRRZbfKWoDXw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_7CKpw6R-EemRRZbfKWoDXw" xpdExt:DisplayName="Uses local field in embedded subproc and main proc field" Name="Useslocalfieldinembeddedsubprocandmainprocfield" From="_6cvogKR-EemRRZbfKWoDXw" To="_7CKpwqR-EemRRZbfKWoDXw">
+              <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">FieldInEmbeddedSubproc.length + FieldInMainProc > 1;
+</xpdl2:Expression></xpdl2:Condition>
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+                  <xpdl2:Coordinates XCoordinate="47.096774193548384" YCoordinate="0.0"/>
+                  <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="-27.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelSize">
+                  <xpdl2:Coordinates XCoordinate="114.0" YCoordinate="40.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_7ndvM6R-EemRRZbfKWoDXw" Name="" From="_6cvogKR-EemRRZbfKWoDXw" To="_7ndvMqR-EemRRZbfKWoDXw">
+              <xpdl2:Condition Type="OTHERWISE"/>
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_7GlzwqcQEemaf4ToGXKYng" Name="" From="_4C-RwKcQEemaf4ToGXKYng" To="_7GlzwacQEemaf4ToGXKYng">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_4GWpEqPzEemkJeE8TShGsg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_4GWpE6PzEemkJeE8TShGsg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1275.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6hrcAaPzEemkJeE8TShGsg" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
+FieldInMainProc = &quot;abc&quot;;&#xD;
+&#xD;
+// Make sure BOM attributes with same name as a process&#xD;
+// field do not get refactored to data.bom_attr&#xD;
+ProcessClass1Field.processFieldAndBOMAttrWithSameName = &quot;abc&quot;;&#xD;
+&#xD;
+//&#xD;
+// Other constructs to check wrapping in data object doesn't interfere&#xD;
+//&#xD;
+// Methods&#xD;
+FieldInMainProc.charAt(ProcessClass1Field.class2.processFieldAndBOMAttrWithSameName + 2);&#xD;
+&#xD;
+// Conditions&#xD;
+if (FieldInMainProc.length > ProcessClass1Field.class2.processFieldAndBOMAttrWithSameName) {&#xD;
+    // Use as parameter&#xD;
+    Log.write(FieldInMainProc);&#xD;
+    Log.write(&quot;abc&quot;+FieldInMainProc + &quot;xyz&quot;);&#xD;
+}&#xD;
+&#xD;
+// Loops&#xD;
+while (FieldInMainProc == null) {&#xD;
+	for (NumberField = 0; ProcessClass1Field.class2.processFieldAndBOMAttrWithSameName > NumberField; NumberField++) {&#xD;
+	&#xD;
+	} &#xD;
+}&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="193.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1-k0EKR-EemRRZbfKWoDXw" Name="EmbeddedSubProcess" xpdExt:DisplayName="Embedded Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="false" ActivitySetId="_1-k0EaR-EemRRZbfKWoDXw" View="EXPANDED"/>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_44NToKR-EemRRZbfKWoDXw" xpdExt:DisplayName="FieldInEmbeddedSubproc" Name="FieldInEmbeddedSubproc" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_45u9oKR-EemRRZbfKWoDXw" xpdExt:DisplayName="Field2" Name="Field2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="397.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="590.0">
+              <xpdl2:Coordinates XCoordinate="595.0" YCoordinate="257.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Uu2QAafEEemaf4ToGXKYng" Name="SubprocessDataMapperdirectmapping" xpdExt:Visibility="Private" xpdExt:DisplayName="Sub-process DataMapper direct mapping">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_NmEPcKfEEemaf4ToGXKYng" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="TextParameter">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">FieldInMainProc</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessClass1Field</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.processFieldAndBOMAttrWithSameName">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.attribute2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessClass1Field.processFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.class2.attribute2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessClass1Field.class2.attribute2</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.class2.processFieldAndBOMAttrWithSameName">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessClass1Field.class2.processFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.class3.attribute1">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">ProcessClass1Field.class3.attribute1</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:InputMappings>
+              <xpdExt:OutputMappings MapperContext="SubProcessToProcess" MappingDirection="OUT">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field2.attribute2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.attribute2</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field2.processFieldAndBOMAttrWithSameName">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.processFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessFieldAndBOMAttrWithSameName">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.processFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field2.class2.attribute2">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.class2.attribute2</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field2.class2.processFieldAndBOMAttrWithSameName">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.class2.processFieldAndBOMAttrWithSameName</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field2.class3.attribute1">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">Class1Parameter2.class3.attribute1</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:SourceContributorId="SubProcessToProcess.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldInMainProc">
+                    <xpdl2:Actual ScriptGrammar="JavaScript">TextParameter</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:OutputMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="992.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xHs78afEEemaf4ToGXKYng" Name="Subprocessscrptmappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Sub-process scrpt mappings">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_NmEPcKfEEemaf4ToGXKYng" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdExt:OutputMappings MapperContext="SubProcessToProcess" MappingDirection="OUT">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="FieldInMainProc">
+                    <xpdExt:ScriptInformation Id="_zSEhwKfEEemaf4ToGXKYng" Name="Script1" Direction="OUT">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return TextParameter + &quot;abc&quot;;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ProcessClass1Field.attribute2">
+                    <xpdExt:ScriptInformation Id="_2aRo0KfEEemaf4ToGXKYng" Name="Script2" Direction="OUT">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return TextParameter + &quot;yxz&quot;;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:OutputMappings>
+              <xpdExt:InputMappings MapperContext="ProcessToSubProcess" MappingDirection="IN">
+                <xpdExt:DataMappings>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="TextParameter">
+                    <xpdExt:ScriptInformation Id="_ITpeIKfFEemaf4ToGXKYng" Name="Script1">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return ProcessClass1Field.attribute2 + &quot;!!!&quot;;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter.attribute2">
+                    <xpdExt:ScriptInformation Id="_VQnq4KfFEemaf4ToGXKYng" Name="Script2">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return FieldInMainProc;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter.class2.attribute2">
+                    <xpdExt:ScriptInformation Id="_bbqQ0KfFEemaf4ToGXKYng" Name="Script3">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return FieldInMainProc.charAt(NumberField+1);</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.attribute2">
+                    <xpdExt:ScriptInformation Id="_0-OsIKfFEemaf4ToGXKYng" Name="Script4">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return ProcessClass1Field.class2.attribute2;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                  <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessToSubProcess.DataMapperContent" Direction="IN" Formal="Class1Parameter2.class2.attribute2">
+                    <xpdExt:ScriptInformation Id="_7RgBAKfFEemaf4ToGXKYng" Name="Script5">
+                      <xpdExt:Expression ScriptGrammar="JavaScript">return &quot;abc&quot;;</xpdExt:Expression>
+                    </xpdExt:ScriptInformation>
+                    <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                  </xpdExt:DataMapping>
+                </xpdExt:DataMappings>
+              </xpdExt:InputMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_4GWpEaPzEemkJeE8TShGsg" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="1152.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_4GWpFKPzEemkJeE8TShGsg" Name="" From="_xHs78afEEemaf4ToGXKYng" To="_4GWpE6PzEemkJeE8TShGsg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6hyJsKPzEemkJeE8TShGsg" xpdExt:DisplayName="" Name="" From="_4GWpEqPzEemkJeE8TShGsg" To="_6hrcAaPzEemkJeE8TShGsg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1-mCMKR-EemRRZbfKWoDXw" xpdExt:DisplayName="" Name="" From="_6hrcAaPzEemkJeE8TShGsg" To="_1-k0EKR-EemRRZbfKWoDXw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Uu4FMKfEEemaf4ToGXKYng" xpdExt:DisplayName="" Name="" From="_1-k0EKR-EemRRZbfKWoDXw" To="_Uu2QAafEEemaf4ToGXKYng">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_xHtjAKfEEemaf4ToGXKYng" xpdExt:DisplayName="" Name="" From="_Uu2QAafEEemaf4ToGXKYng" To="_xHs78afEEemaf4ToGXKYng">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_NmEPcKfEEemaf4ToGXKYng" xpdExt:DisplayName="Sub-process" Name="Subprocess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_OeCZQKfEEemaf4ToGXKYng" Name="TextParameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Text Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_QMjwkKfEEemaf4ToGXKYng" Name="Class1Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Class1 Parameter">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_iYRz0Kb4Eemaf4ToGXKYng"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_YH52gafEEemaf4ToGXKYng" Name="Class1Parameter2" Mode="INOUT" Required="true" xpdExt:DisplayName="Class1 Parameter 2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="ScriptMigrationTestsData.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_iYRz0Kb4Eemaf4ToGXKYng"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_NmJH96fEEemaf4ToGXKYng" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_NmJH9qfEEemaf4ToGXKYng" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NmJH-KfEEemaf4ToGXKYng" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_NmJH9qfEEemaf4ToGXKYng" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_NmJH-afEEemaf4ToGXKYng" xpdExt:DisplayName="" Name="" From="_NmJH96fEEemaf4ToGXKYng" To="_NmJH-KfEEemaf4ToGXKYng">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="TextParameter"/>
+            <simulation:ParameterDistribution ParameterId="Class1Parameter"/>
+            <simulation:ParameterDistribution ParameterId="Class1Parameter2"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="22"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

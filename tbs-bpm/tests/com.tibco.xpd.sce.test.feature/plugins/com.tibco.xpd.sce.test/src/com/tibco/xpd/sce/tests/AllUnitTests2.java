@@ -10,6 +10,8 @@ import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
+import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
+import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
@@ -28,6 +30,12 @@ import junit.framework.TestSuite;
 public class AllUnitTests2 {
     public static Test suite() {
         TestSuite suite = new TestSuite("Test for com.tibco.xpd.sce.tests");
+
+        /*
+         * AMX BPM project migration
+         */
+        suite.addTestSuite(Bpm2CeProjectMigrationTest.class);
+        suite.addTestSuite(ScriptMigrationTests.class);
 
         suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
         suite.addTestSuite(NewCeProjectsTest.class);

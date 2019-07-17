@@ -25,7 +25,14 @@ public class OMResourcesActivator extends Plugin {
     public static final String OM_SPECIAL_FOLDER_KIND = OMUtil.OM_SPECIAL_FOLDER_KIND;
 
     // The OM file version (anything earlier than this is non-ACE.
-    public static final int OM_FILE_VERSION = 2;
+    /*
+     * <li>1000 - Studio Container Edition 5.0.0 (V95) (marks the transition
+     * between BPM and SCE Studio - and leaves a gap between this and AMX BPM -
+     * therefore future AMX BPM releases with incremented formatversion numbers
+     * will still migrate to ACE).</i>
+     * 
+     */
+    public static final int OM_FILE_VERSION = 1000;
 
     // The shared instance
     private static OMResourcesActivator plugin;

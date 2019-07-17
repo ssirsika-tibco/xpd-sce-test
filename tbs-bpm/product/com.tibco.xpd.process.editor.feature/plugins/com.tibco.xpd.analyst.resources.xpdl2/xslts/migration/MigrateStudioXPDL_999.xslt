@@ -5,7 +5,7 @@
 	
 	DESCRIPTION:
 
-  	    This xslt will updgrade a xpdl of format version 22 (4.3.0 V09) to format version 22 (Studio Container Edition 5.0.0 (V88)
+  	    This xslt will updgrade a xpdl of UP TO format version 999 (4.3.0 V09) to format version 1000 (Studio Container Edition 5.0.0 (V95)
   	    (marks the transition between BPMN and SCE Studio)).
 
 		- Replace BPM destination with CE destination in process files.
@@ -105,6 +105,14 @@
 	<xsl:template match="xpdl2:Participant/xpdExt:ParticipantSharedResource/xpdExt:RestService">
 		<!-- Just output the bare element -->
 		<xpdExt:RestService>
+			<!-- In case it is already migrated (originally we did that format version 23 before changeing to 1000 copy the new ACE attrib values  -->
+			<xsl:if test="@resourceName">
+				<xsl:attribute name="resourceName"><xsl:value-of select="@resourceName"/></xsl:attribute>
+			</xsl:if>
+			<xsl:if test="@description">
+				<xsl:attribute name="description"><xsl:value-of select="@description"/></xsl:attribute>
+			</xsl:if>
+
 		</xpdExt:RestService>
 
 	</xsl:template>
@@ -253,7 +261,7 @@
 	<xsl:template match="xpdl2:ExtendedAttribute[@Name = 'FormatVersion']">
 		<xsl:element name="xpdl2:ExtendedAttribute">
 			<xsl:attribute name="Name">FormatVersion</xsl:attribute>
-			<xsl:attribute name="Value">23</xsl:attribute>
+			<xsl:attribute name="Value">1000</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
 	

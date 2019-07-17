@@ -17,6 +17,15 @@ import com.tibco.xpd.xpdl2.Package;
  * @since 28 Jan 2011
  */
 public interface IMigrationCommandInjector {
+    /**
+     * Always called by the framework to set the format-version of the file as
+     * it was prior to the xslt migrations
+     * 
+     * @param originalFormatVersion
+     */
+    default void setOriginalFormatVersion(int originalFormatVersion) {
+
+    }
 
     /**
      * Called at the end of migration cycle.
@@ -27,4 +36,5 @@ public interface IMigrationCommandInjector {
      * @return Return a command if required or <code>null</code> if not
      */
     Command getCommand(EditingDomain editingDomain, Package pkg);
+
 }

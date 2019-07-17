@@ -25,10 +25,12 @@ public class BOMResourcesPlugin extends AbstractUIPlugin {
      * version moving to 5.0.0 in eclipse 4.7 (hance the version was moved
      * another notch - to 5).
      * 
-     * Sid ACE-467 - bumped BOM format version to 6 to exnsure migrations from
-     * BPM to CE envs are done.
+     * Sid ACE-467 - bumped BOM format version to 1000 to exnsure migrations
+     * from BPM to CE envs are done (and to leave a gap between this and AMX BPM
+     * - therefore future AMX BPM releases with incremented formatversion
+     * numbers will still migrate to ACE).
      */
-    public static final String BOM_VERSION = "6"; //$NON-NLS-1$
+    public static final String BOM_VERSION = "1000"; //$NON-NLS-1$
 
     // The plug-in ID
     public static final String PLUGIN_ID = "com.tibco.xpd.bom.resources"; //$NON-NLS-1$

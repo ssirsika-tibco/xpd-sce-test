@@ -299,5 +299,12 @@
             version="6">
       </migrate>
    </extension>
+   <extension
+         point="com.tibco.xpd.analyst.resources.xpdl2.xpdlMigrationInjector">
+      <endOfMigrationCommandInjector
+            class="com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration"
+            priority="50">
+      </endOfMigrationCommandInjector>
+   </extension>
 
 </plugin>

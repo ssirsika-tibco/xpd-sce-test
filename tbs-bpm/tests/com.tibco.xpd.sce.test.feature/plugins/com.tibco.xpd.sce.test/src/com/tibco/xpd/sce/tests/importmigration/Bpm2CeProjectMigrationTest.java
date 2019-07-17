@@ -921,7 +921,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
 
             assertTrue("File '" + xpdlFile.getName() //$NON-NLS-1$
                     + "' was not migrated successfully (cannot load working copy).", //$NON-NLS-1$
-                    wc != null);
+                    wc != null && wc.getRootElement() != null);
 
             Package pkg = (Package) wc.getRootElement();
 
