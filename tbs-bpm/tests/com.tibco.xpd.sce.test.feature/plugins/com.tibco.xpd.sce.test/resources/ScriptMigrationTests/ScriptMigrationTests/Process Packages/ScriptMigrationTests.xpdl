@@ -164,7 +164,13 @@ FieldInMainProc = &quot;abc&quot;;</xpdExt:CloseScript>
                       <xpdExt:SubmitScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
 FieldInMainProc = &quot;abc&quot;;</xpdExt:SubmitScript>
                       <xpdExt:ScheduleScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
-FieldInMainProc = &quot;abc&quot;;</xpdExt:ScheduleScript>
+FieldInMainProc = &quot;abc&quot;;&#xD;
+&#xD;
+&#xD;
+// &#xD;
+// Check static script WorkManagerFactory migrated to bpm.workManager&#xD;
+WorkManagerFactory.getWorkItem().cancel = true;&#xD;
+WorkManagerFactory.getWorkItem().workItemAttributes.attribute1 = WorkManagerFactory.getWorkItem().workItemAttributes.attribute15;</xpdExt:ScheduleScript>
                       <xpdExt:RescheduleScript ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
 FieldInMainProc = &quot;abc&quot;;</xpdExt:RescheduleScript>
                     </xpdExt:UserTaskScripts>
@@ -188,7 +194,13 @@ FieldInMainProc = &quot;abc&quot;;</xpdExt:RescheduleScript>
               <xpdExt:Audit>
                 <xpdExt:AuditEvent Type="Initiated">
                   <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
-FieldInMainProc = &quot;abc&quot;;</xpdExt:Information>
+FieldInMainProc = &quot;abc&quot;;&#xD;
+&#xD;
+// &#xD;
+// Check static script Process migrated to bpm.process&#xD;
+Process.priority = 100;&#xD;
+FieldInMainProc += Process.getId();&#xD;
+</xpdExt:Information>
                 </xpdExt:AuditEvent>
                 <xpdExt:AuditEvent Type="Completed">
                   <xpdExt:Information ScriptGrammar="JavaScript">// Simplest possible test Field -> data.Field&#xD;
@@ -325,6 +337,7 @@ while (FieldInMainProc == null) {&#xD;
 	&#xD;
 	} &#xD;
 }&#xD;
+&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>

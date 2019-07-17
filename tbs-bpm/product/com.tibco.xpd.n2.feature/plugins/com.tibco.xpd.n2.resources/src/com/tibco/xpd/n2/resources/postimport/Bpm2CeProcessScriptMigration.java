@@ -189,32 +189,60 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
             if (scriptText != null && !scriptText.isEmpty()) {
 
-                List<ProcessRelevantData> inScopeData = getInScopeData(expression);
+                Map<String, String> topLevelIdentifierMap = new HashMap<String, String>();
 
-                if (inScopeData != null) {
-                    /*
-                     * Build a map of OldProcessFieldName to
-                     * bpm.OldProcessFieldName.
-                     */
-                    Map<String, String> nameMap = new HashMap<String, String>();
+                /* Add all the in-scope data fields as top leel identifiers. */
+                addTopLevelIdentifiersForFields(expression, topLevelIdentifierMap);
 
-                    for (ProcessRelevantData data : inScopeData) {
-                        String fieldName = data.getName();
-                        nameMap.put(fieldName,
-                                ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR
-                                        + fieldName);
-                    }
+                /* Add all the in-scope data fields as top leel identifiers. */
+                addTopLevelIdentifiersForStaticRefs(topLevelIdentifierMap);
 
+                if (!topLevelIdentifierMap.isEmpty()) {
                     /*
                      * Swap the references to this field name in the script.
                      */
-                    newScript = parseAndConvertScript(scriptText, nameMap);
-
+                    newScript = parseAndConvertScript(scriptText, topLevelIdentifierMap);
                 }
+
             }
         }
 
         return newScript;
+    }
+
+    /**
+     * Add static classes to the old-name->new-name top level identifiers map.
+     * 
+     * @param topLevelIdentifierMap
+     *            The map to add to.
+     */
+    private void addTopLevelIdentifiersForStaticRefs(Map<String, String> topLevelIdentifierMap) {
+        topLevelIdentifierMap.put("Process", "bpm.process"); //$NON-NLS-1$ //$NON-NLS-2$
+        topLevelIdentifierMap.put("WorkManagerFactory", "bpm.workManager"); //$NON-NLS-1$ //$NON-NLS-2$
+    }
+
+    /**
+     * Add all the in-scope data fields to the old-name->new-name top level
+     * identifiers map
+     * 
+     * @param expression
+     *            The original expression
+     * @param topLevelIdentifierMap
+     *            The map to add to.
+     */
+    private void addTopLevelIdentifiersForFields(Expression expression, Map<String, String> topLevelIdentifierMap) {
+        List<ProcessRelevantData> inScopeData = getInScopeData(expression);
+
+        if (inScopeData != null) {
+            /*
+             * Build a map of OldProcessFieldName to bpm.OldProcessFieldName.
+             */
+            for (ProcessRelevantData data : inScopeData) {
+                String fieldName = data.getName();
+                topLevelIdentifierMap.put(fieldName,
+                        ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + fieldName);
+            }
+        }
     }
 
     /**
