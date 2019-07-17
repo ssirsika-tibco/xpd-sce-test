@@ -307,14 +307,24 @@ public class BPMProcessOrgModelUtil extends ProcessOrgModelUtil {
          * version THEN we can get rid of the organisation version altogether
          * and use the parent Project version instead.
          */
-
+        /*
+         * Sid ACE-???? Need to load working copy if not already loaded, this is
+         * because the given model element *may not have been loaded via a
+         * working copy and therefore if the org model had not been opened by
+         * hand already the default getProjectFor() does not load the working
+         * copy and this would fail.
+         */
         String versionStr = ProjectUtil.getProjectVersion(
-                WorkingCopyUtil.getProjectFor(omModelElement));
+                WorkingCopyUtil.getProjectFor(omModelElement, true));
+
+        if (versionStr == null || versionStr.isEmpty()) {
+            throw new RuntimeException("Failed to get version string for Org project from element: " + omModelElement); //$NON-NLS-1$
+        }
 
         // If this is a multiple-part version then we only want the major
         // part e.g 1.2.3 (so require only 1 in this instance)
-        if (versionStr.contains(".")) {
-            versionStr = versionStr.substring(0, versionStr.indexOf("."));
+        if (versionStr.contains(".")) { //$NON-NLS-1$
+            versionStr = versionStr.substring(0, versionStr.indexOf(".")); //$NON-NLS-1$
         }
         try {
             version = new Integer(versionStr);
