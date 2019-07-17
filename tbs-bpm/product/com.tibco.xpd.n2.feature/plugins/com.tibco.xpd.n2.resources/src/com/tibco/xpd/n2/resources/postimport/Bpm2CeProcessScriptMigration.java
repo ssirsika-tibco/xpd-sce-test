@@ -319,7 +319,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
                 if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
                     ScriptItemReplacementRef changedDataRef =
-                            checkAndReplaceTopLevelIdentifier(token, prevToken, oldTopLevelIdent2NewNameMap);
+                            getTopLevelIdentifierReplacement(token, prevToken, oldTopLevelIdent2NewNameMap);
 
                     if (changedDataRef != null) {
                         references.add(changedDataRef);
@@ -360,7 +360,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         Collections.sort(references);
 
         // The output script.
-        StringBuffer outScript = new StringBuffer();
+        StringBuilder outScript = new StringBuilder();
 
         // Track the input line number.
         int inputLineNum = 1;
@@ -389,14 +389,14 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             String line = nextScriptLine(inputScript);
             inputLineNum++;
 
-            StringBuffer lineBuff = new StringBuffer(line);
+            StringBuilder lineBuff = new StringBuilder(line);
 
             //
             // Don't worry! Refs are from last on line to first on line order,
             // so simple iteration is ok.
             while (ref.line == currRefLine) {
                 int startIdx = ref.col - 1;
-                lineBuff.replace(startIdx, startIdx + ref.oldName.length(), ref.newName);
+                ref.replaceRef(lineBuff);
 
                 // OK, that's this reference replaced, get next.
                 refIdx++;
@@ -435,7 +435,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * @return data reference for identifier name replacement OR null if no
      *         replacement necessary
      */
-    private ScriptItemReplacementRef checkAndReplaceTopLevelIdentifier(Token token, Token prevToken,
+    private ScriptItemReplacementRef getTopLevelIdentifierReplacement(Token token, Token prevToken,
             Map<String, String> oldTopLevelIdent2NewNameMap) {
         ScriptItemReplacementRef changedDataRef = null;
 
@@ -517,6 +517,21 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 ret = o.col - col;
             }
             return ret;
+        }
+
+        /**
+         * Replace the text for this script item with the given replacement text
+         * in the given StringBuilder containing the original script.
+         * 
+         * NOTE that the caller is expected to call this function <b>IN REVERSE
+         * ORDER</b> for each line (as this object only stores the location of
+         * the reference in the original script).
+         * 
+         * @param stringBuilder
+         */
+        public void replaceRef(StringBuilder stringBuilder) {
+            int startIdx = col - 1;
+            stringBuilder.replace(startIdx, startIdx + oldName.length(), newName);
         }
 
     }
