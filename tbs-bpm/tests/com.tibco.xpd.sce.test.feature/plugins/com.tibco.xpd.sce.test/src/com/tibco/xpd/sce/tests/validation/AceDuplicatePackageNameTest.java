@@ -51,8 +51,9 @@ public class AceDuplicatePackageNameTest extends AbstractN2BaseValidationTest {
      */
     public void testAceDuplicatePackageNameTest() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
-                new String[] { "resources/AceDuplicatePackageNameTest/SimpleProcess.zip" },
-                new String[] { "SimpleProcess" });
+                new String[] { "resources/AceDuplicatePackageNameTest/SimpleProcess.zip",
+                        "resources/AceDuplicatePackageNameTest/SimpleProcessFixed.zip" },
+                new String[] { "SimpleProcess", "SimpleProcessFixed" });
         try {
             buildAndWait();
 
@@ -92,7 +93,14 @@ public class AceDuplicatePackageNameTest extends AbstractN2BaseValidationTest {
                 new TestResourceInfo("resources/AceDuplicatePackageNameTest",
                         "SimpleProcess/Process Packages{processes}/SimpleProcess.xpdl"),
                 new TestResourceInfo("resources/AceDuplicatePackageNameTest",
-                        "SimpleProcess/Process Packages{processes}/Simple Process.xpdl")
+                        "SimpleProcess/Process Packages{processes}/Simple Process.xpdl"),
+
+                new TestResourceInfo("resources/AceDuplicatePackageNameTest",
+                        "SimpleProcessFixed/Process Packages{processes}/Simple Process.xpdl"),
+                new TestResourceInfo("resources/AceDuplicatePackageNameTest",
+                        "SimpleProcessFixed/Process Packages{processes}/SimpleProcess.xpdl"),
+                new TestResourceInfo("resources/AceDuplicatePackageNameTest",
+                        "SimpleProcessFixed/Process Packages{processes}/Simple Process.xpdl")
         };
     
         return testResources;
