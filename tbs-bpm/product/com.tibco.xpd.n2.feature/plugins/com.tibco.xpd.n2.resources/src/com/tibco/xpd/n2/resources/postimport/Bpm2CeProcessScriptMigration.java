@@ -46,12 +46,24 @@ import antlr.Token;
 import antlr.TokenStreamException;
 
 /**
- *
+ * XPDL Migration command injector for migrating AMX BPM script to ACE semantics
  *
  * @author aallway
  * @since 11 Jul 2019
  */
 public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
+
+    /**
+     * The AMX BPM BOM factory class suffix (as in
+     * "com_my_bom_Factory.createXXX()"
+     */
+    private static final String BOM_FACTORY_SUFFIX = "_Factory"; //$NON-NLS-1$
+
+    /**
+     * The AMX BPM BOM factory class suffix (as in
+     * "com_my_bom_Factory.createXXX()"
+     */
+    private static final String BOM_CLASS_CREATE_METHOD_PREFIX = "create"; //$NON-NLS-1$
 
     /**
      * Store the original FormarVersion of the XPDL we are migrating. We ONLY
@@ -339,21 +351,36 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             try {
                 //
                 // Get next token from sript
-                token = scriptParser.LT(tokenIdx++);
+                token = scriptParser.LT(tokenIdx);
                 if (token == null || token.getType() == Token.EOF_TYPE) {
                     // End of script. That's it all done.
                     break;
                 }
 
-                if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
-                    ScriptItemReplacementRef changedDataRef =
-                            getTopLevelIdentifierReplacement(token, prevToken, oldTopLevelIdent2NewNameMap);
+                /*
+                 * Sid ACE-1699 moved to check specific scenario at this level
+                 * so that we can prioritise.
+                 */
+                if (isTopLevelIdentifier(token, prevToken)) {
+                    ScriptItemReplacementRef changedDataRef = null;
+
+                    /* If it looks like a BOM factory class then replace. */
+                    changedDataRef = getBOMFactoryReplacement(token, scriptParser, tokenIdx);
+
+                    if (changedDataRef == null) {
+                        /*
+                         * Ok, not a BOM factory, see if it's a data field /
+                         * static class.
+                         */
+                        changedDataRef = getTopLevelIdentifierReplacement(token, oldTopLevelIdent2NewNameMap);
+                    }
 
                     if (changedDataRef != null) {
                         references.add(changedDataRef);
                     }
                 }
 
+                tokenIdx++;
                 prevToken = token;
 
             } catch (TokenStreamException e) {
@@ -451,22 +478,90 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         return outScript.toString();
     }
 
+
     /**
-     * Check if this is a top level identifer and if so, check if it is one that
-     * is changing name/path and return a dataref object to allow the name to be
-     * extracted and replaced.
+     * Get a script text replacement for the given top level identifier token IF
+     * it represents a BOM factory (e.g. "com_my_bom_Factory.createClass1()")
      * 
      * @param token
-     * @param prevToken
+     * 
+     * @return A text replacement object if the given token appears to be a BOM
+     *         factory (e.g. "com_my_bom_Factory.createClass1()") else
+     *         <code>null</code>
+     */
+    private ScriptItemReplacementRef getBOMFactoryReplacement(Token token, JScriptParser scriptParser, int tokenIndex)
+            throws TokenStreamException {
+        ScriptItemReplacementRef changedDataRef = null;
+
+        /*
+         * The approach we take is fairly basic and based only on the text we
+         * know must appear for factory classes (i.e. that there is a top level
+         * identifier that ends in "_Factory" followed by a a creator function
+         * identifier that starts with "create")
+         * 
+         * We could be more clever and check against a list of available BOM
+         * packages in scope of the script BUT that would be slower and if the
+         * BOM package hadn't been migrated then would cause us problems.
+         */
+
+        String identifierText = token.getText();
+
+        if (identifierText != null && identifierText.endsWith(BOM_FACTORY_SUFFIX)) {
+            Token nextToken = scriptParser.LT(++tokenIndex);
+
+            if (nextToken != null && nextToken.getType() == JScriptTokenTypes.DOT) {
+                nextToken = scriptParser.LT(++tokenIndex);
+
+                if (nextToken != null && nextToken.getType() == JScriptTokenTypes.IDENT && nextToken.getText() != null
+                        && nextToken.getText().startsWith(BOM_CLASS_CREATE_METHOD_PREFIX)) {
+
+                    String newFactoryName =
+                            identifierText.substring(0, identifierText.length() - BOM_FACTORY_SUFFIX.length());
+
+                    String newIdentifierText = ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME
+                            + ConceptPath.CONCEPTPATH_SEPARATOR + newFactoryName;
+
+                    changedDataRef = new ScriptItemReplacementRef(token, newIdentifierText);
+                }
+            }
+        }
+
+        return changedDataRef;
+    }
+
+    /**
+     * Given a top level identifer, check if it is one that is changing
+     * name/path and return a dataref object to allow the name to be extracted
+     * and replaced.
+     * 
+     * @param token
      * @param oldTopLevelIdent2NewNameMap
      * 
      * @return data reference for identifier name replacement OR null if no
      *         replacement necessary
      */
-    private ScriptItemReplacementRef getTopLevelIdentifierReplacement(Token token, Token prevToken,
+    private ScriptItemReplacementRef getTopLevelIdentifierReplacement(Token token,
             Map<String, String> oldTopLevelIdent2NewNameMap) {
         ScriptItemReplacementRef changedDataRef = null;
 
+        // Check if it's in rename map and if so, store the
+        // reference info.
+        String newName = oldTopLevelIdent2NewNameMap.get(token.getText());
+        if (newName != null) {
+            changedDataRef = new ScriptItemReplacementRef(token, newName);
+        }
+
+        return changedDataRef;
+    }
+
+    /**
+     * 
+     * @param token
+     * @param prevToken
+     * @return <code>true</code> if token denotes a top level identifier (such
+     *         as process field, static classes etc)
+     */
+    private boolean isTopLevelIdentifier(Token token, Token prevToken) {
         // IDENT is either a symbol (data field / formal param) or a
         // class property/method (such as DateTime.Date)
         //
@@ -474,19 +569,13 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         // ensure that previous token is not ".".
         // This is very crude, but at this point we do not have the
         // ability to distinguish between them.
-        if (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT) {
-
-            // Check if it's in rename map and if so, store the
-            // reference info.
-            String newName = oldTopLevelIdent2NewNameMap.get(token.getText());
-            if (newName != null) {
-                changedDataRef =
-                        new ScriptItemReplacementRef(token.getLine(), token.getColumn(), token.getText(), newName);
+        if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
+            if (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT) {
+                return true;
             }
         }
-        return changedDataRef;
+        return false;
     }
-
 
     /**
      * Get next line from buffer or null at end of stream.
@@ -528,10 +617,10 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         String newName;
 
-        public ScriptItemReplacementRef(int line, int col, String oldName, String newName) {
-            this.line = line;
-            this.col = col;
-            this.oldName = oldName;
+        public ScriptItemReplacementRef(Token token, String newName) {
+            this.line = token.getLine();
+            this.col = token.getColumn();
+            this.oldName = token.getText();
             this.newName = newName;
         }
 

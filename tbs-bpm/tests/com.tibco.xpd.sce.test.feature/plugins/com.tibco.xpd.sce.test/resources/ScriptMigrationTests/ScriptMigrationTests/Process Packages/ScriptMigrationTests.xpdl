@@ -338,6 +338,21 @@ while (FieldInMainProc == null) {&#xD;
 	} &#xD;
 }&#xD;
 &#xD;
+//&#xD;
+// BOM factory classes&#xD;
+ProcessClass1Field = com_example_scriptmigrationtestsdata_Factory.createClass1();&#xD;
+&#xD;
+ProcessClass1Field2&#xD;
+ = com_example_scriptmigrationtestsdata_Factory&#xD;
+ 	.&#xD;
+ 	createClass1();&#xD;
+&#xD;
+com_example_scriptmigrationtestsdata_Factory.createClass1().attribute2 = &quot;abc&quot;;&#xD;
+&#xD;
+if (com_example_scriptmigrationtestsdata_Factory.createClass1().attribute2 == &quot;abc&quot;) {&#xD;
+&#xD;
+}&#xD;
+&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
