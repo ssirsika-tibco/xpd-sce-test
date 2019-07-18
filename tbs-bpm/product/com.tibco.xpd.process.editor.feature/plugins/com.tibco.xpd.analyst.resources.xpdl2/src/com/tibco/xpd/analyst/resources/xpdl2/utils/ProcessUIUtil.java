@@ -540,7 +540,6 @@ public class ProcessUIUtil {
      * 
      */
     public static List<EObject> getAllProcessPackages(String id) {
-        List<EObject> elements = new ArrayList<EObject>();
         Map<String, String> additionalAttributes =
                 new HashMap<String, String>();
         additionalAttributes.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
@@ -548,10 +547,23 @@ public class ProcessUIUtil {
                 new IndexerItemImpl(null,
                         ProcessResourceItemType.PROCESSPACKAGE.toString(),
                         null, additionalAttributes);
-        elements =
-                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
-        return elements;
+    }
+
+    /**
+     * Returns a collection of the Process Packages within the given Project.
+     * 
+     * @param aProject
+     *            the project whose process packages are to be returned.
+     * @return the collection of contained process packages.
+     */
+    @SuppressWarnings("restriction")
+    public static Collection<Package> getProcessPackagesForProject(IProject aProject) {
+        IndexerItem criteria = new IndexerItemImpl(null, ProcessResourceItemType.PROCESSPACKAGE.toString(), null,
+                Collections.singletonMap(IndexerServiceImpl.ATTRIBUTE_PROJECT, aProject.getName()));
+
+        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID, criteria);
     }
 
     /**
@@ -565,28 +577,21 @@ public class ProcessUIUtil {
      * 
      */
     public static List<EObject> getAllElements(String id) {
-        List<EObject> elements = new ArrayList<EObject>();
         Map<String, String> additionalAttributes =
                 new HashMap<String, String>();
         additionalAttributes.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
         IndexerItem criteria =
                 new IndexerItemImpl(null, null, null, additionalAttributes);
-        elements =
-                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
-        return elements;
     }
 
     public static List<EObject> getAllProcessIndexedElements(
             ProcessResourceItemType type) {
-        List<EObject> elements = new ArrayList<EObject>();
-
         IndexerItem criteria = new IndexerItemImpl(null, null, null, null);
 
-        elements =
-                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
-        return elements;
     }
 
     /**
@@ -605,7 +610,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.EMPTY_LIST;
+            result = Collections.emptyList();
         }
 
         return result;
@@ -627,7 +632,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.EMPTY_LIST;
+            result = Collections.emptyList();
         }
 
         return result;
@@ -692,9 +697,9 @@ public class ProcessUIUtil {
      * @return <code>EObject</code> the eObjects that match the passed id .
      * 
      */
-    public static List<EObject> getIndexedElements(String indexId,
+    public static <T extends EObject> List<T> getIndexedElements(String indexId,
             IndexerItem criteria) {
-        List<EObject> elements = new ArrayList<EObject>();
+        List<T> elements = new ArrayList<>();
         if (criteria == null) {
             criteria = new IndexerItemImpl(null, null, null, null);
         }
@@ -710,7 +715,8 @@ public class ProcessUIUtil {
                     URI uri = URI.createURI(struri);
 
                     if (uri != null) {
-                        EObject eo = ProcessUIUtil.getEObjectFrom(uri);
+                        @SuppressWarnings("unchecked")
+                        T eo = (T) ProcessUIUtil.getEObjectFrom(uri);
                         if (eo != null) {
                             elements.add(eo);
                         }
@@ -1880,6 +1886,7 @@ public class ProcessUIUtil {
      * 
      * @return Set<String>
      **/
+    @SuppressWarnings("restriction")
     public static Set<String> queryReferencingProcesses(String projectName,
             String bomFileLocation, boolean includeUnresolvedReferences) {
         if (bomFileLocation != null) {
@@ -2195,10 +2202,8 @@ public class ProcessUIUtil {
      **/
     public static EObject getReferencedClassifier(
             ExternalReference externalReference, IProject project) {
-        Set<IProject> referencedProjects = null;
         if (_complexTypesInfo == null) {
-            // We only call this once, as it's relatively
-            // expensive.
+            // We only call this once, as it's relatively expensive.
             _complexTypesInfo =
                     ComplexDataTypeExtPointHelper
                             .getAllComplexDataTypesMergedInfo();
@@ -2293,7 +2298,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.EMPTY_LIST;
+            result = Collections.emptyList();
         }
 
         return result;
@@ -2313,13 +2318,6 @@ public class ProcessUIUtil {
                 null);
     }
 
-
-    /**
-     * Checks if the parameter in not 'null' and not an empty string.
-     */
-    private static boolean notEmpty(String s) {
-        return s != null && s.length() > 0;
-    }
 
 
     /**

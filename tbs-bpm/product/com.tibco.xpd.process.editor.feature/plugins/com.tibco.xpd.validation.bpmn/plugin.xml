@@ -37,6 +37,7 @@
          <rule class="com.tibco.xpd.validation.bpmn.rules.ProcessFieldNameRule"/>
          <rule class="com.tibco.xpd.validation.bpmn.rules.CatchLinkDuplicateLabelRule"/>
          <rule class="com.tibco.xpd.validation.bpmn.rules.ProcessNameRule"/>
+         <rule class="com.tibco.xpd.validation.bpmn.rules.DuplicatePackageNameRule"/>
          <rule class="com.tibco.xpd.validation.bpmn.rules.StartTransitionRule"/>
          <rule class="com.tibco.xpd.validation.bpmn.rules.IntermediateEventLocationRule"/>
          <rule class="com.tibco.xpd.validation.bpmn.rules.EventBasedGatewayTransitionRule"/>
@@ -611,6 +612,11 @@
             id="bpmn.processAndPInterfaceName"
             message="%bpmn.processAndPInterfaceName"
             severity="WARNING">
+      </issue>
+      <issue
+            id="bpmn.duplicatePackageName"
+            message="%bpmn.duplicatePackageName"
+            severity="ERROR">
       </issue>
       <issue
             id="bpmn.processinterface.implementedEventProcessParameterOptional"
