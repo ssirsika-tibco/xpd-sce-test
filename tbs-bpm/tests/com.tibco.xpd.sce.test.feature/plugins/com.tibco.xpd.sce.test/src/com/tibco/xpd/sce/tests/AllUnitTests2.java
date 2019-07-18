@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
+import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
 import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
 
 import junit.framework.Test;
@@ -59,6 +60,11 @@ public class AllUnitTests2 {
          * Related Legacy Studio tests moved to SCE once proved work
          */
         suite.addTestSuite(WorkListFacadeGenTest.class);
+
+        /*
+         * Validation Rule Tests
+         */
+        suite.addTestSuite(AceDuplicatePackageNameTest.class);
 
         return suite;
     }

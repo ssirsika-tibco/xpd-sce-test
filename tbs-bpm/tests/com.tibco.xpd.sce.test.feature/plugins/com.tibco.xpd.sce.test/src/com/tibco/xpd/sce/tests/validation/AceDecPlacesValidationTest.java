@@ -20,7 +20,7 @@ import com.tibco.xpd.resources.util.ProjectImporter;
  *
  * 
  *
- * @author
+ * @author pwatson
  * @since
  */
 @SuppressWarnings("nls")
