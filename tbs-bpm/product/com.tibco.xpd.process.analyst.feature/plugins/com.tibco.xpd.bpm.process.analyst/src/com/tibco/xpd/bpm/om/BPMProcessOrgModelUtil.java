@@ -308,7 +308,7 @@ public class BPMProcessOrgModelUtil extends ProcessOrgModelUtil {
          * and use the parent Project version instead.
          */
         /*
-         * Sid ACE-???? Need to load working copy if not already loaded, this is
+         * Sid ACE-2160 Need to load working copy if not already loaded, this is
          * because the given model element *may not have been loaded via a
          * working copy and therefore if the org model had not been opened by
          * hand already the default getProjectFor() does not load the working
