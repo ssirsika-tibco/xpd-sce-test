@@ -621,6 +621,21 @@
    <extension
          point="com.tibco.xpd.om.resources.systemActions">
       <component
+            id="ADMIN"
+            name="%component_ADMIN_label">
+      </component>
+      <actions
+            componentId="ADMIN">
+         <action
+               default="true"
+               id="systemAdmin"
+               name="%sysAction_systemAdmin_label">
+         </action>
+       </actions>
+   </extension>
+   <extension
+         point="com.tibco.xpd.om.resources.systemActions">
+      <component
             id="BIZSVC"
             name="%component_BIZSVC_label">
       </component>

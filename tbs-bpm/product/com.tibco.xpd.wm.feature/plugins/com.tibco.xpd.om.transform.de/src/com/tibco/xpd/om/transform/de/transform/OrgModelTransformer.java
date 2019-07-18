@@ -849,11 +849,26 @@ public class OrgModelTransformer {
                 (com.tibco.n2.directory.model.de.SystemAction) tc
                         .newInstance(DePackage.eINSTANCE.getSystemAction());
         d.setName(s.getActionId());
-        d.setComponent(s.getComponent());
+        d.setComponent(getDeSystemActionComponent(s));
         for (PrivilegeAssociation pa : s.getPrivilegeAssociations()) {
             d.getReqPrivilege().add(transformPrivilegeAssociation(tc, pa));
         }
         return d;
+    }
+
+    /**
+     * Returns DE system action's component for an OM system action.
+     * 
+     * @param sa
+     *            an OM system action.
+     * @return DE system action's component.
+     */
+    private String getDeSystemActionComponent(SystemAction sa) {
+        // JA: ACE-1984: "ADMIN" component don't need to be re-mapped to "DE".
+        // if ("ADMIN".equals(sa.getActionId()) && "systemAdmin".equals(sa.getActionId())) { //$NON-NLS-1$ //$NON-NLS-2$
+        // return "DE"; //$NON-NLS-1$
+        // }
+        return sa.getComponent();
     }
 
     private AllocationMethod transformAllocationMethod(TransfContext tc,
