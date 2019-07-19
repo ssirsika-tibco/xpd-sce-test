@@ -81,17 +81,6 @@ public class AceGlobalSignalDataMapperTest extends AbstractN2BaseValidationTest 
         }
     }
 
-    /**
-     * @see com.tibco.xpd.core.test.util.AbstractBaseResourceTest#tearDown()
-     *
-     * @throws Exception
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        // TODO Auto-generated method stub
-        // super.tearDown();
-    }
-
     @Override
     protected ValidationsTestProblemMarkerInfo[] getValidationProblemMarkerInfos() {
         ValidationsTestProblemMarkerInfo[] markerInfos = new ValidationsTestProblemMarkerInfo[] { 
