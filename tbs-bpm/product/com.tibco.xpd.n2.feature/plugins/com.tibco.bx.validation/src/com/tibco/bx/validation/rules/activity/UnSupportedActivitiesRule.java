@@ -24,10 +24,10 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  * validation rule complaining activities that are not supported at runtime
  * 
  * Activities that are currently not supported are: (as listed under XPD-1208)
- * Conditional Start Event • Multiple Start Event • Signal Start Event Catch
- * Conditional Intermediate Event • Catch Multiple Intermediate Event • Catch
- * Cancel Intermediate Event • Throw Multiple Intermediate Event • Multiple End
- * Event • Cancel End Event • Event-handlers in Embedded Sub-Processes
+ * Conditional Start Event ï¿½ Multiple Start Event ï¿½ Signal Start Event Catch
+ * Conditional Intermediate Event ï¿½ Catch Multiple Intermediate Event ï¿½ Catch
+ * Cancel Intermediate Event ï¿½ Throw Multiple Intermediate Event ï¿½ Multiple End
+ * Event ï¿½ Cancel End Event ï¿½ Event-handlers in Embedded Sub-Processes
  * (XPD-5174)
  * 
  * 
@@ -90,7 +90,7 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
             Event event = activity.getEvent();
 
             /**
-             * Conditional Start Event • Multiple Start Event • Signal Start
+             * Conditional Start Event ï¿½ Multiple Start Event ï¿½ Signal Start
              * Event
              */
 
@@ -117,9 +117,9 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
             }
 
             /**
-             * Catch Conditional Intermediate Event • Catch Multiple
-             * Intermediate Event • Catch Cancel Intermediate Event • Throw
-             * Multiple Intermediate Event •
+             * Catch Conditional Intermediate Event ï¿½ Catch Multiple
+             * Intermediate Event ï¿½ Catch Cancel Intermediate Event ï¿½ Throw
+             * Multiple Intermediate Event ï¿½
              */
 
             if (event instanceof IntermediateEvent) {
@@ -152,7 +152,7 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
                              */
                             addIssue(ISSUE_EVENT_HANDLER_TYPE_NOT_SUPPORTED_IN_EMBEDDED_SUB_PROC,
                                     activity);
-                        } else if (!EventTriggerType.EVENT_MESSAGE_CATCH_LITERAL
+                        } else if (!EventTriggerType.EVENT_NONE_LITERAL
                                 .equals(eventTriggerType)
                                 && !EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
                                         .equals(eventTriggerType)
@@ -194,7 +194,7 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
             }
 
             /**
-             * • Multiple End Event • Cancel End Event
+             * ï¿½ Multiple End Event ï¿½ Cancel End Event
              * */
             if (event instanceof EndEvent) {
                 if (EventTriggerType.EVENT_MULTIPLE_THROW_LITERAL

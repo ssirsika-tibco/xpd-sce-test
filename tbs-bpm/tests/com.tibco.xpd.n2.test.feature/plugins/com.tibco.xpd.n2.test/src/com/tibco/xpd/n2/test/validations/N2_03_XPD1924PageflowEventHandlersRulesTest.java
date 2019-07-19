@@ -75,13 +75,6 @@ public class N2_03_XPD1924PageflowEventHandlersRulesTest extends
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/new/Process Packages/XPD-1924.xpdl", //$NON-NLS-1$ 
-                                "bx.eventHandlersMustBeCatchMessageOrSignal", //$NON-NLS-1$ 
-                                "_Fe-_MHpUEeCEp_mStEp74w", //$NON-NLS-1$ 
-                                "Process Manager 2.x : Only catch-message/catch-signal/catch-cancel type event handlers are supported in Business Processes. (XPD1924Process:UntriggeredEvent)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$ 
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/new/Process Packages/XPD-1924.xpdl", //$NON-NLS-1$ 
                                 "bx.eventHandlerFlowMayNotJoinOthers", //$NON-NLS-1$ 
                                 "_y621UHpWEeCEp_mStEp74w", //$NON-NLS-1$ 
                                 "Process Manager 1.x : Event handler flows cannot join into other flows. (XPD1924Process2:CatchMessageEvent)", //$NON-NLS-1$ 
@@ -106,13 +99,6 @@ public class N2_03_XPD1924PageflowEventHandlersRulesTest extends
                                 "bx.eventHandlerFlowMayNotJoinOthers", //$NON-NLS-1$ 
                                 "_WlohoXpVEeCEp_mStEp74w", //$NON-NLS-1$ 
                                 "Process Manager 1.x : Event handler flows cannot join into other flows. (XPD1924Process2:UntriggeredEvent)", //$NON-NLS-1$ 
-                                ""), //$NON-NLS-1$ 
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/new/Process Packages/XPD-1924.xpdl", //$NON-NLS-1$ 
-                                "bx.eventHandlersMustBeCatchMessageOrSignal", //$NON-NLS-1$ 
-                                "_amgykHpUEeCEp_mStEp74w", //$NON-NLS-1$ 
-                                "Process Manager 2.x : Only catch-message/catch-signal/catch-cancel type event handlers are supported in Business Processes. (XPD1924Process:UntriggeredEvent2)", //$NON-NLS-1$                                
                                 ""), //$NON-NLS-1$ 
 
                 };

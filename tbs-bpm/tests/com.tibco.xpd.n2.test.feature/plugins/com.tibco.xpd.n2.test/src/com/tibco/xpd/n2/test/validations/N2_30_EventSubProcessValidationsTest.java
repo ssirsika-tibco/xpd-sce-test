@@ -51,11 +51,11 @@ public class N2_30_EventSubProcessValidationsTest extends
                                 ""), //$NON-NLS-1$ 
 
                         new ValidationsTestProblemMarkerInfo(
-                                "/ABPM-911_EventSubProc_TestProj/Process Packages/test.xpdl", //$NON-NLS-1$ 
-                                "bx.eventSubProcStartEventTriggerTypeRestrictionInBusinessProc", //$NON-NLS-1$ 
-                                "_7DDs8D4sEeSaGbHAYrhcpw", //$NON-NLS-1$ 
-                                "Process Manager  : Only catch-message / catch-signal event sub-processes are supported in Business Processes. (testProcess:EventSubProcess:StartEvent2)", //$NON-NLS-1$ 
-                                ""), //$NON-NLS-1$ 
+                                "/ABPM-911_EventSubProc_TestProj/Process Packages/test.xpdl", //$NON-NLS-1$
+                                "bx.eventSubProcStartEventTriggerTypeRestrictionInBusinessProc", //$NON-NLS-1$
+                                "_7DDs8D4sEeSaGbHAYrhcpw", //$NON-NLS-1$
+                                "Process Manager  : Only catch-message / catch-signal event sub-processes are supported in Business Processes. (testProcess:EventSubProcess:StartEvent2)", //$NON-NLS-1$
+                                ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/ABPM-911_EventSubProc_TestProj/Process Packages/test.xpdl", //$NON-NLS-1$ 

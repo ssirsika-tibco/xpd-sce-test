@@ -87,7 +87,6 @@ public class IntermediateBoundaryEventTransitionRule extends
                         addIssue(EVENT_SHOULD_NOT_BE_ATTACHED, activity);
                         continue;
                     case EventTriggerType.EVENT_LINK_CATCH:
-                    case EventTriggerType.EVENT_NONE:
                         addIssue(INVALID_BOUNDARY_EVENT, activity);
                         continue;
                     }
@@ -106,7 +105,8 @@ public class IntermediateBoundaryEventTransitionRule extends
                                 addIssue(OUTGOING_COMPENSATION, transition);
                             }
                         }
-                    } else if (!EventObjectUtil.isNonCancellingEvent(activity)) {
+                    } else if (!EventObjectUtil.isNonCancellingEvent(activity)
+                            && !EventTriggerType.EVENT_NONE_LITERAL.equals((eventTriggerType))) {
                         if (outgoing.size() != 1) {
                             addIssue(OUTGOING, activity);
                         }

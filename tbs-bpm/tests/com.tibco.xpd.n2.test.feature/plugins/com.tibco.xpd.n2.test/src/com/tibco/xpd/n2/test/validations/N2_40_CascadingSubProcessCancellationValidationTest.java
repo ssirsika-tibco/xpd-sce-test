@@ -119,7 +119,7 @@ public class N2_40_CascadingSubProcessCancellationValidationTest extends
                                 "/N2_40_CascadingSubProcessCancellationValidationTest/Process Packages/N2_40_CascadingSubProcessCancellationValidationTest.xpdl", //$NON-NLS-1$ 
                                 "bx.eventHandlersMustBeCatchMessageOrSignal", //$NON-NLS-1$ 
                                 "_Elt8sIdwEeSByLvHZNlUWg", //$NON-NLS-1$ 
-                                "Process Manager  : Only catch-message/catch-signal/catch-cancel type event handlers are supported in Business Processes. (N2_40_CascadingSubProcessCancellationValidationTestProcess:ErrorEvent)", //$NON-NLS-1$ 
+                                "Process Manager  : Only incoming-request/catch-signal/catch-cancel type event handlers are supported in Business Processes. (N2_40_CascadingSubProcessCancellationValidationTestProcess:ErrorEvent)", //$NON-NLS-1$
                                 ""), //$NON-NLS-1$ 
 
                         new ValidationsTestProblemMarkerInfo(

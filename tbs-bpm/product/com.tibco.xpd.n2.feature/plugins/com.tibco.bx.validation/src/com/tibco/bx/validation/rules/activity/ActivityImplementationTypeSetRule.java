@@ -51,8 +51,7 @@ public class ActivityImplementationTypeSetRule extends
         TaskType type = TaskObjectUtil.getTaskTypeStrict(activity);
         if (type != null) {
             if (TaskType.SERVICE_LITERAL.equals(type)
-                    || TaskType.SEND_LITERAL.equals(type)
-                    || TaskType.RECEIVE_LITERAL.equals(type)) {
+                    || TaskType.SEND_LITERAL.equals(type)) {
 
                 ImplementationType implType =
                         TaskObjectUtil.getTaskImplementationType(activity);

@@ -126,10 +126,9 @@ public class EventSubProcessStartEventRule extends
                             .isProcessEngineServiceProcess(process)) {
 
                 /*
-                 * Check if the specified activity is NOT a message catch or
-                 * signal catch triggered event.
+                 * Check if the specified activity is NOT a none or signal catch triggered event.
                  */
-                if (!isMessageCatchOrSignalCatchEvent(activity)) {
+                if (!isNoneOrSignalCatchEvent(activity)) {
 
                     /*
                      * If it is not, then add an issue.
@@ -259,16 +258,16 @@ public class EventSubProcessStartEventRule extends
     }
 
     /**
-     * Return <code>true</code> if the specified activity is a message catch or
-     * signal catch triggered event, <code>false</code> otherwise.
+     * Return <code>true</code> if the specified activity is a none start or signal catch triggered event,
+     * <code>false</code> otherwise.
      * 
      * @param act
-     * @return <code>true</code> if the specified activity is a message catch or
-     *         signal catch triggered event, <code>false</code> otherwise.
+     * @return <code>true</code> if the specified activity is a none start or signal catch triggered event,
+     *         <code>false</code> otherwise.
      */
-    private boolean isMessageCatchOrSignalCatchEvent(Activity act) {
+    private boolean isNoneOrSignalCatchEvent(Activity act) {
 
-        return EventTriggerType.EVENT_MESSAGE_CATCH_LITERAL
+        return EventTriggerType.EVENT_NONE_LITERAL
                 .equals(EventObjectUtil.getEventTriggerType(act))
                 || EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
                         .equals(EventObjectUtil.getEventTriggerType(act));
