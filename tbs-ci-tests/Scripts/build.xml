@@ -1,0 +1,66 @@
+<project name="rcptt-project" default="test">
+ 
+	<property name="BuildNumeral" value="500"/>
+	<property name="BuildNumber" value="V91_2"/>
+	<property name="WorkspaceSuffix" value="aceStudio500V91_2"/>
+	<property name="Suite" value="ACE_AutomationSuite"/>
+	
+	<!--
+	<property name="runner-path" location="C:/ACE/runner"/>
+	<property name="aut-path" location="C:/ACE/${BuildNumeral}/${BuildNumber}/HOME/studio/5.0/eclipse"/>
+	-->
+	<property name="runner-path" location="C:\Users\kkaushal\Desktop\rcptt.ide-2.3.0-win32.win32.x86_64\runner\runner"/>
+	<property name="aut-path" location="D:\ACEStudio\V91point2\V91_2HOME\studio\5.0\eclipse"/>
+	
+	<!--<property name="test-results" location="C:/ACE/test-results"/>-->
+	<property name="test-results" location="C:\ACeProjectsSVN\1.0\DT\Automation\rcpttWorkspace\TmpWSForAnt"/>
+	
+	<property name="runner-workspace" location="${test-results}/runner-workspace"/>
+	<property name="aut-workspace" location="${test-results}/aut-workspace-"/>
+	<property name="aut-stdout" location="${test-results}/aut-out-"/>
+	<property name="junit-report" location="${test-results}/results.xml"/>
+	<property name="html-report" location="${test-results}/results.html"/>
+	
+	<target name="init">
+		<delete dir="${test-results}" quiet="true"/>
+		<mkdir dir="${test-results}"/>
+	</target>
+	
+	<target name="test" depends="init">
+		<java jar="${runner-path}/plugins/org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar" fork="true">
+				<arg value="-application"/>
+				<arg value="org.eclipse.rcptt.runner.headless"/>
+				
+				<arg value="-data"/>
+				<arg value="${runner-workspace}"/>
+
+				<arg value="-aut"/>
+				<arg value="${aut-path}"/>
+				
+				<arg value="-autWsPrefix"/>
+				<arg value="${aut-workspace}"/>
+				
+				<arg value="-autConsolePrefix"/>
+				<arg value="${aut-stdout}"/>
+
+				<arg value="-htmlReport"/>
+				<arg value="${html-report}"/>
+				
+				<arg value="-junitReport"/>
+                <arg value="${junit-report}"/>
+				
+				<arg value="-import"/>
+				<arg value="${basedir}"/>
+				<!--<arg value="C:\ACeProjectsSVN\1.0\DT\Automation\rcpttWorkspace"/>-->
+				
+				<arg value="-autArgs"/>
+				<arg value="-data C:/ACE/workspaces/${WorkspaceSuffix}/ws"/>
+				
+				<arg value="-suites"/>
+			    <arg value="${Suite}"/>
+				
+				<arg value="-testOptions"/>
+				<arg value="testExecTimeout=30000;execTimeout=36000;jobHangTimeout=10000"/>
+		</java>
+	</target>
+</project>
