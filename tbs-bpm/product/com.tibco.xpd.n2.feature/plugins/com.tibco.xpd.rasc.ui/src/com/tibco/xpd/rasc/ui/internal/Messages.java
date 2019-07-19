@@ -28,6 +28,16 @@ public class Messages extends NLS {
 
     public static String AdminUrlPropertyPanel_DefaultUrlWarning;
 
+    public static String LifecycleActionProvider_CreateDraftMenuLabel;
+
+    public static String LifecycleActionProvider_DeploymentMenuLabel;
+
+    public static String LifecycleActionProvider_GenerateDraftMenuLabel;
+
+    public static String LifecycleActionProvider_GenerateProductionMenuLabel;
+
+    public static String LifecycleActionProvider_LockForProductionMenuLabel;
+
     public static String OverwriteException_FileMessage;
 
     public static String ProgressBarMonitor_ExportComplete;

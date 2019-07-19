@@ -39,6 +39,21 @@
             </or>
          </enablement>
       </commonWizard>
+      <actionProvider
+            class="com.tibco.xpd.rasc.ui.governance.LifecycleActionProvider"
+            id="com.tibco.xpd.projectExplorer.action.lifecycleGovernance">
+         <enablement>
+            <and>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
+               </instanceof>
+               <test
+                     property="org.eclipse.core.resources.projectNature"
+                     value="com.tibco.xpd.resources.xpdNature">
+               </test>
+            </and>
+         </enablement>
+      </actionProvider>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">

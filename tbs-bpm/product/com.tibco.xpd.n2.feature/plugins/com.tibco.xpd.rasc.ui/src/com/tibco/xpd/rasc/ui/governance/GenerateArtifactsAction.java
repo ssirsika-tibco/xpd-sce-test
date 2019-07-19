@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
+ */
+
+package com.tibco.xpd.rasc.ui.governance;
+
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.actions.BaseSelectionListenerAction;
+
+import com.tibco.xpd.rasc.ui.export.RascExportWizard;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
+
+/**
+ * Action to generate draft or production artifacts
+ *
+ * @author nwilson
+ * @since 18 Jul 2019
+ */
+public class GenerateArtifactsAction extends BaseSelectionListenerAction {
+
+    private IStructuredSelection selection;
+
+    private boolean isForProduction;
+
+    /**
+     * @param text
+     */
+    protected GenerateArtifactsAction(String text, IStructuredSelection selection, boolean isForProduction) {
+        super(text);
+        this.selection = selection;
+        this.isForProduction = isForProduction;
+    }
+
+    /**
+     * @see org.eclipse.jface.action.Action#run()
+     *
+     */
+    @Override
+    public void run() {
+        IWorkbench workbench = PlatformUI.getWorkbench();
+        Shell shell = XpdResourcesPlugin.getStandardDisplay().getActiveShell();
+        RascExportWizard wizard = new RascExportWizard();
+        wizard.setIsForProduction(isForProduction);
+        wizard.init(workbench, selection);
+        WizardDialog dialog = new WizardDialog(shell, wizard);
+        dialog.open();
+    }
+
+}

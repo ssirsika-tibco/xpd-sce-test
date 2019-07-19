@@ -59,13 +59,29 @@ public class RascExportWizard extends Wizard
      */
     private Map<Integer, Button> buttonMap;
 
+    /**
+     * True if the export is currently running.
+     */
     private boolean exportRunning = false;
+
+    /**
+     * TODO Use this for ACE-2031
+     */
+    private boolean isForProduction = false;
 
     /**
      * Constructor.
      */
     public RascExportWizard() {
         setWindowTitle(Messages.RascExportWizard_Title);
+    }
+
+    /**
+     * @param isForProduction
+     *            true if exporting production artifacts.
+     */
+    public void setIsForProduction(boolean isForProduction) {
+        this.isForProduction = isForProduction;
     }
 
     /**
