@@ -540,6 +540,7 @@ public class ProcessUIUtil {
      * 
      */
     public static List<EObject> getAllProcessPackages(String id) {
+        List<EObject> elements = new ArrayList<EObject>();
         Map<String, String> additionalAttributes =
                 new HashMap<String, String>();
         additionalAttributes.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
@@ -547,8 +548,10 @@ public class ProcessUIUtil {
                 new IndexerItemImpl(null,
                         ProcessResourceItemType.PROCESSPACKAGE.toString(),
                         null, additionalAttributes);
-        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        elements =
+                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
+        return elements;
     }
 
     /**
@@ -577,21 +580,28 @@ public class ProcessUIUtil {
      * 
      */
     public static List<EObject> getAllElements(String id) {
+        List<EObject> elements = new ArrayList<EObject>();
         Map<String, String> additionalAttributes =
                 new HashMap<String, String>();
         additionalAttributes.put(Xpdl2ResourcesPlugin.ATTRIBUTE_ITEM_ID, id);
         IndexerItem criteria =
                 new IndexerItemImpl(null, null, null, additionalAttributes);
-        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        elements =
+                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
+        return elements;
     }
 
     public static List<EObject> getAllProcessIndexedElements(
             ProcessResourceItemType type) {
+        List<EObject> elements = new ArrayList<EObject>();
+
         IndexerItem criteria = new IndexerItemImpl(null, null, null, null);
 
-        return getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
+        elements =
+                getIndexedElements(Xpdl2ResourcesPlugin.PROCESS_INDEXER_ID,
                         criteria);
+        return elements;
     }
 
     /**
@@ -610,7 +620,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.emptyList();
+            result = Collections.EMPTY_LIST;
         }
 
         return result;
@@ -632,7 +642,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.emptyList();
+            result = Collections.EMPTY_LIST;
         }
 
         return result;
@@ -2202,8 +2212,10 @@ public class ProcessUIUtil {
      **/
     public static EObject getReferencedClassifier(
             ExternalReference externalReference, IProject project) {
+        Set<IProject> referencedProjects = null;
         if (_complexTypesInfo == null) {
-            // We only call this once, as it's relatively expensive.
+            // We only call this once, as it's relatively
+            // expensive.
             _complexTypesInfo =
                     ComplexDataTypeExtPointHelper
                             .getAllComplexDataTypesMergedInfo();
@@ -2298,7 +2310,7 @@ public class ProcessUIUtil {
                                 criteria);
 
         if (result == null) {
-            result = Collections.emptyList();
+            result = Collections.EMPTY_LIST;
         }
 
         return result;
