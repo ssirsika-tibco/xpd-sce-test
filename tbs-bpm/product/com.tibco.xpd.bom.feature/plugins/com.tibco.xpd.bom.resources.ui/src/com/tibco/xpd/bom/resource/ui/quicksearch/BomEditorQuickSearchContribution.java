@@ -60,7 +60,14 @@ public class BomEditorQuickSearchContribution extends
             for (Object obj : editPartRegistry.keySet()) {
                 if (obj instanceof ViewImpl) {
                     impl = (ViewImpl) obj;
-                    if (impl.getElement().equals(eObject)) {
+
+                    /*
+                     * Sid ACE-2202 protect against NPE when dealing with
+                     * objects in the DIAGRAM model that don't have a
+                     * corresponding element in the SEMANTIC model (for example
+                     * NOTE's in a BOM diagram.
+                     */
+                    if (impl.getElement() != null && impl.getElement().equals(eObject)) {
 
                         Object object = editPartRegistry.get(impl);
                         if (object instanceof ShapeNodeEditPart) {
