@@ -67,7 +67,9 @@ public abstract class AbstractSubProcessDataMapperSection extends
      */
     @Override
     protected boolean showGrammarSelectionCombo() {
-        /* If in studio for analyst don`t show */
-        return CapabilityUtil.isDeveloperActivityEnabled();
+        /*
+         * We only support Data Mapper, so no need to show.
+         */
+        return false;
     }
 }

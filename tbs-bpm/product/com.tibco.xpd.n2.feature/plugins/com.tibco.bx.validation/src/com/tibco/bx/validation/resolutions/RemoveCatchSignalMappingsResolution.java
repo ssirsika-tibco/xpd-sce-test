@@ -13,8 +13,12 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.bx.validation.internal.Messages;
+import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
+import com.tibco.xpd.mapper.MappingDirection;
+import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalScriptDataMapperProvider;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
 import com.tibco.xpd.validation.resolutions.ResolutionException;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
@@ -79,6 +83,15 @@ public class RemoveCatchSignalMappingsResolution extends
                                 dataMappings));
 
                         return cmd;
+                    } else {
+                        IScriptDataMapperProvider sdmProvider =
+                                new LocalSignalScriptDataMapperProvider(MappingDirection.OUT);
+                        ScriptDataMapper sdm = sdmProvider.getScriptDataMapper(activity);
+                        if (!sdm.getDataMappings().isEmpty()) {
+                            cmd.append(RemoveCommand.create(editingDomain, sdm.getDataMappings()));
+
+                            return cmd;
+                        }
                     }
                 }
             }

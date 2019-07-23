@@ -201,6 +201,9 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.scripts.BxDecFlowUnmappedScriptOutputRule">
+         </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.scripts.BxJsCatchLocalSignalMappingScriptRule">
          </rule>         
       </provider>
       
@@ -412,6 +415,16 @@
       <issue
             id="bx.warning.taskTimeoutScript"
             message="%bx.warning.taskTimeoutScript"
+            severity="WARNING">
+      </issue>
+      <issue
+            id="bx.error.catchLocalSignalMapToSignalScript"
+            message="%bx.error.catchLocalSignalMapToSignalScript"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="bx.warning.catchLocalSignalMapToSignalScript"
+            message="%bx.warning.catchLocalSignalMapToSignalScript"
             severity="WARNING">
       </issue>      
    </extension>
@@ -730,6 +743,9 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.datamapper.ThrowGlobalSignalEventDataMapperMappingRule">
+         </rule>
+         <rule
+               class="com.tibco.bx.validation.rules.datamapper.CatchLocalSignalEventDataMapperMappingRule">
          </rule>  
       </provider>
        <preferenceGroup
@@ -4512,6 +4528,12 @@ s         <scriptContribution
                   grammarId="JavaScript"
                   id="com.tibco.bx.validation.validator.N2JScriptValidationStrategy"
                   name="com.tibco.bx.validation.validator.N2JScriptValidationStrategy">
+            </validationStrategy>
+            <validationStrategy
+                  class="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy"
+                  name="com.tibco.bx.validation.validator.N2JScriptFunctionValidationStrategy">
             </validationStrategy>
          </scriptContribution>
          <scriptContribution

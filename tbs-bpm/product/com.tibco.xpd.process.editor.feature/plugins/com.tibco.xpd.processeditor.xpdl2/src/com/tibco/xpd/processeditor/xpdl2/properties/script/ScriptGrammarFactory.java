@@ -519,6 +519,13 @@ public class ScriptGrammarFactory {
 
                     } else if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
                             .equals(EventObjectUtil
+                                    .getEventTriggerType(activity))
+                            && EventObjectUtil.isLocalSignalEvent(activity)) {
+                        grammar = DATAMAPPER;
+                        scriptContext = ProcessScriptContextConstants.CATCH_SIGNAL_EVENTMAPPING;
+
+                    } else if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
+                            .equals(EventObjectUtil
                                     .getEventTriggerType(activity))) {
                         grammar = JAVASCRIPT;
                         scriptContext =

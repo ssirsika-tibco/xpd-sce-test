@@ -20,6 +20,10 @@ public class Messages extends NLS {
 
     public static String CatchGlobalSignalMapperScriptProvider_SetGlobalSignalScriptCommand_label;
 
+    public static String CatchLocalSignalMapperScriptProvider_CatchLocalSignalScriptMappingSection_title;
+
+    public static String CatchLocalSignalMapperScriptProvider_SetLocalSignalScriptCommand_label;
+
     public static String CatchGlobalSignalMapperSection_PayloadDataToProcessDataMapper_title;
 
     public static String CatchGlobalSignalMappingCommandFactory_AddSignalMappingCommand_label;
@@ -173,6 +177,8 @@ public class Messages extends NLS {
     public static String GlobalSignalThrowDataMapperSection_Title;
 
     public static String GlobalSignalCatchDataMapperSection_Title;
+
+    public static String LocalSignalCatchDataMapperSection_Title;
 
     public static String PayloadDataMappingReferenceChange_Name;
 

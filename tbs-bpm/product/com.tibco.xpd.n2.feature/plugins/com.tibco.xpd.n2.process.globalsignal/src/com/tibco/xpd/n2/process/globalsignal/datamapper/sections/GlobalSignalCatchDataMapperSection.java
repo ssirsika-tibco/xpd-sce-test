@@ -4,19 +4,9 @@
 
 package com.tibco.xpd.n2.process.globalsignal.datamapper.sections;
 
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.viewers.IFilter;
-
-import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
-import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
-import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
-import com.tibco.xpd.processwidget.adapters.EventTriggerType;
-import com.tibco.xpd.xpdl2.Activity;
-import com.tibco.xpd.xpdl2.DirectionType;
 
 /**
  * Data Mapper section for Global Signal Catch.

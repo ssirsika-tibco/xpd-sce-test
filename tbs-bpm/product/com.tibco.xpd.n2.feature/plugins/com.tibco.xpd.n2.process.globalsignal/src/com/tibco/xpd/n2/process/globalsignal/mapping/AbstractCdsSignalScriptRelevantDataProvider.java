@@ -24,8 +24,10 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
  * @author kthombar
  * @since Feb 12, 2015
  */
-public abstract class AbstractCdsGlobalSignalScriptRelevantDataProvider extends
+public abstract class AbstractCdsSignalScriptRelevantDataProvider extends
         DefaultJavaScriptRelevantDataProvider {
+
+    private static final String SIGNAL_PAYLOAD_DATA_PREFIX = "SIGNAL_"; //$NON-NLS-1$
 
     /**
      * 
@@ -68,6 +70,13 @@ public abstract class AbstractCdsGlobalSignalScriptRelevantDataProvider extends
                 .convertToScriptRelevantData(processDataList,
                         getProject(),
                         readContributedDefinitionReaders(getProcessDestinationList(getProcess())));
+    }
+
+    /**
+     * @return the signalPayloadDataPrefix
+     */
+    public static String getSignalPayloadDataPrefix() {
+        return SIGNAL_PAYLOAD_DATA_PREFIX;
     }
 
 }

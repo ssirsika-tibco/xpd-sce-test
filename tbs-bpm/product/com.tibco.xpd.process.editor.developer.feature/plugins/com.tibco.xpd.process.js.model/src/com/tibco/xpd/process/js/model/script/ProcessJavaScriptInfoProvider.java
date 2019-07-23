@@ -338,7 +338,8 @@ public class ProcessJavaScriptInfoProvider extends AbstractScriptInfoProvider {
                 || scriptContext
                         .equals(ProcessScriptContextConstants.GLOBAL_THROW_SIGNAL_EVENTMAPPING)
                 || scriptContext
-                        .equals(ProcessScriptContextConstants.GLOBAL_CATCH_SIGNAL_EVENTMAPPING)) {
+                        .equals(ProcessScriptContextConstants.GLOBAL_CATCH_SIGNAL_EVENTMAPPING)
+                || scriptContext.equals(ProcessScriptContextConstants.CATCH_SIGNAL_EVENTMAPPING)) {
             return getInput();
         } else if (scriptContext
                 .equals(ProcessScriptContextConstants.STD_LOOP_EXPR)) {

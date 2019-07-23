@@ -22,7 +22,7 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
  * @since Feb 4, 2015
  */
 public class CdsThrowGlobalSignalScriptRelevantDataProvider extends
-        AbstractCdsGlobalSignalScriptRelevantDataProvider {
+        AbstractCdsSignalScriptRelevantDataProvider {
 
     /**
      * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getAssociatedProcessRelevantData()

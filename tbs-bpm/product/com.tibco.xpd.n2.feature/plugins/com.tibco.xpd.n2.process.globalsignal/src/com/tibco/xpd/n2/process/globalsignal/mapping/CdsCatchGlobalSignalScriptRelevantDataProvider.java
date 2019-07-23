@@ -16,9 +16,7 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
  * @since Feb 12, 2015
  */
 public class CdsCatchGlobalSignalScriptRelevantDataProvider extends
-        AbstractCdsGlobalSignalScriptRelevantDataProvider {
-
-    private static final String SIGNAL_PAYLOAD_DATA_PREFIX = "SIGNAL_"; //$NON-NLS-1$
+        AbstractCdsSignalScriptRelevantDataProvider {
 
     /**
      * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getScriptRelevantDataList()
@@ -66,7 +64,7 @@ public class CdsCatchGlobalSignalScriptRelevantDataProvider extends
                         /*
                          * add the "SIGNAL_" prefix.
                          */
-                        scriptRelevantData.setName(SIGNAL_PAYLOAD_DATA_PREFIX
+                        scriptRelevantData.setName(getSignalPayloadDataPrefix()
                                 + scriptRelevantData.getName());
                         relevantData.add(scriptRelevantData);
                     }

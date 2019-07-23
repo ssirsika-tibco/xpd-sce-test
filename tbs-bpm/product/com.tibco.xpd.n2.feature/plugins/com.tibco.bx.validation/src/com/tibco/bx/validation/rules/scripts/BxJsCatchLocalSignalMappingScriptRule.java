@@ -6,11 +6,10 @@ package com.tibco.bx.validation.rules.scripts;
 
 import org.eclipse.emf.ecore.EObject;
 
-import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.js.validation.rules.MappingRuleUtil;
+import com.tibco.xpd.js.validation.tools.CatchSignalMappingScriptTool;
 import com.tibco.xpd.js.validation.tools.ScriptTool;
-import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMappedScriptTool;
-import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalUnmappedScriptTool;
+import com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CatchLocalSignalMappedScriptTool;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
@@ -22,16 +21,16 @@ import com.tibco.xpd.xpdl2.TriggerResultSignal;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Script Mapping Rule for catch GLOBAL signals script, both for mapped and
+ * Script Mapping Rule for catch LOCAL signals script, both for mapped and
  * un-mapped scripts.
  *
  * @author sajain
  * @since Jul 18, 2019
  */
-public class BxJsCatchGlobalSignalMappingScriptRule extends AbstractBxJsCatchSignalMappingScriptRule {
+public class BxJsCatchLocalSignalMappingScriptRule extends AbstractBxJsCatchSignalMappingScriptRule {
 
-    public BxJsCatchGlobalSignalMappingScriptRule() {
-        super("bx.error.catchGlobalSignalMapToSignalScript", "bx.warning.catchGlobalSignalMapToSignalScript"); //$NON-NLS-1$//$NON-NLS-2$
+    public BxJsCatchLocalSignalMappingScriptRule() {
+        super("bx.error.catchLocalSignalMapToSignalScript", "bx.warning.catchLocalSignalMapToSignalScript"); //$NON-NLS-1$//$NON-NLS-2$
     }
 
     /**
@@ -64,13 +63,13 @@ public class BxJsCatchGlobalSignalMappingScriptRule extends AbstractBxJsCatchSig
                             .equals(EventObjectUtil.getEventTriggerType(activity))) {
 
                         EObject dataMapping = Xpdl2ModelUtil.getAncestor(scriptInformation, DataMapping.class);
-                        if (GlobalSignalUtil.isGlobalSignalEvent(activity)) {
+                        if (EventObjectUtil.isLocalSignalEvent(activity)) {
                             if (dataMapping != null) {
                                 // for mapped scenario
-                                return getScope().getTool(CatchGlobalSignalMappedScriptTool.class, dataMapping);
+                                return getScope().getTool(CatchLocalSignalMappedScriptTool.class, dataMapping);
                             } else {
                                 // for unmapped scenario
-                                return getScope().getTool(CatchGlobalSignalUnmappedScriptTool.class, scriptInformation);
+                                return getScope().getTool(CatchSignalMappingScriptTool.class, scriptInformation);
                             }
                         }
                     }
@@ -88,6 +87,6 @@ public class BxJsCatchGlobalSignalMappingScriptRule extends AbstractBxJsCatchSig
     @Override
     protected String getScriptContext() {
 
-        return ProcessScriptContextConstants.GLOBAL_CATCH_SIGNAL_EVENTMAPPING;
+        return ProcessScriptContextConstants.CATCH_SIGNAL_EVENTMAPPING;
     }
 }

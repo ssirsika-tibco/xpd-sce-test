@@ -1,8 +1,8 @@
 /*
- * Copyright (c) TIBCO Software Inc 2004, 2016. All rights reserved.
+ * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.n2.process.globalsignal.datamapper;
+package com.tibco.xpd.n2.process.localsignal.datamapper;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -20,7 +20,6 @@ import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.CatchThrow;
 import com.tibco.xpd.xpdl2.DirectionType;
-import com.tibco.xpd.xpdl2.EndEvent;
 import com.tibco.xpd.xpdl2.Event;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
 import com.tibco.xpd.xpdl2.StartEvent;
@@ -28,22 +27,25 @@ import com.tibco.xpd.xpdl2.TriggerResultSignal;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
- * Script Data Mapper Provider for Global Signal Catch/Throw.
- * 
+ * Script Data Mapper Provider for Local Signal mappings.
+ *
  * @author sajain
- * @since Apr 26, 2016
+ * @since Jul 16, 2019
  */
-public class GlobalSignalScriptDataMapperProvider extends
-        AbstractScriptDataMapperEditorProvider {
+public class LocalSignalScriptDataMapperProvider extends AbstractScriptDataMapperEditorProvider {
 
+    /**
+     * Mapping direction for Local Signal Data Mapper.
+     */
     private MappingDirection direction;
 
-    public GlobalSignalScriptDataMapperProvider(MappingDirection direction) {
-        super(
-                MappingDirection.IN.equals(direction) ? GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_THROW
-                        : GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_CATCH,
-                MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL
-                        : DirectionType.OUT_LITERAL);
+    /**
+     * Script Data Mapper Provider for Local Signal mappings.
+     * 
+     * @param direction
+     */
+    public LocalSignalScriptDataMapperProvider(MappingDirection direction) {
+        super(LocalSignalDataMapperConstants.LOCAL_SIGNAL_CATCH, DirectionType.OUT_LITERAL);
         this.direction = direction;
     }
 
@@ -64,11 +66,9 @@ public class GlobalSignalScriptDataMapperProvider extends
                 Object sdmObject = null;
 
                 if (MappingDirection.IN.equals(direction)) {
-                    sdmObject =
-                            sigData.getInputScriptDataMapper();
+                    sdmObject = sigData.getInputScriptDataMapper();
                 } else if (MappingDirection.OUT.equals(direction)) {
-                    sdmObject =
-                            sigData.getOutputScriptDataMapper();
+                    sdmObject = sigData.getOutputScriptDataMapper();
                 }
 
                 if (sdmObject instanceof ScriptDataMapper) {
@@ -84,12 +84,12 @@ public class GlobalSignalScriptDataMapperProvider extends
      * 
      * @param sigData
      * @param editingDomain
-     * @param optionalCreationCommand 
+     * @param optionalCreationCommand
      */
-    private void clearJavaScriptMappings(SignalData sigData, EditingDomain editingDomain, CompoundCommand optionalCreationCommand) {
+    private void clearJavaScriptMappings(SignalData sigData, EditingDomain editingDomain,
+            CompoundCommand optionalCreationCommand) {
         if (null != sigData.getDataMappings() && !sigData.getDataMappings().isEmpty()) {
-            optionalCreationCommand.append(RemoveCommand
-                    .create(editingDomain, sigData.getDataMappings()));
+            optionalCreationCommand.append(RemoveCommand.create(editingDomain, sigData.getDataMappings()));
         }
 
         if (null != sigData.getCorrelationMappings()) {
@@ -102,18 +102,17 @@ public class GlobalSignalScriptDataMapperProvider extends
 
     /**
      * @param contextInputObject
-     * @param createScriptDataMapperContainerIfNull
+     * @param createNewContainerIfNull
      *            <code>true</code> if we want to create a new container in case
      *            it is null, <code>false</code> otherwise.
-     * @param editingDomain
      * @param optionalCreationCommand
+     * @param editingDomain
      * 
      * @return the Correct container for the xpdExt:ScriptDataMapper element
      *         (depending on mapping direction we were constructed with.
      */
-    public SignalData getScriptDataMapperContainer(
-            Object contextInputObject, boolean createNewContainerIfNull, EditingDomain editingDomain,
-            CompoundCommand optionalCreationCommand) {
+    public SignalData getScriptDataMapperContainer(Object contextInputObject, boolean createNewContainerIfNull,
+            EditingDomain editingDomain, CompoundCommand optionalCreationCommand) {
         SignalData sigData = null;
 
         if (contextInputObject instanceof Activity) {
@@ -123,74 +122,22 @@ public class GlobalSignalScriptDataMapperProvider extends
 
             if (null != event) {
 
-                if (event instanceof EndEvent) {
-
-                    /*
-                     * End events
-                     */
-
-                    EndEvent endEvent = (EndEvent) event;
-
-                    TriggerResultSignal trs = endEvent.getTriggerResultSignal();
-                    if (null != trs) {
-
-                        Object signalDataObj =
-                                Xpdl2ModelUtil.getOtherElement(trs,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_SignalData());
-
-                        if (CatchThrow.THROW.equals(trs.getCatchThrow())
-                                && MappingDirection.IN.equals(direction)) {
-
-                            if (signalDataObj instanceof SignalData) {
-
-                                sigData = (SignalData) signalDataObj;
-
-                            } else if (createNewContainerIfNull) {
-                                sigData = XpdExtensionFactory.eINSTANCE.createSignalData();
-                                optionalCreationCommand.append(Xpdl2ModelUtil.getSetOtherElementCommand(editingDomain,
-                                        trs,
-                                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_SignalData(),
-                                        sigData));
-                            }
-                        }
-                    }
-
-                } else if (event instanceof IntermediateEvent) {
+                if (event instanceof IntermediateEvent) {
 
                     /*
                      * Intermediate events
                      */
 
-                    IntermediateEvent intermediateEvent =
-                            (IntermediateEvent) event;
+                    IntermediateEvent intermediateEvent = (IntermediateEvent) event;
 
-                    TriggerResultSignal trs =
-                            intermediateEvent.getTriggerResultSignal();
+                    TriggerResultSignal trs = intermediateEvent.getTriggerResultSignal();
 
                     if (null != trs) {
 
-                        Object signalDataObj =
-                                Xpdl2ModelUtil.getOtherElement(trs,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_SignalData());
+                        Object signalDataObj = Xpdl2ModelUtil.getOtherElement(trs,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_SignalData());
 
-                        if (CatchThrow.THROW.equals(trs.getCatchThrow())
-                                && MappingDirection.IN.equals(direction)) {
-
-                            if (signalDataObj instanceof SignalData) {
-
-                                sigData = (SignalData) signalDataObj;
-
-                            } else if (createNewContainerIfNull) {
-                                sigData = XpdExtensionFactory.eINSTANCE.createSignalData();
-                                optionalCreationCommand.append(Xpdl2ModelUtil.getSetOtherElementCommand(editingDomain,
-                                        trs,
-                                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_SignalData(),
-                                        sigData));
-                            }
-
-                        } else if (CatchThrow.CATCH.equals(trs.getCatchThrow())
+                        if (CatchThrow.CATCH.equals(trs.getCatchThrow())
                                 && MappingDirection.OUT.equals(direction)) {
 
                             if (signalDataObj instanceof SignalData) {
@@ -215,18 +162,14 @@ public class GlobalSignalScriptDataMapperProvider extends
 
                     StartEvent startEvent = (StartEvent) event;
 
-                    TriggerResultSignal trs =
-                            startEvent.getTriggerResultSignal();
+                    TriggerResultSignal trs = startEvent.getTriggerResultSignal();
 
                     if (null != trs) {
 
-                        Object signalDataObj =
-                                Xpdl2ModelUtil.getOtherElement(trs,
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_SignalData());
+                        Object signalDataObj = Xpdl2ModelUtil.getOtherElement(trs,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_SignalData());
 
-                        if (CatchThrow.CATCH.equals(trs.getCatchThrow())
-                                && MappingDirection.OUT.equals(direction)) {
+                        if (CatchThrow.CATCH.equals(trs.getCatchThrow()) && MappingDirection.OUT.equals(direction)) {
 
                             if (signalDataObj instanceof SignalData) {
 
@@ -258,8 +201,7 @@ public class GlobalSignalScriptDataMapperProvider extends
      * @return
      */
     @Override
-    protected ScriptDataMapper createScriptDataMapper(
-            Object contextInputObject, EditingDomain editingDomain,
+    protected ScriptDataMapper createScriptDataMapper(Object contextInputObject, EditingDomain editingDomain,
             CompoundCommand optionalCreationCommand) {
         ScriptDataMapper scriptDataMapper = null;
 
@@ -267,11 +209,10 @@ public class GlobalSignalScriptDataMapperProvider extends
                 getScriptDataMapperContainer(contextInputObject, true, editingDomain, optionalCreationCommand);
 
         if (scriptDataMapperContainer != null) {
-            scriptDataMapper =
-                    XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
+            scriptDataMapper = XpdExtensionFactory.eINSTANCE.createScriptDataMapper();
 
             if (optionalCreationCommand != null) {
-                
+
                 /*
                  * Remove old JavaScript based mappings.
                  */
@@ -279,17 +220,20 @@ public class GlobalSignalScriptDataMapperProvider extends
 
                 if (MappingDirection.IN.equals(direction)) {
 
-                    optionalCreationCommand.append(SetCommand.create(editingDomain, scriptDataMapperContainer, XpdExtensionPackage.eINSTANCE
-                                    .getSignalData_InputScriptDataMapper(), scriptDataMapper));
-                   
+                    optionalCreationCommand.append(SetCommand.create(editingDomain,
+                            scriptDataMapperContainer,
+                            XpdExtensionPackage.eINSTANCE.getSignalData_InputScriptDataMapper(),
+                            scriptDataMapper));
 
                 } else if (MappingDirection.OUT.equals(direction)) {
 
-                    optionalCreationCommand.append(SetCommand.create(editingDomain, scriptDataMapperContainer, XpdExtensionPackage.eINSTANCE
-                            .getSignalData_OutputScriptDataMapper(), scriptDataMapper));
+                    optionalCreationCommand.append(SetCommand.create(editingDomain,
+                            scriptDataMapperContainer,
+                            XpdExtensionPackage.eINSTANCE.getSignalData_OutputScriptDataMapper(),
+                            scriptDataMapper));
 
                 }
-            } 
+            }
         }
 
         return scriptDataMapper;
@@ -306,11 +250,9 @@ public class GlobalSignalScriptDataMapperProvider extends
 
         if (contextInputObject instanceof Activity) {
 
-            return ScriptGrammarFactory.DATAMAPPER
-                    .equals(ScriptGrammarFactory
-                            .getGrammarToUse((Activity) contextInputObject,
-                                    MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL
-                                            : DirectionType.OUT_LITERAL));
+            return ScriptGrammarFactory.DATAMAPPER.equals(ScriptGrammarFactory.getGrammarToUse(
+                    (Activity) contextInputObject,
+                    MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL : DirectionType.OUT_LITERAL));
 
         }
 
@@ -326,27 +268,22 @@ public class GlobalSignalScriptDataMapperProvider extends
      * @return
      */
     @Override
-    public Command getDataMapperDeselectedCommand(EditingDomain editingDomain,
-            Object contextInputObject) {
+    public Command getDataMapperDeselectedCommand(EditingDomain editingDomain, Object contextInputObject) {
         /*
          * Remove the ScriptDatamapper (SubFlow/InputMappings | OutputMappings)
          * element completely.
          */
-        SignalData scriptDataMapperContainer =
-                getScriptDataMapperContainer(contextInputObject, false, null, null);
+        SignalData scriptDataMapperContainer = getScriptDataMapperContainer(contextInputObject, false, null, null);
 
         if (scriptDataMapperContainer != null) {
-            ScriptDataMapper scriptDataMapper =
-                    getScriptDataMapper(contextInputObject);
+            ScriptDataMapper scriptDataMapper = getScriptDataMapper(contextInputObject);
 
             if (scriptDataMapper != null) {
-                if (MappingDirection.IN.equals(direction)) {
-                    return RemoveCommand.create(editingDomain, scriptDataMapperContainer, XpdExtensionPackage.eINSTANCE
-                                            .getSignalData_InputScriptDataMapper(), scriptDataMapper);
-
-                } else if (MappingDirection.OUT.equals(direction)) {
-                    return RemoveCommand.create(editingDomain, scriptDataMapperContainer, XpdExtensionPackage.eINSTANCE
-                            .getSignalData_OutputScriptDataMapper(), scriptDataMapper);
+                if (MappingDirection.OUT.equals(direction)) {
+                    return RemoveCommand.create(editingDomain,
+                            scriptDataMapperContainer,
+                            XpdExtensionPackage.eINSTANCE.getSignalData_OutputScriptDataMapper(),
+                            scriptDataMapper);
                 }
             }
         }

@@ -130,7 +130,7 @@ public class GlobalSignalEventPrecommitListener extends
                  * for Global Signal events as it's our ScriptDataMapper
                  * container.
                  */
-                if (GlobalSignalUtil.isGlobalSignalEvent(activity)) {
+                if (GlobalSignalUtil.isGlobalSignalEvent(activity) || EventObjectUtil.isLocalSignalEvent(activity)) {
                     setUpSignalData(cmd, editingDomain, activity);
                 }
 

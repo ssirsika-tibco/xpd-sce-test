@@ -61,6 +61,16 @@
                   type="com.tibco.xpd.xpdl2.Activity">
             </input> 
          </propertySection>
+         <propertySection
+               class="com.tibco.xpd.n2.process.localsignal.datamapper.sections.LocalSignalCatchDataMapperSection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalCatchDataMapperFilter"
+               id="catchLocalSignalDataMapper"
+               tab="com.tibco.xpd.processeditor.propertyTabs.CatchSignalEventMapperOut">
+            <input
+                  type="com.tibco.xpd.xpdl2.Activity">
+            </input>
+         </propertySection>
       </propertySections>
    </extension>
    
@@ -101,6 +111,18 @@
             applyToMapperRHS="true"
             mapperContribution="com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.GlobalSignalCorrelationDataContentContributor"
             priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="LocalSignalCatch"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.n2.process.localsignal.datamapper.contentcontributors.LocalSignalCatchTargetDataMapperContentContributor"
+            priority="3">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="LocalSignalCatch"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.n2.process.localsignal.datamapper.contentcontributors.LocalSignalCatchSourceDataMapperContentContributor"
+            priority="4">
       </mapperContentContributor>
    </extension>
    
@@ -186,6 +208,19 @@
                  scriptInfoProvider="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperScriptProvider">
            </grammar>
         </scriptContextGrammarBinding>
+        <scriptContextGrammarBinding
+              scriptContextReference="CatchSignalEventMapping">
+           <defaultGrammar
+                 id="DataMapper"
+                 resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                 scriptInfoProvider="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CatchLocalSignalMapperScriptProvider">
+           </defaultGrammar>
+           <grammar
+                 id="JavaScript"
+                 resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+                 scriptInfoProvider="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CatchLocalSignalMapperScriptProvider">
+           </grammar>
+        </scriptContextGrammarBinding>
      </destination>
   </extension>
   <!-- Script Tool Factory Pre Processors -->
@@ -202,6 +237,12 @@
      </processor>
      <processor
            factory="com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalUnmappedScriptToolFactory">
+     </processor>
+     <processor
+           factory="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CatchLocalSignalMappedScriptToolFactory">
+     </processor>
+     <processor
+           factory="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CatchLocalSignalUnmappedScriptToolFactory">
      </processor>
      
   </extension>
@@ -278,6 +319,28 @@
             </scriptRelevantDataContributor>
         </scriptContribution>  
         
+        <scriptContribution
+              scriptContext="CatchSignalEventMapping">
+               <classContributor
+                  class="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader"
+                  name="com.tibco.xpd.n2.cds.reader.CdsExtendedJScriptProcessDefinitionReader">
+            </classContributor>
+            <scriptRelevantDataContributor
+                  class="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProvider"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProcider"
+                  name="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProcider">
+            </scriptRelevantDataContributor>
+            <scriptRelevantDataContributor
+                  class="com.tibco.xpd.n2.pe.internal.provider.PEJScriptProcessAndCSARelevantDataProvider"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.pe.internal.provider.PEJScriptProcessAndCSARelevantDataProvider"
+                  name="com.tibco.xpd.n2.pe.internal.provider.PEJScriptProcessAndCSARelevantDataProvider">
+            </scriptRelevantDataContributor>
+        </scriptContribution> 
+        
      </destination>
   </extension>
   <!-- Script Grammar binding for Simulation Destination -->
@@ -327,6 +390,27 @@
                name="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy">
             </validationStrategy>
         </scriptContribution>
+        <scriptContribution
+              scriptContext="CatchSignalEventMapping">
+            <scriptRelevantDataContributor
+                  class="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProvider"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProvider"
+                  name="com.tibco.xpd.n2.process.localsignal.datamapper.mapping.CdsCatchLocalSignalScriptRelevantDataProvider">
+            </scriptRelevantDataContributor>
+            <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+            </classContributor>
+            <validationStrategy
+               class="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy"
+               name="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy">
+            </validationStrategy>
+        </scriptContribution>
      </destination>
   </extension>
   <!-- Script Grammar binding for Java Script Destination -->
@@ -345,6 +429,15 @@
         </scriptContribution>
         <scriptContribution
               scriptContext="GlobalCatchSignalEventMapping">
+               <validationStrategy
+                  class="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy"
+                  grammarId="JavaScript"
+                  id="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy"
+                  name="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy">
+               </validationStrategy>
+        </scriptContribution>
+        <scriptContribution
+              scriptContext="CatchSignalEventMapping">
                <validationStrategy
                   class="com.tibco.xpd.process.js.parser.validator.jscript.JScriptValidationStrategy"
                   grammarId="JavaScript"
