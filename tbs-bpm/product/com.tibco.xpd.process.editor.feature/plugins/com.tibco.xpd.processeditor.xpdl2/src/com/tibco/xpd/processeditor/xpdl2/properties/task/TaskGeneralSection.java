@@ -320,10 +320,13 @@ public class TaskGeneralSection extends SashDividedNamedElementSection {
                                     TaskType.SEND_LITERAL));
             ttRightSideSections.add(tt);
 
+            /*
+             * Sid ACE-2023 Do not show implementation for receive tasks now for
+             * ACE.
+             */
             tt =
                     new TaskTypeSection(TaskType.RECEIVE_LITERAL,
-                            new TaskImplementationDetailsSection(
-                                    TaskType.RECEIVE_LITERAL));
+                            new EmptyTaskTypeSection());
             ttRightSideSections.add(tt);
 
             tt =
@@ -868,8 +871,11 @@ public class TaskGeneralSection extends SashDividedNamedElementSection {
                     if (taskType != null) {
                         if (taskType.equals(TaskType.SERVICE_LITERAL)
                                 || taskType.equals(TaskType.SCRIPT_LITERAL)
-                                || taskType.equals(TaskType.SEND_LITERAL)
-                                || taskType.equals(TaskType.RECEIVE_LITERAL)) {
+                                /*
+                                 * Sid ACE-2023 Do not show implementation for
+                                 * receive tasks now for ACE.
+                                 */
+                                || taskType.equals(TaskType.SEND_LITERAL)) {
                             return true;
                         }
                     }
