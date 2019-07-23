@@ -14,6 +14,7 @@ import org.eclipse.ui.actions.ActionContext;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 
 /**
@@ -85,7 +86,7 @@ public class LifecycleActionProvider extends CommonActionProvider {
             }
         } catch (CoreException e) {
             // Couldn't read status, don't add the menu.
-            e.printStackTrace();
+            RascUiActivator.getLogger().error(e);
         }
     }
 
