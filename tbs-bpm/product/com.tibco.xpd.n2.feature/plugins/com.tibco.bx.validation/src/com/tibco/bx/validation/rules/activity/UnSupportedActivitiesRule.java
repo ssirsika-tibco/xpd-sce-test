@@ -152,6 +152,8 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
                              */
                             addIssue(ISSUE_EVENT_HANDLER_TYPE_NOT_SUPPORTED_IN_EMBEDDED_SUB_PROC,
                                     activity);
+
+                            /* ACE-2014: In SCE incoming request event EVENT_NONE replaces EVENT_MESSAGE_CATCH. */
                         } else if (!EventTriggerType.EVENT_NONE_LITERAL
                                 .equals(eventTriggerType)
                                 && !EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
@@ -166,9 +168,8 @@ public class UnSupportedActivitiesRule extends ProcessValidationRule {
                                                             .getDocumentRoot_Implements());
 
                             /**
-                             * Only catch-message , catch-signal and
-                             * catch-cancel type event-handlers are supported in
-                             * a business process
+                             * Only event-none , catch-signal and catch-cancel type event-handlers are supported in a
+                             * business process
                              */
 
                             /*

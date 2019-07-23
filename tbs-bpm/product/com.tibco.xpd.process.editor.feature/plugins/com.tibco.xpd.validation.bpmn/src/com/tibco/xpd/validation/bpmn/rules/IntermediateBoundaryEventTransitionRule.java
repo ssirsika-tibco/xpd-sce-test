@@ -78,6 +78,7 @@ public class IntermediateBoundaryEventTransitionRule extends
                 }
                 if (intermediate.getTarget() != null) {
 
+                    /* ACE-2014: In SCE incoming request event (EVENT_NONE) boundary event is now allowed. */
                     switch (eventTriggerType.getValue()) {
                     case EventTriggerType.EVENT_COMPENSATION_THROW:
                     case EventTriggerType.EVENT_MULTIPLE_THROW:
@@ -105,8 +106,7 @@ public class IntermediateBoundaryEventTransitionRule extends
                                 addIssue(OUTGOING_COMPENSATION, transition);
                             }
                         }
-                    } else if (!EventObjectUtil.isNonCancellingEvent(activity)
-                            && !EventTriggerType.EVENT_NONE_LITERAL.equals((eventTriggerType))) {
+                    } else if (!EventObjectUtil.isNonCancellingEvent(activity)) {
                         if (outgoing.size() != 1) {
                             addIssue(OUTGOING, activity);
                         }

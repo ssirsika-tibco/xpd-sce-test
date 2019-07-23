@@ -126,7 +126,8 @@ public class EventSubProcessStartEventRule extends
                             .isProcessEngineServiceProcess(process)) {
 
                 /*
-                 * Check if the specified activity is NOT a none or signal catch triggered event.
+                 * Check if the specified activity is NOT a none or signal catch triggered event. ACE-2014: In SCE
+                 * incoming request event EVENT_NONE replaces EVENT_MESSAGE_CATCH.
                  */
                 if (!isNoneOrSignalCatchEvent(activity)) {
 

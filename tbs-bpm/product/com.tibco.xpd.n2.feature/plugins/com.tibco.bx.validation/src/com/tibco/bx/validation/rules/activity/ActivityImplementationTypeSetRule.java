@@ -50,6 +50,7 @@ public class ActivityImplementationTypeSetRule extends
 
         TaskType type = TaskObjectUtil.getTaskTypeStrict(activity);
         if (type != null) {
+            /* ACE-2014: In SCE incoming request task (TaskType.RECEIVE_TASK) has no implementation. */
             if (TaskType.SERVICE_LITERAL.equals(type)
                     || TaskType.SEND_LITERAL.equals(type)) {
 
