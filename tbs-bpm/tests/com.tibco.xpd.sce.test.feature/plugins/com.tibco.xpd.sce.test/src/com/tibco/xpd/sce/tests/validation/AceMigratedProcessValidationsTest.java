@@ -152,13 +152,6 @@ public class AceMigratedProcessValidationsTest
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
-                                "ace.incoming.message.task.not.supported", //$NON-NLS-1$
-                                "_u_JJoWEbEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (ServiceProvider_GeneratedWSDLProcess:GeneratedReceiveTask)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/ServiceProvider_GeneratedWSDL.xpdl", //$NON-NLS-1$
                                 "ace.wsdl.error.not.supported", //$NON-NLS-1$
                                 "_w3SzgmEaEemASo-CA987hg", //$NON-NLS-1$
                                 "BPM  : Web-service error replies are no longer supported. Use 'Throw Process / Sub-Process Error' instead. (ServiceProvider_GeneratedWSDLProcess:ErrorEvent)", //$NON-NLS-1$
@@ -184,13 +177,6 @@ public class AceMigratedProcessValidationsTest
                                 "__poGwmEXEem0lq-eL9iD2A", //$NON-NLS-1$
                                 "BPM  : Web-service error replies are no longer supported. Use 'Throw Process / Sub-Process Error' instead. (SeviceProvider_UserWSDLProcess:ErrorEvent)", //$NON-NLS-1$
                                 "Configure as throw process / sub-process error."), //$NON-NLS-1$
-
-                        new ValidationsTestProblemMarkerInfo(
-                                "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
-                                "ace.incoming.message.task.not.supported", //$NON-NLS-1$
-                                "_ITkioWEZEemASo-CA987hg", //$NON-NLS-1$
-                                "BPM  : Incoming web-service message activities and their replies are not supported. Use 'type none' instead and invoke these thru run-time API if required. (SeviceProvider_UserWSDLProcess:ReceiveTask)", //$NON-NLS-1$
-                                ""), //$NON-NLS-1$
 
                         new ValidationsTestProblemMarkerInfo(
                                 "/BPMProjectMigration_ProcessValidation/Process Packages/SeviceProvider_UserWSDL.xpdl", //$NON-NLS-1$
