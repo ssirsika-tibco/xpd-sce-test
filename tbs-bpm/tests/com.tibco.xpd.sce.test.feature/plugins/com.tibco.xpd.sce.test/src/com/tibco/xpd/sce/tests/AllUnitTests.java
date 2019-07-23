@@ -28,6 +28,8 @@ import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
 import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
+import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
+import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
@@ -97,6 +99,8 @@ public class AllUnitTests {
         suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
         suite.addTestSuite(AceNameLengthRestrictionsTest.class);
         suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
+        suite.addTestSuite(AceLocalSignalDataMapperTest.class);
+        suite.addTestSuite(AceLocalSignalDataMapperNegativeTest.class);
 
         return suite;
     }
