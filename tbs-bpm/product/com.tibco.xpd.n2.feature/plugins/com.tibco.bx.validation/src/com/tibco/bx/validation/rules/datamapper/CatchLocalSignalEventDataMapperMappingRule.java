@@ -108,7 +108,8 @@ public class CatchLocalSignalEventDataMapperMappingRule extends AbstractN2DataMa
 
             MappingDirection mappingDirection = getMappingDirection();
 
-            if (MappingDirection.OUT.equals(mappingDirection) && !sdm.getDataMappings().isEmpty()) {
+            if (MappingDirection.OUT.equals(mappingDirection)
+                    && (null != sdm && null != sdm.getDataMappings() && !sdm.getDataMappings().isEmpty())) {
                 boolean isAttachedToUserTask = false;
 
                 Activity taskAttachedTo = EventObjectUtil.getTaskAttachedTo(activity);
