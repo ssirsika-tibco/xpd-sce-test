@@ -27,7 +27,14 @@ public class GenerateArtifactsAction extends BaseSelectionListenerAction {
     private boolean isForProduction;
 
     /**
+     * Constructor for action.
+     * 
      * @param text
+     *            The action label.
+     * @param selection
+     *            The current selection.
+     * @param isForProduction
+     *            true if we are generating production artifacts.
      */
     protected GenerateArtifactsAction(String text, IStructuredSelection selection, boolean isForProduction) {
         super(text);

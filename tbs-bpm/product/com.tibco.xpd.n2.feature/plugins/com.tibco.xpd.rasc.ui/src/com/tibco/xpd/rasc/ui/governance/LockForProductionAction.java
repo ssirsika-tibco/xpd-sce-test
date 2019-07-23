@@ -4,7 +4,13 @@
 
 package com.tibco.xpd.rasc.ui.governance;
 
+import java.util.List;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
+
+import com.tibco.xpd.rasc.ui.RascUiActivator;
 
 /**
  * Menu action to lock projects for production.
@@ -14,11 +20,24 @@ import org.eclipse.ui.actions.BaseSelectionListenerAction;
  */
 public class LockForProductionAction extends BaseSelectionListenerAction {
 
+    private GovernanceStateService gss;
+
+    private List<IProject> projects;
+
     /**
+     * Constructor for the action.
+     * 
      * @param text
+     *            The action label.
+     * @param gss
+     *            The governance state service.
+     * @param projects
+     *            The selected projects.
      */
-    protected LockForProductionAction(String text) {
+    protected LockForProductionAction(String text, GovernanceStateService gss, List<IProject> projects) {
         super(text);
+        this.gss = gss;
+        this.projects = projects;
     }
 
     /**
@@ -27,7 +46,13 @@ public class LockForProductionAction extends BaseSelectionListenerAction {
      */
     @Override
     public void run() {
-        // TODO Implement for ACE-587
+        for (IProject project : projects) {
+            try {
+                gss.lockForProduction(project);
+            } catch (CoreException e) {
+                RascUiActivator.getLogger().error("Could not lock project " + project.getName()); //$NON-NLS-1$
+            }
+        }
     }
 
 }

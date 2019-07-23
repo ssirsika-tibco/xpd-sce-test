@@ -64,5 +64,24 @@
             name="%adminUIPreferencePage">
       </page>
    </extension>
+   <extension
+         id="com.tibco.xpd.resources.lockedForProductionNature"
+         name="Locked for Production"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.tibco.xpd.rasc.ui.governance.LockedForProductionNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="com.tibco.xpd.rasc.ui.governance.LockedForProductionLabelDecorator"
+            id="com.tibco.xpd.rasc.ui.governance.lockedForProductionDecorator"
+            label="Locked for Production Decorator"
+            state="true">
+      </decorator>
+   </extension>
 
 </plugin>

@@ -55,12 +55,14 @@ public class LifecycleActionProvider extends CommonActionProvider {
             if (hasLockedProjects.get() || hasUnlockedProjects.get()) {
                 MenuManager subMenu = new MenuManager(Messages.LifecycleActionProvider_DeploymentMenuLabel);
 
-                GenerateArtifactsAction generateDraftArtifacts =
-                        new GenerateArtifactsAction(Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection, false);
-                LockForProductionAction lockForProduction = new LockForProductionAction(Messages.LifecycleActionProvider_LockForProductionMenuLabel);
-                GenerateArtifactsAction generateProductionArtifacts =
-                        new GenerateArtifactsAction(Messages.LifecycleActionProvider_GenerateProductionMenuLabel, selection, true);
-                CreateNewDraftAction createNewDraft = new CreateNewDraftAction(Messages.LifecycleActionProvider_CreateDraftMenuLabel);
+                GenerateArtifactsAction generateDraftArtifacts = new GenerateArtifactsAction(
+                        Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection, false);
+                LockForProductionAction lockForProduction = new LockForProductionAction(
+                        Messages.LifecycleActionProvider_LockForProductionMenuLabel, gss, projects);
+                GenerateArtifactsAction generateProductionArtifacts = new GenerateArtifactsAction(
+                        Messages.LifecycleActionProvider_GenerateProductionMenuLabel, selection, true);
+                CreateNewDraftAction createNewDraft =
+                        new CreateNewDraftAction(Messages.LifecycleActionProvider_CreateDraftMenuLabel, gss, projects);
 
                 subMenu.add(generateDraftArtifacts);
                 subMenu.add(lockForProduction);

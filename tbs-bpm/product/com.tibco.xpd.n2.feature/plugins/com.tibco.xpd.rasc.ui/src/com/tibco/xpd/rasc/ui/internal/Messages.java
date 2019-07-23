@@ -38,6 +38,8 @@ public class Messages extends NLS {
 
     public static String LifecycleActionProvider_LockForProductionMenuLabel;
 
+    public static String LockedForProductionLabelDecorator_DecoratorText;
+
     public static String OverwriteException_FileMessage;
 
     public static String ProgressBarMonitor_ExportComplete;
