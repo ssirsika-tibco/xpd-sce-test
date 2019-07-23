@@ -15,8 +15,11 @@
   <xpdl2:Participants>
     <xpdl2:Participant Id="_c3TxQKn7EemWDZgShfumSw" xpdExt:DisplayName="Participant" Name="Participant">
       <xpdl2:ParticipantType Type="RESOURCE_SET">
-        <xpdExt:ParticipantQuery ScriptGrammar="RQL"/>
+        <xpdExt:ParticipantQuery ScriptGrammar="Text"/>
       </xpdl2:ParticipantType>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Email InstanceName=""/>
+      </xpdExt:ParticipantSharedResource>
     </xpdl2:Participant>
   </xpdl2:Participants>
   <xpdl2:Pools>
@@ -54,7 +57,7 @@
         </xpdl2:FormalParameter>
       </xpdl2:FormalParameters>
       <xpdl2:DataFields>
-        <xpdl2:DataField Id="_N3GhcKn7EemWDZgShfumSw" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+        <xpdl2:DataField Id="_N3GhcKn7EemWDZgShfumSw" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="false">
           <xpdl2:DataType>
             <xpdl2:BasicType Type="FLOAT">
               <xpdl2:Precision>10</xpdl2:Precision>
@@ -62,7 +65,7 @@
             </xpdl2:BasicType>
           </xpdl2:DataType>
         </xpdl2:DataField>
-        <xpdl2:DataField Id="_OkJNoKn7EemWDZgShfumSw" xpdExt:DisplayName="CorrelationField2" Name="CorrelationField2" ReadOnly="false" Correlation="true">
+        <xpdl2:DataField Id="_OkJNoKn7EemWDZgShfumSw" xpdExt:DisplayName="CorrelationField2" Name="CorrelationField2" ReadOnly="false" Correlation="false">
           <xpdl2:DataType>
             <xpdl2:BasicType Type="FLOAT">
               <xpdl2:Precision>10</xpdl2:Precision>
@@ -207,14 +210,8 @@
                 <xpdExt:SignalData>
                   <xpdExt:OutputScriptDataMapper MapperContext="LocalSignalCatch" MappingDirection="OUT">
                     <xpdExt:DataMappings>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToLocalSignalTarget.DataMapperContent" Direction="IN" Formal="CorrelationField2">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3.attribute3</xpdl2:Actual>
-                      </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field2">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
-                      </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="ProcessManager.DataMapperContent" Direction="IN" Formal="Process_priority$">
-                        <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToLocalSignalTarget.DataMapperContent" Direction="IN" Formal="Field4">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
@@ -249,6 +246,12 @@
 return a;</xpdExt:Expression>
                         </xpdExt:ScriptInformation>
                         <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="ProcessManager.DataMapperContent" Direction="IN" Formal="Process_priority$">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3.attribute3</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToLocalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToLocalSignalTarget.DataMapperContent" Direction="IN" Formal="CorrelationField2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
                       </xpdExt:DataMapping>
                     </xpdExt:DataMappings>
                   </xpdExt:OutputScriptDataMapper>

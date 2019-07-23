@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.sce.tests.validation;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 
@@ -32,6 +34,12 @@ public class AceLocalSignalDataMapperNegativeTest extends AbstractN2BaseValidati
      */
     public void testAceLocalSignalDataMapperNegativeTest() throws Exception {
         doTestValidations();
+        List<ValidationsTestProblemMarkerInfo> allProblemMarkers =
+                getProblemMarkers(getTestFile("BPMLocalSignalProj01.xpdl"));
+
+        for (ValidationsTestProblemMarkerInfo eachProblemMarker : allProblemMarkers) {
+            fail(eachProblemMarker.getProblemText() + "should not exist!");
+        }
         return;
     }
 
@@ -128,7 +136,9 @@ public class AceLocalSignalDataMapperNegativeTest extends AbstractN2BaseValidati
                 new TestResourceInfo("resources/AceLocalSignalDataMapperNegativeTest",
                         "BOMLocalSignalProj01/Business Objects{bom}/BOMLocalSignalProj01.bom"),
                 new TestResourceInfo("resources/AceLocalSignalDataMapperNegativeTest",
-                        "BPMLocalSignalProj01/Process Packages{processes}/BPMLocalSignalProj01.xpdl") };
+                        "BPMLocalSignalProj01/Process Packages{processes}/BPMLocalSignalProj01.xpdl"),
+                new TestResourceInfo("resources/AceLocalSignalDataMapperNegativeTest",
+                        "BPMLocalSignalProj01/Forms{forms}/Untitled.form") };
 
         return testResources;
     }
