@@ -14,7 +14,6 @@ import org.eclipse.uml2.uml.Class;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
-import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
 import com.tibco.xpd.processwidget.adapters.TaskType;
@@ -23,10 +22,7 @@ import com.tibco.xpd.ui.complexdatatype.ComplexDataTypeReference;
 import com.tibco.xpd.xpdExtension.AddLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.CaseAccessOperationsType;
 import com.tibco.xpd.xpdExtension.CaseReferenceOperationsType;
-import com.tibco.xpd.xpdExtension.CompositeIdentifierType;
 import com.tibco.xpd.xpdExtension.CreateCaseOperationType;
-import com.tibco.xpd.xpdExtension.DeleteByCaseIdentifierType;
-import com.tibco.xpd.xpdExtension.DeleteByCompositeIdentifiersType;
 import com.tibco.xpd.xpdExtension.GlobalDataOperation;
 import com.tibco.xpd.xpdExtension.RemoveLinkAssociationsType;
 import com.tibco.xpd.xpdExtension.UpdateCaseOperationType;
@@ -49,26 +45,25 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 public class GlobalDataTaskJavaScriptUtil {
 
-    private static final String CAC_PREFIX = "cac_"; //$NON-NLS-1$
-
     /*
-     * Javascript to update an array case object from an array local data: //
-     * 1:CAC name // 2: Case reference field name // 3: Local data field name
+     * Javascript to update an array case object from an array local data: // 1:
+     * Case reference field name // 2: Local data field name
      */
-    private static final String UPDATE_ARRAY_METHOD =
-            "%1$s.update(%2$s, %3$s);"; //$NON-NLS-1$
+    private static final String UPDATE_ARRAY_METHOD = "bpm.caseData.updateAllByRef(%1$s,%2$s);"; //$NON-NLS-1$
 
     /*
      * Javascript to update a case object from a local data field: // 1: Case
-     * reference field name // 2: Case class name // 3: Local data field name.
+     * reference field name // 2: Local data field name.
      */
-    private static final String UPDATE_METHOD = "%1$s.update%2$s(%3$s);"; //$NON-NLS-1$
+    // private static final String UPDATE_METHOD = "%1$s.update%2$s(%3$s);";
+    // //$NON-NLS-1$
+    private static final String UPDATE_METHOD = "bpm.caseData.updateByRef(%1$s,%2$s);"; //$NON-NLS-1$
 
     /*
-     * Javascript to delete an array case object : // 1:CAC name // 2: Case
-     * reference field name
+     * Javascript to delete an array case object : // 2: Case reference field
+     * name
      */
-    private static final String DELETE_ARRAY_METHOD = "%1$s.deleteRefs(%2$s);"; //$NON-NLS-1$
+    private static final String DELETE_METHOD = "bpm.caseData.deleteByRef(%1$s);"; //$NON-NLS-1$
 
     /*
      * Javascript to delete a case object: // 1: Case reference field name // 2:
@@ -78,50 +73,48 @@ public class GlobalDataTaskJavaScriptUtil {
      */
 
     private static final String DELETE_IN_BIZPROCESS_METHOD =
-            "Process.checkIfSafeToDeleteCase(%1$s);\n%1$s.delete%2$s();"; //$NON-NLS-1$
+            "bpm.process.checkIfSafeToDeleteCase(%1$s);\nbpm.caseData.deleteByRef(%1$s);"; //$NON-NLS-1$
 
     /*
      * XPD-6810: Different delete method for pageflow as cannot do
      * checkIfSafeToDeleteCase() in pageflows etc.
      */
-    private static final String DELETE_IN_PAGEFLOW_METHOD =
-            "%1$s.delete%2$s();"; //$NON-NLS-1$
+    // private static final String DELETE_IN_PAGEFLOW_METHOD =
+    // "%1$s.delete%2$s();"; //$NON-NLS-1$
 
     /*
      * Javascript to link a case object to an associated case : // 1: Case
      * reference field name // 2: association property name // 3: Link case
      * reference field name
      */
-    private static final String LINK_METHOD = "%1$s.link%2$s(%3$s);"; //$NON-NLS-1$
+    private static final String LINK_METHOD = "bpm.caseData.link(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+
+    /*
+     * Javascript to link a case object to an associated case : // 1: Case
+     * reference field name // 2: association property name // 3: Link case
+     * reference field names
+     */
+    private static final String LINK_ARRAY_METHOD = "bpm.caseData.linkAll(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
 
     /*
      * Javascript to unlink a case object from an associated case : // 1: Case
      * reference field name // 2: association property name // 3: Link case
      * reference field name
      */
-    private static final String UNLINK_METHOD = "%1$s.unlink%2$s(%3$s);"; //$NON-NLS-1$
+    private static final String UNLINK_METHOD = "bpm.caseData.unlink(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+
+    /*
+     * Javascript to unlink a case object from an associated case : // 1: Case
+     * reference field name // 2: association property name // 3: Link case
+     * reference field names
+     */
+    private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlink(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
 
     /*
      * Javascript to create a case reference from a local data field: // 1: Case
-     * reference field name // 2: CAC name // 3: Local data field name
+     * reference field name // 2: Case Type name // 3: Local data field name
      */
-    private static final String CREATE_METHOD = "%1$s = %2$s.create(%3$s);"; //$NON-NLS-1$
-
-    /*
-     * Javascript to delete a case objects by case id(s): // 1: Case reference
-     * field name // 1: CAC name // 2: association name //3: Local data field
-     * name
-     */
-    private static final String DELETE_BY_CASEID_METHOD =
-            "%1$s.deleteBy%2$s(%3$s);"; //$NON-NLS-1$
-
-    /*
-     * Javascript to delete a case objects by composite case id(s): // 1: CAC
-     * name // 2: comma-separated param list (data fields providing values for
-     * the case identifiers
-     */
-    private static final String DELETE_BY_COMPOSITECASEID_METHOD =
-            "%1$s.deleteByCompositeIdentifier(%2$s);"; //$NON-NLS-1$
+    private static final String CREATE_METHOD = "%1$s = bpm.caseData.create(%3$s,%2$s);"; //$NON-NLS-1$
 
     /**
      * Get the javascript for the operation defined in the provided global data
@@ -133,37 +126,26 @@ public class GlobalDataTaskJavaScriptUtil {
      */
     public static String getGlobalDataTaskJavaScript(Activity globalDataTask) {
         if (globalDataTask != null) {
-            TaskType taskType =
-                    TaskObjectUtil.getTaskTypeStrict(globalDataTask);
+            TaskType taskType = TaskObjectUtil.getTaskTypeStrict(globalDataTask);
             if (taskType == TaskType.SERVICE_LITERAL) {
-                String extensionId =
-                        TaskObjectUtil
-                                .getTaskImplementationExtensionId(globalDataTask);
+                String extensionId = TaskObjectUtil.getTaskImplementationExtensionId(globalDataTask);
 
-                if (TaskImplementationTypeDefinitions.GLOBAL_DATA
-                        .equals(extensionId)) {
+                if (TaskImplementationTypeDefinitions.GLOBAL_DATA.equals(extensionId)) {
                     Implementation impl = globalDataTask.getImplementation();
                     if (impl instanceof Task) {
-                        GlobalDataOperation op =
-                                (GlobalDataOperation) getExtendedModel(((Task) impl)
-                                        .getTaskService(),
-                                        XpdExtensionPackage.eINSTANCE
-                                                .getDocumentRoot_GlobalDataOperation());
+                        GlobalDataOperation op = (GlobalDataOperation) getExtendedModel(((Task) impl).getTaskService(),
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_GlobalDataOperation());
 
                         if (op != null) {
-                            CaseReferenceOperationsType caseRefOp =
-                                    op.getCaseReferenceOperations();
+                            CaseReferenceOperationsType caseRefOp = op.getCaseReferenceOperations();
 
                             if (caseRefOp != null) {
-                                return getCaseReferenceOperationJavaScript(globalDataTask,
-                                        caseRefOp);
+                                return getCaseReferenceOperationJavaScript(globalDataTask, caseRefOp);
                             } else {
-                                CaseAccessOperationsType accessOperations =
-                                        op.getCaseAccessOperations();
+                                CaseAccessOperationsType accessOperations = op.getCaseAccessOperations();
 
                                 if (accessOperations != null) {
-                                    return getCaseAccessOperationJavascript(globalDataTask,
-                                            accessOperations);
+                                    return getCaseAccessOperationJavascript(globalDataTask, accessOperations);
                                 }
                             }
                         }
@@ -186,8 +168,7 @@ public class GlobalDataTaskJavaScriptUtil {
      * @return Extended model <code>EObject</code> if found, <b>null</b>
      *         otherwise.
      */
-    private static EObject getExtendedModel(TaskService taskService,
-            EReference documentRootRef) {
+    private static EObject getExtendedModel(TaskService taskService, EReference documentRootRef) {
         EObject model = null;
 
         if (taskService != null && documentRootRef != null) {
@@ -195,8 +176,7 @@ public class GlobalDataTaskJavaScriptUtil {
             model = taskService.getOtherElement(documentRootRef.getName());
 
         } else {
-            throw new NullPointerException(
-                    "Parameter to getExtendedModel is null."); //$NON-NLS-1$
+            throw new NullPointerException("Parameter to getExtendedModel is null."); //$NON-NLS-1$
         }
 
         return model;
@@ -208,28 +188,22 @@ public class GlobalDataTaskJavaScriptUtil {
      * @param globalDataTask
      * @param caseRefOp
      */
-    private static String getCaseReferenceOperationJavaScript(
-            Activity globalDataTask, CaseReferenceOperationsType caseRefOp) {
+    private static String getCaseReferenceOperationJavaScript(Activity globalDataTask,
+            CaseReferenceOperationsType caseRefOp) {
         String caseRefFieldName = caseRefOp.getCaseRefField();
 
         if (caseRefFieldName != null) {
-            ProcessRelevantData caseRefField =
-                    findProcessRelevantData(caseRefFieldName, globalDataTask);
+            ProcessRelevantData caseRefField = findProcessRelevantData(caseRefFieldName, globalDataTask);
             Class caseClass = null;
             if (caseRefField != null) {
                 if (caseRefField.getDataType() instanceof RecordType) {
                     ExternalReference ref = null;
-                    EList<Member> member =
-                            ((RecordType) caseRefField.getDataType())
-                                    .getMember();
+                    EList<Member> member = ((RecordType) caseRefField.getDataType()).getMember();
                     if (!member.isEmpty()) {
                         ref = member.get(0).getExternalReference();
                     }
                     if (ref != null) {
-                        caseClass =
-                                getClass(ref,
-                                        WorkingCopyUtil
-                                                .getProjectFor(caseRefField));
+                        caseClass = getClass(ref, WorkingCopyUtil.getProjectFor(caseRefField));
                     }
                 }
             }
@@ -243,20 +217,14 @@ public class GlobalDataTaskJavaScriptUtil {
                     String fromFieldPath = update.getFromFieldPath();
                     if (caseRefField.isIsArray()) {
                         return getScript(UPDATE_ARRAY_METHOD,
-                                computeCACName(caseClass),
                                 caseRefFieldName,
                                 fromFieldPath);
                     } else {
-                        return getScript(UPDATE_METHOD,
-                                caseRefFieldName,
-                                caseClass.getName(),
-                                fromFieldPath);
+                        return getScript(UPDATE_METHOD, caseRefFieldName, fromFieldPath);
                     }
                 } else if (caseRefOp.getDelete() != null) {
                     if (caseRefField.isIsArray()) {
-                        return getScript(DELETE_ARRAY_METHOD,
-                                computeCACName(caseClass),
-                                caseRefFieldName);
+                        return getScript(DELETE_METHOD, caseRefFieldName);
                     } else {
                         /*
                          * Delete operation
@@ -266,33 +234,45 @@ public class GlobalDataTaskJavaScriptUtil {
                          * XPD-6810: Different delete method for pageflow as
                          * cannot do checkIfSafeToDeleteCase() in pageflows etc.
                          */
-                        if (Xpdl2ModelUtil.isBusinessProcess(globalDataTask
-                                .getProcess())) {
-                            return getScript(DELETE_IN_BIZPROCESS_METHOD,
-                                    caseRefFieldName,
-                                    caseClass.getName());
+                        if (Xpdl2ModelUtil.isBusinessProcess(globalDataTask.getProcess())) {
+                            return getScript(DELETE_IN_BIZPROCESS_METHOD, caseRefFieldName);
                         } else {
-                            return getScript(DELETE_IN_PAGEFLOW_METHOD,
-                                    caseRefFieldName,
-                                    caseClass.getName());
+                            return getScript(DELETE_METHOD, caseRefFieldName);
                         }
                     }
                 } else if (caseRefOp.getAddLinkAssociations() != null) {
-                    AddLinkAssociationsType linkAssociations =
-                            caseRefOp.getAddLinkAssociations();
+                    AddLinkAssociationsType linkAssociations = caseRefOp.getAddLinkAssociations();
 
-                    return getScript(LINK_METHOD,
-                            caseRefFieldName,
-                            capitalize(linkAssociations.getAssociationName()),
-                            linkAssociations.getAddCaseRefField());
+                    String addCaseRefField = linkAssociations.getAddCaseRefField();
+                    ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
+
+                    if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
+                        return getScript(LINK_ARRAY_METHOD,
+                                caseRefFieldName,
+                                capitalize(linkAssociations.getAssociationName()),
+                                addCaseRefField);
+                    } else {
+                        return getScript(LINK_METHOD,
+                                caseRefFieldName,
+                                capitalize(linkAssociations.getAssociationName()),
+                                addCaseRefField);
+                    }
                 } else if (caseRefOp.getRemoveLinkAssociations() != null) {
-                    RemoveLinkAssociationsType linkAssociations =
-                            caseRefOp.getRemoveLinkAssociations();
+                    RemoveLinkAssociationsType linkAssociations = caseRefOp.getRemoveLinkAssociations();
+                    String addCaseRefField = linkAssociations.getRemoveCaseRefField();
+                    ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
 
-                    return getScript(UNLINK_METHOD,
-                            caseRefFieldName,
-                            capitalize(linkAssociations.getAssociationName()),
-                            linkAssociations.getRemoveCaseRefField());
+                    if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
+                        return getScript(UNLINK_ARRAY_METHOD,
+                                caseRefFieldName,
+                                capitalize(linkAssociations.getAssociationName()),
+                                linkAssociations.getRemoveCaseRefField());
+                    } else {
+                        return getScript(UNLINK_METHOD,
+                                caseRefFieldName,
+                                capitalize(linkAssociations.getAssociationName()),
+                                linkAssociations.getRemoveCaseRefField());
+                    }
                 }
 
             }
@@ -309,8 +289,7 @@ public class GlobalDataTaskJavaScriptUtil {
      */
     private static String capitalize(String assocName) {
         if (assocName != null && !assocName.isEmpty()) {
-            return Character.toUpperCase(assocName.charAt(0))
-                    + assocName.substring(1);
+            return Character.toUpperCase(assocName.charAt(0)) + assocName.substring(1);
         }
         return null;
     }
@@ -324,11 +303,9 @@ public class GlobalDataTaskJavaScriptUtil {
      */
     private static Class getClass(ExternalReference ref, IProject project) {
         if (ref != null && project != null) {
-            return (Class) ConceptUtil
-                    .getComplexDataTypeClassfier(new ComplexDataTypeReference(
-                            ref.getLocation(), ref.getXref(), ref
-                                    .getNamespace()),
-                            project);
+            return (Class) ConceptUtil.getComplexDataTypeClassfier(
+                    new ComplexDataTypeReference(ref.getLocation(), ref.getXref(), ref.getNamespace()),
+                    project);
         }
         return null;
     }
@@ -340,57 +317,20 @@ public class GlobalDataTaskJavaScriptUtil {
      * @param accessOperations
      * @return
      */
-    private static String getCaseAccessOperationJavascript(
-            Activity globalDataTask, CaseAccessOperationsType accessOperations) {
-        ExternalReference extRef =
-                accessOperations.getCaseClassExternalReference();
+    private static String getCaseAccessOperationJavascript(Activity globalDataTask,
+            CaseAccessOperationsType accessOperations) {
+        ExternalReference extRef = accessOperations.getCaseClassExternalReference();
 
         if (extRef != null) {
-            Class caseClass =
-                    getClass(extRef,
-                            WorkingCopyUtil.getProjectFor(globalDataTask));
+            Class caseClass = getClass(extRef, WorkingCopyUtil.getProjectFor(globalDataTask));
 
             if (caseClass != null) {
                 CreateCaseOperationType create = accessOperations.getCreate();
                 if (create != null) {
                     return getScript(CREATE_METHOD,
                             create.getToCaseRefField(),
-                            computeCACName(caseClass),
+                            caseClass,
                             create.getFromFieldPath());
-                } else if (accessOperations.getDeleteByCaseIdentifier() != null) {
-                    DeleteByCaseIdentifierType deleteByCaseId =
-                            accessOperations.getDeleteByCaseIdentifier();
-
-                    return getScript(DELETE_BY_CASEID_METHOD,
-                            computeCACName(caseClass),
-                            capitalize(deleteByCaseId.getIdentifierName()),
-                            deleteByCaseId.getFieldPath());
-                } else if (accessOperations.getDeleteByCompositeIdentifiers() != null
-                        && accessOperations.getDeleteByCompositeIdentifiers()
-                                .getCompositeIdentifier().size() > 1) {
-                    DeleteByCompositeIdentifiersType deleteType =
-                            accessOperations.getDeleteByCompositeIdentifiers();
-
-                    StringBuffer paramList = new StringBuffer();
-                    EList<CompositeIdentifierType> identifiers =
-                            deleteType.getCompositeIdentifier();
-                    for (int idx = 0; idx < identifiers.size(); idx++) {
-                        if (idx > 0) {
-                            paramList.append(","); //$NON-NLS-1$
-                        }
-
-                        String fieldPath = identifiers.get(idx).getFieldPath();
-                        if (fieldPath == null || fieldPath.isEmpty()) {
-                            // Can't create javascript as data is missing
-                            return null;
-                        }
-
-                        paramList.append(fieldPath);
-                    }
-
-                    return getScript(DELETE_BY_COMPOSITECASEID_METHOD,
-                            computeCACName(caseClass),
-                            paramList.toString());
                 }
             }
         }
@@ -407,32 +347,11 @@ public class GlobalDataTaskJavaScriptUtil {
      */
     private static String getScript(String scriptPattern, Object... params) {
         for (Object param : params) {
-            if (param == null
-                    || (param instanceof String && ((String) param).isEmpty())) {
+            if (param == null || (param instanceof String && ((String) param).isEmpty())) {
                 return null;
             }
         }
         return String.format(scriptPattern, params);
-    }
-
-    /**
-     * COPIED FROM CaseAccessJsClass.java
-     * 
-     * @param caseClass
-     * @return String
-     */
-    private static String computeCACName(Class caseClass) {
-
-        // FIXGlobalData use BDS API to get CAC name
-        if (BOMGlobalDataUtils.isCaseClass(caseClass)) {
-            StringBuffer cacClassName =
-                    new StringBuffer(CAC_PREFIX
-                            + caseClass.getQualifiedName().replace('.', '_')
-                                    .replace("::", "_")); //$NON-NLS-1$ //$NON-NLS-2$
-
-            return cacClassName.toString();
-        }
-        return null;
     }
 
     /**
@@ -443,11 +362,9 @@ public class GlobalDataTaskJavaScriptUtil {
      * @param activity
      * @return
      */
-    private static ProcessRelevantData findProcessRelevantData(String name,
-            Activity activity) {
+    private static ProcessRelevantData findProcessRelevantData(String name, Activity activity) {
         if (name != null) {
-            List<ProcessRelevantData> relevantData =
-                    ProcessDataUtil.getProcessRelevantData(activity);
+            List<ProcessRelevantData> relevantData = ProcessDataUtil.getProcessRelevantData(activity);
             for (ProcessRelevantData data : relevantData) {
                 if (name.equals(data.getName())) {
                     return data;

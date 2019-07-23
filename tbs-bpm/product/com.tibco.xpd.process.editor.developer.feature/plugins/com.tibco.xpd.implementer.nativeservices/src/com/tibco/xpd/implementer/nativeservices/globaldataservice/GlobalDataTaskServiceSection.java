@@ -561,29 +561,6 @@ public class GlobalDataTaskServiceSection extends
         cacOperationPageBook.registerPage(createPage, createPage
                 .createPage(cacOperationPageBook.getContainer(), toolkit));
 
-        /*
-         * CAC Delete case object by Case Identifier controls
-         */
-        CaseAccessDeleteByCaseIdOperationPage delCaseIdPage =
-                new CaseAccessDeleteByCaseIdOperationPage(this);
-        caseAccOperationPages.put(EXT_PACKAGE
-                .getCaseAccessOperationsType_DeleteByCaseIdentifier(),
-                delCaseIdPage);
-        cacOperationPageBook.registerPage(delCaseIdPage, delCaseIdPage
-                .createPage(cacOperationPageBook.getContainer(), toolkit));
-
-        /*
-         * CAC Delete case object by Composite Ids controls
-         */
-        CaseAccessDeleteByCompositeCaseIdOperationPage delCompCaseIdPage =
-                new CaseAccessDeleteByCompositeCaseIdOperationPage(
-                        getEditingDomain(), this);
-        caseAccOperationPages.put(EXT_PACKAGE
-                .getCaseAccessOperationsType_DeleteByCompositeIdentifiers(),
-                delCompCaseIdPage);
-        cacOperationPageBook.registerPage(delCompCaseIdPage, delCompCaseIdPage
-                .createPage(cacOperationPageBook.getContainer(), toolkit));
-
         caseAccessOperations.setInput(caseAccOperationPages.keySet());
 
         /* Size Case picker according to combo box width for nicer sizing. */
