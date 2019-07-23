@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_A3SikK1dEemL6f5sRm58aQ" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProjectMigrationTest_ReceiveTask" targetNamespace="http://www.tibco.com/bs3.0/_A3SikK1dEemL6f5sRm58aQ" tibex:XPDL="ProjectMigrationTest_ReceiveTask.xpdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_A3SikK1dEemL6f5sRm58aQ" targetNamespace="http://www.tibco.com/bs3.0/_A3SikK1dEemL6f5sRm58aQ">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProjectMigrationTest_ReceiveTaskProcess_ReceiveTask_INPUT">
+    <wsdl:part name="Parameter" type="ns:string_50"/>
+  </wsdl:message>
+  <wsdl:portType name="ProjectMigrationTest_ReceiveTaskProcess" tibex:FlowContainer="_A3Sika1dEemL6f5sRm58aQ">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="ReceiveTask">
+      <wsdl:input message="ns:ProjectMigrationTest_ReceiveTaskProcess_ReceiveTask_INPUT" tibex:Event="_Gz1Zga1dEemL6f5sRm58aQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

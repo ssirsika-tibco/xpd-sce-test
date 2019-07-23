@@ -82,6 +82,7 @@ import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.ResultError;
 import com.tibco.xpd.xpdl2.SubFlow;
 import com.tibco.xpd.xpdl2.Task;
+import com.tibco.xpd.xpdl2.TaskReceive;
 import com.tibco.xpd.xpdl2.TriggerResultMessage;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
@@ -578,6 +579,49 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
                 + " but expected 15", //$NON-NLS-1$
                 numChecked == 15);
 
+        /*
+         * Sid ACE-2024 Check that web-service related content has been removed.
+         */
+        IFile receiveTaskXpdl = project.getFile("Process Packages/ProjectMigrationTest_ReceiveTask.xpdl"); //$NON-NLS-1$
+        testWC = WorkingCopyUtil.getWorkingCopy(receiveTaskXpdl);
+        pkg = (Package) testWC.getRootElement();
+        Process process = pkg.getProcess("_A3Sika1dEemL6f5sRm58aQ"); //$NON-NLS-1$
+
+        Activity receiveActivity = process.getActivity("_Gz1Zga1dEemL6f5sRm58aQ"); //$NON-NLS-1$
+
+        assertNull("xpdExt:CorrelationTimeout should have been removed from receivetask xpdl2:Activity", //$NON-NLS-1$
+                Xpdl2ModelUtil.getOtherElement(receiveActivity,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelationTimeout()));
+
+        TaskReceive taskReceive = ((Task) receiveActivity.getImplementation()).getTaskReceive();
+
+        assertEquals("xpdExt:ImplementationType attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
+                "Unspecified", //$NON-NLS-1$
+                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_ImplementationType()));
+
+        assertEquals("Implementation attribute should have been set to 'Unspecified' on xpdl2:TaskReceive.", //$NON-NLS-1$
+                "Unspecified", //$NON-NLS-1$
+                taskReceive.getImplementation().getLiteral());
+
+        assertNull("xpdExt:Generated attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_Generated()));
+
+        assertNull("xpdExt:CorrelateImmediately attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                Xpdl2ModelUtil.getOtherAttribute(taskReceive,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_CorrelateImmediately()));
+
+        assertNull("xpdl2:WebServiceOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                taskReceive.getWebServiceOperation());
+
+        assertNull("xpdExt:PortTypeOperation attribute should have been removed from xpdl2:TaskReceive.", //$NON-NLS-1$
+                Xpdl2ModelUtil.getOtherElement(taskReceive,
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_PortTypeOperation()));
+
+        assertTrue("DataMappings should have been removed from xpdl2:TaskReceive/xpdl2:Message.", //$NON-NLS-1$
+                taskReceive.getMessage() == null || taskReceive.getMessage().getDataMappings().isEmpty());
+
         projectImporter.performDelete();
 
     }
@@ -926,7 +970,7 @@ public class Bpm2CeProjectMigrationTest extends TestCase {
             Package pkg = (Package) wc.getRootElement();
 
             /* Sid ACE-1354 Package version should be removed on migration. */
-            assertTrue("Process package version has been removed.",
+            assertTrue("Process package version has been removed.", //$NON-NLS-1$
                     pkg.getRedefinableHeader() == null
                             || pkg.getRedefinableHeader().getVersion() == null);
 

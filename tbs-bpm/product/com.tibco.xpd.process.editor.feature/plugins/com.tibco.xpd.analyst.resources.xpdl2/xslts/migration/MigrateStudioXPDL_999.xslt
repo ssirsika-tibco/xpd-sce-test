@@ -33,6 +33,8 @@
 		
 		- Remove process package version (we only use project version now).
 		
+		- Remove ReceiveTask web-service configuration
+		
   	    (See XpdlMigrate.java for format version <-> Studio version equivalence).
   	     
 	===================================================================================================================
@@ -149,15 +151,32 @@
 
 	<!--
 	===============================================================================
-	Remove Publish as REST service attributes and the hidden pageflow that supports the service API
+	Remove ReceiveTask web-service configuration 
 	===============================================================================
     -->
-	<xsl:template match="@xpdExt:publishAsRestService">
-		<!-- Do nothing (e.g. do not output attribute)-->
+    <xsl:template match="xpdl2:Activity[xpdl2:Implementation/xpdl2:Task/xpdl2:TaskReceive]/xpdExt:CorrelationTimeout">
+	</xsl:template>
+    
+
+	<xsl:template match="xpdl2:TaskReceive/@xpdExt:ImplementationType">
+		<xsl:attribute name="xpdExt:ImplementationType">Unspecified</xsl:attribute>
+	</xsl:template>
+
+	<xsl:template match="xpdl2:TaskReceive/@Implementation">
+		<xsl:attribute name="Implementation">Unspecified</xsl:attribute>
 	</xsl:template>
 	
-	<xsl:template match="xpdl2:WorkflowProcess/xpdExt:RESTServices">
-		<!-- Do nothing (e.g. do not output the element)-->
+
+	<xsl:template match="xpdl2:TaskReceive/@xpdExt:Generated">
+	</xsl:template>
+
+	<xsl:template match="xpdl2:TaskReceive/@xpdExt:CorrelateImmediately">
+	</xsl:template>
+		
+	<xsl:template match="xpdl2:TaskReceive/xpdl2:WebServiceOperation">
+	</xsl:template>
+ 	
+	<xsl:template match="xpdl2:TaskReceive/xpdExt:PortTypeOperation">
 	</xsl:template>
 	
 	<!--
@@ -251,6 +270,19 @@
     -->
 	<xsl:template match="xpdl2:RedefinableHeader/xpdl2:Version">
 		<!--  Not outputting the version element to target will effectively remove it -->
+	</xsl:template>
+	
+		<!--
+	===============================================================================
+	Remove Publish as REST service attributes and the hidden pageflow that supports the service API
+	===============================================================================
+    -->
+	<xsl:template match="@xpdExt:publishAsRestService">
+		<!-- Do nothing (e.g. do not output attribute)-->
+	</xsl:template>
+	
+	<xsl:template match="xpdl2:WorkflowProcess/xpdExt:RESTServices">
+		<!-- Do nothing (e.g. do not output the element)-->
 	</xsl:template>
 	
 	<!--
