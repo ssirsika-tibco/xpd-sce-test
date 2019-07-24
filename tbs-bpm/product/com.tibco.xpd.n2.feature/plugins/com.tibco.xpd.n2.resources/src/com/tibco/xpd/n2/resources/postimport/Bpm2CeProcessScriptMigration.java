@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -163,11 +162,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          * Note that actual script mappings are always defined in xpdExt:ScriptInformation elements now in DataMappr
          * mapping scenarios (which is all that is supported in ACE).
          */
-        if (Xpdl2Package.eINSTANCE.getDataMapping_Actual().equals(expression.eContainingFeature())) {
-            return true;
-        }
-
-        return false;
+        return (expression == null)
+                || (Xpdl2Package.eINSTANCE.getDataMapping_Actual().equals(expression.eContainingFeature()));
     }
 
     /**
@@ -211,27 +207,14 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new StaticRefReplacement("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new StaticRefReplacement("WorkManagerFactory", "bpm.workManager")); //$NON-NLS-1$ //$NON-NLS-2$
 
-        // for all the in-scope data fields to the old-name->new-name top level identifiers map
         Collection<ProcessRelevantData> inScopeData = getInScopeData(expression);
         if (!inScopeData.isEmpty()) {
+            // for all the in-scope data fields to the old-name->new-name top level identifiers map
             result.add(new TopLevelFieldIdReplacement(inScopeData));
-
-            // check for array fields
-            ArrayAccessorReplacement arrayAccessorRule = null;
-            for (ProcessRelevantData data : inScopeData) {
-                if (data.isSetIsArray()) {
-                    if (arrayAccessorRule == null) {
-                        arrayAccessorRule = new ArrayAccessorReplacement(data.getName());
-                    } else {
-                        arrayAccessorRule.addFieldName(data.getName());
-                    }
-                }
-            }
-
-            if (arrayAccessorRule != null) {
-                result.add(arrayAccessorRule);
-            }
         }
+
+        // add array method refactors
+        result.add(new ArrayAccessorReplacement());
 
         return result;
     }
@@ -634,29 +617,6 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     private static class ArrayAccessorReplacement implements RefactorRule {
         private static final String ACCESSOR = "get"; //$NON-NLS-1$
 
-        private final Collection<String> arrayFieldNames = new HashSet<>();
-
-        /**
-         * Constructs the initial refactor rule to be applied to the named field. Additional field names can be added
-         * using the {@link #addFieldName(String)} method.
-         * 
-         * @param aArrayFieldName
-         *            the field name to be considered for refactoring.
-         */
-        public ArrayAccessorReplacement(String aArrayFieldName) {
-            arrayFieldNames.add(aArrayFieldName);
-        }
-
-        /**
-         * Adds another field name to the collection of names to be considered for refactoring.
-         * 
-         * @param aFieldName
-         *            the additional field name to be considered.
-         */
-        public void addFieldName(String aFieldName) {
-            arrayFieldNames.add(aFieldName);
-        }
-
         /**
          * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
          *      int)
@@ -670,18 +630,17 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 Token nextToken = aParser.LT(aIndex + 1);
 
                 // if the elements are not on the same line - cannot handle line breaks
-                if ((nextToken == null) || (prevToken.getLine() != token.getLine())
-                        || (token.getLine() != nextToken.getLine())) {
+                if ((fieldNameToken == null) || (prevToken == null) || (token == null) || (nextToken == null) //
+                        || (prevToken.getLine() != token.getLine()) || (token.getLine() != nextToken.getLine())) {
                     return false;
                 }
 
                 // compares the current token for one that matches the pattern ".get("
-                // - where the field names matches one of the given names
-                return (prevToken.getType() == JScriptTokenTypes.DOT) //
+                return (fieldNameToken.getType() == JScriptTokenTypes.IDENT)
+                        && (prevToken.getType() == JScriptTokenTypes.DOT) //
                         && (token.getType() == JScriptTokenTypes.IDENT)
                         && (nextToken.getType() == JScriptTokenTypes.LPAREN)
-                        && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()))
-                        && (arrayFieldNames.contains(fieldNameToken.getText()));
+                        && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()));
             }
             return false;
         }
