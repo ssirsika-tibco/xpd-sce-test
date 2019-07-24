@@ -924,7 +924,6 @@ public abstract class AbstractWorkingCopy
     @Override
     public boolean isReadOnly() {
         if (isLoaded()) {
-
             /*
              * If Project is in pre-compilation mode, check whether the file
              * that backs this working copy should be allowed to be changed or
@@ -946,6 +945,14 @@ public abstract class AbstractWorkingCopy
                 project = firstResource.getProject();
             }
             if (null != project) {
+                // Mark as read-only if the project is locked for production.
+                try {
+                    if (project.hasNature(XpdConsts.LOCKED_FOR_PRODUCTION_NATURE)) {
+                        return true;
+                    }
+                } catch (CoreException e) {
+                    XpdResourcesPlugin.getDefault().getLogger().error(e);
+                }
 
                 if (ProjectUtil.isPrecompiledProject(project)) {
 

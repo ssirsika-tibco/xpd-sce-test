@@ -102,4 +102,9 @@ public class XpdConsts {
      */
     public static String XPD_SHARRED_BROWSER_ID = "xpdSharedBrowserId"; //$NON-NLS-1$
 
+    /**
+     * Nature ID used to mark projects as Locked for Production.
+     */
+    public static final String LOCKED_FOR_PRODUCTION_NATURE = "com.tibco.xpd.resources.lockedForProductionNature"; //$NON-NLS-1$
+
 }

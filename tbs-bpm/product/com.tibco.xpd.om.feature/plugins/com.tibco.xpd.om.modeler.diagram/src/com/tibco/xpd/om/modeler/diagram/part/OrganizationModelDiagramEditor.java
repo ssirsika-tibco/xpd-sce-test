@@ -82,6 +82,7 @@ import com.tibco.xpd.om.resources.ui.editor.IGotoObject;
 import com.tibco.xpd.quickfixtooltip.api.QuickFixToolTipEnabledDomainEventDispatcher;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 import com.tibco.xpd.resources.wc.TransactionalWorkingCopy;
 import com.tibco.xpd.resources.wc.gmf.AbstractGMFWorkingCopy;
 import com.tibco.xpd.resources.wc.gmf.WorkingCopyDocumentProvider;
@@ -94,7 +95,7 @@ import com.tibco.xpd.resources.wc.gmf.WorkingCopyDocumentProvider;
  * 
  */
 public class OrganizationModelDiagramEditor extends DiagramDocumentEditor
-        implements ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2 {
+        implements ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2, IRefreshableTitle {
 
     private OMDiagramPartListener listener;
 
@@ -354,7 +355,7 @@ public class OrganizationModelDiagramEditor extends DiagramDocumentEditor
 
             if (wc == null) {
                 wc =
-                        (WorkingCopy) Platform.getAdapterManager()
+                        Platform.getAdapterManager()
                                 .getAdapter(editorInput, WorkingCopy.class);
             }
 
@@ -726,4 +727,14 @@ public class OrganizationModelDiagramEditor extends DiagramDocumentEditor
 
         return DEFAULT;
     }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        setPartName(getDiagram().getName());
+    }
+
 }

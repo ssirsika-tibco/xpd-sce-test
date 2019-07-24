@@ -51,6 +51,7 @@ import com.tibco.xpd.n2.globalsignal.resource.internal.Messages;
 import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 
 /**
  * Form editor to maneuver with global signals and their respective payload
@@ -62,7 +63,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 public class GsdFormEditor extends FormEditor implements
         ITabbedPropertySheetPageContributor, INotifyChangedListener,
         DisposeListener, PropertyChangeListener, IGotoMarker, ISaveablePart2,
-        ISaveablesSource {
+        ISaveablesSource, IRefreshableTitle {
 
     private ActionRegistry actions;
 
@@ -565,5 +566,15 @@ public class GsdFormEditor extends FormEditor implements
             }
         }
         return new Saveable[0];
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        refresh();
+        firePropertyChange(PROP_TITLE);
     }
 }

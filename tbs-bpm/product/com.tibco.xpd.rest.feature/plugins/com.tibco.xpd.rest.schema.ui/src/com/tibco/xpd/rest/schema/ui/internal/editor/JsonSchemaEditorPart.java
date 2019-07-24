@@ -32,7 +32,6 @@ import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.operations.RedoActionHandler;
 import org.eclipse.ui.operations.UndoActionHandler;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -41,6 +40,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 import org.eclipse.uml2.uml.Package;
 
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.ui.SceEditorPart;
 import com.tibco.xpd.resources.ui.editorHandler.IDisplayEObject;
 import com.tibco.xpd.resources.ui.util.MarkerFinder;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
@@ -56,7 +56,8 @@ import com.tibco.xpd.ui.properties.XpdPropertiesFormToolkit;
  * @author nwilson
  * @since 30 Jan 2015
  */
-public class JsonSchemaEditorPart extends EditorPart implements
+public class JsonSchemaEditorPart extends SceEditorPart
+        implements
         PropertyChangeListener, ITabbedPropertySheetPageContributor,
         IGotoMarker, IDisplayEObject {
 
@@ -77,7 +78,6 @@ public class JsonSchemaEditorPart extends EditorPart implements
             throws PartInitException {
         setSite(site);
         setInput(input);
-        setPartName(input.getName());
         if (input instanceof FileEditorInput) {
             FileEditorInput fei = (FileEditorInput) input;
             IFile file = fei.getFile();
@@ -101,6 +101,9 @@ public class JsonSchemaEditorPart extends EditorPart implements
             throw new PartInitException(
                     Messages.JsonSchemaEditorPart_invalidInputType);
         }
+        // Set the part name after the working copy is created so that we get
+        // the right read-only state.
+        setPartName(getTitleText());
         partListener = new PartListener2Adapter() {
             @Override
             public void partDeactivated(IWorkbenchPartReference partRef) {
@@ -312,6 +315,7 @@ public class JsonSchemaEditorPart extends EditorPart implements
     /**
      * @return The working copy.
      */
+    @Override
     public WorkingCopy getWorkingCopy() {
         return wc;
     }

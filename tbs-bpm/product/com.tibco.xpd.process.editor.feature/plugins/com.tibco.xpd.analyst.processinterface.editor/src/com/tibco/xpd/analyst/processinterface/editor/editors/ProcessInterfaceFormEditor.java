@@ -44,6 +44,7 @@ import com.tibco.xpd.processeditor.xpdl2.ProcessEditorConstants;
 import com.tibco.xpd.processeditor.xpdl2.Xpdl2ProcessEditorPlugin;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 import com.tibco.xpd.xpdExtension.ProcessInterface;
 import com.tibco.xpd.xpdl2.FormalParameter;
 import com.tibco.xpd.xpdl2.IntermediateEvent;
@@ -62,7 +63,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 public class ProcessInterfaceFormEditor extends FormEditor implements
         ITabbedPropertySheetPageContributor, INotifyChangedListener,
-        DisposeListener, PropertyChangeListener, IGotoMarker, ISaveablePart2 {
+        DisposeListener, PropertyChangeListener, IGotoMarker, ISaveablePart2, IRefreshableTitle {
 
     public static final String INTERFACEEDITOR_CONTRIBUTOR_ID =
             ProcessInterfaceEditorPlugin.PLUGIN_ID + ".propertyContributor"; //$NON-NLS-1$
@@ -123,12 +124,7 @@ public class ProcessInterfaceFormEditor extends FormEditor implements
          */
         WorkingCopy workingCopy = processInterfaceInput.getWorkingCopy();
 
-        String title = processInterfaceInput.getName();
-        if (workingCopy != null && workingCopy.isReadOnly()) {
-            title += " " + Messages.ProcessInterfaceFormEditor_ReadOnly_label; //$NON-NLS-1$
-        }
-        setPartName(title);
-
+        updateTitle();
         setTitleToolTip(input.getToolTipText());
 
         ItemProviderAdapter ip =
@@ -423,4 +419,34 @@ public class ProcessInterfaceFormEditor extends FormEditor implements
         }
         return false;
     }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        updateTitle();
+        firePropertyChange(PROP_TITLE);
+    }
+
+    /**
+     * Internal method to update the editor title.
+     */
+    private void updateTitle() {
+        ProcessInterfaceEditorInput processInterfaceInput = (ProcessInterfaceEditorInput) getEditorInput();
+
+        /*
+         * XPD-1140: Show correct title to same as editor title (display name
+         * (tokenname) ( + [Read-Only] as appropriate)
+         */
+        WorkingCopy workingCopy = processInterfaceInput.getWorkingCopy();
+
+        String title = processInterfaceInput.getName();
+        if (workingCopy != null && workingCopy.isReadOnly()) {
+            title += " " + Messages.ProcessInterfaceFormEditor_ReadOnly_label; //$NON-NLS-1$
+        }
+        setPartName(title);
+    }
+
 }

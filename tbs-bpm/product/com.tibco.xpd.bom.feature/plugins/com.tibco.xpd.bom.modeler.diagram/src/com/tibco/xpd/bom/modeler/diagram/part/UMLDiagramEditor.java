@@ -145,6 +145,7 @@ import com.tibco.xpd.quickfixtooltip.api.QuickFixToolTipEnabledDomainEventDispat
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 import com.tibco.xpd.resources.util.XpdConsts;
 import com.tibco.xpd.resources.wc.WorkingCopySaveable;
 import com.tibco.xpd.resources.wc.gmf.AbstractGMFWorkingCopy;
@@ -157,7 +158,7 @@ import com.tibco.xpd.resources.wc.gmf.WorkingCopyDocumentProvider;
 //We don't want the generator to overwrite the following line because we are
 //implementing our own custom interface IGoToObject.
 public class UMLDiagramEditor extends DiagramDocumentEditor implements
-        ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2 {
+        ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2, IRefreshableTitle {
 
     /**
      * @see org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor#isStatusLineOn()
@@ -566,7 +567,7 @@ public class UMLDiagramEditor extends DiagramDocumentEditor implements
 
             if (wc == null) {
                 wc =
-                        (WorkingCopy) Platform.getAdapterManager()
+                        Platform.getAdapterManager()
                                 .getAdapter(editorInput, WorkingCopy.class);
             }
 
@@ -1608,5 +1609,14 @@ public class UMLDiagramEditor extends DiagramDocumentEditor implements
         }
 
         return DEFAULT;
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        setPartName(getDiagram().getName());
     }
 }

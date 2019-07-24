@@ -63,6 +63,7 @@ import com.tibco.xpd.resources.XpdProjectResourceFactory;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.projectassets.util.ProjectAssetMigrationManager;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 import com.tibco.xpd.resources.ui.XpdResourcesUIActivator;
 import com.tibco.xpd.resources.ui.util.ShowViewUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
@@ -90,7 +91,7 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  */
 public class PackageEditor extends FormEditor implements IGotoMarker,
         IGotoEObject, PropertyChangeListener, INotifyChangedListener,
-        ISaveablePart2, ITabbedPropertySheetPageContributor, ISaveablesSource {
+        ISaveablePart2, ITabbedPropertySheetPageContributor, ISaveablesSource, IRefreshableTitle {
 
     /**
      * 
@@ -380,18 +381,7 @@ public class PackageEditor extends FormEditor implements IGotoMarker,
          * XPD-1140: Show correct title to same as editor title (display name
          * (tokenname) ( + [Read-Only] as appropriate)
          */
-
-        String title = getEditorInput().getName();
-
-        if (workingCopy != null) {
-            /* Force load else isReadOnly returns false even when it is! */
-            workingCopy.getRootElement();
-            if (workingCopy.isReadOnly()) {
-                title = title + " " + Messages.PackageEditor_ReadOnly_label; //$NON-NLS-1$
-            }
-        }
-
-        setPartName(title);
+        updateTitle();
 
         /*
          * XPD-1140: Package editor was not marking as dirty or updating title
@@ -920,5 +910,32 @@ public class PackageEditor extends FormEditor implements IGotoMarker,
             }
         }
         return new Saveable[0];
+    }
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        updateTitle();
+        firePropertyChange(PROP_TITLE);
+    }
+
+    /**
+     * Internal method to update the editor title.
+     */
+    private void updateTitle() {
+        String title = getEditorInput().getName();
+
+        if (workingCopy != null) {
+            /* Force load else isReadOnly returns false even when it is! */
+            workingCopy.getRootElement();
+            if (workingCopy.isReadOnly()) {
+                title = title + " " + Messages.PackageEditor_ReadOnly_label; //$NON-NLS-1$
+            }
+        }
+
+        setPartName(title);
     }
 }

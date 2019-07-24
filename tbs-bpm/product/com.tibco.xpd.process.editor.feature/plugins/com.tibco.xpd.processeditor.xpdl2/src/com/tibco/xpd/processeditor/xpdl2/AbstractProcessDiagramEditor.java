@@ -62,7 +62,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.internal.part.NullEditorInput;
 import org.eclipse.ui.navigator.CommonNavigator;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -78,6 +77,7 @@ import com.tibco.xpd.processwidget.viewer.BpmnScrollingGraphicalViewer;
 import com.tibco.xpd.processwidget.viewer.NavigationListener;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.SceEditorPart;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.edit.util.IGotoEObject;
 
@@ -86,7 +86,8 @@ import com.tibco.xpd.xpdl2.edit.util.IGotoEObject;
  * 
  * @author wzurek
  */
-public abstract class AbstractProcessDiagramEditor extends EditorPart implements
+public abstract class AbstractProcessDiagramEditor extends SceEditorPart
+        implements
         ITabbedPropertySheetPageContributor, NavigationListener,
         INotifyChangedListener, DisposeListener, PropertyChangeListener,
         IGotoMarker, INavigationLocationProvider, IGotoEObject, ISaveablePart2 {
@@ -170,11 +171,7 @@ public abstract class AbstractProcessDiagramEditor extends EditorPart implements
          */
         WorkingCopy workingCopy = processInput.getWorkingCopy();
 
-        String title = processInput.getName();
-        if (workingCopy != null && workingCopy.isReadOnly()) {
-            title += " " + Messages.PackageEditor_ReadOnly_label; //$NON-NLS-1$ 
-        }
-        setPartName(title);
+        setPartName(getTitleText());
 
         setTitleToolTip(processInput.getToolTipText());
 
@@ -187,6 +184,23 @@ public abstract class AbstractProcessDiagramEditor extends EditorPart implements
 
         workingCopy.addListener(this);
 
+    }
+
+
+    /**
+     * @see com.tibco.xpd.resources.ui.SceEditorPart#getWorkingCopy()
+     *
+     * @return
+     */
+    @Override
+    protected WorkingCopy getWorkingCopy() {
+        WorkingCopy workingCopy = null;
+        IEditorInput input = getEditorInput();
+        if (input instanceof ProcessEditorInput) {
+            ProcessEditorInput pei = (ProcessEditorInput) input;
+            workingCopy = pei.getWorkingCopy();
+        }
+        return workingCopy;
     }
 
     /**
@@ -465,8 +479,8 @@ public abstract class AbstractProcessDiagramEditor extends EditorPart implements
          * service.
          */
         ISelectionService selService =
-                (ISelectionService) this.getSite()
-                        .getService(ISelectionService.class);
+                this.getSite()
+                .getService(ISelectionService.class);
         if (selService != null) {
             highlightReferringEditPartsListener =
                     new ReferenceHighlighterEditPartListener(this);
@@ -835,8 +849,8 @@ public abstract class AbstractProcessDiagramEditor extends EditorPart implements
 
         if (highlightReferringEditPartsListener != null) {
             ISelectionService selService =
-                    (ISelectionService) this.getSite()
-                            .getService(ISelectionService.class);
+                    this.getSite()
+                    .getService(ISelectionService.class);
             if (selService != null) {
                 selService
                         .removePostSelectionListener(highlightReferringEditPartsListener);

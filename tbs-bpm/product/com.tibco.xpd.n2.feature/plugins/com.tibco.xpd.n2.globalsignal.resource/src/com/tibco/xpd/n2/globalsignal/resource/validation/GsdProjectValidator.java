@@ -192,7 +192,7 @@ public class GsdProjectValidator implements WorkspaceResourceValidator {
 
             if (!(GLOBAL_SIGNAL_DEFINITION_HIDDEN_ASSET_ID.equals(eachAssetType
                     .getId()) || GLOBAL_SIGNAL_DEFINITION_ASSET_ID
-                    .equals(eachAssetType.getId()))) {
+                            .equals(eachAssetType.getId()))) {
 
                 /*
                  * Found a non-GSD asset, so return true.
@@ -212,11 +212,13 @@ public class GsdProjectValidator implements WorkspaceResourceValidator {
 
             /*
              * Traverse through all the nature IDs of the project config to see
-             * if we have a nature other than the XPD/GSD nature in it.
+             * if we have a nature other than the XPD/GSD/LockedForProduction
+             * nature in it.
              */
             for (String eachNature : allNatures) {
 
                 if (!(XpdConsts.PROJECT_NATURE_ID.equals(eachNature) || GLOBAL_SIGNAL_DEFINITION_NATURE_ID
+                        .equals(eachNature) || XpdConsts.LOCKED_FOR_PRODUCTION_NATURE
                         .equals(eachNature))) {
 
                     /*

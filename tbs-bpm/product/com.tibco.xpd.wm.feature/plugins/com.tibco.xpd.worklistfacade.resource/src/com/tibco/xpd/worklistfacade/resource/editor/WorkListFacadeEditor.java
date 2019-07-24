@@ -32,9 +32,9 @@ import org.eclipse.ui.Saveable;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.operations.RedoActionHandler;
 import org.eclipse.ui.operations.UndoActionHandler;
-import org.eclipse.ui.part.EditorPart;
 
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.ui.SceEditorPart;
 import com.tibco.xpd.resources.wc.InvalidFileException;
 import com.tibco.xpd.ui.properties.XpdFormToolkit;
 import com.tibco.xpd.ui.properties.XpdWizardToolkit;
@@ -52,7 +52,7 @@ import com.tibco.xpd.worklistfacade.resource.workingcopy.WorkListFacadeWorkingCo
  * 
  * @author aprasad
  */
-public class WorkListFacadeEditor extends EditorPart implements
+public class WorkListFacadeEditor extends SceEditorPart implements
         PropertyChangeListener, ISaveablesSource {
 
     /**
@@ -84,8 +84,6 @@ public class WorkListFacadeEditor extends EditorPart implements
 
             if (WorkListFacadeEditorUtil.isWorkListFacadeFile(editorInput
                     .getFile())) {
-                // Show WorkListFacade file name in Editor title.
-                setPartName(editorInput.getfileName());
                 editorInput.getWorkingCopy().addListener(this);
 
                 /*
@@ -94,6 +92,9 @@ public class WorkListFacadeEditor extends EditorPart implements
                  */
 
                 workingCopy = editorInput.getWorkingCopy();
+
+                // Show WorkListFacade file name in Editor title.
+                setPartName(editorInput.getfileName());
 
                 site.getPage()
                         .addPartListener(new WorkListFacadeEditorListener(
@@ -415,4 +416,13 @@ public class WorkListFacadeEditor extends EditorPart implements
         }
         return new Saveable[0];
     }
+
+    /**
+     * @return The working copy.
+     */
+    @Override
+    public WorkingCopy getWorkingCopy() {
+        return workingCopy;
+    }
+
 }

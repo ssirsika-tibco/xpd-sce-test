@@ -80,6 +80,7 @@ import com.tibco.xpd.om.resources.ui.clipboard.LocalSelectionDropTargetListener;
 import com.tibco.xpd.om.resources.ui.editor.IGotoObject;
 import com.tibco.xpd.quickfixtooltip.api.QuickFixToolTipEnabledDomainEventDispatcher;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.ui.IRefreshableTitle;
 
 //Don't put any generated NOT here! The Class definition line is custom and removing
 //the "generated" and "generated NOT" line ensures that this line is not regenerated
@@ -88,7 +89,7 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
 //We don't want the generator to overwrite the following line because we are
 //extending our own custom class.
 public class OrganizationModelSubDiagramEditor extends DiagramDocumentEditor
-		implements ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2 {
+        implements ISaveablesSource, IGotoMarker, IGotoObject, ISaveablePart2, IRefreshableTitle {
 
 	private OMDiagramUndoContext undoContext;
 
@@ -367,7 +368,8 @@ public class OrganizationModelSubDiagramEditor extends DiagramDocumentEditor
 	public Object getAdapter(Class type) {
 		if (type == IShowInTargetList.class) {
 			return new IShowInTargetList() {
-				public String[] getShowInTargetIds() {
+				@Override
+                public String[] getShowInTargetIds() {
 					return new String[] { ProjectExplorer.VIEW_ID };
 				}
 			};
@@ -779,4 +781,14 @@ public class OrganizationModelSubDiagramEditor extends DiagramDocumentEditor
 
 		return DEFAULT;
 	}
+
+    /**
+     * @see com.tibco.xpd.resources.ui.IRefreshableTitle#refreshTitle()
+     *
+     */
+    @Override
+    public void refreshTitle() {
+        setPartName(getDiagram().getName());
+    }
+
 }

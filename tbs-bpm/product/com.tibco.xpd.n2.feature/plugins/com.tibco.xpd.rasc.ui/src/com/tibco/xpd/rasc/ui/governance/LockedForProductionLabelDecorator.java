@@ -5,6 +5,7 @@
 package com.tibco.xpd.rasc.ui.governance;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.IDecorationContext;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -55,6 +56,18 @@ public class LockedForProductionLabelDecorator extends LabelDecorator {
             } catch (CoreException e) {
                 RascUiActivator.getLogger()
                         .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
+            }
+        } else if (element instanceof IResource) {
+            IProject project = ((IResource) element).getProject();
+            if (project != null) {
+                try {
+                    if (gss.isLockedForProduction(project)) {
+                        return text + " " + Messages.LockedForProductionLabelDecorator_ReadOnlyDecoratorText; //$NON-NLS-1$
+                    }
+                } catch (CoreException e) {
+                    RascUiActivator.getLogger()
+                            .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
+                }
             }
         }
         return text;

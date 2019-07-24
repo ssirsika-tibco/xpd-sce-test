@@ -70,13 +70,13 @@ import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.operations.RedoActionHandler;
 import org.eclipse.ui.operations.UndoActionHandler;
 import org.eclipse.ui.part.EditorActionBarContributor;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.ui.SceEditorPart;
 import com.tibco.xpd.resources.ui.components.actions.CollapseAllAction;
 import com.tibco.xpd.resources.ui.components.actions.ExpandAllAction;
 import com.tibco.xpd.resources.ui.components.actions.ViewerDeleteAction;
@@ -98,7 +98,7 @@ import com.tibco.xpd.ui.properties.XpdWizardToolkit;
  * @author jarciuch
  * @since 20 Feb 2015
  */
-public class RsdEditorPart extends EditorPart implements
+public class RsdEditorPart extends SceEditorPart implements
         PropertyChangeListener, ITabbedPropertySheetPageContributor,
         IMenuListener, IEditingDomainProvider, IGotoMarker, IDisplayEObject,
         IPersistableEditor {
@@ -145,7 +145,6 @@ public class RsdEditorPart extends EditorPart implements
             throws PartInitException {
         setSite(site);
         setInput(input);
-        setPartName(input.getName());
         if (input instanceof FileEditorInput) {
             FileEditorInput fei = (FileEditorInput) input;
             IFile file = fei.getFile();
@@ -169,6 +168,9 @@ public class RsdEditorPart extends EditorPart implements
             throw new PartInitException(
                     String.format("Invalid input type used to open in REST Service Descriptor editor.")); //$NON-NLS-1$
         }
+        // Set the part name after the working copy is created so that we get
+        // the right read-only state.
+        setPartName(input.getName());
     }
 
     /**
@@ -503,6 +505,7 @@ public class RsdEditorPart extends EditorPart implements
     /**
      * @return The working copy.
      */
+    @Override
     public WorkingCopy getWorkingCopy() {
         return wc;
     }
