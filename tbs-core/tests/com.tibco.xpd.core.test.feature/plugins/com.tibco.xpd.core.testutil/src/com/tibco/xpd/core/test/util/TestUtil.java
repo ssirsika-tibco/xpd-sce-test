@@ -1138,6 +1138,7 @@ public class TestUtil {
      * @return <code>true</code> if given resource has given problem marker
      *         raised on it.
      */
+    @SuppressWarnings("nls")
     public static boolean hasErrorProblemMarker(IResource resource, boolean depthInfinite,
             Collection<String> exceptIds) {
         try {
@@ -1162,6 +1163,29 @@ public class TestUtil {
         }
 
         return false;
+    }
+
+    @SuppressWarnings("nls")
+    public static void outputErrorMarkers(IResource resource, boolean depthInfinite) {
+        try {
+            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM,
+                    true,
+                    depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
+
+            if (markers != null) {
+                for (IMarker marker : markers) {
+                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
+                        System.out.println(String.format("%1$s - \"%2$s\"",
+                                marker.getAttribute("issueId"),
+                                marker.getAttribute(IMarker.MESSAGE)));
+                    }
+                }
+
+            }
+
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
     }
 
     private static final String COMPOSITE_SF_KIND = "composite"; //$NON-NLS-1$
