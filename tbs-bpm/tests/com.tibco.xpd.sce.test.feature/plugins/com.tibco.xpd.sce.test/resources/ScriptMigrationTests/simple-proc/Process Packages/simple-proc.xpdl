@@ -71,6 +71,21 @@
             </xpdl2:BasicType>
           </xpdl2:DataType>
         </xpdl2:DataField>
+        <xpdl2:DataField Id="_JWqzIK3gEemcVNGVeavrIQ" xpdExt:DisplayName="textArrayField" Name="textArrayField" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_djpp0K3gEemcVNGVeavrIQ" xpdExt:DisplayName="secondTextArrayField" Name="secondTextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
       </xpdl2:DataFields>
       <xpdl2:Activities>
         <xpdl2:Activity Id="_urQUMmXEEemfO4aFU8QTbw" Name="StartEvent" xpdExt:DisplayName="Start Event">
@@ -98,12 +113,20 @@
             <xpdl2:Task>
               <xpdl2:TaskScript>
                 <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
-// intArrayField.add(1);&#xD;
-// Process.getStartTime().add(dataClassField.durationAttribute);&#xD;
-// dateField.add(dataClassField.durationAttribute);&#xD;
-// dateTimeField.add(dataClassField.durationAttribute);&#xD;
-// timeField.add(dataClassField.durationAttribute);&#xD;
-// dataClassField.arrayAttribute.add(99, 2);&#xD;
+// insert element at pos 99&#xD;
+dataClassField.arrayAttribute.add(99, 2);&#xD;
+&#xD;
+// add element&#xD;
+intArrayField.add(1);&#xD;
+&#xD;
+// add all elements&#xD;
+textArrayField.addAll(secondTextArrayField);&#xD;
+&#xD;
+com_example_simpledata_Factory.createDataClass().arrayAttribute.add(100);&#xD;
+com_example_simpledata_Factory.createDataClass().arrayAttribute.addAll(intArrayField);&#xD;
+&#xD;
+dataClassField.arrayAttribute.add(200);&#xD;
+dataClassField.arrayAttribute.addAll(intArrayField);&#xD;
 &#xD;
 dataClassField = dataClassArrayField.get(2);&#xD;
 var a = dataClassArrayField.get(2 + 2 * 99 % dataClassField.intAttribute / Process.getActivityLoopIndex());&#xD;
@@ -113,6 +136,8 @@ var c = dataClassArrayField.get((Process.getId() == null) ? 19 : 20);&#xD;
 var d = dataClassArrayField.get((com_example_simpledata_Factory.createDataClass().timeAttribute.getHour() &lt; 12) ? 19 : 20);&#xD;
 var e = dataClassArrayField.get(&quot;this.is.a.String.get()&quot;.length);&#xD;
 var f = dataClassArrayField.get(intArrayField.get(0) + intArrayField.get(1));&#xD;
+var g = dataClassArrayField.get(0).arrayAttribute.get(9);&#xD;
+&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>

@@ -215,6 +215,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         // add array method refactors
         result.add(new ArrayAccessorReplacement());
+        result.add(new MethodRefactorRule("add", "push")); //$NON-NLS-1$//$NON-NLS-2$
+        result.add(new MethodRefactorRule("addAll", "pushAll")); //$NON-NLS-1$ //$NON-NLS-2$
 
         return result;
     }
@@ -685,6 +687,57 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             }
 
             return result;
+        }
+    }
+
+    /**
+     * Refactors method names for a given collection of fields.
+     */
+    private static class MethodRefactorRule implements RefactorRule {
+        private final String oldMethod;
+
+        private final String newMethod;
+
+        public MethodRefactorRule(String aOldMethod, String aNewMethod) {
+            oldMethod = aOldMethod;
+            newMethod = aNewMethod;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (aIndex > 2) {
+                // ensure that the token is for the old method name and is preceeded by the field name and a dot
+                Token fieldNameToken = aParser.LT(aIndex - 2);
+                Token prevToken = aParser.LT(aIndex - 1);
+                Token token = aParser.LT(aIndex);
+                Token nextToken = aParser.LT(aIndex + 1);
+
+                if ((fieldNameToken == null) || (fieldNameToken.getType() != JScriptTokenTypes.IDENT)
+                        || (prevToken == null) || (prevToken.getType() != JScriptTokenTypes.DOT) //
+                        || (token == null) || (token.getType() != JScriptTokenTypes.IDENT) //
+                        || (nextToken == null) || (nextToken.getType() != JScriptTokenTypes.LPAREN)) {
+                    return false;
+                }
+
+                return oldMethod.equals(token.getText());
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token token = aParser.LT(aIndex);
+            return Collections.singleton(new ScriptItemReplacementRef(token, newMethod));
         }
     }
 
