@@ -59,16 +59,4 @@ public abstract class AbstractCatchErrorDataMapperSection extends
         /* If in studio for analyst don`t show */
         return CapabilityUtil.isDeveloperActivityEnabled();
     }
-
-    /**
-     * @see com.tibco.xpd.datamapper.api.AbstractSelectableGrammarDataMapperSection#showGrammarSelectionCombo()
-     * 
-     * @return
-     */
-    @Override
-    protected boolean showGrammarSelectionCombo() {
-        /* If in studio for analyst don`t show */
-        return CapabilityUtil.isDeveloperActivityEnabled();
-    }
-
 }

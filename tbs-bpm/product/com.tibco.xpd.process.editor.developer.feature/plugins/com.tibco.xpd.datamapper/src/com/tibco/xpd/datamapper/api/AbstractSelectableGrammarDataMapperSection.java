@@ -37,7 +37,11 @@ public abstract class AbstractSelectableGrammarDataMapperSection extends
      */
     @Override
     protected boolean showGrammarSelectionCombo() {
-        return true;
+        /*
+         * We only support data mapper, sub classes may return 'true' in case
+         * they want the grammar selector to be shown.
+         */
+        return false;
     }
 
 }

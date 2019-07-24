@@ -81,17 +81,4 @@ public class LocalSignalCatchDataMapperSection extends AbstractSelectableGrammar
         /* If in studio for analyst don't show */
         return CapabilityUtil.isDeveloperActivityEnabled();
     }
-
-    /**
-     * @see com.tibco.xpd.datamapper.api.AbstractSelectableGrammarDataMapperSection#showGrammarSelectionCombo()
-     * 
-     * @return
-     */
-    @Override
-    protected boolean showGrammarSelectionCombo() {
-        /*
-         * We only support data mapper.
-         */
-        return false;
-    }
 }
