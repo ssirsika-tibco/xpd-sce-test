@@ -8,14 +8,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -54,22 +56,9 @@ import antlr.TokenStreamException;
 public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
     /**
-     * The AMX BPM BOM factory class suffix (as in
-     * "com_my_bom_Factory.createXXX()"
-     */
-    private static final String BOM_FACTORY_SUFFIX = "_Factory"; //$NON-NLS-1$
-
-    /**
-     * The AMX BPM BOM factory class suffix (as in
-     * "com_my_bom_Factory.createXXX()"
-     */
-    private static final String BOM_CLASS_CREATE_METHOD_PREFIX = "create"; //$NON-NLS-1$
-
-    /**
-     * Store the original FormarVersion of the XPDL we are migrating. We ONLY
-     * want to migrate scripts that have not already been migrated to ACE, the
-     * initial FormatVersion for ACE is 1000 so we will migrate only if
-     * FormatVersion is before the initial ACE one.
+     * Store the original FormarVersion of the XPDL we are migrating. We ONLY want to migrate scripts that have not
+     * already been migrated to ACE, the initial FormatVersion for ACE is 1000 so we will migrate only if FormatVersion
+     * is before the initial ACE one.
      */
     private int originalFormatVersion;
 
@@ -106,11 +95,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         if (originalFormatVersion >= XpdlMigrate.ACE_INITIAL_FORMAT_VERSION) {
             /**
-             * Store the original FormarVersion of the XPDL we are migrating. We
-             * ONLY want to migrate scripts that have not already been migrated
-             * to ACE, the initial FormatVersion for ACE is 1000 so we will NOT
-             * migrate if the XPDL FormatVersion is on or after the initial ACE
-             * one.
+             * Store the original FormarVersion of the XPDL we are migrating. We ONLY want to migrate scripts that have
+             * not already been migrated to ACE, the initial FormatVersion for ACE is 1000 so we will NOT migrate if the
+             * XPDL FormatVersion is on or after the initial ACE one.
              */
             return null;
         }
@@ -120,8 +107,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         CompoundCommand cmd = new CompoundCommand("Migrate JavaScript"); //$NON-NLS-1$
 
-        for (Iterator iterator = pkg.eAllContents(); iterator.hasNext();) {
-            EObject eo = (EObject) iterator.next();
+        for (TreeIterator<EObject> iterator = pkg.eAllContents(); iterator.hasNext();) {
+            EObject eo = iterator.next();
 
             if (eo instanceof Expression) {
                 Expression expression = (Expression) eo;
@@ -170,13 +157,11 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      */
     private boolean ignoreScript(Expression expression) {
         /*
-         * Ignore <xpdl2:DataMapping>/<xpdl2:Actual> as this is an
-         * xpdl2:Expression type BUT is only the source/target mapper tree
-         * content path (and should not be mangled and migrated here).
+         * Ignore <xpdl2:DataMapping>/<xpdl2:Actual> as this is an xpdl2:Expression type BUT is only the source/target
+         * mapper tree content path (and should not be mangled and migrated here).
          * 
-         * Note that actual script mappings are always defined in
-         * xpdExt:ScriptInformation elements now in DataMappr mapping scenarios
-         * (which is all that is supported in ACE).
+         * Note that actual script mappings are always defined in xpdExt:ScriptInformation elements now in DataMappr
+         * mapping scenarios (which is all that is supported in ACE).
          */
         if (Xpdl2Package.eINSTANCE.getDataMapping_Actual().equals(expression.eContainingFeature())) {
             return true;
@@ -198,24 +183,16 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         if (expression != null) {
             String scriptText = expression.getText();
-
             if (scriptText != null && !scriptText.isEmpty()) {
 
-                Map<String, String> topLevelIdentifierMap = new HashMap<String, String>();
+                Collection<RefactorRule> replacementRules = getRefactorRules(expression);
+                if (!replacementRules.isEmpty()) {
+                    // find all replacements
+                    List<ScriptItemReplacementRef> replacements = parseScript(scriptText, replacementRules);
 
-                /* Add all the in-scope data fields as top leel identifiers. */
-                addTopLevelIdentifiersForFields(expression, topLevelIdentifierMap);
-
-                /* Add all the in-scope data fields as top leel identifiers. */
-                addTopLevelIdentifiersForStaticRefs(topLevelIdentifierMap);
-
-                if (!topLevelIdentifierMap.isEmpty()) {
-                    /*
-                     * Swap the references to this field name in the script.
-                     */
-                    newScript = parseAndConvertScript(scriptText, topLevelIdentifierMap);
+                    // apply all replacements
+                    newScript = convertScript(scriptText, replacements);
                 }
-
             }
         }
 
@@ -223,103 +200,93 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     }
 
     /**
-     * Add static classes to the old-name->new-name top level identifiers map.
-     * 
-     * @param topLevelIdentifierMap
-     *            The map to add to.
+     * Build the RefactorRules to be applied to the script. Uses the given Expression to derive the data items, so that
+     * the rules may be data aware.
      */
-    private void addTopLevelIdentifiersForStaticRefs(Map<String, String> topLevelIdentifierMap) {
-        topLevelIdentifierMap.put("Process", "bpm.process"); //$NON-NLS-1$ //$NON-NLS-2$
-        topLevelIdentifierMap.put("WorkManagerFactory", "bpm.workManager"); //$NON-NLS-1$ //$NON-NLS-2$
-    }
+    private Collection<RefactorRule> getRefactorRules(Expression expression) {
+        Collection<RefactorRule> result = new ArrayList<>();
 
-    /**
-     * Add all the in-scope data fields to the old-name->new-name top level
-     * identifiers map
-     * 
-     * @param expression
-     *            The original expression
-     * @param topLevelIdentifierMap
-     *            The map to add to.
-     */
-    private void addTopLevelIdentifiersForFields(Expression expression, Map<String, String> topLevelIdentifierMap) {
-        List<ProcessRelevantData> inScopeData = getInScopeData(expression);
+        // for static classes to the old-name->new-name top level identifiers map.
+        result.add(new BOMFactoryReplacement());
+        result.add(new StaticRefReplacement("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new StaticRefReplacement("WorkManagerFactory", "bpm.workManager")); //$NON-NLS-1$ //$NON-NLS-2$
 
-        if (inScopeData != null) {
-            /*
-             * Build a map of OldProcessFieldName to bpm.OldProcessFieldName.
-             */
+        // for all the in-scope data fields to the old-name->new-name top level identifiers map
+        Collection<ProcessRelevantData> inScopeData = getInScopeData(expression);
+        if (!inScopeData.isEmpty()) {
+            result.add(new TopLevelFieldIdReplacement(inScopeData));
+
+            // check for array fields
+            ArrayAccessorReplacement arrayAccessorRule = null;
             for (ProcessRelevantData data : inScopeData) {
-                String fieldName = data.getName();
-                topLevelIdentifierMap.put(fieldName,
-                        ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + fieldName);
+                if (data.isSetIsArray()) {
+                    if (arrayAccessorRule == null) {
+                        arrayAccessorRule = new ArrayAccessorReplacement(data.getName());
+                    } else {
+                        arrayAccessorRule.addFieldName(data.getName());
+                    }
+                }
+            }
+
+            if (arrayAccessorRule != null) {
+                result.add(arrayAccessorRule);
             }
         }
+
+        return result;
     }
 
     /**
-     * Get all the data in scope of the activity (if it's a script under an
-     * activity) else the process
+     * Get all the data in scope of the activity (if it's a script under an activity) else the process
      * 
      * @param expression
      * @return The data in scope of the given expression.
      */
-    private List<ProcessRelevantData> getInScopeData(Expression expression) {
-        /*  */
-
-        List<ProcessRelevantData> data = Collections.emptyList();
+    private Collection<ProcessRelevantData> getInScopeData(Expression expression) {
 
         /*
-         * If the expression is in a conditional flow, then we need to get the
-         * data available in it's container.
+         * If the expression is in a conditional flow, then we need to get the data available in it's container.
          */
         Transition seqFlowParent = (Transition) Xpdl2ModelUtil.getAncestor(expression, Transition.class);
-
         if (seqFlowParent != null) {
-            data = ProcessInterfaceUtil.getAllAvailableRelevantDataForSequenceFlow(seqFlowParent);
-
-        } else {
-            /*
-             * If the expression is in an activity get all the data available to
-             * it.
-             */
-            Activity activity = Xpdl2ModelUtil.getParentActivity(expression);
-
-            if (activity != null) {
-                data = ProcessInterfaceUtil.getAllAvailableRelevantDataForActivity(activity);
-
-            } else {
-                /* Fall back on all data in process. */
-                Process process = Xpdl2ModelUtil.getProcess(expression);
-
-                if (process != null) {
-                    data = ProcessInterfaceUtil.getAllProcessRelevantData(process);
-                }
-            }
+            return ProcessInterfaceUtil.getAllAvailableRelevantDataForSequenceFlow(seqFlowParent);
         }
-        return data;
+
+        /* If the expression is in an activity get all the data available to it. */
+        Activity activity = Xpdl2ModelUtil.getParentActivity(expression);
+        if (activity != null) {
+            return ProcessInterfaceUtil.getAllAvailableRelevantDataForActivity(activity);
+        }
+
+        /* Fall back on all data in process. */
+        Process process = Xpdl2ModelUtil.getProcess(expression);
+        if (process != null) {
+            return ProcessInterfaceUtil.getAllProcessRelevantData(process);
+        }
+
+        return Collections.emptyList();
     }
 
     /**
-     * Perform the detailed conversion of the script
+     * Parses the given script and creates a collection of ScriptItemReplacementRef. Each ScriptItemReplacementRef is
+     * able to perform a migration of a given part of the script, by replacing the section of the script it identifies
+     * with the migrated value.
      * 
-     * shamelessly ripped out of
-     * {@link ScriptParserUtil#replaceDataRefByName(String, Map)} and modified
-     * as the use case here will grow to be more than just simple name reference
-     * replacement.
+     * Shamelessly ripped out of {@link ScriptParserUtil#replaceDataRefByName(String, Map)} and modified as the use case
+     * here will grow to be more than just simple name reference replacement.
      * 
      * @param strScript
      *            the script
      * @param oldTopLevelIdent2NewNameMap
-     *            Top level identifier (process fields, static classes etc) map
-     *            to new names/path.
+     *            Top level identifier (process fields, static classes etc) map to new names/path.
      * 
-     * @return new script or null if error in token stream.
+     * @return the collection of ScriptItemReplacementRef that describe how the migrations are to be applied to the
+     *         script.
      * 
      */
-    private String parseAndConvertScript(String strScript, Map<String, String> oldTopLevelIdent2NewNameMap) {
+    private List<ScriptItemReplacementRef> parseScript(String strScript, Collection<RefactorRule> aReplacementRules) {
         if (strScript == null || strScript.trim().length() == 0) {
-            return strScript;
+            return Collections.emptyList();
         }
 
         // Make sure we are newline terminated else get exceptions.
@@ -339,80 +306,64 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         JScriptParser scriptParser = new JScriptParser(lexer);
 
-        //
-        // First of all, search for all occurrences of any field in the list to
+        // search for all occurrences of any field in the list to
         // replace - keeping track of the line and column number.
-        List<ScriptItemReplacementRef> references = new ArrayList<ScriptItemReplacementRef>();
+        List<ScriptItemReplacementRef> references = new ArrayList<>();
 
-        Token token = null;
-        Token prevToken = null;
-        int tokenIdx = 1;
-        while (true) {
-            try {
-                //
+        try {
+            int tokenIdx = 1;
+            Token token = scriptParser.LT(tokenIdx);
+            while ((token != null) && (token.getType() != Token.EOF_TYPE)) {
+                // find the first matching rule
+                for (RefactorRule rule : aReplacementRules) {
+                    if (rule.isMatch(scriptParser, tokenIdx)) {
+                        // add the rule's replacements
+                        references.addAll(rule.getReplacements(scriptParser, tokenIdx));
+                        break;
+                    }
+                }
+
                 // Get next token from sript
-                token = scriptParser.LT(tokenIdx);
-                if (token == null || token.getType() == Token.EOF_TYPE) {
-                    // End of script. That's it all done.
-                    break;
-                }
-
-                /*
-                 * Sid ACE-1699 moved to check specific scenario at this level
-                 * so that we can prioritise.
-                 */
-                if (isTopLevelIdentifier(token, prevToken)) {
-                    ScriptItemReplacementRef changedDataRef = null;
-
-                    /* If it looks like a BOM factory class then replace. */
-                    changedDataRef = getBOMFactoryReplacement(token, scriptParser, tokenIdx);
-
-                    if (changedDataRef == null) {
-                        /*
-                         * Ok, not a BOM factory, see if it's a data field /
-                         * static class.
-                         */
-                        changedDataRef = getTopLevelIdentifierReplacement(token, oldTopLevelIdent2NewNameMap);
-                    }
-
-                    if (changedDataRef != null) {
-                        references.add(changedDataRef);
-                    }
-                }
-
-                tokenIdx++;
-                prevToken = token;
-
-            } catch (TokenStreamException e) {
-                // ON exception return original - can't do it too man y problems
-                // for lexer to cope with.
-                return strScript;
+                token = scriptParser.LT(++tokenIdx);
             }
-
+        } catch (TokenStreamException e) {
+            // ON exception return empty replacement list
+            // - can't do it too many problems for lexer to cope with.
+            return Collections.emptyList();
         }
 
-        //
-        // Recreate script (only if there were any references)...
-        if (references.size() == 0) {
-            return strScript;
+        return references;
+    }
+
+    /**
+     * Applies the given collection of ScriptItemReplacementRef to the given script.
+     * 
+     * @param aScript
+     *            the script to be migrated.
+     * @param aReplacements
+     *            the migration replacements to be applied to the script.
+     * @return the migrated script.
+     */
+    private String convertScript(String aScript, List<ScriptItemReplacementRef> aReplacements) {
+        if ((aScript == null) || (aScript.trim().length() == 0) || (aReplacements.isEmpty())) {
+            return aScript;
         }
 
         // Attempt to preserve original line termination
         String lineTermination;
-        if (strScript.contains("\r\n")) { //$NON-NLS-1$
+        if (aScript.contains("\r\n")) { //$NON-NLS-1$
             lineTermination = "\r\n"; //$NON-NLS-1$
-        } else if (strScript.contains("\r")) { //$NON-NLS-1$
+        } else if (aScript.contains("\r")) { //$NON-NLS-1$
             lineTermination = "\r"; //$NON-NLS-1$
         } else {
             lineTermination = "\n"; //$NON-NLS-1$
         }
 
         // Go thru line by line.
-        BufferedReader inputScript = new BufferedReader(new StringReader(strScript));
+        BufferedReader inputScript = new BufferedReader(new StringReader(aScript));
 
-        // Sort references by ascending line number then descending column
-        // number.
-        Collections.sort(references);
+        // Sort references by ascending line number then descending column number.
+        Collections.sort(aReplacements);
 
         // The output script.
         StringBuilder outScript = new StringBuilder();
@@ -422,9 +373,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         // The current reference idx
         int refIdx = 0;
-        int numRefs = references.size();
+        int numRefs = aReplacements.size();
 
-        ScriptItemReplacementRef ref = references.get(refIdx);
+        ScriptItemReplacementRef ref = aReplacements.get(refIdx);
 
         while (refIdx < numRefs) {
             // Wind on thru input script till we get to the given line.
@@ -433,8 +384,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 String line = nextScriptLine(inputScript);
                 inputLineNum++;
 
-                outScript.append(line);
-                outScript.append(lineTermination);
+                outScript.append(line).append(lineTermination);
             }
 
             // The input has caught up with the next line to replace reference
@@ -446,11 +396,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
             StringBuilder lineBuff = new StringBuilder(line);
 
-            //
             // Don't worry! Refs are from last on line to first on line order,
             // so simple iteration is ok.
-            while (ref.line == currRefLine) {
-                int startIdx = ref.col - 1;
+            while (ref.getLine() == currRefLine) {
                 ref.replaceRef(lineBuff);
 
                 // OK, that's this reference replaced, get next.
@@ -459,122 +407,21 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                     break;
                 }
 
-                ref = references.get(refIdx);
+                ref = aReplacements.get(refIdx);
             }
 
             // That's all the refs finished in this line. output and continue.
-            outScript.append(lineBuff);
-            outScript.append(lineTermination);
+            outScript.append(lineBuff).append(lineTermination);
         }
 
         // Output remainder of script.
         String line = nextScriptLine(inputScript);
         while (line != null) {
-            outScript.append(line);
-            outScript.append(lineTermination);
+            outScript.append(line).append(lineTermination);
             line = nextScriptLine(inputScript);
         }
 
         return outScript.toString();
-    }
-
-
-    /**
-     * Get a script text replacement for the given top level identifier token IF
-     * it represents a BOM factory (e.g. "com_my_bom_Factory.createClass1()")
-     * 
-     * @param token
-     * 
-     * @return A text replacement object if the given token appears to be a BOM
-     *         factory (e.g. "com_my_bom_Factory.createClass1()") else
-     *         <code>null</code>
-     */
-    private ScriptItemReplacementRef getBOMFactoryReplacement(Token token, JScriptParser scriptParser, int tokenIndex)
-            throws TokenStreamException {
-        ScriptItemReplacementRef changedDataRef = null;
-
-        /*
-         * The approach we take is fairly basic and based only on the text we
-         * know must appear for factory classes (i.e. that there is a top level
-         * identifier that ends in "_Factory" followed by a a creator function
-         * identifier that starts with "create")
-         * 
-         * We could be more clever and check against a list of available BOM
-         * packages in scope of the script BUT that would be slower and if the
-         * BOM package hadn't been migrated then would cause us problems.
-         */
-
-        String identifierText = token.getText();
-
-        if (identifierText != null && identifierText.endsWith(BOM_FACTORY_SUFFIX)) {
-            Token nextToken = scriptParser.LT(++tokenIndex);
-
-            if (nextToken != null && nextToken.getType() == JScriptTokenTypes.DOT) {
-                nextToken = scriptParser.LT(++tokenIndex);
-
-                if (nextToken != null && nextToken.getType() == JScriptTokenTypes.IDENT && nextToken.getText() != null
-                        && nextToken.getText().startsWith(BOM_CLASS_CREATE_METHOD_PREFIX)) {
-
-                    String newFactoryName =
-                            identifierText.substring(0, identifierText.length() - BOM_FACTORY_SUFFIX.length());
-
-                    String newIdentifierText = ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME
-                            + ConceptPath.CONCEPTPATH_SEPARATOR + newFactoryName;
-
-                    changedDataRef = new ScriptItemReplacementRef(token, newIdentifierText);
-                }
-            }
-        }
-
-        return changedDataRef;
-    }
-
-    /**
-     * Given a top level identifer, check if it is one that is changing
-     * name/path and return a dataref object to allow the name to be extracted
-     * and replaced.
-     * 
-     * @param token
-     * @param oldTopLevelIdent2NewNameMap
-     * 
-     * @return data reference for identifier name replacement OR null if no
-     *         replacement necessary
-     */
-    private ScriptItemReplacementRef getTopLevelIdentifierReplacement(Token token,
-            Map<String, String> oldTopLevelIdent2NewNameMap) {
-        ScriptItemReplacementRef changedDataRef = null;
-
-        // Check if it's in rename map and if so, store the
-        // reference info.
-        String newName = oldTopLevelIdent2NewNameMap.get(token.getText());
-        if (newName != null) {
-            changedDataRef = new ScriptItemReplacementRef(token, newName);
-        }
-
-        return changedDataRef;
-    }
-
-    /**
-     * 
-     * @param token
-     * @param prevToken
-     * @return <code>true</code> if token denotes a top level identifier (such
-     *         as process field, static classes etc)
-     */
-    private boolean isTopLevelIdentifier(Token token, Token prevToken) {
-        // IDENT is either a symbol (data field / formal param) or a
-        // class property/method (such as DateTime.Date)
-        //
-        // We only want to change data fields / params so we will
-        // ensure that previous token is not ".".
-        // This is very crude, but at this point we do not have the
-        // ability to distinguish between them.
-        if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
-            if (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
@@ -584,44 +431,356 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * @return
      */
     private String nextScriptLine(BufferedReader inputScript) {
-        String line = ""; //$NON-NLS-1$
         try {
-            line = inputScript.readLine();
+            return inputScript.readLine();
         } catch (IOException e) {
             e.printStackTrace();
-            line = null;
+            return null;
         }
-
-        return line;
     }
 
     /**
-     * Data class to store individual field/param reference (and be able to sort
-     * into line in ascending order, then column IN REVERSE ORDER!
+     * ReplacementRules define patterns that identify elements of the JavaScript that is to be replaced with new values.
+     * For example; a method may have been refactored with a new name. In which case, a rule would identify uses of the
+     * original method name and create ScriptItemReplacementRefs to replace them.
+     *
+     * @author pwatson
+     * @since 23 Jul 2019
+     */
+    private static interface RefactorRule {
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException;
+
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException;
+    }
+
+    /**
+     * Get a script text replacement for the given top level identifier token IF it represents a BOM factory (e.g.
+     * "com_my_bom_Factory.createClass1()")
+     */
+    private static class BOMFactoryReplacement implements RefactorRule {
+        /**
+         * The AMX BPM BOM factory class suffix (as in "com_my_bom_Factory.createXXX()"
+         */
+        private static final String BOM_FACTORY_SUFFIX = "_Factory"; //$NON-NLS-1$
+
+        /**
+         * The AMX BPM BOM factory class suffix (as in "com_my_bom_Factory.createXXX()"
+         */
+        private static final String BOM_CLASS_CREATE_METHOD_PREFIX = "create"; //$NON-NLS-1$
+
+        /**
+         * The approach we take is fairly basic and based only on the text we know must appear for factory classes (i.e.
+         * that there is a top level identifier that ends in "_Factory" followed by a creator function identifier that
+         * starts with "create")
+         * 
+         * We could be more clever and check against a list of available BOM packages in scope of the script BUT that
+         * would be slower and if the BOM package hadn't been migrated then would cause us problems.
+         * 
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            Token prevToken = (aIndex <= 1) ? null : aParser.LT(aIndex - 1);
+            Token token = aParser.LT(aIndex);
+
+            if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
+                if (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT) {
+                    String identifierText = token.getText();
+
+                    if (identifierText != null && identifierText.endsWith(BOM_FACTORY_SUFFIX)) {
+                        Token nextToken = aParser.LT(++aIndex);
+
+                        if (nextToken != null && nextToken.getType() == JScriptTokenTypes.DOT) {
+                            nextToken = aParser.LT(++aIndex);
+
+                            if (nextToken != null && nextToken.getType() == JScriptTokenTypes.IDENT
+                                    && nextToken.getText() != null
+                                    && nextToken.getText().startsWith(BOM_CLASS_CREATE_METHOD_PREFIX)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token token = aParser.LT(aIndex);
+            String identifierText = token.getText();
+            String newFactoryName = identifierText.substring(0, identifierText.length() - BOM_FACTORY_SUFFIX.length());
+
+            String newIdentifierText =
+                    ReservedWords.BOM_FACTORY_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + newFactoryName;
+
+            return Collections.singleton(new ScriptItemReplacementRef(token, newIdentifierText));
+        }
+    }
+
+    /**
+     * Identifies top-level data field references by name and refactors them with new names.
+     */
+    private static class StaticRefReplacement implements RefactorRule {
+        private final String oldIdent;
+
+        private final String newIdent;
+
+        public StaticRefReplacement(String aIdent, String aReplacement) {
+            oldIdent = aIdent;
+            newIdent = aReplacement;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            Token prevToken = (aIndex <= 1) ? null : aParser.LT(aIndex - 1);
+            Token token = aParser.LT(aIndex);
+
+            if (token != null && token.getType() == JScriptTokenTypes.IDENT) {
+                if (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT) {
+                    // IDENT is either a symbol (data field / formal param) or a class property/method (such as
+                    // DateTime.Date)
+                    //
+                    // We only want to change data fields / params so we will ensure that previous token is not ".".
+                    // This is very crude, but at this point we do not have the ability to distinguish between them.
+
+                    return (token.getType() == JScriptTokenTypes.IDENT) && (oldIdent.equals(token.getText()))
+                            && (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT);
+                }
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token token = aParser.LT(aIndex);
+            return Collections.singleton(new ScriptItemReplacementRef(token, newIdent));
+        }
+    }
+
+    /**
+     * Identifies top-level data field references by name and refactors them by prefixing the data wrapper object.
+     */
+    private static class TopLevelFieldIdReplacement implements RefactorRule {
+        private final Map<String, String> oldIdentMap = new HashMap<>();
+
+        public TopLevelFieldIdReplacement(Collection<ProcessRelevantData> inScopeData) {
+            // for all the in-scope data fields to the old-name->new-name top level identifiers map
+            for (ProcessRelevantData data : inScopeData) {
+                String fieldName = data.getName();
+
+                // rule for OldProcessFieldName to bpm.OldProcessFieldName
+                oldIdentMap.put(fieldName,
+                        ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + fieldName);
+            }
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            Token prevToken = (aIndex <= 1) ? null : aParser.LT(aIndex - 1);
+            Token token = aParser.LT(aIndex);
+
+            // IDENT is either a symbol (data field / formal param) or a class property/method (such as
+            // DateTime.Date)
+            //
+            // We only want to change data fields / params so we will ensure that previous token is not ".".
+            // This is very crude, but at this point we do not have the ability to distinguish between them.
+
+            if ((token != null) && (token.getType() == JScriptTokenTypes.IDENT)
+                    && (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT)) {
+                return oldIdentMap.containsKey(token.getText());
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token token = aParser.LT(aIndex);
+            return Collections.singleton(new ScriptItemReplacementRef(token, oldIdentMap.get(token.getText())));
+        }
+    }
+
+    /**
+     * Identifies uses of the array accessor ".get(int)" and replaces them with the bracketed accessor "[int]".
+     */
+    private static class ArrayAccessorReplacement implements RefactorRule {
+        private static final String ACCESSOR = "get"; //$NON-NLS-1$
+
+        private final Collection<String> arrayFieldNames = new HashSet<>();
+
+        /**
+         * Constructs the initial refactor rule to be applied to the named field. Additional field names can be added
+         * using the {@link #addFieldName(String)} method.
+         * 
+         * @param aArrayFieldName
+         *            the field name to be considered for refactoring.
+         */
+        public ArrayAccessorReplacement(String aArrayFieldName) {
+            arrayFieldNames.add(aArrayFieldName);
+        }
+
+        /**
+         * Adds another field name to the collection of names to be considered for refactoring.
+         * 
+         * @param aFieldName
+         *            the additional field name to be considered.
+         */
+        public void addFieldName(String aFieldName) {
+            arrayFieldNames.add(aFieldName);
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (aIndex > 2) {
+                Token fieldNameToken = aParser.LT(aIndex - 2);
+                Token prevToken = aParser.LT(aIndex - 1);
+                Token token = aParser.LT(aIndex);
+                Token nextToken = aParser.LT(aIndex + 1);
+
+                // if the elements are not on the same line - cannot handle line breaks
+                if ((nextToken == null) || (prevToken.getLine() != token.getLine())
+                        || (token.getLine() != nextToken.getLine())) {
+                    return false;
+                }
+
+                // compares the current token for one that matches the pattern ".get("
+                // - where the field names matches one of the given names
+                return (prevToken.getType() == JScriptTokenTypes.DOT) //
+                        && (token.getType() == JScriptTokenTypes.IDENT)
+                        && (nextToken.getType() == JScriptTokenTypes.LPAREN)
+                        && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()))
+                        && (arrayFieldNames.contains(fieldNameToken.getText()));
+            }
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+
+            // create replacement for accessor method (with leading dot and following parenthesis) with bracket
+            Token prevToken = aParser.LT(aIndex - 1);
+            Token token = aParser.LT(aIndex);
+            Token nextToken = aParser.LT(aIndex + 1);
+
+            // we will be replacing all these tokens
+            int totalLength = prevToken.getText().length() + token.getText().length() + nextToken.getText().length();
+
+            result.add(new ScriptItemReplacementRef(prevToken.getLine(), prevToken.getColumn(), totalLength, "[")); //$NON-NLS-1$
+
+            // find and replace the matching closing parenthesis with a bracket
+            int openCount = 0;
+            while (true) {
+                nextToken = aParser.LT(++aIndex);
+                int nextType = nextToken.getType();
+
+                // we should always hit one - immediately following the accessor
+                if (nextType == JScriptTokenTypes.LPAREN) {
+                    openCount++;
+                }
+
+                else if (nextType == JScriptTokenTypes.RPAREN) {
+                    // are we back to the initial opening bracket
+                    if (--openCount == 0) {
+                        result.add(new ScriptItemReplacementRef(nextToken, "]")); //$NON-NLS-1$
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+    }
+
+    /**
+     * Data class to store individual field/param reference (and be able to sort into line in ascending order, then
+     * column IN REVERSE ORDER!
      * <p>
-     * This helps when doing replacements because we can always guarantee that
-     * we don't shuffle text we're interested in away from it's original offset.
+     * This helps when doing replacements because we can always guarantee that we don't shuffle text we're interested in
+     * away from it's original offset.
      * </p>
      * 
-     * @author aallway - shamelessly ripped out of ScriptParserUtil as the use
-     *         case here will grow to be more thatn just simple name reference
-     *         replacement.
-     * 
+     * @author aallway - shamelessly ripped out of ScriptParserUtil as the use case here will grow to be more than just
+     *         simple name reference replacement.
      */
     private static class ScriptItemReplacementRef implements Comparable<ScriptItemReplacementRef> {
-        int line = 0;
+        private final int line;
 
-        int col = 0;
+        private final int col;
 
-        String oldName;
+        private final int len;
 
-        String newName;
+        private final String newValue;
 
-        public ScriptItemReplacementRef(Token token, String newName) {
-            this.line = token.getLine();
-            this.col = token.getColumn();
-            this.oldName = token.getText();
-            this.newName = newName;
+        /**
+         * Creates a replacement reference with the properties of the given token.
+         * 
+         * @param aToken
+         *            the token that identifies the position and text to be replaced.
+         * @param aNewValue
+         *            the replacement text.
+         */
+        public ScriptItemReplacementRef(Token aToken, String aNewValue) {
+            this.line = aToken.getLine();
+            this.col = aToken.getColumn();
+            this.len = aToken.getText().length();
+            this.newValue = aNewValue;
+        }
+
+        /**
+         * Creates a replacement reference with the given properties.
+         * 
+         * @param aLine
+         *            the line on which the replacement is to begin.
+         * @param aCol
+         *            the column on which the replacement is to begin (this is a 1 based index).
+         * @param aLength
+         *            the length of text to be replaced.
+         * @param aNewValue
+         *            the replacement text.
+         */
+        public ScriptItemReplacementRef(int aLine, int aCol, int aLength, String aNewValue) {
+            this.line = aLine;
+            this.col = aCol;
+            this.len = aLength;
+            this.newValue = aNewValue;
         }
 
         // Sort by line then column.
@@ -636,21 +795,22 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             return ret;
         }
 
+        public int getLine() {
+            return line;
+        }
+
         /**
-         * Replace the text for this script item with the given replacement text
-         * in the given StringBuilder containing the original script.
+         * Replace the text for this script item with the given replacement text in the given StringBuilder containing
+         * the original script.
          * 
-         * NOTE that the caller is expected to call this function <b>IN REVERSE
-         * ORDER</b> for each line (as this object only stores the location of
-         * the reference in the original script).
+         * NOTE that the caller is expected to call this function <b>IN REVERSE ORDER</b> for each line (as this object
+         * only stores the location of the reference in the original script).
          * 
          * @param stringBuilder
          */
         public void replaceRef(StringBuilder stringBuilder) {
             int startIdx = col - 1;
-            stringBuilder.replace(startIdx, startIdx + oldName.length(), newName);
+            stringBuilder.replace(startIdx, startIdx + len, newValue);
         }
-
     }
-
 }

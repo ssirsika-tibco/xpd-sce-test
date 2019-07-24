@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/simpledata" xmlns:tns1="http://example.com/simpledata"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/simpledata">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/simple-data/Business Objects/simpledata.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="DataClass" id="_LjAbEKxwEemo5ojJL23NnA" name="DataClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="intAttribute" id="_OiuUgKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="intAttribute" type="xsd:int"/>
+      <xsd:element ecore:name="textAttribute" id="_WUtqIKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="textAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dateAttribute" id="_WwQ9sKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="dateAttribute" type="xsd:date"/>
+      <xsd:element ecore:name="timeAttribute" id="_cTQFIKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="timeAttribute" type="xsd:time"/>
+      <xsd:element ecore:name="dateTimeAttribute" id="_exsdgKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="dateTimeAttribute" type="xsd:dateTime"/>
+      <xsd:element ecore:name="dateTimeTzttribute" id="_iIsOgKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="dateTimeTzttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime">
+            <xsd:pattern value=".+T.+(Z|[+-].+)"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="durationAttribute" id="_lEqQYKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="durationAttribute" type="xsd:duration"/>
+      <xsd:element ecore:name="boolAttribute" id="_naxzMKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="boolAttribute" type="xsd:boolean"/>
+      <xsd:element ecore:name="uriAattribute" id="_wKv0AKxwEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="uriAattribute" type="xsd:anyURI"/>
+      <xsd:element ecore:name="arrayAttribute" id="_FVukAKxxEemo5ojJL23NnA" maxOccurs="unbounded"
+          minOccurs="0" name="arrayAttribute" type="xsd:int"/>
+      <xsd:element ecore:name="decAttribute" id="_LsSdcKxxEemo5ojJL23NnA" maxOccurs="1"
+          minOccurs="0" name="decAttribute" type="tns1:double_StudioGeneratedTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="DataClassElement" type="DataClass"/>
+</xsd:schema>
