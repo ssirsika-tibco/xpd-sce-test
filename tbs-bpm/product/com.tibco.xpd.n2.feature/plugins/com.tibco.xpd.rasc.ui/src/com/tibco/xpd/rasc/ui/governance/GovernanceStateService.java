@@ -33,6 +33,9 @@ public class GovernanceStateService {
      *             if the state could not be checked.
      */
     boolean isLockedForProduction(IProject project) throws CoreException {
+        if (!project.isAccessible()) {
+            return false;
+        }
         return project.hasNature(XpdConsts.LOCKED_FOR_PRODUCTION_NATURE);
     }
 
