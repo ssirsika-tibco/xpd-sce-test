@@ -26,11 +26,7 @@ import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
-import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
 import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
-import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
-import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
 import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
@@ -99,10 +95,6 @@ public class AllUnitTests {
         suite.addTestSuite(AceBomFactoryValidationsTest.class);
         suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
         suite.addTestSuite(AceNameLengthRestrictionsTest.class);
-        suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
-        suite.addTestSuite(AceIncomingRequestActivityTest.class);
-        suite.addTestSuite(AceLocalSignalDataMapperTest.class);
-        suite.addTestSuite(AceLocalSignalDataMapperNegativeTest.class);
 
         return suite;
     }

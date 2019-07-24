@@ -17,6 +17,9 @@ import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
 import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
+import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
+import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
+import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -65,6 +68,10 @@ public class AllUnitTests2 {
          * Validation Rule Tests
          */
         suite.addTestSuite(AceDuplicatePackageNameTest.class);
+        suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
+        suite.addTestSuite(AceIncomingRequestActivityTest.class);
+        suite.addTestSuite(AceLocalSignalDataMapperTest.class);
+        suite.addTestSuite(AceLocalSignalDataMapperNegativeTest.class);
 
         return suite;
     }
