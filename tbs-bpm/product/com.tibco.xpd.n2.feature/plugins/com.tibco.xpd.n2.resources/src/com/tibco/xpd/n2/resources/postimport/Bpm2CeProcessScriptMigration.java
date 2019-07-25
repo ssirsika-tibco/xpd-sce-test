@@ -27,6 +27,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.n2.resources.BundleActivator;
 import com.tibco.xpd.process.js.parser.util.ScriptParserUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
+import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.script.parser.antlr.JScriptLexer;
@@ -175,24 +176,25 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * @return the new script.
      */
     private String highLevelConvert(Expression expression) {
-        String newScript = null;
-
-        if (expression != null) {
-            String scriptText = expression.getText();
-            if (scriptText != null && !scriptText.isEmpty()) {
-
-                Collection<RefactorRule> replacementRules = getRefactorRules(expression);
-                if (!replacementRules.isEmpty()) {
-                    // find all replacements
-                    List<ScriptItemReplacementRef> replacements = parseScript(scriptText, replacementRules);
-
-                    // apply all replacements
-                    newScript = convertScript(scriptText, replacements);
-                }
-            }
+        if (expression == null) {
+            return null;
         }
 
-        return newScript;
+        String scriptText = expression.getText();
+        if (scriptText == null || scriptText.isEmpty()) {
+            return null;
+        }
+
+        Collection<RefactorRule> replacementRules = getRefactorRules(expression);
+        if (replacementRules.isEmpty()) {
+            return null;
+        }
+
+        // find all replacements
+        List<ScriptItemReplacementRef> replacements = parseScript(scriptText, replacementRules);
+
+        // apply all replacements
+        return convertScript(scriptText, replacements);
     }
 
     /**
@@ -213,10 +215,19 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             result.add(new TopLevelFieldIdReplacement(inScopeData));
         }
 
+        final FieldResolver fieldResolver = new FieldResolver(expression);
+
+        // a method filter to check that the method belongs to an array field
+        MethodFilter arrayFilter = (parser, index) -> {
+            // lookup field identified by current token - 2
+            ConceptPath conceptPath = fieldResolver.resolve(parser, index - 2);
+            return (conceptPath != null) && (conceptPath.isArray());
+        };
+
         // add array method refactors
-        result.add(new ArrayAccessorReplacement());
-        result.add(new MethodRefactorRule("add", "push")); //$NON-NLS-1$//$NON-NLS-2$
         result.add(new MethodRefactorRule("addAll", "pushAll")); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new MethodRefactorRule("add", "push", arrayFilter)); //$NON-NLS-1$//$NON-NLS-2$
+        result.add(new ArrayAccessorReplacement(fieldResolver));
 
         return result;
     }
@@ -269,7 +280,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      *         script.
      * 
      */
-    private List<ScriptItemReplacementRef> parseScript(String strScript, Collection<RefactorRule> aReplacementRules) {
+    private List<ScriptItemReplacementRef> parseScript(String strScript,
+            Collection<RefactorRule> aReplacementRules) {
         if (strScript == null || strScript.trim().length() == 0) {
             return Collections.emptyList();
         }
@@ -619,6 +631,13 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     private static class ArrayAccessorReplacement implements RefactorRule {
         private static final String ACCESSOR = "get"; //$NON-NLS-1$
 
+        // used to look-up fields in order to check data types
+        private final FieldResolver resolver;
+
+        public ArrayAccessorReplacement(FieldResolver aResolver) {
+            resolver = aResolver;
+        }
+
         /**
          * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
          *      int)
@@ -632,18 +651,24 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 Token nextToken = aParser.LT(aIndex + 1);
 
                 // if the elements are not on the same line - cannot handle line breaks
+                // preceeding dot, method name and opening paren must be on same line
                 if ((fieldNameToken == null) || (prevToken == null) || (token == null) || (nextToken == null) //
                         || (prevToken.getLine() != token.getLine()) || (token.getLine() != nextToken.getLine())) {
                     return false;
                 }
 
                 // compares the current token for one that matches the pattern ".get("
-                return (fieldNameToken.getType() == JScriptTokenTypes.IDENT)
+                if ((fieldNameToken.getType() == JScriptTokenTypes.IDENT)
                         && (prevToken.getType() == JScriptTokenTypes.DOT) //
                         && (token.getType() == JScriptTokenTypes.IDENT)
                         && (nextToken.getType() == JScriptTokenTypes.LPAREN)
-                        && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()));
+                        && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()))) {
+                    // check whether the identified field is an array
+                    ConceptPath conceptPath = resolver.resolve(aParser, aIndex - 2);
+                    return (conceptPath != null) && (conceptPath.isArray());
+                }
             }
+
             return false;
         }
 
@@ -691,6 +716,22 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     }
 
     /**
+     * Provides additional filtering to the {@link MethodRefactorRule}.
+     */
+    private static interface MethodFilter {
+        /**
+         * Returns <code>true</code> if the filter accepts the token(s) identified by the parser and index.
+         * 
+         * @param aParser
+         *            the parser from which tokens are traversed.
+         * @param aIndex
+         *            the index of the field name token to be resolved.
+         * @return <code>true</code> if filter accepts the token.
+         */
+        public boolean accept(JScriptParser aParser, int aIndex) throws TokenStreamException;
+    }
+
+    /**
      * Refactors method names for a given collection of fields.
      */
     private static class MethodRefactorRule implements RefactorRule {
@@ -698,9 +739,28 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         private final String newMethod;
 
-        public MethodRefactorRule(String aOldMethod, String aNewMethod) {
+        // optional - to provide additional filtering in the isMatch() method
+        private final MethodFilter methodFilter;
+
+        /**
+         * A constructor that accepts an additional filter, applied during the isMatch() method, to further refine the
+         * identification of the method.
+         * 
+         * @param aOldMethod
+         *            the name of the method to be replaced.
+         * @param aNewMethod
+         *            the name of the new method to replace the old method.
+         * @param aMethodFilter
+         *            an optional filter to further confirm a match on the method.
+         */
+        public MethodRefactorRule(String aOldMethod, String aNewMethod, MethodFilter aMethodFilter) {
             oldMethod = aOldMethod;
             newMethod = aNewMethod;
+            methodFilter = aMethodFilter;
+        }
+
+        public MethodRefactorRule(String aOldMethod, String aNewMethod) {
+            this(aOldMethod, aNewMethod, null);
         }
 
         /**
@@ -723,7 +783,12 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                     return false;
                 }
 
-                return oldMethod.equals(token.getText());
+                if (!oldMethod.equals(token.getText())) {
+                    return false;
+                }
+
+                // if a filter is supplied - as it for confirmation - otherwise it's a match
+                return (methodFilter != null) ? methodFilter.accept(aParser, aIndex) : true;
             }
 
             return false;
@@ -823,6 +888,84 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         public void replaceRef(StringBuilder stringBuilder) {
             int startIdx = col - 1;
             stringBuilder.replace(startIdx, startIdx + len, newValue);
+        }
+    }
+
+    /**
+     * Used to resolve field references during the parsing of the script. For performance, maintains a local cache of
+     * previous field resolution results (positive and negative). Thus, a new FieldResolver will be required for each
+     * script to be parsed.
+     */
+    private static class FieldResolver {
+        // used to record failed lookups
+        private static ConceptPath NULL_PATH = new ConceptPath(null, null);
+
+        // the activity in which the script resides - determines the scope of available fields
+        private final Activity activity;
+
+        // a cache of previous look-ups
+        private final Map<String, ConceptPath> resolved = new HashMap<>();
+
+        public FieldResolver(Expression aExpression) {
+            activity = Xpdl2ModelUtil.getParentActivity(aExpression);
+        }
+
+        /**
+         * Resolve the field referenced by the parser token at the given index.
+         * 
+         * @param aParser
+         *            the parser from which tokens are traversed.
+         * @param aIndex
+         *            the index of the field name token to be resolved.
+         * @return the resolved field reference, or null if not resolved.
+         * @throws TokenStreamException
+         */
+        public ConceptPath resolve(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            // if we couldn't resolve the activity
+            if (activity == null) {
+                return null; // we can't resolve the field
+            }
+
+            StringBuilder pathBuilder = new StringBuilder();
+            Token token = aParser.LT(aIndex);
+            while (token != null) {
+                int tokenType = token.getType();
+
+                // if we back into a method call
+                if (tokenType == JScriptTokenTypes.RPAREN) {
+                    return null; // we can't resolve the field
+                }
+
+                // if it's not a path element or delimiter
+                if ((tokenType != JScriptTokenTypes.DOT) && (tokenType != JScriptTokenTypes.IDENT)) {
+                    break;
+                }
+
+                pathBuilder.insert(0, token.getText());
+                token = aParser.LT(--aIndex);
+            }
+
+            String path = pathBuilder.toString();
+
+            // if no path constructed
+            if (path.isEmpty()) {
+                return null; // we can't resolve the field
+            }
+
+            // look up from local cache first
+            ConceptPath result = resolved.get(path);
+            if (result == null) {
+                // call the util and cache result if found
+                result = ConceptUtil.resolveConceptPath(activity, path, true);
+                if (result == null) {
+                    // record failed look-ups to prevent trying again
+                    result = FieldResolver.NULL_PATH;
+                }
+
+                resolved.put(path, result);
+            }
+
+            return (result == FieldResolver.NULL_PATH) ? null : result;
         }
     }
 }

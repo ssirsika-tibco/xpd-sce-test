@@ -4,8 +4,9 @@
 
 package com.tibco.xpd.sce.tests.importmigration;
 
-import java.util.Collections;
+import java.util.Collection;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
@@ -27,22 +28,23 @@ import junit.framework.TestCase;
 public class ScriptArrayMigrationTests extends TestCase {
 
     // @Test
-    public void testBasicScriptMigrations() {
+    public void testBasicScriptMigrations() throws Exception {
         ProjectImporter projectImporter = importMainTestProjects();
+        try {
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-        /*
-         * Seem to occasionally get a Forms Resource 11.x issue (The project natures, special folders etc do not match
-         * the asset configuration)
-         */
-        TestUtil.outputErrorMarkers(project, true);
-        assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.",
-                TestUtil.hasErrorProblemMarker(project,
-                        true,
-                        Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
-
-        projectImporter.performDelete();
+            // expect "com_example_simpledata_Factory.createDataClass().arrayAttribute.add(100);" to fail due to
+            // function reference
+            assertEquals(1, errorMarkers.size());
+            String message = (String) errorMarkers.iterator().next().getAttribute(IMarker.MESSAGE);
+            assertTrue(message.contains("At Line:11 column:73, Method add is invalid for the current context"));
+        } finally {
+            projectImporter.performDelete();
+        }
     }
 
     /**

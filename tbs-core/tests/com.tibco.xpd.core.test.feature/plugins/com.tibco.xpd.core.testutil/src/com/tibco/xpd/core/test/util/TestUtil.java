@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -1163,6 +1164,40 @@ public class TestUtil {
         }
 
         return false;
+    }
+
+    /**
+     * Returns a collection of all the markers of severity "ERROR".
+     * 
+     * @param resource
+     *            the resource to be searched.
+     * @param depthInfinite
+     *            <code>false</code> if only top-level markers are to be returned.
+     * @param aExceptIds
+     *            the collection of IDs to be ignored in the result.
+     * @return the collection of markers found.
+     * @throws CoreException
+     */
+    @SuppressWarnings("nls")
+    public static Collection<IMarker> getErrorMarkers(IResource resource, boolean depthInfinite, String... aExceptIds)
+            throws CoreException {
+        IMarker[] markers = resource
+                .findMarkers(IMarker.PROBLEM, true, depthInfinite ? IResource.DEPTH_INFINITE : IResource.DEPTH_ZERO);
+
+        if (markers == null) {
+            return Collections.emptyList();
+        }
+
+        HashSet<String> exceptions = new HashSet<>(Arrays.asList(aExceptIds));
+
+        Collection<IMarker> result = new ArrayList<>();
+        for (IMarker marker : markers) {
+            if ((marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR)
+                    && (!exceptions.contains(marker.getAttribute("issueId", "")))) {
+                result.add(marker);
+            }
+        }
+        return result;
     }
 
     @SuppressWarnings("nls")
