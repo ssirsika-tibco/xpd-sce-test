@@ -24,6 +24,8 @@ public class Messages extends NLS {
 
     public static String CatchLocalSignalMapperScriptProvider_SetLocalSignalScriptCommand_label;
 
+    public static String CatchLocalSignalMappingScriptFieldResolver_CatchLocalSignalReferenceContext_label;
+
     public static String CatchGlobalSignalMapperSection_PayloadDataToProcessDataMapper_title;
 
     public static String CatchGlobalSignalMappingCommandFactory_AddSignalMappingCommand_label;

@@ -12,9 +12,9 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.CorrelationDataFolder;
 import com.tibco.xpd.processeditor.xpdl2.properties.IncomingRequestActivityTargetDataProvider;
@@ -46,7 +46,7 @@ public class ProcessCorrelationDataContentContributor extends
      */
     @Override
     public String getContributorId() {
-        return GlobalSignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID;
+        return SignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID;
     }
 
     /**

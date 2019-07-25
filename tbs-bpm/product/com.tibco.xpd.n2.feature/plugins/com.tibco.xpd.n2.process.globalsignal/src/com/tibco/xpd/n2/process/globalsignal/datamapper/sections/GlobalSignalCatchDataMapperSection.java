@@ -5,8 +5,8 @@
 package com.tibco.xpd.n2.process.globalsignal.datamapper.sections;
 
 import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 
 /**
  * Data Mapper section for Global Signal Catch.
@@ -31,7 +31,7 @@ public class GlobalSignalCatchDataMapperSection extends
      */
     @Override
     protected String getDataMapperContext() {
-        return GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_CATCH;
+        return SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH;
     }
 
     /**

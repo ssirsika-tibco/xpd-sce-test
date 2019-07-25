@@ -13,6 +13,7 @@ import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.IFilter;
+
 import com.tibco.xpd.datamapper.infoProviders.ContributableDataMapperInfoProvider;
 import com.tibco.xpd.datamapper.infoProviders.WrappedContributedContent;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
@@ -23,10 +24,10 @@ import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.mapper.Mapping;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalCatchDataMapperFilter;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalScriptDataMapperProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
 import com.tibco.xpd.n2.process.globalsignal.util.GlobalSignalMappingUtil;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
@@ -140,7 +141,7 @@ public class CatchGlobalSignalEventDataMapperMappingRule extends
      */
     @Override
     protected String getDataMapperContext() {
-        return GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_CATCH;
+        return SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH;
     }
 
     /**

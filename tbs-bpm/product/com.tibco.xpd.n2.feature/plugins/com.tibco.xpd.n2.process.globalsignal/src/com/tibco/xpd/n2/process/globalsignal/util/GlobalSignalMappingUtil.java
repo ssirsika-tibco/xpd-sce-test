@@ -16,10 +16,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.mapper.Mapping;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.contentcontributors.ProcessCorrelationDataContentContributor;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
@@ -709,7 +709,7 @@ public final class GlobalSignalMappingUtil {
                         XpdExtensionPackage.eINSTANCE
                                 .getDocumentRoot_TargetContributorId());
 
-        return GlobalSignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID
+        return SignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID
                 .equals(targetAttributeName);
     }
 }

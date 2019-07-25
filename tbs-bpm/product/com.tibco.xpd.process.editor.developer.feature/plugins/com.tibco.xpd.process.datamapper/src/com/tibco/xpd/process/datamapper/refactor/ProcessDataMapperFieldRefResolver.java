@@ -21,6 +21,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.internal.Messages;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.xpdExtension.DataMapperArrayInflation;
 import com.tibco.xpd.xpdExtension.LikeMappingExclusion;
 import com.tibco.xpd.xpdExtension.LikeMappingExclusions;
@@ -424,6 +425,11 @@ public class ProcessDataMapperFieldRefResolver implements
         if (ActivityInterfaceDataMapperContentContributor.ACTIVITY_INTERFACE_CONTRIBUTOR_ID
                 .equals(contributorId)
                 || ProcessDataMapperContentContributor.PROCESS_DATA_CONTRIBUTOR_ID
+                        .equals(contributorId)
+                || SignalDataMapperConstants.LOCAL_SIGNAL_CATCH_SOURCE_CONTRIBUTOR_ID.equals(contributorId)
+                || SignalDataMapperConstants.LOCAL_SIGNAL_CATCH_TARGET_CONTRIBUTOR_ID.equals(contributorId)
+                || SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH_TARGET_CONTRIBUTOR_ID.equals(contributorId)
+                || SignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID
                         .equals(contributorId)) {
             return true;
         }

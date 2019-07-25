@@ -10,12 +10,12 @@ import java.util.List;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.PayloadDataMapperInfoProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadDataMapperContentLabelProvider;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadDataMapperContentProvider;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.CorrelationDataFolder;
 import com.tibco.xpd.xpdl2.Activity;
 
@@ -41,7 +41,7 @@ public class GlobalSignalCorrelationDataContentContributor extends
      */
     @Override
     public String getContributorId() {
-        return GlobalSignalDataMapperConstants.GS_THROW_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID;
+        return SignalDataMapperConstants.GS_THROW_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID;
     }
 
     /**

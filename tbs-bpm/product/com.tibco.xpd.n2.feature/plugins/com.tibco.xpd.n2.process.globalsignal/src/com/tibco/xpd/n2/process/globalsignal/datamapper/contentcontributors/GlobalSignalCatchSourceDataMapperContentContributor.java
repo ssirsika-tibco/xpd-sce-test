@@ -36,7 +36,7 @@ public class GlobalSignalCatchSourceDataMapperContentContributor extends
      */
     @Override
     public String getContributorId() {
-        return "MapToGlobalSignal.DataMapperContent"; //$NON-NLS-1$
+        return "MapFromGlobalSignal.DataMapperContent"; //$NON-NLS-1$
     }
 
     /**

@@ -11,6 +11,7 @@ import com.tibco.xpd.implementer.resources.xpdl2.properties.ParameterLabelProvid
 import com.tibco.xpd.n2.process.globalsignal.mapping.CatchGlobalSignalMapperTargetContentProvider;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 
 /**
  * Target Content contributor for Global Signal Catch.
@@ -35,7 +36,7 @@ public class GlobalSignalCatchTargetDataMapperContentContributor extends
      */
     @Override
     public String getContributorId() {
-        return "MapToGlobalSignalTarget.DataMapperContent"; //$NON-NLS-1$
+        return SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH_TARGET_CONTRIBUTOR_ID; // $NON-NLS-1$
     }
 
     /**

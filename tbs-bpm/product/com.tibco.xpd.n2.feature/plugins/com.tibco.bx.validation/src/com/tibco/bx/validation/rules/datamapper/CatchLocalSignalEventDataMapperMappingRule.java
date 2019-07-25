@@ -12,8 +12,8 @@ import org.eclipse.jface.viewers.IFilter;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalCatchDataMapperFilter;
-import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalScriptDataMapperProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.TaskObjectUtil;
@@ -79,7 +79,7 @@ public class CatchLocalSignalEventDataMapperMappingRule extends AbstractN2DataMa
      */
     @Override
     protected String getDataMapperContext() {
-        return LocalSignalDataMapperConstants.LOCAL_SIGNAL_CATCH;
+        return SignalDataMapperConstants.LOCAL_SIGNAL_CATCH;
     }
 
     /**

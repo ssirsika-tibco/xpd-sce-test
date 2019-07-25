@@ -12,6 +12,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.datamapper.scripts.AbstractScriptDataMapperEditorProvider;
 import com.tibco.xpd.mapper.MappingDirection;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
@@ -40,8 +41,8 @@ public class GlobalSignalScriptDataMapperProvider extends
 
     public GlobalSignalScriptDataMapperProvider(MappingDirection direction) {
         super(
-                MappingDirection.IN.equals(direction) ? GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_THROW
-                        : GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_CATCH,
+                MappingDirection.IN.equals(direction) ? SignalDataMapperConstants.GLOBAL_SIGNAL_THROW
+                        : SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH,
                 MappingDirection.IN.equals(direction) ? DirectionType.IN_LITERAL
                         : DirectionType.OUT_LITERAL);
         this.direction = direction;

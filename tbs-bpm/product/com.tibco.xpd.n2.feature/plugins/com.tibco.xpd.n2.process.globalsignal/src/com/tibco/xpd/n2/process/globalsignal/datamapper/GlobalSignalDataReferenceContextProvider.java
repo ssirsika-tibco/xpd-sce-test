@@ -6,6 +6,7 @@ package com.tibco.xpd.n2.process.globalsignal.datamapper;
 
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
 import com.tibco.xpd.process.datamapper.refactor.IDataReferenceContextProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.xpdl2.resolvers.DataReferenceContext;
 
 /**
@@ -36,11 +37,11 @@ public class GlobalSignalDataReferenceContextProvider implements
     @Override
     public DataReferenceContext getDataReferenceContext(String context,
             ContextSide side) {
-        if (GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_CATCH.equals(context)) {
+        if (SignalDataMapperConstants.GLOBAL_SIGNAL_CATCH.equals(context)) {
 
             return CONTEXT_CATCH_GLOBALSIGNAL;
 
-        } else if (GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_THROW
+        } else if (SignalDataMapperConstants.GLOBAL_SIGNAL_THROW
                 .equals(context)) {
 
             return CONTEXT_THROW_GLOBAL_SIGNAL;

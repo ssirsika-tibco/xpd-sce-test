@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalCatchSourceDataMapperInfoProvider;
 import com.tibco.xpd.process.datamapper.common.AbstractProcessDataMapperContentContributor;
 import com.tibco.xpd.process.datamapper.common.ProcessDataMapperInfoProvider;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 
 /**
  * Content contributor implementation for Local Signal CATCH Data Mapper
@@ -36,7 +37,7 @@ public class LocalSignalCatchSourceDataMapperContentContributor extends Abstract
      */
     @Override
     public String getContributorId() {
-        return "MapToLocalSignal.DataMapperContent"; //$NON-NLS-1$
+        return SignalDataMapperConstants.LOCAL_SIGNAL_CATCH_SOURCE_CONTRIBUTOR_ID;
     }
 
     /**

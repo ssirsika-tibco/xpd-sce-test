@@ -8,9 +8,9 @@ import com.tibco.xpd.datamapper.api.AbstractSelectableGrammarDataMapperSection;
 import com.tibco.xpd.datamapper.scripts.AbstractScriptDataMapperEditorProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
-import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalScriptDataMapperProvider;
 import com.tibco.xpd.n2.process.localsignal.datamapper.LocalSignalScriptProperties;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.script.ui.internal.BaseScriptSection;
 import com.tibco.xpd.ui.util.CapabilityUtil;
 
@@ -37,7 +37,7 @@ public class LocalSignalCatchDataMapperSection extends AbstractSelectableGrammar
      */
     @Override
     protected String getDataMapperContext() {
-        return LocalSignalDataMapperConstants.LOCAL_SIGNAL_CATCH;
+        return SignalDataMapperConstants.LOCAL_SIGNAL_CATCH;
     }
 
     /**

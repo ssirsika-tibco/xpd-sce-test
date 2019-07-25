@@ -11,10 +11,10 @@ import com.tibco.xpd.datamapper.infoProviders.WrappedContributedContent;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.mapper.MappingDirection;
-import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalDataMapperConstants;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalScriptDataMapperProvider;
 import com.tibco.xpd.n2.process.globalsignal.datamapper.GlobalSignalThrowDataMapperFilter;
 import com.tibco.xpd.n2.process.globalsignal.mapping.PayloadConceptPath;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFactory;
@@ -152,6 +152,6 @@ public class ThrowGlobalSignalEventDataMapperMappingRule extends
      */
     @Override
     protected String getDataMapperContext() {
-        return GlobalSignalDataMapperConstants.GLOBAL_SIGNAL_THROW;
+        return SignalDataMapperConstants.GLOBAL_SIGNAL_THROW;
     }
 }
