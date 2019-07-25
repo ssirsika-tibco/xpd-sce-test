@@ -67,16 +67,16 @@
                 <xpdExt:SignalData>
                   <xpdExt:OutputScriptDataMapper MapperContext="GlobalSignalCatch" MappingDirection="OUT">
                     <xpdExt:DataMappings>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field">
                         <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
                         <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData2</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field2">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field2">
                         <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData3</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field3">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="Field3">
                         <xpdl2:Actual ScriptGrammar="JavaScript">PayloadData2</xpdl2:Actual>
                       </xpdExt:DataMapping>
                     </xpdExt:DataMappings>
@@ -99,16 +99,16 @@
                 <xpdExt:SignalData>
                   <xpdExt:InputScriptDataMapper MapperContext="GlobalSignalThrow" MappingDirection="IN">
                     <xpdExt:DataMappings>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData2">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData2">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="PayloadData4">
                         <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData3">
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData3">
                         <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData5">
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="PayloadData5">
                         <xpdExt:ScriptInformation Id="_PMfnkKPbEemEKbvWnYsXsQ" Name="SampleScript">
                           <xpdExt:Expression ScriptGrammar="JavaScript">return &quot;abc&quot;;</xpdExt:Expression>
                         </xpdExt:ScriptInformation>

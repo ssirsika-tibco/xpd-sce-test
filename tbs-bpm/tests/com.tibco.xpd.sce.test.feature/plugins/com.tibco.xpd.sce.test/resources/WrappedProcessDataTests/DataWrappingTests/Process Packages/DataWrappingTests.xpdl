@@ -167,16 +167,16 @@
                     <xpdExt:SignalData>
                       <xpdExt:OutputScriptDataMapper MapperContext="GlobalSignalCatch" MappingDirection="OUT">
                         <xpdExt:DataMappings>
-                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapToGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="MapFromGlobalSignal.DataMapperContent" xpdExt:TargetContributorId="MapFromGlobalSignalCorrelation.DataMapperContent" Direction="IN" Formal="CorrelationField">
                             <xpdl2:Actual ScriptGrammar="JavaScript">TextPayloadData</xpdl2:Actual>
                           </xpdExt:DataMapping>
-                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="TextField">
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="TextField">
                             <xpdExt:ScriptInformation Id="_Hv778KPGEemADNiIlXErTw" Name="Script1" Direction="OUT">
                               <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_ClassPayloadData + SIGNAL_ClassPayloadData.text + SIGNAL_TextPayloadData.concat(&quot;Hey!&quot;);</xpdExt:Expression>
                             </xpdExt:ScriptInformation>
                             <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                           </xpdExt:DataMapping>
-                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="FixedNumberTypeDecl">
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignalTarget.DataMapperContent" Direction="IN" Formal="FixedNumberTypeDecl">
                             <xpdExt:ScriptInformation Id="_ODyfoKPGEemADNiIlXErTw" Name="Script2" Direction="OUT">
                               <xpdExt:Expression ScriptGrammar="JavaScript">return SIGNAL_NumberPayloadData + 1;</xpdExt:Expression>
                             </xpdExt:ScriptInformation>
