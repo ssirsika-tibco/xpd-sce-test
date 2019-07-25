@@ -931,17 +931,22 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             while (token != null) {
                 int tokenType = token.getType();
 
-                // if we back into a method call
+                // if we've backed into a method call
                 if (tokenType == JScriptTokenTypes.RPAREN) {
                     return null; // we can't resolve the field
                 }
 
                 // if it's not a path element or delimiter
                 if ((tokenType != JScriptTokenTypes.DOT) && (tokenType != JScriptTokenTypes.IDENT)) {
-                    break;
+                    break; // stop loop
                 }
 
                 pathBuilder.insert(0, token.getText());
+
+                // are we at the first token
+                if (aIndex <= 1) {
+                    break; // stop loop
+                }
                 token = aParser.LT(--aIndex);
             }
 
