@@ -25,4 +25,4 @@ IF NOT EXIST .\image_template\TIB_business-studio-cloud-bpm-edition_?.?.?_linux*
 )
 
 ECHO Building Docker Image
-docker build -t tibco/sce-studio .\image_template
+docker build -t tibco/sce-studio --build-arg version=5.0 .\image_template

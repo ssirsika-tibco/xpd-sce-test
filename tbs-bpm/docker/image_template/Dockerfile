@@ -4,7 +4,6 @@ LABEL maintainer="TIBCO Software Inc" \
       copyright="(c) TIBCO Software Inc 2004 - 2019. All rights reserved."
 
 # install required software
-# RUN yum -y -q install java-1.8.0-openjdk && \
 RUN yum -y -q install unzip  && \
     groupadd -r studio && useradd -r -m -g studio studio  && \
     mkdir -p /opt/TIBCO/studio-cloud-bpm /tmp/tibco/  && \
@@ -19,8 +18,11 @@ WORKDIR /tmp/tibco
 RUN unzip -q TIB_business-studio-cloud-bpm-edition.zip && \
     ./TIBCOUniversalInstaller-lnx-x86-64.bin -silent -V responseFile="docker-studio.silent"
 
+# the version of the studio build - usage "docker build --build-arg version=5.0"
+ARG version=5.0
+
 # initialize the eclipse configuration - to improve start-up performance
-WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse
+WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse
 RUN ./TIBCOBusinessStudio -initialize -noSplash -clean
 
 # start a fresh image - in order to reduce final size
@@ -38,12 +40,6 @@ RUN yum -y -q install xorg-x11-server-Xvfb.x86_64 && \
     mkdir -p /opt/TIBCO/studio-cloud-bpm  && \
     chown -R studio:studio /opt/TIBCO/studio-cloud-bpm
 
-# copy studio installation from previous image
-COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIBCO/studio-cloud-bpm
-
-# copy the ant script with the generateRasc command
-COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse/
-
 # WORKSPACE_DIR = the folder in which the studio workspace is to be created
 # PROJECTS_DIR  = the folder in which the project to be imported is located
 # EXPORTS_DIR   = the folder in which the generated RASC is to be written
@@ -58,8 +54,17 @@ RUN mkdir -p "$WORKSPACE_DIR" && chown -R studio:studio "$WORKSPACE_DIR" && chmo
 # allow user to supply their own folders (workspace is optional)
 VOLUME $WORKSPACE_DIR $PROJECTS_DIR $EXPORTS_DIR
 
+# copy studio installation from previous image
+COPY --from=installer --chown=studio:studio /opt/TIBCO/studio-cloud-bpm /opt/TIBCO/studio-cloud-bpm
+
+# the version of the studio build - usage "docker build --build-arg version=5.0"
+ARG version=5.0
+
+# copy the ant script with the generateRasc command
+COPY --chown=studio:studio build.xml entrypoint.sh /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse/
+
 USER studio:studio
-WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/5.0/eclipse
+WORKDIR /opt/TIBCO/studio-cloud-bpm/studio/$version/eclipse
 
 # run the ant script
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]
