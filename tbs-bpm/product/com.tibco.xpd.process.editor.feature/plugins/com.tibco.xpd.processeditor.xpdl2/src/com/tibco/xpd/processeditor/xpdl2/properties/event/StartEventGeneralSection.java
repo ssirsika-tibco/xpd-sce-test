@@ -538,7 +538,8 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                         && ProcessDestinationUtil
                                 .isBPMDestinationSelected(activity.getProcess())) {
 
-                    if (isEventSubProcessMessageStartEvent || isEventSubProcessStartRequestEvent) {
+                    if (isEventSubProcessMessageStartEvent || (isEventSubProcessStartRequestEvent
+                            && !Xpdl2ModelUtil.isPageflowOrSubType(activity.getProcess()))) {
 
                         hideUIComposite(concurrentFlowsContainer,
                                 false,

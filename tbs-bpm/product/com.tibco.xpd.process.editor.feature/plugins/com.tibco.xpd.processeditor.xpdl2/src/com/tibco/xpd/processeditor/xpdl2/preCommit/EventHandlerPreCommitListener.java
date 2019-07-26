@@ -120,7 +120,7 @@ public class EventHandlerPreCommitListener extends
                         || EventObjectUtil.isEventSubProcessStartRequestEvent(activity);
 
 
-                if (isEventHandlerActivity) {
+                if (isEventHandlerActivity && !Xpdl2ModelUtil.isPageflowOrSubType(activity.getProcess())) {
                     /*
                      * Make sure message event handler activities have flow
                      * strategy attribute.
