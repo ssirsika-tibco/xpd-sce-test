@@ -10,7 +10,6 @@
   </xpdl2:PackageHeader>
   <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
     <xpdl2:Author>aallway</xpdl2:Author>
-    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
   </xpdl2:RedefinableHeader>
   <xpdl2:TypeDeclarations>
     <xpdl2:TypeDeclaration Id="_xveOoIbrEemzHtQaUrf4NQ" xpdExt:DisplayName="Fixed Point Number Type" Name="FixedPointNumberType">
@@ -257,13 +256,13 @@
                         </xpdExt:ScriptInformation>
                         <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="ClassPayloadData">
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="ClassPayloadData">
                         <xpdExt:ScriptInformation Id="_8zSoMKPFEemADNiIlXErTw" Name="Script2">
                           <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField;</xpdExt:Expression>
                         </xpdExt:ScriptInformation>
                         <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                       </xpdExt:DataMapping>
-                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapFromGlobalSignal.DataMapperContent" Direction="IN" Formal="NumberPayloadData">
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="MapToGlobalSignal.DataMapperContent" Direction="IN" Formal="NumberPayloadData">
                         <xpdExt:ScriptInformation Id="_DIEY8KPGEemADNiIlXErTw" Name="Script3">
                           <xpdExt:Expression ScriptGrammar="JavaScript">return data.ClassField.fixed;</xpdExt:Expression>
                         </xpdExt:ScriptInformation>
@@ -986,17 +985,7 @@ data.DateTimeField;&#xD;
           <xpdl2:Event>
             <xpdl2:IntermediateEvent Target="_DoEfYYYREemzgbDVShI3Yw" Trigger="Signal">
               <xpdl2:TriggerResultSignal xpdExt:NonCancelling="true" CatchThrow="CATCH" Name="Signal1">
-                <xpdExt:SignalData>
-                  <xpdExt:DataMappings>
-                    <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
-                      <xpdExt:ScriptInformation Id="_mm7RAIeoEemmHL5LWHEcVw" Name="Script1" Direction="OUT">
-                        <xpdExt:Expression ScriptGrammar="JavaScript">data.TextField.concat(SIGNAL_PerformerField, &quot;abc&quot;);&#xD;
-</xpdExt:Expression>
-                      </xpdExt:ScriptInformation>
-                      <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
-                    </xpdExt:DataMapping>
-                  </xpdExt:DataMappings>
-                </xpdExt:SignalData>
+                <xpdExt:SignalData/>
                 <xpdl2:Properties/>
               </xpdl2:TriggerResultSignal>
             </xpdl2:IntermediateEvent>
@@ -1370,7 +1359,7 @@ data.DateTimeField;&#xD;
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="23"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="23"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>
