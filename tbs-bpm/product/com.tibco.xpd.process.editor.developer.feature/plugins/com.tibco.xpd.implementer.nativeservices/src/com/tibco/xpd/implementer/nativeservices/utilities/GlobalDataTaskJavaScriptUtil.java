@@ -114,13 +114,13 @@ public class GlobalDataTaskJavaScriptUtil {
      * Javascript to create a case reference from a local data field: // 1: Case
      * reference field name // 2: Case Type name // 3: Local data field name
      */
-    private static final String CREATE_METHOD = "%1$s = bpm.caseData.create(%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String CREATE_METHOD = "%1$s = bpm.caseData.create(%3$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to create case references from local data fields: // 1: Case
      * reference field name // 2: Case Type name // 3: Local data field name
      */
-    private static final String CREATE_ALL_METHOD = "%1$s = bpm.caseData.createAll(%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String CREATE_ALL_METHOD = "%1$s = bpm.caseData.createAll(%3$s,'%2$s');"; //$NON-NLS-1$
 
     /**
      * Get the javascript for the operation defined in the provided global data
