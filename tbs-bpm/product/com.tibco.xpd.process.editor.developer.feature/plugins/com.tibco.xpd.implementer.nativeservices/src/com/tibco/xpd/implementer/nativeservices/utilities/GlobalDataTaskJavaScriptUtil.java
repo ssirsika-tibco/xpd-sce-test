@@ -108,13 +108,19 @@ public class GlobalDataTaskJavaScriptUtil {
      * reference field name // 2: association property name // 3: Link case
      * reference field names
      */
-    private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlink(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlinkAll(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
 
     /*
      * Javascript to create a case reference from a local data field: // 1: Case
      * reference field name // 2: Case Type name // 3: Local data field name
      */
     private static final String CREATE_METHOD = "%1$s = bpm.caseData.create(%3$s,%2$s);"; //$NON-NLS-1$
+
+    /*
+     * Javascript to create case references from local data fields: // 1: Case
+     * reference field name // 2: Case Type name // 3: Local data field name
+     */
+    private static final String CREATE_ALL_METHOD = "%1$s = bpm.caseData.createAll(%3$s,%2$s);"; //$NON-NLS-1$
 
     /**
      * Get the javascript for the operation defined in the provided global data
@@ -216,9 +222,7 @@ public class GlobalDataTaskJavaScriptUtil {
                      */
                     String fromFieldPath = update.getFromFieldPath();
                     if (caseRefField.isIsArray()) {
-                        return getScript(UPDATE_ARRAY_METHOD,
-                                caseRefFieldName,
-                                fromFieldPath);
+                        return getScript(UPDATE_ARRAY_METHOD, caseRefFieldName, fromFieldPath);
                     } else {
                         return getScript(UPDATE_METHOD, caseRefFieldName, fromFieldPath);
                     }
@@ -327,10 +331,20 @@ public class GlobalDataTaskJavaScriptUtil {
             if (caseClass != null) {
                 CreateCaseOperationType create = accessOperations.getCreate();
                 if (create != null) {
-                    return getScript(CREATE_METHOD,
-                            create.getToCaseRefField(),
-                            caseClass,
-                            create.getFromFieldPath());
+                    String caseRefFieldName = create.getToCaseRefField();
+                    ProcessRelevantData caseRefField = findProcessRelevantData(caseRefFieldName, globalDataTask);
+                    String caseClassName = caseClass.getQualifiedName().replace("::", "."); //$NON-NLS-1$//$NON-NLS-2$
+                    if (caseRefField != null && caseRefField.isIsArray()) {
+                        return getScript(CREATE_ALL_METHOD,
+                                caseRefFieldName,
+                                caseClassName,
+                                create.getFromFieldPath());
+                    } else {
+                        return getScript(CREATE_METHOD,
+                                caseRefFieldName,
+                                caseClassName,
+                                create.getFromFieldPath());
+                    }
                 }
             }
         }
