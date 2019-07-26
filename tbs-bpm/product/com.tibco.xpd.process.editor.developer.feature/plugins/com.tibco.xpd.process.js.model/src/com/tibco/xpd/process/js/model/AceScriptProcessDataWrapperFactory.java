@@ -207,9 +207,16 @@ public class AceScriptProcessDataWrapperFactory {
             // Later when we do case data scripting then we will have to
             // consider how we validate that these are what they say they are in
             // the new Static Case Data scripting class methods
-            property.setType(PrimitivesUtil.getStandardPrimitiveTypeByName(
+            property.setType(PrimitivesUtil.getStandardPrimitiveTypeByName( // FIXME
+                                                                            // Need
+                                                                            // to
+                                                                            // get
+                                                                            // from
+                                                                            // CDS
+                                                                            // UML
                     wrapperResourceSet,
-                    PrimitivesUtil.BOM_PRIMITIVE_OBJECT_NAME));
+                    PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME));
+            // JsConsts.CASE_REFERENCE));
 
         } else if (baseType instanceof BasicType) {
             /* Handle simple types first. */
