@@ -188,12 +188,13 @@ public class EventTriggerTypeIntermediateRequestSection extends AbstractFiltered
 
         if (activity != null && activity.getEvent() instanceof IntermediateEvent) {
 
-            boolean isEventHandler = Xpdl2ModelUtil.isEventHandlerActivity(activity);
+            boolean showEventHandlerOptions = Xpdl2ModelUtil.isEventHandlerActivity(activity)
+                    && !Xpdl2ModelUtil.isPageflowOrSubType(activity.getProcess());
 
             hideUIgroup(eventHandlerGroup,
-                    !isEventHandler || !ProcessDestinationUtil.isBPMDestinationSelected(activity.getProcess()));
+                    !showEventHandlerOptions || !ProcessDestinationUtil.isBPMDestinationSelected(activity.getProcess()));
 
-            if (isEventHandler) {
+            if (showEventHandlerOptions) {
 
                 EventHandlerFlowStrategy flowStrategy =
                         (EventHandlerFlowStrategy) Xpdl2ModelUtil.getOtherAttribute(activity.getEvent(),
