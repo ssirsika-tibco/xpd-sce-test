@@ -148,7 +148,7 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
         EventTriggerTypeSection tt =
                 new EventTriggerTypeSection(
                         EventTriggerType.EVENT_NONE_LITERAL, null,
-                        Messages.TriggerResultType_None);
+                        Messages.TriggerResultType_StartNone);
         trigTypeSections.add(tt);
 
         tt =
@@ -394,8 +394,25 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                 Object triggerNode =
                         startEventAct.getEvent().getEventTriggerTypeNode();
 
+                boolean isEventSubProcessStartRequestEvent =
+                        EventObjectUtil.isEventSubProcessStartRequestEvent(startEventAct);
+
                 if (triggerNode instanceof TriggerResultMessage
-                        || triggerNode instanceof TriggerResultSignal) {
+                        || triggerNode instanceof TriggerResultSignal || isEventSubProcessStartRequestEvent) {
+
+                    /*
+                     * Sid ACE-2019 if this is a start request activity then
+                     * then the concurrency flag goes on the <xpdl2:StartEvent>
+                     * element. Otherwise for message/signal it goes on the
+                     * specific trigger type node.
+                     */
+                    Object attrParent;
+
+                    if (isEventSubProcessStartRequestEvent) {
+                        attrParent = startEventAct.getEvent();
+                    } else {
+                        attrParent = triggerNode;
+                    }
 
                     /*
                      * Get command to set xpdExt:EventHandlerFlowStrategy
@@ -407,7 +424,7 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
 
                         cmd.append(Xpdl2ModelUtil
                                 .getSetOtherAttributeCommand(ed,
-                                        (OtherAttributesContainer) triggerNode,
+                                        (OtherAttributesContainer) attrParent,
                                         XpdExtensionPackage.eINSTANCE
                                                 .getDocumentRoot_EventHandlerFlowStrategy(),
                                         EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
@@ -418,7 +435,7 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
 
                         cmd.append(Xpdl2ModelUtil
                                 .getSetOtherAttributeCommand(ed,
-                                        (OtherAttributesContainer) triggerNode,
+                                        (OtherAttributesContainer) attrParent,
                                         XpdExtensionPackage.eINSTANCE
                                                 .getDocumentRoot_EventHandlerFlowStrategy(),
                                         EventHandlerFlowStrategy.ALLOW_CONCURRENT));
@@ -497,22 +514,31 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                 /*
                  * Set back to visible if it's an event subprocess start event.
                  */
-
                 hideAdditionalControlsSection(false);
+
                 /*
                  * Show/hide concurrentFlowsContainer and initialisersContainer
                  * according to the event subprocess start event being an
                  * message event or not AND whether the parent process has BPM
                  * destination enabled or not.
                  */
+
+                /*
+                 * Sid ACE-2019 show serialise/allow concurrent flows for Start
+                 * Request Events also
+                 */
+                boolean isEventSubProcessStartRequestEvent =
+                        EventObjectUtil.isEventSubProcessStartRequestEvent(activity);
+
                 boolean isEventSubProcessMessageStartEvent =
                         EventObjectUtil
                                 .isEventSubProcessMessageStartEvent(activity);
-                if ((isEventSubProcessMessageStartEvent || isEventSubProcessEventHandlerControlsApplicabale)
+                if ((isEventSubProcessMessageStartEvent || isEventSubProcessEventHandlerControlsApplicabale
+                        || isEventSubProcessStartRequestEvent)
                         && ProcessDestinationUtil
                                 .isBPMDestinationSelected(activity.getProcess())) {
 
-                    if (isEventSubProcessMessageStartEvent) {
+                    if (isEventSubProcessMessageStartEvent || isEventSubProcessStartRequestEvent) {
 
                         hideUIComposite(concurrentFlowsContainer,
                                 false,
@@ -529,9 +555,14 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                             serializeConcurrentFlows.setEnabled(true);
                         }
 
-                        hideUIComposite(initialisersContainer,
+                        if (isEventSubProcessMessageStartEvent) {
+                            hideUIComposite(initialisersContainer,
                                 false,
                                 GridData.FILL_HORIZONTAL);
+                        } else {
+                            hideUIComposite(initialisersContainer, true, GridData.FILL_HORIZONTAL);
+                        }
+
                     } else {
                         if (isFlowControlsApplicable) {
 
@@ -591,21 +622,11 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                 /*
                  * Handle interruption radio controls.
                  */
-                if (Xpdl2ModelUtil.getOtherAttributeAsBoolean(activity
+                boolean nonInterruptingEvent = Xpdl2ModelUtil.getOtherAttributeAsBoolean(activity
                         .getEvent(), XpdExtensionPackage.eINSTANCE
-                        .getDocumentRoot_NonInterruptingEvent())) {
-
-                    continueProcessFlowBut.setSelection(true);
-                    interruptProcessFlowBut.setSelection(false);
-
-                } else if (!Xpdl2ModelUtil.getOtherAttributeAsBoolean(activity
-                        .getEvent(), XpdExtensionPackage.eINSTANCE
-                        .getDocumentRoot_NonInterruptingEvent())) {
-
-                    continueProcessFlowBut.setSelection(false);
-                    interruptProcessFlowBut.setSelection(true);
-
-                }
+                        .getDocumentRoot_NonInterruptingEvent());
+                continueProcessFlowBut.setSelection(nonInterruptingEvent);
+                interruptProcessFlowBut.setSelection(!nonInterruptingEvent);
 
                 /*
                  * Handle serialize/concurrent controls and initialiser
@@ -622,11 +643,27 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                      * signals.
                      */
                     if (eventTriggerTypeNode instanceof TriggerResultMessage
-                            || eventTriggerTypeNode instanceof TriggerResultSignal) {
+                            || eventTriggerTypeNode instanceof TriggerResultSignal
+                            || isEventSubProcessStartRequestEvent) {
+
+                        /*
+                         * Sid ACE-2019 if this is a start request activity then
+                         * then the concurrency flag goes on the
+                         * <xpdl2:StartEvent> element. Otherwise for
+                         * message/signal it goes on the specific trigger type
+                         * node.
+                         */
+                        Object attrParent;
+
+                        if (isEventSubProcessStartRequestEvent) {
+                            attrParent = activity.getEvent();
+                        } else {
+                            attrParent = eventTriggerTypeNode;
+                        }
 
                         EventHandlerFlowStrategy flowStrategy =
                                 (EventHandlerFlowStrategy) Xpdl2ModelUtil
-                                        .getOtherAttribute((OtherAttributesContainer) eventTriggerTypeNode,
+                                        .getOtherAttribute((OtherAttributesContainer) attrParent,
                                                 XpdExtensionPackage.eINSTANCE
                                                         .getDocumentRoot_EventHandlerFlowStrategy());
 
@@ -645,24 +682,26 @@ public class StartEventGeneralSection extends BaseEventGeneralSection {
                             allowConcurrentFlows.setSelection(false);
                         }
 
-                        // Get current initialiser activities
-                        List<Activity> currentInitialisingActivities =
-                                Collections.<Activity> emptyList();
+                        /*
+                         * Initializers don't apply to Start Request events as
+                         * they're related to business data correlation - start
+                         * request events are correlated on process-id.
+                         */
+                        if (!isEventSubProcessStartRequestEvent) {
+                            // Get current initialiser activities
+                            List<Activity> currentInitialisingActivities = Collections.<Activity> emptyList();
 
-                        EventHandlerInitialisers evtHdlInitialisers =
-                                (EventHandlerInitialisers) Xpdl2ModelUtil
-                                        .getOtherElement((OtherElementsContainer) eventTriggerTypeNode,
-                                                XpdExtensionPackage.eINSTANCE
-                                                        .getDocumentRoot_EventHandlerInitialisers());
+                            EventHandlerInitialisers evtHdlInitialisers = (EventHandlerInitialisers) Xpdl2ModelUtil
+                                    .getOtherElement((OtherElementsContainer) eventTriggerTypeNode,
+                                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerInitialisers());
 
-                        if (evtHdlInitialisers != null) {
-                            currentInitialisingActivities =
-                                    getEvtHandlerInitialisingActivities(evtHdlInitialisers);
+                            if (evtHdlInitialisers != null) {
+                                currentInitialisingActivities = getEvtHandlerInitialisingActivities(evtHdlInitialisers);
+                            }
+
+                            initialiserPickerControl.setActivities(activity.getProcess(),
+                                    currentInitialisingActivities);
                         }
-
-                        initialiserPickerControl.setActivities(activity
-                                .getProcess(), currentInitialisingActivities);
-
                     }
                 }
             }

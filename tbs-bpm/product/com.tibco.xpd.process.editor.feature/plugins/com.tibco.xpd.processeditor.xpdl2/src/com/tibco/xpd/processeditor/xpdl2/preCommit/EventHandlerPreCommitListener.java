@@ -107,15 +107,20 @@ public class EventHandlerPreCommitListener extends
                  * ABPM-911: Saket: Event subprocess start events should also be
                  * considered as event handlers now.
                  */
-                boolean isEventHandlerActivity =
-                        Xpdl2ModelUtil.isEventHandlerActivity(activity)
-                                || EventObjectUtil
-                                        .isEventSubProcessMessageStartEvent(activity);
+                EventTriggerType eventTriggerType = EventObjectUtil.getEventTriggerType(activity);
 
-                if (isEventHandlerActivity
-                        && EventTriggerType.EVENT_MESSAGE_CATCH_LITERAL
-                                .equals(EventObjectUtil
-                                        .getEventTriggerType(activity))) {
+                /*
+                 * Sid ACE-2019 - Start request (aka type none) event in event
+                 * sub-process eeds to have flow strategy defaulted.
+                 */
+                boolean isEventHandlerActivity = (Xpdl2ModelUtil.isEventHandlerActivity(activity)
+                        && (EventTriggerType.EVENT_MESSAGE_CATCH_LITERAL.equals(eventTriggerType)
+                                || EventTriggerType.EVENT_NONE_LITERAL.equals(eventTriggerType)))
+                        || EventObjectUtil.isEventSubProcessMessageStartEvent(activity)
+                        || EventObjectUtil.isEventSubProcessStartRequestEvent(activity);
+
+
+                if (isEventHandlerActivity) {
                     /*
                      * Make sure message event handler activities have flow
                      * strategy attribute.
@@ -137,7 +142,7 @@ public class EventHandlerPreCommitListener extends
                  * flow)
                  */
                 if (EventTriggerType.EVENT_SIGNAL_CATCH_LITERAL
-                        .equals(EventObjectUtil.getEventTriggerType(activity))) {
+                        .equals(eventTriggerType)) {
 
                     if (!isEventHandlerActivity
                             || !EventObjectUtil.isLocalSignalEvent(activity)) {
@@ -166,25 +171,39 @@ public class EventHandlerPreCommitListener extends
     private void removeFlowStrategy(Activity activity,
             EditingDomain editingDomain, CompoundCommand cmd) {
 
-        if (activity.getEvent() != null
-                && activity.getEvent().getEventTriggerTypeNode() instanceof TriggerResultMessage) {
+        if (activity.getEvent() != null) {
 
-            TriggerResultMessage triggerResultMessage =
-                    (TriggerResultMessage) activity.getEvent()
-                            .getEventTriggerTypeNode();
+            /*
+             * Sid ACE-2019 attribute might be on TriggerResultMessage OR on
+             * StartEvent/IntermediateEvent now.
+             */
+            if (activity.getEvent().getEventTriggerTypeNode() instanceof TriggerResultMessage) {
 
-            EventHandlerFlowStrategy flowStrategy =
-                    (EventHandlerFlowStrategy) Xpdl2ModelUtil
-                            .getOtherAttribute(triggerResultMessage,
+                TriggerResultMessage triggerResultMessage =
+                        (TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode();
+
+                EventHandlerFlowStrategy flowStrategy =
+                        (EventHandlerFlowStrategy) Xpdl2ModelUtil.getOtherAttribute(triggerResultMessage,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+                if (flowStrategy != null) {
+                    cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                            triggerResultMessage,
                                     XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_EventHandlerFlowStrategy());
-            if (flowStrategy != null) {
-                cmd.append(Xpdl2ModelUtil
-                        .getSetOtherAttributeCommand(editingDomain,
-                                triggerResultMessage,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_EventHandlerFlowStrategy(),
-                                null));
+                                    .getDocumentRoot_EventHandlerFlowStrategy(),
+                            null));
+                }
+
+            } else {
+                EventHandlerFlowStrategy flowStrategy =
+                        (EventHandlerFlowStrategy) Xpdl2ModelUtil.getOtherAttribute(activity.getEvent(),
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+
+                if (flowStrategy != null) {
+                    cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                            activity.getEvent(),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(),
+                            null));
+                }
             }
         }
     }
@@ -199,35 +218,52 @@ public class EventHandlerPreCommitListener extends
     private void addMissingFlowStrategy(Activity activity,
             EditingDomain editingDomain, CompoundCommand cmd) {
 
-        if (activity.getEvent() != null
-                && activity.getEvent().getEventTriggerTypeNode() instanceof TriggerResultMessage) {
+        if (activity.getEvent() != null) {
 
             /*
-             * Get the event trigger type node.
+             * Sid ACE-2019 attribute might be on TriggerResultMessage OR on
+             * StartEvent/IntermediateEvent now.
              */
-            TriggerResultMessage triggerResultMessage =
-                    (TriggerResultMessage) activity.getEvent()
-                            .getEventTriggerTypeNode();
+            if (activity.getEvent().getEventTriggerTypeNode() instanceof TriggerResultMessage) {
 
-            /*
-             * Get the event flow strategy.
-             */
-            EventHandlerFlowStrategy flowStrategy =
-                    (EventHandlerFlowStrategy) Xpdl2ModelUtil
-                            .getOtherAttribute(triggerResultMessage,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_EventHandlerFlowStrategy());
+                TriggerResultMessage triggerResultMessage =
+                        (TriggerResultMessage) activity.getEvent().getEventTriggerTypeNode();
 
-            /*
-             * If the flow strategy isn't there yet, then add it.
-             */
-            if (flowStrategy == null) {
-                cmd.append(Xpdl2ModelUtil
-                        .getSetOtherAttributeCommand(editingDomain,
-                                triggerResultMessage,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_EventHandlerFlowStrategy(),
-                                EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
+                /*
+                 * Get the event flow strategy.
+                 */
+                EventHandlerFlowStrategy flowStrategy =
+                        (EventHandlerFlowStrategy) Xpdl2ModelUtil.getOtherAttribute(triggerResultMessage,
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+
+                /*
+                 * If the flow strategy isn't there yet, then add it.
+                 */
+                if (flowStrategy == null) {
+                    cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                            triggerResultMessage,
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(),
+                            EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
+                }
+
+            } else {
+                /*
+                 * Get the event flow strategy.
+                 */
+                EventHandlerFlowStrategy flowStrategy =
+                        (EventHandlerFlowStrategy) Xpdl2ModelUtil.getOtherAttribute(activity.getEvent(),
+                                XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy());
+
+                /*
+                 * If the flow strategy isn't there yet, then add it.
+                 */
+                if (flowStrategy == null) {
+                    cmd.append(Xpdl2ModelUtil.getSetOtherAttributeCommand(editingDomain,
+                            activity.getEvent(),
+                            XpdExtensionPackage.eINSTANCE.getDocumentRoot_EventHandlerFlowStrategy(),
+                            EventHandlerFlowStrategy.SERIALIZE_CONCURRENT));
+                }
+
             }
         }
     }

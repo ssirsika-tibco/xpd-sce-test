@@ -546,6 +546,10 @@ public class Messages extends NLS {
 
     public static String TriggerResultType_MultipleThrow_menu;
 
+    public static String TriggerResultType_StartNone;
+
+    public static String TriggerResultType_IntermediateNone;
+
     public static String TriggerResultType_None;
 
     public static String TriggerResultType_Conditional;

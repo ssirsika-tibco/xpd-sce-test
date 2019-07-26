@@ -46,8 +46,8 @@ public class IntermediateEventGeneralSection extends BaseEventGeneralSection {
 
         EventTriggerTypeSection tt =
                 new EventTriggerTypeSection(
-                        EventTriggerType.EVENT_NONE_LITERAL, null,
-                        Messages.TriggerResultType_None);
+                        EventTriggerType.EVENT_NONE_LITERAL, new EventTriggerTypeIntermediateRequestSection(),
+                        Messages.TriggerResultType_IntermediateNone);
         trigTypeSections.add(tt);
 
         tt =

@@ -513,6 +513,16 @@ public class EventObjectUtil {
     }
 
     /**
+     * @param activity
+     * @return <code>true</code> if the start event is a start request (type
+     *         none) event in an event sub-process.
+     */
+    public static boolean isEventSubProcessStartRequestEvent(Activity activity) {
+        return EventObjectUtil.isEventSubProcessStartEvent(activity)
+                && EventTriggerType.EVENT_NONE_LITERAL.equals(EventObjectUtil.getEventTriggerType(activity));
+    }
+
+    /**
      * Sid XPD-7124. Remove utility as is very simple for callers to interrogate
      * event types already and we don't need util for that.
      */

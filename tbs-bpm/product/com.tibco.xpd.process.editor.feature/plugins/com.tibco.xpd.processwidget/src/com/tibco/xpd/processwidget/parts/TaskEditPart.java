@@ -621,7 +621,7 @@ public class TaskEditPart extends BaseFlowNodeEditPart implements
                          * start event.
                          */
                         swdf.setImage(ir
-                                .get(ProcessWidgetConstants.IMG_MESSAGE_EVENT_CATCH_ICON));
+                                .get(ProcessWidgetConstants.IMG_INCOMING_REQUEST_EVENT_ICON));
 
                         /*
                          * Set ellipse size.

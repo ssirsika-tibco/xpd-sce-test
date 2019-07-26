@@ -476,6 +476,8 @@ public final class ProcessWidgetConstants {
     public static final String IMG_SIGNAL_EVENT_THROW_ICON =
             "icons/diagram/eventSignalThrow_16.png"; //$NON-NLS-1$
 
+    public static final String IMG_INCOMING_REQUEST_EVENT_ICON = "icons/diagram/eventIncomingRequest_16.png"; //$NON-NLS-1$
+
     public static final String IMG_CONDITIONAL_EVENT_ICON =
             "icons/diagram/eventConditional_16.png"; //$NON-NLS-1$
 
@@ -728,7 +730,8 @@ public final class ProcessWidgetConstants {
             IMG_CREATECONN_GADGET_ICON, IMG_COLLAPSE_EMB,
             IMG_CYCLETYPE_GADGET_ICON, IMG_DECISIONS_FLOW, IMG_UP, IMG_DOWN,
             IMG_TOOL_DTABLETASK_16, IMG_TOOL_DTABLETASK_24,
-            IMG_TOOL_REFERENCETASK_OVERLAY, IMG_MULTIPLE_MARKER_SEQUENTIAL
+            IMG_TOOL_REFERENCETASK_OVERLAY, IMG_MULTIPLE_MARKER_SEQUENTIAL,
+            IMG_INCOMING_REQUEST_EVENT_ICON
 
     };
 

@@ -448,6 +448,23 @@ public class EventEditPart extends BaseFlowNodeEditPart implements
                 f.setImage(ir
                         .get(ProcessWidgetConstants.IMG_SIGNAL_EVENT_THROW_ICON));
                 break;
+
+            case EventTriggerType.EVENT_NONE:
+                /*
+                 * Sid ACE-2019: If this is an incoming request activity then
+                 * use the alternative centre icon. That is - all intermediate
+                 * incoming request events and start request events inside event
+                 * sub-processes
+                 */
+                BaseGraphicalEditPart parentEditPart = getParentLaneOrTask();
+
+                if (EventFlowType.FLOW_INTERMEDIATE == getEventFlowType()
+                        || (EventFlowType.FLOW_START == getEventFlowType() && parentEditPart instanceof TaskEditPart
+                                && ((TaskEditPart) parentEditPart).isEventSubProc())) {
+                    f.setImage(ir.get(ProcessWidgetConstants.IMG_INCOMING_REQUEST_EVENT_ICON));
+                }
+                break;
+
             default:
                 f.setImage(null);
             }
