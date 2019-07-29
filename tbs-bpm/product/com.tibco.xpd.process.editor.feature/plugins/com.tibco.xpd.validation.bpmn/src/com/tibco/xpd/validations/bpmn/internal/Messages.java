@@ -125,6 +125,10 @@ public class Messages extends NLS {
 
     public static String SetErrorCodeResolution_ErrorCodeMustNotHaveLeadTrailSpace_longdesc;
 
+    public static String SetEventTriggerTypeResolution_IncomingRequest_TriggerTypeName_label;
+
+    public static String SetEventTriggerTypeResolution_StartRequest_TriggerTypeName_label;
+
     public static String SetLoopMultiInstanceSequentialResolution_SetMultiInstSequential_menu;
 
     public static String SetLoopStandardResolution_SetTaskLoopStandard_menu;

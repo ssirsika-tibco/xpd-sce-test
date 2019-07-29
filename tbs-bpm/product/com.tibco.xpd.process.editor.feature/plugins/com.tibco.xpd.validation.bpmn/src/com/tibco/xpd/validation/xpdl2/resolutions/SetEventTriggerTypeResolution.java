@@ -5,14 +5,17 @@
 package com.tibco.xpd.validation.xpdl2.resolutions;
 
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
+import com.tibco.xpd.processwidget.adapters.EventFlowType;
 import com.tibco.xpd.processwidget.adapters.EventTriggerType;
 import com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution;
 import com.tibco.xpd.validation.resolutions.ResolutionException;
+import com.tibco.xpd.validations.bpmn.internal.Messages;
 import com.tibco.xpd.xpdl2.Activity;
 
 /**
@@ -43,7 +46,31 @@ public abstract class SetEventTriggerTypeResolution extends
 
     @Override
     protected String getResolutionLabel(String propertiesLabel, IMarker marker) {
-        return String.format(propertiesLabel, triggerType.toString());
+        /*
+         * Sid ACE-2020 The event trigger type label for type-none events are
+         * dependent on the event type.
+         */
+        String triggerTypeName = triggerType.toString();
+
+        try {
+            EObject target = getTarget(marker);
+
+            if (target instanceof Activity) {
+                Activity activity = (Activity) target;
+
+                if (EventTriggerType.EVENT_NONE_LITERAL.equals(triggerType)) {
+                    if (EventFlowType.FLOW_START_LITERAL.equals(EventObjectUtil.getFlowType(activity))) {
+                        triggerTypeName = Messages.SetEventTriggerTypeResolution_StartRequest_TriggerTypeName_label;
+                    } else if (EventFlowType.FLOW_INTERMEDIATE_LITERAL.equals(EventObjectUtil.getFlowType(activity))) {
+                        triggerTypeName = Messages.SetEventTriggerTypeResolution_IncomingRequest_TriggerTypeName_label;
+                    }
+                }
+            }
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }
+
+        return String.format(propertiesLabel, triggerTypeName);
     }
 
     @Override
