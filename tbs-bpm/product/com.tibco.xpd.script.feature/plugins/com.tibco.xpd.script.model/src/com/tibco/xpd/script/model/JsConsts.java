@@ -64,6 +64,8 @@ public class JsConsts {
 
     public static final String BOM_OBJECT = "bom.Object"; //$NON-NLS-1$
 
+    public static final String CASE_REFERENCE = "CaseReference"; //$NON-NLS-1$
+
     public static final String E = "E"; //$NON-NLS-1$
 
     public static final String BOM_CLASS = "bom.Class"; //$NON-NLS-1$

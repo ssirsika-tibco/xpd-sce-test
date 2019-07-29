@@ -20,6 +20,7 @@ import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesPlugin;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultJsClass;
 import com.tibco.xpd.script.model.client.DefaultUMLScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -186,37 +187,14 @@ public class AceScriptProcessDataWrapperFactory {
                 BasicTypeConverterFactory.INSTANCE.getBaseType(data, false);
 
         /*
-         * TODO Handle case reference types... For NOW we will set it to unknown
-         * (Object) type (although it is actually a string, we don't want user
-         * to be able to fiddle about with it.
-         * 
-         * When we implement the case data scripting, which as changed to all
-         * static methods that take case references as parameters, then we will
-         * need to be able to distinguish Case Reference properties properly.
-         * 
-         * We cannot do it like we used to because we can't add a UML Script
-         * relevant data object as a bom property in the data object (and we
-         * wouldn't want to because all the methods are static now). Instead, I
-         * think the approach will be to add a new internal case reference type
-         * to CdsJavaScript.uml and et the property to that type here (or even
-         * PrimitiveType.uml PROVIDED we can keep it hidden). The static cae
-         * access methods will then use this type as their parameter type.
+         * Handle case reference types, the CaseReference type is loaded from a
+         * separate private list of primitive types to prevent it being
+         * selectable by the user in the BOM editor.
          */
         if (data.getDataType() instanceof RecordType) {
-            // TODO for now we will treat them as strings type
-            // Later when we do case data scripting then we will have to
-            // consider how we validate that these are what they say they are in
-            // the new Static Case Data scripting class methods
-            property.setType(PrimitivesUtil.getStandardPrimitiveTypeByName( // FIXME
-                                                                            // Need
-                                                                            // to
-                                                                            // get
-                                                                            // from
-                                                                            // CDS
-                                                                            // UML
+            property.setType(PrimitivesUtil.getPrivatePrimitiveTypeByName(
                     wrapperResourceSet,
-                    PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME));
-            // JsConsts.CASE_REFERENCE));
+                    JsConsts.CASE_REFERENCE));
 
         } else if (baseType instanceof BasicType) {
             /* Handle simple types first. */

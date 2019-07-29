@@ -92,6 +92,9 @@ public class PrimitivesUtil {
     public static final String BOM_PRIMITIVE_TYPES_LIBRARY_URI = TYPES_PATHMAP
             + "BomPrimitiveTypes." + UMLResource.LIBRARY_FILE_EXTENSION; //$NON-NLS-1$
 
+    public static final String BOM_PRIVATE_PRIMITIVE_TYPES_LIBRARY_URI =
+            TYPES_PATHMAP + "BomPrivatePrimitiveTypes." + UMLResource.LIBRARY_FILE_EXTENSION; //$NON-NLS-1$
+
     public static final String BOM_PRIMITIVE_TYPES_FACETS_PROFILE_URI =
             TYPES_PATHMAP + "PrimitiveTypeFacets." //$NON-NLS-1$
                     + UMLResource.PROFILE_FILE_EXTENSION; // ;
@@ -1230,6 +1233,31 @@ public class PrimitivesUtil {
                 if (root instanceof Model) {
                     PackageableElement type =
                             ((Model) root).getPackagedElement(name);
+                    if (type instanceof PrimitiveType) {
+                        return (PrimitiveType) type;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns private primitive with provided name or null.
+     * 
+     * @param rs
+     *            resource set.
+     * @param name
+     *            the local name of the primitive type.
+     * @return BOM standard primitive with provided name or null.
+     */
+    public static PrimitiveType getPrivatePrimitiveTypeByName(ResourceSet rs, String name) {
+        Resource res = getResource(rs, URI.createURI(BOM_PRIVATE_PRIMITIVE_TYPES_LIBRARY_URI), true);
+        if (res != null) {
+            EList<EObject> contents = res.getContents();
+            for (EObject root : contents) {
+                if (root instanceof Model) {
+                    PackageableElement type = ((Model) root).getPackagedElement(name);
                     if (type instanceof PrimitiveType) {
                         return (PrimitiveType) type;
                     }

@@ -23,7 +23,7 @@
       <xpdl2:Lanes>
         <xpdl2:Lane Id="_WI8bQKSqEem39IeC8ZwHNg" xpdExt:DisplayName="Lane" Name="Lane">
           <xpdl2:NodeGraphicsInfos>
-            <xpdl2:NodeGraphicsInfo Height="416.0"/>
+            <xpdl2:NodeGraphicsInfo Height="476.0"/>
           </xpdl2:NodeGraphicsInfos>
         </xpdl2:Lane>
       </xpdl2:Lanes>
@@ -109,7 +109,7 @@
           </xpdl2:Event>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_WI8bQKSqEem39IeC8ZwHNg" Width="54.0">
-              <xpdl2:Coordinates XCoordinate="305.0" YCoordinate="367.0"/>
+              <xpdl2:Coordinates XCoordinate="442.0" YCoordinate="367.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
         </xpdl2:Activity>
@@ -343,22 +343,22 @@
           <xpdl2:Implementation>
             <xpdl2:Task>
               <xpdl2:TaskScript>
-                <xpdl2:Script ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2,3);&#xD;
+                <xpdl2:Script ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2);&#xD;
 bpm.caseData.findByCaseIdentifier('','');&#xD;
 bpm.caseData.findByCriteria('','',1,2);&#xD;
-bpm.caseData.findBySimpeSearch('','',1,2);&#xD;
-bpm.caseData.navigateAll('','',1,2);&#xD;
-bpm.caseData.navigateByCriteria('','','',1,2);&#xD;
-bpm.caseData.navigateBySimpleSearch('','','',1,2);&#xD;
-bpm.caseData.read('');&#xD;
-bpm.caseData.readAll(data.StringArrayField);&#xD;
+bpm.caseData.findBySimpleSearch('','',1,2);&#xD;
+bpm.caseData.navigateAll(data.CaseRef,'',1,2);&#xD;
+bpm.caseData.navigateByCriteria(data.CaseRef,'','',1,2);&#xD;
+bpm.caseData.navigateBySimpleSearch(data.CaseRef,'','',1,2);&#xD;
+bpm.caseData.read(data.CaseRef);&#xD;
+bpm.caseData.readAll(data.CaseRefArray);&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
           </xpdl2:Implementation>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WI8bQKSqEem39IeC8ZwHNg" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="179.0" YCoordinate="267.0"/>
+              <xpdl2:Coordinates XCoordinate="179.0" YCoordinate="367.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
@@ -376,15 +376,15 @@ bpm.caseData.readAll(data.StringArrayField);&#xD;
                 <xpdl2:MessageIn Id="_KxanQKyKEemv98CQs6EUBg"/>
                 <xpdl2:MessageOut Id="_KxanQayKEemv98CQs6EUBg"/>
                 <xpdExt:UserTaskScripts>
-                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2,3);&#xD;
+                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2);&#xD;
 bpm.caseData.findByCaseIdentifier('','');&#xD;
 bpm.caseData.findByCriteria('','',1,2);&#xD;
-bpm.caseData.findBySimpeSearch('','',1,2);&#xD;
-bpm.caseData.navigateAll('','',1,2);&#xD;
-bpm.caseData.navigateByCriteria('','','',1,2);&#xD;
-bpm.caseData.navigateBySimpleSearch('','','',1,2);&#xD;
-bpm.caseData.read('');&#xD;
-bpm.caseData.readAll(data.StringArrayField);&#xD;
+bpm.caseData.findBySimpleSearch('','',1,2);&#xD;
+bpm.caseData.navigateAll(data.CaseRef,'',1,2);&#xD;
+bpm.caseData.navigateByCriteria(data.CaseRef,'','',1,2);&#xD;
+bpm.caseData.navigateBySimpleSearch(data.CaseRef,'','',1,2);&#xD;
+bpm.caseData.read(data.CaseRef);&#xD;
+bpm.caseData.readAll(data.CaseRefArray);&#xD;
 </xpdExt:ScheduleScript>
                 </xpdExt:UserTaskScripts>
               </xpdl2:TaskUser>
@@ -395,7 +395,7 @@ bpm.caseData.readAll(data.StringArrayField);&#xD;
           </xpdl2:Performers>
           <xpdl2:NodeGraphicsInfos>
             <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WI8bQKSqEem39IeC8ZwHNg" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="179.0" YCoordinate="367.0"/>
+              <xpdl2:Coordinates XCoordinate="305.0" YCoordinate="367.0"/>
             </xpdl2:NodeGraphicsInfo>
           </xpdl2:NodeGraphicsInfos>
           <xpdl2:Extensions/>
@@ -406,9 +406,40 @@ bpm.caseData.readAll(data.StringArrayField);&#xD;
           <xpdExt:Audit/>
           <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
             <xpdExt:AssociatedParameter FormalParam="StringArrayField" Mode="INOUT" Mandatory="false">
-              <xpdl2:Description/>
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="CaseRef" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="CaseRefArray" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
             </xpdExt:AssociatedParameter>
           </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UJdqkK-REemhB-1v6OiOHA" Name="CreateAll" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="CreateAll" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="GlobalData" Implementation="Other">
+                <xpdl2:MessageIn Id="_YDR0wK-REemhB-1v6OiOHA"/>
+                <xpdl2:MessageOut Id="_YDR0wa-REemhB-1v6OiOHA"/>
+                <xpdExt:GlobalDataOperation>
+                  <xpdExt:CaseAccessOperations>
+                    <xpdExt:CaseClassExternalReference location="data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_DKo-MKSqEem39IeC8ZwHNg"/>
+                    <xpdExt:Create FromFieldPath="CaseFieldArray" ToCaseRefField="CaseRefArray"/>
+                  </xpdExt:CaseAccessOperations>
+                </xpdExt:GlobalDataOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WI8bQKSqEem39IeC8ZwHNg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="179.0" YCoordinate="267.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
       </xpdl2:Activities>
       <xpdl2:Transitions>
@@ -466,12 +497,18 @@ bpm.caseData.readAll(data.StringArrayField);&#xD;
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
-        <xpdl2:Transition Id="_U6YuQKx9Eem5KtpPzYz2lA" xpdExt:DisplayName="" Name="" From="__84KoKxdEem9Z9H9nAv0Rw" To="_U6YHMKx9Eem5KtpPzYz2lA">
+        <xpdl2:Transition Id="_U6YuQKx9Eem5KtpPzYz2lA" xpdExt:DisplayName="" Name="" From="_UJdqkK-REemhB-1v6OiOHA" To="_U6YHMKx9Eem5KtpPzYz2lA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Tj2uQa7wEemus5oknz7y-A" xpdExt:DisplayName="" Name="" From="_JZvCoKyKEemv98CQs6EUBg" To="_WI8bQqSqEem39IeC8ZwHNg">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
-        <xpdl2:Transition Id="_bB3-AKyKEemv98CQs6EUBg" Name="" From="_JZvCoKyKEemv98CQs6EUBg" To="_WI8bQqSqEem39IeC8ZwHNg">
+        <xpdl2:Transition Id="_UJdqka-REemhB-1v6OiOHA" xpdExt:DisplayName="" Name="" From="__84KoKxdEem9Z9H9nAv0Rw" To="_UJdqkK-REemhB-1v6OiOHA">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
