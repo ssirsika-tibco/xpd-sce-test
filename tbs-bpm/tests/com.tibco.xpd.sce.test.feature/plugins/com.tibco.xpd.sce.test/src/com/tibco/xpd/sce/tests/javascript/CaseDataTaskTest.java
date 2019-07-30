@@ -34,14 +34,14 @@ public class CaseDataTaskTest extends AbstractN2BaseValidationTest {
     protected void setUpBeforeBuild() {
         super.setUpBeforeBuild();
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("CaseDataTaskTest");
+        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("CaseDataTaskTest"); //$NON-NLS-1$
         /*
          * make sure BOM project is configured as Business Data project to avoid
          * getting unexpected problem markers unrelated to this test.
          */
         BOMUtils.setAsBusinessDataProject(project); // $NON-NLS-1$
         // and make sure we have a Forms special folder
-        SpecialFolderUtil.getCreateSpecialFolderOfKind(project, "forms", "Forms");
+        SpecialFolderUtil.getCreateSpecialFolderOfKind(project, "forms", "Forms"); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
