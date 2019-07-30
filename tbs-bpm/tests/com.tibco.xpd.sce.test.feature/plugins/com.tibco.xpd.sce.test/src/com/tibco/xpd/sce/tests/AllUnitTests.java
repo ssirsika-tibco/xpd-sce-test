@@ -5,6 +5,9 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
+import com.tibco.xpd.sce.tests.javascript.CaseDataScriptGenerationTest;
+import com.tibco.xpd.sce.tests.javascript.CaseDataTaskInvalidTest;
+import com.tibco.xpd.sce.tests.javascript.CaseDataTaskTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
@@ -74,6 +77,9 @@ public class AllUnitTests {
         suite.addTestSuite(JavascriptArrayInvalidTest.class);
         suite.addTestSuite(JavascriptDateValidTest.class);
         suite.addTestSuite(JavascriptNumberValidTest.class);
+        suite.addTestSuite(CaseDataTaskTest.class);
+        suite.addTestSuite(CaseDataTaskInvalidTest.class);
+        suite.addTestSuite(CaseDataScriptGenerationTest.class);
 
         /*
          * Validations
