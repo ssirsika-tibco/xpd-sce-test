@@ -4,6 +4,9 @@
 
 package com.tibco.bx.validation.ace.rules;
 
+import java.util.Collections;
+
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.validation.xpdl2.rules.PackageValidationRule;
 import com.tibco.xpd.xpdl2.BasicType;
@@ -20,6 +23,10 @@ import com.tibco.xpd.xpdl2.TypeDeclaration;
  * @since 23 Apr 2019
  */
 public class AceProcessDataRules extends PackageValidationRule {
+
+    private static final String ACE_ISSUE_RESERVED_PREFIX = "ace.invalid.data.name.reserved.prefix"; //$NON-NLS-1$
+
+    private static final String ACE_ISSUE_RESERVED_NAME = "ace.invalid.data.name.reserved.word"; //$NON-NLS-1$
 
     public static String ACE_ISSUE_INVALID_BASE_DATATYPE =
             "ace.invalid.base.datatype"; //$NON-NLS-1$
@@ -39,6 +46,20 @@ public class AceProcessDataRules extends PackageValidationRule {
                 .getAllDataInPackage(pckg)) {
             if (!isValidDataType(data.getDataType())) {
                 addIssue(ACE_ISSUE_INVALID_BASE_DATATYPE, data);
+            }
+
+            /*
+             * Sid ACE-1118 Used to only enforce these rules in the UI. Need to
+             * do validation as well in case we're migrating from earlier
+             * projects.
+             */
+            if (ReservedWords.isReservedWord(data.getName())) {
+                addIssue(ACE_ISSUE_RESERVED_NAME, data);
+            }
+
+            String reservedPrefix = ReservedWords.getReservedPrefix(data.getName());
+            if (reservedPrefix != null) {
+                addIssue(ACE_ISSUE_RESERVED_PREFIX, data, Collections.singletonList(reservedPrefix));
             }
         }
 

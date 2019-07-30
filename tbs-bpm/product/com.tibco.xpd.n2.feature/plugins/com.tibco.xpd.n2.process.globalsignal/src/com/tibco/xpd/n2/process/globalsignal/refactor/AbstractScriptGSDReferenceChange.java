@@ -17,6 +17,7 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.RefactoringStatusContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.n2.globalsignal.resource.ui.refactor.GSDElementRefactorHelper;
 import com.tibco.xpd.n2.process.globalsignal.internal.Messages;
@@ -67,10 +68,7 @@ public abstract class AbstractScriptGSDReferenceChange extends Change {
      */
     private EditingDomain editingDomain;
 
-    /**
-     * Payload prefix.
-     */
-    private static final String SIGNAL_PAYLOAD_DATA_PREFIX = "SIGNAL_"; //$NON-NLS-1$
+
 
     /**
      * Class to provide the change that has occured in a script referencing a
@@ -288,10 +286,10 @@ public abstract class AbstractScriptGSDReferenceChange extends Change {
         if (element instanceof PayloadDataField) {
 
             String oldName =
-                    SIGNAL_PAYLOAD_DATA_PREFIX
+                    ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX
                             + ((PayloadDataField) element).getName();
 
-            String newName = SIGNAL_PAYLOAD_DATA_PREFIX + args.getNewName();
+            String newName = ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX + args.getNewName();
 
             if (oldName != null && newName != null) {
 

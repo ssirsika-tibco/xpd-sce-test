@@ -147,11 +147,20 @@ public class DataMapperScriptGeneratorInfoProvider implements
                         .getApplicableContributions(mappingContext,
                                 isRightHandSide);
         for (AbstractDataMapperContentContributor contribution : contributions) {
-            String scripts =
-                    getScriptGeneratorInfoProvider(contribution.getContributorId())
-                            .getScriptsToAppend(sdm, isSource);
-            if (scripts != null) {
-                jssb.addLine(scripts);
+            /*
+             * Sid ACE-1118 Protect against there being source/target info
+             * providers that do not have equivalent script generation info
+             * providers (ot all data mappings may be handled in the main
+             * script.
+             */
+            IScriptGeneratorInfoProvider scriptGeneratorInfoProvider =
+                    getScriptGeneratorInfoProvider(contribution.getContributorId());
+
+            if (scriptGeneratorInfoProvider != null) {
+                String scripts = scriptGeneratorInfoProvider.getScriptsToAppend(sdm, isSource);
+                if (scripts != null) {
+                    jssb.addLine(scripts);
+                }
             }
         }
         return jssb.toString();
@@ -170,11 +179,20 @@ public class DataMapperScriptGeneratorInfoProvider implements
                         .getApplicableContributions(mappingContext,
                                 isRightHandSide);
         for (AbstractDataMapperContentContributor contribution : contributions) {
-            String scripts =
-                    getScriptGeneratorInfoProvider(contribution.getContributorId())
-                            .getScriptsToPrepend(sdm, isSource);
-            if (scripts != null) {
-                jssb.append(scripts);
+            /*
+             * Sid ACE-1118 Protect against there being source/target info
+             * providers that do not have equivalent script generation info
+             * providers (ot all data mappings may be handled in the main
+             * script.
+             */
+            IScriptGeneratorInfoProvider scriptGeneratorInfoProvider =
+                    getScriptGeneratorInfoProvider(contribution.getContributorId());
+
+            if (scriptGeneratorInfoProvider != null) {
+                String scripts = scriptGeneratorInfoProvider.getScriptsToPrepend(sdm, isSource);
+                if (scripts != null) {
+                    jssb.append(scripts);
+                }
             }
         }
         return jssb.toString();

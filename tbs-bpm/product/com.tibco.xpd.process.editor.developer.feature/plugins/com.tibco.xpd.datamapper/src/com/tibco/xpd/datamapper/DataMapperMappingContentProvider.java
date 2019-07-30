@@ -32,6 +32,7 @@ import com.tibco.xpd.xpdExtension.ScriptInformation;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.DataMapping;
 import com.tibco.xpd.xpdl2.Expression;
+import com.tibco.xpd.xpdl2.OtherAttributesContainer;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
@@ -1045,6 +1046,25 @@ public class DataMapperMappingContentProvider implements
     }
 
     /**
+     * Sid ACE-1118
+     * 
+     * @param mapping
+     * @return The source content contributor id of the data mapping or
+     *         <code>null</code> if not a valid DataMapper datamapping
+     */
+    public String getSourceContributorId(Object mapping) {
+        if (mapping instanceof Mapping
+                && ((Mapping) mapping).getMappingModel() instanceof OtherAttributesContainer) {
+            String sourceId = (String) Xpdl2ModelUtil.getOtherAttribute(
+                    (OtherAttributesContainer) ((Mapping) mapping).getMappingModel(),
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_SourceContributorId());
+            return sourceId;
+        }
+        return null;
+
+    }
+
+    /**
      * @param dataMapping
      * 
      * @return The content contributor for the target of the given mapping or
@@ -1066,6 +1086,25 @@ public class DataMapperMappingContentProvider implements
         }
 
         return null;
+    }
+
+    /**
+     * Sid ACE-1118
+     * 
+     * @param mapping
+     * @return The source content contributor id of the data mapping or
+     *         <code>null</code> if not a valid DataMapper Mapping object
+     */
+    public String getTargetContributorId(Object mapping) {
+        if (mapping instanceof Mapping
+                && ((Mapping) mapping).getMappingModel() instanceof OtherAttributesContainer) {
+            String targetId = (String) Xpdl2ModelUtil.getOtherAttribute(
+                    (OtherAttributesContainer) ((Mapping) mapping).getMappingModel(),
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_TargetContributorId());
+            return targetId;
+        }
+        return null;
+
     }
 
     /**

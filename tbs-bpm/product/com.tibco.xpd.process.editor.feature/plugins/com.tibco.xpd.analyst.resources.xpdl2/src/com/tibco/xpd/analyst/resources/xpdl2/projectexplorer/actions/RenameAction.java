@@ -3,8 +3,6 @@
  */
 package com.tibco.xpd.analyst.resources.xpdl2.projectexplorer.actions;
 
-import java.util.List;
-
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -333,7 +331,7 @@ public class RenameAction extends AbstractRenameAction {
                 } else {
                     // XPD-757
                     // if its not a duplicate, check if it is a reserved word
-                    if (isReservedWord(newDisplayName)) {
+                    if (ReservedWords.isReservedWord(newDisplayName)) {
                         String msg =
                                 Messages.RenameAction_ReservedWord_longdesc
                                         + "\n\n\t"; //$NON-NLS-1$
@@ -342,6 +340,25 @@ public class RenameAction extends AbstractRenameAction {
                                 Messages.RenameAction_Rename_title,
                                 msg);
                         return false;
+                        
+                    } else {
+                        /*
+                         * Sid ACE-118 also prevent names with reserved
+                         * prefixes.
+                         */
+                        String reservedPrefix = ReservedWords.getReservedPrefix(newDisplayName);
+
+                        if (reservedPrefix != null) {
+
+                            String msg = String.format(
+                                    Messages.RenameAction_ReservedPrefix_longdesc,
+                                    reservedPrefix) + "\n\n\t"; //$NON-NLS-1$
+
+                            MessageDialog.openError(Display.getDefault().getActiveShell(),
+                                    Messages.RenameAction_Rename_title,
+                                    msg);
+                            return false;
+                        }
                     }
                 }
             }
@@ -700,18 +717,7 @@ public class RenameAction extends AbstractRenameAction {
         return true;
     }
 
-    /**
-     * @param nameText
-     * @return
-     */
-    private boolean isReservedWord(String nameText) {
-        List<String> symbolTableKeywords =
-                ReservedWords.getSymbolTableKeyWords();
-        if (symbolTableKeywords.contains(nameText)) {
-            return true;
-        }
-        return false;
-    }
+
 
     private boolean currTokenMatchesCurrDisplayName(NamedElement namedElement) {
         String currentTokenName = namedElement.getName();

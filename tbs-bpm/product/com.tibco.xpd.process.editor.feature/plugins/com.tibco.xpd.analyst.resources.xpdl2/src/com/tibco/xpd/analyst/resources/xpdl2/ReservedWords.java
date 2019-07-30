@@ -5,7 +5,9 @@
 package com.tibco.xpd.analyst.resources.xpdl2;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * class to return the list of all JavaScript reserved words, JavaScript
@@ -35,11 +37,17 @@ public class ReservedWords {
      */
     public static final String BOM_PACKAGE_WRAPPER_OBJECT_NAME = "pkg"; //$NON-NLS-1$
 
-    private static List<String> symbolTableKeyWords;
+    /**
+     * Sid ACE-2020 the name of the Global Signal Payload parameter prefix (e.g.
+     * SIGNAL_payloadParam1) used in generated BPEL to create unique variables
+     */
+    public static final String BX_SIGNAL_PAYLOAD_PREFIX = "SIGNAL_"; //$NON-NLS-1$
 
-    public static List<String> getSymbolTableKeyWords() {
-        return symbolTableKeyWords;
-    }
+    /* Sid ACE-1118 Changed to set for lookup efficiency */
+    private static Set<String> symbolTableKeyWords;
+
+    private static List<String> prefixReservedKeyWords;
+
 
     static {
         populateReservedWords();
@@ -50,7 +58,8 @@ public class ReservedWords {
      */
     private static void populateReservedWords() {
         if (null == symbolTableKeyWords) {
-            symbolTableKeyWords = new ArrayList<String>();
+            symbolTableKeyWords = new HashSet<String>();
+            prefixReservedKeyWords = new ArrayList<String>();
 
             // JavaScript reserved words
             symbolTableKeyWords.add("break"); //$NON-NLS-1$
@@ -130,13 +139,40 @@ public class ReservedWords {
             /*
              * Sid ACE-1317 In ACE all process data is wrapped in an object
              * called "data" therefore this is a reserved word.
+             * 
+             * Sid ACE-XXXX + others...
              */
             symbolTableKeyWords.add(PROCESS_DATA_WRAPPER_OBJECT_NAME);
 
             symbolTableKeyWords.add(BOM_FACTORY_WRAPPER_OBJECT_NAME);
             symbolTableKeyWords.add(BOM_PACKAGE_WRAPPER_OBJECT_NAME);
 
+            prefixReservedKeyWords.add(BX_SIGNAL_PAYLOAD_PREFIX);
         }
     }
 
+    /**
+     * @param word
+     * @return <code>true</code> if word is on the reserved words list.
+     */
+    public static boolean isReservedWord(String word) {
+        return symbolTableKeyWords.contains(word);
+    }
+
+    /**
+     * If the given word starts with a reserved prefix keyword then return that
+     * prefix
+     * 
+     * @param word
+     * @return {@link String} reserved prefix that the word starts with or
+     *         <code>null</code> if word does not start with a reserved prefix
+     */
+    public static String getReservedPrefix(String word) {
+        for (String prefix : prefixReservedKeyWords) {
+            if (word.startsWith(prefix)) {
+                return prefix;
+            }
+        }
+        return null;
+    }
 }

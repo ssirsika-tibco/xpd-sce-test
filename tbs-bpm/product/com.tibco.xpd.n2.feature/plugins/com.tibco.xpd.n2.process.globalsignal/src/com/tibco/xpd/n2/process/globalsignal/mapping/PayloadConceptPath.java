@@ -9,6 +9,8 @@ import org.eclipse.emf.common.util.EList;
 import com.tibco.xpd.globalSignalDefinition.GlobalSignal;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
+import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
+import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.DataField;
 
@@ -17,10 +19,15 @@ import com.tibco.xpd.xpdl2.DataField;
  * PayloadConceptPath (via {@link #PayloadConceptPath(Activity, String)})
  * objects from the parent global signal activity and the payload name.
  * 
+ * Sid ACE-118 Changed this class to extend {@link ConceptPath} as global signal
+ * payload fields extends the standard XPDL {@link DataField} and therefore
+ * things that need {@link ConceptPath} can equally use
+ * {@link PayloadConceptPath} (for things like mapping script generation.
+ * 
  * @author kthombar
  * @since Feb 13, 2015
  */
-public class PayloadConceptPath {
+public class PayloadConceptPath extends ConceptPath {
 
     /**
      * the payload field to wrapped.
@@ -33,7 +40,7 @@ public class PayloadConceptPath {
      *            the payload field to wrap.
      */
     public PayloadConceptPath(PayloadDataField payLoadData) {
-        super();
+        super(payLoadData, ConceptUtil.getConceptClass(payLoadData));
         this.payLoadData = payLoadData;
     }
 
@@ -67,15 +74,16 @@ public class PayloadConceptPath {
     }
 
     /**
-     * Constructor that constructs the {@link PayloadDataField} based on the
-     * passed parameters.
+     * Sid ACE-1118 Switched constructor to static method (as a constructor
+     * would have to have called a super() first which would not have been
+     * possible.
      * 
      * @param globalSignalActivity
      *            the parent global signal activity
      * @param payloadName
      *            the payload name.
      */
-    public PayloadConceptPath(Activity globalSignalActivity, String payloadName) {
+    public static PayloadConceptPath getConceptPath(Activity globalSignalActivity, String payloadName) {
 
         if (globalSignalActivity != null && payloadName != null) {
 
@@ -100,18 +108,19 @@ public class PayloadConceptPath {
                         /*
                          * found necessary payload data.
                          */
-                        this.payLoadData = payloadDataField;
-                        break;
+                        return new PayloadConceptPath(payloadDataField);
                     }
                 }
             }
         }
+        return null;
     }
 
     /**
      * 
      * @return the Path of Payload Concept.
      */
+    @Override
     public String getPath() {
         /**
          * Convert payload datafield path into a programmatic path string (for
@@ -174,6 +183,7 @@ public class PayloadConceptPath {
      * @return <code>true</code> if the payload data wrapped in payload concept
      *         path is an array else return <code>false</code>
      */
+    @Override
     public boolean isArray() {
 
         return (payLoadData != null) && payLoadData.isIsArray();

@@ -87,7 +87,48 @@ public class AceProcessInvalidDataRulesTest extends AbstractN2BaseValidationTest
 			    		"_vIcBcWWuEemAy5Q7Y517zw", //$NON-NLS-1$ 
 			    		"BPM  : Only the simple type Text, Number, Date, Time, Date-Time with Timezone, Performer and Boolean are supported for process data. (IntegerTypeDeclaration)", //$NON-NLS-1$ 
 			    		""), //$NON-NLS-1$ 
-			    		
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.word", //$NON-NLS-1$
+                        "_2pOugLK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot be Java / JavaScript reserved word or keyword (TestDataNameRulesProcess:factory)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.word", //$NON-NLS-1$
+                        "_47ed8LK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot be Java / JavaScript reserved word or keyword (pkg)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.prefix", //$NON-NLS-1$
+                        "_7MvV8LK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot start with the reserved prefix 'SIGNAL_' (SIGNAL_yyyy)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.prefix", //$NON-NLS-1$
+                        "_87wcgLK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot start with the reserved prefix 'SIGNAL_' (TestDataNameRulesProcess:SIGNAL_zzzz)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.word", //$NON-NLS-1$
+                        "_u6YzgLK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot be Java / JavaScript reserved word or keyword (TestDataNameRulesProcess:data)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.prefix", //$NON-NLS-1$
+                        "_xLy1cLK_EemMY6fRuO2jTg", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot start with the reserved prefix 'SIGNAL_' (TestDataNameRulesProcess:SIGNAL_xxxx)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
 			                
         };
         return markerInfos;
@@ -108,6 +149,9 @@ public class AceProcessInvalidDataRulesTest extends AbstractN2BaseValidationTest
         TestResourceInfo[] testResources = new TestResourceInfo[] {
                 new TestResourceInfo("resources/AceProcessDataRulesTest", //$NON-NLS-1$
                         "BPMProjectMigration_ProcessDataValidation/Process Packages{processes}/InvalidTypes.xpdl"), //$NON-NLS-1$
+
+                new TestResourceInfo("resources/AceProcessDataRulesTest", //$NON-NLS-1$
+                        "BPMProjectMigration_ProcessDataValidation/Process Packages{processes}/TestDataNameRules.xpdl"), //$NON-NLS-1$
         };
     
         return testResources;

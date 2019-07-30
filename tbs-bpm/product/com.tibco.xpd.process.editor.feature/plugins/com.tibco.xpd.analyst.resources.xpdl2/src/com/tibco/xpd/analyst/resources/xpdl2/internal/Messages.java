@@ -756,6 +756,8 @@ public class Messages extends NLS {
 
     public static String ProcessDataUtil_integer;
 
+    public static String RenameAction_ReservedPrefix_longdesc;
+
     public static String RenameAction_ReservedWord_longdesc;
 
     public static String AbstractAddProjectReferencesForProcessMove_AddProjectReferenceParticipant_name;

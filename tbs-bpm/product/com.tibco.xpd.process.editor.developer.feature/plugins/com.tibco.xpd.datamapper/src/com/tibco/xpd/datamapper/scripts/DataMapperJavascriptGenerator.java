@@ -25,6 +25,7 @@ import com.tibco.xpd.datamapper.api.JavaScriptStringBuilder;
 import com.tibco.xpd.datamapper.api.VirtualLikeMapping;
 import com.tibco.xpd.datamapper.infoProviders.ContributableDataMapperInfoProvider;
 import com.tibco.xpd.datamapper.infoProviders.DataMapperContentContributionHelper;
+import com.tibco.xpd.datamapper.infoProviders.ScriptGeneratorInfoProviderContributionHelper;
 import com.tibco.xpd.datamapper.internal.Messages;
 import com.tibco.xpd.mapper.Mapping;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
@@ -143,6 +144,13 @@ public class DataMapperJavascriptGenerator {
             Object[] mappings = mappingContentProvider.getElements(activity);
 
             /*
+             * Sid ACE-1118 Filter out any data mappings that do not have Script
+             * Info Provider (some scenarios have mappings (such as correlation)
+             * that do not appear in the main mapping script
+             */
+            mappings = removeMappingsWithoutProvider(mappingContentProvider, mappings);
+
+            /*
              * Get all the mapped target items (including unmapped parent) as
              * list of TreeNode
              */
@@ -182,6 +190,68 @@ public class DataMapperJavascriptGenerator {
         }
 
         return ""; //$NON-NLS-1$
+    }
+
+    /**
+     * Sid ACE-1118 Filter out any data mappings that do not have Script Info
+     * Provider (some scenarios have mappings (such as correlation) that do not
+     * appear in the main mapping script
+     * 
+     * @param mappingContentProvider
+     * @param mappings
+     * 
+     * @return The filtered array.
+     */
+    private Object[] removeMappingsWithoutProvider(DataMapperMappingContentProvider mappingContentProvider,
+            Object[] mappings) {
+
+        List<Object> filteredMappings = new ArrayList<Object>();
+
+        for (Object mapping : mappings) {
+            /*
+             * In order to be able to generate a script for the source and
+             * target of a mapping then we need both the source and target
+             * script generator info providers.
+             * 
+             * With the exception of script mappings as they only need a target
+             * contributor for script generation.
+             */
+            String targetContributorId = mappingContentProvider.getTargetContributorId(mapping);
+
+            if (targetContributorId == null || ScriptGeneratorInfoProviderContributionHelper
+                    .getScriptGeneratorInfoProvider(targetContributorId) == null) {
+                /*
+                 * Don't want to convert mappings with no script generator
+                 * contribution.
+                 */
+                continue;
+            }
+
+            /*
+             * There is no source contributor id for script mappings, so they're
+             * always ok
+             */
+            if (!isScriptMapping(mapping)) {
+                String sourceContributorId = mappingContentProvider.getSourceContributorId(mapping);
+
+                if (sourceContributorId == null || ScriptGeneratorInfoProviderContributionHelper
+                        .getScriptGeneratorInfoProvider(sourceContributorId) == null) {
+                    /*
+                     * Don't want to convert mappings with no script generator
+                     * contribution for the source for non scripted mappings.
+                     */
+                    continue;
+                }
+
+            }
+
+            /*
+             * We have everything we need to do this mapping, let's keep it.
+             */
+            filteredMappings.add(mapping);
+        }
+
+        return filteredMappings.toArray();
     }
 
     /**

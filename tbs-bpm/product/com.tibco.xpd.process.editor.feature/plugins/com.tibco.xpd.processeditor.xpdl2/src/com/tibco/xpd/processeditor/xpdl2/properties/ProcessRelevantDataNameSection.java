@@ -4,8 +4,6 @@
 
 package com.tibco.xpd.processeditor.xpdl2.properties;
 
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
@@ -97,12 +95,18 @@ public class ProcessRelevantDataNameSection extends NamedElementSection {
      * @return
      */
     protected boolean isReservedWord(String nameText) {
-        List<String> symbolTableKeywords =
-                ReservedWords.getSymbolTableKeyWords();
-        if (symbolTableKeywords.contains(nameText)) {
-            return true;
-        }
-        return false;
+        return ReservedWords.isReservedWord(nameText);
+    }
+
+    /**
+     * @see com.tibco.xpd.processeditor.xpdl2.properties.NamedElementSection#getReservedPrefix(java.lang.String)
+     *
+     * @param nameText
+     * @return
+     */
+    @Override
+    protected String getReservedPrefix(String nameText) {
+        return ReservedWords.getReservedPrefix(nameText);
     }
 
 }

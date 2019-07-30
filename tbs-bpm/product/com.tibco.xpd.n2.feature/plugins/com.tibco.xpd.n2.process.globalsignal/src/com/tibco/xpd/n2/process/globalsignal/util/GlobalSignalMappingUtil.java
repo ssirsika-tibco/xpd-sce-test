@@ -544,9 +544,11 @@ public final class GlobalSignalMappingUtil {
                          * re-create PayloadConceptPath from the target payload,
                          * let its equals method tell if the 2
                          * payloadconceptpaths are equal.
+                         * 
+                         * Sid ACE-1118 switched to use static helper
                          */
                         targetPayloadConceptPath =
-                                new PayloadConceptPath(globalThrowSignalEvent,
+                                PayloadConceptPath.getConceptPath(globalThrowSignalEvent,
                                         targetPayloadName);
 
                         /*
@@ -670,9 +672,11 @@ public final class GlobalSignalMappingUtil {
                              * re-create PayloadConceptPath from the target
                              * payload, let its equals method tell if the 2
                              * payloadconceptpaths are equal.
+                             * 
+                             * Sid ACE-1118 switched to use static helper
                              */
                             PayloadConceptPath sourcePayloadConceptPath =
-                                    new PayloadConceptPath(
+                                    PayloadConceptPath.getConceptPath(
                                             globalCatchSignalEvent, payloadName);
 
                             /*

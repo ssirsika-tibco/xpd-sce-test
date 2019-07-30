@@ -516,8 +516,21 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
             err = getDuplicateNameMessage(duplicate);
         } else {
             if (object instanceof ProcessRelevantData) {
-                if (isReservedWord(nameText)) {
+
+                if (ReservedWords.isReservedWord(nameText)) {
                     err = Messages.NamedElementSection_NameReservedWord;
+
+                } else {
+                    /*
+                     * Sid ACE-118 also prevent names with reserved prefixes.
+                     */
+                    String reservedPrefix = ReservedWords.getReservedPrefix(nameText);
+
+                    if (reservedPrefix != null) {
+                        err = String.format(
+                                Messages.NamedElementSection__ReservedPrefix_longdesc,
+                                nameText);
+                    }
                 }
             }
         }
@@ -532,19 +545,6 @@ public abstract class AbstractProcessRelevantDataTable extends BaseTableControl 
     protected boolean requiresTokenName(EObject element) {
 
         return Xpdl2ModelUtil.shouldHaveTokenName(element);
-    }
-
-    /**
-     * @param nameText
-     * @return
-     */
-    private boolean isReservedWord(String nameText) {
-        List<String> symbolTableKeywords =
-                ReservedWords.getSymbolTableKeyWords();
-        if (symbolTableKeywords.contains(nameText)) {
-            return true;
-        }
-        return false;
     }
 
     protected String getDuplicateNameMessage(EObject duplicate) {

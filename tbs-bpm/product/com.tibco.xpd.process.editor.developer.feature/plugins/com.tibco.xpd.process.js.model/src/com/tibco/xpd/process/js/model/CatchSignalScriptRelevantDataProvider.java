@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil.GetSignalPayloadException;
@@ -26,7 +27,7 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
 public class CatchSignalScriptRelevantDataProvider extends
         DefaultJavaScriptRelevantDataProvider {
 
-    public static final String SIGNAL_PAYLOAD_DATA_PREFIX = "SIGNAL_"; //$NON-NLS-1$
+    public static final String SIGNAL_PAYLOAD_DATA_PREFIX = ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX;
 
     public static final String WORKITEM_DATA_PREFIX = "WORKITEM_"; //$NON-NLS-1$
 

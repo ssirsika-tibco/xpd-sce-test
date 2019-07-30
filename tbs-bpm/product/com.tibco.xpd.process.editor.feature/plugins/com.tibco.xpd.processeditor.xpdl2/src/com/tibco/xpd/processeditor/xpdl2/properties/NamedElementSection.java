@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Text;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.processeditor.xpdl2.internal.Messages;
 import com.tibco.xpd.ui.properties.AbstractFilteredTransactionalSection;
 import com.tibco.xpd.ui.properties.TextFieldVerifier;
@@ -418,7 +419,7 @@ public class NamedElementSection extends AbstractFilteredTransactionalSection
                 // leaving it out of sync with label.
                 String nameText =
                         NameUtil.getInternalName(text, !allowLeadingNumerics());
-                if (!isReservedWord(nameText)) {
+                if (!isReservedWord(nameText) || ReservedWords.getReservedPrefix(nameText) == null) {
                     forceLayout();
                 }
             }
@@ -545,6 +546,17 @@ public class NamedElementSection extends AbstractFilteredTransactionalSection
             if (isReservedWord(nameText)) {
                 err = Messages.NamedElementSection_NameReservedWord;
                 nameValid = false;
+            } else {
+                /*
+                 * Sid ACE-118 also prevent names with reserved prefixes.
+                 */
+                String reservedPrefix = ReservedWords.getReservedPrefix(nameText);
+
+                if (reservedPrefix != null) {
+                    err = String.format(Messages.NamedElementSection__ReservedPrefix_longdesc, nameText);
+                    nameValid = false;
+                }
+
             }
         }
         if (!nameValid) {
@@ -580,10 +592,19 @@ public class NamedElementSection extends AbstractFilteredTransactionalSection
 
     /**
      * @param nameText
-     * @return
+     * @return <code>true</code> if the chosen name is a reserved word.
      */
     protected boolean isReservedWord(String nameText) {
         return false;
+    }
+
+    /**
+     * @param nameText
+     * @return <code>String reserved-prefix</code> if the name starts with a
+     *         reserved prefix.
+     */
+    protected String getReservedPrefix(String nameText) {
+        return null;
     }
 
     protected boolean allowLeadingNumerics() {

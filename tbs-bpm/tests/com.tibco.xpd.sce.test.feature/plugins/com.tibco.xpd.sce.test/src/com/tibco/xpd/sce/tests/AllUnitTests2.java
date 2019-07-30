@@ -13,6 +13,7 @@ import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
 import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
+import com.tibco.xpd.sce.tests.javascript.AceGlobalSignalMappingGenerationTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
@@ -52,6 +53,7 @@ public class AllUnitTests2 {
          */
         suite.addTestSuite(BpelSharedResourceTest.class);
         suite.addTestSuite(BpelDataFieldDescriptorTest.class);
+        suite.addTestSuite(AceGlobalSignalMappingGenerationTest.class);
 
         /*
          * Miscellaneous

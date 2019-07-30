@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
 import com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
@@ -26,8 +27,6 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
  */
 public abstract class AbstractCdsSignalScriptRelevantDataProvider extends
         DefaultJavaScriptRelevantDataProvider {
-
-    private static final String SIGNAL_PAYLOAD_DATA_PREFIX = "SIGNAL_"; //$NON-NLS-1$
 
     /**
      * 
@@ -76,7 +75,7 @@ public abstract class AbstractCdsSignalScriptRelevantDataProvider extends
      * @return the signalPayloadDataPrefix
      */
     public static String getSignalPayloadDataPrefix() {
-        return SIGNAL_PAYLOAD_DATA_PREFIX;
+        return ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX;
     }
 
 }
