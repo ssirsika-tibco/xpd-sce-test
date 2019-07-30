@@ -43,6 +43,11 @@ public class ReservedWords {
      */
     public static final String BX_SIGNAL_PAYLOAD_PREFIX = "SIGNAL_"; //$NON-NLS-1$
 
+    /**
+     * Sid ACE-1694 The prefix often used for temporary variables
+     */
+    public static final String BX_TEMP_VAR_PREFIX = "_BX"; //$NON-NLS-1$
+
     /* Sid ACE-1118 Changed to set for lookup efficiency */
     private static Set<String> symbolTableKeyWords;
 
@@ -148,6 +153,7 @@ public class ReservedWords {
             symbolTableKeyWords.add(BOM_PACKAGE_WRAPPER_OBJECT_NAME);
 
             prefixReservedKeyWords.add(BX_SIGNAL_PAYLOAD_PREFIX);
+            prefixReservedKeyWords.add(BX_TEMP_VAR_PREFIX);
         }
     }
 

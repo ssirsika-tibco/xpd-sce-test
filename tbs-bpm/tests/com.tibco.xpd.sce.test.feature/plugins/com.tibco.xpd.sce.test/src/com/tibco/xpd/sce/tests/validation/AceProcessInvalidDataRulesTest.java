@@ -129,7 +129,14 @@ public class AceProcessInvalidDataRulesTest extends AbstractN2BaseValidationTest
                         "_xLy1cLK_EemMY6fRuO2jTg", //$NON-NLS-1$
                         "BPM  : Data Field or Formal Parameter name cannot start with the reserved prefix 'SIGNAL_' (TestDataNameRulesProcess:SIGNAL_xxxx)", //$NON-NLS-1$
                         ""), //$NON-NLS-1$
-			                
+
+                new ValidationsTestProblemMarkerInfo(
+                        "/BPMProjectMigration_ProcessDataValidation/Process Packages/TestDataNameRules.xpdl", //$NON-NLS-1$
+                        "ace.invalid.data.name.reserved.prefix", //$NON-NLS-1$
+                        "_Tr-xYLLTEemmUft03XW_wA", //$NON-NLS-1$
+                        "BPM  : Data Field or Formal Parameter name cannot start with the reserved prefix '_BX' (TestDataNameRulesProcess:_BX_Parameter)", //$NON-NLS-1$
+                        ""), //$NON-NLS-1$
+
         };
         return markerInfos;
     }
