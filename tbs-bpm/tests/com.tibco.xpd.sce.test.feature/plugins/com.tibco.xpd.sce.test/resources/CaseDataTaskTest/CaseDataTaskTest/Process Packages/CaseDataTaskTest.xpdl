@@ -213,31 +213,6 @@
             <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
           </xpdExt:ActivityResourcePatterns>
         </xpdl2:Activity>
-        <xpdl2:Activity Id="_0HeKoKfCEemKB8xscno3Rg" Name="DeleteArrayByCaseRef" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="DeleteArrayByCaseRef">
-          <xpdl2:Implementation>
-            <xpdl2:Task>
-              <xpdl2:TaskService xpdExt:ImplementationType="GlobalData" Implementation="Other">
-                <xpdl2:MessageIn Id="_3uf7sKfCEemKB8xscno3Rg"/>
-                <xpdl2:MessageOut Id="_3uf7safCEemKB8xscno3Rg"/>
-                <xpdExt:GlobalDataOperation>
-                  <xpdExt:CaseReferenceOperations>
-                    <xpdExt:CaseRefField>RefArrayCase1</xpdExt:CaseRefField>
-                    <xpdExt:Delete/>
-                  </xpdExt:CaseReferenceOperations>
-                </xpdExt:GlobalDataOperation>
-              </xpdl2:TaskService>
-            </xpdl2:Task>
-          </xpdl2:Implementation>
-          <xpdl2:NodeGraphicsInfos>
-            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WI8bQKSqEem39IeC8ZwHNg" Width="96.0">
-              <xpdl2:Coordinates XCoordinate="442.0" YCoordinate="267.0"/>
-            </xpdl2:NodeGraphicsInfo>
-          </xpdl2:NodeGraphicsInfos>
-          <xpdl2:Extensions/>
-          <xpdExt:ActivityResourcePatterns>
-            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
-          </xpdExt:ActivityResourcePatterns>
-        </xpdl2:Activity>
         <xpdl2:Activity Id="__84KoKxdEem9Z9H9nAv0Rw" Name="Create" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Create">
           <xpdl2:Implementation>
             <xpdl2:Task>
@@ -464,15 +439,10 @@ bpm.caseData.readAll(data.CaseRefArray);&#xD;
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
-        <xpdl2:Transition Id="_0HeKoafCEemKB8xscno3Rg" xpdExt:DisplayName="" Name="" From="_MWogIKxfEem9Z9H9nAv0Rw" To="_0HeKoKfCEemKB8xscno3Rg">
+        <xpdl2:Transition Id="_0HeKoafCEemKB8xscno3Rg" xpdExt:DisplayName="" Name="" From="_MWogIKxfEem9Z9H9nAv0Rw" To="__84KoKxdEem9Z9H9nAv0Rw">
           <xpdl2:ConnectorGraphicsInfos>
             <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
             <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
-          </xpdl2:ConnectorGraphicsInfos>
-        </xpdl2:Transition>
-        <xpdl2:Transition Id="__86m4KxdEem9Z9H9nAv0Rw" xpdExt:DisplayName="" Name="" From="_0HeKoKfCEemKB8xscno3Rg" To="__84KoKxdEem9Z9H9nAv0Rw">
-          <xpdl2:ConnectorGraphicsInfos>
-            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
           </xpdl2:ConnectorGraphicsInfos>
         </xpdl2:Transition>
         <xpdl2:Transition Id="_L674EKxeEem9Z9H9nAv0Rw" xpdExt:DisplayName="" Name="" From="_U6YHMKx9Eem5KtpPzYz2lA" To="_JZvCoKyKEemv98CQs6EUBg">

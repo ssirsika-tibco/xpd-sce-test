@@ -79,8 +79,8 @@ public class CaseDataTaskTest extends AbstractN2BaseValidationTest {
                     + markerInfo.getLocationURI() + ":\n  \"" //$NON-NLS-1$
                     + markerInfo.getProblemText() + "\"\n"; //$NON-NLS-1$
         }
-        assertTrue("CaseDataTaskTest.xpdl: should have 1 problem marker but has at least one:\n", //$NON-NLS-1$
-                the1stProblem != null);
+        assertTrue("CaseDataTaskTest.xpdl: should have no problem markers but has at least one:\n" + the1stProblem, //$NON-NLS-1$
+                the1stProblem == null);
 
         /*
          * Then test the expected problems are raised
@@ -111,11 +111,6 @@ public class CaseDataTaskTest extends AbstractN2BaseValidationTest {
     protected ValidationsTestProblemMarkerInfo[] getValidationProblemMarkerInfos() {
         return new ValidationsTestProblemMarkerInfo[] {
 
-                new ValidationsTestProblemMarkerInfo("/CaseDataTaskTest/Process Packages/CaseDataTaskTest.xpdl", //$NON-NLS-1$
-                        "bx.useDeleteByCaseRefField", //$NON-NLS-1$
-                        "_0HeKoKfCEemKB8xscno3Rg", //$NON-NLS-1$
-                        "BPM  : It is recommended that you use delete by non-array case reference field as this will ensure that the case object is not in use by other process instances (which can cause those instances to halt). (CaseDataTaskTestProcess:DeleteArrayByCaseRef)", //$NON-NLS-1$
-                        "") //$NON-NLS-1$
 
         };
     }
