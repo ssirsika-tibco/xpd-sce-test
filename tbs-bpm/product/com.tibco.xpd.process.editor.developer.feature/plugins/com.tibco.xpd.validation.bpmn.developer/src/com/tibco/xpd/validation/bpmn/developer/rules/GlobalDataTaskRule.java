@@ -79,6 +79,8 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
     private static final String INVALID_CASE_REF_FIELD =
             "bpmn.dev.globalDataTask.invalidCaseReferenceField"; //$NON-NLS-1$
 
+    private static final String DELETE_ARRAY_CASE_REF_FIELD = "bpmn.dev.globalDataTask.deleteArrayCaseReferenceField"; //$NON-NLS-1$
+
     private static final String UPDATE_OP_INVALID_LOCAL_DATA =
             "bpmn.dev.globalDataTask.updateOp.invalidLocalData"; //$NON-NLS-1$
 
@@ -505,8 +507,9 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
         String caseRefField = caseRefOps.getCaseRefField();
 
         Class caseClass = null;
+        ProcessRelevantData caseField = null;
         if (caseRefField != null && !caseRefField.isEmpty()) {
-            ProcessRelevantData caseField =
+            caseField =
                     validateActivityRelevantData(activity, caseRefField);
             if (caseField != null) {
                 caseClass = getCaseClassReferencedByField(activity, caseField);
@@ -548,6 +551,10 @@ public class GlobalDataTaskRule extends ProcessActivitiesValidationRule {
                 validateRemoveLinkOperation(activity,
                         caseRefField,
                         caseRefOps.getRemoveLinkAssociations());
+            } else if (caseRefOps.getDelete() != null) {
+                if (caseField != null && caseField.isIsArray()) {
+                    addIssue(DELETE_ARRAY_CASE_REF_FIELD, activity, Collections.singletonList(caseRefField));
+                }
             }
         }
     }
