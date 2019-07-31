@@ -65,7 +65,7 @@ public class SharedResourcesSection
 
     private ScrolledPageBook resourceTypeBook;
 
-    private Text emailInstanceNameText;
+    private DecoratedField emailInstanceNameText;
 
     private Text jdbcInstanceNameText;
 
@@ -185,12 +185,114 @@ public class SharedResourcesSection
     private void createEmailPage(Composite page, XpdFormToolkit toolkit) {
         GridLayoutFactory.swtDefaults().numColumns(2).applyTo(page);
         toolkit.createLabel(page,
-                Messages.SharedResourcesSection_EmailInstanceName_label);
-        emailInstanceNameText = toolkit.createText(page, ""); //$NON-NLS-1$
-        GridDataFactory.fillDefaults().grab(true, false)
-                .applyTo(emailInstanceNameText);
-        manageControlUpdateOnDeactivate(emailInstanceNameText);
+                Messages.SharedResourcesSection_SharedResourceLabel);
 
+        FixedValueFieldProposalProvider emailInstanceNamesProposalProvider =
+                new FixedValueFieldAssistHelper.FixedValueFieldProposalProvider() {
+                    @Override
+                    public Object[] getProposals() {
+                        /*
+                         * Get all the participants which match the content of
+                         * the content assist field
+                         */
+                        Set<EmailParticpantSharedResourceProposal> allInstanceNameProposals = getAllInstanceNameProposals();
+                        Object[] proposals = allInstanceNameProposals.toArray();
+                        return proposals;
+                    }
+
+                    /**
+                     * Get all email instance name proposals that are in the
+                     * scope of the input object.
+                     * 
+                     * @return
+                     */
+                    private Set<EmailParticpantSharedResourceProposal> getAllInstanceNameProposals() {
+
+                        Set<EmailParticpantSharedResourceProposal> allInstanceNameProposals =
+                                new HashSet<EmailParticpantSharedResourceProposal>();
+
+                        Collection<IndexerItem> allParticipantIndexerItems =
+                                ProcessUIUtil.getAllParticipantIndexerItems();
+
+                        for (IndexerItem eachParticipantIndexerItem : allParticipantIndexerItems) {
+                            /*
+                             * Check if the participant is of shared resource is
+                             * of EMAIL share resource type.
+                             */
+
+                            if (eachParticipantIndexerItem != null) {
+                                String resourceType = eachParticipantIndexerItem
+                                        .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_TYPE);
+                                if (ProcessParticipantResourceIndexProvider.ResourceType.EMAIL.toString()
+                                        .equals(resourceType)) {
+
+                                    /*
+                                     * Make sure that we haven't already added
+                                     * the current email instance name to the
+                                     * list of all resource names.
+                                     */
+
+                                    String emailInstanceName = eachParticipantIndexerItem
+                                            .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_EMAIL_INSTANCE_NAME);
+                                    if (null != emailInstanceName && !emailInstanceName.isEmpty()
+                                            && !isAlreadyInTheInstanceNameProposals(emailInstanceName,
+                                                    allInstanceNameProposals)) {
+
+                                        EmailParticpantSharedResourceProposal newEmailServiceSharedResourceProposal =
+                                                new EmailParticpantSharedResourceProposal(emailInstanceName);
+                                        allInstanceNameProposals.add(newEmailServiceSharedResourceProposal);
+                                    }
+                                }
+                            }
+                        }
+
+                        return allInstanceNameProposals;
+                    }
+
+                    /**
+                     * Return <code>true</code> if a resource proposal with the
+                     * specified instance name is already present in the list of
+                     * resource proposals, <code>false</code> otherwise.
+                     * 
+                     * @param instanceName
+                     * @param allResourceProposals
+                     * 
+                     * @return <code>true</code> if a resource proposal with the
+                     *         specified instance name is already present in the
+                     *         list of resource proposals, <code>false</code>
+                     *         otherwise.
+                     */
+                    private boolean isAlreadyInTheInstanceNameProposals(String instanceName,
+                            Set<EmailParticpantSharedResourceProposal> allResourceProposals) {
+                        boolean isInstanceNameInTheResourceProposals = false;
+
+                        if (null != instanceName) {
+                            for (EmailParticpantSharedResourceProposal eachProposal : allResourceProposals) {
+                                if (null != eachProposal && null != eachProposal.getEmailInstanceName()) {
+                                    if (instanceName.equals(eachProposal.getEmailInstanceName())) {
+                                        isInstanceNameInTheResourceProposals = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        return isInstanceNameInTheResourceProposals;
+                    }
+                };
+
+        /*
+         * Content assist helper for email instance names content assist.
+         */
+        FixedValueFieldAssistHelper emailInstanceNameContentAssistHelper =
+                new FixedValueFieldAssistHelper(toolkit, page, emailInstanceNamesProposalProvider, false);
+        emailInstanceNameContentAssistHelper.addValueChangedListener(this);
+        emailInstanceNameText = emailInstanceNameContentAssistHelper.getDecoratedField();
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalIndent = -6;
+        emailInstanceNameText.getLayoutControl().setLayoutData(gridData);
+        emailInstanceNameText.getLayoutControl().setBackground(page.getBackground());
+        emailInstanceNameText.getControl().setToolTipText(Messages.SharedResourcesSection_EmailInstanceNameTooltip);
+        manageControlUpdateOnDeactivate((Text) emailInstanceNameText.getControl());
     }
 
     /**
@@ -235,7 +337,7 @@ public class SharedResourcesSection
          * Endpoint resource name controls.
          */
 
-        Label endPointIdentifierLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierLabel);
+        Label endPointIdentifierLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_SharedResourceLabel);
         GridDataFactory.swtDefaults().applyTo(endPointIdentifierLabel);
 
         FixedValueFieldProposalProvider endpointNamesProposalProvider =
@@ -246,7 +348,7 @@ public class SharedResourcesSection
                          * Get all the participants which match the content of
                          * the content assist field
                          */
-                        Set<SharedResourceProposal> allResourceNameProposals =
+                        Set<RestServiceSharedResourceProposal> allResourceNameProposals =
                                 getAllResourceProposals();
                         Object[] proposals = allResourceNameProposals.toArray();
                         return proposals;
@@ -258,9 +360,9 @@ public class SharedResourcesSection
                      * 
                      * @return
                      */
-                    private Set<SharedResourceProposal> getAllResourceProposals() {
+                    private Set<RestServiceSharedResourceProposal> getAllResourceProposals() {
 
-                        Set<SharedResourceProposal> allResourceProposals = new HashSet<SharedResourceProposal>();
+                        Set<RestServiceSharedResourceProposal> allResourceProposals = new HashSet<RestServiceSharedResourceProposal>();
 
                         Collection<IndexerItem> allParticipantIndexerItems =
                                 ProcessUIUtil.getAllParticipantIndexerItems();
@@ -295,8 +397,8 @@ public class SharedResourcesSection
                                     String resourceDescription = eachParticipantIndexerItem
                                             .get(ProcessParticipantResourceIndexProvider.ATTRIBUTE_RESOURCE_DESCRIPTION);
                                     
-                                    SharedResourceProposal newRestServiceSharedResourceProposal =
-                                            new SharedResourceProposal(
+                                    RestServiceSharedResourceProposal newRestServiceSharedResourceProposal =
+                                            new RestServiceSharedResourceProposal(
                                                     resourceName,
                                                     resourceDescription);
                                     allResourceProposals
@@ -324,11 +426,11 @@ public class SharedResourcesSection
                      */
                     private boolean isAlreadyInTheResourceProposals(
                             String resourceName,
-                            Set<SharedResourceProposal> allResourceProposals) {
+                            Set<RestServiceSharedResourceProposal> allResourceProposals) {
                         boolean isResourceNameInTheResourceProposals = false;
 
                         if (null != resourceName) {
-                            for (SharedResourceProposal eachProposal : allResourceProposals) {
+                            for (RestServiceSharedResourceProposal eachProposal : allResourceProposals) {
                                 if (null != eachProposal && null != eachProposal
                                         .getResourceName()) {
                                     if (resourceName.equals(
@@ -358,13 +460,13 @@ public class SharedResourcesSection
         endPointIdentifierText.getLayoutControl()
                 .setBackground(page.getBackground());
         endPointIdentifierText.getControl().setToolTipText(
-                Messages.SharedResourcesSection_EndpointIdentifierTooltip);
+                Messages.SharedResourcesSection_SharedResourceTooltip);
 
         /*
          * Endpoint resource description controls.
          */
 
-        Label endPointIdentifierDescLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_EndpointIdentifierDescLabel);
+        Label endPointIdentifierDescLabel = toolkit.createLabel(page, Messages.SharedResourcesSection_SharedResourceDescLabel);
         GridDataFactory.swtDefaults().applyTo(endPointIdentifierDescLabel);
         endPointIdentifierDescText = toolkit.createText(page, ""); //$NON-NLS-1$
         GridDataFactory.fillDefaults().grab(true, false).applyTo(endPointIdentifierDescText);
@@ -393,12 +495,12 @@ public class SharedResourcesSection
                         (TransactionalEditingDomain) getEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                        if (newValue instanceof SharedResourceProposal) {
+                        if (newValue instanceof RestServiceSharedResourceProposal) {
                             String resName =
-                                    ((SharedResourceProposal) newValue)
+                                    ((RestServiceSharedResourceProposal) newValue)
                                             .getResourceName();
                             String resDesc =
-                                    ((SharedResourceProposal) newValue)
+                                    ((RestServiceSharedResourceProposal) newValue)
                                             .getResourceDescription();
                             if (null != resName && !resName.isEmpty()) {
                                 sr.getRestService().setResourceName(resName);
@@ -431,7 +533,7 @@ public class SharedResourcesSection
      * @author sajain
      * @since Jun 4, 2019
      */
-    private static class SharedResourceProposal {
+    private static class RestServiceSharedResourceProposal {
 
         /**
          * Resource name.
@@ -450,7 +552,7 @@ public class SharedResourcesSection
          * @param aResourceName
          * @param aResourceDescription
          */
-        public SharedResourceProposal(
+        public RestServiceSharedResourceProposal(
                 String aResourceName, String aResourceDescription) {
             this.setResourceName(aResourceName);
             this.setResourceDescription(aResourceDescription);
@@ -508,6 +610,61 @@ public class SharedResourcesSection
     }
 
     /**
+     * Class to facilitate the proposals for Email particpant shared resource
+     * instance name content assist.
+     *
+     * @author sajain
+     * @since Jul 30, 2019
+     */
+    private static class EmailParticpantSharedResourceProposal {
+
+        /**
+         * Email participant instance name.
+         */
+        private String emailInstanceName;
+
+        /**
+         * Class to facilitate the proposals for Email particpant shared
+         * resource instance name content assist.
+         * 
+         * @param aEmailInstanceName
+         */
+        public EmailParticpantSharedResourceProposal(String aEmailInstanceName) {
+            this.setEmailInstanceName(aEmailInstanceName);
+        }
+
+        /**
+         * @see java.lang.Object#toString()
+         *
+         * @return
+         */
+        @Override
+        public String toString() {
+            String toStr = super.toString();
+            if (null != this.emailInstanceName && !this.emailInstanceName.isEmpty()) {
+                toStr = this.emailInstanceName;
+            }
+
+            return toStr;
+        }
+
+        /**
+         * @return the emailInstanceName
+         */
+        public String getEmailInstanceName() {
+            return emailInstanceName;
+        }
+
+        /**
+         * @param emailInstanceName
+         *            the emailInstanceName to set
+         */
+        public void setEmailInstanceName(String emailInstanceName) {
+            this.emailInstanceName = emailInstanceName;
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -531,7 +688,6 @@ public class SharedResourcesSection
                             if (sr.getEmail() == null) {
                                 EmailResource er = XpdExtensionFactory.eINSTANCE
                                         .createEmailResource();
-                                er.setInstanceName(""); //$NON-NLS-1$
                                 sr.setSharedResource(er);
                             }
                             break;
@@ -559,7 +715,7 @@ public class SharedResourcesSection
                 return cmd;
             }
         }
-        if (obj == emailInstanceNameText) {
+        if (obj == emailInstanceNameText.getControl()) {
             final ParticipantSharedResource sr =
                     getSetParticipantSharedResource(participant, false);
             if (sr != null && sr.getEmail() != null) {
@@ -570,7 +726,7 @@ public class SharedResourcesSection
                             (TransactionalEditingDomain) getEditingDomain()) {
                         @Override
                         protected void doExecute() {
-                            sr.getEmail().setInstanceName(text);
+                            sr.getEmail().setInstanceName(text.length() > 0 ? text : null);
                         }
                     };
                 }
@@ -611,7 +767,7 @@ public class SharedResourcesSection
             }
         }
         
-        if (obj == endPointIdentifierText) {
+        if (obj == endPointIdentifierText.getControl()) {
           final ParticipantSharedResource sr =
                   getSetParticipantSharedResource(participant, false);
             if (null != sr && null != sr.getRestService()) {
@@ -751,8 +907,13 @@ public class SharedResourcesSection
     private void refreshResourceTypeBookPages(
             ParticipantSharedResource sharedResource) {
         if (sharedResource.getEmail() != null) {
-            emailInstanceNameText.setText(
-                    nullSafe(sharedResource.getEmail().getInstanceName()));
+            EmailResource emailResource = sharedResource.getEmail();
+            if (emailResource.getInstanceName() != null) {
+                ((Text) emailInstanceNameText.getControl()).setText(nullSafe(emailResource.getInstanceName()));
+            } else {
+                ((Text) emailInstanceNameText.getControl()).setText("");//$NON-NLS-1$
+            }
+
         } else if (sharedResource.getJdbc() != null) {
             jdbcInstanceNameText.setText(
                     nullSafe(sharedResource.getJdbc().getInstanceName()));

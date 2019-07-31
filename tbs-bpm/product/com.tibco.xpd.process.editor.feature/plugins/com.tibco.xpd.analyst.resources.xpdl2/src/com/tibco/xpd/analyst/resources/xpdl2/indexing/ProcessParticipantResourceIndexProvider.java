@@ -61,6 +61,12 @@ public class ProcessParticipantResourceIndexProvider extends
     public static final String ATTRIBUTE_RESOURCE_DESCRIPTION =
             "resource_description"; //$NON-NLS-1$
 
+    /**
+     * Attribute to store shared resource email instance name of the
+     * participant.
+     */
+    public static final String ATTRIBUTE_EMAIL_INSTANCE_NAME = "email_instance_name"; //$NON-NLS-1$
+
     public ProcessParticipantResourceIndexProvider() {
         super();
     }
@@ -210,6 +216,10 @@ public class ProcessParticipantResourceIndexProvider extends
 
                 map.put(ATTRIBUTE_RESOURCE_DESCRIPTION,
                         psr.getRestService().getDescription());
+            } else if (null != psr.getEmail()) {
+                map.put(ATTRIBUTE_RESOURCE_TYPE, ResourceType.EMAIL.toString());
+
+                map.put(ATTRIBUTE_EMAIL_INSTANCE_NAME, psr.getEmail().getInstanceName());
             }
         }
 

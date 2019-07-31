@@ -1570,7 +1570,7 @@ public class Messages extends NLS {
 
     public static String SharedResourcesSection_EmailEnum_button;
 
-    public static String SharedResourcesSection_EmailInstanceName_label;
+    public static String SharedResourcesSection_EmailInstanceNameTooltip;
 
     public static String SharedResourcesSection_JdbcEnum_button;
 
@@ -1588,11 +1588,11 @@ public class Messages extends NLS {
 
     public static String SharedResourcesSection_RestClientInstanceLabel;
     
-    public static String SharedResourcesSection_EndpointIdentifierLabel;
+    public static String SharedResourcesSection_SharedResourceLabel;
     
-    public static String SharedResourcesSection_EndpointIdentifierDescLabel;
+    public static String SharedResourcesSection_SharedResourceDescLabel;
 
-    public static String SharedResourcesSection_EndpointIdentifierTooltip;
+    public static String SharedResourcesSection_SharedResourceTooltip;
 
     public static String SharedResourcesSection_RestInvokeUsingLabel;
 
