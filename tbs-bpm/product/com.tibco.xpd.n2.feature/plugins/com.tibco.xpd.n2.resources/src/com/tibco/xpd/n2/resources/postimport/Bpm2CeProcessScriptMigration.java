@@ -228,6 +228,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new MethodRefactorRule("addAll", "pushAll")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new MethodRefactorRule("add", "push", arrayFilter)); //$NON-NLS-1$//$NON-NLS-2$
         result.add(new ArrayAccessorReplacement(fieldResolver));
+        result.add(new ArraySizeRefactor(fieldResolver));
 
         return result;
     }
@@ -650,10 +651,13 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 Token token = aParser.LT(aIndex);
                 Token nextToken = aParser.LT(aIndex + 1);
 
+                if ((fieldNameToken == null) || (prevToken == null) || (token == null) || (nextToken == null)) {
+                    return false;
+                }
+
                 // if the elements are not on the same line - cannot handle line breaks
                 // preceeding dot, method name and opening paren must be on same line
-                if ((fieldNameToken == null) || (prevToken == null) || (token == null) || (nextToken == null) //
-                        || (prevToken.getLine() != token.getLine()) || (token.getLine() != nextToken.getLine())) {
+                if ((prevToken.getLine() != token.getLine()) || (token.getLine() != nextToken.getLine())) {
                     return false;
                 }
 
@@ -803,6 +807,79 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 throws TokenStreamException {
             Token token = aParser.LT(aIndex);
             return Collections.singleton(new ScriptItemReplacementRef(token, newMethod));
+        }
+    }
+
+    /**
+     * Identifies uses of the array accessor ".size()" and replaces them with the property accessor ".length".
+     */
+    private static class ArraySizeRefactor implements RefactorRule {
+        private static final String SIZE_METHOD = "size"; //$NON-NLS-1$
+
+        private static final String LENGTH_PROPERTY = "length"; //$NON-NLS-1$
+
+        // used to look-up fields in order to check data types
+        private final FieldResolver resolver;
+
+        public ArraySizeRefactor(FieldResolver aFieldResolver) {
+            resolver = aFieldResolver;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (aIndex > 2) {
+                // ensure that the token is for the old method name and is preceeded by the field name and a dot
+                Token fieldNameToken = aParser.LT(aIndex - 2);
+                Token dotToken = aParser.LT(aIndex - 1);
+                Token token = aParser.LT(aIndex);
+                Token openParen = aParser.LT(aIndex + 1);
+                Token closeParen = aParser.LT(aIndex + 2);
+
+                if ((fieldNameToken == null) || (fieldNameToken.getType() != JScriptTokenTypes.IDENT)
+                        || (dotToken == null) || (dotToken.getType() != JScriptTokenTypes.DOT) //
+                        || (token == null) || (token.getType() != JScriptTokenTypes.IDENT) //
+                        || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN) //
+                        || (closeParen == null) || (closeParen.getType() != JScriptTokenTypes.RPAREN)) {
+                    return false;
+                }
+
+                // cannot handle line breaks - method name and parenthesis must be on same line
+                if ((token.getLine() != openParen.getLine()) || (token.getLine() != closeParen.getLine())) {
+                    return false;
+                }
+
+                // check the method name is "size"
+                if (!ArraySizeRefactor.SIZE_METHOD.equals(token.getText())) {
+                    return false;
+                }
+
+                // check whether the identified field is an array
+                ConceptPath conceptPath = resolver.resolve(aParser, aIndex - 2);
+                return (conceptPath != null) && (conceptPath.isArray());
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token token = aParser.LT(aIndex);
+            Token openParen = aParser.LT(aIndex + 1);
+            Token closeParen = aParser.LT(aIndex + 2);
+
+            // we will be replacing all these tokens
+            int totalLength = token.getText().length() + openParen.getText().length() + closeParen.getText().length();
+            return Collections.singleton(new ScriptItemReplacementRef(token.getLine(), token.getColumn(), totalLength,
+                    ArraySizeRefactor.LENGTH_PROPERTY));
         }
     }
 
