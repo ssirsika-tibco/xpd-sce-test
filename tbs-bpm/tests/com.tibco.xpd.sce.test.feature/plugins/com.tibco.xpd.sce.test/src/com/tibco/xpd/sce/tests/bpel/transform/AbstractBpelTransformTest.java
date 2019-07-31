@@ -88,7 +88,7 @@ public abstract class AbstractBpelTransformTest extends TestCase {
             IStatus status =
                     bpelBuilder.buildProject(new NullProgressMonitor());
             if (!status.isOK()) {
-                fail(String.format("EPEL builder failed on project: %s ",
+                fail(String.format("BPEL builder failed on project: %s ",
                         processProject.getName()));
             }
 

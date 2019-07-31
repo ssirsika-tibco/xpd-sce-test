@@ -2,6 +2,7 @@ package com.tibco.bx.xpdl2bpel.converter.internal;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -20,6 +21,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.osgi.framework.Version;
+import org.w3c.dom.CDATASection;
+import org.w3c.dom.Element;
 
 import com.tibco.bx.bpelExtension.extensions.ExtensionsFactory;
 import com.tibco.bx.bpelExtension.extensions.GlobalSignal;
@@ -38,12 +41,15 @@ import com.tibco.bx.xpdl2bpel.converter.internal.ConvertDataMapping.DataMappingI
 import com.tibco.bx.xpdl2bpel.converter.internal.ConvertDataMapping.PartMappings;
 import com.tibco.bx.xpdl2bpel.util.BPELUtils;
 import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
+import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.globalSignalDefinition.PayloadDataField;
 import com.tibco.xpd.globalSignalDefinition.util.GlobalSignalUtil;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
+import com.tibco.xpd.process.datamapper.signal.util.SignalDataMapperConstants;
 import com.tibco.xpd.processeditor.xpdl2.properties.StandardMappingUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.DataMappingUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
@@ -51,6 +57,7 @@ import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.xpdExtension.ConstantPeriod;
 import com.tibco.xpd.xpdExtension.ReplyImmediateDataMappings;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
@@ -75,6 +82,7 @@ import com.tibco.xpd.xpdl2.TriggerTimer;
 import com.tibco.xpd.xpdl2.TriggerType;
 import com.tibco.xpd.xpdl2.WebServiceOperation;
 import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 public class ConvertEvent {
 
@@ -348,7 +356,7 @@ public class ConvertEvent {
         /*
          * Sid ACE-194 - we don't support message events in ACE
          */
-        throw new RuntimeException("Unexpected unsupported message activity in source process.");
+        throw new RuntimeException("Unexpected unsupported message activity in source process."); //$NON-NLS-1$
         
 //        
 //		if (triggerResultMessage != null) {
@@ -493,8 +501,8 @@ public class ConvertEvent {
     
     public static GlobalSignal createCaseDataSignal(TriggerResultSignal signal) {
         GlobalSignal globalSignal = ExtensionsFactory.eINSTANCE.createGlobalSignal();
-        globalSignal.setAppName("$CaseRefSignal$");
-        globalSignal.setAppVersion("1");
+        globalSignal.setAppName("$CaseRefSignal$"); //$NON-NLS-1$
+        globalSignal.setAppVersion("1"); //$NON-NLS-1$
         globalSignal.setName(signal.getName());
 		return globalSignal;
     }
@@ -514,7 +522,7 @@ public class ConvertEvent {
         Set<String> optional = new HashSet<String>();
         for (PayloadDataField payloadDataField:globalSignal.getPayloadDataFields()) {
     		Variable variable = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariable();
-    		variable.setName("SIGNAL_"+payloadDataField.getName());
+    		variable.setName(ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX+payloadDataField.getName());
     		ConvertDataField.setDataTypeForVariable(xpdlActivity.getProcess(), variable, payloadDataField.getDataType(), 
     				payloadDataField.isIsArray());
     		signalVariables.getChildren().add(variable);
@@ -523,19 +531,118 @@ public class ConvertEvent {
     		}
         }
         globalSignalMappings.setSignalVariables(signalVariables);
-        
+
         if (signal.getCatchThrow().getValue()==CatchThrow.THROW_VALUE) {
-        	if (signalData.getCorrelationMappings()!=null) {
-        		addCopies(signalData.getCorrelationMappings().getDataMappings(), globalSignalMappings.getVariableCopy(), null, "", "SIGNAL_");
-        	}
-        	addCopies(signalData.getDataMappings(), globalSignalMappings.getVariableCopy(), optional, "", "SIGNAL_");
+            /*
+             * Sid ACE-1114 In ACE Global Signal uses DataMapper scripts.
+             */
+            if (signalData.getInputScriptDataMapper() != null) {
+                String dataMapperScript = new DataMapperJavascriptGenerator()
+                        .convertMappingsToJavascript(signalData.getInputScriptDataMapper());
+
+                if (dataMapperScript != null && !dataMapperScript.isEmpty()) {
+                    addScriptElement(extensibleElement, "mappingScript", dataMapperScript);
+                }
+
+            } else {
+                /* 
+                 * JavaScript mappings... 
+                 */
+                if (signalData.getCorrelationMappings()!=null) {
+                    addCopies(signalData.getCorrelationMappings().getDataMappings(), globalSignalMappings.getVariableCopy(), null, "", ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX); //$NON-NLS-1$
+                }
+                
+                addCopies(signalData.getDataMappings(),
+                        globalSignalMappings.getVariableCopy(),
+                        optional,
+                        "", //$NON-NLS-1$
+                        ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX);
+            }
+        	
         } else {
-        	addCopies(signalData.getCorrelationMappings().getDataMappings(), globalSignalMappings.getCorrelationCopy(), null, "SIGNAL_", "");
-        	addCopies(signalData.getDataMappings(), globalSignalMappings.getVariableCopy(), optional, "SIGNAL_", "");
+            /*
+             * Sid ACE-1114 In ACE Global Signal uses DataMapper scripts.
+             */
+            if (signalData.getOutputScriptDataMapper() != null) {
+                /*
+                 * Correlation mappings are mixed in with normal mappings in
+                 * DataMapper - just with a different target Contributor.
+                 */
+                List<DataMapping> correlationMappings =
+                        getSignalCorrelationDataMappings(signalData.getOutputScriptDataMapper());
+
+                /* Add the correlation as copy statements into the BPEL. */
+                addCopies(correlationMappings,
+                        globalSignalMappings.getCorrelationCopy(),
+                        null,
+                        ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX,
+                        ""); //$NON-NLS-1$
+
+                /* Generate and add the mapping script. */
+                String dataMapperScript = new DataMapperJavascriptGenerator()
+                        .convertMappingsToJavascript(signalData.getOutputScriptDataMapper());
+
+                if (dataMapperScript != null && !dataMapperScript.isEmpty()) {
+                    addScriptElement(extensibleElement, "mappingScript", dataMapperScript);
+                }
+
+            } else {
+                /*
+                 * JavaScript mappings....
+                 */
+                addCopies(signalData.getCorrelationMappings().getDataMappings(),
+                        globalSignalMappings.getCorrelationCopy(),
+                        null,
+                        ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX,
+                        ""); //$NON-NLS-1$
+                addCopies(signalData.getDataMappings(),
+                        globalSignalMappings.getVariableCopy(),
+                        optional,
+                        ReservedWords.BX_SIGNAL_PAYLOAD_PREFIX,
+                        ""); //$NON-NLS-1$
+            }
         }
-		extensibleElement.addExtensibilityElement(globalSignalMappings);
+
+        extensibleElement.addExtensibilityElement(globalSignalMappings);
+        
     }
     
+    /**
+     * Add a script extension element to the given parent element.
+     * 
+     * @param parentElement parent to add script element to
+     * @param name name of script element
+     * @param script the content of the script.
+     */
+    private static void addScriptElement(ExtensibleElement parentElement, String name, String script) {
+        Element scriptElement = BPELUtils.makeExtensionElement(parentElement, name);
+        
+        CDATASection cdata = scriptElement.getOwnerDocument().createCDATASection(script);
+        scriptElement.appendChild(cdata);
+        scriptElement.setAttribute("expressionLanguage", N2PEConstants.JSCRIPT_LANGUAGE);
+    }
+
+    /**
+     * @param outputScriptDataMapper
+     * @return The list of correlation data mappings from the given signal
+     *         script data mapper object
+     */
+    private static List<DataMapping> getSignalCorrelationDataMappings(ScriptDataMapper outputScriptDataMapper) {
+        List<DataMapping> correlationMappings = new ArrayList<DataMapping>();
+
+        for (DataMapping dataMapping : outputScriptDataMapper.getDataMappings()) {
+            String targetContrbutorId = (String) Xpdl2ModelUtil.getOtherAttribute(dataMapping,
+                    XpdExtensionPackage.eINSTANCE.getDocumentRoot_TargetContributorId());
+
+            if (SignalDataMapperConstants.GS_CATCH_CORRELATION_DATAMAPPER_CONTENT_CONTRIBUTOR_ID
+                    .equals(targetContrbutorId)) {
+                correlationMappings.add(dataMapping);
+            }
+        }
+
+        return correlationMappings;
+    }
+
     private static void addCopies(List<DataMapping> dataMappings, List<org.eclipse.bpel.model.Copy> copies, 
     		 Set<String> optional, String fromPrefix, String toPrefix) {
     	if (dataMappings!=null) {
@@ -644,6 +751,7 @@ public class ConvertEvent {
         //return ConvertUtil.createExtensionActivityFromEmfObject(receiveEvent, ConvertUtil.EXTENSION_ACTIVITY_LOCALNAME, true);
     }
 
+
     private static org.eclipse.bpel.model.Activity convertCatchSignalEvent(Activity xpdlActivity, TriggerResultSignal signal) throws ConversionException {
     	boolean isEventHandler = XPDLUtils.isEventHandlerActivity(xpdlActivity);
     	if (isEventHandler) {
@@ -656,14 +764,16 @@ public class ConvertEvent {
     	} else {
             com.tibco.bx.bpelExtension.extensions.ReceiveEvent receiveEvent = ExtensionsFactory.eINSTANCE.createReceiveEvent();
             EObject eventSource;
-//            if (XPDLUtils.isGlobalSignalType(signal)) {
-            	//not supported
-//            	eventSource = createGlobalSignal(signal);
-//        		attachGlobalSignalMappings(receiveEvent, signal, xpdlActivity);
-//    		} else {
-    			eventSource = ExtensionsFactory.eINSTANCE.createSignalEvent();
-    			((SignalEvent) eventSource).setEvent(signal.getName());
-//    		}
+            
+            /*
+             * Sid ACE-1114 Removed commented code related to global signal to
+             * save confusion. This code was never needed because this part of the function
+             * is for in-flow/task boundary events and global signal is only
+             * supported for Event handler / Event Sub-Process patterns.
+             */
+            eventSource = ExtensionsFactory.eINSTANCE.createSignalEvent();
+            ((SignalEvent) eventSource).setEvent(signal.getName());
+
             receiveEvent.setEventSource(eventSource);
             return receiveEvent;
     	}
@@ -726,7 +836,7 @@ public class ConvertEvent {
 	    		buf.append(secs);
 	    	}
 	    	if (microSecs > 0) {
-	    		BigDecimal bd = new BigDecimal(iMicroSecs).divide(new BigDecimal("1000000"));
+	    		BigDecimal bd = new BigDecimal(iMicroSecs).divide(new BigDecimal("1000000")); //$NON-NLS-1$
 	    		String x = bd.toString();
 	    		if (microSecs>=1000000) {
 	    			x = bd.add(new BigDecimal(iSecs)).toString();
