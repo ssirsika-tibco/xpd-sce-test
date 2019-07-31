@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.uml2.uml.Class;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.TaskImplementationTypeDefinitions;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptUtil;
@@ -199,6 +200,7 @@ public class GlobalDataTaskJavaScriptUtil {
         String caseRefFieldName = caseRefOp.getCaseRefField();
 
         if (caseRefFieldName != null) {
+            String caseRefFieldAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + caseRefFieldName; //$NON-NLS-1$
             ProcessRelevantData caseRefField = findProcessRelevantData(caseRefFieldName, globalDataTask);
             Class caseClass = null;
             if (caseRefField != null) {
@@ -220,15 +222,16 @@ public class GlobalDataTaskJavaScriptUtil {
                     /*
                      * Update operation
                      */
-                    String fromFieldPath = update.getFromFieldPath();
+                    String fromFieldPath =
+                            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + update.getFromFieldPath(); //$NON-NLS-1$
                     if (caseRefField.isIsArray()) {
-                        return getScript(UPDATE_ARRAY_METHOD, caseRefFieldName, fromFieldPath);
+                        return getScript(UPDATE_ARRAY_METHOD, caseRefFieldAccessor, fromFieldPath);
                     } else {
-                        return getScript(UPDATE_METHOD, caseRefFieldName, fromFieldPath);
+                        return getScript(UPDATE_METHOD, caseRefFieldAccessor, fromFieldPath);
                     }
                 } else if (caseRefOp.getDelete() != null) {
                     if (caseRefField.isIsArray()) {
-                        return getScript(DELETE_METHOD, caseRefFieldName);
+                        return getScript(DELETE_METHOD, caseRefFieldAccessor);
                     } else {
                         /*
                          * Delete operation
@@ -239,43 +242,49 @@ public class GlobalDataTaskJavaScriptUtil {
                          * cannot do checkIfSafeToDeleteCase() in pageflows etc.
                          */
                         if (Xpdl2ModelUtil.isBusinessProcess(globalDataTask.getProcess())) {
-                            return getScript(DELETE_IN_BIZPROCESS_METHOD, caseRefFieldName);
+                            return getScript(DELETE_IN_BIZPROCESS_METHOD, caseRefFieldAccessor);
                         } else {
-                            return getScript(DELETE_METHOD, caseRefFieldName);
+                            return getScript(DELETE_METHOD, caseRefFieldAccessor);
                         }
                     }
                 } else if (caseRefOp.getAddLinkAssociations() != null) {
                     AddLinkAssociationsType linkAssociations = caseRefOp.getAddLinkAssociations();
 
                     String addCaseRefField = linkAssociations.getAddCaseRefField();
+                    String addCaseRefAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + addCaseRefField; //$NON-NLS-1$
                     ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
 
+                    String linkAssociationAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
+                            + capitalize(linkAssociations.getAssociationName());
                     if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
                         return getScript(LINK_ARRAY_METHOD,
-                                caseRefFieldName,
-                                capitalize(linkAssociations.getAssociationName()),
-                                addCaseRefField);
+                                caseRefFieldAccessor,
+                                linkAssociationAccessor,
+                                addCaseRefAccessor);
                     } else {
                         return getScript(LINK_METHOD,
-                                caseRefFieldName,
-                                capitalize(linkAssociations.getAssociationName()),
-                                addCaseRefField);
+                                caseRefFieldAccessor,
+                                linkAssociationAccessor,
+                                addCaseRefAccessor);
                     }
                 } else if (caseRefOp.getRemoveLinkAssociations() != null) {
                     RemoveLinkAssociationsType linkAssociations = caseRefOp.getRemoveLinkAssociations();
                     String addCaseRefField = linkAssociations.getRemoveCaseRefField();
+                    String addCaseRefAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + addCaseRefField; //$NON-NLS-1$
                     ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
 
+                    String linkAssociationAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
+                            + capitalize(linkAssociations.getAssociationName());
                     if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
                         return getScript(UNLINK_ARRAY_METHOD,
-                                caseRefFieldName,
-                                capitalize(linkAssociations.getAssociationName()),
-                                linkAssociations.getRemoveCaseRefField());
+                                caseRefFieldAccessor,
+                                linkAssociationAccessor,
+                                addCaseRefAccessor);
                     } else {
                         return getScript(UNLINK_METHOD,
-                                caseRefFieldName,
-                                capitalize(linkAssociations.getAssociationName()),
-                                linkAssociations.getRemoveCaseRefField());
+                                caseRefFieldAccessor,
+                                linkAssociationAccessor,
+                                addCaseRefAccessor);
                     }
                 }
 
@@ -332,18 +341,22 @@ public class GlobalDataTaskJavaScriptUtil {
                 CreateCaseOperationType create = accessOperations.getCreate();
                 if (create != null) {
                     String caseRefFieldName = create.getToCaseRefField();
+                    String caseRefFieldAccessor =
+                            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + caseRefFieldName; //$NON-NLS-1$
                     ProcessRelevantData caseRefField = findProcessRelevantData(caseRefFieldName, globalDataTask);
                     String caseClassName = caseClass.getQualifiedName().replace("::", "."); //$NON-NLS-1$//$NON-NLS-2$
+                    String localDataAccessor =
+                            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + create.getFromFieldPath(); //$NON-NLS-1$
                     if (caseRefField != null && caseRefField.isIsArray()) {
                         return getScript(CREATE_ALL_METHOD,
-                                caseRefFieldName,
+                                caseRefFieldAccessor,
                                 caseClassName,
-                                create.getFromFieldPath());
+                                localDataAccessor);
                     } else {
                         return getScript(CREATE_METHOD,
-                                caseRefFieldName,
+                                caseRefFieldAccessor,
                                 caseClassName,
-                                create.getFromFieldPath());
+                                localDataAccessor);
                     }
                 }
             }
