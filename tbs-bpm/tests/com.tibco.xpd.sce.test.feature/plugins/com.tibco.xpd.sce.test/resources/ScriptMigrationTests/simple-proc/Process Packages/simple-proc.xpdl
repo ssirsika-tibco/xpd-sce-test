@@ -138,7 +138,7 @@ var e = dataClassArrayField.get(&quot;this.is.a.String.get()&quot;.length);&#xD;
 var f = dataClassArrayField.get(intArrayField.get(0) + intArrayField.get(1));&#xD;
 var g = dataClassArrayField.get(0).arrayAttribute.get(9);&#xD;
 &#xD;
-var i = dataClassArrayField.size() + intArrayField.size();&#xD;
+var i = dataClassArrayField.size() + intArrayField.size( /* count this */);&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
