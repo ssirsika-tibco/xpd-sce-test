@@ -115,7 +115,7 @@ public class EventBasedGatewayTransitionRule extends
      */
     private void checkTransitions(FlowContainer container, Activity activity) {
         boolean hasReceiveTasks = false;
-        boolean hasMessageEvents = false;
+        boolean hasIncomingRequestEvents = false;
         boolean valid;
         for (Object next : activity.getOutgoingTransitions()) {
             Transition transition = (Transition) next;
@@ -135,14 +135,14 @@ public class EventBasedGatewayTransitionRule extends
                         EventTriggerType eventTriggerType =
                                 EventObjectUtil.getEventTriggerType(target);
                         switch (eventTriggerType.getValue()) {
-                        case EventTriggerType.EVENT_MESSAGE_CATCH:
-                            hasMessageEvents = true;
+                        // ACE-2014: SCE: Message catch event replaced by Incoming Request Event (EVENT_NONE).
+                        case EventTriggerType.EVENT_NONE:
+                            hasIncomingRequestEvents = true;
                             valid = true;
                             break;
                         case EventTriggerType.EVENT_TIMER:
                         case EventTriggerType.EVENT_CONDITIONAL:
                         case EventTriggerType.EVENT_SIGNAL_CATCH:
-                        case EventTriggerType.EVENT_MULTIPLE_CATCH:
                             valid = true;
                             break;
                         }
@@ -153,7 +153,7 @@ public class EventBasedGatewayTransitionRule extends
                 }
             }
         }
-        if (hasReceiveTasks && hasMessageEvents) {
+        if (hasReceiveTasks && hasIncomingRequestEvents) {
             addIssue(MIXED, activity);
         }
     }

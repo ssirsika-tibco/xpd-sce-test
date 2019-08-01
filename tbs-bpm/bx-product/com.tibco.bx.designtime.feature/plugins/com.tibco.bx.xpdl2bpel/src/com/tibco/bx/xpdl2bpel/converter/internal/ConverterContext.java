@@ -982,4 +982,13 @@ public class ConverterContext {
 
         return next;
     }
+    
+    /**
+     * Returns the default correlation timeout for the incoming request activity (in seconds).
+     *  
+     * @return a string representing the default timeout (integer) for incoming request activity (in seconds)
+     */
+    public String getDefaultIncomingRequestTimeout() {
+        return "3600"; //$NON-NLS-1$
+    }
 }

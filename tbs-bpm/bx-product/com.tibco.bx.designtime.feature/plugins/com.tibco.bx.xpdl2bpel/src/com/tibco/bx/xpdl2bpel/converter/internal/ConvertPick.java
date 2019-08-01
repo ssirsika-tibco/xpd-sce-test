@@ -71,10 +71,6 @@ public class ConvertPick {
                 StartEvent startEvent = (StartEvent) event;
                 TriggerType triggerType = startEvent.getTrigger();
                 switch (triggerType.getValue()) {
-                    case TriggerType.NONE:
-                        // use onStartEvent
-                        convertStartEvent(context, task, bpelPick, N2PEConstants.START_EVENT_TYPE);
-                        break;
                     case TriggerType.MESSAGE:
                         // use OnMessage
                     	TriggerResultMessage triggerResultMessage = startEvent.getTriggerResultMessage();
@@ -96,6 +92,10 @@ public class ConvertPick {
                 IntermediateEvent intermediateEvent = (IntermediateEvent) event;
                 TriggerType triggerType = intermediateEvent.getTrigger();
                 switch (triggerType.getValue()) {
+                    case TriggerType.NONE:
+                        // ACE-2017: Incoming Request Activity
+                        makeOnMessageInRequest(context, task, bpelPick, N2PEConstants.CATCH_MESSAGE_INTERMEDIATE_EVENT_TYPE, /*isReplyImmediately*/ false);
+                        break;
                     case TriggerType.MESSAGE:
                         // use OnMessage
                     	TriggerResultMessage triggerResultMessage = intermediateEvent.getTriggerResultMessage();
@@ -128,9 +128,8 @@ public class ConvertPick {
             	//must be receive activity
             	com.tibco.xpd.xpdl2.TaskReceive receive = ((Task)xpdlActivity.getImplementation()).getTaskReceive();
             	if (receive!=null) {
-            		Message message = receive.getMessage();
-            		WebServiceOperation webServiceOperation = receive.getWebServiceOperation();
-            		makeOnMessage(context, task, bpelPick, message, webServiceOperation, N2PEConstants.RECEIVE_TASK_TYPE, false);
+            	    // ACE-2017: Incoming Request Activity
+            		makeOnMessageInRequest(context, task, bpelPick, N2PEConstants.RECEIVE_TASK_TYPE, /*isReplyImmediately*/ false);
             	}
             }
         }
@@ -314,6 +313,36 @@ public class ConvertPick {
 //        onMessage.setActivity(messageActivity);
 //        task.setBpelReference(messageActivity);
 //        pick.getMessages().add(onMessage);
+    }
+    
+    /**
+     * Makes onMessage event for intermediate incomming request event or task.
+     * 
+     * @param context
+     * @param task
+     * @param pick
+     * @param type the type of the task.
+     * @param isReplyImmediately
+     * @throws ConversionException
+     */
+    private static void makeOnMessageInRequest(ConverterContext context, AnalyzerTask task, Pick pick, 
+            String type, boolean isReplyImmediately) throws ConversionException {
+
+        OnMessage onMessage = BPELFactory.eINSTANCE.createOnMessage();
+        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // See: XPDLUtils.getMessageTimeout(xpdlActivity);
+        BPELUtils.addExtensionAttribute(onMessage, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+       
+        org.eclipse.bpel.model.Activity assign =  org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
+        assign.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
+
+        context.syncXpdlId(assign, task.getXpdlActivity());
+        BPELUtils.setType(assign, type);	
+        BPELUtils.setLabel(assign, task.getXpdlActivity());
+        ConvertProcess.convertTaskScripts(context, assign, task.getXpdlActivity(), 2);
+        onMessage.setActivity(assign);
+        task.setBpelReference(assign);
+        pick.getMessages().add(onMessage);
     }
 
     private static void makeOnSignal(ConverterContext context, AnalyzerTask task, Pick pick, TriggerResultSignal signalTrigger, String type) {

@@ -183,6 +183,18 @@ public class ConvertBoundaryEvents {
 					// not intersect, fan-out not needed
 				}
 				break;
+			case TriggerType.NONE:
+			    // Incoming request boundary event.
+			    if (intersect && !context.isPageFlowEngineTarget()) {
+			        Assign assignAct = setupForFanOut(context, fanVar, scope, fanNumber++, eventAct, placeHolder,
+			                N2PEConstants.BOUNDARY_MESSAGE_EVENT_TYPE);
+			        makeOnEventInRequest(context, scope, assignAct, eventAct);
+			    } else {
+			        // move error path into fault handler
+			        // todo future optimization if error path and normal path do
+			        // not intersect, fan-out not needed
+			    }
+			    break;
 			case TriggerType.SIGNAL:
 				if (intersect) {
 					Assign assignAct = setupForFanOut(context, fanVar, scope, fanNumber++, eventAct, placeHolder,
@@ -720,6 +732,47 @@ public class ConvertBoundaryEvents {
 		if (inputVar != null) {
 			onEvent.setVariable(inputVar);
 		}
+	}
+	
+	/**
+	 * Create onEvent event handler for incoming request boundary event.
+	 *  
+	 * @param context
+	 * @param scope
+	 * @param fanAssign
+	 * @param xpdlActivity
+	 * @throws ConversionException
+	 */
+	private static void makeOnEventInRequest(ConverterContext context, Scope scope, Assign fanAssign,
+	        com.tibco.xpd.xpdl2.Activity xpdlActivity) throws ConversionException {
+	    // - add variable to scope
+	    // - add OnEvent to scope
+	    // - make Assign for receive and set as body of OnEvent
+	    // - add copy statement from fanAssign to other assign
+	    // - set extension attribute "cancel" = "yes" for OnEvent
+	    
+	    EventHandler eventHandler = scope.getEventHandlers();
+	    if (eventHandler == null) {
+	        eventHandler = BPELFactory.eINSTANCE.createEventHandler();
+	        scope.setEventHandlers(eventHandler);
+	    }
+	    OnEvent onEvent = BPELFactory.eINSTANCE.createOnEvent();
+	    eventHandler.getEvents().add(onEvent);
+	    
+	    // SCE: Default message correlation timeout is no longer configurable by the user.
+        // See: XPDLUtils.getMessageTimeout(xpdlActivity);
+        BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+	    
+	    BPELUtils.addExtensionAttribute(onEvent, CANCEL_EXTENSION, "yes"); //$NON-NLS-1$
+	    context.syncXpdlId(onEvent, xpdlActivity);
+	    
+	    org.eclipse.bpel.model.Activity theMappingActivity = fanAssign;;
+	    context.syncXpdlId(theMappingActivity, xpdlActivity);
+	    BPELUtils.setType(theMappingActivity, N2PEConstants.BOUNDARY_MESSAGE_EVENT_TYPE);
+	    theMappingActivity.setName(xpdlActivity.getName());
+	    
+	    Scope scope4OnEvent = wrapInScope(context, theMappingActivity, xpdlActivity);
+	    onEvent.setActivity(scope4OnEvent);
 	}
 
 	public static Variable makeFanVariable(ConverterContext context, boolean setInitValue) {

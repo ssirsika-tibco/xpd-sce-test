@@ -147,7 +147,22 @@ public class ConvertEvent {
 			TriggerType triggerType = intermediateEvent.getTrigger();
 			switch (triggerType.getValue()) {
 			case TriggerType.NONE:
-				// generate null activity
+			    //InFlow incoming request event. 
+			    target = intermediateEvent.getTarget();
+                if (target == null) {
+                    // catch intermediate event not on boundary with no incoming links is treated as event handler so
+                    // just use place holder here
+                    List<Transition> incomingLinks = xpdlActivity.getIncomingTransitions();
+                    if (incomingLinks != null && incomingLinks.size() > 0) {
+                        bpelActivity = convertToBPELReceiveInRequest(context, xpdlActivity);
+                    }
+                    eventType = N2PEConstants.CATCH_MESSAGE_INTERMEDIATE_EVENT_TYPE;
+                } else {
+                    // on the boundary, it will map to OnEvent
+                    // use Null activity for placeholder, will finish setup later
+                    context.addBoundaryEvent(target, xpdlActivity.getId());
+                    eventType = N2PEConstants.BOUNDARY_MESSAGE_EVENT_TYPE;
+                }
 				break;
 			case TriggerType.MESSAGE:
                 target = intermediateEvent.getTarget();
@@ -350,6 +365,48 @@ public class ConvertEvent {
         return wait;
     }
 
+    /**
+     * Converts event to BPEL receive task for incoming request activity.
+     * 
+     * @param context the converter context.
+     * @param xpdlActivity the event to convert.
+     * @return activity for the event.
+     */
+    private static org.eclipse.bpel.model.Activity convertToBPELReceiveInRequest(ConverterContext context,
+            final Activity xpdlActivity) {
+
+        // This is new ReceiveTask implementation for incoming request in SCE.
+        org.eclipse.bpel.model.Scope scope = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createScope();
+        org.eclipse.bpel.model.Sequence sequence = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createSequence();
+        sequence.setName(context.genUniqueActivityName("sequence")); //$NON-NLS-1$
+
+        org.eclipse.bpel.model.Receive receive = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createReceive();
+        receive.setName(context.genUniqueActivityName("receive")); //$NON-NLS-1$
+        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // See: XPDLUtils.getMessageTimeout(xpdlActivity);
+        BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+
+        sequence.getActivities().add(receive);
+
+        org.eclipse.bpel.model.Activity theMappingActivity =
+                org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
+        theMappingActivity.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
+
+        if (theMappingActivity != null) {
+            sequence.getActivities().add(theMappingActivity);
+        }
+        // ???
+        // if (XPDLUtils.isReplyImmediately(triggerResultMessage)) {
+        // ReplyImmediate replyImmediate = createReplyImmediate(context, message, wsoInfo);
+        // activity.addExtensibilityElement(replyImmediate);
+        // }
+
+        org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
+        scope.setVariables(variables);
+        scope.setActivity(sequence);
+        return scope;
+    }
+    
     private static org.eclipse.bpel.model.Activity convertToBPELReceive(
     		ConverterContext context, final Activity xpdlActivity, TriggerResultMessage triggerResultMessage, boolean instantiate) {
         

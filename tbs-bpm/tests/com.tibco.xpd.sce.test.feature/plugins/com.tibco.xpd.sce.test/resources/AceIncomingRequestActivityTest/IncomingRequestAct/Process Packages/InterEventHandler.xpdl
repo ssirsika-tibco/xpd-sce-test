@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_HNXJQK1cEemheL-rDtMNiw" xpdExt:DisplayName="InterEventHandler" Name="InterEventHandler">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2019-07-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>jarciuch</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_J9kAAK1cEemheL-rDtMNiw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_HNpdIK1cEemheL-rDtMNiw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_J9kAAa1cEemheL-rDtMNiw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="317.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_HNpdIK1cEemheL-rDtMNiw" xpdExt:DisplayName="InterEventHandler-Process" Name="InterEventHandlerProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_qf0xUK1cEemheL-rDtMNiw" Name="login" Mode="IN" Required="true" xpdExt:DisplayName="login">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_J9kAAq1cEemheL-rDtMNiw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_J9kAAa1cEemheL-rDtMNiw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_J9kAA61cEemheL-rDtMNiw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_J9kAAa1cEemheL-rDtMNiw" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="236.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_T9JOkK1cEemheL-rDtMNiw" Name="IntermediateEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Intermediate Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_J9kAAa1cEemheL-rDtMNiw" Width="69.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="237.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">var x = &quot;complete&quot;;</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_X4pa0q1cEemheL-rDtMNiw" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">true;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_J9kAAa1cEemheL-rDtMNiw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="217.0" YCoordinate="237.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_J9kABK1cEemheL-rDtMNiw" xpdExt:DisplayName="" Name="" From="_J9kAAq1cEemheL-rDtMNiw" To="_J9kAA61cEemheL-rDtMNiw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_X4pa061cEemheL-rDtMNiw" Name="" From="_T9JOkK1cEemheL-rDtMNiw" To="_X4pa0q1cEemheL-rDtMNiw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="CE"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="1000"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="1000"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

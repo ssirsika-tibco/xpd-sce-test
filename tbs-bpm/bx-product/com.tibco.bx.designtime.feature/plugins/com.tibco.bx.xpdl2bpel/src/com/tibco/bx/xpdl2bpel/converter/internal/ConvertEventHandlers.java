@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.xml.namespace.QName;
 
+import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.ExtensibleElement;
 import org.eclipse.bpel.model.Flow;
@@ -104,8 +105,17 @@ public class ConvertEventHandlers {
 			switch (triggerType.getValue()) {
 			case TriggerType.NONE:
 				try {
-					OnReceiveEvent onReceive = convertNoneEventHandler(context, eventHandlerTask);
-					bpelEventHandler.addExtensibilityElement(onReceive);
+				    //In SCE business process event handlers are incoming request activities.
+				    if(!context.isPageFlowEngineTarget()) {
+				        OnEvent onEvent = convertIncomingRequestEventHandler(context, eventHandlerTask);
+				        if (onEvent!=null) {
+				            bpelEventHandler.getEvents().add(onEvent);
+				        }				        
+				    } else {
+				        //For pageflow processes the old way of NONE event handing is used.
+				        OnReceiveEvent onReceive = convertNoneEventHandler(context, eventHandlerTask);
+				        bpelEventHandler.addExtensibilityElement(onReceive);
+				    }
 				} catch (ConversionException e) {
 					context.logError(Messages.getString("ConvertProcess.cannotConvertEventHandler") + e.getMessage(), e); //$NON-NLS-1$
 				}
@@ -180,7 +190,118 @@ public class ConvertEventHandlers {
 		}
 	}
 
-	private static OnReceiveEvent convertNoneEventHandler(ConverterContext context, AnalyzerTask eventHandlerTask) throws ConversionException {
+	/**
+     * @param context
+     * @param eventHandlerTask
+     * @return
+     */
+    private OnEvent convertIncomingRequestEventHandler(ConverterContext context, AnalyzerTask eventHandlerTask)
+            throws ConversionException {
+        OnEvent onEvent = BPELFactory.eINSTANCE.createOnEvent();
+
+        Activity xpdlActivity = eventHandlerTask.getXpdlActivity();
+
+        // SCE: Default message correlation timeout is no longer configurable by the user.
+        // See: XPDLUtils.getMessageTimeout(xpdlActivity);
+        BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+
+        org.eclipse.bpel.model.Activity theMappingActivity = createIncomingRequestStartActivity(context);
+        
+        org.eclipse.bpel.model.Activity eventHandlerBody;
+        org.eclipse.bpel.model.Flow flow;
+        boolean isAScope = false;
+
+        if (eventHandlerTask.getEventHandlerBody().isEventSubProcess()) {
+            eventHandlerBody = ConvertProcess.convertTaskToBpel(context, eventHandlerTask.getEventHandlerBody());
+            if (eventHandlerBody instanceof org.eclipse.bpel.model.Scope) {
+                isAScope = true;
+                flow = (Flow) ((org.eclipse.bpel.model.Scope) eventHandlerBody).getActivity();
+            } else {
+                flow = (org.eclipse.bpel.model.Flow) eventHandlerBody;
+            }
+            eventSubProcItems(context, flow, eventHandlerTask);
+
+            AnalyzerTask starter = ((AnalyzerParentTask) eventHandlerTask.getEventHandlerBody()).getStartEvent();
+            StartEvent startEvent = (StartEvent) (starter.getXpdlActivity()).getEvent();
+            boolean nonInterrupting = XPDLUtils.isNonInterruptingEvent(startEvent);
+            if (!nonInterrupting) {
+                BPELUtils.addExtensionAttribute(onEvent, "pauseMainFlow", "yes"); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+        } else {
+            flow = ConvertProcess.convertFlowToBpel(context, eventHandlerTask.getEventHandlerBody());
+            eventHandlerBody = flow;
+        }
+
+        if (theMappingActivity != null) {
+            // replace starting activity if body with this assign
+            List<org.eclipse.bpel.model.Activity> rootActivities = BPELUtils.getRootActivities(flow);
+            for (org.eclipse.bpel.model.Activity rootActivity : rootActivities) {
+                if (xpdlActivity.getId().equals(BPELUtils.getXpdlId(rootActivity))) {
+                    // matches. this is the one to replace
+                    theMappingActivity.setName(rootActivity.getName());
+                    List<org.eclipse.bpel.model.Link> outLinks = BPELUtils.getLinksFromActivity(rootActivity);
+                    for (org.eclipse.bpel.model.Link outLink : outLinks) {
+                        ConvertControlFlow.replaceLinkSource(context, outLink, theMappingActivity);
+                    }
+                    List<org.eclipse.bpel.model.Activity> flowActivities =
+                            (List<org.eclipse.bpel.model.Activity>) flow.getActivities();
+                    flowActivities.remove(rootActivity);
+
+                    /*
+                     * Sid BX-3712 Transfer the arm attribute to the assign activity (else goes missing).
+                     */
+                    String armAttribute = BPELUtils.getExtensionAttribute(rootActivity, "arm"); //$NON-NLS-1$
+
+                    if (armAttribute != null) {
+                        BPELUtils.addExtensionAttribute(theMappingActivity, "arm", armAttribute);
+                    }
+
+                    flowActivities.add(theMappingActivity);
+                }
+            }
+            
+            //TODO ???
+            if (eventHandlerTask.getEventHandlerBody().isEventSubProcess()) {
+                BPELUtils.setType(theMappingActivity, N2PEConstants.MESSAGE_START_EVENT_TYPE);
+            } else {
+                BPELUtils.setType(theMappingActivity, N2PEConstants.CATCH_MESSAGE_INTERMEDIATE_EVENT_TYPE);
+            }
+            BPELUtils.setLabel(theMappingActivity, xpdlActivity);
+            context.syncXpdlId(theMappingActivity, xpdlActivity);
+            // set task scripts
+            final int SCRIPT_COMPLETED_ONLY = 2;
+            ConvertProcess.convertTaskScripts(context, theMappingActivity, xpdlActivity, SCRIPT_COMPLETED_ONLY);
+        }
+
+        if (!isAScope) {
+            String scopeName = context.generateActivityName("scope", xpdlActivity.getId(), xpdlActivity.getId());
+            Scope scope = BPELUtils.wrapInScope(flow, scopeName);
+            onEvent.setActivity(scope);
+        } else {
+            onEvent.setActivity(eventHandlerBody);
+        }
+
+         EventHandlerFlowStrategy flowStrategy = XPDLUtils.getEventHandlerFlowStrategy(xpdlActivity.getEvent());
+         if (EventHandlerFlowStrategy.SERIALIZE_CONCURRENT.equals(flowStrategy)) {
+             BPELUtils.addExtensionAttribute(onEvent, N2PEConstants.EVENTHANDLER_BLOCK_UNTIL_COMPLETED, "yes"); //$NON-NLS-1$
+         }
+
+        return onEvent;
+    }
+
+    /**
+     * Creates start activity for the incoming request flows.
+     * 
+     * @param context the converter context
+     * @return starting activity for the incoming request.
+     */
+    private org.eclipse.bpel.model.Activity createIncomingRequestStartActivity(ConverterContext context) {
+        Assign assign = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
+        assign.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
+        return assign;
+    }
+
+    private static OnReceiveEvent convertNoneEventHandler(ConverterContext context, AnalyzerTask eventHandlerTask) throws ConversionException {
 		Activity xpdlActivity = eventHandlerTask.getXpdlActivity();
     	OnReceiveEvent onReceiveEvent = ExtensionsFactory.eINSTANCE.createOnReceiveEvent();
         onReceiveEvent.setElementType(new QName(ExtensionsPackage.eNS_URI, "OnReceiveEvent")); //$NON-NLS-1$
@@ -568,5 +689,7 @@ public class ConvertEventHandlers {
     	}
     	eventIds.add(eventId);
     }
+    
+     
     
 }

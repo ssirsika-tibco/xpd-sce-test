@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 import com.tibco.bx.xpdl2bpel.Messages;
+import com.tibco.bx.xpdl2bpel.N2PEConstants;
 import com.tibco.bx.xpdl2bpel.Tracing;
 import com.tibco.bx.xpdl2bpel.converter.ConversionException;
 import com.tibco.bx.xpdl2bpel.extensions.IActivityConfigurationModelBuilder;
@@ -150,8 +151,41 @@ public class ConvertTask {
                 context.logError(msg, null);
                 return null;
             }
-        case ImplementationType.OTHER:
         case ImplementationType.UNSPECIFIED:
+            if (!context.isPageFlowEngineTarget()) {
+                //This is new ReceiveTask implementation for incoming request in SCE.
+                org.eclipse.bpel.model.Scope scope = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createScope();
+                org.eclipse.bpel.model.Sequence sequence = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createSequence();
+                sequence.setName(context.genUniqueActivityName("sequence")); //$NON-NLS-1$
+    
+                ////
+                org.eclipse.bpel.model.Receive receive = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createReceive();
+                receive.setCreateInstance(createInstance);
+                receive.setName(context.genUniqueActivityName("receive")); //$NON-NLS-1$
+                // SCE: Default message correlation timeout is no longer configurable by the user.
+                // See: XPDLUtils.getMessageTimeout(xpdlActivity);
+                BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
+                ////
+                sequence.getActivities().add(receive);
+    
+                org.eclipse.bpel.model.Activity theMappingActivity =
+                        org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
+                theMappingActivity.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
+    
+                if (theMappingActivity != null) {
+                    sequence.getActivities().add(theMappingActivity);
+                }
+    
+                org.eclipse.bpel.model.Variables variables = context.getVariables(xpdlActivity);
+                scope.setVariables(variables);
+                scope.setActivity(sequence);
+                return scope;
+            } else {
+                String msg = String.format(Messages.getString("ConvertTask.taskReceiveMsgAndOp"), new Object[]{((Task)taskReceive.eContainer()).getActivity().getName()}); //$NON-NLS-1$
+                context.logError(msg, null);
+                return null;
+            }
+        case ImplementationType.OTHER:
             String msg = String.format(Messages.getString("ConvertTask.taskReceiveImpl"), //$NON-NLS-1$
                     new Object[]{((Task)taskReceive.eContainer()).getActivity().getName(), implementationType.getName()});
             context.logError(msg, null);
