@@ -230,6 +230,23 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new ArrayAccessorReplacement(fieldResolver));
         result.add(new ArraySizeRefactor(fieldResolver));
 
+        // date refactors
+        result.add(new DateConstructorRefactor());
+        Map<String,String> dateMethods = new HashMap<>();
+        dateMethods.put("getYear", "getFullYear"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setYear", "setFullYear"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getDay", "getDate"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setDay", "setDate"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getHour", "getHours"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setHour", "setHours"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getMinute", "getMinutes"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setMinute", "setMinutes"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getSecond", "getSeconds"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setSecond", "setSeconds"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("getMillisecond", "getMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
+        dateMethods.put("setMillisecond", "setMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new MethodRefactorRule(dateMethods));
+        
         return result;
     }
 
@@ -281,8 +298,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      *         script.
      * 
      */
-    private List<ScriptItemReplacementRef> parseScript(String strScript,
-            Collection<RefactorRule> aReplacementRules) {
+    private List<ScriptItemReplacementRef> parseScript(String strScript, Collection<RefactorRule> aReplacementRules) {
         if (strScript == null || strScript.trim().length() == 0) {
             return Collections.emptyList();
         }
@@ -739,9 +755,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * Refactors method names for a given collection of fields.
      */
     private static class MethodRefactorRule implements RefactorRule {
-        private final String oldMethod;
-
-        private final String newMethod;
+        private final Map<String, String> methodReplacements;
 
         // optional - to provide additional filtering in the isMatch() method
         private final MethodFilter methodFilter;
@@ -758,15 +772,39 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          *            an optional filter to further confirm a match on the method.
          */
         public MethodRefactorRule(String aOldMethod, String aNewMethod, MethodFilter aMethodFilter) {
-            oldMethod = aOldMethod;
-            newMethod = aNewMethod;
+            methodReplacements = new HashMap<>();
+            methodReplacements.put(aOldMethod, aNewMethod);
             methodFilter = aMethodFilter;
         }
 
+        /**
+         * Creates a MethodRefactorRule to replace the given old method name with the new method name.
+         * 
+         * @param aOldMethod
+         *            the name of the method to be replaced.
+         * @param aNewMethod
+         *            the name of the new method to replace the old method.
+         */
         public MethodRefactorRule(String aOldMethod, String aNewMethod) {
             this(aOldMethod, aNewMethod, null);
         }
 
+        /**
+         * Creates a MethodRefactorRule to replace multiple method names with a corresponding value.
+         * 
+         * @param aMethodMap
+         *            the map of method names to be replaced. The key is the old method name.
+         * @param aMethodFilter
+         *            an optional filter to further confirm a match on the method.
+         */
+        public MethodRefactorRule(Map<String, String> aMethodMap, MethodFilter aMethodFilter) {
+            methodReplacements = new HashMap<>(aMethodMap);
+            methodFilter = aMethodFilter;
+        }
+
+        public MethodRefactorRule(Map<String, String> aMethodMap) {
+            this(aMethodMap, null);
+        }
         /**
          * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
          *      int)
@@ -780,19 +818,21 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 Token token = aParser.LT(aIndex);
                 Token nextToken = aParser.LT(aIndex + 1);
 
-                if ((fieldNameToken == null) || (fieldNameToken.getType() != JScriptTokenTypes.IDENT)
+                if ((fieldNameToken == null)
+                        || ((fieldNameToken.getType() != JScriptTokenTypes.IDENT)
+                                && (fieldNameToken.getType() != JScriptTokenTypes.RPAREN))
                         || (prevToken == null) || (prevToken.getType() != JScriptTokenTypes.DOT) //
                         || (token == null) || (token.getType() != JScriptTokenTypes.IDENT) //
                         || (nextToken == null) || (nextToken.getType() != JScriptTokenTypes.LPAREN)) {
                     return false;
                 }
 
-                if (!oldMethod.equals(token.getText())) {
+                if (!methodReplacements.containsKey(token.getText())) {
                     return false;
                 }
 
                 // if a filter is supplied - as it for confirmation - otherwise it's a match
-                return (methodFilter != null) ? methodFilter.accept(aParser, aIndex) : true;
+                return (methodFilter == null) || methodFilter.accept(aParser, aIndex);
             }
 
             return false;
@@ -806,6 +846,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
                 throws TokenStreamException {
             Token token = aParser.LT(aIndex);
+            String newMethod = methodReplacements.get(token.getText());
             return Collections.singleton(new ScriptItemReplacementRef(token, newMethod));
         }
     }
@@ -880,6 +921,77 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             int totalLength = token.getText().length() + openParen.getText().length() + closeParen.getText().length();
             return Collections.singleton(new ScriptItemReplacementRef(token.getLine(), token.getColumn(), totalLength,
                     ArraySizeRefactor.LENGTH_PROPERTY));
+        }
+    }
+
+    /**
+     * Identifies uses of the date/time factory DateTimeUtil and replaces them with "new Date()"
+     */
+    private static class DateConstructorRefactor implements RefactorRule {
+        private static final String DATE_FACTORY = "DateTimeUtil"; //$NON-NLS-1$
+
+        private static final String[] FACTORY_METHODS = { "createDate", "createDatetime", "createTime" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+
+        private static final String DATE_CONSTRUCTOR = "new Date"; //$NON-NLS-1$
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (aIndex > 2) {
+                // ensure that the token is for the old method name and is preceeded by the field name and a dot
+                Token factoryNameToken = aParser.LT(aIndex - 2);
+                Token dotToken = aParser.LT(aIndex - 1);
+                Token token = aParser.LT(aIndex);
+                Token openParen = aParser.LT(aIndex + 1);
+
+                if ((factoryNameToken == null) || (factoryNameToken.getType() != JScriptTokenTypes.IDENT)
+                        || (dotToken == null) || (dotToken.getType() != JScriptTokenTypes.DOT) //
+                        || (token == null) || (token.getType() != JScriptTokenTypes.IDENT) //
+                        || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN)) {
+                    return false;
+                }
+
+                // cannot handle line breaks - method name and parenthesis must be on same line
+                if ((token.getLine() != openParen.getLine())) {
+                    return false;
+                }
+
+                // check the factory name is "DateTimeUtil"
+                if (!DateConstructorRefactor.DATE_FACTORY.equals(factoryNameToken.getText())) {
+                    return false;
+                }
+
+                // look for a matching method name
+                for (String method : DateConstructorRefactor.FACTORY_METHODS) {
+                    if (method.equals(token.getText())) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            Token factoryNameToken = aParser.LT(aIndex - 2);
+            Token dotToken = aParser.LT(aIndex - 1);
+            Token token = aParser.LT(aIndex);
+
+            // we will be replacing all these tokens
+            int totalLength =
+                    factoryNameToken.getText().length() + token.getText().length() + dotToken.getText().length();
+            return Collections.singleton(new ScriptItemReplacementRef(factoryNameToken.getLine(),
+                    factoryNameToken.getColumn(), totalLength,
+                    DateConstructorRefactor.DATE_CONSTRUCTOR));
         }
     }
 
