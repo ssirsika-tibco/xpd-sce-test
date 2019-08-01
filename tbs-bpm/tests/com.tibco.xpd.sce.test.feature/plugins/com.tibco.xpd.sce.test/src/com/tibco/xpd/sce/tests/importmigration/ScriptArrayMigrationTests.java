@@ -26,11 +26,16 @@ import junit.framework.TestCase;
  */
 @SuppressWarnings("nls")
 public class ScriptArrayMigrationTests extends TestCase {
-
     // @Test
-    public void testBasicScriptMigrations() throws Exception {
-        ProjectImporter projectImporter = importMainTestProjects();
+    public void testScriptMigrationArrays() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/simple-data/",
+                        "resources/ScriptMigrationTests/simple-proc/" },
+                new String[] { "simple-data", "simple-proc" });
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
         try {
+            TestUtil.buildAndWait();
+
             IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
 
             // we expect some markers
@@ -47,26 +52,25 @@ public class ScriptArrayMigrationTests extends TestCase {
         }
     }
 
-    /**
-     * Import all projects from test plugin resources for the main test
-     * 
-     * @return the project importer
-     */
-    private ProjectImporter importMainTestProjects() {
-        /*
-         * Import and migrate the project
-         */
-
+    // @Test
+    public void testScriptMigrationDates() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-data/",
-                        "resources/ScriptMigrationTests/simple-proc/" },
-                new String[] { "simple-data", "simple-proc" });
-
+                        "resources/ScriptMigrationTests/simple-date-proc/" },
+                new String[] { "simple-data", "simple-date-proc" });
         assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
 
-        TestUtil.buildAndWait();
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-date-proc");
 
-        return projectImporter;
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
+
+            assertEquals(0, errorMarkers.size());
+        } finally {
+            projectImporter.performDelete();
+        }
     }
-
 }
