@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -663,25 +664,19 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
             if (aIndex > 2) {
                 Token fieldNameToken = aParser.LT(aIndex - 2);
-                Token prevToken = aParser.LT(aIndex - 1);
+                Token dotToken = aParser.LT(aIndex - 1);
                 Token token = aParser.LT(aIndex);
-                Token nextToken = aParser.LT(aIndex + 1);
+                Token openParen = aParser.LT(aIndex + 1);
 
-                if ((fieldNameToken == null) || (prevToken == null) || (token == null) || (nextToken == null)) {
-                    return false;
-                }
-
-                // if the elements are not on the same line - cannot handle line breaks
-                // preceeding dot, method name and opening paren must be on same line
-                if ((prevToken.getLine() != token.getLine()) || (token.getLine() != nextToken.getLine())) {
+                if ((fieldNameToken == null) || (dotToken == null) || (token == null) || (openParen == null)) {
                     return false;
                 }
 
                 // compares the current token for one that matches the pattern ".get("
                 if ((fieldNameToken.getType() == JScriptTokenTypes.IDENT)
-                        && (prevToken.getType() == JScriptTokenTypes.DOT) //
+                        && (dotToken.getType() == JScriptTokenTypes.DOT) //
                         && (token.getType() == JScriptTokenTypes.IDENT)
-                        && (nextToken.getType() == JScriptTokenTypes.LPAREN)
+                        && (openParen.getType() == JScriptTokenTypes.LPAREN)
                         && (ArrayAccessorReplacement.ACCESSOR.equals(token.getText()))) {
                     // check whether the identified field is an array
                     ConceptPath conceptPath = resolver.resolve(aParser, aIndex - 2);
@@ -702,19 +697,19 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             Collection<ScriptItemReplacementRef> result = new ArrayList<>();
 
             // create replacement for accessor method (with leading dot and following parenthesis) with bracket
-            Token prevToken = aParser.LT(aIndex - 1);
+            Token dotToken = aParser.LT(aIndex - 1);
             Token token = aParser.LT(aIndex);
-            Token nextToken = aParser.LT(aIndex + 1);
+            Token openParen = aParser.LT(aIndex + 1);
 
             // we will be replacing all these tokens
-            int totalLength = prevToken.getText().length() + token.getText().length() + nextToken.getText().length();
-
-            result.add(new ScriptItemReplacementRef(prevToken.getLine(), prevToken.getColumn(), totalLength, "[")); //$NON-NLS-1$
+            result.add(new ScriptItemReplacementRef(dotToken, null));
+            result.add(new ScriptItemReplacementRef(token, "[")); //$NON-NLS-1$
+            result.add(new ScriptItemReplacementRef(openParen, null));
 
             // find and replace the matching closing parenthesis with a bracket
             int openCount = 0;
             while (true) {
-                nextToken = aParser.LT(++aIndex);
+                Token nextToken = aParser.LT(++aIndex);
                 int nextType = nextToken.getType();
 
                 // we should always hit one - immediately following the accessor
@@ -888,11 +883,6 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                     return false;
                 }
 
-                // cannot handle line breaks - method name and parenthesis must be on same line
-                if ((token.getLine() != openParen.getLine()) || (token.getLine() != closeParen.getLine())) {
-                    return false;
-                }
-
                 // check the method name is "size"
                 if (!ArraySizeRefactor.SIZE_METHOD.equals(token.getText())) {
                     return false;
@@ -918,9 +908,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             Token closeParen = aParser.LT(aIndex + 2);
 
             // we will be replacing all these tokens
-            int totalLength = token.getText().length() + openParen.getText().length() + closeParen.getText().length();
-            return Collections.singleton(new ScriptItemReplacementRef(token.getLine(), token.getColumn(), totalLength,
-                    ArraySizeRefactor.LENGTH_PROPERTY));
+            return Arrays.asList(new ScriptItemReplacementRef(token, ArraySizeRefactor.LENGTH_PROPERTY),
+                    new ScriptItemReplacementRef(openParen, " "), //$NON-NLS-1$
+                    new ScriptItemReplacementRef(closeParen, null)); // $NON-NLS-1$
         }
     }
 
@@ -930,7 +920,16 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     private static class DateConstructorRefactor implements RefactorRule {
         private static final String DATE_FACTORY = "DateTimeUtil"; //$NON-NLS-1$
 
-        private static final String[] FACTORY_METHODS = { "createDate", "createDatetime", "createTime" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        private static String CREATE_DATE = "createDate"; //$NON-NLS-1$
+
+        private static String CREATE_DATETIME = "createDatetime"; //$NON-NLS-1$
+
+        private static String CREATE_TIME = "createTime"; //$NON-NLS-1$
+
+        private static String CREATE_DATETIMETZ = "createDatetimetz"; //$NON-NLS-1$
+
+        private static final String[] FACTORY_METHODS =
+                { CREATE_DATE, CREATE_DATETIME, CREATE_TIME, CREATE_DATETIMETZ };
 
         private static final String DATE_CONSTRUCTOR = "new Date"; //$NON-NLS-1$
 
@@ -951,11 +950,6 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                         || (dotToken == null) || (dotToken.getType() != JScriptTokenTypes.DOT) //
                         || (token == null) || (token.getType() != JScriptTokenTypes.IDENT) //
                         || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN)) {
-                    return false;
-                }
-
-                // cannot handle line breaks - method name and parenthesis must be on same line
-                if ((token.getLine() != openParen.getLine())) {
                     return false;
                 }
 
@@ -987,11 +981,62 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             Token token = aParser.LT(aIndex);
 
             // we will be replacing all these tokens
-            int totalLength =
-                    factoryNameToken.getText().length() + token.getText().length() + dotToken.getText().length();
-            return Collections.singleton(new ScriptItemReplacementRef(factoryNameToken.getLine(),
-                    factoryNameToken.getColumn(), totalLength,
-                    DateConstructorRefactor.DATE_CONSTRUCTOR));
+            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+            result.add(new ScriptItemReplacementRef(factoryNameToken, null));
+            result.add(new ScriptItemReplacementRef(dotToken, null));
+            result.add(new ScriptItemReplacementRef(token, DateConstructorRefactor.DATE_CONSTRUCTOR));
+
+            // special case for createTime with time-unit parameters
+            if (DateConstructorRefactor.CREATE_TIME.equals(token.getText())) {
+                if (getParameterCount(aParser, aIndex + 1) == 4) {
+                    Token openParen = aParser.LT(aIndex + 1);
+                    result.add(new ScriptItemReplacementRef(openParen, "(0, 0, 0, ")); //$NON-NLS-1$
+                }
+            }
+
+            return result;
+        }
+
+        /**
+         * Count the number of parameters in the upcoming parser tokens. The given index should reference the opening
+         * parenthesis, and the count will continue until the matching closing parenthesis.
+         * 
+         * @param aParser
+         *            the parser from which the tokens are to be obtained.
+         * @param aIndex
+         *            the index of the opening parenthesis.
+         * @return the number of parameters within the indexed parenthesis
+         * @throws TokenStreamException
+         */
+        private int getParameterCount(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            int result = 0;
+            int nestedCount = 0;
+            while (true) {
+                Token nextToken = aParser.LT(aIndex++);
+                int type = nextToken.getType();
+                if (type == JScriptTokenTypes.RPAREN) {
+                    --nestedCount;
+                    if (nestedCount == 0) {
+                        break;
+                    }
+                }
+
+                else if (type == JScriptTokenTypes.LPAREN) {
+                    nestedCount++;
+                }
+
+                // starting another parameter
+                else if (type == JScriptTokenTypes.COMMA) {
+                    result++;
+                }
+
+                // we must have hit some sort of parameter
+                else if ((result == 0) && (nestedCount == 1)) {
+                    result++;
+                }
+            }
+
+            return result;
         }
     }
 
@@ -1030,25 +1075,6 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             this.newValue = aNewValue;
         }
 
-        /**
-         * Creates a replacement reference with the given properties.
-         * 
-         * @param aLine
-         *            the line on which the replacement is to begin.
-         * @param aCol
-         *            the column on which the replacement is to begin (this is a 1 based index).
-         * @param aLength
-         *            the length of text to be replaced.
-         * @param aNewValue
-         *            the replacement text.
-         */
-        public ScriptItemReplacementRef(int aLine, int aCol, int aLength, String aNewValue) {
-            this.line = aLine;
-            this.col = aCol;
-            this.len = aLength;
-            this.newValue = aNewValue;
-        }
-
         // Sort by line then column.
         @Override
         public int compareTo(ScriptItemReplacementRef o) {
@@ -1076,7 +1102,11 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          */
         public void replaceRef(StringBuilder stringBuilder) {
             int startIdx = col - 1;
-            stringBuilder.replace(startIdx, startIdx + len, newValue);
+            if ((newValue == null) || (newValue.isEmpty())) {
+                stringBuilder.delete(startIdx, startIdx + len);
+            } else {
+                stringBuilder.replace(startIdx, startIdx + len, newValue);
+            }
         }
     }
 
