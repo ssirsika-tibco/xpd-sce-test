@@ -71,6 +71,10 @@ public class ConvertPick {
                 StartEvent startEvent = (StartEvent) event;
                 TriggerType triggerType = startEvent.getTrigger();
                 switch (triggerType.getValue()) {
+                    case TriggerType.NONE:
+                        // use onStartEvent
+                        convertStartEvent(context, task, bpelPick, N2PEConstants.START_EVENT_TYPE);
+                        break;
                     case TriggerType.MESSAGE:
                         // use OnMessage
                     	TriggerResultMessage triggerResultMessage = startEvent.getTriggerResultMessage();
