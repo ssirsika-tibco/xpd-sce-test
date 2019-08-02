@@ -23,6 +23,7 @@ import com.tibco.xpd.sce.tests.validation.AceGlobalSignalDataMapperTest;
 import com.tibco.xpd.sce.tests.validation.AceIncomingRequestActivityTest;
 import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperNegativeTest;
 import com.tibco.xpd.sce.tests.validation.AceLocalSignalDataMapperTest;
+import com.tibco.xpd.sce.tests.validation.AcePropertyLimitValidationTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -78,6 +79,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(AceIncomingRequestActivityTest.class);
         suite.addTestSuite(AceLocalSignalDataMapperTest.class);
         suite.addTestSuite(AceLocalSignalDataMapperNegativeTest.class);
+        suite.addTestSuite(AcePropertyLimitValidationTest.class);
 
         return suite;
     }
