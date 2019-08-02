@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build">
+    <!-- This file contains properties which are specific to each user/machine.
+            Please examine each property and modify it for your configuration -->
+
+    <!-- autobuild.dir.user:
+            The default location is the directory that contains this file.
+            Changing it may be convenient, but is particularly useful for release.
+            This is the base directory for most configuration and output.
+			
+			The proeprty "autobuild.branch" is used to isolate trunk and branch builds
+            to their own builder folder, and should be set by the caller. By default,
+			the builder folder will be named "tibco-build".
+			-->
+    <property name="autobuild.branch"     value="tibco-build" />
+    <property name="autobuild.dir.user"   location="c:/builder/${autobuild.branch}" />
+    <property name="devtools.dir.base"    location="c:/builder/${autobuild.branch}" />
+	
+	<property name="installation.zip.dir" location="${autobuild.dir.user}/zips" />
+
+
+    <!-- autobuild.dir.java-classes:
+            This is the location of the JRE that you want to use to run ant, Eclipse,
+            and builder.   The folder specified must contain rt.jar (or the equivalent).
+            The default value is very likely to be incorrect, even on Windows. -->
+	 <!--property name="autobuild.dir.java17-classes" location="C:\src\jdk1.7.0_55_x64\jre\lib" /-->
+	 <property name="autobuild.dir.java-classes"   location="c:/src/java/jdk1.8.0_202/jre/lib"/>
+	 <property name="autobuild.dir.java18-classes" location="c:/src/java/jdk1.8.0_202/jre/lib" />
+
+    <!-- later versions of eclipse
+            Use "-M.m" as the suffix, where M = major version, m = minor version. -->
+    <property name="autobuild.dir.eclipse"      location="c:/builder/eclipse/3.2.2/eclipse" />
+	<property name="autobuild.dir.eclipse-3.3"  location="c:/builder/eclipse/3.3.2/eclipse" />
+    <property name="autobuild.dir.eclipse-3.4"  location="c:/builder/eclipse/3.4.2/eclipse" />
+	<property name="autobuild.dir.eclipse-3.7"  location="c:/builder/eclipse/3.7.2/eclipse" />
+	<property name="autobuild.dir.eclipse-4.4"  location="c:/builder/eclipse/4.4.1/eclipse" />
+	<property name="autobuild.dir.eclipse-4.7"  location="c:/builder/eclipse/4.7.1a/eclipse" />
+    <property name="autobuild.dir.eclipse-4.11" location="c:/builder/eclipse/4.11.0/eclipse"/>
+
+    <!-- autobuild.eclipse.subversion.client:
+         Some people like Subclipse, and some like Subversive.  Proper values for
+         this choice are "subclipse" or "subversive".  The default is "subclipse".
+         -->
+    <!--property name="autobuild.option.eclipse.subversion.client" value="subclipse" /-->
+
+	<!-- Default location of the eclipse that will be copied over the gathered TP. -->
+	<property name="autobuild.dir.eclipse-default" location="${autobuild.dir.eclipse-4.11}"/>
+
+	<!-- Points to the folder with extra features like sources, etc. that will be copied over the gathered TP (unless: 'skip.copy-extra-features' property is specified.)-->
+	<property name="tp.extra.features.dir" location="c:/builder/eclipse/tp-extra-features-4.11.0/eclipse"/>
+
+	<!-- property to switch off -->
+	<property name="autobuild.enforce.versions" value="false"/>
+
+    <!-- autobuild.dir.candidates:
+            The output location for build candidates (the output of builder).
+            The default value is a folder next to this file, which should be fine for
+            most people. -->
+   <property name="autobuild.dir.candidates" location="${autobuild.dir.user}/candidates" />
+
+	<!-- property where the candidates location will be mentioned in release-build.properties file-->
+	<property name="release.base.location" location="${autobuild.dir.user}/candidates"/>
+
+    <!-- autobuild.dir.generated.workspaces
+            The "workspace" target generates its various folders into this location.
+            If you don't like the default, override this setting.  Windows users, for example,
+            might choose, location="C:/mydev/workspaces" -->
+    <property name="autobuild.dir.generated.workspaces" location="${autobuild.dir.user}/workspaces" />
+
+	<!-- properties for JUnit test -->
+	<property name="junitTestHome" value="${autobuild.dir.user}/junitTest" />
+	<property name="lastBuildStudio" value="BpmStudio.zip" />
+
+	<!-- Should now be specified on command line in jenkins "Invoke Ant" <property name="jenkinsJobName" value="TargetPlatform-junit-tbs-bpm-3.10" /> -->
+	<property name="latestStudioBuildLocation" value="http://localhost/job/${jenkinsJobName}/ws/lastBuild/${lastBuildStudio}" />
+
+	<property name="targetPlatformDefinitionLocation" value="c:/DevTargetPlatform/devTargetPlatform.target" />
+
+</project>
