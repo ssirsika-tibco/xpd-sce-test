@@ -3,10 +3,10 @@ echo Copyright TIBCO Software Inc 2004 - 2019. All rights reserved.
 echo
 
 function usage() {
-  echo Usage: ${0} -acceptLGPL installer-path [-h]
+  echo Usage: ${0} -acceptLGPL [installer-file] [-h]
   echo Where:
   echo -e '\t -acceptLGPL = confirm acceptance of the LGPL license.'
-  echo -e '\t installer-path = location of the TIBCO Business Studio - Cloud BPM Edition installer.'
+  echo -e '\t installer-path = full path of the TIBCO Business Studio - Cloud BPM Edition installer.'
   echo -e '\t -h display this usage message.'
   echo
 }

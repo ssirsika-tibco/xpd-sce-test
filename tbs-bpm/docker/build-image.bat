@@ -12,10 +12,10 @@ FOR %%a IN (%*) DO (
 
 REM if help requested
 IF DEFINED option-h (
-  ECHO Usage: %0 -acceptLGPL installer-path [-h]
+  ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
-  ECHO   installer-path = location of the TIBCO Business Studio - Cloud BPM Edition installer.
+  ECHO   installer-file = full path of the TIBCO Business Studio - Cloud BPM Edition installer.
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
@@ -45,10 +45,10 @@ IF NOT EXIST .\image_template\TIB_business-studio-cloud-bpm-edition_?.?.?_linux*
   ECHO and must be copied to the sub-folder image_template.
   ECHO.
   ECHO Alternatively, specify the location of the file on the command line.
-  ECHO Usage: %0 -acceptLGPL installer-path [-h]
+  ECHO Usage: %0 -acceptLGPL [installer-file] [-h]
   ECHO Where:
   ECHO   -acceptLGPL = confirm acceptance of the LGPL license.
-  ECHO   installer-path = location of the TIBCO Business Studio - Cloud BPM Edition installer.
+  ECHO   installer-file = full path of the TIBCO Business Studio - Cloud BPM Edition installer.
   ECHO   -h display this usage message.
   ECHO.
   EXIT /b -1
