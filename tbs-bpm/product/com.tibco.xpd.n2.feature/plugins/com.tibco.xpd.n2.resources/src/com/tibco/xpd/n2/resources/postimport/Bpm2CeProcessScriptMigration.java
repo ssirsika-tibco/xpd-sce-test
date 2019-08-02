@@ -1009,7 +1009,13 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          * @throws TokenStreamException
          */
         private int getParameterCount(JScriptParser aParser, int aIndex) throws TokenStreamException {
-            int result = 0;
+
+            Token token = aParser.LT(aIndex + 1);
+            if ((token == null) || (token.getType() == JScriptTokenTypes.RPAREN)) {
+                return 0;
+            }
+
+            int result = 1;
             int nestedCount = 0;
             while (true) {
                 Token nextToken = aParser.LT(aIndex++);
@@ -1026,12 +1032,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 }
 
                 // starting another parameter
-                else if (type == JScriptTokenTypes.COMMA) {
-                    result++;
-                }
-
-                // we must have hit some sort of parameter
-                else if ((result == 0) && (nestedCount == 1)) {
+                else if ((nestedCount == 1) && (type == JScriptTokenTypes.COMMA)) {
                     result++;
                 }
             }
