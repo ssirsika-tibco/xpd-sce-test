@@ -19,9 +19,11 @@ import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.n2.brm.BRMGenerator;
 import com.tibco.xpd.resources.util.ProjectImporter;
+import com.tibco.xpd.xpdExtension.CatchErrorMappings;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.XpdExtensionPackage;
 import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.IntermediateEvent;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.SubFlow;
 import com.tibco.xpd.xpdl2.Task;
@@ -68,6 +70,8 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         checkDirectSubProcessInvokeDataMapperScriptGeneration(process);
 
         checkInflateSubProcessInvokeDataMapperScriptGeneration(process);
+
+        checkSubProcessCatchErrorDataMapperScriptGeneration(process);
 
         checkRESTInvokeDataMapperScriptGeneration(process);
         
@@ -182,7 +186,7 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 "Cannot find test activity 'Direct sub-process mappings' (_SuLQwIhfEemL0JNuli1Mqw)", //$NON-NLS-1$
                 activity);
 
-        /*
+        /**
          * Generate the input mapping script for the activity.
          */
         String inputMappingsScript = new DataMapperJavascriptGenerator()
@@ -218,6 +222,22 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                         .contains("var $sVi1 = data.ComplexListField[i1];")); //$NON-NLS-1$
 
         /*
+         * Sid ACE-1599 Check that all sub-process side data (the sub-process
+         * parameters) are wrapped in the new "parameters" object.
+         */
+        assertTrue(context + ": Should wrap target sub-process parameter assignments in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.BooleanParameter =")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameter list clear in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.ComplexListParameter.length = 0;")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameter unset in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.BooleanParameter = null;")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameter add list item in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.SimpleListParameter.push")); //$NON-NLS-1$
+
+        /**
          * Generate the output mapping script for the activity.
          */
         String outputMappingsScript = new DataMapperJavascriptGenerator()
@@ -241,6 +261,19 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         assertTrue(context + ": Should use array push() to add array items.", //$NON-NLS-1$
                 outputMappingsScript
                         .contains("data.ComplexListField.push($sVi1);")); //$NON-NLS-1$
+
+        /*
+         * Sid ACE-1599 Check that all sub-process side data (the sub-process
+         * parameters) are wrapped in the new "parameters" object.
+         */
+        assertTrue(context + ": Should wrap target sub-process parameters in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= parameters.BooleanParameter")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameters get from list in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= parameters.ComplexListParameter[")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameters null checks in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("if (parameters != null && parameters.ComplexListParameter != null) {")); //$NON-NLS-1$
 
     }
 
@@ -278,6 +311,18 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
         generalMappingScriptChecks(inputMappingsScript, context);
 
         /*
+         * Sid ACE-1599 Check that all sub-process side data (the sub-process
+         * parameters) are wrapped in the new "parameters" object.
+         */
+        assertTrue(
+                context + ": Should wrap target sub-process parameter creation from factory in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript
+                        .contains("parameters.ClassParameter = factory.com_example_data.createDataTypes();")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameter data assignments in a 'parameters' object.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.ClassParameter.complexChild.attribute1 =")); //$NON-NLS-1$
+
+        /*
          * Generate the output mapping script for the activity.
          */
         String outputMappingsScript = new DataMapperJavascriptGenerator()
@@ -304,6 +349,62 @@ public class AceProcessDataWrapperMappingsTest extends TestCase {
                 + ": Should use array index to get array items fron target array when merging.", //$NON-NLS-1$
                 outputMappingsScript
                         .contains("$tVi3 = data.ComplexListField[i3];")); //$NON-NLS-1$
+
+        /*
+         * Sid ACE-1599 Check that all sub-process side data (the sub-process
+         * parameters) are wrapped in the new "parameters" object.
+         */
+        assertTrue(context + ": Should wrap target sub-process parameter null checks in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains(
+                        "if (parameters != null && parameters.ClassParameter != null && parameters.ClassParameter.complexChild != null) {")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should wrap target sub-process parameter get value in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= parameters.ClassParameter.complexChild.attribute1;")); //$NON-NLS-1$
+
+    }
+
+    /**
+     * Sid ACE-1599 Check both sides of the data mappings for catch sub-process
+     * error events are wrapped correctly
+     * 
+     * @param process
+     */
+    private void checkSubProcessCatchErrorDataMapperScriptGeneration(Process process) {
+        Activity activity = Xpdl2ModelUtil.getActivityById(process, "__7qdUKyXEemzZMtlEWYyzQ"); //$NON-NLS-1$
+
+        assertNotNull("Cannot find test activity 'Error Event' (__7qdUKyXEemzZMtlEWYyzQ)", //$NON-NLS-1$
+                activity);
+
+        /*
+         * Generate the catch error mapping script for the activity.
+         */
+        CatchErrorMappings catchErrorMappings = (CatchErrorMappings) Xpdl2ModelUtil.getOtherElement(
+                ((IntermediateEvent) activity.getEvent()).getResultError(),
+                XpdExtensionPackage.eINSTANCE.getDocumentRoot_CatchErrorMappings());
+
+        String outputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(
+                (ScriptDataMapper) Xpdl2ModelUtil.getOtherElement(catchErrorMappings.getMessage(),
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings()));
+
+        assertNotNull("Script generation failed for 'Inflate sub-process mappings' (__7qdUKyXEemzZMtlEWYyzQ)", //$NON-NLS-1$
+                outputMappingsScript);
+
+        /* Do some general 'all scripts must not' checking. */
+        String context = "Catch error event mappings"; //$NON-NLS-1$
+        generalMappingScriptChecks(outputMappingsScript, context);
+
+        /*
+         * And some more specific stuff
+         */
+        assertTrue(context + ": Target process data should be wrapped in 'data' object", //$NON-NLS-1$
+                outputMappingsScript.contains("data.FixedNumberTypeDecl =")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should NOT wrap source sub-process parameter in a 'parameters' object, should use old '_BX_paramname' approach.", //$NON-NLS-1$
+                outputMappingsScript.contains("= _BX_NumberParameter;")); //$NON-NLS-1$
+       
+        assertTrue(context + ": Should NOT wrap ERROR_CODE parameter in a 'parameters' object.", //$NON-NLS-1$
+                outputMappingsScript.contains("= var_errorCode")); //$NON-NLS-1$
 
     }
 

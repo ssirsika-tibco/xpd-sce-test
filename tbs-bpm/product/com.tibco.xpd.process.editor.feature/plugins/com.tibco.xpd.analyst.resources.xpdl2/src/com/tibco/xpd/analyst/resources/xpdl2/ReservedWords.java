@@ -26,6 +26,12 @@ public class ReservedWords {
     public static final String PROCESS_DATA_WRAPPER_OBJECT_NAME = "data"; //$NON-NLS-1$
 
     /**
+     * Sid ACE-ACE-1599 the name of the sub-process parameters wrapping object
+     * for sub-process mapping scripts introduced for ACE.
+     */
+    public static final String SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME = "parameters"; //$NON-NLS-1$
+
+    /**
      * Sid ACE-542 the name of the BOM class factory wrapper object introduced
      * for ACE.
      */
@@ -47,6 +53,18 @@ public class ReservedWords {
      * Sid ACE-1694 The prefix often used for temporary variables
      */
     public static final String BX_TEMP_VAR_PREFIX = "_BX"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-1599 The prefix used for ERROR_DETAIL and ERROR_CODE temporary
+     * variables
+     */
+    public static final String BX_ERROR_VAR_PREFIX = "var_"; //$NON-NLS-1$
+
+    /**
+     * Sid ACE-1599 The prefix used for ERROR_DETAIL and ERROR_CODE temporary
+     * variables
+     */
+    public static final String BX_PROCESS_ID_VAR_NAME = "__PROCESS_ID__"; //$NON-NLS-1$
 
     /* Sid ACE-1118 Changed to set for lookup efficiency */
     private static Set<String> symbolTableKeyWords;
@@ -149,11 +167,24 @@ public class ReservedWords {
              */
             symbolTableKeyWords.add(PROCESS_DATA_WRAPPER_OBJECT_NAME);
 
+            /**
+             * Sid ACE-ACE-1599 the name of the sub-process parameters wrapping
+             * object for sub-process mapping scripts introduced for ACE.
+             */
+            symbolTableKeyWords.add(SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME);
+            symbolTableKeyWords.add(BX_PROCESS_ID_VAR_NAME);
+
+            /**
+             * Sid ACE-542 the name of the BOM class factory/pkg wrapper object
+             * introduced for ACE.
+             */
             symbolTableKeyWords.add(BOM_FACTORY_WRAPPER_OBJECT_NAME);
             symbolTableKeyWords.add(BOM_PACKAGE_WRAPPER_OBJECT_NAME);
 
+
             prefixReservedKeyWords.add(BX_SIGNAL_PAYLOAD_PREFIX);
             prefixReservedKeyWords.add(BX_TEMP_VAR_PREFIX);
+            prefixReservedKeyWords.add(BX_ERROR_VAR_PREFIX);
         }
     }
 

@@ -8,6 +8,7 @@ import com.tibco.xpd.ant.tasks.GenerateRascTaskTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelDataFieldDescriptorTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelGlobalSignalsTest;
 import com.tibco.xpd.sce.tests.bpel.transform.BpelSharedResourceTest;
+import com.tibco.xpd.sce.tests.bpel.transform.BpelSubProcessConversionTest;
 import com.tibco.xpd.sce.tests.brm.transform.BRMGenUC2FTest;
 import com.tibco.xpd.sce.tests.ce.destination.BpmProjectMustBeCeTest;
 import com.tibco.xpd.sce.tests.ce.destination.NewCeProjectsTest;
@@ -59,6 +60,7 @@ public class AllUnitTests2 {
         suite.addTestSuite(BpelDataFieldDescriptorTest.class);
         suite.addTestSuite(AceGlobalSignalMappingGenerationTest.class);
         suite.addTestSuite(BpelGlobalSignalsTest.class);
+        suite.addTestSuite(BpelSubProcessConversionTest.class);
 
         /*
          * Miscellaneous

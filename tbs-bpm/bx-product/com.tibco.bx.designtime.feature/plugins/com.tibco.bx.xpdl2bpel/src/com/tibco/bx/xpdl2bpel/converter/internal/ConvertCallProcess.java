@@ -2,6 +2,7 @@ package com.tibco.bx.xpdl2bpel.converter.internal;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -272,58 +273,56 @@ public class ConvertCallProcess {
 		org.eclipse.bpel.model.Variables variables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
 		List<FormalParameter> subProcParams = SubProcUtil.getSubProcessFormalParameters(xpdlActivity, null);
 		
+		
+        /*
+         * Sid ACE-1599 For ACE the sub-process params are wrapped in a
+         * "parameters" data-field-descriptor object and therefore we don't need
+         * to create _BX_xxx temporary variables or map them into the payload.
+         * Run-time call-sub-process handling will explicitly use the data in
+         * the "parameters" object
+         * 
+         * EXCEPT for Asynch-Sub-Process output mappings of __PROCESS_ID__ as
+         * these still need to be mapped the old fashioned way with a temp var.
+         */
+		
         /*
          * Sid XPD-8224 - for Asynch sub-process calls with data-mapper grammar
          * on the outputs we need add the __PROCESS_ID__ parameter (so that it
          * gets included in the out mappings.
          */
-        if (isDataMapperExplicitlySetForOutputMappings
-                && XPDLUtils.getAsyncExecutionMode(getSubFlow()) != null) {
-            subProcParams
-                    .add(StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER);
+        if (isDataMapperExplicitlySetForOutputMappings && XPDLUtils.getAsyncExecutionMode(getSubFlow()) != null) {
+            FormalParameter process_id_param = StandardMappingUtil.REPLY_IMMEDIATE_PROCESS_ID_FORMALPARAMETER;
+            
+            outputs.addAll(getOutputListForSubProcParams(
+                    Collections.singletonList(process_id_param)));
+            
+            addLocalVariable(variables, process_id_param, N2PEConstants.NAME_PREFIX + process_id_param.getName());
         }
-		
-		/*
-         *  Add Input for every input parameter with field="_BX_Param" and formalparameter="Param" if we are using Data Mapper for Input mappings.
-         */
-		if(isDataMapperExplicitlySetForInputMappings)
-		{
-		    inputs.addAll(getInputListForSubProcParams(subProcParams));
-		}
-		
-		/*
-		 *  Add Output for every output parameter with field="_BX_Param" and formalparameter="Param" if we are using Data Mapper for Output mappings.
-		 */
-		if(isDataMapperExplicitlySetForOutputMappings)
-		{
-		    outputs.addAll(getOutputListForSubProcParams(subProcParams));
-		}
-		
-		/*
-		 * If we're using data mapper for defining any of input/output mappings, then ADD a variable for EVERY parameter.
-		 */
-		if(isDataMapperExplicitlySetForInputMappings || isDataMapperExplicitlySetForOutputMappings)
-		{
-		    for (FormalParameter eachSubProcParam : subProcParams) {
-                
-		        addLocalVariable(variables, eachSubProcParam, N2PEConstants.NAME_PREFIX + eachSubProcParam.getName());
-		        
-            }
-		}
+
+        // if(isDataMapperExplicitlySetForInputMappings)
+        // {
+        // inputs.addAll(getInputListForSubProcParams(subProcParams));
+        // }
+        //
+        // if (isDataMapperExplicitlySetForOutputMappings) {
+        // outputs.addAll(getOutputListForSubProcParams(subProcParams));
+        // }
+        //
+        // if (isDataMapperExplicitlySetForInputMappings ||
+        // isDataMapperExplicitlySetForOutputMappings) {
+        // for (FormalParameter eachSubProcParam : subProcParams) {
+        //
+        // addLocalVariable(variables, eachSubProcParam,
+        // N2PEConstants.NAME_PREFIX + eachSubProcParam.getName());
+        //
+        // }
+        // }
 		
 		/*
 		 * JS Data Mappings.
 		 */
 		List<DataMapping> dataMappings = getSubFlow().getDataMappings();
 		
-		/*
-         * ABPM-1014: Code is redundant. getSubFlow().getDataMappings() will never return null
-         */
-        // if (dataMappings == null) {
-        // //no data mappings; simply return the extension activity that wraps
-        // the callProcess
-        // return createActivityForCallProcess(callProcess);
-        //       }
 
 		/*
 		 * preCallAssign is created but may not be used (if peformJSDataMappingsConversion() does not find that input mappings are defined as JavaScript grammar.
@@ -431,6 +430,7 @@ public class ConvertCallProcess {
      * @param preCallAssign
      * @param postCallAssign
      * @throws ConversionException
+     * 
      */
     private void setupJavaScriptPrePostAssignActivities(
             boolean isDataMapperConfiguredForInputMappings,
