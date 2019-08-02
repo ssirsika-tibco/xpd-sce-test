@@ -1,4 +1,4 @@
-﻿================================================================================
+================================================================================
 Product Name:    TIBCO Business Studio™ - Cloud BPM Edition 
 Docker Configuration for Automated CI/CD
 Release Version: 5.0.0
@@ -33,6 +33,15 @@ where:
   <studio-installer> is the full path of the Linux TIBCO Business Studio - Cloud 
   BPM Edition Installer file. This is optional if you have already copied the 
   file to the image_template folder.
+
+================================================================================
+IMPORTANT
+
+Building the docker image requires the download and installation of software
+under LGPL license.
+If you accept this download and license (see ./licenses/lgpl-license.txt) then
+you should add the parameter –acceptLGPL to the command line described above.
+
 ================================================================================
 
 Copyright (C) 2004-2019 TIBCO Software Inc. All rights reserved.

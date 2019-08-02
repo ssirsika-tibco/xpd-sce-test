@@ -1,25 +1,60 @@
 #!/usr/bin/env bash
 echo Copyright TIBCO Software Inc 2004 - 2019. All rights reserved.
+echo
 
-# is this a call for help
-if [ "$1" == "-h" ]; then
-  echo Usage: %0 installer-path
+function usage() {
+  echo Usage: ${0} -acceptLGPL installer-path [-h]
   echo Where:
-  echo   installer-path = location of the TIBCO Business Studio - Cloud BPM Edition installer.
+  echo -e '\t -acceptLGPL = confirm acceptance of the LGPL license.'
+  echo -e '\t installer-path = location of the TIBCO Business Studio - Cloud BPM Edition installer.'
+  echo -e '\t -h display this usage message.'
+  echo
+}
+
+# look for command line parameters
+while [ "$1" != "" ]; do
+  case "$1" in
+    -h )
+      usage
+      exit
+      ;;
+
+    -acceptLGPL )
+      acceptLGPL=true
+      ;;
+
+    * )
+      if [ -r $1 ]; then
+        installFile=$1
+      fi
+  esac
+  shift
+done
+
+# if licence not accepted
+if [ ! $acceptLGPL ] ; then
+  echo Building the docker image requires the download and installation of software
+  echo under LGPL license.
+  echo If you accept this download and license \(see ./licenses/lgpl-license.txt\) then
+  echo you should add the parameter -acceptLGPL to the command line described above.
+  echo
   exit 1
 fi
 
-# was installer supplied on command line args
-if [ -n "$1" ]; then
-  echo Copying Studio Installer $1
-  cp $1 image_template/.
+# if install file provided on command line
+if [[ ! -z "$installFile" ]] && [[ -n $installFile ]]; then
+  echo Copying Studio Installer $installFile
+  cp $installFile image_template/.
 fi
 
 # does the installer file exist
 if [ ! -f ./image_template/TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip ]; then
   echo You must provide a Linux version of the TIBCO Business Studio - Cloud BPM Edition installer.
   echo The installer\'s name follows the pattern TIB_business-studio-cloud-bpm-edition_?.?.?_linux*.zip
-  echo and must be copied to the sub-folder image_template. Alternatively, specify the location of the file on the command line.
+  echo and must be copied to the sub-folder image_template.
+  echo
+  echo Alternatively, specify the location of the file on the command line.
+  usage
   exit 1
 fi
 
