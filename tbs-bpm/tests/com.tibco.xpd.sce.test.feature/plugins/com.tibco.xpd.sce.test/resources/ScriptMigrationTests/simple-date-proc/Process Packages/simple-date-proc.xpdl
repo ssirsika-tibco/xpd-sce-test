@@ -122,9 +122,9 @@ DateTimeUtil.createDatetime().getHour();&#xD;
 DateTimeUtil.createDatetime(2010,8,16,14,33,59,999).getMinute();&#xD;
 DateTimeUtil.createDatetime(1984,0,1,0,0,59,123).getSecond();&#xD;
 DateTimeUtil.createDatetime("2019-11-10T14:00:30.357").getMillisecond();&#xD;
-DateTimeUtil
- .
-  createDatetime
+DateTimeUtil&#xD;
+ .&#xD;
+  createDatetime&#xD;
     (DateTimeUtil.createDatetime());&#xD;
 &#xD;
 var dateTime = DateTimeUtil.createDatetime();&#xD;
@@ -137,11 +137,11 @@ dateTime.setSecond(15);&#xD;
 dateTime.setMillisecond(999);&#xD;
 &#xD;
 DateTimeUtil.createTime();&#xD;
-DateTimeUtil
- .
-  createTime
-   (
-    22,
+DateTimeUtil&#xD;
+ .&#xD;
+  createTime&#xD;
+   (&#xD;
+    22,&#xD;
      15,40,345);&#xD;
 DateTimeUtil.createTime(DateTimeUtil.createDatetime());&#xD;
 DateTimeUtil.createTime("22:30:12.986");&#xD;
@@ -149,13 +149,14 @@ var h = 10;&#xD;
 var m = 30;&#xD;
 var s = 0;&#xD;
 DateTimeUtil.createTime(h, m , s, 345);&#xD;
+DateTimeUtil.createTime((DateTimeUtil.createTime(12, 40, 30, 0).getHour()), m , s, 345);&#xD;
 &#xD;
 DateTimeUtil.createDatetimetz();&#xD;
 DateTimeUtil.createDatetimetz(DateTimeUtil.createDatetime(),-5);&#xD;
-DateTimeUtil
- .
-   createDatetimetz
-     (
+DateTimeUtil&#xD;
+ .&#xD;
+   createDatetimetz&#xD;
+     (&#xD;
        2021,3,16,22,30,15,999,-5);&#xD;
 DateTimeUtil.createDatetimetz("2019-11-10T14:00:30.357+05:00");&#xD;
 DateTimeUtil.createDatetimetz(DateTimeUtil.createDate(),DateTimeUtil.createTime(),-2);&#xD;
