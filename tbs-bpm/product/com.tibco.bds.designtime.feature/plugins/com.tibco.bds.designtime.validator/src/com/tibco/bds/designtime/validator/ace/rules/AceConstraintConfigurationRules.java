@@ -34,10 +34,26 @@ public class AceConstraintConfigurationRules implements IValidationRule {
     private static final String ISSUE_ACE_NUMBER_DEC_PLACES =
             "ace.bom.number.property.dec.places"; //$NON-NLS-1$
 
+    private static final String ISSUE_ACE_NUMBER_MAX_UPPER_LIMIT = "ace.bom.number.upper.limit"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_NUMBER_MAX_LOWER_LIMIT = "ace.bom.number.lower.limit"; //$NON-NLS-1$
+
     private static final int MAX_NUMBER_LENGTH =
             PrimitivesUtil.MAX_FIXED_POINT_NUMBER_LENGTH;
 
     private final PrimitiveType decimalPrimitiveType;
+
+    /**
+     * Maximum value supported for numeric fields like upper value, lower value
+     * etc.
+     */
+    private static final double MAX_RANGE_VALUE = 999999999999999D;
+
+    /**
+     * Minimum value supported for numeric fields like upper value, lower value
+     * etc.
+     */
+    private static final double MIN_RANGE_VALUE = -999999999999999D;
 
     /**
      * Load up the valid type definitions.
@@ -90,6 +106,18 @@ public class AceConstraintConfigurationRules implements IValidationRule {
                         primitiveType.eResource()
                                 .getURIFragment(primitiveType));
             }
+
+            if (!validUpperValue((PrimitiveType) type, null)) {
+                scope.createIssue(ISSUE_ACE_NUMBER_MAX_UPPER_LIMIT,
+                        BOMValidationUtil.getLocation(primitiveType),
+                        primitiveType.eResource().getURIFragment(primitiveType));
+            }
+
+            if (!validLowerValue((PrimitiveType) type, null)) {
+                scope.createIssue(ISSUE_ACE_NUMBER_MAX_LOWER_LIMIT,
+                        BOMValidationUtil.getLocation(primitiveType),
+                        primitiveType.eResource().getURIFragment(primitiveType));
+            }
         }
     }
 
@@ -114,6 +142,18 @@ public class AceConstraintConfigurationRules implements IValidationRule {
                         BOMValidationUtil.getLocation(property),
                         property.eResource().getURIFragment(property));
             }
+
+            if (!validUpperValue((PrimitiveType) type, property)) {
+                scope.createIssue(ISSUE_ACE_NUMBER_MAX_UPPER_LIMIT,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
+            }
+
+            if (!validLowerValue((PrimitiveType) type, property)) {
+                scope.createIssue(ISSUE_ACE_NUMBER_MAX_LOWER_LIMIT,
+                        BOMValidationUtil.getLocation(property),
+                        property.eResource().getURIFragment(property));
+            }
         }
     }
 
@@ -130,6 +170,44 @@ public class AceConstraintConfigurationRules implements IValidationRule {
 
         if (maxLength != null) {
             return (maxLength.intValue() <= MAX_NUMBER_LENGTH);
+        }
+
+        return true;
+    }
+
+    /**
+     * Test whether the configured upper-value of the given property is less
+     * than or equal to permitted maximum.
+     * 
+     * @param aType
+     * @param aProperty
+     * @return <code>true</code> if the upper-value is valid.
+     */
+    private boolean validUpperValue(PrimitiveType aType, Property aProperty) {
+        Object upperValueObject = getUpperValue(aType, aProperty);
+
+        if (upperValueObject != null) {
+            double upperValue = Double.parseDouble(upperValueObject.toString());
+            return (upperValue <= MAX_RANGE_VALUE && upperValue >= MIN_RANGE_VALUE);
+        }
+
+        return true;
+    }
+
+    /**
+     * Test whether the configured lower-value of the given property is less
+     * than or equal to permitted maximum.
+     * 
+     * @param aType
+     * @param aProperty
+     * @return <code>true</code> if the lower-value is valid.
+     */
+    private boolean validLowerValue(PrimitiveType aType, Property aProperty) {
+        Object lowerValueObject = getLowerValue(aType, aProperty);
+
+        if (lowerValueObject != null) {
+            double lowerValue = Double.parseDouble(lowerValueObject.toString());
+            return (lowerValue <= MAX_RANGE_VALUE && lowerValue >= MIN_RANGE_VALUE);
         }
 
         return true;
@@ -166,6 +244,28 @@ public class AceConstraintConfigurationRules implements IValidationRule {
                     aProperty);
         }
         return (result instanceof Number) ? (Number) result : null;
+    }
+
+    private Object getUpperValue(PrimitiveType aType, Property aProperty) {
+        Object result;
+        if (aProperty == null) {
+            result = PrimitivesUtil.getFacetPropertyValue(aType, PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER);
+        } else {
+            result = PrimitivesUtil
+                    .getFacetPropertyValue(aType, PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_UPPER, aProperty);
+        }
+        return result;
+    }
+
+    private Object getLowerValue(PrimitiveType aType, Property aProperty) {
+        Object result;
+        if (aProperty == null) {
+            result = PrimitivesUtil.getFacetPropertyValue(aType, PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER);
+        } else {
+            result = PrimitivesUtil
+                    .getFacetPropertyValue(aType, PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_LOWER, aProperty);
+        }
+        return result;
     }
 
     private Number getDecimals(PrimitiveType aType, Property aProperty) {
