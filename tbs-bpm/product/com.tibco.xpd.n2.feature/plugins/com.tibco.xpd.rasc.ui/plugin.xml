@@ -2,16 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.ui.exportWizards">
-      <wizard
-            category="com.tibco.xpd.resources.ui.exportWizard.bpm.category"
-            class="com.tibco.xpd.rasc.ui.export.RascExportWizard"
-            icon="icons/obj16/rasc_16x16.png"
-            id="com.tibco.xpd.rasc.export"
-            name="%exportDeploymentArtifacts">
-      </wizard>
-   </extension>
-   <extension
          point="org.eclipse.ui.navigator.navigatorContent">
       <commonWizard
             menuGroupId="additions"

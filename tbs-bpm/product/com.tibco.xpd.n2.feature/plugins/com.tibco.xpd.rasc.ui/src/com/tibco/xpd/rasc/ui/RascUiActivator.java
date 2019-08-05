@@ -3,11 +3,13 @@ package com.tibco.xpd.rasc.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.tibco.xpd.rasc.ui.governance.ReadOnlyResourceChangeListener;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.logger.LoggerFactory;
 
@@ -47,13 +49,17 @@ public class RascUiActivator extends AbstractUIPlugin {
     private Logger logger =
             LoggerFactory.createLogger(RascUiActivator.PLUGIN_ID);
 
+    private ReadOnlyResourceChangeListener readOnlyListener;
+
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
     @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
+        readOnlyListener = new ReadOnlyResourceChangeListener();
         plugin = this;
+        ResourcesPlugin.getWorkspace().addResourceChangeListener(readOnlyListener);
     }
 
     /**
@@ -73,6 +79,7 @@ public class RascUiActivator extends AbstractUIPlugin {
      */
     @Override
     public void stop(BundleContext context) throws Exception {
+        ResourcesPlugin.getWorkspace().removeResourceChangeListener(readOnlyListener);
         plugin = null;
         super.stop(context);
     }

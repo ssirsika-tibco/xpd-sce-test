@@ -129,6 +129,7 @@ public class RascControllerImpl implements RascController {
             try {
                 // refresh the generated file
                 aFile.refreshLocal(IResource.DEPTH_ZERO, aProgressMonitor);
+                aFile.setDerived(true, aProgressMonitor);
             } catch (CoreException ignore) {
             }
         }

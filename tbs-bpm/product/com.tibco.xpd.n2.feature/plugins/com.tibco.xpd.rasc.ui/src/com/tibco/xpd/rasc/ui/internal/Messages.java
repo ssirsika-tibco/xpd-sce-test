@@ -97,6 +97,13 @@ public class Messages extends NLS {
     public static String RascExportWizard_LaunchButton;
 
     public static String RascExportWizard_Title;
+    public static String ReadOnlyResourceChangeListener_ChangeDetectedMessage;
+
+    public static String ReadOnlyResourceChangeListener_ChangeDetectedTitle;
+
+    public static String ReadOnlyResourceChangeListener_CreatingDraftJob;
+
+    public static String ReadOnlyResourceChangeListener_IgnoreChangesButton;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

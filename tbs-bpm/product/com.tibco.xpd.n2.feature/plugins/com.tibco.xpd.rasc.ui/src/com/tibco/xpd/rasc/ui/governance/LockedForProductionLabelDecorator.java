@@ -58,15 +58,18 @@ public class LockedForProductionLabelDecorator extends LabelDecorator {
                         .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
             }
         } else if (element instanceof IResource) {
-            IProject project = ((IResource) element).getProject();
-            if (project != null) {
-                try {
-                    if (gss.isLockedForProduction(project)) {
-                        return text + " " + Messages.LockedForProductionLabelDecorator_ReadOnlyDecoratorText; //$NON-NLS-1$
+            IResource resource = (IResource) element;
+            if (!resource.isDerived()) {
+                IProject project = resource.getProject();
+                if (project != null) {
+                    try {
+                        if (gss.isLockedForProduction(project)) {
+                            return text + " " + Messages.LockedForProductionLabelDecorator_ReadOnlyDecoratorText; //$NON-NLS-1$
+                        }
+                    } catch (CoreException e) {
+                        RascUiActivator.getLogger()
+                                .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
                     }
-                } catch (CoreException e) {
-                    RascUiActivator.getLogger()
-                            .error("Could not check Locked for Production state for project " + project.getName()); //$NON-NLS-1$
                 }
             }
         }

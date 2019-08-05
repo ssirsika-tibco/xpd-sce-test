@@ -463,35 +463,6 @@ public abstract class AbstractWorkingCopy
                                 }
                                 return;
 
-                            } else if (isReadOnly()) {
-                                /*
-                                 * AysncExec Message Dialog Resource is read
-                                 * only
-                                 */
-                                if (!XpdResourcesPlugin.isInHeadlessMode()) {
-
-                                    Display.getDefault()
-                                            .asyncExec(new Runnable() {
-
-                                                @Override
-                                                public void run() {
-
-                                                    Shell shell = PlatformUI
-                                                            .getWorkbench()
-                                                            .getActiveWorkbenchWindow()
-                                                            .getShell();
-                                                    String msg = String.format(
-                                                            Messages.AbstractWorkingCopy_readonly_msg,
-                                                            firstResource
-                                                                    .getName());
-                                                    MessageDialog
-                                                            .openInformation(
-                                                                    shell,
-                                                                    Messages.AbstractWorkingCopy_precompile_project_readonly_title,
-                                                                    msg);
-                                                }
-                                            });
-                                }
                             }
                         }
 

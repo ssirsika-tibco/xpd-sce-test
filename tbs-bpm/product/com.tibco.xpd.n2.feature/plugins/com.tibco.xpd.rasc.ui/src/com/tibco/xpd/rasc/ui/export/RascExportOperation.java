@@ -290,6 +290,7 @@ public class RascExportOperation implements IRunnableWithProgress {
                 mkdirs((IFolder) parent);
             }
             folder.create(true, true, null);
+            folder.setDerived(true, null);
         }
     }
 

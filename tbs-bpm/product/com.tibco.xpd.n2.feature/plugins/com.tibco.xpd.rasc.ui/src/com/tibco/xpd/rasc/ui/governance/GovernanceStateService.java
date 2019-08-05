@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import com.tibco.xpd.resources.ui.IRefreshableTitle;
@@ -53,17 +54,18 @@ public class GovernanceStateService {
     }
 
     /**
-     * 
+     * Update the editor tab label text.
      */
     private void refreshEditorLabels() {
-        for (IWorkbenchPage page:PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPages()) {
-            for (IEditorReference ref:page.getEditorReferences()) {
-                IEditorPart editor = ref.getEditor(false);
-                if (editor instanceof IRefreshableTitle) {
-                    ((IRefreshableTitle) editor).refreshTitle();
+        for (IWorkbenchWindow window : PlatformUI.getWorkbench().getWorkbenchWindows())
+            for (IWorkbenchPage page : window.getPages()) {
+                for (IEditorReference ref : page.getEditorReferences()) {
+                    IEditorPart editor = ref.getEditor(false);
+                    if (editor instanceof IRefreshableTitle) {
+                        ((IRefreshableTitle) editor).refreshTitle();
+                    }
                 }
             }
-        }
     }
 
     /**

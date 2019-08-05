@@ -8,8 +8,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.WorkspaceJob;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -191,20 +195,25 @@ public class RascExportStatusPage extends AbstractXpdWizardPage
             }
         });
 
-        Job job = Job.createSystem(jobMonitor -> {
-            try {
-                runnable.run(subMonitor.split(9));
-            } catch (InvocationTargetException e) {
-                RascUiActivator.getLogger().error(e);
-                setErrorMessage(Messages.RascExportStatusPage_ExportError);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            } finally {
-                finishedRun();
-                subMonitor.subTask(""); //$NON-NLS-1$
-                subMonitor.done();
+        WorkspaceJob job = new WorkspaceJob(Messages.RascExportStatusPage_ExportingArtifacts_status) {
+
+            @Override
+            public IStatus runInWorkspace(IProgressMonitor monitor) throws CoreException {
+                try {
+                    runnable.run(subMonitor.split(9));
+                } catch (InvocationTargetException e) {
+                    RascUiActivator.getLogger().error(e);
+                    setErrorMessage(Messages.RascExportStatusPage_ExportError);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    finishedRun();
+                    subMonitor.subTask(""); //$NON-NLS-1$
+                    subMonitor.done();
+                }
+                return Status.OK_STATUS;
             }
-        });
+        };
         job.schedule();
     }
 
