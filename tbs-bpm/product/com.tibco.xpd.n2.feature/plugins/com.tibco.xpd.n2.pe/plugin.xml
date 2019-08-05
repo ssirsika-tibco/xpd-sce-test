@@ -270,6 +270,12 @@
                contributor="com.tibco.xpd.n2.pe.globalsignal.datamapper.GlobalSignalDataMapperScriptGeneratorInfoProvider"
                contributorID="MapToGlobalSignal.DataMapperContent">
          </scriptGeneratorInfoProviderContributor>
+         <!-- Sid ACE-118 throw global signal mapping for correlation data (which are just normal mappings for throw signal 
+         	but had a different content contributor hence need to contribute a script gen info provider for these too). -->
+         <scriptGeneratorInfoProviderContributor
+               contributor="com.tibco.xpd.n2.pe.globalsignal.datamapper.GlobalSignalDataMapperScriptGeneratorInfoProvider"
+               contributorID="MapToGlobalSignalCorrelation.DataMapperContent">
+         </scriptGeneratorInfoProviderContributor>
      </extension>
    <extension
          point="com.tibco.xpd.rasc.core.rascContributors">
