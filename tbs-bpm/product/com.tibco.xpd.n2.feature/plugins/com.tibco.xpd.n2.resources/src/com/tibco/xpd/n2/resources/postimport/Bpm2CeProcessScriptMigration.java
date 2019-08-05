@@ -12,15 +12,22 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.PackageableElement;
 
 import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.migrate.IMigrationCommandInjector;
@@ -186,7 +193,14 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             return null;
         }
 
-        Collection<RefactorRule> replacementRules = getRefactorRules(expression);
+        Collection<RefactorRule> replacementRules;
+        try {
+            replacementRules = getRefactorRules(expression);
+        } catch (CoreException e) {
+            e.printStackTrace();
+            return null;
+        }
+
         if (replacementRules.isEmpty()) {
             return null;
         }
@@ -201,8 +215,10 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     /**
      * Build the RefactorRules to be applied to the script. Uses the given Expression to derive the data items, so that
      * the rules may be data aware.
+     * 
+     * @throws CoreException
      */
-    private Collection<RefactorRule> getRefactorRules(Expression expression) {
+    private Collection<RefactorRule> getRefactorRules(Expression expression) throws CoreException {
         Collection<RefactorRule> result = new ArrayList<>();
 
         // for static classes to the old-name->new-name top level identifiers map.
@@ -248,6 +264,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         dateMethods.put("setMillisecond", "setMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new MethodRefactorRule(dateMethods));
         
+        // enumeration refactors
+        result.add(new EnumRefactor(fieldResolver));
+
         return result;
     }
 
@@ -915,6 +934,72 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     }
 
     /**
+     * Replaces all enumeration references of the form:
+     * <ul>
+     * <li>package_enum.literal</li>
+     * <li>enum.literal</li>
+     * </ul>
+     * with the new form:
+     * <ul>
+     * <li>pkg.package.enum.literal</li>
+     * </ul>
+     */
+    private static class EnumRefactor implements RefactorRule {
+        private final Map<String, String> mappings;
+        public EnumRefactor(FieldResolver aResolver) {
+            // construct a map of the enum references we will look for, and their replacements
+            mappings = new HashMap<>();
+            Map<Model, Collection<Enumeration>> enums = aResolver.getFields(Enumeration.class);
+
+            for (Entry<Model, Collection<Enumeration>> entry : enums.entrySet()) {
+                // take the model package name and replace . with _
+                String modelName = entry.getKey().getName().replace('.', '_');
+
+                // for each enum in the model
+                for (Enumeration enumType : entry.getValue()) {
+                    String enumName = enumType.getName();
+                    String replacement = "pkg." + modelName + "." + enumName; //$NON-NLS-1$ //$NON-NLS-2$
+
+                    // each enum can have one of two forms of reference
+                    mappings.put(modelName + "_" + enumName, replacement); //$NON-NLS-1$
+                    mappings.put(enumName, replacement);
+                }
+            }
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (mappings.isEmpty()) {
+                return false; // no enumerations defined
+            }
+
+            // if the token within the enum mappings
+            Token token = aParser.LT(aIndex);
+            if (token.getType() == JScriptTokenTypes.IDENT) {
+                return mappings.containsKey(token.getText());
+            }
+
+            return false;
+        }
+
+        /**
+         * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#getReplacements(com.tibco.xpd.script.parser.antlr.JScriptParser,
+         *      int)
+         */
+        @Override
+        public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
+                throws TokenStreamException {
+            // replace token with new equivalence
+            Token token = aParser.LT(aIndex);
+            return Collections.singleton(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
+        }
+    }
+
+    /**
      * Identifies uses of the date/time factory DateTimeUtil and replaces them with "new Date()"
      */
     private static class DateConstructorRefactor implements RefactorRule {
@@ -1123,11 +1208,49 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         // the activity in which the script resides - determines the scope of available fields
         private final Activity activity;
 
+        // the project in which the script resides
+        private final IProject project;
+
+        // the BOM models referenced by the script's project
+        private final Collection<Model> bomModels;
+
         // a cache of previous look-ups
         private final Map<String, ConceptPath> resolved = new HashMap<>();
 
-        public FieldResolver(Expression aExpression) {
+        public FieldResolver(Expression aExpression) throws CoreException {
             activity = Xpdl2ModelUtil.getParentActivity(aExpression);
+            project = WorkingCopyUtil.getProjectFor(aExpression);
+
+            // look-up all BOM models referenced by the project
+            Collection<IProject> referencedProjects = Xpdl2ModelUtil.getAllReferencedProjects(project);
+            bomModels = new HashSet<>();
+            for (IProject refProject : referencedProjects) {
+                bomModels.addAll(BomInspector.getBomModels(refProject));
+            }
+        }
+
+        /**
+         * Returns all fields (data types), from all referenced BOM models, that are assignment-compatible with the
+         * given class. The result is a Map in which the key is the BOM model and the value is a collection of fields
+         * from that model that match the given class.
+         * 
+         * @param <T>
+         *            the possible classes allowed.
+         * @param aRequiredClass
+         *            the class to which those in the resulting collection will be assignment-compatible.
+         * @return the Map of resulting fields, grouped by the model from in which they are defined.
+         */
+        public <T extends PackageableElement> Map<Model, Collection<T>> getFields(final Class<T> aRequiredClass)
+        {
+            Map<Model, Collection<T>> result = new HashMap<>();
+            for (Model model : bomModels) {
+                Collection<T> fields = BomInspector.getFields(model, aRequiredClass);
+                if (!fields.isEmpty()) {
+                    result.put(model, fields);
+                }
+            }
+
+            return result;
         }
 
         /**
