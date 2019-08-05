@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -249,7 +248,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         // date refactors
         result.add(new DateConstructorRefactor());
-        Map<String,String> dateMethods = new HashMap<>();
+        Map<String, String> dateMethods = new HashMap<>();
         dateMethods.put("getYear", "getFullYear"); //$NON-NLS-1$ //$NON-NLS-2$
         dateMethods.put("setYear", "setFullYear"); //$NON-NLS-1$ //$NON-NLS-2$
         dateMethods.put("getDay", "getDate"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -263,7 +262,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         dateMethods.put("getMillisecond", "getMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
         dateMethods.put("setMillisecond", "setMilliseconds"); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new MethodRefactorRule(dateMethods));
-        
+
         // enumeration refactors
         result.add(new EnumRefactor(fieldResolver));
 
@@ -486,6 +485,71 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
         public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
                 throws TokenStreamException;
+
+        /**
+         * A utility method for RefactorRules. Returns tokens within the opening parenthesis, located at the given index
+         * within the given parser, and its matching closing parenthesis.
+         * 
+         * @param aParser
+         *            the parser whose tokens are to be traversed.
+         * @param aIndex
+         *            the index of the opening parenthesis token.
+         * @return collection of tokens within the opening and closing parenthesis.
+         * @throws TokenStreamException
+         *             if the parser throws an errors.
+         */
+        public default List<Token> getParameters(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            Token nextToken = aParser.LT(aIndex);
+            if (nextToken.getType() != JScriptTokenTypes.LPAREN) {
+                throw new IllegalArgumentException("Start index must reference an opening parenthesis."); //$NON-NLS-1$
+            }
+
+            List<Token> result = new ArrayList<>();
+
+            int openCount = 0;
+            while (nextToken != null) {
+                int nextType = nextToken.getType();
+
+                // we should always hit one - at the start index
+                if (nextType == JScriptTokenTypes.LPAREN) {
+                    if (openCount > 0) {
+                        result.add(nextToken);
+                    }
+                    openCount++;
+                }
+
+                else if (nextType == JScriptTokenTypes.RPAREN) {
+                    // are we back to the initial opening bracket
+                    if (--openCount == 0) {
+                        return result;
+                    }
+                    result.add(nextToken);
+                } else {
+                    result.add(nextToken);
+                }
+
+                nextToken = aParser.LT(++aIndex);
+            }
+
+            return Collections.emptyList();
+        }
+
+        /**
+         * A utility method for RefactorRules. Returns the closing parenthesis for the opening parenthesis located at
+         * the given index within the given parser.
+         * 
+         * @param aParser
+         *            the parser whose tokens are to be traversed.
+         * @param aIndex
+         *            the index of the opening parenthesis token.
+         * @return the closing parenthesis token, or <code>null</code> if not found.
+         * @throws TokenStreamException
+         *             if the parser throws an errors.
+         */
+        public default Token findClosingParen(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            List<Token> parameters = getParameters(aParser, aIndex);
+            return aParser.LT(aIndex + parameters.size() + 1);
+        }
     }
 
     /**
@@ -713,37 +777,24 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         @Override
         public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
                 throws TokenStreamException {
-            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
-
             // create replacement for accessor method (with leading dot and following parenthesis) with bracket
             Token dotToken = aParser.LT(aIndex - 1);
             Token token = aParser.LT(aIndex);
             Token openParen = aParser.LT(aIndex + 1);
 
+            // find and replace the matching closing parenthesis with a bracket
+            Token closingParen = findClosingParen(aParser, aIndex + 1);
+            if ((closingParen == null) || (closingParen.getType() != JScriptTokenTypes.RPAREN)) {
+                return Collections.emptyList(); // invalid construct
+            }
+
+            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+
             // we will be replacing all these tokens
             result.add(new ScriptItemReplacementRef(dotToken, null));
             result.add(new ScriptItemReplacementRef(token, "[")); //$NON-NLS-1$
             result.add(new ScriptItemReplacementRef(openParen, null));
-
-            // find and replace the matching closing parenthesis with a bracket
-            int openCount = 0;
-            while (true) {
-                Token nextToken = aParser.LT(++aIndex);
-                int nextType = nextToken.getType();
-
-                // we should always hit one - immediately following the accessor
-                if (nextType == JScriptTokenTypes.LPAREN) {
-                    openCount++;
-                }
-
-                else if (nextType == JScriptTokenTypes.RPAREN) {
-                    // are we back to the initial opening bracket
-                    if (--openCount == 0) {
-                        result.add(new ScriptItemReplacementRef(nextToken, "]")); //$NON-NLS-1$
-                        break;
-                    }
-                }
-            }
+            result.add(new ScriptItemReplacementRef(closingParen, "]")); //$NON-NLS-1$
 
             return result;
         }
@@ -819,6 +870,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         public MethodRefactorRule(Map<String, String> aMethodMap) {
             this(aMethodMap, null);
         }
+
         /**
          * @see com.tibco.xpd.n2.resources.postimport.Bpm2CeProcessScriptMigration.RefactorRule#isMatch(com.tibco.xpd.script.parser.antlr.JScriptParser,
          *      int)
@@ -927,9 +979,12 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             Token closeParen = aParser.LT(aIndex + 2);
 
             // we will be replacing all these tokens
-            return Arrays.asList(new ScriptItemReplacementRef(token, ArraySizeRefactor.LENGTH_PROPERTY),
-                    new ScriptItemReplacementRef(openParen, " "), //$NON-NLS-1$
-                    new ScriptItemReplacementRef(closeParen, null)); // $NON-NLS-1$
+            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+            result.add(new ScriptItemReplacementRef(token, ArraySizeRefactor.LENGTH_PROPERTY));
+            result.add(new ScriptItemReplacementRef(openParen, " ")); //$NON-NLS-1$
+            result.add(new ScriptItemReplacementRef(closeParen, null)); // $NON-NLS-1$
+
+            return result;
         }
     }
 
@@ -945,7 +1000,12 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * </ul>
      */
     private static class EnumRefactor implements RefactorRule {
+        // the original, optional accessor method
+        private static final String ACCESSOR = "get"; //$NON-NLS-1$
+
+        // the mappings of possible enumeration references and their replacements
         private final Map<String, String> mappings;
+
         public EnumRefactor(FieldResolver aResolver) {
             // construct a map of the enum references we will look for, and their replacements
             mappings = new HashMap<>();
@@ -993,8 +1053,46 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         @Override
         public Collection<ScriptItemReplacementRef> getReplacements(JScriptParser aParser, int aIndex)
                 throws TokenStreamException {
-            // replace token with new equivalence
             Token token = aParser.LT(aIndex);
+            Token dotToken = aParser.LT(aIndex + 1);
+            Token methodToken = aParser.LT(aIndex + 2);
+            Token openParen = aParser.LT(aIndex + 3);
+
+            // if this is use of the .get(String) method
+            if ((dotToken != null) && (dotToken.getType() == JScriptTokenTypes.DOT) //
+                    && (methodToken != null) && (methodToken.getType() == JScriptTokenTypes.IDENT)
+                    && (EnumRefactor.ACCESSOR.equals(methodToken.getText())) //
+                    && (openParen != null) && (openParen.getType() == JScriptTokenTypes.LPAREN)) {
+                // get the parameters
+                List<Token> parameterTokens = getParameters(aParser, aIndex + 3);
+                if (parameterTokens.size() != 1) {
+                    return Collections.emptyList(); // cannot replace function references
+                }
+
+                Token param = parameterTokens.get(0);
+                if (param.getType() != JScriptTokenTypes.STRING_LITERAL) {
+                    return Collections.emptyList(); // can only replace string literals
+                }
+
+                // extract the string literal - without quotes
+                String enumLit = param.getText();
+                enumLit = enumLit.substring(1, enumLit.length() - 1);
+
+                Token closeParen = aParser.LT(aIndex + parameterTokens.size() + 4);
+
+                Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+
+                result.add(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
+                result.add(new ScriptItemReplacementRef(methodToken, null));
+                result.add(new ScriptItemReplacementRef(openParen, null));
+                result.add(new ScriptItemReplacementRef(param, enumLit));
+                result.add(new ScriptItemReplacementRef(closeParen, null));
+
+                return result;
+            }
+
+            // this is a simple enumeration reference
+            // replace enum reference with new equivalence
             return Collections.singleton(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
         }
     }
@@ -1240,8 +1338,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          *            the class to which those in the resulting collection will be assignment-compatible.
          * @return the Map of resulting fields, grouped by the model from in which they are defined.
          */
-        public <T extends PackageableElement> Map<Model, Collection<T>> getFields(final Class<T> aRequiredClass)
-        {
+        public <T extends PackageableElement> Map<Model, Collection<T>> getFields(final Class<T> aRequiredClass) {
             Map<Model, Collection<T>> result = new HashMap<>();
             for (Model model : bomModels) {
                 Collection<T> fields = BomInspector.getFields(model, aRequiredClass);
