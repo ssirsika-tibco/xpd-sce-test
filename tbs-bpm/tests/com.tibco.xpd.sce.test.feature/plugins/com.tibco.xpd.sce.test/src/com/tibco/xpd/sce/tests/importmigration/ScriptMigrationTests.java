@@ -4,8 +4,10 @@
 
 package com.tibco.xpd.sce.tests.importmigration;
 
+import java.util.Collection;
 import java.util.Collections;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 
@@ -22,13 +24,21 @@ import junit.framework.TestCase;
  * @author aallway
  * @since 12 Jul 2019
  */
+@SuppressWarnings("nls")
 public class ScriptMigrationTests extends TestCase {
 
     // @Test
     public void testBasicScriptMigrations() {
-        ProjectImporter projectImporter = importMainTestProjects();
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/ScriptMigrationTests/",
+                        "resources/ScriptMigrationTests/ScriptMigrationTestsData/" },
+                new String[] { "ScriptMigrationTestsData", "ScriptMigrationTests" });
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptMigrationTests"); //$NON-NLS-1$
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
+
+        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptMigrationTests");
 
         /*
          * Seem to occasionally get a Forms Resource 11.x issue (The project
@@ -36,35 +46,86 @@ public class ScriptMigrationTests extends TestCase {
          */
 
 
-        assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.", //$NON-NLS-1$
+        assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.",
                 TestUtil.hasErrorProblemMarker(project,
                         true,
                         Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
-
-        projectImporter.performDelete();
+        } finally {
+            projectImporter.performDelete();
+        }
     }
 
-    /**
-     * Import all projects from test plugin resources for the main test
-     * 
-     * @return the project importer
-     */
-    private ProjectImporter importMainTestProjects() {
-        /*
-         * Import and migrate the project
-         */
+    // @Test
+    public void testScriptMigrationArrays() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/simple-data/",
+                        "resources/ScriptMigrationTests/simple-proc/" },
+                new String[] { "simple-data", "simple-proc" });
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
 
-        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
-                new String[] { "resources/ScriptMigrationTests/ScriptMigrationTests/", //$NON-NLS-1$
-                        "resources/ScriptMigrationTests/ScriptMigrationTestsData/" }, //$NON-NLS-1$
-                new String[] { "ScriptMigrationTestsData", "ScriptMigrationTests" }); //$NON-NLS-1$ //$NON-NLS-2$
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-proc");
 
-        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", //$NON-NLS-1$
-                projectImporter != null);
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
-        TestUtil.buildAndWait();
+            TestUtil.outputErrorMarkers(project, true);
 
-        return projectImporter;
+            // expect "com_example_simpledata_Factory.createDataClass().arrayAttribute.add(100);" to fail due to
+            // function reference
+            assertEquals(1, errorMarkers.size());
+            String message = (String) errorMarkers.iterator().next().getAttribute(IMarker.MESSAGE);
+            assertTrue(message.contains("At Line:11 column:73, Method add is invalid for the current context"));
+        } finally {
+            projectImporter.performDelete();
+        }
     }
 
+    // @Test
+    public void testScriptMigrationDates() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/simple-data/",
+                        "resources/ScriptMigrationTests/simple-date-proc/" },
+                new String[] { "simple-data", "simple-date-proc" });
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-date-proc");
+
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
+
+            TestUtil.outputErrorMarkers(project, true);
+            assertEquals(0, errorMarkers.size());
+        } finally {
+            projectImporter.performDelete();
+        }
+    }
+
+    // @Test
+    public void testScriptMigrationEnums() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/simple-enum-data/",
+                        "resources/ScriptMigrationTests/simple-enum-proc/" },
+                new String[] { "simple-enum-data", "simple-enum-proc" });
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-enum-proc");
+
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
+
+            TestUtil.outputErrorMarkers(project, true);
+            assertEquals(0, errorMarkers.size());
+        } finally {
+            projectImporter.performDelete();
+        }
+    }
 }
