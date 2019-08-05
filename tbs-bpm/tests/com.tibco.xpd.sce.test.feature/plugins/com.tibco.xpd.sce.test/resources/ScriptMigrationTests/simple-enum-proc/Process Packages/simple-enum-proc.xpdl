@@ -139,6 +139,13 @@ instance.status.severity = Severity.ERROR;&#xD;
 instance.status.severity = com_example_simpleenumdata_Severity.ERROR;&#xD;
 var colour1 = Colour.RED;&#xD;
 var colour2 = com_example_simpleenumdata_Colour.RED;&#xD;
+&#xD;
+instance.status.indicator = com_example_simpleenumdata_Colour.get(1);&#xD;
+instance.status.indicator = com_example_simpleenumdata_Colour.get("RED");&#xD;
+instance.status.indicator = com_example_simpleenumdata_Colour.get('BLUE');&#xD;
+instance.status.indicator = com_example_simpleenumdata_Colour.get("R" + "E" + 'D');&#xD;
+&#xD;
+var x = com_example_simpleenumdata_AComplexEnumeration.GET.ENUMLIT1;&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>

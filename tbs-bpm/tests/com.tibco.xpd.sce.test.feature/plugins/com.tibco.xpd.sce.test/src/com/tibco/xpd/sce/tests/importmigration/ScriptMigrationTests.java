@@ -38,18 +38,17 @@ public class ScriptMigrationTests extends TestCase {
         try {
             TestUtil.buildAndWait();
 
-        IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptMigrationTests");
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("ScriptMigrationTests");
 
-        /*
-         * Seem to occasionally get a Forms Resource 11.x issue (The project
-         * natures, special folders etc do not match the asset configuration)
-         */
+            /*
+             * Seem to occasionally get a Forms Resource 11.x issue (The project natures, special folders etc do not
+             * match the asset configuration)
+             */
 
-
-        assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.",
-                TestUtil.hasErrorProblemMarker(project,
-                        true,
-                        Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
+            assertFalse("ScriptMigrationTests project should have migrated to have no problem markers anywhere.",
+                    TestUtil.hasErrorProblemMarker(project,
+                            true,
+                            Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
         } finally {
             projectImporter.performDelete();
         }
@@ -123,7 +122,26 @@ public class ScriptMigrationTests extends TestCase {
                     TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
 
             TestUtil.outputErrorMarkers(project, true);
-            assertEquals(0, errorMarkers.size());
+
+            String[] expectedFailures = {
+                    // instance.status.indicator = com_example_simpleenumdata_Colour.get(1);
+                    "BPM  : At Line:21 column:69, Variable com_example_simpleenumdata_Colour not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    // instance.status.indicator = com_example_simpleenumdata_Colour.get("R" + "E" + 'D');
+                    "BPM  : At Line:24 column:83, Variable com_example_simpleenumdata_Colour not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    // var x = com_example_simpleenumdata_AComplexEnumeration.GET.ENUMLIT1;
+                    "BPM  : At Line:26 column:72, Property ENUMLIT1 is invalid for the current context (simpleprocProcess:ScriptTask)" };
+            assertEquals(expectedFailures.length, errorMarkers.size());
+            for (IMarker marker : errorMarkers) {
+                String message = (String) marker.getAttribute(IMarker.MESSAGE);
+                boolean found = false;
+                for (String expected : expectedFailures) {
+                    if (expected.equals(message)) {
+                        found = true;
+                        break;
+                    }
+                }
+                assertTrue("unexpected: " + message, found);
+            }
         } finally {
             projectImporter.performDelete();
         }
