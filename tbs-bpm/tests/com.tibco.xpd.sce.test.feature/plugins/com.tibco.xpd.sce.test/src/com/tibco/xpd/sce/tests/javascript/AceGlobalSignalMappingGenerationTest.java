@@ -189,7 +189,8 @@ public class AceGlobalSignalMappingGenerationTest extends TestCase {
         /*
          * Correlation mappings should not be included in mapping script.
          */
-        assertFalse(context + ": Global signal mapping script should not contain correlation data mappings", //$NON-NLS-1$
+        assertTrue(context
+                + ": Global signal mapping script SHOULD contain normal data mappings for correlation for THROW signals", //$NON-NLS-1$
                 script.contains("Correlation")); //$NON-NLS-1$
 
 
