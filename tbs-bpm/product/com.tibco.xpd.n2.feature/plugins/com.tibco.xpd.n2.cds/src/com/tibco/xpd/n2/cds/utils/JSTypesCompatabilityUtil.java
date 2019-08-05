@@ -352,24 +352,30 @@ public class JSTypesCompatabilityUtil {
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME, textAllowed);
 
         // Values allowed to map to Date fields
-        HashSet<String> dateAllowed = new HashSet<String>();
+        HashSet<String> dateAllowed = new HashSet<String>(Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME, dateAllowed);
 
         // Values allowed to map to Time fields
-        HashSet<String> timeAllowed = new HashSet<String>();
+        HashSet<String> timeAllowed = new HashSet<String>(Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP
                 .put(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME, timeAllowed);
 
         // Values allowed to map to DateTime fields
-        HashSet<String> dateTimeAllowed = new HashSet<String>(
-                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME));
+        HashSet<String> dateTimeAllowed = new HashSet<String>(Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
                 PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME,
                 dateTimeAllowed);
         // Values allowed to map to DateTimeTZ fields
-        HashSet<String> dateTimeTZAllowed = new HashSet<String>(
-                Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME));
+        HashSet<String> dateTimeTZAllowed = new HashSet<String>(Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_TIME_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME,
+                PrimitivesUtil.BOM_PRIMITIVE_DATETIME_NAME));
         BOM_TO_BOM_PRIMITIVETYPES_MAP.put(
                 PrimitivesUtil.BOM_PRIMITIVE_DATETIMETZ_NAME,
                 dateTimeTZAllowed);
