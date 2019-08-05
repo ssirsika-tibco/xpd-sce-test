@@ -4,6 +4,9 @@
 
 package com.tibco.xpd.sce.tests.bpel.transform;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 import org.w3c.dom.Document;
@@ -38,25 +41,17 @@ public class BpelSharedResourceTest extends AbstractBpelTransformTest {
         return "TestProcess";
     }
 
-    /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestXpdlName()
-     *
-     * @return
-     */
-    @Override
-    protected String getTestXpdlName() {
-        return "TestProcess.xpdl";
-    }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessName()
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessDescriptors()
      *
      * @return
      */
     @Override
-    protected String getTestProcessName() {
-        return "TestProcessProcess";
+    protected Collection<String> getTestProcessDescriptors() {
+        return Arrays.asList("TestProcess.xpdl/TestProcessProcess");
     }
+
 
     /**
      * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#checkBpelContent(org.w3c.dom.Document)
@@ -64,7 +59,8 @@ public class BpelSharedResourceTest extends AbstractBpelTransformTest {
      * @param document
      */
     @Override
-    protected void checkBpelContent(Document document) {
+    protected void checkBpelContent(Map<String, Document> documentMap) {
+        Document document = documentMap.get("TestProcess.xpdl/TestProcessProcess");
         // Check REST task shared resources
         NodeList invokeElems =
                 document.getElementsByTagNameNS(BPWS_NS, "invoke");

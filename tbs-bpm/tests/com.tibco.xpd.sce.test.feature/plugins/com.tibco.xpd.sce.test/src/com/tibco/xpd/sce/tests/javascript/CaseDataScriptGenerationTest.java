@@ -6,6 +6,7 @@ package com.tibco.xpd.sce.tests.javascript;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,32 +46,21 @@ public class CaseDataScriptGenerationTest extends AbstractBpelTransformTest {
     }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestXpdlName()
-     *
-     * @return
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessDescriptors()
      */
     @Override
-    protected String getTestXpdlName() {
-        return "CaseDataTaskTest.xpdl"; //$NON-NLS-1$
+    protected Collection<String> getTestProcessDescriptors() {
+        return Arrays.asList("CaseDataTaskTest.xpdl/CaseDataTaskTestProcess"); //$NON-NLS-1$
     }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessName()
-     *
-     * @return
-     */
-    @Override
-    protected String getTestProcessName() {
-        return "CaseDataTaskTestProcess"; //$NON-NLS-1$
-    }
-
-    /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#checkBpelContent(org.w3c.dom.Document)
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#checkBpelContent(Map)
      *
      * @param document
      */
     @Override
-    protected void checkBpelContent(Document document) {
+    protected void checkBpelContent(Map<String, Document> documentMap) {
+        Document document = documentMap.get("CaseDataTaskTest.xpdl/CaseDataTaskTestProcess"); //$NON-NLS-1$
         Map<String, List<String>> expectedMap = getExpectedContents();
         List<Node> tasks = getCaseDataTasks(document);
         assertEquals("Should be " + expectedMap.size() + " tasks but found " + tasks.size(), //$NON-NLS-1$ //$NON-NLS-2$

@@ -4,6 +4,9 @@
 
 package com.tibco.xpd.sce.tests.bpel.transform;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 import org.w3c.dom.Document;
@@ -47,23 +50,13 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
     }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestXpdlName()
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessDescriptors()
      *
      * @return
      */
     @Override
-    protected String getTestXpdlName() {
-        return "DataWrappingMappingsTests.xpdl";
-    }
-
-    /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessName()
-     *
-     * @return
-     */
-    @Override
-    protected String getTestProcessName() {
-        return "DataWrappingMappingsTestsProcess";
+    protected Collection<String> getTestProcessDescriptors() {
+        return Arrays.asList("DataWrappingMappingsTests.xpdl/DataWrappingMappingsTestsProcess");
     }
 
     /**
@@ -72,7 +65,9 @@ public class BpelSubProcessConversionTest extends AbstractBpelTransformTest {
      * @param document
      */
     @Override
-    protected void checkBpelContent(Document document) {
+    protected void checkBpelContent(Map<String, Document> documentMap) {
+        Document document = documentMap.get("DataWrappingMappingsTests.xpdl/DataWrappingMappingsTestsProcess");
+
         checkSubProcessCall(document);
 
         checkCatchSubProcessError(document);

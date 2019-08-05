@@ -4,6 +4,9 @@
 
 package com.tibco.xpd.sce.tests.bpel.transform;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 import org.w3c.dom.Document;
@@ -43,32 +46,21 @@ public class BpelDataFieldDescriptorTest extends AbstractBpelTransformTest {
     }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestXpdlName()
-     *
-     * @return
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessDescriptors()
      */
     @Override
-    protected String getTestXpdlName() {
-        return "DataFieldDescriptor.xpdl";
+    protected Collection<String> getTestProcessDescriptors() {
+        return Arrays.asList("DataFieldDescriptor.xpdl/MainProcess");
     }
 
     /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#getTestProcessName()
-     *
-     * @return
-     */
-    @Override
-    protected String getTestProcessName() {
-        return "MainProcess";
-    }
-
-    /**
-     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#checkBpelContent(org.w3c.dom.Document)
+     * @see com.tibco.xpd.sce.tests.bpel.transform.AbstractBpelTransformTest#checkBpelContent(Map)
      *
      * @param document
      */
     @Override
-    protected void checkBpelContent(Document document) {
+    protected void checkBpelContent(Map<String, Document> documentMap) {
+        Document document = documentMap.get("DataFieldDescriptor.xpdl/MainProcess");
         // Check REST task shared resources
         NodeList processElems =
                 document.getElementsByTagNameNS(BPWS_NS, "process");
