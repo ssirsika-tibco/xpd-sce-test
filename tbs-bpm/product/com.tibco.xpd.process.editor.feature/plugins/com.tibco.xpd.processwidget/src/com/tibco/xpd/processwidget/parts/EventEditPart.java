@@ -462,6 +462,14 @@ public class EventEditPart extends BaseFlowNodeEditPart implements
                         || (EventFlowType.FLOW_START == getEventFlowType() && parentEditPart instanceof TaskEditPart
                                 && ((TaskEditPart) parentEditPart).isEventSubProc())) {
                     f.setImage(ir.get(ProcessWidgetConstants.IMG_INCOMING_REQUEST_EVENT_ICON));
+
+                } else {
+                    /*
+                     * Sid ACE-20371 Should reset the image to null if we have
+                     * changed to type none but not used the incoming-request
+                     * icon (in order to blank out whatever icon it was set to).
+                     */
+                    f.setImage(null);
                 }
                 break;
 
