@@ -26,7 +26,7 @@ IF NOT DEFINED option-acceptLGPL (
   ECHO Building the docker image requires the download and installation of software
   ECHO under LGPL license.
   ECHO If you accept this download and license ^(see ./licenses/lgpl-license.txt^) then
-  ECHO you should add the parameter -acceptLGPL to the command line described above.
+  ECHO you should add the parameter -acceptLGPL to the command line.
   EXIT /b -1
 )
 

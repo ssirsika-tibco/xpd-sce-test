@@ -36,7 +36,7 @@ if [ ! $acceptLGPL ] ; then
   echo Building the docker image requires the download and installation of software
   echo under LGPL license.
   echo If you accept this download and license \(see ./licenses/lgpl-license.txt\) then
-  echo you should add the parameter -acceptLGPL to the command line described above.
+  echo you should add the parameter -acceptLGPL to the command line.
   echo
   exit 1
 fi
