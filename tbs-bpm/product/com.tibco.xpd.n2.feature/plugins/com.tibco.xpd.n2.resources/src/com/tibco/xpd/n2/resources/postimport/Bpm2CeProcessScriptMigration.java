@@ -112,6 +112,16 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         long startTime = System.nanoTime();
         int numScripts = 0;
 
+        // create a FieldResolver for the given project data references
+        FieldResolver fieldResolver;
+        try {
+            fieldResolver = new FieldResolver(pkg);
+        } catch (CoreException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+
         CompoundCommand cmd = new CompoundCommand("Migrate JavaScript"); //$NON-NLS-1$
 
         for (TreeIterator<EObject> iterator = pkg.eAllContents(); iterator.hasNext();) {
@@ -125,7 +135,11 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
 
                     // TODO EXCLUDE JAVASCRIPT xpdl2:Actual IN DATA MAPPINGs
                     if (!ignoreScript(expression)) {
-                        String newScript = highLevelConvert(expression);
+                        // set the scope for the FieldResolver
+                        fieldResolver.setExpression(expression);
+
+                        // perform the refactor
+                        String newScript = highLevelConvert(expression, fieldResolver);
 
                         if (newScript != null) {
                             cmd.append(new ResetExpressionContentCommand((TransactionalEditingDomain) editingDomain,
@@ -182,7 +196,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * 
      * @return the new script.
      */
-    private String highLevelConvert(Expression expression) {
+    private String highLevelConvert(Expression expression, FieldResolver aFieldResolver) {
         if (expression == null) {
             return null;
         }
@@ -192,14 +206,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             return null;
         }
 
-        Collection<RefactorRule> replacementRules;
-        try {
-            replacementRules = getRefactorRules(expression);
-        } catch (CoreException e) {
-            e.printStackTrace();
-            return null;
-        }
-
+        Collection<RefactorRule> replacementRules = getRefactorRules(aFieldResolver);
         if (replacementRules.isEmpty()) {
             return null;
         }
@@ -217,7 +224,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
      * 
      * @throws CoreException
      */
-    private Collection<RefactorRule> getRefactorRules(Expression expression) throws CoreException {
+    private Collection<RefactorRule> getRefactorRules(final FieldResolver aFieldResolver)
+    {
         Collection<RefactorRule> result = new ArrayList<>();
 
         // for static classes to the old-name->new-name top level identifiers map.
@@ -225,26 +233,22 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new StaticRefReplacement("Process", "bpm.process")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new StaticRefReplacement("WorkManagerFactory", "bpm.workManager")); //$NON-NLS-1$ //$NON-NLS-2$
 
-        Collection<ProcessRelevantData> inScopeData = getInScopeData(expression);
-        if (!inScopeData.isEmpty()) {
-            // for all the in-scope data fields to the old-name->new-name top level identifiers map
-            result.add(new TopLevelFieldIdReplacement(inScopeData));
-        }
-
-        final FieldResolver fieldResolver = new FieldResolver(expression);
-
         // a method filter to check that the method belongs to an array field
         MethodFilter arrayFilter = (parser, index) -> {
+            // index references the method token
             // lookup field identified by current token - 2
-            ConceptPath conceptPath = fieldResolver.resolve(parser, index - 2);
+            ConceptPath conceptPath = aFieldResolver.resolve(parser, index - 2);
             return (conceptPath != null) && (conceptPath.isArray());
         };
+
+        // for all the in-scope data fields to the old-name->new-name top level identifiers map
+        result.add(new TopLevelFieldIdReplacement(aFieldResolver));
 
         // add array method refactors
         result.add(new MethodRefactorRule("addAll", "pushAll")); //$NON-NLS-1$ //$NON-NLS-2$
         result.add(new MethodRefactorRule("add", "push", arrayFilter)); //$NON-NLS-1$//$NON-NLS-2$
-        result.add(new ArrayAccessorReplacement(fieldResolver));
-        result.add(new ArraySizeRefactor(fieldResolver));
+        result.add(new ArrayAccessorReplacement(aFieldResolver));
+        result.add(new ArraySizeRefactor(aFieldResolver));
 
         // date refactors
         result.add(new DateConstructorRefactor());
@@ -264,40 +268,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         result.add(new MethodRefactorRule(dateMethods));
 
         // enumeration refactors
-        result.add(new EnumRefactor(fieldResolver));
+        result.add(new EnumRefactor(aFieldResolver));
 
         return result;
-    }
-
-    /**
-     * Get all the data in scope of the activity (if it's a script under an activity) else the process
-     * 
-     * @param expression
-     * @return The data in scope of the given expression.
-     */
-    private Collection<ProcessRelevantData> getInScopeData(Expression expression) {
-
-        /*
-         * If the expression is in a conditional flow, then we need to get the data available in it's container.
-         */
-        Transition seqFlowParent = (Transition) Xpdl2ModelUtil.getAncestor(expression, Transition.class);
-        if (seqFlowParent != null) {
-            return ProcessInterfaceUtil.getAllAvailableRelevantDataForSequenceFlow(seqFlowParent);
-        }
-
-        /* If the expression is in an activity get all the data available to it. */
-        Activity activity = Xpdl2ModelUtil.getParentActivity(expression);
-        if (activity != null) {
-            return ProcessInterfaceUtil.getAllAvailableRelevantDataForActivity(activity);
-        }
-
-        /* Fall back on all data in process. */
-        Process process = Xpdl2ModelUtil.getProcess(expression);
-        if (process != null) {
-            return ProcessInterfaceUtil.getAllProcessRelevantData(process);
-        }
-
-        return Collections.emptyList();
     }
 
     /**
@@ -680,7 +653,9 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
     private static class TopLevelFieldIdReplacement implements RefactorRule {
         private final Map<String, String> oldIdentMap = new HashMap<>();
 
-        public TopLevelFieldIdReplacement(Collection<ProcessRelevantData> inScopeData) {
+        public TopLevelFieldIdReplacement(FieldResolver aResolver) {
+            Collection<ProcessRelevantData> inScopeData = aResolver.getInScopeData();
+
             // for all the in-scope data fields to the old-name->new-name top level identifiers map
             for (ProcessRelevantData data : inScopeData) {
                 String fieldName = data.getName();
@@ -697,6 +672,10 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          */
         @Override
         public boolean isMatch(JScriptParser aParser, int aIndex) throws TokenStreamException {
+            if (oldIdentMap.isEmpty()) {
+                return false;
+            }
+
             Token prevToken = (aIndex <= 1) ? null : aParser.LT(aIndex - 1);
             Token token = aParser.LT(aIndex);
 
@@ -1009,7 +988,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         public EnumRefactor(FieldResolver aResolver) {
             // construct a map of the enum references we will look for, and their replacements
             mappings = new HashMap<>();
-            Map<Model, Collection<Enumeration>> enums = aResolver.getFields(Enumeration.class);
+            Map<Model, Collection<Enumeration>> enums = aResolver.getBOMDataTypes(Enumeration.class);
 
             for (Entry<Model, Collection<Enumeration>> entry : enums.entrySet()) {
                 // take the model package name and replace . with _
@@ -1058,42 +1037,41 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             Token methodToken = aParser.LT(aIndex + 2);
             Token openParen = aParser.LT(aIndex + 3);
 
+            // replace enum reference with new equivalence
+            Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+            result.add(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
+
             // if this is use of the .get(String) method
+            // try to replace it with the enum literal
             if ((dotToken != null) && (dotToken.getType() == JScriptTokenTypes.DOT) //
                     && (methodToken != null) && (methodToken.getType() == JScriptTokenTypes.IDENT)
                     && (EnumRefactor.ACCESSOR.equals(methodToken.getText())) //
                     && (openParen != null) && (openParen.getType() == JScriptTokenTypes.LPAREN)) {
                 // get the parameters
                 List<Token> parameterTokens = getParameters(aParser, aIndex + 3);
-                if (parameterTokens.size() != 1) {
-                    return Collections.emptyList(); // cannot replace function references
+
+                // if more than one then this is a complex expression construct - which we can't handle
+                // if none then this is not a valid match for the get() method
+                if (parameterTokens.size() == 1) {
+                    Token param = parameterTokens.get(0);
+
+                    // can only replace string literals
+                    if (param.getType() == JScriptTokenTypes.STRING_LITERAL) {
+                        // extract the string literal - without quotes
+                        String enumLit = param.getText();
+                        enumLit = enumLit.substring(1, enumLit.length() - 1);
+
+                        Token closeParen = aParser.LT(aIndex + parameterTokens.size() + 4);
+
+                        result.add(new ScriptItemReplacementRef(methodToken, null));
+                        result.add(new ScriptItemReplacementRef(openParen, null));
+                        result.add(new ScriptItemReplacementRef(param, enumLit));
+                        result.add(new ScriptItemReplacementRef(closeParen, null));
+                    }
                 }
-
-                Token param = parameterTokens.get(0);
-                if (param.getType() != JScriptTokenTypes.STRING_LITERAL) {
-                    return Collections.emptyList(); // can only replace string literals
-                }
-
-                // extract the string literal - without quotes
-                String enumLit = param.getText();
-                enumLit = enumLit.substring(1, enumLit.length() - 1);
-
-                Token closeParen = aParser.LT(aIndex + parameterTokens.size() + 4);
-
-                Collection<ScriptItemReplacementRef> result = new ArrayList<>();
-
-                result.add(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
-                result.add(new ScriptItemReplacementRef(methodToken, null));
-                result.add(new ScriptItemReplacementRef(openParen, null));
-                result.add(new ScriptItemReplacementRef(param, enumLit));
-                result.add(new ScriptItemReplacementRef(closeParen, null));
-
-                return result;
             }
 
-            // this is a simple enumeration reference
-            // replace enum reference with new equivalence
-            return Collections.singleton(new ScriptItemReplacementRef(token, mappings.get(token.getText())));
+            return result;
         }
     }
 
@@ -1303,11 +1281,14 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         // used to record failed lookups
         private static ConceptPath NULL_PATH = new ConceptPath(null, null);
 
-        // the activity in which the script resides - determines the scope of available fields
-        private final Activity activity;
+        // the process in which the script resides.
+        private Process process;
 
-        // the project in which the script resides
-        private final IProject project;
+        // the, optional, activity in which the script resides - determines the scope of available fields
+        private Activity activity;
+
+        // the Expression whose script is currently being refactored
+        private Expression expression;
 
         // the BOM models referenced by the script's project
         private final Collection<Model> bomModels;
@@ -1315,9 +1296,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         // a cache of previous look-ups
         private final Map<String, ConceptPath> resolved = new HashMap<>();
 
-        public FieldResolver(Expression aExpression) throws CoreException {
-            activity = Xpdl2ModelUtil.getParentActivity(aExpression);
-            project = WorkingCopyUtil.getProjectFor(aExpression);
+        public FieldResolver(Package aPackage) throws CoreException {
+            IProject project = WorkingCopyUtil.getProjectFor(aPackage);
 
             // look-up all BOM models referenced by the project
             Collection<IProject> referencedProjects = Xpdl2ModelUtil.getAllReferencedProjects(project);
@@ -1325,6 +1305,19 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             for (IProject refProject : referencedProjects) {
                 bomModels.addAll(BomInspector.getBomModels(refProject));
             }
+        }
+
+        /**
+         * Sets the Expression currently being processed. This will determine the scope of data fields that can be
+         * resolved.
+         * 
+         * @param aValue
+         *            the Expression containing the script currently being refactored.
+         */
+        public void setExpression(Expression aValue) {
+            expression = aValue;
+            process = Xpdl2ModelUtil.getProcess(aValue);
+            activity = Xpdl2ModelUtil.getParentActivity(aValue);
         }
 
         /**
@@ -1338,7 +1331,7 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          *            the class to which those in the resulting collection will be assignment-compatible.
          * @return the Map of resulting fields, grouped by the model from in which they are defined.
          */
-        public <T extends PackageableElement> Map<Model, Collection<T>> getFields(final Class<T> aRequiredClass) {
+        public <T extends PackageableElement> Map<Model, Collection<T>> getBOMDataTypes(final Class<T> aRequiredClass) {
             Map<Model, Collection<T>> result = new HashMap<>();
             for (Model model : bomModels) {
                 Collection<T> fields = BomInspector.getFields(model, aRequiredClass);
@@ -1348,6 +1341,33 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             }
 
             return result;
+        }
+
+        /**
+         * Get all the data in scope of the activity (if it's a script under an activity) else the process.
+         * 
+         * @return The data in scope of the current expression.
+         */
+        public Collection<ProcessRelevantData> getInScopeData() {
+            /*
+             * If the expression is in a conditional flow, then we need to get the data available in it's container.
+             */
+            Transition seqFlowParent = (Transition) Xpdl2ModelUtil.getAncestor(expression, Transition.class);
+            if (seqFlowParent != null) {
+                return ProcessInterfaceUtil.getAllAvailableRelevantDataForSequenceFlow(seqFlowParent);
+            }
+        
+            /* If the expression is in an activity get all the data available to it. */
+            if (activity != null) {
+                return ProcessInterfaceUtil.getAllAvailableRelevantDataForActivity(activity);
+            }
+        
+            /* Fall back on all data in process. */
+            if (process != null) {
+                return ProcessInterfaceUtil.getAllProcessRelevantData(process);
+            }
+        
+            return Collections.emptyList();
         }
 
         /**
@@ -1401,7 +1421,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
             ConceptPath result = resolved.get(path);
             if (result == null) {
                 // call the util and cache result if found
-                result = ConceptUtil.resolveConceptPath(activity, path, true);
+                result = (activity != null) ? ConceptUtil.resolveConceptPath(activity, path, true)
+                        : ConceptUtil.resolveConceptPath(process, path, true);
                 if (result == null) {
                     // record failed look-ups to prevent trying again
                     result = FieldResolver.NULL_PATH;

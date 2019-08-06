@@ -8,11 +8,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Model;
@@ -21,7 +18,6 @@ import org.eclipse.uml2.uml.PackageableElement;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.resources.WorkingCopy;
-import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 
@@ -46,43 +42,21 @@ class BomInspector {
             return Collections.emptyList();
         }
 
-        // look for all BOM special folders
-        Collection<SpecialFolder> sFolders =
-                SpecialFolderUtil.getAllSpecialFoldersOfKind(aProject, BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND);
-        if (sFolders == null) {
+        // look for all nested BOM model resources
+        Collection<IResource> bomResources = SpecialFolderUtil.getAllDeepResourcesInSpecialFolderOfKind(aProject,
+                BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND,
+                BOMResourcesPlugin.BOM_FILE_EXTENSION,
+                false);
+        if (bomResources == null) {
             return Collections.emptyList();
         }
 
-        final Collection<Model> result = new ArrayList<>();
-
-        // a resource visitor to perform a recursive-scan of a folder looking for BOM models
-        final IResourceVisitor visitor = new IResourceVisitor() {
-            @Override
-            public boolean visit(IResource resource) throws CoreException {
-                // if it looks like a BOM file
-                if (resource instanceof IFile
-                        && BOMResourcesPlugin.BOM_FILE_EXTENSION.equalsIgnoreCase(resource.getFileExtension())) {
-                    // try to read it as a BOM Model
-                    Model model = BomInspector.getBomModel(resource);
-                    if (model != null) {
-                        // add the model to the result
-                        result.add(model);
-                    }
-
-                    // no need to recurse into this resource
-                    return false;
-                }
-
-                // if this is a folder - recurse into it
-                return (resource instanceof IFolder);
-            }
-        };
-
-        // for each BPM folder - look for BOM models nested within
-        for (SpecialFolder sFolder : sFolders) {
-            if (sFolder.getFolder() != null && sFolder.getFolder().isAccessible()) {
-                // Visit all 'files' within the folder.
-                sFolder.getFolder().accept(visitor);
+        Collection<Model> result = new ArrayList<>();
+        for (IResource resource : bomResources) {
+            Model model = BomInspector.getBomModel(resource);
+            if (model != null) {
+                // add the model to the result
+                result.add(model);
             }
         }
 
