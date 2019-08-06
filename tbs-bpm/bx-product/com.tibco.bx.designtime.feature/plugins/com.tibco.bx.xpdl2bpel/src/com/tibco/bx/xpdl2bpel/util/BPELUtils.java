@@ -58,6 +58,7 @@ import org.eclipse.wst.wsdl.internal.util.WSDLResourceFactoryImpl;
 import org.eclipse.xsd.XSDSchema;
 import org.eclipse.xsd.util.XSDResourceFactoryImpl;
 import org.w3c.dom.Attr;
+import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -940,4 +941,20 @@ public class BPELUtils {
             //To change body of implemented methods use File | Settings | File Templates.
         }
     }
+	
+	/**
+     * Add a script extension element to the given parent element.
+     * 
+     * @param parentElement parent to add script element to
+     * @param name name of script element
+     * @param script the content of the script.
+     */
+    public static void addScriptElement(ExtensibleElement parentElement, String name, String script) {
+        Element scriptElement = BPELUtils.makeExtensionElement(parentElement, name);
+        
+        CDATASection cdata = scriptElement.getOwnerDocument().createCDATASection(script);
+        scriptElement.appendChild(cdata);
+        scriptElement.setAttribute("expressionLanguage", N2PEConstants.JSCRIPT_LANGUAGE);
+    }
+
 }

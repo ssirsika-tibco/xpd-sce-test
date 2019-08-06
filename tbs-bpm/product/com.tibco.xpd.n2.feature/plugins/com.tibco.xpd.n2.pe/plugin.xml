@@ -24,12 +24,17 @@
             mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
             priority="4">
       </mapperContentContributor>
-      <mapperContentContributor
+      
+      <!-- Sid ACE-1119 We should not contribute Process class to the RHS of catch local signal (on a user task boundary).
+      		The signal is for resending work item data to the user task, so we shouldn't allow setting of task priority. -->
+
+      <!-- <mapperContentContributor
             applicableContext="LocalSignalCatch"
             applyToMapperRHS="true"
             mapperContribution="com.tibco.xpd.n2.pe.datamapper.PEDataMapperContentContributor"
             priority="4">
-      </mapperContentContributor>
+      </mapperContentContributor> -->
+      
       <mapperContentContributor
             applicableContext="ScriptTask"
             applyToMapperRHS="false"
@@ -276,6 +281,17 @@
                contributor="com.tibco.xpd.n2.pe.globalsignal.datamapper.GlobalSignalDataMapperScriptGeneratorInfoProvider"
                contributorID="MapToGlobalSignalCorrelation.DataMapperContent">
          </scriptGeneratorInfoProviderContributor>
+         
+         <scriptGeneratorInfoProviderContributor
+               contributor="com.tibco.xpd.n2.pe.datamapper.LocalSignalPayloadScriptGeneratorInfoProvider"
+               contributorID="MapFromLocalSignal.DataMapperContent">
+         </scriptGeneratorInfoProviderContributor>
+
+         <scriptGeneratorInfoProviderContributor
+               contributor="com.tibco.xpd.n2.pe.datamapper.ProcessDataMapperScriptGeneratorInfoProvider"
+               contributorID="MapFromLocalSignalTarget.DataMapperContent">
+         </scriptGeneratorInfoProviderContributor>
+         
      </extension>
    <extension
          point="com.tibco.xpd.rasc.core.rascContributors">

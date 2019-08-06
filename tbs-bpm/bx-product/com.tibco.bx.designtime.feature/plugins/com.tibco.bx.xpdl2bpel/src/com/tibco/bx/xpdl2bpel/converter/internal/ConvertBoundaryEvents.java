@@ -18,6 +18,7 @@ import org.eclipse.bpel.model.CompensationHandler;
 import org.eclipse.bpel.model.Condition;
 import org.eclipse.bpel.model.Empty;
 import org.eclipse.bpel.model.EventHandler;
+import org.eclipse.bpel.model.Expression;
 import org.eclipse.bpel.model.Flow;
 import org.eclipse.bpel.model.ForEach;
 import org.eclipse.bpel.model.Link;
@@ -53,12 +54,14 @@ import com.tibco.bx.xpdl2bpel.util.XPDLUtils;
 import com.tibco.xpd.analyst.resources.xpdl2.errorEvents.BpmnCatchableErrorUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
+import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.implementer.resources.xpdl2.properties.RestServiceTaskAdapter;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.EventObjectUtil.GetSignalPayloadException;
 import com.tibco.xpd.xpdExtension.RescheduleDurationType;
 import com.tibco.xpd.xpdExtension.RescheduleTimerScript;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdExtension.SignalData;
 import com.tibco.xpd.xpdl2.DataField;
 import com.tibco.xpd.xpdl2.DataMapping;
@@ -528,6 +531,10 @@ public class ConvertBoundaryEvents {
 				.createSignalUpdateEvent();
 		signalUpdateEvent.setEvent(triggerResultSignal.getName());
 
+		/*
+		 * Gather the info for the <tibex:signalVariables> elements
+		 * These are the data incoming from the thrown signal.
+		 */
 		Set<String> optionalSignalVariables = new HashSet<String>();
 		Variables signalVariables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
 		signalUpdateEvent.setSignalVariables(signalVariables);
@@ -547,29 +554,94 @@ public class ConvertBoundaryEvents {
 		} catch (GetSignalPayloadException e) {
 			throw new ConversionException("Failed to get the signal payload for " + eventAct.getName(), e); //$NON-NLS-1$
 		}
-
+		
+        /*
+         * Sid ACE-1119 For dataMapper grammar we don't output the <bpws:copy>
+         * elements anymore, these are replaced with the new DataMapper mapping
+         * script.
+         * 
+         * However, we do need to gather all of the set of the top level target
+         * fields that need to be resent to the user task for the
+         * <tibex:updateVariables> elements later.
+         * 
+         * If it's old JavaScript mappings then we still need to create
+         * <bpws:copy> statements for each.
+         */
 		Set<String> toVars = new HashSet<String>();
-		if (signalData != null && signalData.getDataMappings() != null) {
-			for (DataMapping dataMapping : signalData.getDataMappings()) {
-				DataMappingInfo dataMappingInfo = new DataMappingInfo(dataMapping);
-				org.eclipse.bpel.model.To to = BPELUtils.createToVariable(dataMappingInfo.getToExpression());
-				toVars.add(dataMappingInfo.getToExpression());
+		
+        if (signalData != null) {
+            /*
+             * Check if it's DataMapper scripting (in which case it'll have one
+             * of these...
+             */
+            ScriptDataMapper outputScriptDataMapper = signalData.getOutputScriptDataMapper();
 
-				org.eclipse.bpel.model.From from = dataMappingInfo.isScript()
-						? BPELUtils.createFromScript(dataMappingInfo.getFromExpression(), dataMappingInfo.getGrammar())
-						: BPELUtils.createFromVariable("SIGNAL_" + dataMappingInfo.getFromExpression()); //$NON-NLS-1$
+            if (outputScriptDataMapper == null && signalData.getDataMappings() != null) {
+                /*
+                 * JavaScript mappings (in case we ever want to support both -
+                 * maybe on merge back to XPD)
+                 */
+                for (DataMapping dataMapping : signalData.getDataMappings()) {
+                    DataMappingInfo dataMappingInfo = new DataMappingInfo(dataMapping);
+                    org.eclipse.bpel.model.To to = BPELUtils.createToVariable(dataMappingInfo.getToExpression());
+                    toVars.add(dataMappingInfo.getToExpression());
 
-				org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
-				copy.setTo(to);
-				copy.setFrom(from);
-				if (from.getVariable() != null
-						&& optionalSignalVariables.contains(dataMappingInfo.getFromExpression())) {
-					copy.setIgnoreMissingFromData(true);
-				}
-				signalUpdateEvent.getCopy().add(copy);
-			}
-		}
+                    org.eclipse.bpel.model.From from = dataMappingInfo.isScript()
+                            ? BPELUtils.createFromScript(dataMappingInfo.getFromExpression(),
+                                    dataMappingInfo.getGrammar())
+                            : BPELUtils.createFromVariable("SIGNAL_" + dataMappingInfo.getFromExpression()); //$NON-NLS-1$
 
+                    org.eclipse.bpel.model.Copy copy = BPELFactory.eINSTANCE.createCopy();
+                    copy.setTo(to);
+                    copy.setFrom(from);
+                    if (from.getVariable() != null
+                            && optionalSignalVariables.contains(dataMappingInfo.getFromExpression())) {
+                        copy.setIgnoreMissingFromData(true);
+                    }
+                    signalUpdateEvent.getCopy().add(copy);
+                }
+
+            } else if (outputScriptDataMapper != null) {
+                /*
+                 * Sid ACE-1119 DataMapper mappings
+                 * 
+                 * Gather the toVars to be used for <tibex:updateVariables>
+                 */
+                for (DataMapping dataMapping : outputScriptDataMapper.getDataMappings()) {
+                    String toField = dataMapping.getFormal();
+
+                    if (toField != null && !toField.isEmpty()) {
+                        String rootField;
+
+                        int endRootIdx = toField.indexOf("."); //$NON-NLS-1$
+                        if (endRootIdx != -1) {
+                            rootField = toField.substring(0, endRootIdx);
+                        } else {
+                            rootField = toField;
+                        }
+
+                        toVars.add(rootField);
+                    }
+                }
+
+                /* Generate and add the datamapper script. */
+                String dataMapperScript =
+                        new DataMapperJavascriptGenerator().convertMappingsToJavascript(outputScriptDataMapper);
+
+                if (dataMapperScript != null && !dataMapperScript.isEmpty()) {
+                    Expression mappingScript = BPELFactory.eINSTANCE.createExpression();
+                    mappingScript.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+                    mappingScript.setBody(dataMapperScript);
+
+                    signalUpdateEvent.setMappingScript(mappingScript);
+                }
+            }
+        }
+		
+		/*
+		 * Gather the data for the <tibex:updateVariables> element.
+		 * These are the data that is resent the user task. 
+		 */
 		Variables updateVariables = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createVariables();
 		signalUpdateEvent.setUpdateVariables(updateVariables);
 		Collection<ProcessRelevantData> allData = ProcessInterfaceUtil

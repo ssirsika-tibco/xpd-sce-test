@@ -598,7 +598,11 @@ public class ConvertEvent {
                         .convertMappingsToJavascript(signalData.getInputScriptDataMapper());
 
                 if (dataMapperScript != null && !dataMapperScript.isEmpty()) {
-                    addScriptElement(extensibleElement, "mappingScript", dataMapperScript);
+                    org.eclipse.bpel.model.Expression mappingScript = BPELFactory.eINSTANCE.createExpression();
+                    mappingScript.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+                    mappingScript.setBody(dataMapperScript);
+
+                    globalSignalMappings.setMappingScript(mappingScript);
                 }
 
             } else {
@@ -640,7 +644,11 @@ public class ConvertEvent {
                         .convertMappingsToJavascript(signalData.getOutputScriptDataMapper());
 
                 if (dataMapperScript != null && !dataMapperScript.isEmpty()) {
-                    addScriptElement(extensibleElement, "mappingScript", dataMapperScript);
+                    org.eclipse.bpel.model.Expression mappingScript = BPELFactory.eINSTANCE.createExpression();
+                    mappingScript.setExpressionLanguage(N2PEConstants.JSCRIPT_LANGUAGE);
+                    mappingScript.setBody(dataMapperScript);
+
+                    globalSignalMappings.setMappingScript(mappingScript);
                 }
 
             } else {
@@ -664,21 +672,6 @@ public class ConvertEvent {
         
     }
     
-    /**
-     * Add a script extension element to the given parent element.
-     * 
-     * @param parentElement parent to add script element to
-     * @param name name of script element
-     * @param script the content of the script.
-     */
-    private static void addScriptElement(ExtensibleElement parentElement, String name, String script) {
-        Element scriptElement = BPELUtils.makeExtensionElement(parentElement, name);
-        
-        CDATASection cdata = scriptElement.getOwnerDocument().createCDATASection(script);
-        scriptElement.appendChild(cdata);
-        scriptElement.setAttribute("expressionLanguage", N2PEConstants.JSCRIPT_LANGUAGE);
-    }
-
     /**
      * @param outputScriptDataMapper
      * @return The list of correlation data mappings from the given signal

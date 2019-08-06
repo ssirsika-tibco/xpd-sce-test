@@ -17,6 +17,7 @@ import com.tibco.xpd.sce.tests.importmigration.Bpm2CeProjectMigrationTest;
 import com.tibco.xpd.sce.tests.importmigration.ScriptMigrationTests;
 import com.tibco.xpd.sce.tests.javascript.AceDataWrapperScriptObjectTest;
 import com.tibco.xpd.sce.tests.javascript.AceGlobalSignalMappingGenerationTest;
+import com.tibco.xpd.sce.tests.javascript.AceLocalSignalMappingGenerationTest;
 import com.tibco.xpd.sce.tests.javascript.AceProcessDataWrapperMappingsTest;
 import com.tibco.xpd.sce.tests.legacy.wm.WorkListFacadeGenTest;
 import com.tibco.xpd.sce.tests.validation.AceDuplicatePackageNameTest;
@@ -45,12 +46,8 @@ public class AllUnitTests2 {
          */
         suite.addTestSuite(Bpm2CeProjectMigrationTest.class);
         suite.addTestSuite(ScriptMigrationTests.class);
-
-        suite.addTestSuite(AceGlobalSignalDataMapperTest.class);
         suite.addTestSuite(NewCeProjectsTest.class);
         suite.addTestSuite(GenerateRascTaskTest.class);
-        suite.addTestSuite(AceDataWrapperScriptObjectTest.class);
-        suite.addTestSuite(AceProcessDataWrapperMappingsTest.class);
 
         /*
          * BPEL transformation tests

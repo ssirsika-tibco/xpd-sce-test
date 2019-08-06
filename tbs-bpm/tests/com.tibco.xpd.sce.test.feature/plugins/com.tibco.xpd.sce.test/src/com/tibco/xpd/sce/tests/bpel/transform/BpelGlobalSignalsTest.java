@@ -134,8 +134,15 @@ public class BpelGlobalSignalsTest extends AbstractBpelTransformTest {
         assertTrue("Process has a <tibex:onReceiveEvent name=\"" + eventName + "\"... element",
                 globalSignalActivity.isPresent());
 
+        /* EventHandler Should still contain a GlobalSignalMappings element */
+        Optional<Node> globalSignalMappings = findFirstElement(globalSignalActivity.get().getChildNodes(),
+                node -> "GlobalSignalMappings".equals(node.getLocalName()));
+
+        assertTrue(eventName + " should contain a <tibex:GlobalSignalMappings> element",
+                globalSignalMappings.isPresent());
+
         /* Should have a <tibex:mappingScript> child with some content.. */
-        Optional<Node> mappingScript = findFirstElement(globalSignalActivity.get().getChildNodes(),
+        Optional<Node> mappingScript = findFirstElement(globalSignalMappings.get().getChildNodes(),
                 node -> "mappingScript".equals(node.getLocalName()));
 
         assertTrue(eventName + " should contain a <tibex:mappingScript> element", mappingScript.isPresent());
@@ -144,12 +151,6 @@ public class BpelGlobalSignalsTest extends AbstractBpelTransformTest {
                 mappingScript.get().getChildNodes().getLength() > 0
                         && mappingScript.get().getChildNodes().item(0).toString().contains(expectedScriptContains));
 
-        /* EventHandler Should still contain a GlobalSignalMappings element */
-        Optional<Node> globalSignalMappings = findFirstElement(globalSignalActivity.get().getChildNodes(),
-                node -> "GlobalSignalMappings".equals(node.getLocalName()));
-
-        assertTrue(eventName + " should contain a <tibex:GlobalSignalMappings> element",
-                globalSignalMappings.isPresent());
 
         /* Which should have signalVariables element. */
         Optional<Node> signalVariables = findFirstElement(globalSignalMappings.get().getChildNodes(),
