@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -261,10 +262,11 @@ public abstract class AbstractBpelTransformTest extends TestCase {
     /**
      * Gets optional sub-element node (the context node) for the specified path.
      * 
-     * @param nodeString
+     * @param node
+     *            the context node.
+     * @param pathStr
      *            string representation of the path that can contain index (1 based), for example:
      *            "bsws:from[1]/bpws:literal" or just "bsws:from/bpws:literal".
-     * @param pathStr
      * @return sub-element of the context node as specified by path.
      */
     protected Optional<Node> findChildElement(Node node, String pathStr) {
@@ -286,11 +288,11 @@ public abstract class AbstractBpelTransformTest extends TestCase {
             }
         }
         // This construct probably doesn't work in code compiled in java-1.8 and executed in java-11
-        // List<ElemPos> path = Arrays.stream(pathStr.split("/")).map(s -> new ElemPos(s)).collect(Collectors.toList());
-        List<ElemPos> path = new ArrayList<ElemPos>();
-        for (String token : pathStr.split("/")) {
-            path.add(new ElemPos(token));
-        }
+        List<ElemPos> path = Arrays.stream(pathStr.split("/")).map(s -> new ElemPos(s)).collect(Collectors.toList());
+        // List<ElemPos> path = new ArrayList<ElemPos>();
+        // for (String token : pathStr.split("/")) {
+        // path.add(new ElemPos(token));
+        // }
             
         Node currentNode = node;
         for (ElemPos pathElem : path) {
