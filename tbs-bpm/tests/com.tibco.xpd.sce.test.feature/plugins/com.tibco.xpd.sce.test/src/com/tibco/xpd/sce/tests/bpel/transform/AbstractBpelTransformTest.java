@@ -16,7 +16,6 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -269,11 +268,11 @@ public abstract class AbstractBpelTransformTest extends TestCase {
      * @return sub-element of the context node as specified by path.
      */
     protected Optional<Node> findChildElement(Node node, String pathStr) {
-        final Pattern posElemPattern = Pattern.compile("(.*?)\\[(\\d+)\\]");
         class ElemPos {
-            final String elem;
+            final Pattern posElemPattern = Pattern.compile("(.*?)\\[(\\d+)\\]"); // <element-name>[<element-pos>]
+            final String elem; // element name.
 
-            final int pos;
+            final int pos; // element position.
 
             public ElemPos(String elemSpec) {
                 Matcher matcher = posElemPattern.matcher(elemSpec);
@@ -286,8 +285,13 @@ public abstract class AbstractBpelTransformTest extends TestCase {
                 }
             }
         }
-        ;
-        List<ElemPos> path = Arrays.stream(pathStr.split("/")).map(s -> new ElemPos(s)).collect(Collectors.toList());
+        // This construct probably doesn't work in code compiled in java-1.8 and executed in java-11
+        // List<ElemPos> path = Arrays.stream(pathStr.split("/")).map(s -> new ElemPos(s)).collect(Collectors.toList());
+        List<ElemPos> path = new ArrayList<ElemPos>();
+        for (String token : pathStr.split("/")) {
+            path.add(new ElemPos(token));
+        }
+            
         Node currentNode = node;
         for (ElemPos pathElem : path) {
             List<Node> elems = findElements(currentNode.getChildNodes(), n -> pathElem.elem.equals(n.getNodeName()));
