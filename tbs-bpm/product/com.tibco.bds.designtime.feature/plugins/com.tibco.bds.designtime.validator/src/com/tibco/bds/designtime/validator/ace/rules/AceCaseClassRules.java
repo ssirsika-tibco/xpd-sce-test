@@ -1,12 +1,14 @@
 package com.tibco.bds.designtime.validator.ace.rules;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
 
 import com.tibco.xpd.bom.globaldata.api.AutoCaseIdProperties;
 import com.tibco.xpd.bom.globaldata.api.BOMGlobalDataUtils;
@@ -76,6 +78,18 @@ public class AceCaseClassRules implements IValidationRule {
 
     private static final String ISSUE_ACE_MIN_DIGITS_MAX_15 =
             "ace.bom.caseid.mindigits.max.15"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_SEACHABLE_INVALID_TYPE = "ace.bom.searchable.invalid.type"; //$NON-NLS-1$
+
+    private static final String ISSUE_ACE_SUMMARY_INVALID_TYPE = "ace.bom.summary.invalid.type"; //$NON-NLS-1$
+
+    /** The base primitive type names that searchable properties can't have. */
+    private static final List<String> NON_SEARCHABLE_TYPES =
+            Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME, PrimitivesUtil.BOM_PRIMITIVE_URI_NAME);
+
+    /** The base primitive type names that summary properties can't have. */
+    private static final List<String> NON_SUMMARY_TYPES =
+            Arrays.asList(PrimitivesUtil.BOM_PRIMITIVE_BOOLEAN_NAME, PrimitivesUtil.BOM_PRIMITIVE_URI_NAME);
 
     @Override
     public Class<?> getTargetClass() {
@@ -241,6 +255,18 @@ public class AceCaseClassRules implements IValidationRule {
                         searchProperty.eResource()
                                 .getURIFragment(searchProperty));
             }
+            if (!hasValidSearchableType(searchProperty)) {
+                scope.createIssue(ISSUE_ACE_SEACHABLE_INVALID_TYPE,
+                        BOMValidationUtil.getLocation(searchProperty),
+                        searchProperty.eResource().getURIFragment(searchProperty));
+            }
+        }
+        for (Property summaryProperty : summaryProperties) {
+            if (!hasValidSummaryType(summaryProperty)) {
+                scope.createIssue(ISSUE_ACE_SUMMARY_INVALID_TYPE,
+                        BOMValidationUtil.getLocation(summaryProperty),
+                        summaryProperty.eResource().getURIFragment(summaryProperty));
+            }
         }
 
     }
@@ -268,5 +294,38 @@ public class AceCaseClassRules implements IValidationRule {
                         property.eResource().getURIFragment(property));
             }
         }
+    }
+
+    /**
+     * Check if the property has a valid type to be seachable. Only checks properties of primitive types.
+     * 
+     * @param property
+     *            the property to check.
+     * @return if property has an allowed searchable type.
+     */
+    private boolean hasValidSearchableType(Property property) {
+        Type bomType = property.getType();
+        if (bomType instanceof PrimitiveType) {
+            PrimitiveType baseType = PrimitivesUtil
+                    .getBasePrimitiveType((PrimitiveType) bomType);
+            return !NON_SEARCHABLE_TYPES.contains(baseType.getName());
+        }
+        return true;
+    }
+
+    /**
+     * Check if the property has a valid type to be summary. Only checks properties of primitive types.
+     * 
+     * @param property
+     *            the property to check.
+     * @return if property has an allowed summary type.
+     */
+    private boolean hasValidSummaryType(Property property) {
+        Type bomType = property.getType();
+        if (bomType instanceof PrimitiveType) {
+            PrimitiveType baseType = PrimitivesUtil.getBasePrimitiveType((PrimitiveType) bomType);
+            return !NON_SUMMARY_TYPES.contains(baseType.getName());
+        }
+        return true;
     }
 }
