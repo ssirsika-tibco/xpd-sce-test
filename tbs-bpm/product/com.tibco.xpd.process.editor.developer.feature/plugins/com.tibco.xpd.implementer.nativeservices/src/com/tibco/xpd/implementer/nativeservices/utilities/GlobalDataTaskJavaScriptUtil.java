@@ -88,28 +88,28 @@ public class GlobalDataTaskJavaScriptUtil {
      * reference field name // 2: association property name // 3: Link case
      * reference field name
      */
-    private static final String LINK_METHOD = "bpm.caseData.link(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String LINK_METHOD = "bpm.caseData.link(%1$s,%3$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to link a case object to an associated case : // 1: Case
      * reference field name // 2: association property name // 3: Link case
      * reference field names
      */
-    private static final String LINK_ARRAY_METHOD = "bpm.caseData.linkAll(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String LINK_ARRAY_METHOD = "bpm.caseData.linkAll(%1$s,%3$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to unlink a case object from an associated case : // 1: Case
      * reference field name // 2: association property name // 3: Link case
      * reference field name
      */
-    private static final String UNLINK_METHOD = "bpm.caseData.unlink(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String UNLINK_METHOD = "bpm.caseData.unlink(%1$s,%3$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to unlink a case object from an associated case : // 1: Case
      * reference field name // 2: association property name // 3: Link case
      * reference field names
      */
-    private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlinkAll(%1$s,%3$s,%2$s);"; //$NON-NLS-1$
+    private static final String UNLINK_ARRAY_METHOD = "bpm.caseData.unlinkAll(%1$s,%3$s,'%2$s');"; //$NON-NLS-1$
 
     /*
      * Javascript to create a case reference from a local data field: // 1: Case
@@ -254,8 +254,7 @@ public class GlobalDataTaskJavaScriptUtil {
                     String addCaseRefAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + addCaseRefField; //$NON-NLS-1$
                     ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
 
-                    String linkAssociationAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
-                            + capitalize(linkAssociations.getAssociationName());
+                    String linkAssociationAccessor = linkAssociations.getAssociationName();
                     if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
                         return getScript(LINK_ARRAY_METHOD,
                                 caseRefFieldAccessor,
@@ -273,8 +272,7 @@ public class GlobalDataTaskJavaScriptUtil {
                     String addCaseRefAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." + addCaseRefField; //$NON-NLS-1$
                     ProcessRelevantData caseLinkRefField = findProcessRelevantData(addCaseRefField, globalDataTask);
 
-                    String linkAssociationAccessor = ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME + "." //$NON-NLS-1$
-                            + capitalize(linkAssociations.getAssociationName());
+                    String linkAssociationAccessor = linkAssociations.getAssociationName();
                     if (caseLinkRefField != null && caseLinkRefField.isIsArray()) {
                         return getScript(UNLINK_ARRAY_METHOD,
                                 caseRefFieldAccessor,

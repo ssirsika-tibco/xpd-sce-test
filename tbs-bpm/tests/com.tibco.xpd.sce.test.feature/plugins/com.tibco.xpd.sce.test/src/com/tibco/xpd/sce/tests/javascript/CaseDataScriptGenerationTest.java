@@ -91,16 +91,16 @@ public class CaseDataScriptGenerationTest extends AbstractBpelTransformTest {
                 Arrays.asList("bpm.process.checkIfSafeToDeleteCase(data.CaseRef)", //$NON-NLS-1$
                         "bpm.caseData.deleteByRef(data.CaseRef)")); //$NON-NLS-1$
         contents.put("UpdateByCaseRef", Arrays.asList("bpm.caseData.updateByRef(data.CaseRef,data.CaseField)")); //$NON-NLS-1$ //$NON-NLS-2$
-        contents.put("Link", Arrays.asList("bpm.caseData.link(data.CaseRef,data.RefCase1,data.RefAssocCase1)")); //$NON-NLS-1$ //$NON-NLS-2$
+        contents.put("Link", Arrays.asList("bpm.caseData.link(data.CaseRef,data.RefCase1,'refAssocCase1')")); //$NON-NLS-1$ //$NON-NLS-2$
         contents.put("LinkAll", //$NON-NLS-1$
-                Arrays.asList("bpm.caseData.linkAll(data.CaseRef,data.RefArrayCase1,data.RefAssovArrayCase1)")); //$NON-NLS-1$
+                Arrays.asList("bpm.caseData.linkAll(data.CaseRef,data.RefArrayCase1,'refAssovArrayCase1')")); //$NON-NLS-1$
         contents.put("Create", //$NON-NLS-1$
                 Arrays.asList("data.CaseRef = bpm.caseData.create(data.CaseField,'com.example.data.MyCase')")); //$NON-NLS-1$
         contents.put("UpdateAllByCaseRef", //$NON-NLS-1$
                 Arrays.asList("bpm.caseData.updateAllByRef(data.CaseRefArray,data.CaseFieldArray)")); //$NON-NLS-1$
-        contents.put("Unlink", Arrays.asList("bpm.caseData.unlink(data.CaseRef,data.RefCase1,data.RefAssocCase1)")); //$NON-NLS-1$ //$NON-NLS-2$
+        contents.put("Unlink", Arrays.asList("bpm.caseData.unlink(data.CaseRef,data.RefCase1,'refAssocCase1')")); //$NON-NLS-1$ //$NON-NLS-2$
         contents.put("UnlinkAll", //$NON-NLS-1$
-                Arrays.asList("bpm.caseData.unlinkAll(data.CaseRef,data.RefArrayCase1,data.RefAssovArrayCase1)")); //$NON-NLS-1$
+                Arrays.asList("bpm.caseData.unlinkAll(data.CaseRef,data.RefArrayCase1,'refAssovArrayCase1')")); //$NON-NLS-1$
         contents.put("CreateAll", //$NON-NLS-1$
                 Arrays.asList(
                         "data.CaseRefArray.length=0;data.CaseRefArray.pushAll(bpm.caseData.createAll(data.CaseFieldArray,'com.example.data.MyCase'))")); //$NON-NLS-1$
