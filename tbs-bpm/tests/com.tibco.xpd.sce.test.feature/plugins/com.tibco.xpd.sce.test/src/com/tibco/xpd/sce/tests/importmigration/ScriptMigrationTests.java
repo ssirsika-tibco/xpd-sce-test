@@ -125,9 +125,9 @@ public class ScriptMigrationTests extends TestCase {
 
             String[] expectedFailures = {
                     // instance.status.indicator = com_example_simpleenumdata_Colour.get(1);
-                    "BPM  : At Line:21 column:69, Variable com_example_simpleenumdata_Colour not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:21 column:73, Method get is invalid for the current context (simpleprocProcess:ScriptTask)",
                     // instance.status.indicator = com_example_simpleenumdata_Colour.get("R" + "E" + 'D');
-                    "BPM  : At Line:24 column:83, Variable com_example_simpleenumdata_Colour not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:24 column:87, Method get is invalid for the current context (simpleprocProcess:ScriptTask)",
                     // var x = com_example_simpleenumdata_AComplexEnumeration.GET.ENUMLIT1;
                     "BPM  : At Line:26 column:72, Property ENUMLIT1 is invalid for the current context (simpleprocProcess:ScriptTask)" };
             assertEquals(expectedFailures.length, errorMarkers.size());
