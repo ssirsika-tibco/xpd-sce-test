@@ -269,8 +269,8 @@ public abstract class AbstractBpelTransformTest extends TestCase {
      * @return sub-element of the context node as specified by path.
      */
     protected Optional<Node> findChildElement(Node node, String pathStr) {
+        final Pattern posElemPattern = Pattern.compile("(.*?)\\[(\\d+)\\]"); // <element-name>[<element-pos>]
         class ElemPos {
-            final Pattern posElemPattern = Pattern.compile("(.*?)\\[(\\d+)\\]"); // <element-name>[<element-pos>]
 
             final String elem; // element name.
 
