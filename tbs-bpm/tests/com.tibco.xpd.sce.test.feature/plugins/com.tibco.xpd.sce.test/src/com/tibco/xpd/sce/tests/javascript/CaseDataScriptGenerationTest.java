@@ -103,7 +103,7 @@ public class CaseDataScriptGenerationTest extends AbstractBpelTransformTest {
                 Arrays.asList("bpm.caseData.unlinkAll(data.CaseRef,data.RefArrayCase1,data.RefAssovArrayCase1)")); //$NON-NLS-1$
         contents.put("CreateAll", //$NON-NLS-1$
                 Arrays.asList(
-                        "data.CaseRefArray = bpm.caseData.createAll(data.CaseFieldArray,'com.example.data.MyCase')")); //$NON-NLS-1$
+                        "data.CaseRefArray.length=0;data.CaseRefArray.pushAll(bpm.caseData.createAll(data.CaseFieldArray,'com.example.data.MyCase'))")); //$NON-NLS-1$
         return contents;
     }
 
