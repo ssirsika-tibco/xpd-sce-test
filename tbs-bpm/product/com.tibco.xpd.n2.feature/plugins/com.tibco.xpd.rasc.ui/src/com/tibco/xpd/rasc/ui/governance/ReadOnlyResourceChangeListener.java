@@ -10,6 +10,8 @@ import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ICoreRunnable;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -118,8 +120,13 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
             int result = MessageDialog
                     .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel, ignoreLabel);
             if (result == IStatus.OK) {
-                Job job = Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, jobMonitor -> {
-                    gss.createNewDraft(project);
+                Job job =
+                        Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
+
+                            @Override
+                            public void run(IProgressMonitor monitor) throws CoreException {
+                                gss.createNewDraft(project);
+                            }
                 });
                 job.schedule();
             }
