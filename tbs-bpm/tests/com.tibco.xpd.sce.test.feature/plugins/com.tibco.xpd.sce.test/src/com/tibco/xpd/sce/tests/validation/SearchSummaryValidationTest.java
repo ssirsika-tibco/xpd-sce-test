@@ -3,9 +3,9 @@
  */
 package com.tibco.xpd.sce.tests.validation;
 
-import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
+import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
 
 /**
  * SearchSummaryValidationTest
@@ -61,7 +61,7 @@ public class SearchSummaryValidationTest extends AbstractN2BaseValidationTest {
 			    		"/DataProject/Business Objects/DataProject.bom", //$NON-NLS-1$ 
 			    		"ace.bom.summary.invalid.type", //$NON-NLS-1$ 
 			    		"_VjqjILhiEemSyIocqH5aWA", //$NON-NLS-1$ 
-			    		"BPM  : Attributes of type 'Boolean' or 'URI' cannot be used in the case summary. (summaryURI (com.example.dataproject))", //$NON-NLS-1$ 
+                        "BPM  : Attributes of type Boolean or URI cannot be used in the case summary. (summaryURI (com.example.dataproject))", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			
@@ -69,7 +69,7 @@ public class SearchSummaryValidationTest extends AbstractN2BaseValidationTest {
 			    		"/DataProject/Business Objects/DataProject.bom", //$NON-NLS-1$ 
 			    		"ace.bom.summary.invalid.type", //$NON-NLS-1$ 
 			    		"_Xu0zILhiEemSyIocqH5aWA", //$NON-NLS-1$ 
-			    		"BPM  : Attributes of type 'Boolean' or 'URI' cannot be used in the case summary. (summaryBoolan (com.example.dataproject))", //$NON-NLS-1$ 
+                        "BPM  : Attributes of type Boolean or URI cannot be used in the case summary. (summaryBoolan (com.example.dataproject))", //$NON-NLS-1$
 			    		""), //$NON-NLS-1$ 
 			    		
 			                
