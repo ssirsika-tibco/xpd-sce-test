@@ -382,12 +382,14 @@ public class ConvertEvent {
 
         org.eclipse.bpel.model.Receive receive = org.eclipse.bpel.model.BPELFactory.eINSTANCE.createReceive();
         receive.setName(context.genUniqueActivityName("receive")); //$NON-NLS-1$
+        receive.setCreateInstance(false);
         // SCE: Default message correlation timeout is no longer configurable by the user.
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(receive, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
 
         sequence.getActivities().add(receive);
 
+        //SCE: The mapping assign activity is not requited at the moment but we keep it to preserve the structure. 
         org.eclipse.bpel.model.Activity theMappingActivity =
                 org.eclipse.bpel.model.BPELFactory.eINSTANCE.createAssign();
         theMappingActivity.setName(context.genUniqueActivityName("assign")); //$NON-NLS-1$
@@ -395,7 +397,7 @@ public class ConvertEvent {
         if (theMappingActivity != null) {
             sequence.getActivities().add(theMappingActivity);
         }
-        // ???
+        // SCE: Not required YET but left here as it might come as a handy hint later when we do implement reply activities
         // if (XPDLUtils.isReplyImmediately(triggerResultMessage)) {
         // ReplyImmediate replyImmediate = createReplyImmediate(context, message, wsoInfo);
         // activity.addExtensibilityElement(replyImmediate);

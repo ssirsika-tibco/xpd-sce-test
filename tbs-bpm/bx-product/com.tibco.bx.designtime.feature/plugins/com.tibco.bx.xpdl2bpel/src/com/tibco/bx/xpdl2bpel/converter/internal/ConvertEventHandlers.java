@@ -205,8 +205,9 @@ public class ConvertEventHandlers {
         // See: XPDLUtils.getMessageTimeout(xpdlActivity);
         BPELUtils.addExtensionAttribute(onEvent, "messageTimeout", context.getDefaultIncomingRequestTimeout()); //$NON-NLS-1$
 
-        org.eclipse.bpel.model.Activity theMappingActivity = createIncomingRequestStartActivity(context);
+        context.syncXpdlId(onEvent, xpdlActivity);
         
+        org.eclipse.bpel.model.Activity theMappingActivity = createIncomingRequestStartActivity(context);
         org.eclipse.bpel.model.Activity eventHandlerBody;
         org.eclipse.bpel.model.Flow flow;
         boolean isAScope = false;

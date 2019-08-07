@@ -146,13 +146,11 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         // Check attrs. have the expected values
         assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
+        assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_fB8G0K1eEemheL-rDtMNiw");
 
         // Check onEvent has a scope and a the flow in it.
-        Optional<Node> scope =
-                findFirstElement(onEventElem.getChildNodes(), node -> "scope".equals(node.getLocalName()));
-        Optional<Node> flow = findFirstElement(scope.get().getChildNodes(), node -> "flow".equals(node.getLocalName()));
+        Optional<Node> flow = findChildElement(onEventElem, "bpws:scope/bpws:flow");
         assertTrue("Flow is missing.", flow.isPresent());
-        // Assert attr: tibex:type="eventSubProcess"
         assertAttrNsValue(flow.get(), TIBEX_NS, "type", "eventSubProcess");
 
         Optional<Node> assign = findFirstElement(flow.get().getChildNodes(),
@@ -174,6 +172,7 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         // Check attrs. have the expected values
         assertAttrNsValue(onEventElem, TIBEX_NS, "messageTimeout", "3600");
         assertAttrNsValue(onEventElem, TIBEX_NS, "blockUntilCompleted", "yes");
+        assertAttrNsValue(onEventElem, TIBEX_NS, "xpdlId", "_T9JOkK1cEemheL-rDtMNiw");
 
         // Check onEvent has a scope and a the flow in it.
         Optional<Node> scope =
@@ -215,16 +214,12 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
         assertEquals("Script content invalid", "var x = \"aaaa\";", completedScript.get().getTextContent());
 
         // Check onEvent has a scope and a the flow in it.
-        Optional<Node> sequence =
-                findFirstElement(scopeElem.getChildNodes(), node -> "sequence".equals(node.getLocalName()));
-        Optional<Node> receive =
-                findFirstElement(sequence.get().getChildNodes(), node -> "receive".equals(node.getLocalName()));
+        Optional<Node> receive = findChildElement(scopeElem, "bpws:sequence/bpws:receive");
         assertTrue("Receive is missing.", receive.isPresent());
         assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
+        assertAttrValue(receive.get(), "createInstance", "no");
 
-        Optional<Node> assign =
-                findFirstElement(sequence.get().getChildNodes(),
-                node -> "assign".equals(node.getLocalName()));
+        Optional<Node> assign = findChildElement(scopeElem, "bpws:sequence/bpws:assign");
         assertTrue("Element assign is missing.", assign.isPresent());
     }
 
@@ -232,43 +227,33 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
      * @param document
      */
     private void checkReceiveTaskBpel(Document document) {
-        // Check onEvent
         NodeList scopeElems = document.getElementsByTagNameNS(BPWS_NS, "scope");
         assertTrue("Element scope is missing.", scopeElems.getLength() > 0);
         Optional<Node> receiveOuterScope =
                 findFirstElement(scopeElems, node -> hasAttrValue(node, "name", "_BX_scope_ReceiveTask"));
         assertTrue("Missing outer scope for receive task", receiveOuterScope.isPresent());
-        // Check attrs. have the expected values
         assertAttrNsValue(receiveOuterScope.get(), TIBEX_NS, "migrationAllowed", "yes");
 
         Optional<Node> receiveTaskScope = findFirstElement(receiveOuterScope.get().getChildNodes(),
                 node -> "scope".equals(node.getLocalName()));
         assertTrue("Missing scope for receive task", receiveTaskScope.isPresent());
-        // check completed scripts
-        Optional<Node> completedScript =
-                findFirstElement(receiveTaskScope.get().getChildNodes(),
-                        node -> "tibex:completedScript".equals(node.getNodeName()));
+        // Check scripts
+        Optional<Node> completedScript = findChildElement(receiveTaskScope.get(), "tibex:completedScript");
         assertTrue("Complete sctipt is missing.", completedScript.isPresent());
         assertAttrValue(completedScript.get(), "expressionLanguage", "urn:tibco:wsbpel:2.0:sublang:javascript");
         assertEquals("Script content invalid", "var x = \"aaaaa\";", completedScript.get().getTextContent());
 
-        Optional<Node> initiatedScript = findFirstElement(receiveTaskScope.get().getChildNodes(),
-                node -> "tibex:initiatedScript".equals(node.getNodeName()));
+        Optional<Node> initiatedScript = findChildElement(receiveTaskScope.get(), "tibex:initiatedScript");  
         assertTrue("Initiated sctipt is missing.", initiatedScript.isPresent());
         assertAttrValue(initiatedScript.get(), "expressionLanguage", "urn:tibco:wsbpel:2.0:sublang:javascript");
         assertEquals("Script content invalid", "var x = \"initiate\";", initiatedScript.get().getTextContent());
 
-        Optional<Node> cancelScript = findFirstElement(receiveTaskScope.get().getChildNodes(),
-                node -> "tibex:cancelScript".equals(node.getNodeName()));
+        Optional<Node> cancelScript = findChildElement(receiveTaskScope.get(), "tibex:cancelScript"); 
         assertTrue("Cancel sctipt is missing.", cancelScript.isPresent());
         assertAttrValue(cancelScript.get(), "expressionLanguage", "urn:tibco:wsbpel:2.0:sublang:javascript");
         assertEquals("Script content invalid", "var x = \"cancel\";", cancelScript.get().getTextContent());
 
-        Optional<Node> sequence =
-                findFirstElement(receiveTaskScope.get().getChildNodes(),
-                        node -> "sequence".equals(node.getLocalName()));
-        Optional<Node> receive =
-                findFirstElement(sequence.get().getChildNodes(), node -> "bpws:receive".equals(node.getNodeName()));
+        Optional<Node> receive = findChildElement(receiveTaskScope.get(), "bpws:sequence/bpws:receive");
         assertTrue("Missing bpws:receive", receive.isPresent());
         assertAttrNsValue(receive.get(), TIBEX_NS, "messageTimeout", "3600");
         assertAttrValue(receive.get(), "createInstance", "no");
@@ -279,7 +264,6 @@ public class BpelIncomingRequestActivityTest extends AbstractBpelTransformTest {
      * @param document
      */
     private void checkTaskBoundaryCatchEventBpel(Document document) {
-        // Check onEvent
         NodeList scopeElems = document.getElementsByTagNameNS(BPWS_NS, "scope");
         assertTrue("Element scope is missing.", scopeElems.getLength() > 0);
         Optional<Node> receiveOuterScope =
