@@ -176,7 +176,7 @@ public class XPDLUtils {
      */
     public enum SharedResourceType{
         HTTP_CLIENT("HTTPClient"), //$NON-NLS-1$
-        EMAIL("Email"); //$NON-NLS-1$
+        EMAIL("EMail"); //$NON-NLS-1$
         
         private String name;
         
