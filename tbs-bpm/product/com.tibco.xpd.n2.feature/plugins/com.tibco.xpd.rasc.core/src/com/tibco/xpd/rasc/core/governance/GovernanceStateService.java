@@ -2,17 +2,11 @@
  * Copyright (c) TIBCO Software Inc 2004, 2019. All rights reserved.
  */
 
-package com.tibco.xpd.rasc.ui.governance;
+package com.tibco.xpd.rasc.core.governance;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 
-import com.tibco.xpd.resources.ui.IRefreshableTitle;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
 
@@ -33,7 +27,7 @@ public class GovernanceStateService {
      * @throws CoreException
      *             if the state could not be checked.
      */
-    boolean isLockedForProduction(IProject project) throws CoreException {
+    public boolean isLockedForProduction(IProject project) throws CoreException {
         if (!project.isAccessible()) {
             return false;
         }
@@ -48,24 +42,8 @@ public class GovernanceStateService {
      * @throws CoreException
      *             if the project could not be locked.
      */
-    void lockForProduction(IProject project) throws CoreException {
+    public void lockForProduction(IProject project) throws CoreException {
         ProjectUtil.addNature(project, XpdConsts.LOCKED_FOR_PRODUCTION_NATURE);
-        refreshEditorLabels();
-    }
-
-    /**
-     * Update the editor tab label text.
-     */
-    private void refreshEditorLabels() {
-        for (IWorkbenchWindow window : PlatformUI.getWorkbench().getWorkbenchWindows())
-            for (IWorkbenchPage page : window.getPages()) {
-                for (IEditorReference ref : page.getEditorReferences()) {
-                    IEditorPart editor = ref.getEditor(false);
-                    if (editor instanceof IRefreshableTitle) {
-                        ((IRefreshableTitle) editor).refreshTitle();
-                    }
-                }
-            }
     }
 
     /**
@@ -77,9 +55,8 @@ public class GovernanceStateService {
      * @throws CoreException
      *             if the project could not be unlocked.
      */
-    void createNewDraft(IProject project) throws CoreException {
+    public void createNewDraft(IProject project) throws CoreException {
         ProjectUtil.removeNature(project, XpdConsts.LOCKED_FOR_PRODUCTION_NATURE);
-        refreshEditorLabels();
         // FIXME Increment the version as part of ACE-2032
     }
 }

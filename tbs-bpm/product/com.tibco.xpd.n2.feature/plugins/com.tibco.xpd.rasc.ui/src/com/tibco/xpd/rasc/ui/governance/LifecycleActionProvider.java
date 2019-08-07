@@ -14,6 +14,7 @@ import org.eclipse.ui.actions.ActionContext;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 
+import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 
@@ -32,10 +33,16 @@ public class LifecycleActionProvider extends CommonActionProvider {
     private GovernanceStateService gss;
 
     /**
+     * Service for governance state related UI utilities.
+     */
+    private GovernanceStateUIService gsus;
+
+    /**
      * Constructor.
      */
     public LifecycleActionProvider() {
         gss = new GovernanceStateService();
+        gsus = new GovernanceStateUIService();
     }
 
     /**
@@ -59,11 +66,12 @@ public class LifecycleActionProvider extends CommonActionProvider {
                 GenerateArtifactsAction generateDraftArtifacts = new GenerateArtifactsAction(
                         Messages.LifecycleActionProvider_GenerateDraftMenuLabel, selection, false);
                 LockForProductionAction lockForProduction = new LockForProductionAction(
-                        Messages.LifecycleActionProvider_LockForProductionMenuLabel, gss, projects);
+                        Messages.LifecycleActionProvider_LockForProductionMenuLabel, gss, gsus, projects);
                 GenerateArtifactsAction generateProductionArtifacts = new GenerateArtifactsAction(
                         Messages.LifecycleActionProvider_GenerateProductionMenuLabel, selection, true);
                 CreateNewDraftAction createNewDraft =
-                        new CreateNewDraftAction(Messages.LifecycleActionProvider_CreateDraftMenuLabel, gss, projects);
+                        new CreateNewDraftAction(Messages.LifecycleActionProvider_CreateDraftMenuLabel, gss, gsus,
+                                projects);
 
                 subMenu.add(generateDraftArtifacts);
                 subMenu.add(lockForProduction);

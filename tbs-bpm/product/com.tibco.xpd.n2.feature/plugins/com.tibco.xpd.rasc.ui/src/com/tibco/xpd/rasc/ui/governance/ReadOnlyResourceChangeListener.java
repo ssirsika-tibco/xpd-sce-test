@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
 
@@ -37,10 +38,16 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
     private GovernanceStateService gss;
 
     /**
+     * Service for governance state related UI utilities.
+     */
+    private GovernanceStateUIService gsus;
+
+    /**
      * Constructor, initialise the governance state service.
      */
     public ReadOnlyResourceChangeListener() {
         gss = new GovernanceStateService();
+        gsus = new GovernanceStateUIService();
     }
 
     /**
@@ -120,13 +127,15 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
             int result = MessageDialog
                     .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel, ignoreLabel);
             if (result == IStatus.OK) {
-                Job job =
-                        Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
-
-                            @Override
-                            public void run(IProgressMonitor monitor) throws CoreException {
-                                gss.createNewDraft(project);
-                            }
+                Job job = Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
+                    
+                    @Override
+                    public void run(IProgressMonitor monitor) throws CoreException {
+                        gss.createNewDraft(project);
+                                Display.getDefault().asyncExec(() -> {
+                                    gsus.refreshEditorLabels();
+                                });
+                    }
                 });
                 job.schedule();
             }

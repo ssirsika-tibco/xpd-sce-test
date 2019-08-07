@@ -42,6 +42,7 @@ import com.tibco.xpd.rasc.core.RascWriter;
 import com.tibco.xpd.rasc.core.exception.RascContributionException;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
 import com.tibco.xpd.rasc.core.exception.RascInternalException;
+import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
@@ -91,10 +92,16 @@ public class RascControllerImpl implements RascController {
     private final DeploymentFactory deploymentFactory;
 
     /**
+     * Service for checking the project governance state.
+     */
+    private GovernanceStateService gss;
+
+    /**
      * Constructs the RascController.
      */
     public RascControllerImpl() {
         deploymentFactory = new DeploymentFactoryImpl();
+        gss = new GovernanceStateService();
     }
 
     /**
@@ -256,7 +263,7 @@ public class RascControllerImpl implements RascController {
                     }
 
                     // write manifest and close stream
-                    setManifest(deployment, context.getAppSummary());
+                    setManifest(aProject, deployment, context.getAppSummary());
                     deployment.close();
 
                     logger.debug(RascControllerImpl.LOG_GENERATION_COMPLETE);
@@ -275,6 +282,8 @@ public class RascControllerImpl implements RascController {
     /**
      * Record the application properties within the given deployment manifest.
      * 
+     * @param aProject
+     *            the project for the deployment.
      * @param aManifest
      *            the manifest to be updated.
      * @param aAppSummary
@@ -283,13 +292,17 @@ public class RascControllerImpl implements RascController {
      * @throws RascGenerationException
      *             if the project cannot be introspected for some reason.
      */
-    private void setManifest(DeploymentWriter aManifest,
+    private void setManifest(IProject aProject, DeploymentWriter aManifest,
             RascAppSummary aAppSummary) throws RascGenerationException {
         try {
             aManifest.setApplicationName(aAppSummary.getName());
             aManifest.setApplicationInternalName(aAppSummary.getInternalName());
             aManifest.setAppVersion(aAppSummary.getVersion());
-            aManifest.setGovernanceState(GovernanceState.DRAFT);
+            if (gss.isLockedForProduction(aProject)) {
+                aManifest.setGovernanceState(GovernanceState.PUBLISHED);
+            } else {
+                aManifest.setGovernanceState(GovernanceState.DRAFT);
+            }
 
             for (RascAppSummary dependency : aAppSummary
                     .getReferencedProjects()) {

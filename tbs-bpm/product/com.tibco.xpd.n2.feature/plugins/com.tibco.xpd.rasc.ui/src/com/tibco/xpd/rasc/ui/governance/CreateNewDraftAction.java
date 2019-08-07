@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.actions.BaseSelectionListenerAction;
 
+import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 
 /**
@@ -21,6 +22,8 @@ import com.tibco.xpd.rasc.ui.RascUiActivator;
 public class CreateNewDraftAction extends BaseSelectionListenerAction {
 
     private GovernanceStateService gss;
+
+    private GovernanceStateUIService gsus;
 
     private List<IProject> projects;
 
@@ -34,9 +37,11 @@ public class CreateNewDraftAction extends BaseSelectionListenerAction {
      * @param projects
      *            The selected projects.
      */
-    protected CreateNewDraftAction(String text, GovernanceStateService gss, List<IProject> projects) {
+    protected CreateNewDraftAction(String text, GovernanceStateService gss, GovernanceStateUIService gsus,
+            List<IProject> projects) {
         super(text);
         this.gss = gss;
+        this.gsus = gsus;
         this.projects = projects;
     }
 
@@ -49,6 +54,7 @@ public class CreateNewDraftAction extends BaseSelectionListenerAction {
         for (IProject project : projects) {
             try {
                 gss.createNewDraft(project);
+                gsus.refreshEditorLabels();
             } catch (CoreException e) {
                 RascUiActivator.getLogger().error("Could not unlock project " + project.getName()); //$NON-NLS-1$
             }
