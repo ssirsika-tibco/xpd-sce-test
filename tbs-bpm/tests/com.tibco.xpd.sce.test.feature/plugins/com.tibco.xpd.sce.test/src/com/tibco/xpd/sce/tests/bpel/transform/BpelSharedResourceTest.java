@@ -93,7 +93,7 @@ public class BpelSharedResourceTest extends AbstractBpelTransformTest {
         assertAttr(extActivityElem,
                 Optional.of(TIBEX_NS),
                 "sharedResourceType",
-                Optional.of("Email"));
+                Optional.of("EMail"));
         assertAttr(extActivityElem,
                 Optional.of(TIBEX_NS),
                 "sharedResourceName",
