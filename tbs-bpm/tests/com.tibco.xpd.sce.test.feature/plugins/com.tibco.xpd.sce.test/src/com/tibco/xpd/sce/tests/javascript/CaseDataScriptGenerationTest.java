@@ -90,7 +90,8 @@ public class CaseDataScriptGenerationTest extends AbstractBpelTransformTest {
         contents.put("DeleteByCaseRef", //$NON-NLS-1$
                 Arrays.asList("bpm.process.checkIfSafeToDeleteCase(data.CaseRef)", //$NON-NLS-1$
                         "bpm.caseData.deleteByRef(data.CaseRef)")); //$NON-NLS-1$
-        contents.put("UpdateByCaseRef", Arrays.asList("bpm.caseData.updateByRef(data.CaseRef,data.CaseField)")); //$NON-NLS-1$ //$NON-NLS-2$
+        contents.put("UpdateByCaseRef", //$NON-NLS-1$
+                Arrays.asList("data.CaseRef = bpm.caseData.updateByRef(data.CaseRef,data.CaseField)")); //$NON-NLS-1$
         contents.put("Link", Arrays.asList("bpm.caseData.link(data.CaseRef,data.RefCase1,'refAssocCase1')")); //$NON-NLS-1$ //$NON-NLS-2$
         contents.put("LinkAll", //$NON-NLS-1$
                 Arrays.asList("bpm.caseData.linkAll(data.CaseRef,data.RefArrayCase1,'refAssovArrayCase1')")); //$NON-NLS-1$
