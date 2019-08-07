@@ -112,12 +112,11 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         long startTime = System.nanoTime();
         int numScripts = 0;
 
-        // create a FieldResolver for the given project data references
+        // create a FieldResolver for the given process data references
         FieldResolver fieldResolver;
         try {
             fieldResolver = new FieldResolver(pkg);
         } catch (CoreException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
         }
@@ -133,7 +132,6 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
                 if (ScriptGrammarFactory.JAVASCRIPT.equals(expression.getScriptGrammar())) {
                     numScripts++;
 
-                    // TODO EXCLUDE JAVASCRIPT xpdl2:Actual IN DATA MAPPINGs
                     if (!ignoreScript(expression)) {
                         // set the scope for the FieldResolver
                         fieldResolver.setExpression(expression);
@@ -1381,8 +1379,8 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
          * @throws TokenStreamException
          */
         public ConceptPath resolve(JScriptParser aParser, int aIndex) throws TokenStreamException {
-            // if we couldn't resolve the activity
-            if (activity == null) {
+            // if we couldn't resolve the activity or process
+            if ((activity == null) && (process == null)) {
                 return null; // we can't resolve the field
             }
 
