@@ -32,6 +32,10 @@ import com.tibco.xpd.rasc.ui.internal.Messages;
  */
 public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
 
+    private static final int RELEVANT_FLAGS = IResourceDelta.CONTENT;
+
+    private static final int RELEVANT_KIND = IResourceDelta.ADDED | IResourceDelta.REMOVED;
+
     /**
      * Service for checking the project governance state.
      */
@@ -94,17 +98,23 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
      */
     private boolean hasSignificantChanges(IResourceDelta delta) {
         boolean changed = false;
-        if (delta.getAffectedChildren().length == 0) {
-            IResource resource = delta.getResource();
-            boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS);
-            if (!derived && !resource.getName().startsWith(".")) { //$NON-NLS-1$
-                changed = true;
-            }
-        } else {
-            for (IResourceDelta child : delta.getAffectedChildren()) {
-                changed = hasSignificantChanges(child);
-                if (changed) {
-                    break;
+        IResource resource = delta.getResource();
+        if (!resource.getName().startsWith(".")) { //$NON-NLS-1$
+            if (delta.getAffectedChildren().length == 0) {
+                int flags = delta.getFlags();
+                int kind = delta.getKind();
+                boolean relevantFlags = (flags & RELEVANT_FLAGS) != 0;
+                boolean relevantKind = (kind & RELEVANT_KIND) != 0;
+                boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS);
+                if ((relevantKind || relevantFlags) && !derived) {
+                    changed = true;
+                }
+            } else {
+                for (IResourceDelta child : delta.getAffectedChildren()) {
+                    changed = hasSignificantChanges(child);
+                    if (changed) {
+                        break;
+                    }
                 }
             }
         }
@@ -117,9 +127,8 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
      */
     private void showChangeWarning(IProject project) {
         String title = Messages.ReadOnlyResourceChangeListener_ChangeDetectedTitle;
-        String message = String.format(
-                Messages.ReadOnlyResourceChangeListener_ChangeDetectedMessage,
-                project.getName());
+        String message =
+                String.format(Messages.ReadOnlyResourceChangeListener_ChangeDetectedMessage, project.getName());
         String createNewDraftLabel = Messages.LifecycleActionProvider_CreateDraftMenuLabel;
         String ignoreLabel = Messages.ReadOnlyResourceChangeListener_IgnoreChangesButton;
         Display.getDefault().asyncExec(() -> {
@@ -127,16 +136,17 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
             int result = MessageDialog
                     .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel, ignoreLabel);
             if (result == IStatus.OK) {
-                Job job = Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
-                    
-                    @Override
-                    public void run(IProgressMonitor monitor) throws CoreException {
-                        gss.createNewDraft(project);
+                Job job =
+                        Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
+
+                            @Override
+                            public void run(IProgressMonitor monitor) throws CoreException {
+                                gss.createNewDraft(project);
                                 Display.getDefault().asyncExec(() -> {
                                     gsus.refreshEditorLabels();
                                 });
-                    }
-                });
+                            }
+                        });
                 job.schedule();
             }
         });
