@@ -20,23 +20,6 @@ import com.tibco.xpd.sce.tests.rasc.contributors.PERascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.PeSharedResourceContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WlfModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.WpModelRascContributorTest;
-import com.tibco.xpd.sce.tests.validation.AceAllowCrossClassTypeAndCrosssProjectReferenceTest;
-import com.tibco.xpd.sce.tests.validation.AceBomFactoryValidationsTest;
-import com.tibco.xpd.sce.tests.validation.AceBomMigrationValidationsTest;
-import com.tibco.xpd.sce.tests.validation.AceBomTextPatternRemovalTest;
-import com.tibco.xpd.sce.tests.validation.AceCaseAttributesValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceCaseCompositionValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceCaseServiceValidationRulesTest;
-import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
-import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
-import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
-import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
-import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
-import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
-import com.tibco.xpd.sce.tests.validation.AceProcessTemporalDefaultValueRuleTest;
-import com.tibco.xpd.sce.tests.validation.AceProcessValidDataRulesTest;
-import com.tibco.xpd.sce.tests.validation.AceTemporalDefaultValueRuleTest;
-import com.tibco.xpd.sce.tests.validation.TerminalStateValidationTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -80,27 +63,6 @@ public class AllUnitTests {
         suite.addTestSuite(CaseDataTaskTest.class);
         suite.addTestSuite(CaseDataTaskInvalidTest.class);
         suite.addTestSuite(CaseDataScriptGenerationTest.class);
-
-        /*
-         * Validations
-         */
-        suite.addTestSuite(AceAllowCrossClassTypeAndCrosssProjectReferenceTest.class);
-        suite.addTestSuite(AceBomMigrationValidationsTest.class);
-        suite.addTestSuite(AceCaseAttributesValidationTest.class);
-        suite.addTestSuite(AceCaseServiceValidationRulesTest.class);
-        suite.addTestSuite(AceMigratedProcessValidationsTest.class);
-        suite.addTestSuite(AceProcessInvalidDataRulesTest.class);
-        suite.addTestSuite(AceProcessTemporalDefaultValueRuleTest.class);
-        suite.addTestSuite(AceProcessValidDataRulesTest.class);
-        suite.addTestSuite(AceTemporalDefaultValueRuleTest.class);
-        suite.addTestSuite(TerminalStateValidationTest.class);
-        suite.addTestSuite(AceBomTextPatternRemovalTest.class);
-        suite.addTestSuite(AceDecPlacesValidationTest.class);
-        suite.addTestSuite(AceDateTimeResolutionTest.class);
-        suite.addTestSuite(AceCaseCompositionValidationTest.class);
-        suite.addTestSuite(AceBomFactoryValidationsTest.class);
-        suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
-        suite.addTestSuite(AceNameLengthRestrictionsTest.class);
 
         return suite;
     }
