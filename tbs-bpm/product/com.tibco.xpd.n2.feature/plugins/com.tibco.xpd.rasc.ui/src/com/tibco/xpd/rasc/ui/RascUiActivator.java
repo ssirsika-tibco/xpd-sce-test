@@ -10,6 +10,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import com.tibco.xpd.rasc.ui.governance.ReadOnlyResourceChangeListener;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.logger.LoggerFactory;
 
@@ -57,9 +58,11 @@ public class RascUiActivator extends AbstractUIPlugin {
     @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
-        readOnlyListener = new ReadOnlyResourceChangeListener();
         plugin = this;
-        ResourcesPlugin.getWorkspace().addResourceChangeListener(readOnlyListener);
+        if (!XpdResourcesPlugin.isInHeadlessMode()) {
+            readOnlyListener = new ReadOnlyResourceChangeListener();
+            ResourcesPlugin.getWorkspace().addResourceChangeListener(readOnlyListener);
+        }
     }
 
     /**
@@ -79,7 +82,9 @@ public class RascUiActivator extends AbstractUIPlugin {
      */
     @Override
     public void stop(BundleContext context) throws Exception {
-        ResourcesPlugin.getWorkspace().removeResourceChangeListener(readOnlyListener);
+        if (readOnlyListener != null) {
+            ResourcesPlugin.getWorkspace().removeResourceChangeListener(readOnlyListener);
+        }
         plugin = null;
         super.stop(context);
     }
