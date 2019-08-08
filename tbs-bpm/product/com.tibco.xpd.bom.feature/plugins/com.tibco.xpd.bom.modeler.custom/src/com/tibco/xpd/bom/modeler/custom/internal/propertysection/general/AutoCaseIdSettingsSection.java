@@ -154,7 +154,7 @@ public class AutoCaseIdSettingsSection extends AbstractGeneralSection {
             }
         } else if (obj == suffixText) {
             String newSuffix = suffixText.getText();
-            String currentSuffix = AUTO_CID_PROPS.getPrefix(prop);
+            String currentSuffix = AUTO_CID_PROPS.getSuffix(prop);
             if (!newSuffix.equals(currentSuffix)) {
                 return new RecordingCommand(
                         (TransactionalEditingDomain) getEditingDomain()) {
