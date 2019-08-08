@@ -1101,23 +1101,7 @@ public abstract class AbstractSpecialFoldersContentProvider implements
 
                     if (wc.isWorkingCopyDirty()
                             || propertyName.equals(WorkingCopy.PROP_RELOADED)) {
-                        final TreeViewer viewer = getViewer();
-
-                        if (viewer != null && !viewer.getControl().isDisposed()) {
-                            viewer.getControl().getDisplay()
-                                    .asyncExec(new Runnable() {
-
-                                        @Override
-                                        public void run() {
-                                            if (viewer != null
-                                                    && !viewer.getControl()
-                                                            .isDisposed()) {
-                                                // Refresh the project
-                                                viewer.refresh(project);
-                                            }
-                                        }
-                                    });
-                        }
+                        asyncRefreshProject(viewer, project);
                     }
 
                     /*
@@ -1126,12 +1110,32 @@ public abstract class AbstractSpecialFoldersContentProvider implements
                      */
                     if (propertyName.equals(WorkingCopy.PROP_REMOVED)) {
                         unregisterProjectConfigListener(project);
-                        if (viewer != null) {
-                            viewer.refresh(project);
-                        }
+                        asyncRefreshProject(viewer, project);
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Refreshes asynchronously project in a tree viewer.
+     * 
+     * @param viewer
+     *            the context viewer.
+     * @param project
+     *            the project to refresh.
+     */
+    private void asyncRefreshProject(final TreeViewer viewer, final IProject project) {
+        if (viewer != null && !viewer.getControl().isDisposed()) {
+            viewer.getControl().getDisplay().asyncExec(new Runnable() {
+                @Override
+                public void run() {
+                    if (viewer != null && !viewer.getControl().isDisposed()) {
+                        // Refresh the project
+                        viewer.refresh(project);
+                    }
+                }
+            });
         }
     }
 
