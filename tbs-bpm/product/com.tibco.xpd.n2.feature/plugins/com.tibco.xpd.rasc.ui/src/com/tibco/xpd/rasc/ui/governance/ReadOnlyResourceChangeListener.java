@@ -73,6 +73,7 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
                             IProject project = resource.getProject();
                             try {
                                 if (gss.isLockedForProduction(project)) {
+                                    logChanges(child);
                                     // Change to a locked project, show a
                                     // warning
                                     showChangeWarning(project);
@@ -88,6 +89,19 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
     }
 
     /**
+     * Log the change that triggered the warning.
+     * 
+     * @param delta
+     *            The delta for the change.
+     */
+    private void logChanges(IResourceDelta delta) {
+        IResource resource = delta.getResource();
+        IProject project = resource.getProject();
+        RascUiActivator.getLogger()
+                .warn(String.format("Resource '%1$s' changed in locked project '%2$s'", resource, project)); //$NON-NLS-1$
+    }
+
+    /**
      * Checks a delta for any changes that we shouldn't allow on locked
      * projects.
      * 
@@ -99,21 +113,25 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
     private boolean hasSignificantChanges(IResourceDelta delta) {
         boolean changed = false;
         IResource resource = delta.getResource();
-        if (!resource.getName().startsWith(".")) { //$NON-NLS-1$
-            if (delta.getAffectedChildren().length == 0) {
-                int flags = delta.getFlags();
-                int kind = delta.getKind();
-                boolean relevantFlags = (flags & RELEVANT_FLAGS) != 0;
-                boolean relevantKind = (kind & RELEVANT_KIND) != 0;
-                boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS);
-                if ((relevantKind || relevantFlags) && !derived) {
-                    changed = true;
-                }
-            } else {
-                for (IResourceDelta child : delta.getAffectedChildren()) {
-                    changed = hasSignificantChanges(child);
-                    if (changed) {
-                        break;
+        // Ignore project OPEN events as it generates ADD events for all
+        // contents
+        if (!(resource instanceof IProject) || (delta.getFlags() | IResourceDelta.OPEN) != 0) {
+            if (!resource.getName().startsWith(".")) { //$NON-NLS-1$
+                if (delta.getAffectedChildren().length == 0) {
+                    int flags = delta.getFlags();
+                    int kind = delta.getKind();
+                    boolean relevantFlags = (flags & RELEVANT_FLAGS) != 0;
+                    boolean relevantKind = (kind & RELEVANT_KIND) != 0;
+                    boolean derived = resource.isDerived(IResource.CHECK_ANCESTORS);
+                    if ((relevantKind || relevantFlags) && !derived) {
+                        changed = true;
+                    }
+                } else {
+                    for (IResourceDelta child : delta.getAffectedChildren()) {
+                        changed = hasSignificantChanges(child);
+                        if (changed) {
+                            break;
+                        }
                     }
                 }
             }
@@ -130,11 +148,10 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         String message =
                 String.format(Messages.ReadOnlyResourceChangeListener_ChangeDetectedMessage, project.getName());
         String createNewDraftLabel = Messages.LifecycleActionProvider_CreateDraftMenuLabel;
-        String ignoreLabel = Messages.ReadOnlyResourceChangeListener_IgnoreChangesButton;
         Display.getDefault().asyncExec(() -> {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
             int result = MessageDialog
-                    .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel, ignoreLabel);
+                    .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
             if (result == IStatus.OK) {
                 Job job =
                         Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
