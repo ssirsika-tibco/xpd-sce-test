@@ -83,19 +83,20 @@ class BomInspector {
     }
 
     /**
-     * Returns a collection those elements of the given BOM model that are assignment-compatible with the given class.
-     * If no matching elements are found, the return value will be an empty collection.
+     * Returns a collection those elements of the given BOM package (of which Model is a sub-class) that are
+     * assignment-compatible with the given class. If no matching elements are found, the return value will be an empty
+     * collection.
      * 
-     * @param aBomModel
-     *            the BOM model to be searched.
+     * @param aBomPackage
+     *            the BOM package to be searched.
      * @param aRequiredClass
      *            the class to which the returned elements must be assignment-compatible.
      * @return the identified elements. This will never be <code>null</code>.
      */
     @SuppressWarnings("unchecked")
-    public static <T extends PackageableElement> Collection<T> getFields(Model aBomModel,
+    public static <T extends PackageableElement> Collection<T> getFields(org.eclipse.uml2.uml.Package aBomPackage,
             final Class<T> aRequiredClass) {
-        EList<PackageableElement> source = aBomModel.getPackagedElements();
+        EList<PackageableElement> source = aBomPackage.getPackagedElements();
         if ((source == null) || (source.isEmpty())) {
             return Collections.emptyList();
         }
@@ -104,6 +105,11 @@ class BomInspector {
         for (PackageableElement element : source) {
             if (aRequiredClass.isInstance(element)) {
                 result.add((T) element);
+            }
+
+            // traverse nested packages
+            if (element instanceof org.eclipse.uml2.uml.Package) {
+                result.addAll(getFields((org.eclipse.uml2.uml.Package) element, aRequiredClass));
             }
         }
 
