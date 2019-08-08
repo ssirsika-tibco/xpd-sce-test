@@ -166,14 +166,21 @@ public class ScriptMigrationTests extends TestCase {
             TestUtil.outputErrorMarkers(project, true);
             
             String[] expectedFailures = {
-                    // var criteria = cac_com_example_simplecacdata_CaseData.createCriteria("attribute1 = 1");
-                    "BPM  : At Line:3 column:87, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
-                    // cac_com_example_simplecacdata_CaseData.createCriteria"attribute1 = 1", 10, 100);
-                    "BPM  : At Line:4 column:81, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
-                    // cac_com_example_simplecacdata_CaseData.findByCriteria("attribute1 = 1");
+                    // cac_com_example_simplecacdata_CaseData.findByCriteria("attribute1
+                    // = 1");
                     "BPM  : At Line:11 column:83, Method findByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
                     // cac_com_example_simplecacdata_CaseData.findAll();
-                    "BPM  : At Line:13 column:59, Method findAll is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
+                    "BPM  : At Line:13 column:59, Method findAll is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+
+                    "BPM  : At Line:3 column:87, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:4 column:81, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:5 column:83, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:5 column:84, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:6 column:83, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:6 column:85, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:6 column:93, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:7 column:70, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+                    "BPM  : At Line:8 column:65, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)" };
             assertEquals(expectedFailures.length, errorMarkers.size());
             for (IMarker marker : errorMarkers) {
                 String message = (String) marker.getAttribute(IMarker.MESSAGE);

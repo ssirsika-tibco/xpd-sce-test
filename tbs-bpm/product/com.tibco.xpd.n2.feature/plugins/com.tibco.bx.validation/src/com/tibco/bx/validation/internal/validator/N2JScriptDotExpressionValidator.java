@@ -17,25 +17,17 @@ import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.n2.cds.script.IRestScriptRelevantData;
 import com.tibco.xpd.n2.cds.script.RestJsClass;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
-import com.tibco.xpd.n2.globaldata.script.CaseAccessJsClass;
 import com.tibco.xpd.script.model.JsConsts;
 import com.tibco.xpd.script.model.client.DefaultScriptRelevantData;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.IUMLScriptRelevantData;
-import com.tibco.xpd.script.model.client.JsAttribute;
 import com.tibco.xpd.script.model.client.JsClass;
 import com.tibco.xpd.script.model.client.JsMethod;
 import com.tibco.xpd.script.model.client.JsMethodParam;
 import com.tibco.xpd.script.model.client.JsReference;
 import com.tibco.xpd.script.model.client.ParameterCoercionCriteria;
 import com.tibco.xpd.script.model.client.globaldata.CaseClassCriteriaJsMethodParam;
-import com.tibco.xpd.script.model.client.globaldata.CaseRefJsClass;
 import com.tibco.xpd.script.model.client.globaldata.CaseUMLScriptRelevantData;
-import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefMultiValuedNavigateByCriteriaMethod;
-import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefMultiValuedNavigateByCriteriaStringMethod;
-import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaMethod;
-import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaStringMethod;
-import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaWithPageSizeMethod;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptDotExpressionValidator;
@@ -105,22 +97,22 @@ public class N2JScriptDotExpressionValidator
             IScriptRelevantData returnType, boolean isArrayContext,
             Map<String, IScriptRelevantData> parameters, Token token) {
 
+        
         /*
-         * XPD-5493: Special validation for method(s) with DQL query string
-         * parameters. These must be defined as literal strings and pass DQL
-         * query syntax validation
+         * SID ACE-2424 - MOST of this module gets removed because it is all
+         * based on validating DQL / CRITERIA string parameters for old
+         * CASREF.xxxx() methods and cac_xxx.yyy() methods which have been
+         * superseded in ACE.
          * 
-         * NOTE: This method RELIES on the fact that "parameters" map is a
-         * LinekdHashMap in same order as the actual method parameters. This
-         * MUST already be true for
-         * AbstractExpressionEvaluator.isMatchingMethodParams() etc to work
-         * correctly.
          * 
-         * NOTE 2: This method also relies on
-         * AbstractExpressionValidator.resolveMethodParameters() setting the key
-         * in actual param map to "arc'n'#StringLiteral" for string literal
-         * parameters.
+         * Leaving this method behind as a hint to ACE-1833 which is due to
+         * re-do the DQL string validation. It will likely use a different
+         * method (such as creating a new primitive type 'DQLString' based on
+         * text type and therefore be able to tag DQL paramters in function
+         * schema UML as DQLString and detect that here.
          */
+        
+        
         JsMethodParam[] methodParams =
                 matchMethod.getParameterType().toArray(new JsMethodParam[0]);
 
@@ -138,10 +130,10 @@ public class N2JScriptDotExpressionValidator
                     /*
                      * validate the DQL String. this calls BDS API to validate
                      */
-                    handleDQLStringCase(currentGenericContext,
-                            matchMethod,
-                            token,
-                            actualParamNames[i]);
+//                    handleDQLStringCase(currentGenericContext,
+//                            matchMethod,
+//                            token,
+//                            actualParamNames[i]);
                 } else if (JsConsts.CRITERIA
                         .equals(methodParams[i].getType())) {
                     /*
@@ -167,10 +159,10 @@ public class N2JScriptDotExpressionValidator
                     }
                     if (null != caseClassCriteriaJsMethodParam) {
 
-                        handleCriteriaSpecificCase(currentGenericContext,
-                                matchMethod,
-                                token,
-                                caseClassCriteriaJsMethodParam);
+//                        handleCriteriaSpecificCase(currentGenericContext,
+//                                matchMethod,
+//                                token,
+//                                caseClassCriteriaJsMethodParam);
                     }
                 }
             }
@@ -186,139 +178,6 @@ public class N2JScriptDotExpressionValidator
                 token);
     }
 
-    /**
-     * Gets the right case class context for passed in criteria param and
-     * expected criteria param. Shows error if they are not equal
-     * 
-     * @param currentGenericContext
-     * @param matchMethod
-     * @param token
-     * @param caseClassCriteriaJsMethodParam
-     */
-    private void handleCriteriaSpecificCase(
-            IScriptRelevantData currentGenericContext, JsMethod matchMethod,
-            Token token,
-            CaseClassCriteriaJsMethodParam caseClassCriteriaJsMethodParam) {
-
-        Class expectedCaseClassContext = null;
-
-        /*
-         * Check for the 'non-normal case' whereby the case class context is NOT
-         * defined as 'the case ref class in which the method exists' BUT
-         * instead is the case class at the other end of an association
-         * reference.
-         */
-        if (matchMethod instanceof CaseRefNavigateByCriteriaMethod) {
-
-            expectedCaseClassContext =
-                    ((CaseRefNavigateByCriteriaMethod) matchMethod)
-                            .getAssociatedClassType();
-
-        } else if (matchMethod instanceof CaseRefMultiValuedNavigateByCriteriaMethod) {
-
-            expectedCaseClassContext =
-                    ((CaseRefMultiValuedNavigateByCriteriaMethod) matchMethod)
-                            .getAssociatedClassType();
-
-        } else {
-            /*
-             * This is for the 'normal case' where the context case class type
-             * for the method parameter type IS the CAC class type itself.
-             * 
-             * e.g cac.findByCriteria()
-             */
-            expectedCaseClassContext = getCaseClass(currentGenericContext);
-        }
-
-        if (null != expectedCaseClassContext) {
-
-            Class actualPassedInCaseClassContext =
-                    caseClassCriteriaJsMethodParam.getCaseClassContext();
-            if (!expectedCaseClassContext
-                    .equals(actualPassedInCaseClassContext)) {
-
-                String errMsg = new String(
-                        Messages.N2JScriptDotExpressionValidator_InvalidCriteriaParameterMsg);
-                List<String> additionalAttributes = new ArrayList<String>();
-                /* passed in parameter context */
-                additionalAttributes
-                        .add(actualPassedInCaseClassContext.getName()
-                                + JsConsts.CRITERIA);
-                /* expected parameter context */
-                additionalAttributes.add(
-                        expectedCaseClassContext.getName() + JsConsts.CRITERIA);
-
-                addErrorMessage(token, errMsg, additionalAttributes);
-            }
-        }
-    }
-
-    /**
-     * Gets the right case class context to pass to BDS API to validate the dql
-     * query string
-     * 
-     * @param currentGenericContext
-     * @param matchMethod
-     * @param token
-     * @param actualParamName
-     */
-    private void handleDQLStringCase(IScriptRelevantData currentGenericContext,
-            JsMethod matchMethod, Token token, String actualParamName) {
-
-        String stringLiteralValue = null;
-
-        int hashIdx = actualParamName.indexOf('#');
-        if (hashIdx >= 0) {
-
-            stringLiteralValue = actualParamName.substring(hashIdx + 1);
-        }
-
-        if (stringLiteralValue != null) {
-            /*
-             * XPD-5976: for cac method we need the ref class as the context for
-             * dql validation and currentGenericContext gives the Ref class. for
-             * navigateByCriteriaTo methods we need associated ref class as the
-             * context for dql validation and newGenericContext gives the
-             * associated ref class.
-             * 
-             * TODO: need to decide how to toggle between currentGenericContext
-             * and newGenericContext
-             */
-            Class caseClass = null;
-            if (matchMethod instanceof CaseRefNavigateByCriteriaStringMethod) {
-
-                caseClass =
-                        ((CaseRefNavigateByCriteriaStringMethod) matchMethod)
-                                .getAssociatedClassType();
-            } else if (matchMethod instanceof CaseRefMultiValuedNavigateByCriteriaStringMethod) {
-
-                caseClass =
-                        ((CaseRefMultiValuedNavigateByCriteriaStringMethod) matchMethod)
-                                .getAssociatedClassType();
-            } else if (matchMethod instanceof CaseRefNavigateByCriteriaWithPageSizeMethod) {
-
-                caseClass =
-                        ((CaseRefNavigateByCriteriaWithPageSizeMethod) matchMethod)
-                                .getAssociatedClassType();
-            } else {
-
-                caseClass = getCaseClass(currentGenericContext);
-            }
-
-            validateDQLQueryString(token, caseClass, stringLiteralValue);
-
-        } else {
-            /*
-             * XPD-7133: Switch
-             * "DQL Query parameter values must be defined as literal string constants (not string variables/expressions)"
-             * error marker to
-             * "Only DQL specified in a literal string can be validated at design time. Where possible use literal string queries to ensure validation can be performed."
-             * warning marker.
-             */
-            addWarningMessage(token,
-                    Messages.N2JScriptDotExpressionValidator_DQLQueryMustBeStringLiteral_message2);
-        }
-    }
 
     /**
      * Validates the DQL Query string using the given class as case class
@@ -390,42 +249,7 @@ public class N2JScriptDotExpressionValidator
         }
     }
 
-    /**
-     * resolve and return the uml class this script relevant data represents
-     * 
-     * @param currentGenericContext
-     * @return uml class if it the script relevant data is for a
-     *         CaseAccessJsClass <code>null</code> otherwise
-     */
-    private Class getCaseClass(IScriptRelevantData currentGenericContext) {
 
-        Class caseClass = null;
-        IScriptRelevantData resolvedType =
-                JScriptUtils.resolveGenericType(currentGenericContext);
-        if (resolvedType instanceof IUMLScriptRelevantData) {
-
-            JsClass jsClass =
-                    ((IUMLScriptRelevantData) resolvedType).getJsClass();
-            if (jsClass instanceof CaseAccessJsClass) {
-
-                caseClass = ((CaseAccessJsClass) jsClass).getCaseRefJsClass()
-                        .getUmlClass();
-            } else if (jsClass instanceof CaseRefJsClass) {
-
-                caseClass = ((CaseRefJsClass) jsClass).getUmlClass();
-            }
-        }
-        return caseClass;
-    }
-
-    @Override
-    protected String getAttributeDataType(JsAttribute jsAttribute) {
-        String dataType = null;
-        if (jsAttribute != null) {
-            dataType = JScriptUtils.getJsAttributeBaseDataType(jsAttribute);
-        }
-        return dataType;
-    }
 
     @SuppressWarnings("restriction")
     @Override
@@ -935,11 +759,6 @@ public class N2JScriptDotExpressionValidator
                 JsClass jsClass =
                         ((IUMLScriptRelevantData) resolvedType).getJsClass();
 
-                if (jsClass instanceof CaseAccessJsClass) {
-
-                    return ((CaseAccessJsClass) jsClass).getCaseRefJsClass()
-                            .getUmlClass();
-                }
 
                 if (jsClass != null) {
                     return jsClass.getUmlClass();
@@ -968,21 +787,7 @@ public class N2JScriptDotExpressionValidator
                 JsClass dataTypeJsClass =
                         ((IUMLScriptRelevantData) dataTypeGC).getJsClass();
 
-                if (dataTypeJsClass instanceof CaseAccessJsClass) {
-
-                    CaseAccessJsClass cacJsClass =
-                            (CaseAccessJsClass) dataTypeJsClass;
-                    Class umlClass =
-                            cacJsClass.getCaseRefJsClass().getUmlClass();
-                    return umlClass;
-                } else {
-
-                    /*
-                     * TODO: cac_super.create(sub) - sub has DefaultJsClass (not
-                     * caseref or cac)
-                     */
-                    return dataTypeJsClass.getUmlClass();
-                }
+                return dataTypeJsClass.getUmlClass();
             }
         }
 
