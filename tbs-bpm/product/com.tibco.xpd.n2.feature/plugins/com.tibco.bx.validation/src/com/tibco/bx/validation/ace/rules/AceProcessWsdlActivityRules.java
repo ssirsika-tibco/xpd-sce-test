@@ -49,6 +49,9 @@ public class AceProcessWsdlActivityRules
     private static final String ACE_ISSUE_INCOMING_MESSAGE_TASK_NOTSUPPORTED =
             "ace.incoming.message.task.not.supported"; //$NON-NLS-1$
 
+    private static final String ACE_ISSUE_INCOMING_MESSAGE_REPLY_NOTSUPPORTED =
+            "ace.incoming.message.reply.not.supported"; //$NON-NLS-1$
+
     private static final String ACE_ISSUE_INVOKE_BUSINESSPROCESS_NOTSUPPORTED =
             "ace.invoke.businessprocess.not.supported"; //$NON-NLS-1$
 
@@ -108,18 +111,19 @@ public class AceProcessWsdlActivityRules
             }
 
         } else if (ReplyActivityUtil.isReplyActivity(activity)) {
-            if (TaskType.SEND_LITERAL
-                    .equals(TaskObjectUtil.getTaskTypeStrict(activity))) {
-                addIssue(ACE_ISSUE_INCOMING_MESSAGE_TASK_NOTSUPPORTED,
-                        activity);
-            } else if (!Xpdl2ModelUtil.isEventImplemented(activity)) {
+            /*
+             * Sid ACE-2338 Just one separate issue now for all reply activities
+             * (events and send-tasks (which will be false for
+             * isEventImplemented)
+             */
+            if (!Xpdl2ModelUtil.isEventImplemented(activity)) {
                 /*
                  * ACE-1369: Saket: This rule should not be raised for process
                  * events that implement process interface events because it
                  * changes the type of the process event, but it is the
                  * interface event that is at fault.
                  */
-                addIssue(ACE_ISSUE_INCOMING_MESSAGE_EVENT_NOTSUPPORTED,
+                addIssue(ACE_ISSUE_INCOMING_MESSAGE_REPLY_NOTSUPPORTED,
                         activity);
             }
 
