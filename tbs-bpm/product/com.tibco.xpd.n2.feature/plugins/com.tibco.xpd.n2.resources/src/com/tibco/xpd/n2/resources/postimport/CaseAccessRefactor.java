@@ -39,6 +39,10 @@ class CaseAccessRefactor implements ScriptRefactorRule {
     public CaseAccessRefactor(DataFieldResolver aResolver) {
         Collection<Class> bomClasses = aResolver.getBOMDataTypes(Class.class);
 
+        // create mappings current case-access keywords to look for
+        // and the classes that those case-accesses refer to
+        // these will included non-case-data classes but it's easier to
+        // include all classes than to filter out non-case-data
         mappings = new HashMap<>();
         StringBuilder classRef = new StringBuilder();
         for (Class clazz : bomClasses) {
@@ -60,7 +64,7 @@ class CaseAccessRefactor implements ScriptRefactorRule {
     @Override
     public boolean isMatch(Token aToken, JScriptParser aParser, int aIndex) throws TokenStreamException {
         if (!mappings.containsKey(aToken.getText())) {
-            return false;
+            return false; // not one of the case-access references
         }
 
         // if not followed by a method
@@ -70,7 +74,7 @@ class CaseAccessRefactor implements ScriptRefactorRule {
         if ((dotToken == null) || (dotToken.getType() != JScriptTokenTypes.DOT) //
                 || (methodToken == null) || (methodToken.getType() != JScriptTokenTypes.IDENT) //
                 || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN)) {
-            return false;
+            return false; // doesn't look like a method call
         }
 
         String method = methodToken.getText();
