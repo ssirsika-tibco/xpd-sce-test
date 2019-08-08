@@ -10,10 +10,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -229,14 +232,17 @@ public class PERascContributor implements RascContributor {
          */
         Collection<BuildTargetSet> builtTargets = bpelBuilder.getBuiltTargets();
 
-        int numTargets = countBpelResources(builtTargets);
-
+        // create a monitor for the number of processes (plus one for the packages)
+        int numTargets = countBpelResources(builtTargets) + 1;
         SubMonitor monitor = SubMonitor.convert(aProgressMonitor,
                 Messages.PERascContributor_AddingRuntimeProcesses,
                 numTargets);
         monitor.subTask(Messages.PERascContributor_AddingRuntimeProcesses);
 
         try {
+            // keep a record of the process packages - keyed on their target location
+            Map<IContainer, PackageDeployment> includedPackages = new HashMap<>();
+
             /*
              * Iterate the build targets. Output the BPEL files to the
              * appropriate micro-services
@@ -264,6 +270,17 @@ public class PERascContributor implements RascContributor {
                                     sourceProcess,
                                     destinations,
                                     version);
+                            
+                            // add process's package to package collection
+                            IContainer location = targetResource.getParent();
+                            Package pkg = sourceProcess.getPackage();
+                            PackageDeployment packageDeployment = includedPackages.get(location);
+                            if (packageDeployment != null) {
+                                packageDeployment.addDestinations(destinations);
+                            } else {
+                                includedPackages.put(location,
+                                        new PackageDeployment(pkg, targetResource.getParent(), destinations));
+                            }
                         }
                     }
 
@@ -271,9 +288,54 @@ public class PERascContributor implements RascContributor {
                 }
             }
 
+            // add any package files
+            for (Entry<IContainer, PackageDeployment> pkg : includedPackages.entrySet()) {
+                addPackageToRasc(aWriter, pkg.getValue());
+            }
+            monitor.worked(1);
         } finally {
             monitor.subTask(""); //$NON-NLS-1$
             monitor.done();
+        }
+    }
+
+    /**
+     * Adds the record for the given process package to the RASC. This consists of a simple properties file containing
+     * identification information for the given package. The artifact's location within the RASC, and the destination
+     * MicroServices, are dentified within the PackageDeployment.
+     * 
+     * @param aWriter
+     *            the RASC writer to be updated.
+     * @param aPackage
+     *            the process package to be added to the RASC.
+     * @param aDeployment
+     *            the location and destinations for the process package.
+     * @throws CoreException
+     */
+    private void addPackageToRasc(RascWriter aWriter, PackageDeployment aDeployment)
+            throws CoreException {
+        try {
+            Package pkg = aDeployment.getPackage();
+
+            // add artifact content to the RASC
+            String label = Xpdl2ModelUtil.getDisplayName(pkg);
+            OutputStream output = aWriter
+                    .addContent(aDeployment.getPath(), label, pkg.getName(), aDeployment.getDestinations());
+            try {
+                // the artifact is a properties format file
+                PrintWriter writer = new PrintWriter(output);
+                try {
+                    writer.printf("name=%1$s", pkg.getName()).println(); //$NON-NLS-1$
+                    writer.printf("label=%1$s", label).println(); //$NON-NLS-1$
+                } finally {
+                    writer.close();
+                }
+            } finally {
+                output.close();
+            }
+        } catch (Exception e) {
+            throw new CoreException(new Status(Status.ERROR, "PE RASC Contributor Plug-in", //$NON-NLS-1$
+                    e.getMessage(), e));
         }
     }
 
@@ -731,5 +793,72 @@ public class PERascContributor implements RascContributor {
 
         String json = new Gson().toJson(jsonMap);
         aOutput.write(json.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private static class PackageDeployment {
+        private Package deployedPackage;
+
+        private IContainer location;
+
+        private Set<MicroService> destinations;
+
+        public PackageDeployment(Package aPackage, IContainer aLocation, MicroService[] aDestinations) {
+            deployedPackage = aPackage;
+            location = aLocation;
+            destinations = new HashSet<>(Arrays.asList(aDestinations));
+        }
+
+        /**
+         * @return the package being deployed.
+         */
+        public Package getPackage() {
+            return deployedPackage;
+        }
+
+        /**
+         * @return the location
+         */
+        public IContainer getLocation() {
+            return location;
+        }
+
+        /**
+         * @return the destinations
+         */
+        public MicroService[] getDestinations() {
+            return destinations.toArray(new MicroService[destinations.size()]);
+        }
+
+        /**
+         * Updates the list of destination services to include the given list.
+         * 
+         * @param aServices
+         *            the destinations to be added to this entry.
+         */
+        public void addDestinations(MicroService[] aServices) {
+            for (MicroService service : aServices) {
+                destinations.add(service);
+            }
+        }
+
+        public String getPath() {
+            IContainer location = getLocation();
+            String result = location.getProjectRelativePath().toString();
+            /*
+             * The temp build folder is Project/.processOut; in the RASC we just want "processOut"
+             */
+            if (result.charAt(0) == '.') {
+                result = result.substring(1);
+            }
+
+            // append a name to the file path
+            result += "/package.pkg"; //$NON-NLS-1$
+            return result;
+        }
+
+        @Override
+        public String toString() {
+            return getPath();
+        }
     }
 }
