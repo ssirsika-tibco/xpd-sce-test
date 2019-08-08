@@ -1,6 +1,10 @@
 package com.tibco.xpd.bom.modeler.custom.internal.propertysection.general;
 
+import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -195,5 +199,38 @@ public class TextLengthSection extends AbstractGeneralSection {
             return (Property) input;
         }
         return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.bom.modeler.custom.internal.propertysection.AbstractGeneralSection#shouldRefresh(java.util.List)
+     *
+     * @param notifications
+     * @return
+     */
+    @Override
+    protected boolean shouldRefresh(List<Notification> notifications) {
+        boolean refresh = super.shouldRefresh(notifications);
+
+        if (refresh) {
+            return refresh;
+        }
+
+        /*
+         * Need to refresh if maximum text length has changed.
+         */
+        if (notifications != null) {
+            for (Notification notification : notifications) {
+                if (null != notification && notification
+                        .getFeature() instanceof EAttribute) {
+                    EAttribute attribute = (EAttribute) (notification.getFeature());
+                    if (PrimitivesUtil.BOM_PRIMITIVE_FACET_TEXT_LENGTH.equals(attribute.getName())) {
+                        refresh = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return refresh;
     }
 }
