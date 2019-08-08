@@ -4,6 +4,8 @@
 
 package com.tibco.xpd.rasc.ui.governance;
 
+import java.io.IOException;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -67,20 +69,20 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
             IResourceDelta[] children = delta.getAffectedChildren();
             if (children != null) {
                 for (IResourceDelta child : children) {
-                    if (hasSignificantChanges(child)) {
-                        IResource resource = child.getResource();
-                        if (resource != null) {
-                            IProject project = resource.getProject();
-                            try {
-                                if (gss.isLockedForProduction(project)) {
+                    IResource resource = child.getResource();
+                    if (resource != null) {
+                        IProject project = resource.getProject();
+                        try {
+                            if (gss.isLockedForProduction(project)) {
+                                if (hasSignificantChanges(child)) {
                                     logChanges(child);
                                     // Change to a locked project, show a
                                     // warning
                                     showChangeWarning(project);
                                 }
-                            } catch (CoreException e) {
-                                RascUiActivator.getLogger().error(e);
                             }
+                        } catch (CoreException e) {
+                            RascUiActivator.getLogger().error(e);
                         }
                     }
                 }
@@ -150,15 +152,20 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         String createNewDraftLabel = Messages.LifecycleActionProvider_CreateDraftMenuLabel;
         Display.getDefault().asyncExec(() -> {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-            int result = MessageDialog
-                    .open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
+            int result =
+                    MessageDialog.open(MessageDialog.WARNING, shell, title, message, SWT.NONE, createNewDraftLabel);
             if (result == IStatus.OK) {
                 Job job =
                         Job.createSystem(Messages.ReadOnlyResourceChangeListener_CreatingDraftJob, new ICoreRunnable() {
 
                             @Override
                             public void run(IProgressMonitor monitor) throws CoreException {
-                                gss.createNewDraft(project);
+                                try {
+                                    gss.createNewDraft(project);
+                                } catch (IOException e) {
+                                    RascUiActivator.getLogger()
+                                            .error("Could not update version on project " + project.getName()); //$NON-NLS-1$
+                                }
                                 Display.getDefault().asyncExec(() -> {
                                     gsus.refreshEditorLabels();
                                 });

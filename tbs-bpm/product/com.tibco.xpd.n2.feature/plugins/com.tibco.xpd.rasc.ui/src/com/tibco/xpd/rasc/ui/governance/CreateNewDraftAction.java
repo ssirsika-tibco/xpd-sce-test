@@ -4,6 +4,7 @@
 
 package com.tibco.xpd.rasc.ui.governance;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
@@ -57,6 +58,8 @@ public class CreateNewDraftAction extends BaseSelectionListenerAction {
                 gsus.refreshEditorLabels();
             } catch (CoreException e) {
                 RascUiActivator.getLogger().error("Could not unlock project " + project.getName()); //$NON-NLS-1$
+            } catch (IOException e) {
+                RascUiActivator.getLogger().error("Could not update version on project " + project.getName()); //$NON-NLS-1$
             }
         }
 

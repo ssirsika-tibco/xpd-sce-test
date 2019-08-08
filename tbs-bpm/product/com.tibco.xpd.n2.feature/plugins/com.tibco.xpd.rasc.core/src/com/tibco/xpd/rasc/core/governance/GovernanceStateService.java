@@ -4,10 +4,17 @@
 
 package com.tibco.xpd.rasc.core.governance;
 
+import java.io.IOException;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 
+import com.tibco.xpd.resources.XpdResourcesPlugin;
+import com.tibco.xpd.resources.projectconfig.ProjectConfig;
+import com.tibco.xpd.resources.projectconfig.ProjectDetails;
+import com.tibco.xpd.resources.projectconfig.wc.ProjectConfigWorkingCopy;
 import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
 
 /**
@@ -54,9 +61,48 @@ public class GovernanceStateService {
      *            The project to create a new draft for.
      * @throws CoreException
      *             if the project could not be unlocked.
+     * @throws IOException
      */
-    public void createNewDraft(IProject project) throws CoreException {
+    public void createNewDraft(IProject project) throws CoreException, IOException {
         ProjectUtil.removeNature(project, XpdConsts.LOCKED_FOR_PRODUCTION_NATURE);
         // FIXME Increment the version as part of ACE-2032
+        ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
+
+        if (projectConfig != null) {
+            ProjectDetails projectDetails = projectConfig.getProjectDetails();
+            if (projectDetails != null) {
+                String version = projectDetails.getVersion();
+                if (version != null) {
+                    // Increment minor version;
+                    version = incrementVersion(version);
+                    projectDetails.setVersion(version);
+                    /* Save it. */
+                    ProjectConfigWorkingCopy wc =
+                            (ProjectConfigWorkingCopy) WorkingCopyUtil.getWorkingCopyFor(projectConfig);
+                    wc.setDetails(projectDetails);
+                }
+            }
+        }
+    }
+
+    /**
+     * Increments the minor version of a project.
+     * 
+     * @param version
+     *            The old version.
+     * @return The new version.
+     * @throws IOException
+     */
+    private String incrementVersion(String version) throws IOException {
+        String newVersion = null;
+        String[] parts = version.split("\\."); //$NON-NLS-1$
+        if (parts.length > 1) {
+            parts[1] = String.valueOf(Integer.parseInt(parts[1]) + 1);
+            newVersion = String.join(".", parts); //$NON-NLS-1$
+        }
+        if (newVersion == null) {
+            throw new IOException("Could not increment minor version for " + version); //$NON-NLS-1$
+        }
+        return newVersion;
     }
 }
