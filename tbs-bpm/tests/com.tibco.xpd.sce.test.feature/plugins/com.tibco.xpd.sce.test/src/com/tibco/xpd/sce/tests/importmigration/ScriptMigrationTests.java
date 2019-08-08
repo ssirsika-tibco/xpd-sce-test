@@ -55,7 +55,7 @@ public class ScriptMigrationTests extends TestCase {
     }
 
     // @Test
-    public void testScriptMigrationArrays() throws Exception {
+    public void testArraysMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-data/",
                         "resources/ScriptMigrationTests/simple-proc/" },
@@ -83,7 +83,7 @@ public class ScriptMigrationTests extends TestCase {
     }
 
     // @Test
-    public void testScriptMigrationDates() throws Exception {
+    public void testDatesMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-data/",
                         "resources/ScriptMigrationTests/simple-date-proc/" },
@@ -106,7 +106,7 @@ public class ScriptMigrationTests extends TestCase {
     }
 
     // @Test
-    public void testScriptMigrationEnums() throws Exception {
+    public void testEnumsMigration() throws Exception {
         ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
                 new String[] { "resources/ScriptMigrationTests/simple-enum-data/",
                         "resources/ScriptMigrationTests/simple-enum-proc/" },
@@ -130,6 +130,50 @@ public class ScriptMigrationTests extends TestCase {
                     "BPM  : At Line:24 column:87, Method get is invalid for the current context (simpleprocProcess:ScriptTask)",
                     // var x = com_example_simpleenumdata_AComplexEnumeration.GET.ENUMLIT1;
                     "BPM  : At Line:26 column:72, Property ENUMLIT1 is invalid for the current context (simpleprocProcess:ScriptTask)" };
+            assertEquals(expectedFailures.length, errorMarkers.size());
+            for (IMarker marker : errorMarkers) {
+                String message = (String) marker.getAttribute(IMarker.MESSAGE);
+                boolean found = false;
+                for (String expected : expectedFailures) {
+                    if (expected.equals(message)) {
+                        found = true;
+                        break;
+                    }
+                }
+                assertTrue("unexpected: " + message, found);
+            }
+        } finally {
+            projectImporter.performDelete();
+        }
+    }
+
+    // @Test
+    public void testCaseAccessMigration() throws Exception {
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test",
+                new String[] { "resources/ScriptMigrationTests/case-access/simple-cac-data/",
+                        "resources/ScriptMigrationTests/case-access/simple-cac-proc/" },
+                new String[] { "simple-cac-data", "simple-cac-proc" });
+        assertTrue("Failed to load projects from resources/ScriptMigrationTests/case-access/", projectImporter != null);
+        try {
+            TestUtil.buildAndWait();
+
+            IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("simple-cac-proc");
+
+            // we expect some markers
+            Collection<IMarker> errorMarkers =
+                    TestUtil.getErrorMarkers(project, true, "com.tibco.xpd.forms.validation.project.misconfigured");
+
+            TestUtil.outputErrorMarkers(project, true);
+            
+            String[] expectedFailures = {
+                    // var criteria = cac_com_example_simplecacdata_CaseData.createCriteria("attribute1 = 1");
+                    "BPM  : At Line:3 column:87, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
+                    // cac_com_example_simplecacdata_CaseData.createCriteria"attribute1 = 1", 10, 100);
+                    "BPM  : At Line:4 column:81, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
+                    // cac_com_example_simplecacdata_CaseData.findByCriteria("attribute1 = 1");
+                    "BPM  : At Line:11 column:83, Method findByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+                    // cac_com_example_simplecacdata_CaseData.findAll();
+                    "BPM  : At Line:13 column:59, Method findAll is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
             assertEquals(expectedFailures.length, errorMarkers.size());
             for (IMarker marker : errorMarkers) {
                 String message = (String) marker.getAttribute(IMarker.MESSAGE);
