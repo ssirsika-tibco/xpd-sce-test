@@ -82,6 +82,7 @@
             </or>
          </enablement>
       </actionProvider>
+      <!-- ACE-2011: Remove Unsupported features.(Gegeric "Analysis Project")
       <commonWizard
             menuGroupId="additions.xpdProject"
             type="new"
@@ -102,6 +103,7 @@
                </or>
           </enablement>
       </commonWizard>
+      -->
       <commonWizard
             menuGroupId="additions.xpd"
             type="import"
@@ -326,6 +328,7 @@
             id="com.tibco.xpd.newWizard.development.category"
             name="%development_category_title">
       </category>
+      <!-- ACE-2011: Remove Unsupported features.(Gegeric "Analysis Project")
       <primaryWizard
             id="com.tibco.xpd.analysisProject">
       </primaryWizard>      
@@ -347,6 +350,7 @@
             %analysisProjectWizard.description
          </description>
       </wizard>
+      -->
    </extension>
    <extension
          point="org.eclipse.ui.importWizards">
@@ -497,26 +501,6 @@
             id="com.tibco.xpd.analysis"
             name="%business.analyst.category.name">
       </category>
-   </extension>
-   <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            description="%capability_actionSet_desc"
-            id="com.tibco.xpd.resources.ui.actionSet.enableFeature1"
-            label="%capability_actionSet_label"
-            visible="true">
-         <action
-               allowLabelUpdate="true"
-               class="com.tibco.xpd.ui.actions.ActivateCapabilityAction"
-               icon="icons/capability_process_analyst_16.png"
-               id="com.tibco.xpd.resources.ui.action.anableFeature1"
-               label="%capability_action_label"
-               pulldown="true"
-               style="pulldown"
-               toolbarPath="Normal/additions"
-               tooltip="%activate_capability_action_tooltip_message">
-         </action>
-      </actionSet>
    </extension>
    <extension
          point="com.tibco.xpd.resources.ui.quickSearchContribution">

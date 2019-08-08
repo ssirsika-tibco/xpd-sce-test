@@ -38,10 +38,12 @@
    
       <extension
          point="com.tibco.xpd.resources.projectAssetBinding">
+      <!-- ACE-2011: Remove Unsupported features.(Gegeric "Analysis Project")
       <projectAssetBinding
             assetId="com.tibco.xpd.asset.businessProcess"
             newProjectWizardId="com.tibco.xpd.analysisProject">
       </projectAssetBinding>
+      -->
       <projectAssetBinding
             assetId="com.tibco.xpd.asset.businessProcess"
             newProjectWizardId="com.tibco.xpd.newProject.BPMSOADeveloper">
@@ -52,9 +54,11 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="com.tibco.modeling.perspective">
+         <!-- ACE-2011: Remove Unsupported features.(Gegeric "Analysis Project")   
          <newWizardShortcut
                id="com.tibco.xpd.analysisProject">
          </newWizardShortcut>
+         -->
          <newWizardShortcut
                id="com.tibco.xpd.analyst.resources.xpdl2.newpackage.wizard">
          </newWizardShortcut>
