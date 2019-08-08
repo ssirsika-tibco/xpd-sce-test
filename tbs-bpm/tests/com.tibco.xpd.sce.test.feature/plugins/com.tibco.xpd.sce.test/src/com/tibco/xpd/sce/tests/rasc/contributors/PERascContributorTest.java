@@ -161,53 +161,50 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
 
         // these are the expected artefacts and their destinations
         Map<String, TestArtifactData> expected = new HashMap<>();
-        expected.put(
-                "processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
-                new TestArtifactData("Test PageFow Process",
-                        "TestPageFowProcess",
-                        new MicroService[] { MicroService.UP }));
-        expected.put(
-                "processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
-                new TestArtifactData("Test Business Process",
-                        "TestBusinessProcess",
-                        new MicroService[] { MicroService.BP }));
-        expected.put(
-                "processOut/process/TestContributor.xpdl/DuplicatenamedBusinessProcess.bpel",
-                new TestArtifactData("Duplicate named Business Process",
-                        "DuplicatenamedBusinessProcess",
-                        new MicroService[] { MicroService.BP }));
-        expected.put(
-                "processOut/process/TestContributor2.xpdl/DuplicatenamedBusinessProcess.bpel",
-                new TestArtifactData("Duplicate named Business Process",
-                        "DuplicatenamedBusinessProcess",
-                        new MicroService[] { MicroService.BP }));
-        expected.put(
-                "processOut/pageflow/TestContributor2.xpdl/TestBusinessService.bpel",
-                new TestArtifactData("Test Business Service",
-                        "TestBusinessService",
-                        new MicroService[] { MicroService.UP }));
+        expected.put("processOut/pageflow/TestContributor.xpdl/TestPageFowProcess.bpel",
+                new TestArtifactData("Test PageFow Process", "TestPageFowProcess", MicroService.UP));
+
+        expected.put("processOut/process/TestContributor.xpdl/TestBusinessProcess.bpel",
+                new TestArtifactData("Test Business Process", "TestBusinessProcess", MicroService.BP));
+
+        expected.put("processOut/process/TestContributor.xpdl/DuplicatenamedBusinessProcess.bpel",
+                new TestArtifactData("Duplicate named Business Process", "DuplicatenamedBusinessProcess",
+                        MicroService.BP));
+
+        expected.put("processOut/process/TestContributor2.xpdl/DuplicatenamedBusinessProcess.bpel",
+                new TestArtifactData("Duplicate named Business Process", "DuplicatenamedBusinessProcess",
+                        MicroService.BP));
+
+        expected.put("processOut/pageflow/TestContributor2.xpdl/TestBusinessService.bpel",
+                new TestArtifactData("Test Business Service", "TestBusinessService", MicroService.UP));
 
         // All the different combo's of service process.
-        expected.put(
-                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
-                new TestArtifactData("Test Service Process 4 BP and PF",
-                        "TestServiceProcess4BPandPF",
-                        new MicroService[] { MicroService.UP }));
-        expected.put(
-                "processOut/process/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
-                new TestArtifactData("Test Service Process 4 BP and PF",
-                        "TestServiceProcess4BPandPF",
-                        new MicroService[] { MicroService.BP }));
-        expected.put(
-                "processOut/process/TestContributor.xpdl/TestServiceProcess4BP.bpel",
-                new TestArtifactData("Test Service Process 4 BP",
-                        "TestServiceProcess4BP",
-                        new MicroService[] { MicroService.BP }));
-        expected.put(
-                "processOut/pageflow/TestContributor.xpdl/TestServiceProcess4PF.bpel",
-                new TestArtifactData("Test Service Process 4 PF",
-                        "TestServiceProcess4PF",
-                        new MicroService[] { MicroService.UP }));
+        expected.put("processOut/pageflow/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
+                new TestArtifactData("Test Service Process 4 BP and PF", "TestServiceProcess4BPandPF",
+                        MicroService.UP));
+
+        expected.put("processOut/process/TestContributor.xpdl/TestServiceProcess4BPandPF.bpel",
+                new TestArtifactData("Test Service Process 4 BP and PF", "TestServiceProcess4BPandPF",
+                        MicroService.BP));
+
+        expected.put("processOut/process/TestContributor.xpdl/TestServiceProcess4BP.bpel",
+                new TestArtifactData("Test Service Process 4 BP", "TestServiceProcess4BP", MicroService.BP));
+
+        expected.put("processOut/pageflow/TestContributor.xpdl/TestServiceProcess4PF.bpel",
+                new TestArtifactData("Test Service Process 4 PF", "TestServiceProcess4PF", MicroService.UP));
+
+        // the process package artifacts
+        expected.put("processOut/process/TestContributor.xpdl/package.pkg",
+                new TestArtifactData("ProcessPackage", "ProcessPackage", MicroService.BP));
+
+        expected.put("processOut/process/TestContributor2.xpdl/package.pkg",
+                new TestArtifactData("ProcessPackage2", "ProcessPackage2", MicroService.BP));
+
+        expected.put("processOut/pageflow/TestContributor.xpdl/package.pkg",
+                new TestArtifactData("ProcessPackage", "ProcessPackage", MicroService.UP));
+
+        expected.put("processOut/pageflow/TestContributor2.xpdl/package.pkg",
+                new TestArtifactData("ProcessPackage2", "ProcessPackage2", MicroService.UP));
 
         // artifacts should have been added to the writer
         assertEquals(expected.size(), writer.getArtifacts().size());
@@ -217,7 +214,7 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
             for (Map.Entry<String, TestArtifactData> entry : expected
                     .entrySet()) {
                 if (entry.getKey().equals(artifact.getFullPath())) {
-                    assertArrayEquals(entry.getValue().services,
+                    assertArrayEquals(entry.getKey(), entry.getValue().services,
                             artifact.getServices());
 
                     // some data was written to the artifact
@@ -297,12 +294,11 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
          * @param services
          */
         public TestArtifactData(String artifactName, String internalName,
-                MicroService[] services) {
+                MicroService... services) {
             super();
             this.artifactName = artifactName;
             this.internalName = internalName;
             this.services = services;
         }
-
     }
 }
