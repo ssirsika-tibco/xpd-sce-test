@@ -10,11 +10,7 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Parameter;
-import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.Property;
 
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
@@ -41,7 +37,6 @@ import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNaviga
 import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaStringMethod;
 import com.tibco.xpd.script.model.client.globaldata.caserefmethods.CaseRefNavigateByCriteriaWithPageSizeMethod;
 import com.tibco.xpd.script.model.internal.client.ITypeResolution;
-import com.tibco.xpd.script.model.internal.client.IUMLElement;
 import com.tibco.xpd.script.model.jscript.JScriptUtils;
 import com.tibco.xpd.script.parser.validator.jscript.JScriptDotExpressionValidator;
 import com.tibco.xpd.xpdl2.Activity;
@@ -346,8 +341,7 @@ public class N2JScriptDotExpressionValidator
              * out and throwing an exception so that we can come back later and
              * replace with something else.
              */
-            throw new RuntimeException(
-                    "SCE: DQL Query string validation requires port to new DQL language."); //$NON-NLS-1$
+            addErrorMessage(token, "SCE: DQL Query string validation requires port to new DQL language."); //$NON-NLS-1$
 
             // try {
             //
