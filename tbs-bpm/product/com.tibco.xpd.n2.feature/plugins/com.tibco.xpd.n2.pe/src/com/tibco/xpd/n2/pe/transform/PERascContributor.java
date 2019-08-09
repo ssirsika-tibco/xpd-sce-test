@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.nio.charset.Charset;
@@ -323,7 +324,7 @@ public class PERascContributor implements RascContributor {
                     .addContent(aDeployment.getPath(), label, pkg.getName(), aDeployment.getDestinations());
             try {
                 // the artifact is a properties format file
-                PrintWriter writer = new PrintWriter(output);
+                PrintWriter writer = new PrintWriter(new OutputStreamWriter(output, RascContributor.DEFAULT_ENCODING));
                 try {
                     writer.printf("name=%1$s", pkg.getName()).println(); //$NON-NLS-1$
                     writer.printf("label=%1$s", label).println(); //$NON-NLS-1$
@@ -795,11 +796,18 @@ public class PERascContributor implements RascContributor {
         aOutput.write(json.getBytes(StandardCharsets.UTF_8));
     }
 
+    /**
+     * A simple data object to record a process package that is to be included in the RASC. A process package will be
+     * included if any process for that package has been included in the RASC.
+     */
     private static class PackageDeployment {
+        // the package to be included
         private Package deployedPackage;
 
+        // the location to which the process package artifact is to be placed in the RASC
         private IContainer location;
 
+        // the micro-services to which the process package artifact is to be delivered.
         private Set<MicroService> destinations;
 
         public PackageDeployment(Package aPackage, IContainer aLocation, MicroService[] aDestinations) {

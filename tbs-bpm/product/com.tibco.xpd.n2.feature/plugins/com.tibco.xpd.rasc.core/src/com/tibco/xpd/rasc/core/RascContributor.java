@@ -4,6 +4,9 @@
 
 package com.tibco.xpd.rasc.core;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -21,8 +24,12 @@ import org.eclipse.core.runtime.IProgressMonitor;
  */
 public interface RascContributor {
     /**
-     * A unique identifier of this RASC contributor. Used to identify
-     * contributor dependencies.
+     * The character encoding to be used for the data. References the UTF-8 encoding.
+     */
+    public static final Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;
+
+    /**
+     * A unique identifier of this RASC contributor. Used to identify contributor dependencies.
      * 
      * @return the unique identifier for this contributor implementation.
      */
