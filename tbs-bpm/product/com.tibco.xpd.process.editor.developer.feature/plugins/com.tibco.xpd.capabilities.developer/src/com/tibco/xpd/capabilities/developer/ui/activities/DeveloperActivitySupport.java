@@ -15,7 +15,6 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.activities.ActivityManagerEvent;
 import org.eclipse.ui.activities.IActivityManager;
@@ -109,36 +108,37 @@ public class DeveloperActivitySupport implements IActivityManagerListener {
         }
 
         // showing/hiding views
-        IViewPart deploymentView = getActiveView(DEPLOYMENT_VIEW_ID);
-        if (deploymentView != null) {
-            // Hide if developer capability disabled
-            if (!DeveloperActivityUtil.isDeveloperActivityEnabled()) {
-                if (workbench.getActiveWorkbenchWindow() != null
-                        && workbench.getActiveWorkbenchWindow().getActivePage() != null) {
-
-                    workbench.getActiveWorkbenchWindow().getActivePage()
-                            .hideView(deploymentView);
-                }
-            }
-        } else {
-            // Show if developer capability enabled
-            if (DeveloperActivityUtil.isDeveloperActivityEnabled()) {
-                try {
-                    if (workbench.getActiveWorkbenchWindow() != null
-                            && workbench.getActiveWorkbenchWindow()
-                                    .getActivePage() != null) {
-                        workbench
-                                .getActiveWorkbenchWindow()
-                                .getActivePage()
-                                .showView(DEPLOYMENT_VIEW_ID,
-                                        null,
-                                        IWorkbenchPage.VIEW_VISIBLE);
-                    }
-                } catch (PartInitException e) {
-                    // ignore
-                }
-            }
-        }
+        // ACE-2011: Remove Unsupported features. Deployment
+        // IViewPart deploymentView = getActiveView(DEPLOYMENT_VIEW_ID);
+        // if (deploymentView != null) {
+        // // Hide if developer capability disabled
+        // if (!DeveloperActivityUtil.isDeveloperActivityEnabled()) {
+        // if (workbench.getActiveWorkbenchWindow() != null
+        // && workbench.getActiveWorkbenchWindow().getActivePage() != null) {
+        //
+        // workbench.getActiveWorkbenchWindow().getActivePage()
+        // .hideView(deploymentView);
+        // }
+        // }
+        // } else {
+        // // Show if developer capability enabled
+        // if (DeveloperActivityUtil.isDeveloperActivityEnabled()) {
+        // try {
+        // if (workbench.getActiveWorkbenchWindow() != null
+        // && workbench.getActiveWorkbenchWindow()
+        // .getActivePage() != null) {
+        // workbench
+        // .getActiveWorkbenchWindow()
+        // .getActivePage()
+        // .showView(DEPLOYMENT_VIEW_ID,
+        // null,
+        // IWorkbenchPage.VIEW_VISIBLE);
+        // }
+        // } catch (PartInitException e) {
+        // // ignore
+        // }
+        // }
+        // }
     }
 
     /**
