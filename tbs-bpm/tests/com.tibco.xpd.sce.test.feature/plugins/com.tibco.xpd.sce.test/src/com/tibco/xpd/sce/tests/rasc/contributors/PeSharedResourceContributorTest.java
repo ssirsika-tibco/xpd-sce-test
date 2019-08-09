@@ -85,22 +85,18 @@ public class PeSharedResourceContributorTest extends TestCase {
             fixture.process(project, rascContext, null, writer);
 
             // these artifacts should have been added to the writer
-            String[] expectedArtifacts = { "BrmRascTest-Process2",
-                    "BrmRascTest-Process", "BrmRascTest-Process2 - xpdl2",
-                    "BrmRascTest-Process - xpdl 2" };
-            List<WriterContent> artifacts = writer.getArtifacts();
-            assertEquals(expectedArtifacts.length, artifacts.size());
-            for (WriterContent artifact : artifacts) {
-                boolean found = false;
-                for (String expected : expectedArtifacts) {
-                    if (expected.equals(artifact.getArtifactName())) {
-                        found = true;
-                        break;
-                    }
-                }
-                assertTrue("Unexpected artifact: " + artifact.getArtifactName(),
-                        found);
-            }
+            compare(writer,
+                    new String[][] {
+                            { "BrmRascTest-Process2 - xpdl2",
+                                    "processOut/pageflow/BrmRascTest2.xpdl/BrmRascTestProcess2xpdl2.bpel" },
+                            { "BrmRascTest-Process - xpdl 2",
+                                    "processOut/process/BrmRascTest2.xpdl/BrmRascTestProcessxpdl2.bpel" },
+                            { "BrmRascTest-Process2", "processOut/pageflow/BrmRascTest.xpdl/BrmRascTestProcess2.bpel" },
+                            { "BrmRascTest-Process", "processOut/process/BrmRascTest.xpdl/BrmRascTestProcess.bpel" },
+                            { "BrmRascTest2", "processOut/pageflow/BrmRascTest2.xpdl/package.pkg" },
+                            { "BrmRascTest", "processOut/pageflow/BrmRascTest.xpdl/package.pkg" },
+                            { "BrmRascTest2", "processOut/process/BrmRascTest2.xpdl/package.pkg" },
+                            { "BrmRascTest", "processOut/process/BrmRascTest.xpdl/package.pkg" } });
 
             // no shared resource should have been added
             assertNull(writer.getManifestAttribute(
@@ -144,20 +140,10 @@ public class PeSharedResourceContributorTest extends TestCase {
             fixture.process(project, rascContext, null, writer);
 
             // these artifacts should have been added to the writer
-            String[] expectedArtifacts = { "SimpleProc-Process" };
-            List<WriterContent> artifacts = writer.getArtifacts();
-            assertEquals(expectedArtifacts.length, artifacts.size());
-            for (WriterContent artifact : artifacts) {
-                boolean found = false;
-                for (String expected : expectedArtifacts) {
-                    if (expected.equals(artifact.getArtifactName())) {
-                        found = true;
-                        break;
-                    }
-                }
-                assertTrue("Unexpected artifact: " + artifact.getArtifactName(),
-                        found);
-            }
+            compare(writer,
+                    new String[][] {
+                            { "SimpleProc-Process", "processOut/process/SimpleProc.xpdl/SimpleProcProcess.bpel" },
+                            { "SimpleProc", "processOut/process/SimpleProc.xpdl/package.pkg" } });
 
             // Shared resource should have been added
             PropertyValue[] manifestAttrs = writer.getManifestAttribute(
@@ -241,9 +227,11 @@ public class PeSharedResourceContributorTest extends TestCase {
             verify(bomDependency).hasAssetType(anyString());
 
             // check the artifacts added to RASC
-            List<WriterContent> artifacts = writer.getArtifacts();
-            assertEquals(2, artifacts.size());
-            assertNotNull(writer.getArtifact("SimpleProc-Process"));
+            compare(writer,
+                    new String[][] {
+                            { "SimpleProc-Process", "processOut/process/SimpleProc.xpdl/SimpleProcProcess.bpel" },
+                            { "SimpleProc", "processOut/process/SimpleProc.xpdl/package.pkg" },
+                            { "data-dependencies", "dataInfo.di" } });
 
             WriterContent dataInfo = writer.getArtifact("data-dependencies");
             assertNotNull(dataInfo);
@@ -345,9 +333,11 @@ public class PeSharedResourceContributorTest extends TestCase {
             verify(bomDependency).hasAssetType(anyString());
 
             // check the artifacts added to RASC
-            List<WriterContent> artifacts = writer.getArtifacts();
-            assertEquals(1, artifacts.size());
-            assertNotNull(writer.getArtifact("SimpleProc-Process"));
+            compare(writer,
+                    new String[][] {
+                            { "SimpleProc-Process", "processOut/process/SimpleProc.xpdl/SimpleProcProcess.bpel" },
+                            { "SimpleProc", "processOut/process/SimpleProc.xpdl/package.pkg" } });
+
             assertNull(writer.getArtifact("data-dependencies"));
 
             // Shared resource should have been added
@@ -358,6 +348,30 @@ public class PeSharedResourceContributorTest extends TestCase {
 
         } finally {
             projectImporter.performDelete();
+        }
+    }
+
+    /**
+     * Compare the artifacts in the given writer with those listed in the given array. The array is 2-D. Element [0] is
+     * the name of the artifact. Element [1] is the path within the RASC.
+     * 
+     * @param aWriter
+     * @param aExpected
+     */
+    private void compare(MockRascWriter aWriter, String[][] aExpected) {
+        assertEquals(aExpected.length, aWriter.getArtifacts().size());
+
+        for (WriterContent artifact : aWriter.getArtifacts()) {
+            boolean found = false;
+            for (String[] entry : aExpected) {
+                // As an artifact of the same name may appear twice - compare the name and path
+                if ((entry[0].equals(artifact.getArtifactName())) && (entry[1].equals(artifact.getFullPath()))) {
+                    found = true;
+                    break;
+                }
+            }
+
+            assertTrue("Unexpected content: " + artifact, found);
         }
     }
 
