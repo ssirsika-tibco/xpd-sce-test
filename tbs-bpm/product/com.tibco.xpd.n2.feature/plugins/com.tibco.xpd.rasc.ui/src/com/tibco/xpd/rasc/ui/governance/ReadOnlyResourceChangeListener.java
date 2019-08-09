@@ -5,6 +5,8 @@
 package com.tibco.xpd.rasc.ui.governance;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -68,6 +70,8 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         if (delta != null) {
             IResourceDelta[] children = delta.getAffectedChildren();
             if (children != null) {
+                boolean shouldShowChangeWarning = false;
+                Set<IProject> projects = new HashSet<>();
                 for (IResourceDelta child : children) {
                     IResource resource = child.getResource();
                     if (resource != null) {
@@ -78,13 +82,17 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
                                     logChanges(child);
                                     // Change to a locked project, show a
                                     // warning
-                                    showChangeWarning(project);
+                                    shouldShowChangeWarning = true;
+                                    projects.add(project);
                                 }
                             }
                         } catch (CoreException e) {
                             RascUiActivator.getLogger().error(e);
                         }
                     }
+                }
+                if (shouldShowChangeWarning) {
+                    showChangeWarning(projects);
                 }
             }
         }
@@ -117,7 +125,7 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
         IResource resource = delta.getResource();
         // Ignore project OPEN events as it generates ADD events for all
         // contents
-        if (!(resource instanceof IProject) || (delta.getFlags() | IResourceDelta.OPEN) != 0) {
+        if (!(resource instanceof IProject) || (delta.getFlags() & IResourceDelta.OPEN) == 0) {
             if (!resource.getName().startsWith(".")) { //$NON-NLS-1$
                 if (delta.getAffectedChildren().length == 0) {
                     int flags = delta.getFlags();
@@ -145,10 +153,16 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
      * @param project
      *            The project to show a warning for.
      */
-    private void showChangeWarning(IProject project) {
+    private void showChangeWarning(Set<IProject> projects) {
         String title = Messages.ReadOnlyResourceChangeListener_ChangeDetectedTitle;
-        String message =
-                String.format(Messages.ReadOnlyResourceChangeListener_ChangeDetectedMessage, project.getName());
+        StringBuilder projectNames = new StringBuilder();
+        for (IProject project : projects) {
+            if (projectNames.length() != 0) {
+                projectNames.append(","); //$NON-NLS-1$
+            }
+            projectNames.append(project.getName());
+        }
+        String message = String.format(Messages.ReadOnlyResourceChangeListener_ChangeDetectedMessage, projectNames);
         String createNewDraftLabel = Messages.LifecycleActionProvider_CreateDraftMenuLabel;
         Display.getDefault().asyncExec(() -> {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -160,11 +174,13 @@ public class ReadOnlyResourceChangeListener implements IResourceChangeListener {
 
                             @Override
                             public void run(IProgressMonitor monitor) throws CoreException {
-                                try {
-                                    gss.createNewDraft(project);
-                                } catch (IOException e) {
-                                    RascUiActivator.getLogger()
-                                            .error("Could not update version on project " + project.getName()); //$NON-NLS-1$
+                                for (IProject project : projects) {
+                                    try {
+                                        gss.createNewDraft(project);
+                                    } catch (IOException e) {
+                                        RascUiActivator.getLogger()
+                                                .error("Could not update version on project " + project.getName()); //$NON-NLS-1$
+                                    }
                                 }
                                 Display.getDefault().asyncExec(() -> {
                                     gsus.refreshEditorLabels();

@@ -42,6 +42,10 @@ public class Messages extends NLS {
 
     public static String LockedForProductionLabelDecorator_ReadOnlyDecoratorText;
 
+    public static String LockForProductionAction_invalidProjectMessage;
+
+    public static String LockForProductionAction_invalidProjectTtitle;
+
     public static String OverwriteException_FileMessage;
 
     public static String ProgressBarMonitor_ExportComplete;
