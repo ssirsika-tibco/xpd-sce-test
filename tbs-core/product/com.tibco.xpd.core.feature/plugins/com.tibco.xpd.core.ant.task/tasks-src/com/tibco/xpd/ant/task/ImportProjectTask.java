@@ -32,7 +32,6 @@ import com.tibco.xpd.resources.ui.projectimport.ArchiveFilenameFilter;
 import com.tibco.xpd.resources.ui.projectimport.DirectoryProjectImporter;
 import com.tibco.xpd.resources.ui.projectimport.ProjectImporter;
 import com.tibco.xpd.resources.ui.projectimport.ProjectsImportService;
-import com.tibco.xpd.resources.util.TargetPlatformInitialiser;
 import com.tibco.xpd.validation.ValidationActivator;
 
 /**
@@ -440,18 +439,6 @@ public class ImportProjectTask extends Task {
      */
     @Override
     public void init() throws BuildException {
-
-        boolean initialised =
-                TargetPlatformInitialiser.getInstance().initalise();
-        if (initialised) {
-            String fmtStr =
-                    "%sInitialization of Target Platform appears to have been successful."; //$NON-NLS-1$
-            log(String.format(fmtStr, newLn), Project.MSG_INFO);
-        } else {
-            String fmtStr =
-                    "%sFailed to locate Target Platform definition for initialization."; //$NON-NLS-1$
-            log(String.format(fmtStr, newLn), Project.MSG_WARN);
-        }
 
         // running in headless mode so plugin's IStartup not having an effect -
         // but crucial to have it loaded before importing projects
