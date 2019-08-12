@@ -24,9 +24,13 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.tibco.xpd.rasc.core.RascController;
 import com.tibco.xpd.rasc.core.exception.RascGenerationException;
+import com.tibco.xpd.rasc.core.governance.GovernanceStateService;
 import com.tibco.xpd.rasc.ui.RascUiActivator;
 import com.tibco.xpd.rasc.ui.internal.Messages;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
+import com.tibco.xpd.resources.projectconfig.ProjectConfig;
+import com.tibco.xpd.resources.projectconfig.ProjectDetails;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteStatus;
 
@@ -272,7 +276,33 @@ public class RascExportOperation implements IRunnableWithProgress {
     private IFile getWorkspacePath(IProject project) throws CoreException {
         IFolder workspacePath = project.getFolder(path);
         mkdirs(workspacePath);
-        return workspacePath.getFile(project.getName() + ".rasc"); //$NON-NLS-1$
+        StringBuilder fileName = new StringBuilder();
+        GovernanceStateService gss = new GovernanceStateService();
+        fileName.append(project.getName());
+        fileName.append("-"); //$NON-NLS-1$
+        if (gss.isLockedForProduction(project)) {
+            fileName.append("prod"); //$NON-NLS-1$
+        } else {
+            fileName.append("dev"); //$NON-NLS-1$
+        }
+        ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
+
+        if (projectConfig != null) {
+            ProjectDetails projectDetails = projectConfig.getProjectDetails();
+            if (projectDetails != null) {
+                String version = projectDetails.getVersion();
+                if (version != null) {
+                    String[] parts = version.split("\\."); //$NON-NLS-1$
+                    if (parts.length > 1) {
+                        fileName.append("-"); //$NON-NLS-1$
+                        fileName.append(parts[0]);
+                        fileName.append("."); //$NON-NLS-1$
+                        fileName.append(parts[1]);
+                    }
+                }
+            }
+        }
+        return workspacePath.getFile(fileName + ".rasc"); //$NON-NLS-1$
     }
 
     /**

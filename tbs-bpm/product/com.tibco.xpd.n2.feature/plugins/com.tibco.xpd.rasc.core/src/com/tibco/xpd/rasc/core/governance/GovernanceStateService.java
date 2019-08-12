@@ -65,7 +65,6 @@ public class GovernanceStateService {
      */
     public void createNewDraft(IProject project) throws CoreException, IOException {
         ProjectUtil.removeNature(project, XpdConsts.LOCKED_FOR_PRODUCTION_NATURE);
-        // FIXME Increment the version as part of ACE-2032
         ProjectConfig projectConfig = XpdResourcesPlugin.getDefault().getProjectConfig(project);
 
         if (projectConfig != null) {
