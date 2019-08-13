@@ -6,6 +6,7 @@ package com.tibco.xpd.n2.resources.postimport;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +33,12 @@ class CaseAccessRefactor implements ScriptRefactorRule {
 
     // original read method
     private static final String READ_METHOD = "read"; //$NON-NLS-1$
+
+    // original read by case-ref method
+    public static final String READ_REF_METHOD = "readCaseData"; //$NON-NLS-1$
+
+    // original navigate by case-ref and query - leading text
+    public static final String NAVIGATE_METHOD = "navigateByCriteriaTo"; //$NON-NLS-1$
 
     // map of BOM classes keyed on their case-access names
     private final Map<String, Class> mappings;
@@ -63,10 +70,45 @@ class CaseAccessRefactor implements ScriptRefactorRule {
      */
     @Override
     public boolean isMatch(Token aToken, JScriptParser aParser, int aIndex) throws TokenStreamException {
+        return matchesStaticMethod(aToken, aParser, aIndex) || matchesCaseRefMethod(aToken, aParser, aIndex);
+    }
+
+    /**
+     * @see com.tibco.xpd.n2.resources.postimport.ScriptRefactorRule#getReplacements(antlr.Token,
+     *      com.tibco.xpd.script.parser.antlr.JScriptParser, int)
+     */
+    @Override
+    public Collection<ScriptItemReplacementRef> getReplacements(Token aToken, JScriptParser aParser, int aIndex)
+            throws TokenStreamException {
+
+        if (matchesStaticMethod(aToken, aParser, aIndex)) {
+            return getReplacementsForStaticMethods(aToken, aParser, aIndex);
+        }
+
+        if (matchesCaseRefMethod(aToken, aParser, aIndex)) {
+            return getReplacementsForCaseRefMethods(aToken, aParser, aIndex);
+        }
+
+        return Collections.emptyList();
+    }
+
+    /**
+     * Looks for a match with one of the supported static case-access methods.
+     * 
+     * @param aToken
+     *            the token currently being parsed, and for which a match is to be tested.
+     * @param aParser
+     *            the parser from which the token was read.
+     * @param aIndex
+     *            the index of the given token within the parser's token collection.
+     * @return <code>true</code> if the given token matches this rule.
+     * @throws TokenStreamException
+     */
+    private boolean matchesStaticMethod(Token aToken, JScriptParser aParser, int aIndex) throws TokenStreamException {
         if (!mappings.containsKey(aToken.getText())) {
             return false; // not one of the case-access references
         }
-
+    
         // if not followed by a method
         Token dotToken = aParser.LT(aIndex + 1);
         Token methodToken = aParser.LT(aIndex + 2);
@@ -76,9 +118,9 @@ class CaseAccessRefactor implements ScriptRefactorRule {
                 || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN)) {
             return false; // doesn't look like a method call
         }
-
+    
         String method = methodToken.getText();
-
+    
         // find all instances
         // find all instances - paginated
         if (CaseAccessRefactor.FIND_ALL_METHOD.equals(method)) {
@@ -86,7 +128,7 @@ class CaseAccessRefactor implements ScriptRefactorRule {
             int parameterCount = getParameterCount(aParser, aIndex + 3);
             return (parameterCount == 0) || (parameterCount == 2);
         }
-
+    
         // find all by DQL
         // find all that match criteria
         if (CaseAccessRefactor.FIND_BY_METHOD.equals(method)) {
@@ -95,24 +137,32 @@ class CaseAccessRefactor implements ScriptRefactorRule {
             if ((paramToken == null) || (paramToken.getType() != JScriptTokenTypes.STRING_LITERAL)) {
                 return false;
             }
-
+    
             return true;
         }
-
+    
         // read for all given case references in array
         if (CaseAccessRefactor.READ_METHOD.equals(method)) {
             return true;
         }
-
+    
         return false;
     }
 
     /**
-     * @see com.tibco.xpd.n2.resources.postimport.ScriptRefactorRule#getReplacements(antlr.Token,
-     *      com.tibco.xpd.script.parser.antlr.JScriptParser, int)
+     * Creates the replacement commands for the static case-access methods.
+     * 
+     * @param aToken
+     *            the token currently being parsed, and for which a match is to be tested.
+     * @param aParser
+     *            the parser from which the token was read.
+     * @param aIndex
+     *            the index of the given token within the parser's token collection.
+     * @return the collection of script replacement commands.
+     * @throws TokenStreamException
      */
-    @Override
-    public Collection<ScriptItemReplacementRef> getReplacements(Token aToken, JScriptParser aParser, int aIndex)
+    private Collection<ScriptItemReplacementRef> getReplacementsForStaticMethods(Token aToken, JScriptParser aParser,
+            int aIndex)
             throws TokenStreamException {
         Class bomClass = mappings.get(aToken.getText());
         
@@ -154,6 +204,112 @@ class CaseAccessRefactor implements ScriptRefactorRule {
             result.add(new ScriptItemReplacementRef(methodToken, "readAll")); //$NON-NLS-1$
         }
 
+        return result;
+    }
+
+    /**
+     * Looks for a match with one of the supported case reference methods.
+     * 
+     * @param aToken
+     *            the token currently being parsed, and for which a match is to be tested.
+     * @param aParser
+     *            the parser from which the token was read.
+     * @param aIndex
+     *            the index of the given token within the parser's token collection.
+     * @return <code>true</code> if the given token matches this rule.
+     * @throws TokenStreamException
+     */
+    private boolean matchesCaseRefMethod(Token aToken, JScriptParser aParser, int aIndex) throws TokenStreamException {
+        if (aIndex <= 2) {
+            return false;
+        }
+    
+        Token dotToken = aParser.LT(aIndex - 1);
+        Token openParen = aParser.LT(aIndex + 1);
+        if ((dotToken == null) || (dotToken.getType() != JScriptTokenTypes.DOT) //
+                || (openParen == null) || (openParen.getType() != JScriptTokenTypes.LPAREN)) {
+            return false; // doesn't look like a method call
+        }
+    
+        String method = aToken.getText();
+    
+        // caseDataRef.navigateByCriteriaToOrderRef("attribute1 = 1");
+        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
+            Token paramToken = aParser.LT(aIndex + 2);
+            Token closeParen = aParser.LT(aIndex + 3);
+            // only support string literal parameter
+            if ((paramToken == null) || (paramToken.getType() != JScriptTokenTypes.STRING_LITERAL)
+                    || (closeParen == null) || (closeParen.getType() != JScriptTokenTypes.RPAREN)) {
+                return false;
+            }
+    
+            return true;
+        }
+    
+        // caseDataRef.readCaseData();
+        if (method.equals(CaseAccessRefactor.READ_REF_METHOD)) {
+            Token closeParen = aParser.LT(aIndex + 2);
+            if ((closeParen == null) || (closeParen.getType() != JScriptTokenTypes.RPAREN)) {
+                return false;
+            }
+    
+            return true;
+        }
+    
+        // bpm.caseData.navigateAll(CaseReference,String,Number,Number)
+        // bpm.caseData.navigateByCriteria(CaseReference,String,String,Number,Number)
+        // bpm.caseData.navigateBySimpleSearch(CaseReference,String,String,Number,Number)
+        // bpm.caseData.read(CaseReference)
+        // bpm.caseData.readAll(CaseReference[])
+    
+        return false;
+    }
+
+    /**
+     * Creates the replacement commands for the static case-access methods.
+     * 
+     * @param aToken
+     *            the token currently being parsed, and for which a match is to be tested.
+     * @param aParser
+     *            the parser from which the token was read.
+     * @param aIndex
+     *            the index of the given token within the parser's token collection.
+     * @return the collection of script replacement commands.
+     * @throws TokenStreamException
+     */
+    private Collection<ScriptItemReplacementRef> getReplacementsForCaseRefMethods(Token aToken, JScriptParser aParser,
+            int aIndex) throws TokenStreamException {
+
+        Token caseRefField = aParser.LT(aIndex - 2);
+        Token dotToken = aParser.LT(aIndex - 1);
+        Token openParen = aParser.LT(aIndex + 1);
+
+        Collection<ScriptItemReplacementRef> result = new ArrayList<>();
+        result.add(new ScriptItemReplacementRef(caseRefField, null));
+        result.add(new ScriptItemReplacementRef(dotToken, "bpm.caseData.")); //$NON-NLS-1$
+
+        String method = aToken.getText();
+        
+        // caseDataRef.navigateByCriteriaToOrderRef("attribute1 = 1");
+        if (method.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
+            String linkName = method.substring(CaseAccessRefactor.NAVIGATE_METHOD.length());
+            
+            // only support string literal parameter
+
+            // bpm.caseData.navigateByCriteria(CaseReference,String,String,Number,Number)
+            // will be missing the pagination parameters - so expect validation markers
+            result.add(new ScriptItemReplacementRef(aToken, "navigateByCriteria(data.")); //$NON-NLS-1$
+            result.add(new ScriptItemReplacementRef(openParen, caseRefField.getText() + ", \"" + linkName + "\", ")); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    
+        // caseDataRef.readCaseData();
+        else if (method.equals(CaseAccessRefactor.READ_REF_METHOD)) {
+    
+            // bpm.caseData.read(CaseReference)
+            result.add(new ScriptItemReplacementRef(aToken, "read(data.")); //$NON-NLS-1$
+            result.add(new ScriptItemReplacementRef(openParen, caseRefField.getText()));
+        }
+        
         return result;
     }
 }

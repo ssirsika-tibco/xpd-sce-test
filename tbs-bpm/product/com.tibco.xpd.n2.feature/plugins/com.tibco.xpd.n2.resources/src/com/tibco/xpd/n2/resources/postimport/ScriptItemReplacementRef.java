@@ -44,15 +44,34 @@ class ScriptItemReplacementRef implements Comparable<ScriptItemReplacementRef> {
     // Sort by line then column.
     @Override
     public int compareTo(ScriptItemReplacementRef o) {
+        if (o == null) {
+            return 1;
+        }
+    
         // Sort by ascending line number
         int ret = line - o.line;
         if (ret == 0) {
             // then descending (reverse) line number.
             ret = o.col - col;
         }
+    
         return ret;
     }
 
+    /**
+     * Tests if this is a deletion of the current token value.
+     * 
+     * @return <code>true</code> if the replacement text is null or empty.
+     */
+    public boolean isDeletion() {
+        return ((newValue == null) || (newValue.isEmpty()));
+    }
+
+    /**
+     * Returns the line number, within the script, on which the replacement will be performed.
+     * 
+     * @return the replacement line number.
+     */
     public int getLine() {
         return line;
     }
@@ -68,7 +87,7 @@ class ScriptItemReplacementRef implements Comparable<ScriptItemReplacementRef> {
      */
     public void replaceRef(StringBuilder stringBuilder) {
         int startIdx = col - 1;
-        if ((newValue == null) || (newValue.isEmpty())) {
+        if (isDeletion()) {
             stringBuilder.delete(startIdx, startIdx + len);
         } else {
             stringBuilder.replace(startIdx, startIdx + len, newValue);

@@ -60,7 +60,11 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
 
         if ((aToken != null) && (aToken.getType() == JScriptTokenTypes.IDENT)
                 && (prevToken == null || prevToken.getType() != JScriptTokenTypes.DOT)) {
-            return oldIdentMap.containsKey(aToken.getText());
+            if (oldIdentMap.containsKey(aToken.getText())) {
+
+                // if this is NOT one of the case-data ref method invocations
+                return !isCaseRefMethod(aParser, aIndex);
+            }
         }
 
         return false;
@@ -74,5 +78,35 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
     public Collection<ScriptItemReplacementRef> getReplacements(Token aToken, JScriptParser aParser, int aIndex)
             throws TokenStreamException {
         return Collections.singleton(new ScriptItemReplacementRef(aToken, oldIdentMap.get(aToken.getText())));
+    }
+
+    /**
+     * Tests if the field ID is that of a case-ref field that prefixes a call to a method that will be refactored by the
+     * {@link CaseAccessRefactor}. In which case, the field reference will also be refactored by
+     * {@link CaseAccessRefactor}, and need not be performed here.
+     * <p>
+     * Such method calls are, for example:
+     * 
+     * <pre>
+     * caseRefField.read(xxx)
+     * caseRefField.navigateByCriteriaToXxxxx()
+     * </pre>
+     */
+    private boolean isCaseRefMethod(JScriptParser aParser, int aIndex) throws TokenStreamException {
+        // look for the method name
+        Token dotToken = aParser.LT(aIndex + 1);
+        Token methodToken = aParser.LT(aIndex + 2);
+        if ((dotToken != null) && (dotToken.getType() == JScriptTokenTypes.DOT) && (methodToken != null)
+                && (methodToken.getType() == JScriptTokenTypes.IDENT)) {
+
+            // is method name one that is replaced by CaseAccessRefactor
+            String methodName = methodToken.getText();
+            if ((methodName.equals(CaseAccessRefactor.READ_REF_METHOD))
+                    || (methodName.startsWith(CaseAccessRefactor.NAVIGATE_METHOD))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
