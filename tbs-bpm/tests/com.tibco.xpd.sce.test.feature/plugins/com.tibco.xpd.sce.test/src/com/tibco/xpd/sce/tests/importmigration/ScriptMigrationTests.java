@@ -166,21 +166,30 @@ public class ScriptMigrationTests extends TestCase {
             TestUtil.outputErrorMarkers(project, true);
             
             String[] expectedFailures = {
-                    // cac_com_example_simplecacdata_CaseData.findByCriteria("attribute1
-                    // = 1");
-                    "BPM  : At Line:11 column:83, Method findByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
-                    // cac_com_example_simplecacdata_CaseData.findAll();
-                    "BPM  : At Line:13 column:59, Method findAll is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+                    // var criteria = cac_com_example_simplecacdata_CaseData.createCriteria("attribute1 = 1"); -
+                    // criteria not supported
+                    "BPM  : At Line:1 column:87, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
 
-                    "BPM  : At Line:3 column:87, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:4 column:81, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:5 column:83, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:5 column:84, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:6 column:83, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:6 column:85, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:6 column:93, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:7 column:70, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
-                    "BPM  : At Line:8 column:65, Variable cac_com_example_simplecacdata_CaseData not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)" };
+                    // cac_com_example_simplecacdata_CaseData.createCriteria("attribute1 = 1", 10, 100); - criteria not
+                    // supported
+                    "BPM  : At Line:2 column:81, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
+
+                    // cac_com_example_simplecacdata_CaseData.findByCriteria("attribute1 = 1"); - missing pagination
+                    // parametes
+                    "BPM  : At Line:9 column:83, Method findByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+
+                    // cac_com_example_simplecacdata_CaseData.findAll(); - not safe to refactor as pagination required
+                    "BPM  : At Line:5 column:59, Method findAll is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)",
+
+                    // var orderCriteria = cac_com_example_simplecacdata_Order.createCriteria("attribute1 = 1"); -
+                    // criteria not supported
+                    "BPM  : At Line:13 column:89, SCE: DQL Query string validation requires port to new DQL language. (simpleprocProcess:ScriptTask)",
+
+                    // caseDataRef.navigateByCriteriaToOrderRef(orderCriteria); - criteria not supported
+                    "BPM  : At Line:14 column:56, Variable caseDataRef not defined or is not associated in the task interface. (simpleprocProcess:ScriptTask)",
+
+                    // caseDataRef.navigateByCriteriaToOrderRef(orderCriteria); - criteria not supported
+                    "BPM  : At Line:15 column:80, Method navigateByCriteria is not applicable for the provided number of arguments  (simpleprocProcess:ScriptTask)" };
             assertEquals(expectedFailures.length, errorMarkers.size());
             for (IMarker marker : errorMarkers) {
                 String message = (String) marker.getAttribute(IMarker.MESSAGE);
