@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BOMGlobalDataProfile="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:elx="http://www.tibco.com/EnumLiteralExt" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/BOMGlobalDataProfile/_-rxZEHyPEeCumvZ6xHSUiw/0 pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_rfKL4L0JEemp76kOVRbOLw" name="com.example.javascriptscriptutildata">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rfKL4b0JEemp76kOVRbOLw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rfKL4r0JEemp76kOVRbOLw" key="author" value="nwilson"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rfKL470JEemp76kOVRbOLw" key="created" value="1565622088221"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rfKL5L0JEemp76kOVRbOLw" key="version" value="1000"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tAATkL0JEemp76kOVRbOLw" name="ScriptUtilCase">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wR47EL0JEemp76kOVRbOLw" name="autoCaseIdentifier1" isReadOnly="true" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wR6wQb0JEemp76kOVRbOLw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wR7XUL0JEemp76kOVRbOLw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_1CduIL0JEemp76kOVRbOLw" name="caseState1" type="_xXZxoL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1Cp7YL0JEemp76kOVRbOLw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1CqicL0JEemp76kOVRbOLw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_uKqv4L0JEemp76kOVRbOLw" name="ScriptUtilClass">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_v9VnYL0JEemp76kOVRbOLw" name="attribute1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v9nUML0JEemp76kOVRbOLw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v9nUMb0JEemp76kOVRbOLw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_xXZxoL0JEemp76kOVRbOLw" name="ScriptUtilStates">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zngMAL0JEemp76kOVRbOLw" name="ENUMLIT1" classifier="_xXZxoL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_znjPUL0JEemp76kOVRbOLw" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_znj2YL0JEemp76kOVRbOLw" value="ENUMLIT1"/>
+        </eAnnotations>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_z7W8IL0JEemp76kOVRbOLw" name="ENUMLIT2" classifier="_xXZxoL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates?">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z7XjML0JEemp76kOVRbOLw" source="domain">
+          <contents xmi:type="elx:SingleValue" xmi:id="_z7XjMb0JEemp76kOVRbOLw" value="ENUMLIT2"/>
+        </eAnnotations>
+      </ownedLiteral>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_sSOAgL0JEemp76kOVRbOLw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sSV8UL0JEemp76kOVRbOLw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_-r7KEXyPEeCumvZ6xHSUiw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://GLOBALDATA_PROFILES/BOMGlobalData.profile.uml#_20kHsWs1EeC_hvle0zpSaA?BOM%20Global%20Data%20Profile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_tALSsL0JEemp76kOVRbOLw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tAL5wL0JEemp76kOVRbOLw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_rgclUL0JEemp76kOVRbOLw" type="Business Object Model" element="_rfKL4L0JEemp76kOVRbOLw?com.example.javascriptscriptutildata?" name="JavascriptScriptUtilData.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_r7WYoL0JEemp76kOVRbOLw" type="1007" element="_rfKL4L0JEemp76kOVRbOLw?com.example.javascriptscriptutildata?">
+      <children xmi:type="notation:Node" xmi:id="_r7bRIL0JEemp76kOVRbOLw" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_r7bRIb0JEemp76kOVRbOLw" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_r7dtYL0JEemp76kOVRbOLw" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_r7e7gL0JEemp76kOVRbOLw" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_r7gJoL0JEemp76kOVRbOLw" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_r7h-0L0JEemp76kOVRbOLw" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_r7lpML0JEemp76kOVRbOLw" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_r7neYL0JEemp76kOVRbOLw" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_r7p6oL0JEemp76kOVRbOLw" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_r7rv0L0JEemp76kOVRbOLw" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_r7rv0b0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_r7rv0r0JEemp76kOVRbOLw" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_r7rv070JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_r7rv1L0JEemp76kOVRbOLw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_r7WYob0JEemp76kOVRbOLw" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_r7WYor0JEemp76kOVRbOLw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r7WYo70JEemp76kOVRbOLw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_tA2BEL0JEemp76kOVRbOLw" type="1002" element="_tAATkL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase?">
+      <children xmi:type="notation:Node" xmi:id="_tA32QL0JEemp76kOVRbOLw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_tA5rcL0JEemp76kOVRbOLw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_tA7goL0JEemp76kOVRbOLw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_tA984L0JEemp76kOVRbOLw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_wSAP0L0JEemp76kOVRbOLw" type="2001" element="_wR47EL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3aautoCaseIdentifier1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_wSAP0b0JEemp76kOVRbOLw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1CwCAL0JEemp76kOVRbOLw" type="2001" element="_1CduIL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3acaseState1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_1CwCAb0JEemp76kOVRbOLw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_tA-j8L0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_tA-j8b0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_tA-j8r0JEemp76kOVRbOLw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_tBAZIL0JEemp76kOVRbOLw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_tBAZIb0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_tBAZIr0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_tBAZI70JEemp76kOVRbOLw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_tA2BEb0JEemp76kOVRbOLw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_tA2BEr0JEemp76kOVRbOLw" gradStartColor="16096809" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tA2BE70JEemp76kOVRbOLw" x="366" y="170"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uLDxcL0JEemp76kOVRbOLw" type="1002" element="_uKqv4L0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilClass?">
+      <children xmi:type="notation:Node" xmi:id="_uLE_kL0JEemp76kOVRbOLw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_uLE_kb0JEemp76kOVRbOLw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_uLE_kr0JEemp76kOVRbOLw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_uLE_k70JEemp76kOVRbOLw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_v9sMsL0JEemp76kOVRbOLw" type="2001" element="_v9VnYL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilClass%3a%3aattribute1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_v9sMsb0JEemp76kOVRbOLw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_uLE_lL0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uLE_lb0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uLE_lr0JEemp76kOVRbOLw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uLFmoL0JEemp76kOVRbOLw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_uLFmob0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uLFmor0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uLFmo70JEemp76kOVRbOLw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_uLDxcb0JEemp76kOVRbOLw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_uLDxcr0JEemp76kOVRbOLw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uLDxc70JEemp76kOVRbOLw" x="600" y="185"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_xXtToL0JEemp76kOVRbOLw" type="1004" element="_xXZxoL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates?">
+      <children xmi:type="notation:Node" xmi:id="_xXvI0L0JEemp76kOVRbOLw" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_xXwW8L0JEemp76kOVRbOLw" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_xXxlEL0JEemp76kOVRbOLw" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_xXzaQL0JEemp76kOVRbOLw" type="5004">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_xXzaQb0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_xXzaQr0JEemp76kOVRbOLw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_xXzaQ70JEemp76kOVRbOLw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_xXtTob0JEemp76kOVRbOLw" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_xXtTor0JEemp76kOVRbOLw" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xXtTo70JEemp76kOVRbOLw" x="550" y="75"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_rgdMYL0JEemp76kOVRbOLw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_rgdMYb0JEemp76kOVRbOLw"/>
+  </notation:Diagram>
+  <BOMGlobalDataProfile:Case xmi:id="_tAElAL0JEemp76kOVRbOLw" base_Class="_tAATkL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase?" summaryAttributes=""/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tANu8L0JEemp76kOVRbOLw" displayLabel="ScriptUtilCase" base_NamedElement="_tAATkL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_uKslEL0JEemp76kOVRbOLw" displayLabel="ScriptUtilClass" base_NamedElement="_uKqv4L0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilClass?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_v9mtIL0JEemp76kOVRbOLw" displayLabel="attribute1" base_NamedElement="_v9VnYL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilClass%3a%3aattribute1?"/>
+  <BOMGlobalDataProfile:AutoCaseIdentifier xmi:id="_wR5iIL0JEemp76kOVRbOLw" base_Property="_wR47EL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3aautoCaseIdentifier1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wR6wQL0JEemp76kOVRbOLw" displayLabel="autoCaseIdentifier1" base_NamedElement="_wR47EL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3aautoCaseIdentifier1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_xXeDEL0JEemp76kOVRbOLw" displayLabel="ScriptUtilStates" base_NamedElement="_xXZxoL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_05mGAL0JEemp76kOVRbOLw" displayLabel="ENUMLIT2" base_NamedElement="_z7W8IL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates%3a%3aENUMLIT2?"/>
+  <BOMGlobalDataProfile:CaseState xmi:id="_1Ce8QL0JEemp76kOVRbOLw" base_Property="_1CduIL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3acaseState1?" terminalStates="_z7W8IL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilStates%3a%3aENUMLIT2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_1CfjUL0JEemp76kOVRbOLw" displayLabel="caseState1" base_NamedElement="_1CduIL0JEemp76kOVRbOLw?com.example.javascriptscriptutildata%3a%3aScriptUtilCase%3a%3acaseState1?"/>
+</xmi:XMI>

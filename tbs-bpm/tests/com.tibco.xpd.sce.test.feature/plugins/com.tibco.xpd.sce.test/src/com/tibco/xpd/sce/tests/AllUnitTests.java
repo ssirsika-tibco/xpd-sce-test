@@ -12,6 +12,7 @@ import com.tibco.xpd.sce.tests.javascript.JavascriptArrayInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptArrayValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptDateValidTest;
 import com.tibco.xpd.sce.tests.javascript.JavascriptNumberValidTest;
+import com.tibco.xpd.sce.tests.javascript.JavascriptScriptUtilTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.BrmModelRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.CdmRascContributorTest;
 import com.tibco.xpd.sce.tests.rasc.contributors.GlobalSignalRascContributorTest;
@@ -60,6 +61,7 @@ public class AllUnitTests {
         suite.addTestSuite(JavascriptArrayInvalidTest.class);
         suite.addTestSuite(JavascriptDateValidTest.class);
         suite.addTestSuite(JavascriptNumberValidTest.class);
+        suite.addTestSuite(JavascriptScriptUtilTest.class);
         suite.addTestSuite(CaseDataTaskTest.class);
         suite.addTestSuite(CaseDataTaskInvalidTest.class);
         suite.addTestSuite(CaseDataScriptGenerationTest.class);
