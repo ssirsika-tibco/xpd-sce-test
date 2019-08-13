@@ -216,6 +216,7 @@
             </or>
          </enablement>
       </commonWizard>
+      <!-- ACE-2011: Remove Unsupported features. Documentation
       <commonWizard
             menuGroupId="additions.xpd"
             type="export"
@@ -238,6 +239,7 @@
             </and>
          </enablement>
       </commonWizard>
+      -->
       <commonWizard
             menuGroupId="additions.xpd"
             type="import"
@@ -593,6 +595,7 @@
              type="org.eclipse.core.resources.IProject">
        </propertyTester>
     </extension>
+    <!-- ACE-2011: Remove Unsupported features. Documentation
     <extension
           point="org.eclipse.ui.exportWizards">
        <wizard
@@ -603,6 +606,7 @@
              name="%documentationExportWizard">
        </wizard>
     </extension>
+    -->
     <extension
           id="documentation"
           point="org.eclipse.core.runtime.applications">
