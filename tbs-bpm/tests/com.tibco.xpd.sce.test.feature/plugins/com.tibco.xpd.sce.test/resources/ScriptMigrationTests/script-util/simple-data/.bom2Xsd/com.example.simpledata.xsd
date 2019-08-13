@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/simpledata" xmlns:tns1="http://example.com/simpledata"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/simpledata">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/simple-data/Business Objects/simple-data.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="Colour" id="_KaiuwLdTEemALciotp7N6Q" name="Colour">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="RED" value="RED"/>
+      <xsd:enumeration ecore:name="BLUE" value="BLUE"/>
+      <xsd:enumeration ecore:name="YELLOW" value="YELLOW"/>
+      <xsd:enumeration ecore:name="BROWN" value="BROWN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Severity" id="_kJn8ELdTEemALciotp7N6Q" name="Severity">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="INFO" value="INFO"/>
+      <xsd:enumeration ecore:name="WARNING" value="WARNING"/>
+      <xsd:enumeration ecore:name="ERROR" value="ERROR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="OrderStates" id="_2XmCMLnhEemBUvCBmOeFLw" name="OrderStates">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ENUMLIT1" value="ENUMLIT1"/>
+      <xsd:enumeration ecore:name="ENUMLIT2" value="ENUMLIT2"/>
+      <xsd:enumeration ecore:name="ENUMLIT3" value="ENUMLIT3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="CaseData" id="_pvAOILgtEemOCIjjJo2XBg" name="CaseData">
+    <xsd:sequence>
+      <xsd:element ecore:name="autoCaseIdentifier1" id="_r71SELgtEemOCIjjJo2XBg" maxOccurs="1"
+          minOccurs="0" name="autoCaseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="orderStatus" id="_rGAZMLnhEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="1" name="orderStatus" type="tns1:OrderStates"/>
+      <xsd:element ecore:name="attribute2" id="_rYTuQLgtEemOCIjjJo2XBg" maxOccurs="1"
+          minOccurs="0" name="attribute2" type="tns1:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="attribute1" id="_rWg-gLgtEemOCIjjJo2XBg" maxOccurs="1"
+          minOccurs="0" name="attribute1" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="AddressType" id="_nKoIwLnhEemBUvCBmOeFLw" name="AddressType">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="__kB8kLnhEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute2" id="__mWQwLnhEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="0" name="attribute2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute3" id="__nHFwLnhEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="0" name="attribute3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Order" id="_uLkxELnjEemBUvCBmOeFLw" name="Order">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_FWe8ALnlEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="autoCaseIdentifier1" id="_kfolULnlEemBUvCBmOeFLw" maxOccurs="1"
+          minOccurs="0" name="autoCaseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="ColourElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:Colour"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="SeverityElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:Severity"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="OrderStatesElement">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:OrderStates"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="CaseDataElement" type="CaseData"/>
+  <xsd:element name="AddressTypeElement" type="AddressType"/>
+  <xsd:element name="OrderElement" type="Order"/>
+</xsd:schema>
