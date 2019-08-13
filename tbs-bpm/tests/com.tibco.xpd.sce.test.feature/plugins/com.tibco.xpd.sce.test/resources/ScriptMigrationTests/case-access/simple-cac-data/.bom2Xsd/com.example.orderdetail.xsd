@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/orderdetail" xmlns:tns1="http://example.com/orderdetail"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/orderdetail">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/simple-cac-data/Business Objects/order-detail.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="order" id="_iZ7rsLj2EemGxbDaQFiVUg" name="order">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="_kCQUYLj2EemGxbDaQFiVUg" maxOccurs="1" minOccurs="0"
+          name="id">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="address" id="_ogVCMLj2EemGxbDaQFiVUg" maxOccurs="1"
+          minOccurs="0" name="address">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="orderElement" type="order"/>
+</xsd:schema>
