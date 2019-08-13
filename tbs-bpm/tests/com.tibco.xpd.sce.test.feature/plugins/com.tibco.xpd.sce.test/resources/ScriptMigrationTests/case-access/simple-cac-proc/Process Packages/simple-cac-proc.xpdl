@@ -32,16 +32,6 @@
         <xpdl2:Description></xpdl2:Description>
       </xpdl2:ProcessHeader>
       <xpdl2:DataFields>
-        <xpdl2:DataField Id="_cUbUYKxxEemo5ojJL23NnA" xpdExt:DisplayName="dataClassArrayField" Name="dataClassArrayField" IsArray="true">
-          <xpdl2:DataType>
-            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_LjAbEKxwEemo5ojJL23NnA"/>
-          </xpdl2:DataType>
-        </xpdl2:DataField>
-        <xpdl2:DataField Id="_hxuDgKxxEemo5ojJL23NnA" xpdExt:DisplayName="dataClassField" Name="dataClassField">
-          <xpdl2:DataType>
-            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_LjAbEKxwEemo5ojJL23NnA"/>
-          </xpdl2:DataType>
-        </xpdl2:DataField>
         <xpdl2:DataField Id="_Ec0G0LgpEemOCIjjJo2XBg" xpdExt:DisplayName="intField" Name="intField" ReadOnly="false">
           <xpdl2:DataType>
             <xpdl2:BasicType Type="INTEGER">
@@ -98,15 +88,7 @@
         </xpdl2:DataField>
         <xpdl2:DataField Id="_9dxRELgoEemOCIjjJo2XBg" xpdExt:DisplayName="addressField" Name="addressField" ReadOnly="false">
           <xpdl2:DataType>
-            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_GUyKgLgoEemOCIjjJo2XBg"/>
-          </xpdl2:DataType>
-          <xpdl2:InitialValue/>
-        </xpdl2:DataField>
-        <xpdl2:DataField Id="_cnwA0LgpEemOCIjjJo2XBg" xpdExt:DisplayName="enumArrayField" Name="enumArrayField" ReadOnly="false">
-          <xpdl2:DataType>
-            <xpdl2:BasicType Type="STRING">
-              <xpdl2:Length>50</xpdl2:Length>
-            </xpdl2:BasicType>
+            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_nKoIwLnhEemBUvCBmOeFLw"/>
           </xpdl2:DataType>
           <xpdl2:InitialValue/>
         </xpdl2:DataField>
@@ -114,21 +96,21 @@
           <xpdl2:DataType>
             <xpdl2:RecordType>
               <xpdl2:Member>
-                <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
+                <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
               </xpdl2:Member>
             </xpdl2:RecordType>
           </xpdl2:DataType>
         </xpdl2:DataField>
         <xpdl2:DataField Id="_EqjZILgvEemOCIjjJo2XBg" xpdExt:DisplayName="caseDataCopy" Name="caseDataCopy">
           <xpdl2:DataType>
-            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
+            <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
           </xpdl2:DataType>
         </xpdl2:DataField>
         <xpdl2:DataField Id="_EWQWkLhPEemqr43We23J5Q" xpdExt:DisplayName="caseDataRefArray" Name="caseDataRefArray" IsArray="true" ReadOnly="false">
           <xpdl2:DataType>
             <xpdl2:RecordType>
               <xpdl2:Member>
-                <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
+                <xpdl2:ExternalReference location="simple-cac-data.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pvAOILgtEemOCIjjJo2XBg"/>
               </xpdl2:Member>
             </xpdl2:RecordType>
           </xpdl2:DataType>
@@ -160,21 +142,23 @@
           <xpdl2:Implementation>
             <xpdl2:Task>
               <xpdl2:TaskScript>
-                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
-// these are not support for refactoring
-var criteria = cac_com_example_simplecacdata_CaseData.createCriteria(&quot;attribute1 = 1&quot;);&#xD;
+                <xpdl2:Script ScriptGrammar="JavaScript">var criteria = cac_com_example_simplecacdata_CaseData.createCriteria(&quot;attribute1 = 1&quot;);&#xD;
 cac_com_example_simplecacdata_CaseData.createCriteria(&quot;attribute1 = 1&quot;, 10, 100);&#xD;
-cac_com_example_simplecacdata_CaseData.find(cac_com_example_simplecacdata_CaseData);&#xD;
-cac_com_example_simplecacdata_CaseData.find(cac_com_example_simplecacdata_CaseData, 10, 100);&#xD;
-cac_com_example_simplecacdata_CaseData.findByAutoCaseIdentifier1(123);&#xD;
-cac_com_example_simplecacdata_CaseData.findByCriteria (criteria);&#xD;
-
-// these are supported - some partially (missing pagination parameters)
-cac_com_example_simplecacdata_CaseData.findByCriteria(&quot;attribute1 = 1&quot;);&#xD;
-cac_com_example_simplecacdata_CaseData.findByCriteria(&quot;attribute1 = 1&quot;, 10, 100);&#xD;
+cac_com_example_simplecacdata_CaseData.find(caseDataCopy);&#xD;
+cac_com_example_simplecacdata_CaseData.find(caseDataCopy, 10, 100);&#xD;
 cac_com_example_simplecacdata_CaseData.findAll();&#xD;
 cac_com_example_simplecacdata_CaseData.findAll(10, 100);&#xD;
+cac_com_example_simplecacdata_CaseData.findByAutoCaseIdentifier1(123);&#xD;
+cac_com_example_simplecacdata_CaseData.findByCriteria (criteria);&#xD;
+cac_com_example_simplecacdata_CaseData.findByCriteria(&quot;attribute1 = 1&quot;);&#xD;
+cac_com_example_simplecacdata_CaseData.findByCriteria(&quot;attribute1 = 1&quot;, 10, 100);&#xD;
 cac_com_example_simplecacdata_CaseData.read(caseDataRefArray);&#xD;
+&#xD;
+var orderCriteria = cac_com_example_simplecacdata_Order.createCriteria(&quot;attribute1 = 1&quot;);&#xD;
+caseDataRef.navigateByCriteriaToOrderRef(orderCriteria);&#xD;
+caseDataRef.navigateByCriteriaToOrderRef(&quot;attribute1 = 1&quot;);&#xD;
+caseDataRef.readCaseData();&#xD;
+&#xD;
 </xpdl2:Script>
               </xpdl2:TaskScript>
             </xpdl2:Task>
@@ -206,7 +190,7 @@ cac_com_example_simplecacdata_CaseData.read(caseDataRefArray);&#xD;
   </xpdl2:WorkflowProcesses>
   <xpdl2:ExtendedAttributes>
     <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
-    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="19"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
     <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="19"/>
   </xpdl2:ExtendedAttributes>
 </xpdl2:Package>
