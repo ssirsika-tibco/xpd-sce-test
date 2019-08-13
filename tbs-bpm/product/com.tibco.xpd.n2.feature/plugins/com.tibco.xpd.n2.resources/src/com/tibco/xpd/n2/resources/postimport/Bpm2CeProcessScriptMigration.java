@@ -256,6 +256,12 @@ public class Bpm2CeProcessScriptMigration implements IMigrationCommandInjector {
         // case-access refactors
         result.add(new CaseAccessRefactor(aFieldResolver));
 
+        // scriptUtil refactors
+        Map<String, String> scriptUtilMethods = new HashMap<>();
+        scriptUtilMethods.put("copy", "copy"); //$NON-NLS-1$ //$NON-NLS-2$
+        scriptUtilMethods.put("copyAll", "copyAll"); //$NON-NLS-1$ //$NON-NLS-2$
+        result.add(new ScriptUtilRefactor(scriptUtilMethods));
+
         return result;
     }
 
