@@ -302,7 +302,8 @@ public class RascExportOperation implements IRunnableWithProgress {
                 }
             }
         }
-        return workspacePath.getFile(fileName + ".rasc"); //$NON-NLS-1$
+        fileName.append(".rasc"); //$NON-NLS-1$
+        return workspacePath.getFile(fileName.toString());
     }
 
     /**
