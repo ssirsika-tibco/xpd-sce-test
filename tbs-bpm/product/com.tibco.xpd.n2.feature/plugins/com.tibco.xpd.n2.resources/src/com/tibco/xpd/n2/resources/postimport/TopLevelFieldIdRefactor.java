@@ -100,10 +100,24 @@ class TopLevelFieldIdRefactor implements ScriptRefactorRule {
                 && (methodToken.getType() == JScriptTokenTypes.IDENT)) {
 
             // is method name one that is replaced by CaseAccessRefactor
+
+            // the read() method
             String methodName = methodToken.getText();
-            if ((methodName.equals(CaseAccessRefactor.READ_REF_METHOD))
-                    || (methodName.startsWith(CaseAccessRefactor.NAVIGATE_METHOD))) {
+            if (methodName.equals(CaseAccessRefactor.READ_REF_METHOD)) {
                 return true;
+            }
+
+            // the navigateByCriteriaToXxxx - with string DQL expression
+            if (methodName.startsWith(CaseAccessRefactor.NAVIGATE_METHOD)) {
+                Token openParen = aParser.LT(aIndex + 3);
+                Token paramToken = aParser.LT(aIndex + 4);
+                Token closeParen = aParser.LT(aIndex + 5);
+                // only if it's a string literal parameter
+                if ((openParen != null) && (openParen.getType() == JScriptTokenTypes.LPAREN) //
+                        && (paramToken != null) && (paramToken.getType() == JScriptTokenTypes.STRING_LITERAL) //
+                        && (closeParen != null) && (closeParen.getType() == JScriptTokenTypes.RPAREN)) {
+                    return true;
+                }
             }
         }
 
