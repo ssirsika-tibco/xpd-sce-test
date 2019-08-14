@@ -201,10 +201,6 @@ public class Messages extends NLS {
 
     public static String UMLCreationBOMTypeWizardPage_GroupBOMTypes_label;
 
-    /**
-     * @generated NOT
-     */
-    public static String UMLCreationWizard_cannotAddResourcesForPrecompileProject_message;
 
     /**
      * @generated

@@ -583,26 +583,4 @@ public class BOMGenProjectBuilder extends AbstractIncrementalProjectBuilder {
                         param != null && param.length > 0 ? String
                                 .format(message, param) : message);
     }
-
-    /**
-     * @see com.tibco.xpd.validation.AbstractIncrementalProjectBuilder#shouldRun()
-     * 
-     * @return
-     */
-    @Override
-    protected boolean shouldRun() {
-
-        boolean shouldRun = super.shouldRun();
-        /*
-         * TODO: return true for pre compile project if we want to ensure the
-         * generated artefacts be up to date
-         */
-        IProject project = getProject();
-        boolean isPreCompiled = ProjectUtil.isPrecompiledProject(project);
-        if (isPreCompiled) {
-
-            shouldRun = false;
-        }
-        return shouldRun;
-    }
 }

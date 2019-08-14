@@ -118,12 +118,6 @@ public class XpdResourcesUIConstants {
 
     public static final String ICON_STUDIO_FOR_MAA_FILE = "icons/tibco32.png"; //$NON-NLS-1$
 
-    public static final String ENABLE_PRECOMPILE_IMG_PATH =
-            "icons/EnablePrecompileIcon.png"; //$NON-NLS-1$
-
-    public static final String DISABLE_PRECOMPILE_IMG_PATH =
-            "icons/DisablePrecompileIcon.png"; //$NON-NLS-1$
-
     public static final String[] IMAGES = new String[] {
             ICON_COMPARE_COLLAPSE_ALL, ICON_COMPARE_EXPAND_ALL,
             ICON_INTERNAL_PROPS_COMPARENODE_FAINT,
@@ -137,7 +131,6 @@ public class XpdResourcesUIConstants {
             IMG_SELECTALL_ICON, IMAGE_ADD, IMAGE_DELETE, IMAGE_UP, IMAGE_DOWN,
             IMAGE_EDIT, QUICKFIX_ACTION_ICON, ICON_COMPARATOR_FOLDER_NODE,
             ICON_DEFAULT_COMPARATOR_NODE, ICON_BLANK16,
-            ICON_STUDIO_FOR_MAA_FILE, ENABLE_PRECOMPILE_IMG_PATH,
-            DISABLE_PRECOMPILE_IMG_PATH };
+            ICON_STUDIO_FOR_MAA_FILE };
 
 }

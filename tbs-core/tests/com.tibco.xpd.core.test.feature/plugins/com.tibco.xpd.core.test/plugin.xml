@@ -55,56 +55,7 @@
              id="com.tibco.activity1">
        </defaultEnablement>
 		  </extension>
-    <extension
-          point="com.tibco.xpd.resources.precompileContributor">
-       <contributor
-             class="com.tibco.xpd.core.test.TestEnablePrecompileContributor"
-             contributorId="com.tibco.xpd.core.test.precompile.contributor">
-          <sourceArtifactFilter>
-             <enablement>
-                <or>
-                   <and>
-                      <instanceof
-                            value="org.eclipse.core.resources.IFile">
-                      </instanceof>
-                      <test
-                            property="org.eclipse.core.resources.extension"
-                            value="bom">
-                      </test>
-                      <test
-                            property="com.tibco.xpd.resources.specialfolder.inSpecialFolder"
-                            value="bom">
-                      </test>
-                   </and>
-                   <and>
-                      <instanceof
-                            value="org.eclipse.core.resources.IFile">
-                      </instanceof>
-                      <or>
-                         <test
-                               property="org.eclipse.core.resources.extension"
-                               value="wsdl">
-                         </test>
-                         <test
-                               property="org.eclipse.core.resources.extension"
-                               value="xsd">
-                         </test>
-                      </or>
-                      <test
-                            property="com.tibco.xpd.resources.specialfolder.inSpecialFolder"
-                            value="wsdl">
-                      </test>
-                      <not>
-                         <test
-                               property="com.tibco.xpd.resources.specialfolder.isInGeneratedSpecialFolder"
-                               value="wsdl">
-                         </test>
-                      </not>
-                   </and>
-                </or></enablement>
-          </sourceArtifactFilter>
-       </contributor>
-    </extension>
+    
 		  
 
 </plugin>

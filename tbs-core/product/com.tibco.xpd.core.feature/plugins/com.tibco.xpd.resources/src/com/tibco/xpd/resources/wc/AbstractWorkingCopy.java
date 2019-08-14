@@ -75,7 +75,6 @@ import com.tibco.xpd.resources.internal.indexer.ResourceDependencyIndexer;
 import com.tibco.xpd.resources.internal.indexer.ResourceDependencyIndexer.Type;
 import com.tibco.xpd.resources.internal.wc.WorkingCopyProviderAdapter;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
-import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.resources.util.XpdConsts;
@@ -399,72 +398,6 @@ public abstract class AbstractWorkingCopy
                 @Override
                 public void run(IProgressMonitor monitor) throws CoreException {
                     try {
-
-                        /*
-                         * If Project is in pre-compilation mode, check whether
-                         * the file that backs this working copy should be
-                         * allowed to be changed or not (i.e. effectively read
-                         * only).
-                         * 
-                         * This will Iterate thru pre-compile contributions
-                         * looking at the "SourceArtifact" Expression filter
-                         * element in each.
-                         * 
-                         * Each Expression filter will be passed this working
-                         * copy's file. If any return true it means that this
-                         * working copy is considered to be for a file that can
-                         * affect a derived pre-compiled file AND THEREFORE must
-                         * not be allowed to be changed.
-                         */
-
-                        IProject project = null;
-                        final IResource firstResource = getFirstResource();
-                        if (null != firstResource) {
-
-                            project = firstResource.getProject();
-                        }
-
-                        if (null != project) {
-
-                            if (ProjectUtil.isPrecompiledProject(project)
-                                    && com.tibco.xpd.resources.precompile.PreCompileContributorManager
-                                            .getInstance()
-                                            .isPrecompiledSourceArtefact(
-                                                    firstResource)) {
-
-                                /*
-                                 * AysncExec Message Dialog Resource is read
-                                 * only because it is the source for a
-                                 * pre-compiled artifact.
-                                 */
-                                if (!XpdResourcesPlugin.isInHeadlessMode()) {
-
-                                    Display.getDefault()
-                                            .asyncExec(new Runnable() {
-
-                                                @Override
-                                                public void run() {
-
-                                                    Shell shell = PlatformUI
-                                                            .getWorkbench()
-                                                            .getActiveWorkbenchWindow()
-                                                            .getShell();
-                                                    String msg = String.format(
-                                                            Messages.AbstractWorkingCopy_precompile_project_readonly_msg,
-                                                            firstResource
-                                                                    .getName());
-                                                    MessageDialog
-                                                            .openInformation(
-                                                                    shell,
-                                                                    Messages.AbstractWorkingCopy_precompile_project_readonly_title,
-                                                                    msg);
-                                                }
-                                            });
-                                }
-                                return;
-
-                            }
-                        }
 
                         doSave();
                         doSaveDependencyCache();
@@ -923,16 +856,6 @@ public abstract class AbstractWorkingCopy
                     }
                 } catch (CoreException e) {
                     XpdResourcesPlugin.getDefault().getLogger().error(e);
-                }
-
-                if (ProjectUtil.isPrecompiledProject(project)) {
-
-                    if (com.tibco.xpd.resources.precompile.PreCompileContributorManager
-                            .getInstance()
-                            .isPrecompiledSourceArtefact(firstResource)) {
-
-                        return true;
-                    }
                 }
             }
 

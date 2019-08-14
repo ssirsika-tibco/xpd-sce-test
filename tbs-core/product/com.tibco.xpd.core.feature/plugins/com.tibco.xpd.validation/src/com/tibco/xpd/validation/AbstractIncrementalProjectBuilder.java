@@ -98,17 +98,6 @@ public abstract class AbstractIncrementalProjectBuilder extends
                 return (!isClosing);
             }
         }
-        // IProject project = getProject();
-        //
-        // boolean isPreCompiled = ProjectUtil.isPrecompiledProject(project);
-        // /* Should not run the builder for a pre-compiled project */
-        // if (isPreCompiled) {
-        //
-        // return false;
-        // } else if (isClosing) {
-        //
-        // return !isClosing;
-        // }
         return true;
     }
 

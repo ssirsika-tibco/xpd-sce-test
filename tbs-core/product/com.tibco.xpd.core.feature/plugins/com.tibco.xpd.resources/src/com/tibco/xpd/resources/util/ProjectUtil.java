@@ -74,14 +74,6 @@ public final class ProjectUtil {
     public static final Pattern URI_DISRUPTIVE_CHARACTERS_PATTERN = Pattern
             .compile("[\\#\\%]"); //$NON-NLS-1$
 
-    public static final String REFERRED_PROJECT_IS_NOT_PRECOMPILED_ISSUE_KEY =
-            "precompile_issue_to_be_ignored_in_wizard_page_validation"; //$NON-NLS-1$
-
-    /**
-     * 
-     */
-    public static final String PRE_COMPILED_PROJECT_NATURE_ID =
-            "com.tibco.xpd.resources.preCompiledProjectNature";//$NON-NLS-1$
 
     private static final String PROJECT_NAMES_SEPERATOR = ","; //$NON-NLS-1$
 
@@ -90,21 +82,9 @@ public final class ProjectUtil {
     }
 
     public static boolean isPrecompiledProject(IProject project) {
-
-        boolean isPrecompiledProject = false;
-        try {
-
-            if (project.isAccessible()) {
-
-                isPrecompiledProject =
-                        project.hasNature(PRE_COMPILED_PROJECT_NATURE_ID);
-            }
-
-        } catch (CoreException e) {
-
-            e.printStackTrace();
-        }
-        return isPrecompiledProject;
+        // ACE-2011: Remove Unsupported features. Precompile
+        // Leaving method to preserve API.
+        return false;
     }
 
     /**

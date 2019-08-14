@@ -46,12 +46,6 @@ public class Messages extends NLS {
 
     public static String CustomFeatureManager_java_model_not_found_monitor_message;
 
-    public static String BomCachePrecompileContributor_generating_bds_bundles_monitor_message;
-
-    public static String BomCachePrecompileContributor_caching_bds_bundles_monitor_message;
-
-    public static String BomCachePrecompileContributor_compiling_bds_bundles_monitor_message;
-
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

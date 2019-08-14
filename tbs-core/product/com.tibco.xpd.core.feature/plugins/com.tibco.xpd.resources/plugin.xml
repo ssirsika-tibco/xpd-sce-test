@@ -13,7 +13,6 @@
    
    <extension-point id="workingCopyIndexer" name="Working Copy Indexer" schema="schema/workingCopyIndexer.exsd"/>
    <extension-point id="projectConfigListeners" name="Project Config Listeners" schema="schema/projectConfigListeners.exsd"/>
-   <extension-point id="precompileContributor" name="precompileContributor" schema="schema/precompileContributor.exsd"/>
    
    <extension
          point="org.eclipse.ui.ide.projectNatureImages">
@@ -251,16 +250,6 @@
              properties="hasAssets"
              type="org.eclipse.core.resources.IProject">
        </propertyTester>
-    </extension>
-    <extension
-          id="preCompiledProjectNature"
-          name="%preCompiledProjectNature.title"
-          point="org.eclipse.core.resources.natures">
-       <runtime>
-          <run
-                class="com.tibco.xpd.resources.precompile.PreCompiledProjectNature">
-          </run>
-       </runtime>
     </extension>
    
 </plugin>

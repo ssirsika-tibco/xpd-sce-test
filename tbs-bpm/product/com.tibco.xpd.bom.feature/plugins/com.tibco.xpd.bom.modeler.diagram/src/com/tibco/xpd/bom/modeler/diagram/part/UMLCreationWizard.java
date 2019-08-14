@@ -37,7 +37,6 @@ import com.tibco.xpd.bom.resources.firstclassprofiles.IFirstClassProfileExtensio
 import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.fragments.IFragment;
 import com.tibco.xpd.fragments.wizard.TemplatesWizardPage;
-import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.ui.wizards.newproject.BasicNewXpdResourceWizard;
 
 /**
@@ -423,21 +422,6 @@ public class UMLCreationWizard extends BasicNewXpdResourceWizard implements
                                         .segments()[0]);
             }
 
-            boolean isPrecompiled = false;
-
-            if (null != project) {
-
-                if (ProjectUtil.isPrecompiledProject(project)) {
-
-                    isPrecompiled = true;
-                }
-            }
-            if (isPrecompiled) {
-
-                diagramModelFilePage
-                        .setErrorMessage(Messages.UMLCreationWizard_cannotAddResourcesForPrecompileProject_message);
-                return false;
-            }
 
             /*
              * There is a problem (currently if there are spaces or other

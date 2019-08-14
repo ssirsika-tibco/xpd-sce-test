@@ -146,10 +146,4 @@ public final class Messages extends NLS {
 
     public static String Validator_0;
 
-    public static String SetSvnDeferFileDeleteResolution_SettinSvnProp_message;
-
-    public static String SetSvnDeferFileDeleteResolution_SvnCommitWarning_title;
-
-    public static String SetSvnDeferFileDeleteResolution_SvnCommit_message;
-
 }

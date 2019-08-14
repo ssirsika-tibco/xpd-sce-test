@@ -62,10 +62,6 @@ public class Messages extends NLS {
 
     public static String AbstractWorkingCopy_warning_title;
 
-    public static String AbstractWorkingCopy_precompile_project_readonly_title;
-
-    public static String AbstractWorkingCopy_precompile_project_readonly_msg;
-
     public static String AbstractWorkingCopy_readonly_msg;
 
     public static String BuildJob_buildProject_monitor_shortdesc;
@@ -307,32 +303,6 @@ public class Messages extends NLS {
     public static String ProjectDeleteParticipant_RefactorDeletedProject_label;
 
     public static String ProjectDeleteParticipant_Remove_Dependency_From_Project;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompile_prepareForPrecompile_message;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompile_precompile_message;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompile_postPrecompile_message;
-
-    public static String DisablePreCompileProjectAction_error_message;
-
-    public static String AbstractPreCompileContributor_DisablePrecompile_deleting_resources_error_message;
-
-    public static String EnablePreCompileRunner_deleting_artifacts_message;
-
-    public static String EnablePreCompileRunner_PrecompilingProject_monitor_message;
-
-    public static String EnablePreCompileRunner_user_cancelled_info_message;
-
-    public static String EnablePreCompileRunner_UserCancelled_warning_message_title;
-
-    public static String EnablePreCompileRunner_UserCancelled_warning_message;
-
-    public static String EnablePreCompileRunner_PreCompilationFailed_error_message_title;
-
-    public static String AbstractPreCompileContributor_preservePrecompileArtifacts_no_artifacts_message;
-
-    public static String DisablePreCompileRunner_user_cancelled_info_message;
 
     static {
         // initialize resource bundle

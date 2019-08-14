@@ -3,12 +3,8 @@
  */
 package com.tibco.xpd.validation.internal.validation;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
@@ -18,12 +14,10 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 
 import com.tibco.xpd.resources.XpdResourcesPlugin;
-import com.tibco.xpd.resources.precompile.PreCompileUtil;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.projectconfig.SpecialFolders;
 import com.tibco.xpd.resources.util.CyclicDependencyException;
-import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.validation.ValidationActivator;
 import com.tibco.xpd.validation.internal.ValidationManager;
@@ -74,11 +68,6 @@ public class ProjectValidator {
 
     private final IssueInfo referencedProject_closed_issue;
 
-    private static final String REFERRED_PROJECT_PRE_COMPILE_ISSUE_ID =
-            "referredProject.precompile.notset.issue"; //$NON-NLS-1$
-
-    private final IssueInfo referredProject_preCompile_notSet_issue;
-
     /**
      * Constructor.
      * 
@@ -103,11 +92,6 @@ public class ProjectValidator {
                 engine.getIssueInfo(SPECIAL_FOLDER_MISSING_ISSUE_ID);
         Assert.isNotNull(specialFolderMissing_issue,
                 String.format("Issue with id '%s' not found.", SPECIAL_FOLDER_MISSING_ISSUE_ID)); //$NON-NLS-1$
-        referredProject_preCompile_notSet_issue =
-                engine.getIssueInfo(REFERRED_PROJECT_PRE_COMPILE_ISSUE_ID);
-        Assert.isNotNull(referredProject_preCompile_notSet_issue,
-                String.format("Issue with id '%s' not found.", //$NON-NLS-1$
-                        REFERRED_PROJECT_PRE_COMPILE_ISSUE_ID));
     }
 
     /**
@@ -143,12 +127,6 @@ public class ProjectValidator {
                     validateProjectReferences(project);
 
                     /*
-                     * Validate if the pre-compile flag is set on all the
-                     * referenced/referencing projects for this project
-                     */
-                    validatePreCompileOnProjectReferences(project);
-
-                    /*
                      * Validate that all special folders are present
                      */
                     validateSpecialFolders(project);
@@ -174,53 +152,6 @@ public class ProjectValidator {
                                 : referencedProject_notFound_issue,
                         ref,
                         ref.getName());
-            }
-        }
-    }
-
-    /**
-     * Validate the referenced and referencing projects if the pre-compile flag
-     * is set
-     * 
-     * @param project
-     * @throws CoreException
-     */
-    private void validatePreCompileOnProjectReferences(IProject project)
-            throws CoreException {
-
-        boolean isPreCompiled = ProjectUtil.isPrecompiledProject(project);
-
-        List<IResource> precompileResources = new ArrayList<IResource>();
-        PreCompileUtil.getEnabledSourceArtifacts(project, precompileResources);
-
-        if (!isPreCompiled && !precompileResources.isEmpty()) {
-
-            /*
-             * This project is not pre-compiled but is being referenced from a
-             * pre-compiled project. So get all referencing projects and if the
-             * referencing project is pre-compiled then raise a problem marker
-             */
-            Set<IProject> referencingProjects =
-                    ProjectUtil.getReferencingProjectsHierarchy(project,
-                            new HashSet<IProject>());
-            Set<IProject> allProjects = new HashSet<IProject>();
-            allProjects.addAll(referencingProjects);
-            /* Go thru all the references and check if pre-compile flag is set. */
-            for (IProject refdProject : allProjects) {
-
-                boolean preCompileSetOnRefdProject =
-                        ProjectUtil.isPrecompiledProject(refdProject);
-                /*
-                 * Referencing project IS pre-compile but this is NOT so raise a
-                 * problem
-                 */
-                if (preCompileSetOnRefdProject) {
-
-                    createMarkerForPrecompileIssue(project,
-                            referredProject_preCompile_notSet_issue,
-                            refdProject,
-                            refdProject.getName());
-                }
             }
         }
     }
@@ -253,56 +184,6 @@ public class ProjectValidator {
                 }
             }
         }
-    }
-
-    /**
-     * Create a marker with the given issue on the project. This is different
-     * from createMarker() in that this method adds a key to the marker that
-     * uniquely represents this marker that can be used in other places to
-     * analyze or ignore this marker (for instance in EnablePrecompileWizard
-     * class while validating in the wizard page)
-     * 
-     * @param project
-     * @param issue
-     * @param refProject
-     *            name of the referenced project, can be <code>null</code>.
-     * @param args
-     *            additional arguments to add to the issue message
-     * @return
-     * @throws CoreException
-     */
-    private IMarker createMarkerForPrecompileIssue(IProject project,
-            IssueInfo issue, IProject refProject, Object... args)
-            throws CoreException {
-
-        Map<String, Object> attributes = new HashMap<String, Object>();
-        String msg;
-        if (args.length > 0) {
-
-            msg = String.format(issue.getMessage(), args);
-        } else {
-
-            msg = issue.getMessage();
-        }
-        attributes.put(IMarker.MESSAGE, msg);
-        attributes.put(IMarker.SEVERITY, issue.getSeverity());
-        attributes.put(IMarker.LOCATION, "/"); //$NON-NLS-1$
-        attributes.put(IIssue.ID, issue.getId());
-        /*
-         * Additional key being added to the marker so that this key can be used
-         * for analysis in other validations
-         */
-        attributes
-                .put(ProjectUtil.REFERRED_PROJECT_IS_NOT_PRECOMPILED_ISSUE_KEY,
-                        ProjectUtil.REFERRED_PROJECT_IS_NOT_PRECOMPILED_ISSUE_KEY);
-        if (refProject != null) {
-
-            attributes.put(ATT_REFPROJ, refProject.getName());
-        }
-
-        IMarker marker = project.createMarker(MARKER_ID);
-        marker.setAttributes(attributes);
-        return marker;
     }
 
     /**

@@ -35,7 +35,6 @@ import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.resources.projectconfig.ProjectConfig;
 import com.tibco.xpd.resources.projectconfig.ProjectDetails;
-import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.resources.util.WorkingCopyUtil;
 import com.tibco.xpd.validation.AbstractIncrementalProjectBuilder;
@@ -338,27 +337,5 @@ public class BusinessDataVersionBuilder extends
             return isAffectingDelta;
         }
 
-    }
-
-    /**
-     * @see com.tibco.xpd.validation.AbstractIncrementalProjectBuilder#shouldRun()
-     * 
-     * @return
-     */
-    @Override
-    protected boolean shouldRun() {
-
-        boolean shouldRun = super.shouldRun();
-        /*
-         * TODO: return true for pre compile project if we want to ensure the
-         * generated artefacts be up to date
-         */
-        IProject project = getProject();
-        boolean isPreCompiled = ProjectUtil.isPrecompiledProject(project);
-        if (isPreCompiled) {
-
-            shouldRun = false;
-        }
-        return shouldRun;
     }
 }

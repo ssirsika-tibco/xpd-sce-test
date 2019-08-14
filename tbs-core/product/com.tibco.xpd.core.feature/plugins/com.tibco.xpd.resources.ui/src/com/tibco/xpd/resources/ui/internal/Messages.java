@@ -770,45 +770,4 @@ public class Messages extends NLS {
 
     public static String DiagramGeneralPreferencePage_DiagramPreferencePage_Label;
 
-    public static String EnablePrecompileProjectAction_EnablePrecompileWizard_title;
-
-    public static String EnablePrecompileProjectAction_EnablePrecompileWizard_desc;
-
-    public static String EnablePreCompileProjectAction_EnablePrecompileProjectPage_enable_selectedProjectPreCompile_label;
-
-    public static String EnablePreCompileProjectAction_EnablePrecompileProjectPage_enable_RefProjectsPreCompile_label;
-
-    public static String EnablePreCompileProjectAction_EnablePrecompileProjectPage_configureRefProjectsToPreCompile;
-
-    public static String EnablePreCompileProjectAction_EnablePrecompileProjectPage_disallowNewResources_message;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompileProjectPage_error_message;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompileProjectPage_error_message_label;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompileProjectPage_RefProjectCannotBePrecompiled_error_message_label;
-
-    public static String EnablePreCompileProjectAction_EnablePreCompileProjectPage_SelectedProjectCannotBePrecompiled_error_message_label;
-
-    public static String DisablePreCompileProjectAction_CleanAndBuildProject_message;
-
-    public static String DisablePrecompileProjectAction_DisablePrecompileWizard_title;
-
-    public static String DisablePrecompileProjectAction_DisablePrecompileWizard_desc;
-
-    public static String DisablePreCompileProjectAction_DisablePrecompileProjectPage_disable_selectedProjectPreCompile_label;
-
-    public static String DisablePreCompileProjectAction_DisablePrecompileProjectPage_disable_preCompile_label;
-
-    public static String DisablePreCompileProjectAction_DisablePrecompileProjectPage_configureReferencingProjectsToDisablePreCompile;
-
-    public static String PreCompileProject_targetResourceNotFound_error_message;
-
-    public static String PreCompileProject_menu_label;
-
-    public static String PreCompileProject_menu_enable_menu_label;
-
-    public static String PreCompileProject_menu_disable_menu_label;
-
-    public static String PrecompiledArtifactDecorator_label_decoration_text;
 }
