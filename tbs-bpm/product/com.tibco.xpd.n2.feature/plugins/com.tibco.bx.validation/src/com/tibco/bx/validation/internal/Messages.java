@@ -292,6 +292,14 @@ public class Messages extends NLS {
 
     public static String N2JScriptDotExpressionValidator_InstantiatingAbstractTypesNotAllowed;
 
+    public static String N2JScriptDotExpressionValidator_invalidAssociationLinkName;
+
+    public static String N2JScriptDotExpressionValidator_invalidCaseTypeName;
+
+    public static String N2JScriptDotExpressionValidator_nonLiteralAssociationLinkName;
+
+    public static String N2JScriptDotExpressionValidator_nonLiteralCaseTypeName;
+
     public static String N2JScriptReturnTypeValidator_ReturnLastLineOnly;
 
     public static String MapFromErrorPrefix_label;

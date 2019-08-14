@@ -318,13 +318,13 @@
           <xpdl2:Implementation>
             <xpdl2:Task>
               <xpdl2:TaskScript>
-                <xpdl2:Script ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2);&#xD;
-bpm.caseData.findByCaseIdentifier('','');&#xD;
-bpm.caseData.findByCriteria('','',1,2);&#xD;
-bpm.caseData.findBySimpleSearch('','',1,2);&#xD;
-bpm.caseData.navigateAll(data.CaseRef,'',1,2);&#xD;
-bpm.caseData.navigateByCriteria(data.CaseRef,'','',1,2);&#xD;
-bpm.caseData.navigateBySimpleSearch(data.CaseRef,'','',1,2);&#xD;
+                <xpdl2:Script ScriptGrammar="JavaScript">bpm.caseData.findAll('com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.findByCaseIdentifier('','com.example.data.MyCase');&#xD;
+bpm.caseData.findByCriteria('','com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.findBySimpleSearch('','com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.navigateAll(data.CaseRef,'refAssocCase1',1,2);&#xD;
+bpm.caseData.navigateByCriteria(data.CaseRef,'refAssocCase1','',1,2);&#xD;
+bpm.caseData.navigateBySimpleSearch(data.CaseRef,'refAssocCase1','',1,2);&#xD;
 bpm.caseData.read(data.CaseRef);&#xD;
 bpm.caseData.readAll(data.CaseRefArray);&#xD;
 </xpdl2:Script>
@@ -351,13 +351,13 @@ bpm.caseData.readAll(data.CaseRefArray);&#xD;
                 <xpdl2:MessageIn Id="_KxanQKyKEemv98CQs6EUBg"/>
                 <xpdl2:MessageOut Id="_KxanQayKEemv98CQs6EUBg"/>
                 <xpdExt:UserTaskScripts>
-                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">bpm.caseData.findAll('',1,2);&#xD;
-bpm.caseData.findByCaseIdentifier('','');&#xD;
-bpm.caseData.findByCriteria('','',1,2);&#xD;
-bpm.caseData.findBySimpleSearch('','',1,2);&#xD;
-bpm.caseData.navigateAll(data.CaseRef,'',1,2);&#xD;
-bpm.caseData.navigateByCriteria(data.CaseRef,'','',1,2);&#xD;
-bpm.caseData.navigateBySimpleSearch(data.CaseRef,'','',1,2);&#xD;
+                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">bpm.caseData.findAll('com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.findByCaseIdentifier('','com.example.data.MyCase');&#xD;
+bpm.caseData.findByCriteria('','com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.findBySimpleSearch('','com.example.data.MyCase',1,2);&#xD;
+bpm.caseData.navigateAll(data.CaseRef,'refAssocCase1',1,2);&#xD;
+bpm.caseData.navigateByCriteria(data.CaseRef,'refAssocCase1','',1,2);&#xD;
+bpm.caseData.navigateBySimpleSearch(data.CaseRef,'refAssocCase1','',1,2);&#xD;
 bpm.caseData.read(data.CaseRef);&#xD;
 bpm.caseData.readAll(data.CaseRefArray);&#xD;
 </xpdExt:ScheduleScript>

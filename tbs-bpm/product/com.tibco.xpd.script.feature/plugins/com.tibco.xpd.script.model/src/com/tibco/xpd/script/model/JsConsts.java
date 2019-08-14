@@ -66,6 +66,10 @@ public class JsConsts {
 
     public static final String CASE_REFERENCE = "CaseReference"; //$NON-NLS-1$
 
+    public static final String CASE_TYPE_NAME = "CaseTypeName"; //$NON-NLS-1$
+
+    public static final String ASSOCIATION_LINK_NAME = "AssociationLinkName"; //$NON-NLS-1$
+
     public static final String E = "E"; //$NON-NLS-1$
 
     public static final String BOM_CLASS = "bom.Class"; //$NON-NLS-1$

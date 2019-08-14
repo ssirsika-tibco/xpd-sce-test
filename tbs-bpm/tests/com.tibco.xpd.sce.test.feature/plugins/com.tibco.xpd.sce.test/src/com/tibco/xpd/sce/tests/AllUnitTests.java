@@ -5,6 +5,7 @@
 package com.tibco.xpd.sce.tests;
 
 import com.tibco.xpd.sce.tests.cdm.transform.AllBomCdmTransformTests;
+import com.tibco.xpd.sce.tests.javascript.CaseDataLiteralParamTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataScriptGenerationTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataTaskInvalidTest;
 import com.tibco.xpd.sce.tests.javascript.CaseDataTaskTest;
@@ -65,6 +66,7 @@ public class AllUnitTests {
         suite.addTestSuite(CaseDataTaskTest.class);
         suite.addTestSuite(CaseDataTaskInvalidTest.class);
         suite.addTestSuite(CaseDataScriptGenerationTest.class);
+        suite.addTestSuite(CaseDataLiteralParamTest.class);
 
         return suite;
     }
