@@ -233,13 +233,17 @@
 
 // Function for user defined mapping script: Script1
 function _f1_() { 
-    return Process.getDescription() + &quot;ScriptTask&quot;;
+    return bpm.process.getDescription() + &quot;ScriptTask&quot;;
 }
 $_f1_result = _f1_();
-ScriptTaskL = $_f1_result;
+data.ScriptTaskL = $_f1_result;
 
 // Map from 'ScriptTaskL' to 'ScriptTaskR'
-ScriptTaskR = ScriptTaskL;
+if (data != null) {
+    data.ScriptTaskR = data.ScriptTaskL;
+} else {
+    data.ScriptTaskR = null;
+}
 
 
 </xpdl2:Description>
@@ -254,7 +258,7 @@ ScriptTaskR = ScriptTaskL;
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="ScriptTaskL">
                         <xpdExt:ScriptInformation Id="_9s1pgfTBEeS5Sdtn2HT3mA" Name="Script1">
-                          <xpdExt:Expression ScriptGrammar="JavaScript">return Process.getDescription() + &quot;ScriptTask&quot;;</xpdExt:Expression>
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription() + &quot;ScriptTask&quot;;</xpdExt:Expression>
                         </xpdExt:ScriptInformation>
                         <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                       </xpdExt:DataMapping>
@@ -279,13 +283,17 @@ ScriptTaskR = ScriptTaskL;
 
 // Function for user defined mapping script: Script1
 function _f1_() { 
-    return Process.getDescription() + &quot;Initiate&quot;;
+    return bpm.process.getDescription() + &quot;Initiate&quot;;
 }
 $_f1_result = _f1_();
-InitScriptL = $_f1_result;
+data.InitScriptL = $_f1_result;
 
 // Map from 'InitScriptL' to 'InitScriptR'
-InitScriptR = InitScriptL;
+if (data != null) {
+    data.InitScriptR = data.InitScriptL;
+} else {
+    data.InitScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -308,7 +316,7 @@ InitScriptR = InitScriptL;
                     </xpdExt:DataMapping>
                     <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessData.DataMapperContent" Direction="IN" Formal="InitScriptL">
                       <xpdExt:ScriptInformation Id="_PCjYIfTCEeS5Sdtn2HT3mA" Name="Script1">
-                        <xpdExt:Expression ScriptGrammar="JavaScript">return Process.getDescription() + &quot;Initiate&quot;;</xpdExt:Expression>
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription() + &quot;Initiate&quot;;</xpdExt:Expression>
                       </xpdExt:ScriptInformation>
                       <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                     </xpdExt:DataMapping>
@@ -323,14 +331,17 @@ InitScriptR = InitScriptL;
 
 // Function for user defined mapping script: Script1
 function _f1_() { 
-    return Process.getDescription() + &quot;Complete&quot;;
+    return bpm.process.getDescription() + &quot;Complete&quot;;
 }
 $_f1_result = _f1_();
-CompleteScriptL = $_f1_result;
+data.CompleteScriptL = $_f1_result;
 
 // Map from 'CompleteScriptL' to 'CompleteScriptR'
-CompleteScriptR = CompleteScriptL;
-
+if (data != null) {
+    data.CompleteScriptR = data.CompleteScriptL;
+} else {
+    data.CompleteScriptR = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -352,7 +363,7 @@ CompleteScriptR = CompleteScriptL;
                     </xpdExt:DataMapping>
                     <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessData.DataMapperContent" Direction="IN" Formal="CompleteScriptL">
                       <xpdExt:ScriptInformation Id="_bMu2APTCEeS5Sdtn2HT3mA" Name="Script1">
-                        <xpdExt:Expression ScriptGrammar="JavaScript">return Process.getDescription() + &quot;Complete&quot;;</xpdExt:Expression>
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription() + &quot;Complete&quot;;</xpdExt:Expression>
                       </xpdExt:ScriptInformation>
                       <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                     </xpdExt:DataMapping>
@@ -367,13 +378,17 @@ CompleteScriptR = CompleteScriptL;
 
 // Function for user defined mapping script: Script1
 function _f1_() { 
-    return Process.getDescription() + &quot;Timeout&quot;;
+    return bpm.process.getDescription() + &quot;Timeout&quot;;
 }
 $_f1_result = _f1_();
-TimeoutScriptL = $_f1_result;
+data.TimeoutScriptL = $_f1_result;
 
 // Map from 'TimeoutScriptL' to 'TimeoutScriptR'
-TimeoutScriptR = TimeoutScriptL;
+if (data != null) {
+    data.TimeoutScriptR = data.TimeoutScriptL;
+} else {
+    data.TimeoutScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -396,7 +411,7 @@ TimeoutScriptR = TimeoutScriptL;
                     </xpdExt:DataMapping>
                     <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessData.DataMapperContent" Direction="IN" Formal="TimeoutScriptL">
                       <xpdExt:ScriptInformation Id="_hqKzgPTCEeS5Sdtn2HT3mA" Name="Script1">
-                        <xpdExt:Expression ScriptGrammar="JavaScript">return Process.getDescription() + &quot;Timeout&quot;;</xpdExt:Expression>
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription() + &quot;Timeout&quot;;</xpdExt:Expression>
                       </xpdExt:ScriptInformation>
                       <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                     </xpdExt:DataMapping>
@@ -411,13 +426,17 @@ TimeoutScriptR = TimeoutScriptL;
 
 // Function for user defined mapping script: Script1
 function _f1_() { 
-    return Process.getDescription() + &quot;Cancel&quot;;
+    return bpm.process.getDescription() + &quot;Cancel&quot;;
 }
 $_f1_result = _f1_();
-CancelScriptL = $_f1_result;
+data.CancelScriptL = $_f1_result;
 
 // Map from 'CancelScriptL' to 'CancelScriptR'
-CancelScriptR = CancelScriptL;
+if (data != null) {
+    data.CancelScriptR = data.CancelScriptL;
+} else {
+    data.CancelScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -437,7 +456,7 @@ CancelScriptR = CancelScriptL;
                   <xpdExt:DataMappings>
                     <xpdExt:DataMapping xpdExt:TargetContributorId="ProcessData.DataMapperContent" Direction="IN" Formal="CancelScriptL">
                       <xpdExt:ScriptInformation Id="_o0qrUvTCEeS5Sdtn2HT3mA" Name="Script1">
-                        <xpdExt:Expression ScriptGrammar="JavaScript">return Process.getDescription() + &quot;Cancel&quot;;</xpdExt:Expression>
+                        <xpdExt:Expression ScriptGrammar="JavaScript">return bpm.process.getDescription() + &quot;Cancel&quot;;</xpdExt:Expression>
                       </xpdExt:ScriptInformation>
                       <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
                     </xpdExt:DataMapping>
@@ -458,10 +477,14 @@ function _f1_() {
     return &quot;Schedule&quot;;
 }
 $_f1_result = _f1_();
-ScheduleScriptL = $_f1_result;
+data.ScheduleScriptL = $_f1_result;
 
 // Map from 'ScheduleScriptL' to 'ScheduleScriptR'
-ScheduleScriptR = ScheduleScriptL;
+if (data != null) {
+    data.ScheduleScriptR = data.ScheduleScriptL;
+} else {
+    data.ScheduleScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -515,10 +538,14 @@ function _f1_() {
     return &quot;ReSchedule&quot;;
 }
 $_f1_result = _f1_();
-RescheduleScriptL = $_f1_result;
+data.RescheduleScriptL = $_f1_result;
 
 // Map from 'RescheduleScriptL' to 'RescheduleScriptR'
-RescheduleScriptR = RescheduleScriptL;
+if (data != null) {
+    data.RescheduleScriptR = data.RescheduleScriptL;
+} else {
+    data.RescheduleScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -572,10 +599,14 @@ function _f1_() {
     return &quot;Open&quot;;
 }
 $_f1_result = _f1_();
-OpenScriptL = $_f1_result;
+data.OpenScriptL = $_f1_result;
 
 // Map from 'OpenScriptL' to 'OpenScriptR'
-OpenScriptR = OpenScriptL;
+if (data != null) {
+    data.OpenScriptR = data.OpenScriptL;
+} else {
+    data.OpenScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -629,10 +660,14 @@ function _f1_() {
     return &quot;Close&quot;;
 }
 $_f1_result = _f1_();
-CloseScriptL = $_f1_result;
+data.CloseScriptL = $_f1_result;
 
 // Map from 'CloseScriptL' to 'CloseScriptR'
-CloseScriptR = CloseScriptL;
+if (data != null) {
+    data.CloseScriptR = data.CloseScriptL;
+} else {
+    data.CloseScriptR = null;
+}
 
 
 </xpdl2:Description>
@@ -686,10 +721,14 @@ function _f1_() {
     return &quot;Submit&quot;;
 }
 $_f1_result = _f1_();
-SubmitScriptL = $_f1_result;
+data.SubmitScriptL = $_f1_result;
 
 // Map from 'SubmitScriptL' to 'SubmitScriptR'
-SubmitScriptR = SubmitScriptL;
+if (data != null) {
+    data.SubmitScriptR = data.SubmitScriptL;
+} else {
+    data.SubmitScriptR = null;
+}
 
 
 </xpdl2:Description>

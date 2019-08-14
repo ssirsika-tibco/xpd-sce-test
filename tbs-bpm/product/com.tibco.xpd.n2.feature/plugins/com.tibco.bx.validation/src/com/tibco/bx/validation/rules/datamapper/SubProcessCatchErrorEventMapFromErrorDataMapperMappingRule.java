@@ -4,8 +4,6 @@
 
 package com.tibco.bx.validation.rules.datamapper;
 
-import java.util.Collections;
-
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.bx.validation.internal.Messages;
@@ -82,29 +80,9 @@ public class SubProcessCatchErrorEventMapFromErrorDataMapperMappingRule extends
                                     .objectIsApplicable(eo));
 
                     /*
-                     * XPD-8168: We don't support DataMapper for multi-instance
-                     * sub-process (it's just too damned complex right now) so
-                     * forget all the other rules if that is the case.
-                     * 
-                     * Note that the special handling for multi-inst use case in
-                     * the rest of this class has been left in place so that if
-                     * we do decide to implement this then we just need to
-                     * remove the restriction here.
-                     * 
-                     * We want to raise this on ALL catch errors on
-                     * multi-sub-proc EVEN catch web-service, because the script
-                     * generation won't cope with allocating into tgarget arrays
-                     * from single instance fault data.
+                     * Sid ACE-2088 Support datam mapper for multi-instance
+                     * sub-process.
                      */
-                    if (attachedToTask.getLoop() != null
-                            && attachedToTask.getLoop().getLoopType() != null) {
-                        addIssue("bx.dataMapperNotgSupportForMultiInstSubProc", //$NON-NLS-1$
-                                activity,
-                                Collections
-                                        .singletonList(getMappingTypeDescription(activity)));
-
-                        ret = false;
-                    }
 
                     return ret;
                 }

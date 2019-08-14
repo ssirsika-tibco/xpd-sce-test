@@ -1207,11 +1207,5 @@ public class RestScriptGeneratorInfoProvider
         UNASSIGNED, JSON, UNPROCESSED_TEXT
     }
 
-    @Override
-    public String getSingleToMultiInstanceAssignmentStatement(Object targetItem,
-            String rhsObjectStatement, String jsVarAlias) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 }

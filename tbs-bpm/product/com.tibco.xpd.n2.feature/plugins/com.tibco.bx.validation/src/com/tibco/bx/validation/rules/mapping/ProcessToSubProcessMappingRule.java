@@ -4,12 +4,12 @@
 
 package com.tibco.bx.validation.rules.mapping;
 
-import java.util.Collections;
-
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.bx.validation.rules.datamapper.AbstractN2DataMapperMappingRule;
+import com.tibco.xpd.datamapper.infoProviders.ContributableDataMapperInfoProvider;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
@@ -33,6 +33,8 @@ public class ProcessToSubProcessMappingRule extends
      * Class level field to track the activity being validated.
      */
     Activity act;
+
+    private ContributableDataMapperInfoProvider targetInfoProvider;
 
     /**
      * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#objectIsApplicable(org.eclipse.emf.ecore.EObject)
@@ -70,27 +72,11 @@ public class ProcessToSubProcessMappingRule extends
                  */
                 if (!SubProcUtil.isSubProcessImplementation(act)) {
                     ret = false;
-                } else {
-
-                    /*
-                     * XPD-8168: We don't support DataMapper for multi-instance
-                     * sub-process (it's just too damned complex right now) so
-                     * forget all the other rules if that is the case.
-                     * 
-                     * Note that the special handling for multi-inst use case in
-                     * the rest of this class has been left in place so that if
-                     * we do decide to implement this then we just need to
-                     * remove the restriction here.
-                     */
-                    if (isMultiInstTask()) {
-                        addIssue("bx.dataMapperNotgSupportForMultiInstSubProc", //$NON-NLS-1$
-                                act,
-                                Collections
-                                        .singletonList(getMappingTypeDescription(act)));
-
-                        ret = false;
-                    }
                 }
+
+                /*
+                 * Sid ACE-2088 Support datammapper for multi-instance sub-process.
+                 */
             }
         }
 
@@ -167,6 +153,18 @@ public class ProcessToSubProcessMappingRule extends
             Object singleInstanceTarget) {
 
         if (isMultiInstTask()) {
+
+            /* Sid ACE-2088 Multi-single is only supported if target single is NOT in an array ancestor. */
+            ITreeContentProvider contentProvider = targetInfoProvider.getContentProvider();
+
+            while (singleInstanceTarget != null) {
+                if (targetInfoProvider.isMultiInstance(singleInstanceTarget)) {
+                    return false;
+                }
+
+                singleInstanceTarget = contentProvider.getParent(singleInstanceTarget);
+            }
+
             return true;
         }
 
@@ -192,4 +190,16 @@ public class ProcessToSubProcessMappingRule extends
         return false;
     }
 
+    /**
+     * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#createTargetInfoProvider(org.eclipse.emf.ecore.EObject)
+     * 
+     * @param objectToValidate
+     * @return
+     */
+    @Override
+    protected ContributableDataMapperInfoProvider createTargetInfoProvider(EObject objectToValidate) {
+        targetInfoProvider = super.createTargetInfoProvider(objectToValidate);
+
+        return targetInfoProvider;
+    }
 }

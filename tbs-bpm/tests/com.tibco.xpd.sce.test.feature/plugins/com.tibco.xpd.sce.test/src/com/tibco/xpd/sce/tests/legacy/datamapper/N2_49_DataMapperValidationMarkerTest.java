@@ -1,7 +1,7 @@
 /**
  * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
  */
-package com.tibco.xpd.n2.test.validations;
+package com.tibco.xpd.sce.tests.legacy.datamapper;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
@@ -27,7 +27,6 @@ public class N2_49_DataMapperValidationMarkerTest extends
 
     public N2_49_DataMapperValidationMarkerTest() {
         super(true);
-        cleanProjectAtEnd = false;
     }
 
     /**
@@ -153,7 +152,7 @@ public class N2_49_DataMapperValidationMarkerTest extends
 
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.n2.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
     }
 
     @Override
@@ -161,9 +160,11 @@ public class N2_49_DataMapperValidationMarkerTest extends
         TestResourceInfo[] testResources =
                 new TestResourceInfo[] {
                         new TestResourceInfo(
-                                "resources/Data Mapper Validation Marker", "DataMapperValidationTest/Business Objects{bom}/DataMapperValidationTest.bom"), //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/N249_Data Mapper Validation Marker", //$NON-NLS-1$
+                                "DataMapperValidationTest/Business Objects{bom}/DataMapperValidationTest.bom"), //$NON-NLS-1$
                         new TestResourceInfo(
-                                "resources/Data Mapper Validation Marker", "DataMapperValidationTest/Process Packages{processes}/DataMapperValidationTest.xpdl") //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/N249_Data Mapper Validation Marker", //$NON-NLS-1$
+                                "DataMapperValidationTest/Process Packages{processes}/DataMapperValidationTest.xpdl") //$NON-NLS-1$
                 };
 
         return testResources;

@@ -4,20 +4,26 @@
 
 package com.tibco.bx.validation.rules.mapping;
 
-import java.util.Collections;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.bx.validation.rules.datamapper.AbstractN2DataMapperMappingRule;
+import com.tibco.xpd.datamapper.infoProviders.ContributableDataMapperInfoProvider;
+import com.tibco.xpd.datamapper.infoProviders.WrappedContributedContent;
 import com.tibco.xpd.datamapper.scripts.IScriptDataMapperProvider;
+import com.tibco.xpd.mapper.MapperContentProvider;
 import com.tibco.xpd.mapper.MappingDirection;
 import com.tibco.xpd.processeditor.xpdl2.properties.script.ProcessScriptContextConstants;
 import com.tibco.xpd.processeditor.xpdl2.util.SubProcUtil;
 import com.tibco.xpd.subprocess.datamapper.SubProcessDataMapperConstants;
 import com.tibco.xpd.subprocess.datamapper.SubProcessScriptDataMapperProvider;
+import com.tibco.xpd.xpdExtension.DataMapperArrayInflation;
+import com.tibco.xpd.xpdExtension.DataMapperArrayInflationType;
+import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Loop;
+import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
 /**
  * Rules applicable to Sub-Process to Process mappings.
@@ -28,10 +34,20 @@ import com.tibco.xpd.xpdl2.Loop;
 public class SubProcessToProcessMappingRule extends
         AbstractN2DataMapperMappingRule {
 
+    /*
+     * Sub-process instances can complete in any order so output must be appended to target list. For single to
+     * multi-instance output mappings, target list must be configured 'Append to target list'.
+     */
+    public static final String ACE_ISSUE_SINGLE2MULTI_MUST_BE_APPEND = "ace.single2multi.mapping.target.must.be.append"; //$NON-NLS-1$
+
     /**
      * Class level field to track the activity being validated.
      */
     Activity act;
+
+    private ContributableDataMapperInfoProvider sourceInfoProvider;
+
+    private ContributableDataMapperInfoProvider targetInfoProvider;
 
     /**
      * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#objectIsApplicable(org.eclipse.emf.ecore.EObject)
@@ -68,27 +84,12 @@ public class SubProcessToProcessMappingRule extends
                  */
                 if (!SubProcUtil.isSubProcessImplementation(act)) {
                     ret = false;
-                } else {
-
-                    /*
-                     * XPD-8168: We don't support DataMapper for multi-instance
-                     * sub-process (it's just too damned complex right now) so
-                     * forget all the other rules if that is the case.
-                     * 
-                     * Note that the special handling for multi-inst use case in
-                     * the rest of this class has been left in place so that if
-                     * we do decide to implement this then we just need to
-                     * remove the restriction here.
-                     */
-                    if (isMultiInstTask()) {
-                        addIssue("bx.dataMapperNotgSupportForMultiInstSubProc", //$NON-NLS-1$
-                                act,
-                                Collections
-                                        .singletonList(getMappingTypeDescription(act)));
-
-                        ret = false;
-                    }
                 }
+
+                /*
+                 * Sid ACE-2088 Support datammapper for multi-instance sub-process.
+                 */
+
             }
         }
 
@@ -191,5 +192,107 @@ public class SubProcessToProcessMappingRule extends
             }
         }
         return false;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#performAdditionalMappingValidation(java.lang.Object,
+     *      java.lang.Object, java.lang.Object)
+     *
+     * @param mapping
+     * @param sourceObjectInTree
+     * @param targetObjectInTree
+     */
+    @Override
+    protected void performAdditionalMappingValidation(Object mapping, Object sourceObjectInTree,
+            Object targetObjectInTree) {
+        super.performAdditionalMappingValidation(mapping, sourceObjectInTree, targetObjectInTree);
+
+        /*
+         * Sid ACE-2088 - In AMX BPM the reverse is true and you can map from a single instance parameter into an array
+         * field in the calling process. The array element assigned in the target field corresponds to the task instance
+         * index. IF sub-process instances complete in non-sequential order then the target field is filled with arrays
+         * to ensure that the matching index is assigned.
+         * 
+         * In ACE this is no longer true because ACE data system does not allow arrays with null elements. You can still
+         * map from a single instance parameter into an array field in the calling process. However, in ACE the semantic
+         * used for the target array is simply to append the source value onto the end of the target array. A validation
+         * will be introduced to enforce the use of 'append to target list' mapping strategy on single->multi mappings
+         * (and also make clear that sub-process may complete in any order).
+         * 
+         * So if mapping single->multi in a multi-instance task then ensure target root array is set to 'append'
+         * strategy.
+         */
+        ScriptDataMapper sdm = getScriptDataMapper(mapping);
+
+        if (sdm != null && isMultiInstTask() && targetObjectInTree instanceof WrappedContributedContent) {
+            
+            if (!sourceInfoProvider.isMultiInstance(sourceObjectInTree)
+                    && targetInfoProvider.isMultiInstance(targetObjectInTree)) {
+                boolean isConfiguredAsAppend = false;
+
+                /* It's a single->multi mapping, ensure that the target array is config'd as append */
+                String arraypath = getTargetPath(targetInfoProvider, mapping);
+
+                EList<DataMapperArrayInflation> arrayInflationType = sdm.getArrayInflationType();
+
+                for (DataMapperArrayInflation dataMapperArrayInflation : arrayInflationType) {
+                    if (arraypath.equals(dataMapperArrayInflation.getPath())) {
+                        /* This is the config for the target of this mapping - check the type */
+                        if (DataMapperArrayInflationType.APPEND_LIST
+                                .equals(dataMapperArrayInflation.getMappingType())) {
+                            isConfiguredAsAppend = true;
+                        }
+                    }
+                }
+
+                if (!isConfiguredAsAppend) {
+                    addIssue(ACE_ISSUE_SINGLE2MULTI_MUST_BE_APPEND,
+                            getModelObjectForMapping(mapping),
+                            createMessageList(getMappingTypeDescription(act),
+                                    getSourcePathDescription(sourceInfoProvider, mapping),
+                                    getTargetPathDescription(targetInfoProvider, mapping)),
+                            createAdditionalInfo(MapperContentProvider.DATAMAPPING_TARGET_URI_ISSUEINFO,
+                                    arraypath));
+                }
+            }
+        }
+    }
+
+    /**
+     * @param mapping
+     * @return The ScriptDataMapper model ancestor of the given mapping.
+     */
+    private ScriptDataMapper getScriptDataMapper(Object mapping) {
+        EObject modelObjectForMapping = getModelObjectForMapping(mapping);
+        if (modelObjectForMapping != null) {
+            return (ScriptDataMapper) Xpdl2ModelUtil.getAncestor(modelObjectForMapping, ScriptDataMapper.class);
+        }
+        return null;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#createSourceInfoProvider(org.eclipse.emf.ecore.EObject)
+     * 
+     * @param objectToValidate
+     * @return
+     */
+    @Override
+    protected ContributableDataMapperInfoProvider createSourceInfoProvider(EObject objectToValidate) {
+        sourceInfoProvider = super.createSourceInfoProvider(objectToValidate);
+
+        return sourceInfoProvider;
+    }
+
+    /**
+     * @see com.tibco.xpd.datamapper.rules.AbstractDataMapperMappingRule#createTargetInfoProvider(org.eclipse.emf.ecore.EObject)
+     * 
+     * @param objectToValidate
+     * @return
+     */
+    @Override
+    protected ContributableDataMapperInfoProvider createTargetInfoProvider(EObject objectToValidate) {
+        targetInfoProvider = super.createTargetInfoProvider(objectToValidate);
+
+        return targetInfoProvider;
     }
 }

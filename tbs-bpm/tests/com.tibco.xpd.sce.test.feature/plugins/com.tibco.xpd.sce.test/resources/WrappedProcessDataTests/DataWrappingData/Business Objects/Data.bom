@@ -4,7 +4,7 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sr1WUYXSEemPctemFSy3MA" source="model.metadata">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sr1WUoXSEemPctemFSy3MA" key="author" value="aallway"/>
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sr1WU4XSEemPctemFSy3MA" key="created" value="1559551159987"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sr1WVIXSEemPctemFSy3MA" key="version" value="6"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sr1WVIXSEemPctemFSy3MA" key="version" value="1000"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Class" xmi:id="_u8B3UIXSEemPctemFSy3MA" name="DataTypes">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_vNL4wIXSEemPctemFSy3MA" name="float1" aggregation="composite">
@@ -67,6 +67,15 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Wy43QJQvEemyk_o9zDEVZQ" name="enumList" type="_oLvg0JQsEemyk_o9zDEVZQ?com.example.data%3a%3aEnumeration1?" aggregation="composite">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wy8hoJQvEemyk_o9zDEVZQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wy9IsJQvEemyk_o9zDEVZQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YaoHsL6NEemms4IHBiYkLA" name="textListForWholeCopy" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YaoHsb6NEemms4IHBiYkLA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YaoHsr6NEemms4IHBiYkLA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dkMCgL6NEemms4IHBiYkLA" name="complexListForWholeCopy" type="_Wvn9AIbrEemzHtQaUrf4NQ?com.example.data%3a%3aChild?" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dkMCgb6NEemms4IHBiYkLA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dkMCgr6NEemms4IHBiYkLA" value="*"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Wvn9AIbrEemzHtQaUrf4NQ" name="Child">
@@ -180,6 +189,12 @@
         <children xmi:type="notation:Node" xmi:id="_WzAzEJQvEemyk_o9zDEVZQ" type="2001" element="_Wy43QJQvEemyk_o9zDEVZQ?com.example.data%3a%3aDataTypes%3a%3aenumList?">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_WzAzEZQvEemyk_o9zDEVZQ"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_YangoL6NEemms4IHBiYkLA" type="2001" element="_YaoHsL6NEemms4IHBiYkLA?com.example.data%3a%3aDataTypes%3a%3atextListForWholeCopy?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Yangob6NEemms4IHBiYkLA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_dkLbc76NEemms4IHBiYkLA" type="2001" element="_dkMCgL6NEemms4IHBiYkLA?com.example.data%3a%3aDataTypes%3a%3acomplexListForWholeCopy?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_dkLbdL6NEemms4IHBiYkLA"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_u9ugcYXSEemPctemFSy3MA"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_u9ugcoXSEemPctemFSy3MA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_u9ugc4XSEemPctemFSy3MA"/>
@@ -191,7 +206,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_u9qPAYXSEemPctemFSy3MA" fontName="Segoe UI" fontHeight="10"/>
       <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_u9qPAoXSEemPctemFSy3MA" gradStartColor="6356832" gradEndColor="16777215"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u9qPA4XSEemPctemFSy3MA" x="550" y="100" height="338"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u9qPA4XSEemPctemFSy3MA" x="550" y="90" height="348"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_Wv1_cIbrEemzHtQaUrf4NQ" type="1002" element="_Wvn9AIbrEemzHtQaUrf4NQ?com.example.data%3a%3aChild?">
       <children xmi:type="notation:Node" xmi:id="_Wv30oIbrEemzHtQaUrf4NQ" type="4003"/>
@@ -287,4 +302,6 @@
   <PrimitiveTypeFacets:LabeledElement xmi:id="_pPA7sZQsEemyk_o9zDEVZQ" displayLabel="ENUMLIT3" base_NamedElement="_pPA7sJQsEemyk_o9zDEVZQ?com.example.data%3a%3aEnumeration1%3a%3aENUMLIT3?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_qD4HIJQsEemyk_o9zDEVZQ" displayLabel="enum1" base_NamedElement="_qBrHsJQsEemyk_o9zDEVZQ?com.example.data%3a%3aDataTypes%3a%3aenum1?"/>
   <PrimitiveTypeFacets:LabeledElement xmi:id="_Wy76kJQvEemyk_o9zDEVZQ" displayLabel="Enum List" base_NamedElement="_Wy43QJQvEemyk_o9zDEVZQ?com.example.data%3a%3aDataTypes%3a%3aenumList?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Yam5kL6NEemms4IHBiYkLA" displayLabel="Text List For Whole Copy" base_NamedElement="_YaoHsL6NEemms4IHBiYkLA?com.example.data%3a%3aDataTypes%3a%3atextListForWholeCopy?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dkLbcr6NEemms4IHBiYkLA" displayLabel="Complex List For Whole Copy" base_NamedElement="_dkMCgL6NEemms4IHBiYkLA?com.example.data%3a%3aDataTypes%3a%3acomplexListForWholeCopy?"/>
 </xmi:XMI>

@@ -303,6 +303,27 @@ public class DataMapperJavascriptGenerator {
     }
 
     /**
+     * 
+     * @param sourceObject
+     * @param sourceInfoProvider
+     * @param targetObject
+     * @param targetInfoProvider
+     * @return <code>true</code> if the two objects do not have equivalent
+     *         multiplicity.
+     */
+    protected boolean isMixedInstance(Object sourceObject,
+            ContributableDataMapperInfoProvider sourceInfoProvider, Object targetObject,
+            ContributableDataMapperInfoProvider targetInfoProvider) {
+
+        if (targetInfoProvider != null && sourceInfoProvider != null
+                && ((sourceInfoProvider.isMultiInstance(sourceObject) != targetInfoProvider
+                        .isMultiInstance(targetObject)))) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Recursively generates the javascript for the given targetItemNodes
      * 
      * @param targetItemNodes
@@ -385,15 +406,28 @@ public class DataMapperJavascriptGenerator {
                             targetInfoProvider,
                             script);
 
-                    if (isSingleInstance(targetWrappedItem, targetInfoProvider)
-                    // TODO also call below method for single to Multi instance
-                    // mapping.
+                    if (isMixedInstance(srcWrappedItem, sourceInfoProvider, targetWrappedItem, targetInfoProvider)) {
+                        /*
+                         * Handle multi->single, single->multi top level
+                         * mappings.
+                         */
+                        generateMixedOrSingleInstanceAssignmentScript(targetNode,
+                                sourceInfoProvider,
+                                targetInfoProvider,
+                                mappingContentProvider,
+                                scriptDataMapper,
+                                mappings,
+                                srcWrappedItem,
+                                targetWrappedItem,
+                                script,
+                                aliasOfNewSourceParent,
+                                aliasOfTargetParent);
 
-                    ) {
+                    } else if (isSingleInstance(targetWrappedItem, targetInfoProvider)) {
                         /*
                          * Handle mapping from-to single instance object
                          */
-                        generateSingleInstanceAssignmentScript(targetNode,
+                        generateMixedOrSingleInstanceAssignmentScript(targetNode,
                                 sourceInfoProvider,
                                 targetInfoProvider,
                                 mappingContentProvider,
@@ -902,7 +936,7 @@ public class DataMapperJavascriptGenerator {
                 getCheckNullTreeExpression(sourceInfoProvider,
                         sourceWrappedItem,
                         srcArrayItemAlias.jsVarAlias,
-                        CheckNullTreeExpressionType.ARRAY_ITERATOR);
+                        CheckNullTreeExpressionType.IS_MULTI_INSTANCE_CHECK);
 
         if (nullProtectionCondition != null
                 && nullProtectionCondition.trim().length() > 0) {
@@ -1394,6 +1428,8 @@ public class DataMapperJavascriptGenerator {
      * Generate the javaScript statement(s) for assigning one single instance
      * object to another.
      * 
+     * And now also where there is a mixed multi->single or single->multi.
+     * 
      * @param targetNode
      * @param sourceInfoProvider
      * @param targetInfoProvider
@@ -1406,7 +1442,7 @@ public class DataMapperJavascriptGenerator {
      * @param aliasOfSourceParent
      * @param aliasOfTargetParent
      */
-    private void generateSingleInstanceAssignmentScript(
+    private void generateMixedOrSingleInstanceAssignmentScript(
             DataMapperTreeNode targetNode,
             ContributableDataMapperInfoProvider sourceInfoProvider,
             ContributableDataMapperInfoProvider targetInfoProvider,
@@ -1419,8 +1455,8 @@ public class DataMapperJavascriptGenerator {
         /*
          * Check if this mapping is direct to a target item whose parent has
          * already been mapped (aka an enclosing parent mapping) and if so
-         * return false if it is from a source item tree than the enclosing
-         * parent mapping.
+         * return false if it is from a source item tree other than the
+         * enclosing parent mapping.
          * 
          * If it's from a differnet source tree then we don't want to use the
          * src tree variable for this separate mapping.
@@ -1467,7 +1503,13 @@ public class DataMapperJavascriptGenerator {
                 getCheckNullTreeExpression(sourceInfoProvider,
                         srcItem,
                         srcItemAlias.jsVarAlias,
-                        CheckNullTreeExpressionType.SINGLE_INSTANCE_MAPPING);
+                        /*
+                         * ACE-2088 if source is multi then need to null check
+                         * right down to final element in path.
+                         */
+                        sourceInfoProvider.isMultiInstance(srcItem)
+                                ? CheckNullTreeExpressionType.IS_MULTI_INSTANCE_CHECK
+                                : CheckNullTreeExpressionType.IS_SINGLE_INSTANCE_CHECK);
 
         if (nullProtectionCondition != null
                 && nullProtectionCondition.trim().length() > 0) {
@@ -1488,12 +1530,6 @@ public class DataMapperJavascriptGenerator {
                             aliasOfSourceParent.jsVarAlias);
 
             // create assignment
-            /*
-             * TODO create wrapper for getAssignmentStatement() that detects
-             * mapping from single to multi and alters behaviour to
-             * gprovider.getSingleToMultiInstanceSetterStatement() e.g
-             * targetArray.set(taskIndex, lhsvalue)
-             */
             script.addLine(getAssignmentStatement(sourceInfoProvider,
                     targetInfoProvider,
                     srcItem,
@@ -1510,13 +1546,6 @@ public class DataMapperJavascriptGenerator {
                             sourceInfoProvider,
                             srcItem,
                             aliasOfSourceParent.jsVarAlias);
-
-            /*
-             * TODO create wrapper for getAssignmentStatement() that detects
-             * mapping from single to multi and alters behaviour to
-             * gprovider.getSingleToMultiInstanceSetterStatement() e.g
-             * targetArray.set(taskIndex, lhsvalue)
-             */
 
             script.addLine(getAssignmentStatement(sourceInfoProvider,
                     targetInfoProvider,
@@ -1607,14 +1636,7 @@ public class DataMapperJavascriptGenerator {
             Object sourceItem, Object targetItem, String rhsObjectStatement,
             JSVarAliasAndContentObject aliasOfTargetParent) {
 
-        // TODO create wrapper for getAssignmentStatement() that detects
-        // mapping from single to multi and alters behaviour to
-        // gprovider.getSingleToMultiInstanceSetterStatement() e.g
-        // targetArray.set(taskIndex, lhsvalue)
-
         boolean sourceIsMulti = false;
-
-        // TODO Saket: Need to check if source is a script.
 
         sourceIsMulti = sourceInfoProvider.isMultiInstance(sourceItem);
 
@@ -1916,22 +1938,6 @@ public class DataMapperJavascriptGenerator {
             lhsObjectStatement =
                     getScriptInfoText((ScriptInformation) srcItem, script);
         } else {
-
-            /*
-             * TODO We will be called here if mapping TO a single instance field
-             * 
-             * BUT we may be mapping from a multi-instance element (such as is
-             * allowed for multi-instance sub-process input)
-             * 
-             * In this case we have to ask the info provider
-             * (getMultiToSingleInstanceGetterStatement() to give us an
-             * appropriate statement that will get the `nth` source elemnet per
-             * task instance (instead of the array itself). e.g.
-             * array.get(taskindex)
-             * 
-             * Think we will need this for getSetterStaement
-             */
-
             lhsObjectStatement =
                     sourceInfoProvider
                             .getContribDelegatingScriptGenInfoProvider()

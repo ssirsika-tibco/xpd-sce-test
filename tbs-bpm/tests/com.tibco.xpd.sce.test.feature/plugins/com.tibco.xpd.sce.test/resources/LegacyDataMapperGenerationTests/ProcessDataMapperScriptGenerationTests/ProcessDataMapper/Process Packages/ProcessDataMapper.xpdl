@@ -257,14 +257,25 @@
         </xpdl2:Activity>
         <xpdl2:Activity Id="_blhbkO2SEeS4I4a6rDKS7w" Name="SimpleTypes" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Simple Types">
           <xpdl2:Description>// Map from 'IntField' to 'IntParam'
-IntParam = IntField;
+if (data != null) {
+    data.IntParam = data.IntField;
+} else {
+    data.IntParam = null;
+}
 
 // Map from 'TextField' to 'TextParam'
-TextParam = TextField;
+if (data != null) {
+    data.TextParam = data.TextField;
+} else {
+    data.TextParam = null;
+}
 
 // Map from 'TextField2' to 'TextParam2'
-TextParam2 = TextField2;
-
+if (data != null) {
+    data.TextParam2 = data.TextField2;
+} else {
+    data.TextParam2 = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -300,8 +311,11 @@ TextParam2 = TextField2;
         </xpdl2:Activity>
         <xpdl2:Activity Id="_uTvYwO2TEeS4I4a6rDKS7w" Name="DirectMapComplexType" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Direct Map Complex Type" xpdExt:RequireNewTransaction="false">
           <xpdl2:Description>// Map from 'TopField' to 'TopParam'
-TopParam = ScriptUtil.copy(TopField);
-
+if (data != null) {
+    data.TopParam = data.TopField;
+} else {
+    data.TopParam = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -331,31 +345,39 @@ TopParam = ScriptUtil.copy(TopField);
         </xpdl2:Activity>
         <xpdl2:Activity Id="_8d3i4O2YEeS2iedHMJP9Kw" Name="InflateComplexType" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Complex Type" xpdExt:RequireNewTransaction="false">
           <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
-if (TopParam == null) {
-    TopParam = com_example_bdp_Factory.createTop();
+if (data.TopParam == null) {
+    data.TopParam = factory.com_example_bdp.createTop();
 }
 
 // Map from 'TextField' to 'TopParam.topAttr'
-TopParam.topAttr = TextField;
+if (data != null) {
+    data.TopParam.topAttr = data.TextField;
+} else {
+    data.TopParam.topAttr = null;
+}
 
 // Create target 'TopParam.middleSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst == null) {
-    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+if (data.TopParam.middleSingleInst == null) {
+    data.TopParam.middleSingleInst = factory.com_example_bdp.createMiddle();
 }
 
 // Map from 'TextField2' to 'TopParam.middleSingleInst.middleAttr'
-TopParam.middleSingleInst.middleAttr = TextField2;
+if (data != null) {
+    data.TopParam.middleSingleInst.middleAttr = data.TextField2;
+} else {
+    data.TopParam.middleSingleInst.middleAttr = null;
+}
 
 // Create target 'TopParam.middleSingleInst.bottomSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst.bottomSingleInst == null) {
-    TopParam.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+if (data.TopParam.middleSingleInst.bottomSingleInst == null) {
+    data.TopParam.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
 }
 
 // Map from 'TopField.middleSingleInst.middleAttr' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
-if (TopField != null &amp;&amp; TopField.middleSingleInst != null) {
-    TopParam.middleSingleInst.bottomSingleInst.bottomAttr = TopField.middleSingleInst.middleAttr;
+if (data != null &amp;&amp; data.TopField != null &amp;&amp; data.TopField.middleSingleInst != null) {
+    data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = data.TopField.middleSingleInst.middleAttr;
 } else {
-    TopParam.middleSingleInst.bottomSingleInst.bottomAttr = null;
+    data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = null;
 }
 
 
@@ -393,35 +415,54 @@ if (TopField != null &amp;&amp; TopField.middleSingleInst != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_FxsCYO2_EeSW7rWR63Shiw" Name="MaptoFromWorkManagerContent" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Map to / From Work Manager Content" xpdExt:RequireNewTransaction="false">
           <xpdl2:Description>// Map from 'Work Item.cancel' to 'BoolParam'
-BoolParam = WorkManagerFactory.getWorkItem().cancel;
+data.BoolParam = bpm.workManager.getWorkItem().cancel;
 
 // Map from 'Work Item.Work Item Attributes.Date Of Birth !!!' to 'DateTimeParam'
-DateTimeParam = WorkManagerFactory.getWorkItem().workItemAttributes.attribute7;
+data.DateTimeParam = bpm.workManager.getWorkItem().workItemAttributes.attribute7;
 
 // Map from 'Work Item.priority' to 'IntParam'
-IntParam = WorkManagerFactory.getWorkItem().priority;
+data.IntParam = bpm.workManager.getWorkItem().priority;
 
 // Map from 'Work Item.description' to 'TextParam'
-TextParam = WorkManagerFactory.getWorkItem().description;
+data.TextParam = bpm.workManager.getWorkItem().description;
 
 // Map from 'Work Item.Work Item Attributes.A Name' to 'TextParam2'
-TextParam2 = WorkManagerFactory.getWorkItem().workItemAttributes.attribute2;
+data.TextParam2 = bpm.workManager.getWorkItem().workItemAttributes.attribute2;
 
 // Map from 'BoolField' to 'Work Item.cancel'
-WorkManagerFactory.getWorkItem().cancel = BoolField;
+if (data != null) {
+    bpm.workManager.getWorkItem().cancel = data.BoolField;
+} else {
+    bpm.workManager.getWorkItem().cancel = null;
+}
 
 // Map from 'TextField' to 'Work Item.description'
-WorkManagerFactory.getWorkItem().description = TextField;
+if (data != null) {
+    bpm.workManager.getWorkItem().description = data.TextField;
+} else {
+    bpm.workManager.getWorkItem().description = null;
+}
 
 // Map from 'IntField' to 'Work Item.priority'
-WorkManagerFactory.getWorkItem().priority = IntField;
+if (data != null) {
+    bpm.workManager.getWorkItem().priority = data.IntField;
+} else {
+    bpm.workManager.getWorkItem().priority = null;
+}
 
 // Map from 'TextField2' to 'Work Item.Work Item Attributes.A Name'
-WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = TextField2;
+if (data != null) {
+    bpm.workManager.getWorkItem().workItemAttributes.attribute2 = data.TextField2;
+} else {
+    bpm.workManager.getWorkItem().workItemAttributes.attribute2 = null;
+}
 
 // Map from 'DateTimeField' to 'Work Item.Work Item Attributes.Date Of Birth !!!'
-WorkManagerFactory.getWorkItem().workItemAttributes.attribute7 = DateTimeField;
-
+if (data != null) {
+    bpm.workManager.getWorkItem().workItemAttributes.attribute7 = data.DateTimeField;
+} else {
+    bpm.workManager.getWorkItem().workItemAttributes.attribute7 = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -489,44 +530,47 @@ WorkManagerFactory.getWorkItem().workItemAttributes.attribute7 = DateTimeField;
         </xpdl2:Activity>
         <xpdl2:Activity Id="_jcv6MP1vEeSwcMBp6hsoCw" Name="ProcessJSCLassContent" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Process JSCLass Content" xpdExt:RequireNewTransaction="false">
           <xpdl2:Description>// Map from 'Process.startTime' to 'DateTimeParam'
-DateTimeParam = Process.getStartTime();
+data.DateTimeParam = bpm.process.getStartTime();
 
 // Map from 'Process.priority' to 'IntParam'
-IntParam = Process.priority;
+data.IntParam = bpm.process.priority;
 
 // Map from 'Process.description' to 'TextParam'
-TextParam = Process.getDescription();
+data.TextParam = bpm.process.getDescription();
 
 // Map from 'Process.id' to 'TextParam2'
-TextParam2 = Process.getId();
+data.TextParam2 = bpm.process.getId();
 
 // Create target 'TopParam' if it doesn't exist.
-if (TopParam == null) {
-    TopParam = com_example_bdp_Factory.createTop();
+if (data.TopParam == null) {
+    data.TopParam = factory.com_example_bdp.createTop();
 }
 
 // Map from 'Process.moduleName' to 'TopParam.topAttr'
-TopParam.topAttr = Process.getModuleName();
+data.TopParam.topAttr = bpm.process.getModuleName();
 
 // Create target 'TopParam.middleSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst == null) {
-    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+if (data.TopParam.middleSingleInst == null) {
+    data.TopParam.middleSingleInst = factory.com_example_bdp.createMiddle();
 }
 
 // Map from 'Process.originator' to 'TopParam.middleSingleInst.middleAttr'
-TopParam.middleSingleInst.middleAttr = Process.getOriginator();
+data.TopParam.middleSingleInst.middleAttr = bpm.process.getOriginator();
 
 // Create target 'TopParam.middleSingleInst.bottomSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst.bottomSingleInst == null) {
-    TopParam.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+if (data.TopParam.middleSingleInst.bottomSingleInst == null) {
+    data.TopParam.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
 }
 
 // Map from 'Process.originatorName' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
-TopParam.middleSingleInst.bottomSingleInst.bottomAttr = Process.getOriginatorName();
+data.TopParam.middleSingleInst.bottomSingleInst.bottomAttr = bpm.process.getOriginatorName();
 
 // Map from 'IntField' to 'Process.priority'
-Process.priority = IntField;
-
+if (data != null) {
+    bpm.process.priority = data.IntField;
+} else {
+    bpm.process.priority = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -583,28 +627,31 @@ Process.priority = IntField;
 function _f1_() { 
     var ret =false;&#xD;
     &#xD;
-    if (IntField > 0) {&#xD;
+    if (data.IntField > 0) {&#xD;
       ret = true;&#xD;
     }&#xD;
     &#xD;
     return ret;
 }
 $_f1_result = _f1_();
-BoolParam = $_f1_result;
+data.BoolParam = $_f1_result;
 
 // Map from 'DateTime Script' to 'DateTimeParam'
 
 // Function for user defined mapping script: DateTime Script
 function _f2_() { 
-    return DateTimeUtil.createDatetime();&#xD;
+    return new Date();&#xD;
     
 }
 $_f2_result = _f2_();
-DateTimeParam = $_f2_result;
+data.DateTimeParam = $_f2_result;
 
 // Map from 'TextParam' to 'TextField'
-TextField = TextParam;
-
+if (data != null) {
+    data.TextField = data.TextParam;
+} else {
+    data.TextField = null;
+}
 
 </xpdl2:Description>
           <xpdl2:Implementation>
@@ -627,7 +674,7 @@ return ret;</xpdExt:Expression>
                       </xpdExt:DataMapping>
                       <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeParam">
                         <xpdExt:ScriptInformation Id="_1R9LgACAEeWAIpSUFvcI8w" Name="DateTime Script">
-                          <xpdExt:Expression ScriptGrammar="JavaScript">return DateTimeUtil.createDatetime();&#xD;
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return new Date();&#xD;
 </xpdExt:Expression>
                         </xpdExt:ScriptInformation>
                         <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
@@ -655,53 +702,53 @@ return ret;</xpdExt:Expression>
           <xpdl2:Description>// Like mapping from 'LikeMappingPatient' to 'LikeMappingVisitor'
 
 // Create target 'LikeMappingVisitor' if it doesn't exist.
-if (LikeMappingVisitor == null) {
-    LikeMappingVisitor = com_example_bdp_Factory.createVisitor();
+if (data.LikeMappingVisitor == null) {
+    data.LikeMappingVisitor = factory.com_example_bdp.createVisitor();
 }
 
 // Map from 'LikeMappingPatient.id' to 'LikeMappingVisitor.id'
-if (LikeMappingPatient != null) {
-    LikeMappingVisitor.id = LikeMappingPatient.id;
+if (data != null &amp;&amp; data.LikeMappingPatient != null) {
+    data.LikeMappingVisitor.id = data.LikeMappingPatient.id;
 } else {
-    LikeMappingVisitor.id = null;
+    data.LikeMappingVisitor.id = null;
 }
 
 // Map from 'LikeMappingPatient.name' to 'LikeMappingVisitor.name'
-if (LikeMappingPatient != null) {
-    LikeMappingVisitor.name = LikeMappingPatient.name;
+if (data != null &amp;&amp; data.LikeMappingPatient != null) {
+    data.LikeMappingVisitor.name = data.LikeMappingPatient.name;
 } else {
-    LikeMappingVisitor.name = null;
+    data.LikeMappingVisitor.name = null;
 }
 
 // Create target 'LikeMappingVisitor.address' if it doesn't exist.
-if (LikeMappingVisitor.address == null) {
-    LikeMappingVisitor.address = com_example_bdp_Factory.createVisitorAddress();
+if (data.LikeMappingVisitor.address == null) {
+    data.LikeMappingVisitor.address = factory.com_example_bdp.createVisitorAddress();
 }
 
 // Map from 'LikeMappingPatient.address.line1' to 'LikeMappingVisitor.address.line1'
-if (LikeMappingPatient != null &amp;&amp; LikeMappingPatient.address != null) {
-    LikeMappingVisitor.address.line1 = LikeMappingPatient.address.line1;
+if (data != null &amp;&amp; data.LikeMappingPatient != null &amp;&amp; data.LikeMappingPatient.address != null) {
+    data.LikeMappingVisitor.address.line1 = data.LikeMappingPatient.address.line1;
 } else {
-    LikeMappingVisitor.address.line1 = null;
+    data.LikeMappingVisitor.address.line1 = null;
 }
 
 // Map from 'LikeMappingPatient.address.postcode' to 'LikeMappingVisitor.address.postcode'
-if (LikeMappingPatient != null &amp;&amp; LikeMappingPatient.address != null) {
-    LikeMappingVisitor.address.postcode = LikeMappingPatient.address.postcode;
+if (data != null &amp;&amp; data.LikeMappingPatient != null &amp;&amp; data.LikeMappingPatient.address != null) {
+    data.LikeMappingVisitor.address.postcode = data.LikeMappingPatient.address.postcode;
 } else {
-    LikeMappingVisitor.address.postcode = null;
+    data.LikeMappingVisitor.address.postcode = null;
 }
 
 // Like mapping from 'LikeMappingPatientArray' to 'LikeMappingVisitorArray'
 
 // Overwrite list: LikeMappingVisitorArray
-LikeMappingVisitorArray.clear();
+data.LikeMappingVisitorArray.length = 0;
 
-if (LikeMappingPatientArray != null) {
+if (data != null &amp;&amp; data.LikeMappingPatientArray != null) {
 
-    for (var i1 = 0; i1 &lt; LikeMappingPatientArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(LikeMappingPatientArray.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createVisitor();
+    for (var i1 = 0; i1 &lt; data.LikeMappingPatientArray.length; i1++) { 
+        var $sVi1 = data.LikeMappingPatientArray[i1];
+        var $tVi1 = factory.com_example_bdp.createVisitor();
 
         // Map from 'LikeMappingPatientArray.id' to 'LikeMappingVisitorArray.id'
         $tVi1.id = $sVi1.id;
@@ -711,7 +758,7 @@ if (LikeMappingPatientArray != null) {
 
         // Create target 'LikeMappingVisitorArray.address' if it doesn't exist.
         if ($tVi1.address == null) {
-            $tVi1.address = com_example_bdp_Factory.createVisitorAddress();
+            $tVi1.address = factory.com_example_bdp.createVisitorAddress();
         }
 
         // Map from 'LikeMappingPatientArray.address.line1' to 'LikeMappingVisitorArray.address.line1'
@@ -728,7 +775,7 @@ if (LikeMappingPatientArray != null) {
             $tVi1.address.postcode = null;
         }
         
-        LikeMappingVisitorArray.add($tVi1);
+        data.LikeMappingVisitorArray.push($tVi1);
     }
 }
 
@@ -736,17 +783,17 @@ if (LikeMappingPatientArray != null) {
 
 // Merge list content: MergeLikeMappingVisitorArray
 
-if (MergeLikeMappingPatientArray != null) {
+if (data != null &amp;&amp; data.MergeLikeMappingPatientArray != null) {
 
-    for (var i2 = 0; i2 &lt; MergeLikeMappingPatientArray.size(); i2++) { 
-        var $sVi2 = ScriptUtil.copy(MergeLikeMappingPatientArray.get(i2));
+    for (var i2 = 0; i2 &lt; data.MergeLikeMappingPatientArray.length; i2++) { 
+        var $sVi2 = data.MergeLikeMappingPatientArray[i2];
 
         // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
         var $tVi2;
-        if (i2 &lt; MergeLikeMappingVisitorArray.size()) {
-            $tVi2 = MergeLikeMappingVisitorArray.get(i2);
+        if (i2 &lt; data.MergeLikeMappingVisitorArray.length) {
+            $tVi2 = data.MergeLikeMappingVisitorArray[i2];
         } else {
-            $tVi2 = com_example_bdp_Factory.createVisitor();
+            $tVi2 = factory.com_example_bdp.createVisitor();
         }
 
         // Map from 'MergeLikeMappingPatientArray.id' to 'MergeLikeMappingVisitorArray.id'
@@ -757,7 +804,7 @@ if (MergeLikeMappingPatientArray != null) {
 
         // Create target 'MergeLikeMappingVisitorArray.address' if it doesn't exist.
         if ($tVi2.address == null) {
-            $tVi2.address = com_example_bdp_Factory.createVisitorAddress();
+            $tVi2.address = factory.com_example_bdp.createVisitorAddress();
         }
 
         // Map from 'MergeLikeMappingPatientArray.address.line1' to 'MergeLikeMappingVisitorArray.address.line1'
@@ -774,8 +821,8 @@ if (MergeLikeMappingPatientArray != null) {
             $tVi2.address.postcode = null;
         }
         
-        if (i2 >= MergeLikeMappingVisitorArray.size()) {
-            MergeLikeMappingVisitorArray.add($tVi2);
+        if (i2 >= data.MergeLikeMappingVisitorArray.length) {
+            data.MergeLikeMappingVisitorArray.push($tVi2);
         }
     }
 }
@@ -829,14 +876,14 @@ if (MergeLikeMappingPatientArray != null) {
           <xpdl2:Description>// Map from 'TopArrayParam' to 'TopArrayField'
 
 // Overwrite list: TopArrayField
-TopArrayField.clear();
+data.TopArrayField.length = 0;
 
-if (TopArrayParam != null) {
+if (data != null &amp;&amp; data.TopArrayParam != null) {
 
-    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
+    for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
+        var $sVi1 = data.TopArrayParam[i1];
         
-        TopArrayField.add($sVi1);
+        data.TopArrayField.push($sVi1);
     }
 }
 
@@ -872,13 +919,13 @@ if (TopArrayParam != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_FfZVwSpKEeWky-pvF47-Ag" Name="ArrayInflationFromNestedContentAtDiffLevels" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Array Inflation From Nested Content At Diff Levels">
           <xpdl2:Description>// Overwrite list: TopArrayField
-TopArrayField.clear();
+data.TopArrayField.length = 0;
 
-if (TopArrayParam != null) {
+if (data != null &amp;&amp; data.TopArrayParam != null) {
 
-    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createTop();
+    for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
+        var $sVi1 = data.TopArrayParam[i1];
+        var $tVi1 = factory.com_example_bdp.createTop();
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.topAttr'
         if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
@@ -889,7 +936,7 @@ if (TopArrayParam != null) {
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.middleAttr'
@@ -901,7 +948,7 @@ if (TopArrayParam != null) {
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
-            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+            $tVi1.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
         }
 
         // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
@@ -911,7 +958,7 @@ if (TopArrayParam != null) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
         }
         
-        TopArrayField.add($tVi1);
+        data.TopArrayField.push($tVi1);
     }
 }
 
@@ -950,17 +997,17 @@ if (TopArrayParam != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_FfZVwipKEeWky-pvF47-Ag" Name="ArrayInflationFromNestedContentAtDiffLevels2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Array Inflation From Nested Content At Diff Levels 2">
           <xpdl2:Description>// Overwrite list: TopArrayField
-TopArrayField.clear();
+data.TopArrayField.length = 0;
 
-if (TopArrayParam != null) {
+if (data != null &amp;&amp; data.TopArrayParam != null) {
 
-    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createTop();
+    for (var i1 = 0; i1 &lt; data.TopArrayParam.length; i1++) { 
+        var $sVi1 = data.TopArrayParam[i1];
+        var $tVi1 = factory.com_example_bdp.createTop();
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'TopArrayParam.topAttr' to 'TopArrayField.middleSingleInst.middleAttr'
@@ -968,7 +1015,7 @@ if (TopArrayParam != null) {
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
-            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+            $tVi1.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
         }
 
         // Map from 'TopArrayParam.middleSingleInst.middleAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
@@ -978,7 +1025,7 @@ if (TopArrayParam != null) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
         }
         
-        TopArrayField.add($tVi1);
+        data.TopArrayField.push($tVi1);
     }
 }
 
@@ -1017,16 +1064,16 @@ if (TopArrayParam != null) {
 
 // Merge list content: TextArrayField
 
-if (TextArrayParam != null) {
+if (data != null &amp;&amp; data.TextArrayParam != null) {
 
-    for (var i1 = 0; i1 &lt; TextArrayParam.size(); i1++) { 
-        var $sVi1 = TextArrayParam.get(i1);
+    for (var i1 = 0; i1 &lt; data.TextArrayParam.length; i1++) { 
+        var $sVi1 = data.TextArrayParam[i1];
 
         // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i1 &lt; TextArrayField.size()) {
-            TextArrayField.set(i1, $sVi1);
+        if (i1 &lt; data.TextArrayField.length) {
+            data.TextArrayField[i1] = $sVi1;
         } else {
-            TextArrayField.add($sVi1);
+            data.TextArrayField.push($sVi1);
         }
     }
 }
@@ -1035,16 +1082,16 @@ if (TextArrayParam != null) {
 
 // Merge list content: TopArrayField
 
-if (TopArrayParam != null) {
+if (data != null &amp;&amp; data.TopArrayParam != null) {
 
-    for (var i2 = 0; i2 &lt; TopArrayParam.size(); i2++) { 
-        var $sVi2 = ScriptUtil.copy(TopArrayParam.get(i2));
+    for (var i2 = 0; i2 &lt; data.TopArrayParam.length; i2++) { 
+        var $sVi2 = data.TopArrayParam[i2];
 
         // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i2 &lt; TopArrayField.size()) {
-            TopArrayField.set(i2, $sVi2);
+        if (i2 &lt; data.TopArrayField.length) {
+            data.TopArrayField[i2] = $sVi2;
         } else {
-            TopArrayField.add($sVi2);
+            data.TopArrayField.push($sVi2);
         }
     }
 }
@@ -1085,20 +1132,20 @@ if (TopArrayParam != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_drmvMSpXEeWky-pvF47-Ag" Name="InflateArrayMappingOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Array Mapping Overwrite">
           <xpdl2:Description>// Overwrite list: TopArrayField
-TopArrayField.clear();
+data.TopArrayField.length = 0;
 
-if (PatientArray != null) {
+if (data != null &amp;&amp; data.PatientArray != null) {
 
-    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createTop();
+    for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
+        var $sVi1 = data.PatientArray[i1];
+        var $tVi1 = factory.com_example_bdp.createTop();
 
         // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
         $tVi1.topAttr = $sVi1.id;
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
@@ -1106,7 +1153,7 @@ if (PatientArray != null) {
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
-            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+            $tVi1.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
         }
 
         // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
@@ -1116,7 +1163,7 @@ if (PatientArray != null) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
         }
         
-        TopArrayField.add($tVi1);
+        data.TopArrayField.push($tVi1);
     }
 }
 
@@ -1156,17 +1203,17 @@ if (PatientArray != null) {
         <xpdl2:Activity Id="_iowJMypYEeWky-pvF47-Ag" Name="InflateArrayMappingMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Array Mapping Merge">
           <xpdl2:Description>// Merge list content: TopArrayField
 
-if (PatientArray != null) {
+if (data != null &amp;&amp; data.PatientArray != null) {
 
-    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+    for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
+        var $sVi1 = data.PatientArray[i1];
 
         // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
         var $tVi1;
-        if (i1 &lt; TopArrayField.size()) {
-            $tVi1 = TopArrayField.get(i1);
+        if (i1 &lt; data.TopArrayField.length) {
+            $tVi1 = data.TopArrayField[i1];
         } else {
-            $tVi1 = com_example_bdp_Factory.createTop();
+            $tVi1 = factory.com_example_bdp.createTop();
         }
 
         // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
@@ -1174,7 +1221,7 @@ if (PatientArray != null) {
 
         // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
@@ -1182,7 +1229,7 @@ if (PatientArray != null) {
 
         // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst.bottomSingleInst == null) {
-            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+            $tVi1.middleSingleInst.bottomSingleInst = factory.com_example_bdp.createBottom();
         }
 
         // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
@@ -1192,8 +1239,8 @@ if (PatientArray != null) {
             $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
         }
         
-        if (i1 >= TopArrayField.size()) {
-            TopArrayField.add($tVi1);
+        if (i1 >= data.TopArrayField.length) {
+            data.TopArrayField.push($tVi1);
         }
     }
 }
@@ -1238,14 +1285,14 @@ if (PatientArray != null) {
           <xpdl2:Description>// Map from 'TextArrayParam' to 'TextArrayField'
 
 // Overwrite list: TextArrayField
-TextArrayField.clear();
+data.TextArrayField.length = 0;
 
-if (TextArrayParam != null) {
+if (data != null &amp;&amp; data.TextArrayParam != null) {
 
-    for (var i1 = 0; i1 &lt; TextArrayParam.size(); i1++) { 
-        var $sVi1 = TextArrayParam.get(i1);
+    for (var i1 = 0; i1 &lt; data.TextArrayParam.length; i1++) { 
+        var $sVi1 = data.TextArrayParam[i1];
         
-        TextArrayField.add($sVi1);
+        data.TextArrayField.push($sVi1);
     }
 }
 
@@ -1281,40 +1328,40 @@ if (TextArrayParam != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_DbIn4CpeEeWky-pvF47-Ag" Name="NestedDirectArrayMapOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Overwrite">
           <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
-if (TopParam == null) {
-    TopParam = com_example_bdp_Factory.createTop();
+if (data.TopParam == null) {
+    data.TopParam = factory.com_example_bdp.createTop();
 }
 
 // Map from 'AlternateStructure.middle' to 'TopParam.middleMultiInst'
 
 // Overwrite list: TopParam.middleMultiInst
-TopParam.middleMultiInst.clear();
+data.TopParam.middleMultiInst.length = 0;
 
-if (AlternateStructure != null &amp;&amp; AlternateStructure.middle != null) {
+if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.middle != null) {
 
-    for (var i1 = 0; i1 &lt; AlternateStructure.middle.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(AlternateStructure.middle.get(i1));
+    for (var i1 = 0; i1 &lt; data.AlternateStructure.middle.length; i1++) { 
+        var $sVi1 = data.AlternateStructure.middle[i1];
         
-        TopParam.middleMultiInst.add($sVi1);
+        data.TopParam.middleMultiInst.push($sVi1);
     }
 }
 
 // Create target 'TopParam.middleSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst == null) {
-    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+if (data.TopParam.middleSingleInst == null) {
+    data.TopParam.middleSingleInst = factory.com_example_bdp.createMiddle();
 }
 
 // Map from 'AlternateStructure.bottom' to 'TopParam.middleSingleInst.bottomMultiInst'
 
 // Overwrite list: TopParam.middleSingleInst.bottomMultiInst
-TopParam.middleSingleInst.bottomMultiInst.clear();
+data.TopParam.middleSingleInst.bottomMultiInst.length = 0;
 
-if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
+if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.bottom != null) {
 
-    for (var i2 = 0; i2 &lt; AlternateStructure.bottom.size(); i2++) { 
-        var $sVi2 = ScriptUtil.copy(AlternateStructure.bottom.get(i2));
+    for (var i2 = 0; i2 &lt; data.AlternateStructure.bottom.length; i2++) { 
+        var $sVi2 = data.AlternateStructure.bottom[i2];
         
-        TopParam.middleSingleInst.bottomMultiInst.add($sVi2);
+        data.TopParam.middleSingleInst.bottomMultiInst.push($sVi2);
     }
 }
 
@@ -1350,48 +1397,48 @@ if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_WVjOAypfEeWky-pvF47-Ag" Name="NestedDirectArrayMapOverwrite2" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Overwrite 2">
           <xpdl2:Description>// Overwrite list: TopArrayParam
-TopArrayParam.clear();
+data.TopArrayParam.length = 0;
 
-if (AlternateStructureArray != null) {
+if (data != null &amp;&amp; data.AlternateStructureArray != null) {
 
-    for (var i1 = 0; i1 &lt; AlternateStructureArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(AlternateStructureArray.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createTop();
+    for (var i1 = 0; i1 &lt; data.AlternateStructureArray.length; i1++) { 
+        var $sVi1 = data.AlternateStructureArray[i1];
+        var $tVi1 = factory.com_example_bdp.createTop();
 
         // Map from 'AlternateStructureArray.middle' to 'TopArrayParam.middleMultiInst'
 
         // Overwrite list: TopArrayParam.middleMultiInst
-        $tVi1.middleMultiInst.clear();
+        $tVi1.middleMultiInst.length = 0;
         
         if ($sVi1.middle != null) {
         
-            for (var i2 = 0; i2 &lt; $sVi1.middle.size(); i2++) { 
-                var $sVi2 = ScriptUtil.copy($sVi1.middle.get(i2));
+            for (var i2 = 0; i2 &lt; $sVi1.middle.length; i2++) { 
+                var $sVi2 = $sVi1.middle[i2];
                 
-                $tVi1.middleMultiInst.add($sVi2);
+                $tVi1.middleMultiInst.push($sVi2);
             }
         }
 
         // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'AlternateStructureArray.bottom' to 'TopArrayParam.middleSingleInst.bottomMultiInst'
 
         // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
-        $tVi1.middleSingleInst.bottomMultiInst.clear();
+        $tVi1.middleSingleInst.bottomMultiInst.length = 0;
         
         if ($sVi1.bottom != null) {
         
-            for (var i3 = 0; i3 &lt; $sVi1.bottom.size(); i3++) { 
-                var $sVi3 = ScriptUtil.copy($sVi1.bottom.get(i3));
+            for (var i3 = 0; i3 &lt; $sVi1.bottom.length; i3++) { 
+                var $sVi3 = $sVi1.bottom[i3];
                 
-                $tVi1.middleSingleInst.bottomMultiInst.add($sVi3);
+                $tVi1.middleSingleInst.bottomMultiInst.push($sVi3);
             }
         }
         
-        TopArrayParam.add($tVi1);
+        data.TopArrayParam.push($tVi1);
     }
 }
 
@@ -1427,47 +1474,47 @@ if (AlternateStructureArray != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_dgofNipgEeWky-pvF47-Ag" Name="NestedDirectArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Merge">
           <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
-if (TopParam == null) {
-    TopParam = com_example_bdp_Factory.createTop();
+if (data.TopParam == null) {
+    data.TopParam = factory.com_example_bdp.createTop();
 }
 
 // Map from 'AlternateStructure.middle' to 'TopParam.middleMultiInst'
 
 // Merge list content: TopParam.middleMultiInst
 
-if (AlternateStructure != null &amp;&amp; AlternateStructure.middle != null) {
+if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.middle != null) {
 
-    for (var i1 = 0; i1 &lt; AlternateStructure.middle.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(AlternateStructure.middle.get(i1));
+    for (var i1 = 0; i1 &lt; data.AlternateStructure.middle.length; i1++) { 
+        var $sVi1 = data.AlternateStructure.middle[i1];
 
         // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i1 &lt; TopParam.middleMultiInst.size()) {
-            TopParam.middleMultiInst.set(i1, $sVi1);
+        if (i1 &lt; data.TopParam.middleMultiInst.length) {
+            data.TopParam.middleMultiInst[i1] = $sVi1;
         } else {
-            TopParam.middleMultiInst.add($sVi1);
+            data.TopParam.middleMultiInst.push($sVi1);
         }
     }
 }
 
 // Create target 'TopParam.middleSingleInst' if it doesn't exist.
-if (TopParam.middleSingleInst == null) {
-    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+if (data.TopParam.middleSingleInst == null) {
+    data.TopParam.middleSingleInst = factory.com_example_bdp.createMiddle();
 }
 
 // Map from 'AlternateStructure.bottom' to 'TopParam.middleSingleInst.bottomMultiInst'
 
 // Merge list content: TopParam.middleSingleInst.bottomMultiInst
 
-if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
+if (data != null &amp;&amp; data.AlternateStructure != null &amp;&amp; data.AlternateStructure.bottom != null) {
 
-    for (var i2 = 0; i2 &lt; AlternateStructure.bottom.size(); i2++) { 
-        var $sVi2 = ScriptUtil.copy(AlternateStructure.bottom.get(i2));
+    for (var i2 = 0; i2 &lt; data.AlternateStructure.bottom.length; i2++) { 
+        var $sVi2 = data.AlternateStructure.bottom[i2];
 
         // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-        if (i2 &lt; TopParam.middleSingleInst.bottomMultiInst.size()) {
-            TopParam.middleSingleInst.bottomMultiInst.set(i2, $sVi2);
+        if (i2 &lt; data.TopParam.middleSingleInst.bottomMultiInst.length) {
+            data.TopParam.middleSingleInst.bottomMultiInst[i2] = $sVi2;
         } else {
-            TopParam.middleSingleInst.bottomMultiInst.add($sVi2);
+            data.TopParam.middleSingleInst.bottomMultiInst.push($sVi2);
         }
     }
 }
@@ -1509,17 +1556,17 @@ if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
         <xpdl2:Activity Id="_jEl3AypgEeWky-pvF47-Ag" Name="NestedDirectArrayMapMerge2" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Merge 2">
           <xpdl2:Description>// Merge list content: TopArrayParam
 
-if (AlternateStructureArray != null) {
+if (data != null &amp;&amp; data.AlternateStructureArray != null) {
 
-    for (var i1 = 0; i1 &lt; AlternateStructureArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(AlternateStructureArray.get(i1));
+    for (var i1 = 0; i1 &lt; data.AlternateStructureArray.length; i1++) { 
+        var $sVi1 = data.AlternateStructureArray[i1];
 
         // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
         var $tVi1;
-        if (i1 &lt; TopArrayParam.size()) {
-            $tVi1 = TopArrayParam.get(i1);
+        if (i1 &lt; data.TopArrayParam.length) {
+            $tVi1 = data.TopArrayParam[i1];
         } else {
-            $tVi1 = com_example_bdp_Factory.createTop();
+            $tVi1 = factory.com_example_bdp.createTop();
         }
 
         // Map from 'AlternateStructureArray.middle' to 'TopArrayParam.middleMultiInst'
@@ -1528,21 +1575,21 @@ if (AlternateStructureArray != null) {
         
         if ($sVi1.middle != null) {
         
-            for (var i2 = 0; i2 &lt; $sVi1.middle.size(); i2++) { 
-                var $sVi2 = ScriptUtil.copy($sVi1.middle.get(i2));
+            for (var i2 = 0; i2 &lt; $sVi1.middle.length; i2++) { 
+                var $sVi2 = $sVi1.middle[i2];
 
                 // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-                if (i2 &lt; $tVi1.middleMultiInst.size()) {
-                    $tVi1.middleMultiInst.set(i2, $sVi2);
+                if (i2 &lt; $tVi1.middleMultiInst.length) {
+                    $tVi1.middleMultiInst[i2] = $sVi2;
                 } else {
-                    $tVi1.middleMultiInst.add($sVi2);
+                    $tVi1.middleMultiInst.push($sVi2);
                 }
             }
         }
 
         // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Map from 'AlternateStructureArray.bottom' to 'TopArrayParam.middleSingleInst.bottomMultiInst'
@@ -1551,20 +1598,20 @@ if (AlternateStructureArray != null) {
         
         if ($sVi1.bottom != null) {
         
-            for (var i3 = 0; i3 &lt; $sVi1.bottom.size(); i3++) { 
-                var $sVi3 = ScriptUtil.copy($sVi1.bottom.get(i3));
+            for (var i3 = 0; i3 &lt; $sVi1.bottom.length; i3++) { 
+                var $sVi3 = $sVi1.bottom[i3];
 
                 // Overwrite existing target elements from source with same index (else append when there are additional source elements)
-                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.size()) {
-                    $tVi1.middleSingleInst.bottomMultiInst.set(i3, $sVi3);
+                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.length) {
+                    $tVi1.middleSingleInst.bottomMultiInst[i3] = $sVi3;
                 } else {
-                    $tVi1.middleSingleInst.bottomMultiInst.add($sVi3);
+                    $tVi1.middleSingleInst.bottomMultiInst.push($sVi3);
                 }
             }
         }
         
-        if (i1 >= TopArrayParam.size()) {
-            TopArrayParam.add($tVi1);
+        if (i1 >= data.TopArrayParam.length) {
+            data.TopArrayParam.push($tVi1);
         }
     }
 }
@@ -1606,52 +1653,52 @@ if (AlternateStructureArray != null) {
         </xpdl2:Activity>
         <xpdl2:Activity Id="_JpY9EypiEeWky-pvF47-Ag" Name="NestedInflateArrayMapOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Inflate Array Map Overwrite">
           <xpdl2:Description>// Overwrite list: TopArrayParam
-TopArrayParam.clear();
+data.TopArrayParam.length = 0;
 
-if (PatientArray != null) {
+if (data != null &amp;&amp; data.PatientArray != null) {
 
-    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
-        var $tVi1 = com_example_bdp_Factory.createTop();
+    for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
+        var $sVi1 = data.PatientArray[i1];
+        var $tVi1 = factory.com_example_bdp.createTop();
 
         // Overwrite list: TopArrayParam.middleMultiInst
-        $tVi1.middleMultiInst.clear();
+        $tVi1.middleMultiInst.length = 0;
         
         if ($sVi1.medicalrecords != null) {
         
-            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.size(); i2++) { 
-                var $sVi2 = ScriptUtil.copy($sVi1.medicalrecords.get(i2));
-                var $tVi2 = com_example_bdp_Factory.createMiddle();
+            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.length; i2++) { 
+                var $sVi2 = $sVi1.medicalrecords[i2];
+                var $tVi2 = factory.com_example_bdp.createMiddle();
 
                 // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
                 $tVi2.middleAttr = $sVi2.id;
                 
-                $tVi1.middleMultiInst.add($tVi2);
+                $tVi1.middleMultiInst.push($tVi2);
             }
         }
 
         // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
-        $tVi1.middleSingleInst.bottomMultiInst.clear();
+        $tVi1.middleSingleInst.bottomMultiInst.length = 0;
         
         if ($sVi1.medicalrecords != null) {
         
-            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.size(); i3++) { 
-                var $sVi3 = ScriptUtil.copy($sVi1.medicalrecords.get(i3));
-                var $tVi3 = com_example_bdp_Factory.createBottom();
+            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.length; i3++) { 
+                var $sVi3 = $sVi1.medicalrecords[i3];
+                var $tVi3 = factory.com_example_bdp.createBottom();
 
                 // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
                 $tVi3.bottomAttr = $sVi3.summary;
                 
-                $tVi1.middleSingleInst.bottomMultiInst.add($tVi3);
+                $tVi1.middleSingleInst.bottomMultiInst.push($tVi3);
             }
         }
         
-        TopArrayParam.add($tVi1);
+        data.TopArrayParam.push($tVi1);
     }
 }
 
@@ -1688,74 +1735,74 @@ if (PatientArray != null) {
         <xpdl2:Activity Id="_DD0FUSpkEeWky-pvF47-Ag" Name="NestedInflateArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Inflate Array Map Merge">
           <xpdl2:Description>// Merge list content: TopArrayParam
 
-if (PatientArray != null) {
+if (data != null &amp;&amp; data.PatientArray != null) {
 
-    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+    for (var i1 = 0; i1 &lt; data.PatientArray.length; i1++) { 
+        var $sVi1 = data.PatientArray[i1];
 
         // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
         var $tVi1;
-        if (i1 &lt; TopArrayParam.size()) {
-            $tVi1 = TopArrayParam.get(i1);
+        if (i1 &lt; data.TopArrayParam.length) {
+            $tVi1 = data.TopArrayParam[i1];
         } else {
-            $tVi1 = com_example_bdp_Factory.createTop();
+            $tVi1 = factory.com_example_bdp.createTop();
         }
 
         // Merge list content: TopArrayParam.middleMultiInst
         
         if ($sVi1.medicalrecords != null) {
         
-            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.size(); i2++) { 
-                var $sVi2 = ScriptUtil.copy($sVi1.medicalrecords.get(i2));
+            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.length; i2++) { 
+                var $sVi2 = $sVi1.medicalrecords[i2];
 
                 // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
                 var $tVi2;
-                if (i2 &lt; $tVi1.middleMultiInst.size()) {
-                    $tVi2 = $tVi1.middleMultiInst.get(i2);
+                if (i2 &lt; $tVi1.middleMultiInst.length) {
+                    $tVi2 = $tVi1.middleMultiInst[i2];
                 } else {
-                    $tVi2 = com_example_bdp_Factory.createMiddle();
+                    $tVi2 = factory.com_example_bdp.createMiddle();
                 }
 
                 // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
                 $tVi2.middleAttr = $sVi2.id;
                 
-                if (i2 >= $tVi1.middleMultiInst.size()) {
-                    $tVi1.middleMultiInst.add($tVi2);
+                if (i2 >= $tVi1.middleMultiInst.length) {
+                    $tVi1.middleMultiInst.push($tVi2);
                 }
             }
         }
 
         // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
         if ($tVi1.middleSingleInst == null) {
-            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+            $tVi1.middleSingleInst = factory.com_example_bdp.createMiddle();
         }
 
         // Merge list content: TopArrayParam.middleSingleInst.bottomMultiInst
         
         if ($sVi1.medicalrecords != null) {
         
-            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.size(); i3++) { 
-                var $sVi3 = ScriptUtil.copy($sVi1.medicalrecords.get(i3));
+            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.length; i3++) { 
+                var $sVi3 = $sVi1.medicalrecords[i3];
 
                 // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
                 var $tVi3;
-                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.size()) {
-                    $tVi3 = $tVi1.middleSingleInst.bottomMultiInst.get(i3);
+                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.length) {
+                    $tVi3 = $tVi1.middleSingleInst.bottomMultiInst[i3];
                 } else {
-                    $tVi3 = com_example_bdp_Factory.createBottom();
+                    $tVi3 = factory.com_example_bdp.createBottom();
                 }
 
                 // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
                 $tVi3.bottomAttr = $sVi3.summary;
                 
-                if (i3 >= $tVi1.middleSingleInst.bottomMultiInst.size()) {
-                    $tVi1.middleSingleInst.bottomMultiInst.add($tVi3);
+                if (i3 >= $tVi1.middleSingleInst.bottomMultiInst.length) {
+                    $tVi1.middleSingleInst.bottomMultiInst.push($tVi3);
                 }
             }
         }
         
-        if (i1 >= TopArrayParam.size()) {
-            TopArrayParam.add($tVi1);
+        if (i1 >= data.TopArrayParam.length) {
+            data.TopArrayParam.push($tVi1);
         }
     }
 }
@@ -1798,56 +1845,56 @@ if (PatientArray != null) {
         <xpdl2:Activity Id="_6rhvQypkEeWky-pvF47-Ag" Name="NestedSimpleArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Simple Array Map Merge">
           <xpdl2:Description>// Merge list content: PatientArray
 
-if (YetAnotherArray != null) {
+if (data != null &amp;&amp; data.YetAnotherArray != null) {
 
-    for (var i1 = 0; i1 &lt; YetAnotherArray.size(); i1++) { 
-        var $sVi1 = ScriptUtil.copy(YetAnotherArray.get(i1));
+    for (var i1 = 0; i1 &lt; data.YetAnotherArray.length; i1++) { 
+        var $sVi1 = data.YetAnotherArray[i1];
 
         // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
         var $tVi1;
-        if (i1 &lt; PatientArray.size()) {
-            $tVi1 = PatientArray.get(i1);
+        if (i1 &lt; data.PatientArray.length) {
+            $tVi1 = data.PatientArray[i1];
         } else {
-            $tVi1 = com_example_bdp_Factory.createPatient();
+            $tVi1 = factory.com_example_bdp.createPatient();
         }
 
         // Merge list content: PatientArray.medicalrecords
         
         if ($sVi1.yetanothermiddle != null) {
         
-            for (var i2 = 0; i2 &lt; $sVi1.yetanothermiddle.size(); i2++) { 
-                var $sVi2 = ScriptUtil.copy($sVi1.yetanothermiddle.get(i2));
+            for (var i2 = 0; i2 &lt; $sVi1.yetanothermiddle.length; i2++) { 
+                var $sVi2 = $sVi1.yetanothermiddle[i2];
 
                 // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
                 var $tVi2;
-                if (i2 &lt; $tVi1.medicalrecords.size()) {
-                    $tVi2 = $tVi1.medicalrecords.get(i2);
+                if (i2 &lt; $tVi1.medicalrecords.length) {
+                    $tVi2 = $tVi1.medicalrecords[i2];
                 } else {
-                    $tVi2 = com_example_bdp_Factory.createMedicalRecords();
+                    $tVi2 = factory.com_example_bdp.createMedicalRecords();
                 }
 
                 // Map from 'YetAnotherArray.yetanothermiddle.middleArray' to 'PatientArray.medicalrecords.additionalRecordRefs'
 
                 // Overwrite list: PatientArray.medicalrecords.additionalRecordRefs
-                $tVi2.additionalRecordRefs.clear();
+                $tVi2.additionalRecordRefs.length = 0;
                 
                 if ($sVi2.middleArray != null) {
                 
-                    for (var i3 = 0; i3 &lt; $sVi2.middleArray.size(); i3++) { 
-                        var $sVi3 = $sVi2.middleArray.get(i3);
+                    for (var i3 = 0; i3 &lt; $sVi2.middleArray.length; i3++) { 
+                        var $sVi3 = $sVi2.middleArray[i3];
                         
-                        $tVi2.additionalRecordRefs.add($sVi3);
+                        $tVi2.additionalRecordRefs.push($sVi3);
                     }
                 }
                 
-                if (i2 >= $tVi1.medicalrecords.size()) {
-                    $tVi1.medicalrecords.add($tVi2);
+                if (i2 >= $tVi1.medicalrecords.length) {
+                    $tVi1.medicalrecords.push($tVi2);
                 }
             }
         }
         
-        if (i1 >= PatientArray.size()) {
-            PatientArray.add($tVi1);
+        if (i1 >= data.PatientArray.length) {
+            data.PatientArray.push($tVi1);
         }
     }
 }
@@ -1889,46 +1936,46 @@ if (YetAnotherArray != null) {
           <xpdl2:Description>// Like mapping from 'RecursiveParam' to 'RecursiveField'
 
 // Create target 'RecursiveField' if it doesn't exist.
-if (RecursiveField == null) {
-    RecursiveField = com_example_bdp_Factory.createRecursive2();
+if (data.RecursiveField == null) {
+    data.RecursiveField = factory.com_example_bdp.createRecursive2();
 }
 
 // Map from 'RecursiveParam.attribute1' to 'RecursiveField.attribute1'
-if (RecursiveParam != null) {
-    RecursiveField.attribute1 = RecursiveParam.attribute1;
+if (data != null &amp;&amp; data.RecursiveParam != null) {
+    data.RecursiveField.attribute1 = data.RecursiveParam.attribute1;
 } else {
-    RecursiveField.attribute1 = null;
+    data.RecursiveField.attribute1 = null;
 }
 
 // Map from 'RecursiveParam.attribute2' to 'RecursiveField.attribute2'
-if (RecursiveParam != null) {
-    RecursiveField.attribute2 = RecursiveParam.attribute2;
+if (data != null &amp;&amp; data.RecursiveParam != null) {
+    data.RecursiveField.attribute2 = data.RecursiveParam.attribute2;
 } else {
-    RecursiveField.attribute2 = null;
+    data.RecursiveField.attribute2 = null;
 }
 
 // Create target 'RecursiveField.recursChild' if it doesn't exist.
-if (RecursiveField.recursChild == null) {
-    RecursiveField.recursChild = com_example_bdp_Factory.createChildRecursive2();
+if (data.RecursiveField.recursChild == null) {
+    data.RecursiveField.recursChild = factory.com_example_bdp.createChildRecursive2();
 }
 
 // Map from 'RecursiveParam.recursChild.attribute1' to 'RecursiveField.recursChild.attribute1'
-if (RecursiveParam != null &amp;&amp; RecursiveParam.recursChild != null) {
-    RecursiveField.recursChild.attribute1 = RecursiveParam.recursChild.attribute1;
+if (data != null &amp;&amp; data.RecursiveParam != null &amp;&amp; data.RecursiveParam.recursChild != null) {
+    data.RecursiveField.recursChild.attribute1 = data.RecursiveParam.recursChild.attribute1;
 } else {
-    RecursiveField.recursChild.attribute1 = null;
+    data.RecursiveField.recursChild.attribute1 = null;
 }
 
 // Create target 'RecursiveField.recursChild.recursGrandChild' if it doesn't exist.
-if (RecursiveField.recursChild.recursGrandChild == null) {
-    RecursiveField.recursChild.recursGrandChild = com_example_bdp_Factory.createGrandChildRecusrive2();
+if (data.RecursiveField.recursChild.recursGrandChild == null) {
+    data.RecursiveField.recursChild.recursGrandChild = factory.com_example_bdp.createGrandChildRecusrive2();
 }
 
 // Map from 'RecursiveParam.recursChild.recursGrandChild.attribute1' to 'RecursiveField.recursChild.recursGrandChild.attribute1'
-if (RecursiveParam != null &amp;&amp; RecursiveParam.recursChild != null &amp;&amp; RecursiveParam.recursChild.recursGrandChild != null) {
-    RecursiveField.recursChild.recursGrandChild.attribute1 = RecursiveParam.recursChild.recursGrandChild.attribute1;
+if (data != null &amp;&amp; data.RecursiveParam != null &amp;&amp; data.RecursiveParam.recursChild != null &amp;&amp; data.RecursiveParam.recursChild.recursGrandChild != null) {
+    data.RecursiveField.recursChild.recursGrandChild.attribute1 = data.RecursiveParam.recursChild.recursGrandChild.attribute1;
 } else {
-    RecursiveField.recursChild.recursGrandChild.attribute1 = null;
+    data.RecursiveField.recursChild.recursGrandChild.attribute1 = null;
 }
 
 
@@ -2119,93 +2166,100 @@ if (RecursiveParam != null &amp;&amp; RecursiveParam.recursChild != null &amp;&a
             </xpdl2:Activity>
             <xpdl2:Activity Id="_eD2kRCWCEeWMdKRbP2XvVw" Name="ClassAttributeTypeCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Class Attribute Type Compatibility">
               <xpdl2:Description>// Map from 'TypesClass.boolean1' to 'Text01'
-if (TypesClass != null) {
-    Text01 = TypesClass.boolean1;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text01 = data.TypesClass.boolean1;
 } else {
-    Text01 = null;
+    data.Text01 = null;
 }
 
 // Map from 'TypesClass.date' to 'Text02'
-if (TypesClass != null) {
-    Text02 = TypesClass.date;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text02 = data.TypesClass.date;
 } else {
-    Text02 = null;
+    data.Text02 = null;
 }
 
 // Map from 'TypesClass.datetime' to 'Text04'
-if (TypesClass != null) {
-    Text04 = TypesClass.datetime;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text04 = data.TypesClass.datetime;
 } else {
-    Text04 = null;
+    data.Text04 = null;
 }
 
 // Map from 'TypesClass.decimal' to 'Text05'
-if (TypesClass != null) {
-    Text05 = TypesClass.decimal;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text05 = data.TypesClass.decimal;
 } else {
-    Text05 = null;
+    data.Text05 = null;
 }
 
 // Map from 'TypesClass.duration' to 'Text06'
-if (TypesClass != null) {
-    Text06 = TypesClass.duration;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text06 = data.TypesClass.duration;
 } else {
-    Text06 = null;
+    data.Text06 = null;
 }
 
 // Map from 'TypesClass.enum1' to 'Text07'
-if (TypesClass != null &amp;&amp; TypesClass.enum1 != null) {
-    Text07 = String(TypesClass.enum1);
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text07 = data.TypesClass.enum1;
 } else {
-    Text07 = null;
+    data.Text07 = null;
 }
 
 // Map from 'TypesClass.integer' to 'Text08'
-if (TypesClass != null) {
-    Text08 = TypesClass.integer;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text08 = data.TypesClass.integer;
 } else {
-    Text08 = null;
+    data.Text08 = null;
 }
 
 // Map from 'TypesClass.time' to 'Text09'
-if (TypesClass != null) {
-    Text09 = TypesClass.time;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text09 = data.TypesClass.time;
 } else {
-    Text09 = null;
+    data.Text09 = null;
 }
 
 // Map from 'TypesClass.uri' to 'Text10'
-if (TypesClass != null) {
-    Text10 = TypesClass.uri;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text10 = data.TypesClass.uri;
 } else {
-    Text10 = null;
+    data.Text10 = null;
 }
 
 // Map from 'TypesClass.id' to 'Text11'
-if (TypesClass != null) {
-    Text11 = TypesClass.id;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text11 = data.TypesClass.id;
 } else {
-    Text11 = null;
+    data.Text11 = null;
 }
 
 // Map from 'TypesClass.text' to 'Text12'
-if (TypesClass != null) {
-    Text12 = TypesClass.text;
+if (data != null &amp;&amp; data.TypesClass != null) {
+    data.Text12 = data.TypesClass.text;
 } else {
-    Text12 = null;
+    data.Text12 = null;
 }
 
 // Create target 'TypesClass' if it doesn't exist.
-if (TypesClass == null) {
-    TypesClass = com_example_bdp_Factory.createTypes();
+if (data.TypesClass == null) {
+    data.TypesClass = factory.com_example_bdp.createTypes();
 }
 
 // Map from 'DateTime2' to 'TypesClass.dateTimeTZ'
-TypesClass.dateTimeTZ = DateTime2;
+if (data != null) {
+    data.TypesClass.dateTimeTZ = data.DateTime2;
+} else {
+    data.TypesClass.dateTimeTZ = null;
+}
 
 // Map from 'Text13' to 'TypesClass.enum1'
-TypesClass.enum1 = com_example_bdp_Colors.get(String(Text13));
-
+if (data != null) {
+    data.TypesClass.enum1 = data.Text13;
+} else {
+    data.TypesClass.enum1 = null;
+}
 
 </xpdl2:Description>
               <xpdl2:Implementation>
@@ -2271,22 +2325,46 @@ TypesClass.enum1 = com_example_bdp_Colors.get(String(Text13));
             </xpdl2:Activity>
             <xpdl2:Activity Id="_QqdcwCYoEeWOVbireKkn9g" Name="FieldTypesCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Field Types Compatibility">
               <xpdl2:Description>// Map from 'Boolean1' to 'Text01'
-Text01 = Boolean1;
+if (data != null) {
+    data.Text01 = data.Boolean1;
+} else {
+    data.Text01 = null;
+}
 
 // Map from 'Integer' to 'Text02'
-Text02 = Integer;
+if (data != null) {
+    data.Text02 = data.Integer;
+} else {
+    data.Text02 = null;
+}
 
 // Map from 'Decimal' to 'Text03'
-Text03 = Decimal;
+if (data != null) {
+    data.Text03 = data.Decimal;
+} else {
+    data.Text03 = null;
+}
 
 // Map from 'Date1' to 'Text04'
-Text04 = Date1;
+if (data != null) {
+    data.Text04 = data.Date1;
+} else {
+    data.Text04 = null;
+}
 
 // Map from 'Time1' to 'Text05'
-Text05 = Time1;
+if (data != null) {
+    data.Text05 = data.Time1;
+} else {
+    data.Text05 = null;
+}
 
 // Map from 'DateTime' to 'Text06'
-Text06 = DateTime;
+if (data != null) {
+    data.Text06 = data.DateTime;
+} else {
+    data.Text06 = null;
+}
 
 
 </xpdl2:Description>
@@ -2332,8 +2410,11 @@ Text06 = DateTime;
             </xpdl2:Activity>
             <xpdl2:Activity Id="_IRAXISYrEeWOVbireKkn9g" Name="SubtoSuperClass" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Sub to Super Class">
               <xpdl2:Description>// Map from 'SubClass' to 'SuperClass'
-SuperClass = ScriptUtil.copy(SubClass);
-
+if (data != null) {
+    data.SuperClass = data.SubClass;
+} else {
+    data.SuperClass = null;
+}
 
 </xpdl2:Description>
               <xpdl2:Implementation>
@@ -2363,52 +2444,107 @@ SuperClass = ScriptUtil.copy(SubClass);
             </xpdl2:Activity>
             <xpdl2:Activity Id="_ET-RECcAEeWQGL9kU2bBTg" Name="TypeMappingErrors" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Type Mapping Errors">
               <xpdl2:Description>// Map from 'Text01' to 'Date1'
-Date1 = Text01;
+if (data != null) {
+    data.Date1 = data.Text01;
+} else {
+    data.Date1 = null;
+}
 
 // Map from 'DateTime' to 'Date2'
-Date2 = DateTime;
+if (data != null) {
+    data.Date2 = data.DateTime;
+} else {
+    data.Date2 = null;
+}
 
 // Map from 'Date2' to 'DateTime'
-DateTime = Date2;
+if (data != null) {
+    data.DateTime = data.Date2;
+} else {
+    data.DateTime = null;
+}
 
 // Map from 'SuperClass' to 'SubClass'
-SubClass = ScriptUtil.copy(SuperClass);
+if (data != null) {
+    data.SubClass = data.SuperClass;
+} else {
+    data.SubClass = null;
+}
 
 // Create target 'TypesClass' if it doesn't exist.
-if (TypesClass == null) {
-    TypesClass = com_example_bdp_Factory.createTypes();
+if (data.TypesClass == null) {
+    data.TypesClass = factory.com_example_bdp.createTypes();
 }
 
 // Map from 'Text02' to 'TypesClass.attachment'
-TypesClass.attachment = Text02;
+if (data != null) {
+    data.TypesClass.attachment = data.Text02;
+} else {
+    data.TypesClass.attachment = null;
+}
 
 // Map from 'Text03' to 'TypesClass.boolean1'
-TypesClass.boolean1 = Text03;
+if (data != null) {
+    data.TypesClass.boolean1 = data.Text03;
+} else {
+    data.TypesClass.boolean1 = null;
+}
 
 // Map from 'Text04' to 'TypesClass.date'
-TypesClass.date = Text04;
+if (data != null) {
+    data.TypesClass.date = data.Text04;
+} else {
+    data.TypesClass.date = null;
+}
 
 // Map from 'Text05' to 'TypesClass.dateTimeTZ'
-TypesClass.dateTimeTZ = Text05;
+if (data != null) {
+    data.TypesClass.dateTimeTZ = data.Text05;
+} else {
+    data.TypesClass.dateTimeTZ = null;
+}
 
 // Map from 'Text06' to 'TypesClass.datetime'
-TypesClass.datetime = Text06;
+if (data != null) {
+    data.TypesClass.datetime = data.Text06;
+} else {
+    data.TypesClass.datetime = null;
+}
 
 // Map from 'Text07' to 'TypesClass.decimal'
-TypesClass.decimal = Text07;
+if (data != null) {
+    data.TypesClass.decimal = data.Text07;
+} else {
+    data.TypesClass.decimal = null;
+}
 
 // Map from 'Text08' to 'TypesClass.duration'
-TypesClass.duration = Text08;
+if (data != null) {
+    data.TypesClass.duration = data.Text08;
+} else {
+    data.TypesClass.duration = null;
+}
 
 // Map from 'Text09' to 'TypesClass.integer'
-TypesClass.integer = Text09;
+if (data != null) {
+    data.TypesClass.integer = data.Text09;
+} else {
+    data.TypesClass.integer = null;
+}
 
 // Map from 'Text10' to 'TypesClass.time'
-TypesClass.time = Text10;
+if (data != null) {
+    data.TypesClass.time = data.Text10;
+} else {
+    data.TypesClass.time = null;
+}
 
 // Map from 'SuperClass2' to 'TypesClass.subClass'
-TypesClass.subClass = ScriptUtil.copy(SuperClass2);
-
+if (data != null) {
+    data.TypesClass.subClass = data.SuperClass2;
+} else {
+    data.TypesClass.subClass = null;
+}
 
 </xpdl2:Description>
               <xpdl2:Implementation>

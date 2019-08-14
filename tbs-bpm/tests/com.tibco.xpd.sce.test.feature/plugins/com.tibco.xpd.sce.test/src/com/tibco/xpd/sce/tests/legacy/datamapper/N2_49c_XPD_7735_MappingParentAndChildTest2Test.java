@@ -1,11 +1,11 @@
 /**
  * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
  */
-package com.tibco.xpd.n2.test.validations;
+package com.tibco.xpd.sce.tests.legacy.datamapper;
 
-import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.validations.ValidationsTestProblemMarkerInfo;
+import com.tibco.xpd.n2.test.core.validation.AbstractN2BaseValidationTest;
 
 /**
  * N249c_XPD_7735_MappingParentAndChildTest2Test
@@ -60,14 +60,18 @@ public class N2_49c_XPD_7735_MappingParentAndChildTest2Test extends AbstractN2Ba
 
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.n2.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
     }
 
     @Override
     protected TestResourceInfo[] getTestResources() {
         TestResourceInfo[] testResources = new TestResourceInfo[] {
-            new TestResourceInfo("resources/N249c XPD7735 Mapping Parent And Child2", "DataMapper_Runtime_TC3/Business Objects{bom}/DataMapper_Runtime_TC3.bom"), //$NON-NLS-1$ //$NON-NLS-2$
-            new TestResourceInfo("resources/N249c XPD7735 Mapping Parent And Child2", "DataMapper_Runtime_TC3/Process Packages{processes}/DataMapper_Runtime_TC3.xpdl"), //$NON-NLS-1$ //$NON-NLS-2$
+                new TestResourceInfo(
+                        "resources/LegacyDataMapperGenerationTests/N249c XPD7735 Mapping Parent And Child2", //$NON-NLS-1$
+                        "DataMapper_Runtime_TC3/Business Objects{bom}/DataMapper_Runtime_TC3.bom"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "resources/LegacyDataMapperGenerationTests/N249c XPD7735 Mapping Parent And Child2", //$NON-NLS-1$
+                        "DataMapper_Runtime_TC3/Process Packages{processes}/DataMapper_Runtime_TC3.xpdl"), //$NON-NLS-1$
         };
     
         return testResources;

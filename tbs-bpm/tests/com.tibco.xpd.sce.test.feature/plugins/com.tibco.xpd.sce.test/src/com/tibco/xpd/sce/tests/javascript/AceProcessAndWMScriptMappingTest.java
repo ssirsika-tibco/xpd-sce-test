@@ -56,6 +56,11 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         IProject mapperProject = ResourcesPlugin.getWorkspace().getRoot()
                 .getProject("DataWrappingMapperTests"); //$NON-NLS-1$
 
+        assertTrue("DataWrappingMapperTests project exists", mapperProject.isAccessible()); //$NON-NLS-1$
+
+        assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
+                TestUtil.hasErrorProblemMarker(mapperProject, true));
+
         Process process =
                 ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
 
@@ -72,6 +77,17 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         checkRESTInvokeDataMapperScriptGeneration(process);
         
         checkWorkItemAttributeMapperScriptGeneration(mapperProject);
+
+        /* Sid ACE-2088 add multi-instance sub-process checking. */
+        Process multiInstanceProcess = ProcessUIUtil.getProcesById("_goBIUL27EemXhqYLZknEYg"); //$NON-NLS-1$
+
+        assertNotNull(
+                "Cannot find test process 'MultiInstanceSubProcessTests.xpdl/SimpleMain-Process' (_goBIUL27EemXhqYLZknEYg)", //$NON-NLS-1$
+                process);
+
+        checkSimpleSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
+
+        checkComplexSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
 
         projectImporter.performDelete();
     }
@@ -521,6 +537,211 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         assertTrue("Data used in assignments is wrapped in 'data' object", //$NON-NLS-1$
                 scriptText.contains(
                         "workItemAttributes.attribute3 = data.ClassField.complexChild.attribute1")); //$NON-NLS-1$
+
+    }
+
+    /**
+     * Tests sub-process data mappings (process side data only) where complex
+     * type data is directly mapped (don't create-and-inflate target objects).
+     * 
+     * @param process
+     */
+    private void checkSimpleSubProcessMultiInstanceScriptGeneration(Process process) {
+        Activity activity = Xpdl2ModelUtil.getActivityById(process, "_JLD5Mb28EemXhqYLZknEYg"); //$NON-NLS-1$
+
+        assertNotNull("Cannot find test activity 'Simple Multi-Instance SubProcess Call' (_JLD5Mb28EemXhqYLZknEYg)", //$NON-NLS-1$
+                activity);
+
+        /*
+         * Generate the input mapping script for the activity.
+         */
+        String inputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(
+                (ScriptDataMapper) Xpdl2ModelUtil.getOtherElement((SubFlow) activity.getImplementation(),
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings()));
+
+        assertNotNull(
+                "Script generation failed for 'Simple Multi-Instance SubProcess Call' Input mappings (_JLD5Mb28EemXhqYLZknEYg)", //$NON-NLS-1$
+                inputMappingsScript);
+
+        /* Do some general 'all scripts must not' checking. */
+        String context = "Simple Multi-Instance SubProcess Call - Input"; //$NON-NLS-1$
+        generalMappingScriptChecks(inputMappingsScript, context);
+
+        /*
+         * Check some specifics of the stuff that ACE-2088 dealt with for multi-instance sub-process
+         */
+        assertTrue(
+                context + ": Should map from simple array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.TextFromToArrayParameter = ((data.TextArrayToSingleField == null || bpm.process.getActivityLoopIndex() >= data.TextArrayToSingleField.length) ? null : data.TextArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.ComplexFromToArrayParameter = ((data.ComplexArrayToSingleField == null || bpm.process.getActivityLoopIndex() >= data.ComplexArrayToSingleField.length) ? null : data.ComplexArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.TextParameter = data.TextField;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.ComplexParameter = data.ComplexField;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains("var $sVi2 = data.TextArrayToArrayField[i2];") //$NON-NLS-1$
+                        && inputMappingsScript.contains("parameters.TextArrayParameter.push($sVi2);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains("var $sVi1 = data.ComplexArrayToArrayField[i1];") //$NON-NLS-1$
+                        && inputMappingsScript.contains("parameters.ComplexArrayParameter.push($sVi1);")); //$NON-NLS-1$
+
+        /*
+         * Generate the output mapping script and test it.
+         */
+        String outputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(
+                (ScriptDataMapper) Xpdl2ModelUtil.getOtherElement((SubFlow) activity.getImplementation(),
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings()));
+
+        assertNotNull(
+                "Script generation failed for 'Simple Multi-Instance SubProcess Call' output mappings (_JLD5Mb28EemXhqYLZknEYg)", //$NON-NLS-1$
+                outputMappingsScript);
+
+        /* Do some general 'all scripts must not' checking. */
+        context = "Simple Multi-Instance SubProcess Call - Output"; //$NON-NLS-1$
+        generalMappingScriptChecks(outputMappingsScript, context);
+
+        /*
+         * Check some specifics of the stuff that ACE-2088 dealt with for multi-instance sub-process
+         */
+        assertTrue(
+                context + ": Should map from simple single instance to array using targetPath.push(rhs).", //$NON-NLS-1$
+                outputMappingsScript.contains(
+                        "data.TextArrayToSingleField.push(parameters.TextFromToArrayParameter);")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should map from complex single instance to array using targetPath.push(rhs).", //$NON-NLS-1$
+                outputMappingsScript
+                        .contains("data.ComplexArrayToSingleField.push(parameters.ComplexFromToArrayParameter);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("data.TextField = parameters.TextParameter;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("data.ComplexField = parameters.ComplexParameter;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("var $sVi2 = parameters.TextArrayParameter[i2];") //$NON-NLS-1$
+                        && outputMappingsScript.contains("data.TextArrayToArrayField.push($sVi2);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("var $sVi1 = parameters.ComplexArrayParameter[i1];") //$NON-NLS-1$
+                        && outputMappingsScript.contains("data.ComplexArrayToArrayField.push($sVi1);")); //$NON-NLS-1$
+
+    }
+
+    /**
+     * Tests sub-process data mappings where multi<=>single mappings are made to properties of a complex type object
+     * (e.g. map from SingleComplex.arrayProperty -> singleInstanceParam and visa versa)
+     * 
+     * @param process
+     */
+    private void checkComplexSubProcessMultiInstanceScriptGeneration(Process process) {
+        Activity activity = Xpdl2ModelUtil.getActivityById(process, "_pHAa4L6MEemms4IHBiYkLA"); //$NON-NLS-1$
+
+        assertNotNull("Cannot find test activity 'Non-top level multi-instance mappings' (_pHAa4L6MEemms4IHBiYkLA)", //$NON-NLS-1$
+                activity);
+
+        /*
+         * Generate the input mapping script for the activity.
+         */
+        String inputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(
+                (ScriptDataMapper) Xpdl2ModelUtil.getOtherElement((SubFlow) activity.getImplementation(),
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_InputMappings()));
+
+        assertNotNull(
+                "Script generation failed for 'Non-top level multi-instance mappings' input mappings (_pHAa4L6MEemms4IHBiYkLA)", //$NON-NLS-1$
+                inputMappingsScript);
+
+        /* Do some general 'all scripts must not' checking. */
+        String context = "'Non-top level multi-instance mappings' - Input"; //$NON-NLS-1$
+        generalMappingScriptChecks(inputMappingsScript, context);
+
+        /*
+         * Check some specifics of the stuff that ACE-2088 dealt with for multi-instance sub-process
+         */
+        assertTrue(
+                context + ": Should map from simple array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.ComplexParameter.text = ((data.ComplexField.textList == null || bpm.process.getActivityLoopIndex() >= data.ComplexField.textList.length) ? null : data.ComplexField.textList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
+                inputMappingsScript.contains(
+                        "parameters.ComplexParameter.complexChild = ((data.ComplexField.complexList == null || bpm.process.getActivityLoopIndex() >= data.ComplexField.complexList.length) ? null : data.ComplexField.complexList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains("parameters.ComplexParameter.URI = data.ComplexField.URI;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains("var $sVi2 = data.ComplexField.textListForWholeCopy[i2];") //$NON-NLS-1$
+                        && inputMappingsScript
+                                .contains("parameters.ComplexParameter.textListForWholeCopy.push($sVi2);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                inputMappingsScript.contains("var $sVi1 = data.ComplexField.complexListForWholeCopy[i1];") //$NON-NLS-1$
+                        && inputMappingsScript
+                                .contains("parameters.ComplexParameter.complexListForWholeCopy.push($sVi1);")); //$NON-NLS-1$
+
+        /*
+         * Generate the output mapping script and test it.
+         */
+        String outputMappingsScript = new DataMapperJavascriptGenerator().convertMappingsToJavascript(
+                (ScriptDataMapper) Xpdl2ModelUtil.getOtherElement((SubFlow) activity.getImplementation(),
+                        XpdExtensionPackage.eINSTANCE.getDocumentRoot_OutputMappings()));
+
+        assertNotNull(
+                "Script generation failed for 'Non-top level multi-instance mappings' input mappings (_pHAa4L6MEemms4IHBiYkLA)", //$NON-NLS-1$
+                outputMappingsScript);
+
+        /* Do some general 'all scripts must not' checking. */
+        context = "'Non-top level multi-instance mappings' - Output"; //$NON-NLS-1$
+        generalMappingScriptChecks(outputMappingsScript, context);
+
+        /*
+         * Check some specifics of the stuff that ACE-2088 dealt with for multi-instance sub-process
+         */
+        assertTrue(context + ": Should map from simple single instance to array using targetPath.push(rhs).", //$NON-NLS-1$
+                outputMappingsScript
+                        .contains("data.ComplexField.textList.push(parameters.ComplexParameter.text);")); //$NON-NLS-1$
+
+        assertTrue(context + ": Should map from complex single instance to array using targetPath.push(rhs).", //$NON-NLS-1$
+                outputMappingsScript
+                        .contains("data.ComplexField.complexList.push(parameters.ComplexParameter.complexChild);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("data.ComplexField.URI = parameters.ComplexParameter.URI;")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from simple multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("var $sVi2 = parameters.ComplexParameter.textListForWholeCopy[i2];") //$NON-NLS-1$
+                        && outputMappingsScript.contains("data.ComplexField.textListForWholeCopy.push($sVi2);")); //$NON-NLS-1$
+
+        assertTrue(context
+                + ": Should map from complex multi to multi instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
+                outputMappingsScript.contains("var $sVi1 = parameters.ComplexParameter.complexListForWholeCopy[i1];") //$NON-NLS-1$
+                        && outputMappingsScript.contains("data.ComplexField.complexListForWholeCopy.push($sVi1);")); //$NON-NLS-1$
 
     }
 

@@ -44,6 +44,12 @@ public class ReservedWords {
     public static final String BOM_PACKAGE_WRAPPER_OBJECT_NAME = "pkg"; //$NON-NLS-1$
 
     /**
+     * Sid ACE-2088 the "bpm" object that the utility scripts are now located
+     * within should be a reserved word.
+     */
+    public static final String BPM_UTIL_CLASS_WRAPPER_OBJECT_NAME = "bpm"; //$NON-NLS-1$
+
+    /**
      * Sid ACE-2020 the name of the Global Signal Payload parameter prefix (e.g.
      * SIGNAL_payloadParam1) used in generated BPEL to create unique variables
      */
@@ -166,6 +172,7 @@ public class ReservedWords {
              * Sid ACE-XXXX + others...
              */
             symbolTableKeyWords.add(PROCESS_DATA_WRAPPER_OBJECT_NAME);
+            symbolTableKeyWords.add(BPM_UTIL_CLASS_WRAPPER_OBJECT_NAME);
 
             /**
              * Sid ACE-ACE-1599 the name of the sub-process parameters wrapping

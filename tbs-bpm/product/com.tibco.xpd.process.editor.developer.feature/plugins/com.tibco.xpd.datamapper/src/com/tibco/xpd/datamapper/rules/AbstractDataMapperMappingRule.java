@@ -429,10 +429,37 @@ public abstract class AbstractDataMapperMappingRule extends
 
             } else if (sourceLevel > 0 || targetLevel > 0) {
                 /**
-                 * Problem:
-                 * "Nested target arrays (%1$s) must be mapped from the same array nesting level in the source element."
+                 * Problem: "Nested target arrays (%1$s) must be mapped from the same array nesting level in the source
+                 * element."
+                 * 
+                 * Sid ACE-2088 Should allow use-case of level 1 -> 0 when multi->single is supported and level 0 -> 1
+                 * when single->multi is supported (for multi-instance task mappings)
                  */
+                boolean isIllegalMixedArrayLevelMapping = false;
+
                 if (sourceLevel != targetLevel) {
+                    isIllegalMixedArrayLevelMapping = true; // by default we'll say it's not allowed, unless...
+                    
+                    if (sourceLevel == 1 && targetLevel == 0 && sourceInfoProvider.isMultiInstance(source)
+                            && !targetInfoProvider.isMultiInstance(target)
+                            && isMultiToSingleSupported(source, target)) {
+                        /*
+                         * It's a Multi->Single from a 1st level array to a 1st level single and multi-> single is
+                         * supported by this scenario - so we're ok
+                         */
+                        isIllegalMixedArrayLevelMapping = false;
+
+                    } else if (sourceLevel == 0 && targetLevel == 1 && !sourceInfoProvider.isMultiInstance(source)
+                            && targetInfoProvider.isMultiInstance(target) && isSingleToMultiSupported(source, target)) {
+                        /*
+                         * It's a Single->Multi from a 1st level single to a 1st level array and multi->single is
+                         * supported by this scenario - so we're ok
+                         */
+                        isIllegalMixedArrayLevelMapping = false;
+                    }
+                }
+
+                if (isIllegalMixedArrayLevelMapping) {
                     Map<String, String> additionalInfo =
                             getAdditionalInfo(targetInfoProvider,
                                     sourceInfoProvider,
@@ -450,19 +477,27 @@ public abstract class AbstractDataMapperMappingRule extends
                 // parent.
                 Object sourceRoot = getRootParent(sourceInfoProvider, source);
                 Object targetRoot = getRootParent(targetInfoProvider, target);
-                Set<Object> sources = targetRootToSourceRoots.get(targetRoot);
-                if (sources == null) {
-                    sources = new HashSet<Object>();
-                    targetRootToSourceRoots.put(targetRoot, sources);
+
+                /*
+                 * Sid ACE-2088 Prevent
+                 * "Creating a target array (%1$s) from contents of multiple source root elements is not supported."
+                 * being raised for Multi->Single and Single->Multi (that rule only matters when we're inflating a
+                 * target array from a source array and ensures that all mappings are from the same array)
+                 */
+                if (sourceRoot != null && targetRoot != null) {
+                    Set<Object> sources = targetRootToSourceRoots.get(targetRoot);
+                    if (sources == null) {
+                        sources = new HashSet<Object>();
+                        targetRootToSourceRoots.put(targetRoot, sources);
+                    }
+                    sources.add(sourceRoot);
+                    List<Mapping> rootMappings = targetRootToMapping.get(targetRoot);
+                    if (rootMappings == null) {
+                        rootMappings = new ArrayList<Mapping>();
+                        targetRootToMapping.put(targetRoot, rootMappings);
+                    }
+                    rootMappings.add(mapping);
                 }
-                sources.add(sourceRoot);
-                List<Mapping> rootMappings =
-                        targetRootToMapping.get(targetRoot);
-                if (rootMappings == null) {
-                    rootMappings = new ArrayList<Mapping>();
-                    targetRootToMapping.put(targetRoot, rootMappings);
-                }
-                rootMappings.add(mapping);
             }
         }
     }

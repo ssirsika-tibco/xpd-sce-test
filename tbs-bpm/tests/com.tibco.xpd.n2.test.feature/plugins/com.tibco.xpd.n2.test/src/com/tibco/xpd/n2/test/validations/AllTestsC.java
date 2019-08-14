@@ -30,9 +30,6 @@ public class AllTestsC {
         suite.addTestSuite(N2_46_CaseDataSignalValidationTest.class);
         suite.addTestSuite(N2_47_GSDValidationTest.class);
         suite.addTestSuite(N2_48_CaseDataSignalScriptTest.class);
-        suite.addTestSuite(N2_49_DataMapperValidationMarkerTest.class);
-        suite.addTestSuite(N2_49bXPD_7735MappingParentAndChild1Test.class);
-        suite.addTestSuite(N2_49c_XPD_7735_MappingParentAndChildTest2Test.class);
         suite.addTestSuite(N2_50_CaseSignalFollowedByGlobalDataTaskWithSameCaseRefFieldTest.class);
         suite.addTestSuite(N2_51_RestRefClearedProblemsTest.class);
         suite.addTestSuite(N2_52_ThrowErrorEventsComplexAssociatedParamsTest.class);

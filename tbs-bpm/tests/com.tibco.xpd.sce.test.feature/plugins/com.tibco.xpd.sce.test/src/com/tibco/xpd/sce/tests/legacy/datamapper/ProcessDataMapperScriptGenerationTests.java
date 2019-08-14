@@ -1,7 +1,7 @@
 /**
  * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
  */
-package com.tibco.xpd.n2.mappings.validation.test.datamapper;
+package com.tibco.xpd.sce.tests.legacy.datamapper;
 
 import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.datamapper.scripts.DataMapperMappingScriptsToJavaScriptContribution;
@@ -27,7 +27,7 @@ public class ProcessDataMapperScriptGenerationTests extends
 
     @Override
     protected String getTestPlugInId() {
-        return "com.tibco.xpd.n2.mappings.validation.test"; //$NON-NLS-1$
+        return "com.tibco.xpd.sce.test"; //$NON-NLS-1$
     }
 
     @Override
@@ -35,13 +35,17 @@ public class ProcessDataMapperScriptGenerationTests extends
         TestResourceInfo[] testResources =
                 new TestResourceInfo[] {
                         new TestResourceInfo(
-                                "resources/Process Data Mapper Script Generation Tests", "WLF/Work List Facade{wlf}/WorkListFacade.wlf"), //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/ProcessDataMapperScriptGenerationTests", //$NON-NLS-1$
+                                "WLF/Work List Facade{wlf}/WorkListFacade.wlf"), //$NON-NLS-1$
                         new TestResourceInfo(
-                                "resources/Process Data Mapper Script Generation Tests", "ProcessDataMapper/Business Objects{bom}/BDP.bom"), //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/ProcessDataMapperScriptGenerationTests", //$NON-NLS-1$
+                                "ProcessDataMapper/Business Objects{bom}/BDP.bom"), //$NON-NLS-1$
                         new TestResourceInfo(
-                                "resources/Process Data Mapper Script Generation Tests", "ProcessDataMapper/Process Packages{processes}/AllContexts.xpdl"), //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/ProcessDataMapperScriptGenerationTests", //$NON-NLS-1$
+                                "ProcessDataMapper/Process Packages{processes}/AllContexts.xpdl"), //$NON-NLS-1$
                         new TestResourceInfo(
-                                "resources/Process Data Mapper Script Generation Tests", "ProcessDataMapper/Process Packages{processes}/ProcessDataMapper.xpdl"), //$NON-NLS-1$ //$NON-NLS-2$
+                                "resources/LegacyDataMapperGenerationTests/ProcessDataMapperScriptGenerationTests", //$NON-NLS-1$
+                                "ProcessDataMapper/Process Packages{processes}/ProcessDataMapper.xpdl"), //$NON-NLS-1$
                 };
 
         return testResources;

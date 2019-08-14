@@ -2,7 +2,7 @@
  * Copyright (c) TIBCO Software Inc 2004, 2015. All rights reserved.
  */
 
-package com.tibco.xpd.n2.mappings.validation.test.datamapper;
+package com.tibco.xpd.sce.tests.legacy.datamapper;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -60,7 +60,6 @@ public abstract class AbstractProcessDataMapperScriptGenerationTest extends
      */
     public void testProcessDataMapperScriptGenerationTestsTest()
             throws Exception {
-        cleanProjectAtEnd = false;
         // Check all files created correctly.
         checkTestFilesCreated();
 

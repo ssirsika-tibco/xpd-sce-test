@@ -2614,15 +2614,7 @@
              message="%bx.processDataMapper.noMappings"
              severity="ERROR">
        </issue>
-       <issue
-             id="bx.dataMapperNotgSupportForMultiInstSubProc"
-             message="%bx.dataMapperNotgSupportForMultiInstSubProc"
-             severity="ERROR">
-          <resolution
-                canApplyToMultiple="false"
-                id="bx.setSubprocessToJavaScriptMapping">
-          </resolution>
-       </issue>
+
        <issue
              id="bx.dataIsCorrelationButMappingIsNotCorrelationDataMapping"
              message="%bx.dataIsCorrelationButMappingIsNotCorrelationDataMapping"
@@ -2664,6 +2656,15 @@
              id="bx.directRecursiveSubprocess"
              message="%bx.directRecursiveSubprocess"
              severity="ERROR">
+       </issue>
+       <issue
+             id="ace.single2multi.mapping.target.must.be.append"
+             message="%ace.single2multi.mapping.target.must.be.append"
+             severity="ERROR">
+          <resolution
+                canApplyToMultiple="true"
+                id="datamapper.arrayMapping.setAsAppend">
+          </resolution>
        </issue>
    </extension>
    <extension

@@ -33,31 +33,44 @@ public interface IScriptGeneratorInfoProvider {
     public static final String SOURCE_VAR_PREFIX = "$sV"; //$NON-NLS-1$
 
     /**
+     * Get the assignment statement or the given target object when this is a item to item direct mapping.
+     * 
+     * Sid ACE-2088 If the mapping scenario for which this info provider is used permits Single-Instance->Multi-Instance
+     * mapping then the implementation must support the addition of value into the given target array.
+     * 
+     * <b>NOTE:</b> The main data-mapper script generation framework will ONLY all this method for an ARRAY object in
+     * the use case where it is trying to put a single contextually placed item into the source array.
      * 
      * @param object
      * @param rhsObjectStatement
      * @param jsVarAlias
      *            Override JavaScript variable name if required (else <code>null
-     *            </code> or <code>""</code> if the original source item
-     *            name/path should be used. Alias variables are used to
-     *            represent elements in a source/target item collection.
+     *            </code> or <code>""</code> if the original source item name/path should be used. Alias variables are
+     *            used to represent elements in a source/target item collection.
      * 
-     * @return Assignment javascript to assign the rhsObjectStatement to the
-     *         given object and assignmned to the given alias
+     * @return Assignment javascript to assign the rhsObjectStatement to the given object and assignmned to the given
+     *         alias
      */
     public String getAssignmentStatement(Object object,
             String rhsObjectStatement, String jsVarAlias);
 
     /**
+     * Get the getter statement or the given source object when this is a item to item direct mapping.
+     * 
+     * Sid ACE-2088 If the mapping scenario for which this info provider is used permits Multi-Instance->Single-Instance
+     * mapping then the implementation must support the extraction of the appropriate source item element to map from
+     * (for instance, based on an activity's instance index).
+     * 
+     * <b>NOTE:</b> The main data-mapper script generation framework will ONLY all this method for an ARRAY object in
+     * the use case where it is trying to pull a single contextually indexed item out of the source array.
      * 
      * @param object
      *            The mapping source object.
      * 
      * @param jsVarAlias
      *            Override JavaScript variable name if required (else <code>null
-     *            </code> or <code>""</code> if the original source item
-     *            name/path should be used. Alias variables are used to
-     *            represent elements in a source/target item collection.
+     *            </code> or <code>""</code> if the original source item name/path should be used. Alias variables are
+     *            used to represent elements in a source/target item collection.
      * 
      * @return The getter statement for the given LHS srcItem
      */
@@ -74,22 +87,15 @@ public interface IScriptGeneratorInfoProvider {
      */
     public enum CheckNullTreeExpressionType {
         /**
-         * The call to getCheckNullTreeExpression() is to protect the creation
-         * of a for loop against the source array being undefined.
-         * 
-         * The passed object is the multi-instance source object we will iterate
-         * thru.
+         * ACE-2088 changed to more meaningful name as this just means 'the
+         * object is in question is multi-instance bject check'.
          */
-        ARRAY_ITERATOR,
+        IS_MULTI_INSTANCE_CHECK,
         /**
-         * The call to getCheckNullTreeExpression() is to protect the creation
-         * of an assignment from a mapped source object that is undefined or has
-         * an undefined ancestor.
-         * 
-         * The passed object is the single instance source object that we will
-         * assign to target object
+         * ACE-2088 changed to more meaningful name as this just means 'the
+         * object is in question is single-instance object check'.
          */
-        SINGLE_INSTANCE_MAPPING
+        IS_SINGLE_INSTANCE_CHECK
     }
 
     /**
@@ -149,21 +155,11 @@ public interface IScriptGeneratorInfoProvider {
      */
     public String getScriptsToAppend(ScriptDataMapper sdm, boolean isSource);
 
-    /**
-     * Method to get the JavaScript statement for a single-to-multi instance
-     * mapping which we generally support when multi-instance loop is enabled.
-     * This will be called for the target content contribnutor where target is a
-     * multi-instance and source is a single instance. Each instance of the
-     * multi-instanbce task is returning a single value which should be assigned
-     * to the target array element that corresponds to the task instance (e.g.
-     * each task instance returns data that is put into the corresponding array
-     * element instance of target data.
-     * 
-     * @return The JavaScript statement for a single-to-multi instance mapping
-     *         which we generally support when multi-instance loop is enabled.
+    
+    /*
+     * Sid ACE-2088 - removed getSingleToMultiInstanceAssignmentStatement() as the implementation of multi<->single
+     * mapping was done thru getGetterStatement() when we actually came to implement this feature.
      */
-    public String getSingleToMultiInstanceAssignmentStatement(
-            Object targetItem, String rhsObjectStatement, String jsVarAlias);
 
     /**
      * 

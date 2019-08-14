@@ -15,6 +15,7 @@ import com.tibco.xpd.sce.tests.validation.AceDateTimeResolutionTest;
 import com.tibco.xpd.sce.tests.validation.AceDecPlacesValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceIntegerWorkItemAttributeMappingTest;
 import com.tibco.xpd.sce.tests.validation.AceMigratedProcessValidationsTest;
+import com.tibco.xpd.sce.tests.validation.AceMultiInstanceSubProcMappingValidationTest;
 import com.tibco.xpd.sce.tests.validation.AceNameLengthRestrictionsTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessInvalidDataRulesTest;
 import com.tibco.xpd.sce.tests.validation.AceProcessTemporalDefaultValueRuleTest;
@@ -58,6 +59,7 @@ public class AllUnitTests3 {
         suite.addTestSuite(AceIntegerWorkItemAttributeMappingTest.class);
         suite.addTestSuite(AceNameLengthRestrictionsTest.class);
 
+        suite.addTestSuite(AceMultiInstanceSubProcMappingValidationTest.class);
         return suite;
     }
 }

@@ -67,14 +67,55 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             jsVarAlias = internalFinaliseObjectPath(cp, jsVarAlias);
 
             /*
-             * Sid ACE-564 Enumerations (even enumeration literals) and just string properties now.
-             * 
-             * So we can just do straight assigns - removed special enum stuff from here.
+             * Sid ACE-2088 If this is a multi-instance target object then as standard create an assignment statement to
+             * append the RHS onto target list.
              */
+            if (cp.isArray()) {
+                assignment = getSingleToMultiAssignmentStatement(cp, jsVarAlias, rhsObjectStatement);
 
-            assignment = jsVarAlias + " = " + rhsObjectStatement + ";"; //$NON-NLS-1$ //$NON-NLS-2$
+            } else {
+                /*
+                 * Sid ACE-564 Enumerations (even enumeration literals) and just string properties now.
+                 * 
+                 * So we can just do straight assigns - removed special enum stuff from here.
+                 */
+
+                assignment = jsVarAlias + " = " + rhsObjectStatement + ";"; //$NON-NLS-1$ //$NON-NLS-2$
+            }
         }
         return assignment;
+    }
+
+    /**
+     * Create an assignment statement to append the RHS onto target list.
+     * 
+     * In ACE the output single->multi-instance semantic is 'append to target array'. This is because ACE data
+     * management does not support 'holey arrays' so we cannot do what we did in aMX BPM JavaScript mappings when
+     * sub-process instances finished in non-sequential order by filling array with nulls up to the current activity
+     * instance index).
+     * 
+     * So in ace, all we can do is push() to the target array.
+     * 
+     * @param cp
+     * @param finalisedPathString
+     * @param rhsObjectStatement
+     * @return
+     */
+    protected String getSingleToMultiAssignmentStatement(ConceptPath cp, String finalisedPathString,
+            String rhsObjectStatement) {
+        StringBuilder sb = new StringBuilder();
+
+        /*
+         * Generate statement...
+         * 
+         * targetPath.push(rhsGetterStatement);
+         */
+        sb.append(finalisedPathString);
+        sb.append(".push("); //$NON-NLS-1$
+        sb.append(rhsObjectStatement);
+        sb.append(");"); //$NON-NLS-1$
+
+        return sb.toString();
     }
 
     /**
@@ -111,33 +152,94 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
             jsVarAlias = internalFinaliseObjectPath(cp, jsVarAlias);
 
             /*
-             * Sid ACE-564 Enumerations (even enumeration literals) and just
-             * string properties now.
-             * 
-             * So we can just treat them the same as simple type
+             * Sid ACE-2088 If this is a multi-instance source object then as
+             * standard create a getter statement to pull the appropriate
+             * indexed item out of source list.
              */
-            if (isSimpleType(cp) || isEnumeration(cp)) {
-                getter = jsVarAlias;
+            if (cp.isArray()) {
+                getter = getMultiToSingleGetterStatement(cp, jsVarAlias);
 
             } else {
+
                 /*
-                 * Sid ACE-1318 In AMX BPM used to have to copy source object
-                 * because the objects are backed by EMF and therefore if you
-                 * did Customer2.Address = Customer1.Address the Address object
-                 * would get re-parented from Customer 1 to Customer 2 and
-                 * Customer1.Address would be null.
+                 * Sid ACE-564 Enumerations (even enumeration literals) and just
+                 * string properties now.
                  * 
-                 * In the now purely JavaScript representation Customer1 and
-                 * Customer2 can be allowed to reference the same Address (this
-                 * will only be temporary because the two values will be
-                 * serialised to their repsecitvie data fields after script
-                 * execution and when reloaded therefore will be separate
-                 * copies.
+                 * So we can just treat them the same as simple type
                  */
-                getter = jsVarAlias;
+                if (isSimpleType(cp) || isEnumeration(cp)) {
+                    getter = jsVarAlias;
+
+                } else {
+                    /*
+                     * Sid ACE-1318 In AMX BPM used to have to copy source
+                     * object because the objects are backed by EMF and
+                     * therefore if you did Customer2.Address =
+                     * Customer1.Address the Address object would get
+                     * re-parented from Customer 1 to Customer 2 and
+                     * Customer1.Address would be null.
+                     * 
+                     * In the now purely JavaScript representation Customer1 and
+                     * Customer2 can be allowed to reference the same Address
+                     * (this will only be temporary because the two values will
+                     * be serialised to their respective data fields after
+                     * script execution and when reloaded therefore will be
+                     * separate copies.
+                     */
+                    getter = jsVarAlias;
+                }
             }
         }
         return getter;
+    }
+
+    /**
+     * create a getter statement to pull the appropriate indexed item out of
+     * source list.
+     * 
+     * @param arrayElementConceptPath
+     * @param finalisedPathString
+     * @return getter statement to pull the appropriate indexed item out of
+     *         source list.
+     */
+    protected String getMultiToSingleGetterStatement(ConceptPath arrayElementConceptPath, String finalisedPathString) {
+        StringBuilder sb = new StringBuilder();
+
+        /*
+         * Build the statement to get element from source array based on the multi-instance activity index (checking for
+         * source array is null or doesn't have enough elements to map from activity-instance-index)...
+         * 
+         * ((sourcePath == null || bpm.process.getActivityLoopIndex() >= sourcePath.length ||
+         * sourcePath[bpm.process.getActivityLoopIndex()] === null) ? null :
+         * sourcePath[bpm.process.getActivityLoopIndex()])
+         */
+        String sourceIndexStatement = getMultiToSingleGetterIndexStatement();
+        
+        sb.append("(("); //$NON-NLS-1$
+        sb.append(finalisedPathString);
+        sb.append(" == null || "); //$NON-NLS-1$
+        sb.append(sourceIndexStatement);
+        sb.append(" >= "); //$NON-NLS-1$
+        sb.append(finalisedPathString);
+        sb.append(ConceptPath.CONCEPTPATH_SEPARATOR);
+        sb.append("length"); //$NON-NLS-1$
+        sb.append(") ? null : "); //$NON-NLS-1$
+        sb.append(finalisedPathString);
+        sb.append("["); //$NON-NLS-1$
+        sb.append(sourceIndexStatement);
+        sb.append("]"); //$NON-NLS-1$
+        sb.append(")"); //$NON-NLS-1$
+
+        return sb.toString();
+    }
+
+    /**
+     * @return The statement that provides the index for a Multi->Single
+     *         instance getter statement
+     */
+    protected String getMultiToSingleGetterIndexStatement() {
+        return ReservedWords.BPM_UTIL_CLASS_WRAPPER_OBJECT_NAME + ConceptPath.CONCEPTPATH_SEPARATOR + "process" //$NON-NLS-1$
+                + ConceptPath.CONCEPTPATH_SEPARATOR + "getActivityLoopIndex()"; //$NON-NLS-1$
     }
 
     /**
@@ -713,7 +815,7 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
          */
         boolean checkLastElementInPath = true;
 
-        if (CheckNullTreeExpressionType.SINGLE_INSTANCE_MAPPING
+        if (CheckNullTreeExpressionType.IS_SINGLE_INSTANCE_CHECK
                 .equals(checkType)) {
 
             /*
@@ -838,22 +940,6 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
         return path;
     }
 
-    /**
-     * 
-     * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getSingleToMultiInstanceAssignmentStatement(java.lang.Object,
-     *      java.lang.String, java.lang.String)
-     * 
-     * @param targetItem
-     * @param rhsObjectStatement
-     * @param jsVarAlias
-     * @return
-     */
-    @Override
-    public String getSingleToMultiInstanceAssignmentStatement(Object targetItem,
-            String rhsObjectStatement, String jsVarAlias) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     /**
      * In some circumstances the script generation for a particular scenario may

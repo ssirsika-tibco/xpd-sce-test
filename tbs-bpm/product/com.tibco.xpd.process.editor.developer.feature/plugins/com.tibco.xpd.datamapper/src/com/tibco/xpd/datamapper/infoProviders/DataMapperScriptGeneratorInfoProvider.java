@@ -513,13 +513,6 @@ public class DataMapperScriptGeneratorInfoProvider implements
         return null;
     }
 
-    @Override
-    public String getSingleToMultiInstanceAssignmentStatement(
-            Object targetItem, String rhsObjectStatement, String jsVarAlias) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
     /**
      * Provides {@link IScriptGeneratorInfoProvider} for passed contributionID.
      * com.tibco.xpd.datamapper.scriptGeneratorInfoProviderContribution
