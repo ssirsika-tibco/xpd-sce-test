@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import com.tibco.xpd.analyst.resources.xpdl2.ReservedWords;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDestinationUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessInterfaceUtil;
 import com.tibco.xpd.mapper.MappingDirection;
@@ -21,73 +22,88 @@ import com.tibco.xpd.xpdl2.ModeType;
 import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
 /**
+ * Sub-process script mapping data provider
+ * 
  * @author mtorres
  */
 public class SubProcessScriptRelevantDataProvider extends
         DefaultJavaScriptRelevantDataProvider {
 
+
+    /**
+     * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getAssociatedProcessRelevantData()
+     *
+     * @return
+     */
+    @Override
+    protected List<ProcessRelevantData> getAssociatedProcessRelevantData() {
+        /*
+         * Sid ACE-2565 user getAssociatedProcessRelevantData() instead of getScriptRelevantData() as this allows
+         * sub-class to do some magic and wrap up the data in a data-field-descriptor object
+         */
+        if (isInputScript()) {
+            /* For input scripts it's just the calling process data (which is what the superclass does. */
+            return super.getAssociatedProcessRelevantData();
+        } else {
+            /* For output scripts it's the sub-process parameters. */
+            return getOutputSubProcessRelevantData();
+        }
+    }
+
+    /**
+     * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getScriptRelevantDataList()
+     *
+     * @return
+     */
     @Override
     public List<IScriptRelevantData> getScriptRelevantDataList() {
-        if (isMappedScript()) {
-            if (isInputScript()) {
-                return super.getScriptRelevantDataList();
-            } else {
-                return getMappedOutputSubProcessScriptRelevantData();
-            }
-        } else {
-            if (isInputScript()) {
-                return super.getScriptRelevantDataList();
-            } else {
-                return getUnMappedOutputSubProcessScriptRelevantData();
-            }
+        List<IScriptRelevantData> data = new ArrayList<IScriptRelevantData>();
+
+        data.addAll(super.getScriptRelevantDataList());
+
+        /*
+         * For output mapping script Add the additional data (Error_code et) for scripts special cases (the stuff that's
+         * not wrapped in a "parameters" object
+         */
+        if (!isInputScript()) {
+            data.addAll(getAdditionalScriptData());
         }
+
+        return data;
+    }
+    
+    /**
+     * @see com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider#getDataWrapperObjectName()
+     *
+     * @return
+     */
+    @Override
+    protected String getDataWrapperObjectName() {
+        /*
+         * The data object wrapper for input scripts is the standard "data" one. For output scripts it is "parameters".
+         */
+        if (isInputScript()) {
+            return super.getDataWrapperObjectName();
+
+        } else {
+            return ReservedWords.SUBPROCESS_PARAMS_WRAPPER_OBJECT_NAME;
+        }
+
     }
 
-    private List<IScriptRelevantData> getMappedOutputSubProcessScriptRelevantData() {
+    private List<ProcessRelevantData> getOutputSubProcessRelevantData() {
         if (getActivity() != null) {
-            List<FormalParameter> subFlowOutModeParams =
-                    SubProcUtil.getSubProcessFormalParameters(getActivity(),
-                            MappingDirection.OUT);
-            List<IScriptRelevantData> scriptRelevantData =
-                    convertToScriptRelevantData(new ArrayList<ProcessRelevantData>(
-                            subFlowOutModeParams));
-            if (scriptRelevantData == null) {
-                scriptRelevantData = new ArrayList<IScriptRelevantData>();
-            }
-            scriptRelevantData.addAll(getAdditionalScriptData());
-            return scriptRelevantData;
+            List<ProcessRelevantData> data = new ArrayList<ProcessRelevantData>();
+            data.addAll(SubProcUtil.getSubProcessFormalParameters(getActivity(), MappingDirection.OUT));
+            
+            /*
+             * ACE-2565 converted to return processRelevantData and the additional script data is now added in
+             * getScriptRelevantData()
+             */
+
+            return data;
         }
         return Collections.emptyList();
-    }
-
-    private List<IScriptRelevantData> getUnMappedOutputSubProcessScriptRelevantData() {
-        List<IScriptRelevantData> scriptRelevantData =
-                new ArrayList<IScriptRelevantData>();
-        Activity activity = getActivity();
-        if (activity != null) {
-            List<FormalParameter> subFlowOutModeParams =
-                    SubProcUtil.getSubProcessFormalParameters(getActivity(),
-                            MappingDirection.OUT);
-            List<IScriptRelevantData> tempAdditionalData =
-                    convertToScriptRelevantData(new ArrayList<ProcessRelevantData>(
-                            subFlowOutModeParams));
-            if (tempAdditionalData != null) {
-                scriptRelevantData.addAll(tempAdditionalData);
-            }
-
-            // adding process data available for independent sub process task
-            // (Main process)
-
-            /*
-             * Sid ACE-1317 Use the super-class' relevant data list (which will
-             * now be the "data" object that wraps all the data in the main
-             * process.
-             */
-            scriptRelevantData.addAll(super.getScriptRelevantDataList());
-
-            scriptRelevantData.addAll(getAdditionalScriptData());
-        }
-        return scriptRelevantData;
     }
 
     protected List<IScriptRelevantData> getAdditionalScriptData() {

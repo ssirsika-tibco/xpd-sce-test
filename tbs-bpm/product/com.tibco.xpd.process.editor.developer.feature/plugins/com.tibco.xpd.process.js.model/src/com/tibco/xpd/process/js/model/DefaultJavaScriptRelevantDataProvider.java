@@ -51,13 +51,6 @@ public class DefaultJavaScriptRelevantDataProvider extends
         AbstractScriptRelevantDataProvider {
 
     /**
-     * Sid ACE-1317 the name of the process data wrapper object introduced for
-     * ACE.
-     */
-    public static final String PROCESS_DATA_WRAPPER_OBJECT_NAME =
-            ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME;
-
-    /**
      * At this level wraps all of the data provided by
      * {@link #getAssociatedProcessRelevantData()} in a new object "data" (as
      * per ACE requirements).
@@ -75,22 +68,34 @@ public class DefaultJavaScriptRelevantDataProvider extends
         List<ProcessRelevantData> processDataList =
                 getAssociatedProcessRelevantData();
 
-        /*
-         * Sid ACE-1317: Wrap the process data to be associated with this script
-         * context in a special "data" object.
-         */
-        IScriptRelevantData dataWrapper = AceScriptProcessDataWrapperFactory
-                .getDefault()
-                .createProcessDataWrapper(PROCESS_DATA_WRAPPER_OBJECT_NAME,
-                        processDataList);
+        if (!processDataList.isEmpty()) {
+            /*
+             * Sid ACE-1317: Wrap the process data to be associated with this script context in a special "data" object.
+             */
+            IScriptRelevantData dataWrapper = AceScriptProcessDataWrapperFactory.getDefault()
+                    .createProcessDataWrapper(getDataWrapperObjectName(), processDataList);
 
-        return Collections.singletonList(dataWrapper);
+            return Collections.singletonList(dataWrapper);
+        }
+
+        return Collections.emptyList();
+    }
+
+    /**
+     * Process data is wrapped in a data field descriptor object called "data". To use a different set of data and / or
+     * put it in a different wrapper object then you can override his method and
+     * {@link #getAssociatedProcessRelevantData()}
+     * 
+     * @return The process data wrapper object name (default is {@value #PROCESS_DATA_WRAPPER_OBJECT_NAME})
+     */
+    protected String getDataWrapperObjectName() {
+        return ReservedWords.PROCESS_DATA_WRAPPER_OBJECT_NAME;
     }
 
     /**
      * Get the list of data that should be available for the current activity.
      * 
-     * @return The lsit of process data to be converted to script relevant data.
+     * @return The lit of process data to be converted to script relevant data.
      */
     protected List<ProcessRelevantData> getAssociatedProcessRelevantData() {
         List<ProcessRelevantData> processDataList =

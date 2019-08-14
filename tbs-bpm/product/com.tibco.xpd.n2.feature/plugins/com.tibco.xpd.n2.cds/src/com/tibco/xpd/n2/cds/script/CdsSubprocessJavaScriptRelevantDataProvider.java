@@ -12,10 +12,8 @@ import com.tibco.xpd.n2.cds.utils.CDSUtils;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.model.SubProcessScriptRelevantDataProvider;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
-import com.tibco.xpd.script.model.client.IScriptRelevantData;
 import com.tibco.xpd.script.model.client.JsClassDefinitionReader;
 import com.tibco.xpd.script.ui.ScriptGrammarContributionsUtil;
-import com.tibco.xpd.xpdl2.ProcessRelevantData;
 
 /**
  * @author mtorres
@@ -41,14 +39,5 @@ public class CdsSubprocessJavaScriptRelevantDataProvider extends
         return jsClassProvider;
     }
     
-    @Override
-    protected List<IScriptRelevantData> convertToScriptRelevantData(
-            List<ProcessRelevantData> processDataList) {
-        return CDSUtils
-        .convertToScriptRelevantData(processDataList,
-                getProject(),
-                readContributedDefinitionReaders(getProcessDestinationList(getProcess())));
-    }
-
 
 }
