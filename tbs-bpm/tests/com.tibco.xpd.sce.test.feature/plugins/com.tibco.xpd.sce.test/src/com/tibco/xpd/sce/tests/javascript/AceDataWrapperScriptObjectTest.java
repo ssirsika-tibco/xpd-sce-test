@@ -15,12 +15,10 @@ import com.tibco.xpd.resources.util.ProjectImporter;
 import junit.framework.TestCase;
 
 /**
- * In ACE all process data (fields/params) are wrapped in a special "data"
- * object in scripts
+ * In ACE all process data (fields/params) are wrapped in a special "data" object in scripts
  * 
- * The associated test project (DataWrappingTests) uses this data object in all
- * possible scripts, so if something goes wrong and the fields don't get wrapped
- * in a "data" object then there will be problem markers and the test will fail.
+ * The associated test project (DataWrappingTests) uses this data object in all possible scripts, so if something goes
+ * wrong and the fields don't get wrapped in a "data" object then there will be problem markers and the test will fail.
  * 
  * @author aallway
  * @since 05 Jun 2019
@@ -31,16 +29,16 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
     public void testDataIsWrappedInAllScriptScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
 
-        assertFalse(
-                "DataWrappingTests" //$NON-NLS-1$
-                        + " project should not have any ERROR level problem markers", //$NON-NLS-1$
-                hasErrorProblemMarker(
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getProject(
-                                        "DataWrappingTests"))); //$NON-NLS-1$
+        try {
+            assertFalse("DataWrappingTests" //$NON-NLS-1$
+                    + " project should not have any ERROR level problem markers", //$NON-NLS-1$
+                    hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("DataWrappingTests"))); //$NON-NLS-1$
 
-
-        projectImporter.performDelete();
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
     }
 
     /**
@@ -53,10 +51,8 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
          * Import and mgirate the project
          */
 
-        ProjectImporter projectImporter = TestUtil.importProjectsFromZip(
-                "com.tibco.xpd.sce.test", //$NON-NLS-1$
-                new String[] {
-                        "resources/WrappedProcessDataTests/DataWrappingData/", //$NON-NLS-1$
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+                new String[] { "resources/WrappedProcessDataTests/DataWrappingData/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWappingGlobalSignal/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingREST/", //$NON-NLS-1$
                         "resources/WrappedProcessDataTests/DataWrappingTests/" }, //$NON-NLS-1$
@@ -65,8 +61,7 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
                         "DataWrappingREST", //$NON-NLS-1$
                         "DataWrappingTests" }); //$NON-NLS-1$
 
-        assertTrue(
-                "Failed to load projects from resources/WrappedProcessDataTests/", //$NON-NLS-1$
+        assertTrue("Failed to load projects from resources/WrappedProcessDataTests/", //$NON-NLS-1$
                 projectImporter != null);
 
         TestUtil.buildAndWait();
@@ -78,21 +73,15 @@ public class AceDataWrapperScriptObjectTest extends TestCase {
      * 
      * @param resource
      * @param markerId
-     * @return <code>true</code> if given resource has given problem marker
-     *         raised on it.
+     * @return <code>true</code> if given resource has given problem marker raised on it.
      */
     private boolean hasErrorProblemMarker(IResource resource) {
         try {
-            IMarker[] markers = resource
-                    .findMarkers(IMarker.PROBLEM,
-                            true,
-                            IResource.DEPTH_INFINITE);
+            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
 
             if (markers != null) {
                 for (IMarker marker : markers) {
-                    if (marker.getAttribute(
-                            IMarker.SEVERITY,
-                            -1) == IMarker.SEVERITY_ERROR) {
+                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
                         return true;
                     }
                 }

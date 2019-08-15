@@ -61,7 +61,9 @@ public class AceMigratedProcessValidationsTest
      */
     @Override
     protected void tearDown() throws Exception {
-        // projectImporter.performDelete();
+        if (projectImporter != null) {
+            projectImporter.performDelete();
+        }
         super.tearDown();
     }
 

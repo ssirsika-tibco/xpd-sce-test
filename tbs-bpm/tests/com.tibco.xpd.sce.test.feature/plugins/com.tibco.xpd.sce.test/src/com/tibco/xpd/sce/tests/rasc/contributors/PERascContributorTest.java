@@ -90,7 +90,9 @@ public class PERascContributorTest extends AbstractN2BaseResourceTest {
      */
     @Override
     protected void tearDown() throws Exception {
-        projectImporter.performDelete();
+        if (projectImporter != null) {
+            projectImporter.performDelete();
+        }
     }
 
     public void testProcess() throws Exception {

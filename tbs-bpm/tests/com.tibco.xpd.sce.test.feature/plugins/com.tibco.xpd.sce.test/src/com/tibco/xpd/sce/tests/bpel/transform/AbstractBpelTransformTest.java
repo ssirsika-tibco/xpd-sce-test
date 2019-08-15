@@ -155,7 +155,9 @@ public abstract class AbstractBpelTransformTest extends TestCase {
             checkBpelContent(documentMap);
 
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 

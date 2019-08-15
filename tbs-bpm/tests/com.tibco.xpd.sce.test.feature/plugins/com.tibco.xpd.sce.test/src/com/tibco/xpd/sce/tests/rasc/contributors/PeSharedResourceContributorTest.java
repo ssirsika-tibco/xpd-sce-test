@@ -102,7 +102,9 @@ public class PeSharedResourceContributorTest extends TestCase {
             assertNull(writer.getManifestAttribute(
                     PERascContributor.SHARED_RESOURCE_MANIFEST_ATTR));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -167,7 +169,9 @@ public class PeSharedResourceContributorTest extends TestCase {
                 assertTrue("Expected " + expected, found);
             }
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -274,7 +278,9 @@ public class PeSharedResourceContributorTest extends TestCase {
             assertEquals(2, manifestAttrs.length);
 
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -347,7 +353,9 @@ public class PeSharedResourceContributorTest extends TestCase {
             assertEquals(2, manifestAttrs.length);
 
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 

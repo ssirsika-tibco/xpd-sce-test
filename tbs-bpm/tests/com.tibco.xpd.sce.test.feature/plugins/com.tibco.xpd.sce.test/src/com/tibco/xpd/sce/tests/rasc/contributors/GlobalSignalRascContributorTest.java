@@ -106,7 +106,9 @@ public class GlobalSignalRascContributorTest extends TestCase {
                     + " project globalSignal.gsd artifact should contain '" + expectedWorkTypeVersionRange + "'",
                     contentString.contains(expectedWorkTypeVersionRange));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -132,7 +134,9 @@ public class GlobalSignalRascContributorTest extends TestCase {
                             + " project should not have GSD RASC contributions",
                     fixture.hasContributionsFor(project));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 

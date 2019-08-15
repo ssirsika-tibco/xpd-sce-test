@@ -59,6 +59,7 @@ public class OrgModelRascContributorTest extends TestCase {
         if (projectImporter != null) {
             projectImporter.performDelete();
         }
+
     }
 
     public void testContribution() throws Exception {

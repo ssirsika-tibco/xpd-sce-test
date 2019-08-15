@@ -53,43 +53,45 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
     public void testDataIsWrappedInAllScriptScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
         
-        IProject mapperProject = ResourcesPlugin.getWorkspace().getRoot()
-                .getProject("DataWrappingMapperTests"); //$NON-NLS-1$
+        try {
+            IProject mapperProject = ResourcesPlugin.getWorkspace().getRoot().getProject("DataWrappingMapperTests"); //$NON-NLS-1$
 
-        assertTrue("DataWrappingMapperTests project exists", mapperProject.isAccessible()); //$NON-NLS-1$
+            assertTrue("DataWrappingMapperTests project exists", mapperProject.isAccessible()); //$NON-NLS-1$
 
-        assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
-                TestUtil.hasErrorProblemMarker(mapperProject, true));
+            assertFalse("DataWrappingMapperTests project has no error level problem markers.", //$NON-NLS-1$
+                    TestUtil.hasErrorProblemMarker(mapperProject, true));
 
-        Process process =
-                ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
+            Process process = ProcessUIUtil.getProcesById("_9JPIoIheEemL0JNuli1Mqw"); //$NON-NLS-1$
 
-        assertNotNull(
-                "Cannot find test process 'DataWrappingMappingsTests-Process' (_9JPIoIheEemL0JNuli1Mqw)", //$NON-NLS-1$
-                process);
+            assertNotNull("Cannot find test process 'DataWrappingMappingsTests-Process' (_9JPIoIheEemL0JNuli1Mqw)", //$NON-NLS-1$
+                    process);
 
-        checkProcessDataMapperScriptGeneration(process);
+            checkProcessDataMapperScriptGeneration(process);
 
-        checkDirectSubProcessInvokeDataMapperScriptGeneration(process);
+            checkDirectSubProcessInvokeDataMapperScriptGeneration(process);
 
-        checkInflateSubProcessInvokeDataMapperScriptGeneration(process);
+            checkInflateSubProcessInvokeDataMapperScriptGeneration(process);
 
-        checkRESTInvokeDataMapperScriptGeneration(process);
-        
-        checkWorkItemAttributeMapperScriptGeneration(mapperProject);
+            checkRESTInvokeDataMapperScriptGeneration(process);
 
-        /* Sid ACE-2088 add multi-instance sub-process checking. */
-        Process multiInstanceProcess = ProcessUIUtil.getProcesById("_goBIUL27EemXhqYLZknEYg"); //$NON-NLS-1$
+            checkWorkItemAttributeMapperScriptGeneration(mapperProject);
 
-        assertNotNull(
-                "Cannot find test process 'MultiInstanceSubProcessTests.xpdl/SimpleMain-Process' (_goBIUL27EemXhqYLZknEYg)", //$NON-NLS-1$
-                process);
+            /* Sid ACE-2088 add multi-instance sub-process checking. */
+            Process multiInstanceProcess = ProcessUIUtil.getProcesById("_goBIUL27EemXhqYLZknEYg"); //$NON-NLS-1$
 
-        checkSimpleSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
+            assertNotNull(
+                    "Cannot find test process 'MultiInstanceSubProcessTests.xpdl/SimpleMain-Process' (_goBIUL27EemXhqYLZknEYg)", //$NON-NLS-1$
+                    process);
 
-        checkComplexSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
+            checkSimpleSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
 
-        projectImporter.performDelete();
+            checkComplexSubProcessMultiInstanceScriptGeneration(multiInstanceProcess);
+
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
     }
 
 

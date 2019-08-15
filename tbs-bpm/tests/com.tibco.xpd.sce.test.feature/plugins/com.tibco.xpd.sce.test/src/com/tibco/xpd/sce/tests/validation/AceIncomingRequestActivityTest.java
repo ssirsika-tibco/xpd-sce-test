@@ -35,17 +35,16 @@ public class AceIncomingRequestActivityTest extends TestCase {
     // @Test
     public void testIncomingRequestActivityScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
+        try {
+            assertFalse("IncomingRequestAct" //$NON-NLS-1$
+                    + " project should not have any ERROR level problem markers", //$NON-NLS-1$
+                    hasErrorProblemMarker(ResourcesPlugin.getWorkspace().getRoot().getProject("IncomingRequestAct"))); //$NON-NLS-1$
 
-        assertFalse(
-                "IncomingRequestAct" //$NON-NLS-1$
-                        + " project should not have any ERROR level problem markers", //$NON-NLS-1$
-                hasErrorProblemMarker(
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getProject(
-                                        "IncomingRequestAct"))); //$NON-NLS-1$
-
-
-        projectImporter.performDelete();
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
     }
 
     /**
@@ -58,14 +57,11 @@ public class AceIncomingRequestActivityTest extends TestCase {
          * Import and mgirate the project
          */
 
-        ProjectImporter projectImporter = TestUtil.importProjectsFromZip(
-                "com.tibco.xpd.sce.test", //$NON-NLS-1$
-                new String[] {
-                        "/resources/AceIncomingRequestActivityTest/IncomingRequestAct/" }, //$NON-NLS-1$
+        ProjectImporter projectImporter = TestUtil.importProjectsFromZip("com.tibco.xpd.sce.test", //$NON-NLS-1$
+                new String[] { "/resources/AceIncomingRequestActivityTest/IncomingRequestAct/" }, //$NON-NLS-1$
                 new String[] { "IncomingRequestAct" }); //$NON-NLS-1$
 
-        assertTrue(
-                "Failed to load projects from resources/AceIncomingRequestActivityTest/", //$NON-NLS-1$
+        assertTrue("Failed to load projects from resources/AceIncomingRequestActivityTest/", //$NON-NLS-1$
                 projectImporter != null);
 
         TestUtil.buildAndWait();
@@ -77,21 +73,15 @@ public class AceIncomingRequestActivityTest extends TestCase {
      * 
      * @param resource
      * @param markerId
-     * @return <code>true</code> if given resource has given problem marker
-     *         raised on it.
+     * @return <code>true</code> if given resource has given problem marker raised on it.
      */
     private boolean hasErrorProblemMarker(IResource resource) {
         try {
-            IMarker[] markers = resource
-                    .findMarkers(IMarker.PROBLEM,
-                            true,
-                            IResource.DEPTH_INFINITE);
+            IMarker[] markers = resource.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
 
             if (markers != null) {
                 for (IMarker marker : markers) {
-                    if (marker.getAttribute(
-                            IMarker.SEVERITY,
-                            -1) == IMarker.SEVERITY_ERROR) {
+                    if (marker.getAttribute(IMarker.SEVERITY, -1) == IMarker.SEVERITY_ERROR) {
                         return true;
                     }
                 }

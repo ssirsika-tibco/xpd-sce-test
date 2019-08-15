@@ -28,9 +28,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 import junit.framework.TestCase;
 
 /**
- * In ACE the old "Process" and "WorkManagerFactory" static JS classes are now
- * wrapped up in as "bpm.process" and "bpm.workManager" class properties
- * respectively.
+ * In ACE the old "Process" and "WorkManagerFactory" static JS classes are now wrapped up in as "bpm.process" and
+ * "bpm.workManager" class properties respectively.
  * 
  * @author aallway
  * @since 02 Jul 2019
@@ -40,28 +39,29 @@ public class AceProcessAndWMScriptTest extends TestCase {
     // @Test
     public void testDataIsWrappedInAllScriptScenarios() {
         ProjectImporter projectImporter = importMainTestProjects();
+        try {
+            IProject mapperProject =
+                    ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessAndWorkManagerMappingsTest"); //$NON-NLS-1$
 
-        IProject mapperProject =
-                ResourcesPlugin.getWorkspace().getRoot().getProject("ProcessAndWorkManagerMappingsTest"); //$NON-NLS-1$
+            Process process = ProcessUIUtil.getProcesById("_QH-ZoJ5PEemBuMq6mmcR8A"); //$NON-NLS-1$
 
-        Process process = ProcessUIUtil.getProcesById("_QH-ZoJ5PEemBuMq6mmcR8A"); //$NON-NLS-1$
+            assertNotNull(
+                    "Cannot find test process 'ProcessAndWorkManagerMappingsTest-Process' (_QH-ZoJ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
+                    process);
 
-        assertNotNull("Cannot find test process 'ProcessAndWorkManagerMappingsTest-Process' (_QH-ZoJ5PEemBuMq6mmcR8A)", //$NON-NLS-1$
-                process);
+            checkProcessDataMapperScriptGeneration(process);
 
-        checkProcessDataMapperScriptGeneration(process);
-
-        checkWorkItemAttributeMapperScriptGeneration(mapperProject);
-        projectImporter.performDelete();
+            checkWorkItemAttributeMapperScriptGeneration(mapperProject);
+        } finally {
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
+        }
     }
 
-
-
-
     /**
-     * Test process data mapper script task. (checking that the various changes
-     * from AMX BPM EMF based scripting have been made to deal with the JS based
-     * ACE scripting).
+     * Test process data mapper script task. (checking that the various changes from AMX BPM EMF based scripting have
+     * been made to deal with the JS based ACE scripting).
      * 
      * @param process
      */
@@ -100,8 +100,8 @@ public class AceProcessAndWMScriptTest extends TestCase {
     }
 
     /**
-     * Check that the work item attribute data mapping script generation is
-     * working correctly (all process data is wrapped in the "data" object)
+     * Check that the work item attribute data mapping script generation is working correctly (all process data is
+     * wrapped in the "data" object)
      * 
      * @param mapperProject
      */

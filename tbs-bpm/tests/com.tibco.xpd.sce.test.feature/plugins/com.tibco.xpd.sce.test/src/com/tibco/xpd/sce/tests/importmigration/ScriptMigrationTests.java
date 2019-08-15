@@ -50,7 +50,9 @@ public class ScriptMigrationTests extends TestCase {
                             true,
                             Collections.singletonList("com.tibco.xpd.forms.validation.project.misconfigured")));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -78,7 +80,9 @@ public class ScriptMigrationTests extends TestCase {
             String message = (String) errorMarkers.iterator().next().getAttribute(IMarker.MESSAGE);
             assertTrue(message.contains("At Line:11 column:73, Method add is invalid for the current context"));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -101,7 +105,9 @@ public class ScriptMigrationTests extends TestCase {
             TestUtil.outputErrorMarkers(project, true);
             assertEquals(0, errorMarkers.size());
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -143,7 +149,9 @@ public class ScriptMigrationTests extends TestCase {
                 assertTrue("unexpected: " + message, found);
             }
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -208,7 +216,9 @@ public class ScriptMigrationTests extends TestCase {
                 assertTrue("unexpected: " + message, found);
             }
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -232,7 +242,9 @@ public class ScriptMigrationTests extends TestCase {
 
             assertTrue(errorMarkers.isEmpty());
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 }

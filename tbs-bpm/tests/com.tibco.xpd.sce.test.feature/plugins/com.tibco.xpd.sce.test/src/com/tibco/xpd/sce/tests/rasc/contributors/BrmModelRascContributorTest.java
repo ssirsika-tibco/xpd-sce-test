@@ -147,7 +147,9 @@ public class BrmModelRascContributorTest extends TestCase {
                     + expectedWorkTypeVersionRange + "')",
                     contentString.contains(expectedWorkTypeVersionRange));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -173,7 +175,9 @@ public class BrmModelRascContributorTest extends TestCase {
                             + " project should not have BRM RASC contributions",
                     fixture.hasContributionsFor(project));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
@@ -198,7 +202,9 @@ public class BrmModelRascContributorTest extends TestCase {
                             + " project should not have BRM RASC contributions",
                     fixture.hasContributionsFor(project));
         } finally {
-            projectImporter.performDelete();
+            if (projectImporter != null) {
+                projectImporter.performDelete();
+            }
         }
     }
 
