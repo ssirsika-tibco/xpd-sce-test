@@ -167,10 +167,11 @@ public class BpelLocalSignalsTest extends AbstractBpelTransformTest {
         /* Which should have the expected variables. */
         NodeList variables = variablesContainer.get().getChildNodes();
 
-        assertTrue(String.format("%s SignalUpdateEvent/signalVariables/variables should have %d variables in - was %d",
+        assertTrue(String.format("%s SignalUpdateEvent/signalVariables/variables should have %d variables in - was %d.  Nodes: (%s)",
                 eventName,
                 expectedSignalVariables.length,
-                countElementNodes(variables)), expectedSignalVariables.length == countElementNodes(variables));
+                countElementNodes(variables),
+                listElements(variables)), expectedSignalVariables.length == countElementNodes(variables));
 
         for (int i = 0; i < variables.getLength(); i++) {
             Node variable = variables.item(i);
@@ -202,10 +203,12 @@ public class BpelLocalSignalsTest extends AbstractBpelTransformTest {
         /* Which should have several variables. */
         variables = variablesContainer.get().getChildNodes();
 
-        assertTrue(String.format("%s SignalUpdateEvent/updateVariables/variables should have %d variables in - was %d",
+        assertTrue(String.format(
+                "%s SignalUpdateEvent/updateVariables/variables should have %d variables in - was %d.  Nodes: (%s)",
                 eventName,
                 expectedUpdateVariables.length,
-                countElementNodes(variables)), expectedUpdateVariables.length == countElementNodes(variables));
+                countElementNodes(variables),
+                listElements(variables)), expectedUpdateVariables.length == countElementNodes(variables));
 
         for (int i = 0; i < variables.getLength(); i++) {
             Node variable = variables.item(i);
@@ -260,6 +263,37 @@ public class BpelLocalSignalsTest extends AbstractBpelTransformTest {
         }
 
         return count;
+    }
+
+    /**
+     * @param nodes
+     * @return List of node names in the list that are XML Elements.
+     */
+    public String listElements(NodeList nodes) {
+        String elements = "";
+
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Node node = nodes.item(i);
+
+            if (node instanceof Element) {
+                if (elements.length() > 0) {
+                    elements += ", ";
+                }
+                elements += "\n<" + node.getNodeName();
+
+                for (int j = 0; j < node.getAttributes().getLength(); j++) {
+                    Node attr = node.getAttributes().item(j);
+
+                    elements += " " + attr.getNodeName();
+                    elements += "\"" + attr.getNodeValue() + "\"";
+                }
+
+                elements += ">";
+
+            }
+        }
+
+        return elements;
     }
 
     private boolean arrayContains(Object[] arr, Node value) {
