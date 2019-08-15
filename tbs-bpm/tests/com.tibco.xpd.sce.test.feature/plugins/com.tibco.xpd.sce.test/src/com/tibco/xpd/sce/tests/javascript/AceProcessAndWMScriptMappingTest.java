@@ -573,12 +573,12 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         assertTrue(
                 context + ": Should map from simple array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "parameters.TextFromToArrayParameter = ((data.TextArrayToSingleField == null || bpm.process.getActivityLoopIndex() >= data.TextArrayToSingleField.length) ? null : data.TextArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+                        "parameters.TextFromToArrayParameter = ((bpm.process.getActivityLoopIndex() >= data.TextArrayToSingleField.length) ? null : data.TextArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should map from complex array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "parameters.ComplexFromToArrayParameter = ((data.ComplexArrayToSingleField == null || bpm.process.getActivityLoopIndex() >= data.ComplexArrayToSingleField.length) ? null : data.ComplexArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+                        "parameters.ComplexFromToArrayParameter = ((bpm.process.getActivityLoopIndex() >= data.ComplexArrayToSingleField.length) ? null : data.ComplexArrayToSingleField[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$
@@ -680,12 +680,12 @@ public class AceProcessAndWMScriptMappingTest extends TestCase {
         assertTrue(
                 context + ": Should map from simple array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "parameters.ComplexParameter.text = ((data.ComplexField.textList == null || bpm.process.getActivityLoopIndex() >= data.ComplexField.textList.length) ? null : data.ComplexField.textList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+                        "parameters.ComplexParameter.text = ((bpm.process.getActivityLoopIndex() >= data.ComplexField.textList.length) ? null : data.ComplexField.textList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should map from complex array to single instance using bpm.process.getActivityLoopIndex().", //$NON-NLS-1$
                 inputMappingsScript.contains(
-                        "parameters.ComplexParameter.complexChild = ((data.ComplexField.complexList == null || bpm.process.getActivityLoopIndex() >= data.ComplexField.complexList.length) ? null : data.ComplexField.complexList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
+                        "parameters.ComplexParameter.complexChild = ((bpm.process.getActivityLoopIndex() >= data.ComplexField.complexList.length) ? null : data.ComplexField.complexList[bpm.process.getActivityLoopIndex()]);")); //$NON-NLS-1$
 
         assertTrue(context
                 + ": Should map from simple single to single instance in a normal way even for multi-instance sub-process.", //$NON-NLS-1$

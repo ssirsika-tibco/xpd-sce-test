@@ -216,8 +216,6 @@ public class ProcessDataMapperScriptGeneratorInfoProvider
         String sourceIndexStatement = getMultiToSingleGetterIndexStatement();
         
         sb.append("(("); //$NON-NLS-1$
-        sb.append(finalisedPathString);
-        sb.append(" == null || "); //$NON-NLS-1$
         sb.append(sourceIndexStatement);
         sb.append(" >= "); //$NON-NLS-1$
         sb.append(finalisedPathString);
