@@ -1,0 +1,25 @@
+<project name="installer" default="main">
+
+	<import file="${user.home}/tibco-build/user-overrides.xml"/>
+	
+	<!-- Please provide "autobuild.dir.user" property if it's not the default one 
+	"C:/builder/tibco-build". "autobuild.dir.user" should contain "tools" and "candidates" -->
+	<fail unless="autobuild.dir.user" message="Please provide 'autobuild.dir.user' property. 'autobuild.dir.user' should contain 'tools' and 'candidates' folders."/>
+	
+	<available file="${autobuild.dir.user}/tools" type="dir" property="autobuild.dir.user.ok"/>
+	<fail unless="autobuild.dir.user.ok" message="'autobuild.dir.user' (${autobuild.dir.user}) folder should contain 'tools' folder."/>
+
+	
+	<!-- Default candidates to ${autobuild.dir.user}/candidates.-->
+	<property name="autobuild.dir.candidates" value="${autobuild.dir.user}/candidates"/>
+	
+    <target name="main" depends="delete-candidates" 
+        description="Cleans builder.">       
+    </target>
+	
+    <target name="delete-candidates">
+    	<echo>Deleting candidates folder: ${autobuild.dir.candidates}</echo>
+		<delete quiet="true" dir="${autobuild.dir.candidates}" />
+    </target>
+	
+</project>
